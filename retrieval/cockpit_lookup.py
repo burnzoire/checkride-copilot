@@ -105,6 +105,7 @@ def suggest(query: str) -> dict | None:
     _STOPWORDS = {"the", "a", "an", "is", "it", "on", "in", "at", "to", "do",
                   "i", "my", "me", "where", "what", "which", "how", "can",
                   "find", "turn", "use", "that", "this", "its", "there",
+                  "select", "set", "put", "get", "go", "need", "want",
                   "switch", "panel", "button", "handle", "lever", "control"}
 
     q_tokens = _tokenize(query) - _STOPWORDS

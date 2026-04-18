@@ -24,8 +24,11 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\b(a\s+metric|am\s*r?aam|aim\s+r?aam|aim\s+ram)\b", re.I), "AMRAAM"),
     # Sidewinder: occasionally "side winder"
     (re.compile(r"\bside\s+winder\b",                   re.I), "Sidewinder"),
-    # Maverick: colloquial plural → canonical name + designation for BM25
+    # Maverick: colloquial plural or mishear → canonical name + designation for BM25
     (re.compile(r"\bmavericks\b",                        re.I), "Maverick AGM-65"),
+    (re.compile(r"\bmetrics\b",                          re.I), "Maverick AGM-65"),
+    (re.compile(r"\bfabrics\b",                          re.I), "Maverick AGM-65"),
+    (re.compile(r"\bmatrix\b",                           re.I), "Maverick AGM-65"),
 
     # ── Avionics / systems ───────────────────────────────────────────────────
     # TGP: "tea gee pee", "t g p", "t.g.p"

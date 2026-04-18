@@ -30,6 +30,17 @@ _CHUNK         = 1024
 _model      = None
 _model_lock = threading.Lock()
 
+_pa      = None
+_pa_lock = threading.Lock()
+
+
+def _get_pa() -> pyaudio.PyAudio:
+    global _pa
+    with _pa_lock:
+        if _pa is None:
+            _pa = pyaudio.PyAudio()
+    return _pa
+
 
 def _get_model(model_name: str = _DEFAULT_MODEL):
     global _model
@@ -92,7 +103,7 @@ def listen_once(
     logger.debug("Recording ...")
 
     # Record while key is held
-    p      = pyaudio.PyAudio()
+    p      = _get_pa()
     stream = p.open(
         format=pyaudio.paInt16,
         channels=_CHANNELS,
@@ -108,8 +119,8 @@ def listen_once(
 
     stream.stop_stream()
     stream.close()
-    p.terminate()
     listener.stop()
+    listener.join()
 
     duration_s = len(frames) * _CHUNK / _SAMPLE_RATE
     logger.debug(f"Captured {duration_s:.2f}s")

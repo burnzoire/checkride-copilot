@@ -90,33 +90,67 @@ def _load_index():
     return bm25, chunks
 
 
+# Weapon/system keywords that anchor a query to a specific section family.
+# If the query mentions one of these, chunks from matching sections get a score boost.
+_SECTION_ANCHORS: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"\bmaverick|agm.?65\b",    re.I), "MAVERICK"),
+    (re.compile(r"\bwalleye|agm.?62\b",     re.I), "WALLEYE"),
+    (re.compile(r"\bslam|agm.?84\b",        re.I), "SLAM"),
+    (re.compile(r"\bharpoon|agm.?84a\b",    re.I), "HARPOON"),
+    (re.compile(r"\bjdam|gbu.?3[18]\b",     re.I), "JDAM"),
+    (re.compile(r"\bjsow|agm.?154\b",       re.I), "JSOW"),
+    (re.compile(r"\bharm|agm.?88\b",        re.I), "HARM"),
+    (re.compile(r"\bsidewinder|aim.?9\b",   re.I), "SIDEWINDER"),
+    (re.compile(r"\bamraam|aim.?120\b",     re.I), "AMRAAM"),
+    (re.compile(r"\btacan\b",               re.I), "TACAN"),
+    (re.compile(r"\bils\b",                 re.I), "ILS"),
+    (re.compile(r"\brefuel|probe\b",        re.I), "REFUELING"),
+]
+
+_SECTION_BOOST = 4.0   # additive score bonus for chunks in the matched section
+
+
+def _section_affinity(query: str) -> str | None:
+    """Return the section keyword to boost, or None if no weapon anchor found."""
+    for pattern, keyword in _SECTION_ANCHORS:
+        if pattern.search(query):
+            return keyword
+    return None
+
+
 def search(query: str, top_k: int = 2, min_score: float = 12.0) -> list[dict]:
     """Return top_k chunks most relevant to query, each with page + text + score.
 
     Chunks that are intro/overview sections are excluded — they score high on
     term frequency but contain no actionable switch-level information.
+    When the query names a specific weapon/system, chunks from that section
+    receive a score boost to prevent cross-weapon contamination.
     min_score filters out low-confidence hits that actively mislead the LLM.
     """
     bm25, chunks = _load_index()
     tokens = _expand_query(query)
     scores = bm25.get_scores(tokens)
 
-    # Zero out intro/overview chunks before ranking
-    masked_scores = [
-        0.0 if _INTRO_RE.search(chunks[i]["text"]) else scores[i]
-        for i in range(len(chunks))
-    ]
+    affinity = _section_affinity(query)
+
+    masked_scores = []
+    for i in range(len(chunks)):
+        s = scores[i]
+        if _INTRO_RE.search(chunks[i]["text"]):
+            s = 0.0
+        elif affinity and affinity in chunks[i].get("section", "").upper():
+            s += _SECTION_BOOST
+        masked_scores.append(s)
 
     ranked = sorted(
         range(len(chunks)), key=lambda i: masked_scores[i], reverse=True
-    )[:top_k * 4]   # oversample then filter
+    )[:top_k * 4]
 
     results = []
     seen_pages: set[int] = set()
     for i in ranked:
         if masked_scores[i] < min_score:
             continue
-        # Deduplicate adjacent page chunks that say roughly the same thing
         page = chunks[i]["page"]
         if any(abs(page - p) <= 1 for p in seen_pages):
             continue

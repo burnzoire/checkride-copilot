@@ -18,9 +18,14 @@ PTT key names: caps_lock, scroll_lock, f13, or any single character.
 """
 
 import argparse
+import ctypes
+import difflib
 import json
+import random
 import re
 import sys
+import threading
+import time as _time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -54,7 +59,7 @@ STATE_FRESH_MS  = 5000  # treat state as live only if updated within this window
 
 _FEW_SHOT = """\
 
-Examples of correct responses — follow this pattern exactly:
+Examples of correct responses:
 
 [Reference confidence: HIGH]
 Refueling Probe Control Switch EXTEND / RETRACT / EMERGENCY EXTENDED
@@ -69,36 +74,31 @@ Set FORMATION LIGHTS to BRT.
 [Reference confidence: MEDIUM]
 Set PROBE switch to EXTEND (step 8 of AAR procedure)
 Pilot: Where is the probe switch?
-My reference mentions a PROBE switch in the AAR procedure but doesn't give a panel location — which console are you looking at?
+The PROBE switch — which console are you looking at?
 
 [Reference confidence: LOW — no relevant procedure found]
 Pilot: What's the trick to catching the wire?
-My reference doesn't cover that. Can you describe what's giving you trouble?
+I'm not solid on that one. What's giving you trouble?
 
 [Reference confidence: LOW — no relevant procedure found]
 Pilot: Can you tell me which console to look at?
-I don't have that location in my reference — try the left console first, it's where the fuel system switches usually sit.
+Not certain of that location — start with the left console, that's where the fuel system switches sit.
 """
 
-SYSTEM_PROMPT_INFLIGHT = """\
-You are Checkride Copilot, an F/A-18C NATOPS advisor on intercom. Calm, direct, experienced — never robotic.
-Do not address the pilot as "Pilot". Do not apologise. Do not invent information.
-A [Reference confidence] block precedes each question. It contains excerpts from the NATOPS guide.
-HIGH confidence: repeat the exact switch name and setting from the reference in one sentence. Nothing else.
-MEDIUM/LOW confidence: state what the reference does or doesn't cover, then ask ONE clarifying question.
-[Closest cockpit match] block: if present, say "Did you mean X?" using the exact switch name, then state its location.
-Never invent physical mechanisms, sensory cues, keyboard shortcuts, or console locations not in the reference.
-""" + _FEW_SHOT
+_SYSTEM_CORE = """\
+You are Checkride Copilot, an experienced F/A-18C instructor on intercom. You know this aircraft's systems and procedures intimately.
+Calm, direct, never robotic. Do not address the pilot as "Pilot". Do not apologise.
+Never mention documents, manuals, guides, or references — you are the expert, speak from knowledge.
+Never invent physical mechanisms, sensory cues, keyboard shortcuts, or locations you are not certain of.
+A [Reference confidence] block precedes each question — use it to calibrate certainty:
+HIGH: answer in 1-2 sentences. Include all relevant figures, switch names, and settings exactly. No preamble.
+MEDIUM: answer what you know, ask ONE clarifying question if needed.
+LOW: be honest that you're not certain, ask what's giving them trouble.
+[Closest cockpit match] block: say "Did you mean X?" using the exact switch name, then state its location.
+"""
 
-SYSTEM_PROMPT_GROUND = """\
-You are Checkride Copilot, an F/A-18C NATOPS advisor. Calm, direct, experienced — never robotic.
-Do not address the pilot as "Pilot". Do not apologise. Do not invent information.
-A [Reference confidence] block precedes each question. It contains excerpts from the NATOPS guide.
-HIGH confidence: repeat the exact switch name and setting from the reference in one sentence. Nothing else.
-MEDIUM/LOW confidence: state what the reference does or doesn't cover, then ask ONE clarifying question.
-[Closest cockpit match] block: if present, say "Did you mean X?" using the exact switch name, then state its location.
-Never invent physical mechanisms, sensory cues, keyboard shortcuts, or console locations not in the reference.
-""" + _FEW_SHOT
+SYSTEM_PROMPT_INFLIGHT = _SYSTEM_CORE + _FEW_SHOT
+SYSTEM_PROMPT_GROUND   = _SYSTEM_CORE + _FEW_SHOT
 
 
 def _fetch_state() -> dict | None:
@@ -175,6 +175,17 @@ _AVIATION_RE = re.compile(
 
 _QUESTION_RE = re.compile(r"[?]|\b(where|what|how|which|when|why|can\s+you|do\s+i|should\s+i)\b", re.I)
 
+# Questions asking for a list/overview of options — should not trigger variant disambiguation.
+_ENUMERATION_RE = re.compile(
+    r"\b(what\s+(type|kind|sort|variant|version)s?\s+(of|are|do)|"
+    r"(list|tell\s+me\s+about)\s+(all|the)\s+|"
+    r"all\s+(the\s+)?(type|kind|variant|version)s?|"
+    r"what.{0,30}\bavailable\b|"
+    r"what.{0,30}\bexist\b|"
+    r"what.{0,30}\bdo\s+(we|i|you)\s+have\b)\b",
+    re.IGNORECASE,
+)
+
 def _is_pure_social(text: str) -> bool:
     """True if the utterance is a short acknowledgment with no question and no aviation content."""
     words = text.split()
@@ -236,8 +247,13 @@ def _build_search_query(transcript: str, history: list[dict]) -> str:
             t = t[idx + 7:].strip() if idx != -1 else t
         return t.strip()
 
+    # Limit augmentation to recent turns: last 3 turns AND within 90 seconds.
+    # A long pause signals a topic switch even if the message count is low.
+    now = _time.time()
     best_text, best_score = "", 0
-    for msg in history:
+    for msg in history[-6:]:
+        if now - msg.get("ts", now) > 90:
+            continue
         t = _extract(msg)
         s = _kw_count(t)
         if s > best_score:
@@ -247,8 +263,6 @@ def _build_search_query(transcript: str, history: list[dict]) -> str:
         return f"{best_text} {core}"
     return core
 
-    return core
-
 
 # Preamble patterns the model uses to introduce a list it's about to give.
 # These lines end with ":" — the stop tokens ate the list that followed.
@@ -256,12 +270,17 @@ def _build_search_query(transcript: str, history: list[dict]) -> str:
 _PREAMBLE_RE = re.compile(
     r"^(to\s+\w[^,]*,?\s*)?(here\s+are|you'?ll\s+need\s+to|"
     r"follow\s+these|the\s+\w+\s+steps?(\s+are)?|"
-    r"here'?s\s+how)[^:]*:\s*$",
+    r"here'?s\s+how|the\s+following|maintain\s+the\s+following|"
+    r"as\s+follows)[^:]*:\s*$",
     re.IGNORECASE,
 )
 
 
 _LEAKED_TAG_RE = re.compile(r"(\.\s*Reference confidence[^.]*\.?|\s*\[Switch[^\]]*\][^.]*\.?)\s*$", re.IGNORECASE)
+_DOC_REF_RE = re.compile(
+    r"\b(according to|as per|per|based on|from|in)\s+(the\s+)?(natops|manual|guide|reference|documentation|procedure\s+guide)\b[^.,]*[.,]?\s*",
+    re.IGNORECASE,
+)
 _FILLER_TAIL_RE = re.compile(
     r"[.,!]?\s*(let me know\b|feel free\b|don'?t hesitate\b|if you (need|have|require)\b|"
     r"hope that (helps|clarifies)\b|is there anything else\b|further (assistance|questions)\b|"
@@ -271,7 +290,8 @@ _FILLER_TAIL_RE = re.compile(
 
 
 def _clean_reply(text: str) -> str:
-    """Strip dangling list preambles, leaked tags, and LLM filler tails."""
+    """Strip dangling list preambles, leaked tags, document references, and LLM filler tails."""
+    text = _DOC_REF_RE.sub("", text).strip()
     text = _FILLER_TAIL_RE.sub("", text).strip()
     text = _LEAKED_TAG_RE.sub(".", text).strip()
     lines = [l.strip() for l in text.splitlines() if l.strip()]
@@ -292,6 +312,28 @@ def _ask_ollama(
     is_meta = bool(_SKIP_RAG_RE.search(transcript)) or _is_pure_social(transcript)
     ref_block = "" if is_meta else "[Reference confidence: LOW — no relevant procedure found]\n\n"
     confidence = "LOW"
+
+    # If the previous assistant turn was a disambiguation question and the
+    # current query is too vague to resolve it, re-ask rather than hallucinate.
+    # Exception: if the user said a NATO phonetic word (Delta, Echo, Golf…),
+    # treat it as a variant answer and let RAG resolve it with history context.
+    if is_meta and history:
+        last_reply = next((m["content"] for m in reversed(history) if m["role"] == "assistant"), "")
+        if last_reply.startswith("Which variant"):
+            tl = transcript.lower()
+            nato_words = [w.lower() for w in _NATO.values()]
+            # Exact match first; then fuzzy match for single-word responses
+            # so Whisper mishears like "Gulf"/"Gold" resolve "Golf".
+            exact = any(w in tl for w in nato_words)
+            fuzzy = (not exact and len(tl.split()) <= 2 and
+                     any(difflib.get_close_matches(w, nato_words, n=1, cutoff=0.72)
+                         for w in tl.split()))
+            if exact or fuzzy:
+                is_meta = False   # phonetic heard → route through RAG with history
+            else:
+                history.append({"role": "user",      "content": transcript,   "ts": _time.time()})
+                history.append({"role": "assistant",  "content": last_reply,   "ts": _time.time()})
+                return last_reply, "MEDIUM"
 
     # Cockpit lookup: if this looks like a location query, check the switch
     # index first — this gives a precise, authoritative answer without BM25.
@@ -316,29 +358,58 @@ def _ask_ollama(
                 reply = f"{canonical} is on the {area}, {panel}. It goes {pos_str}."
             else:
                 reply = f"{canonical} is on the {area}, {panel}."
-            history.append({"role": "user",      "content": transcript})
-            history.append({"role": "assistant",  "content": reply})
+            history.append({"role": "user",      "content": transcript, "ts": _time.time()})
+            history.append({"role": "assistant",  "content": reply,      "ts": _time.time()})
             return reply, "HIGH"
 
     # After 2 consecutive LOW turns, drop the score floor so we inject the
     # best available content even if it's a weak hit, and tell the model to
     # give the procedure instead of asking yet another clarifying question.
     fallback_mode = (not is_meta) and (low_streak >= 2)
-    min_score = 6.0 if fallback_mode else 12.0
+    min_score = 8.0 if fallback_mode else 12.0
+    is_ambiguous = False
     if _RAG_AVAILABLE and not is_meta:
         search_query = _build_search_query(transcript, history)
         hits = _rag_search(search_query, top_k=3, min_score=min_score)
         if hits:
             top_score = hits[0]["score"]
             confidence = "HIGH" if top_score >= 18 else "MEDIUM" if top_score >= 14 else "LOW"
+            # Disambiguation: if hits span multiple distinct sections, ask which variant.
+            sections = list(dict.fromkeys(h.get("section", "") for h in hits if h.get("section")))
+            # Collect variant names — only sections with a designation letter qualify.
+            # Sections like "How To Use Markpoints" return None and are excluded.
+            # Enumeration questions ("what types are available?") always skip disambiguation
+            # and let the LLM enumerate from the combined hits.
+            is_enumeration = bool(_ENUMERATION_RE.search(transcript))
+            seen_v: set[str] = set()
+            variants: list[str] = []
+            if len(sections) >= 2 and confidence != "HIGH" and not is_enumeration:
+                for s in sections:
+                    v = _variant_name(s)
+                    if v is not None and v not in seen_v:
+                        seen_v.add(v)
+                        variants.append(v)
+
+            if len(variants) >= 2:
+                if len(variants) == 2:
+                    q = f"Which variant? {variants[0]}, or {variants[1]}?"
+                else:
+                    q = "Which variant? " + ", ".join(variants[:-1]) + f", or {variants[-1]}?"
+                history.append({"role": "user",      "content": transcript})
+                history.append({"role": "assistant",  "content": q})
+                return q, "MEDIUM"
+
             excerpts = "\n---\n".join(h["text"] for h in hits)
             label = confidence
             if fallback_mode:
                 label = f"{confidence} — give the best available procedure, do not ask again"
             ref_block = f"[Reference confidence: {label}]\n{excerpts}\n\n"
         else:
-            # BM25 found nothing — try cockpit index as a disambiguation hint.
-            if _LOOKUP_AVAILABLE:
+            # BM25 found nothing — try cockpit index as a disambiguation hint,
+            # but only for short identity-style queries, not "how do I" procedural ones.
+            _HOW_DO_I_RE = re.compile(r"\b(how\s+(do|can|should)\s+i|what\s+do\s+i|do\s+i\s+need)\b", re.I)
+            is_procedural = bool(_HOW_DO_I_RE.search(transcript))
+            if _LOOKUP_AVAILABLE and not is_procedural:
                 aug = _build_search_query(transcript, history)
                 suggestion = _cockpit_suggest(aug)
                 if suggestion:
@@ -349,7 +420,7 @@ def _ask_ollama(
 
     # Token budget and temperature scale with confidence.
     temperature  = {"HIGH": 0.1,  "MEDIUM": 0.25, "LOW": 0.45}.get(confidence, 0.25)
-    num_predict  = {"HIGH": 30,   "MEDIUM": 55,   "LOW": 65}.get(confidence, 55)
+    num_predict  = {"HIGH": 120,  "MEDIUM": 100,  "LOW": 100}.get(confidence, 100)
     if is_meta:
         temperature, num_predict = 0.45, 40
 
@@ -374,8 +445,7 @@ def _ask_ollama(
             "num_predict": num_predict,
             "temperature": temperature,
             "repeat_penalty": 1.15,
-            "stop": ["\n1", "\n2", "\n-", "\n•", "\n*", "\nStep", "steps:", "following steps",
-                     "[Reference", "[Switch",
+            "stop": ["[Reference", "[Switch",
                      "let me know", "feel free", "further assistance", "if you need", "if you have"],
         },
     }
@@ -384,24 +454,115 @@ def _ask_ollama(
         r = httpx.post(OLLAMA_URL, json=payload, timeout=15.0)
         r.raise_for_status()
         reply = _clean_reply(r.json()["message"]["content"].strip())
-        history.append({"role": "user",      "content": user_msg})
-        history.append({"role": "assistant",  "content": reply})
+        history.append({"role": "user",      "content": user_msg, "ts": _time.time()})
+        history.append({"role": "assistant",  "content": reply,    "ts": _time.time()})
         return reply, confidence
     except Exception as e:
         logger.error(f"Ollama error: {e}")
         return "LLM unavailable.", "LOW"
 
 
+# Windows virtual-key codes for common PTT choices.
+# GetAsyncKeyState is used to poll key state without installing a hook,
+# avoiding the pynput hook install/uninstall race that causes segfaults.
+_PTT_VK: dict[str, int] = {
+    "caps_lock": 0x14, "scroll_lock": 0x91, "num_lock": 0x90,
+    **{f"f{n}": 0x6B + n for n in range(13, 25)},   # F13-F24 → 0x7C-0x87
+}
+
+def _ptt_vk(key_str: str) -> int | None:
+    k = key_str.lower()
+    if k in _PTT_VK:
+        return _PTT_VK[k]
+    if len(k) == 1:
+        return ord(k.upper())
+    return None
+
+def _key_held(vk: int) -> bool:
+    return bool(ctypes.windll.user32.GetAsyncKeyState(vk) & 0x8000)
+
+
+_NATO = {
+    'A': 'Alpha',   'B': 'Bravo',    'C': 'Charlie', 'D': 'Delta',
+    'E': 'Echo',    'F': 'Foxtrot',  'G': 'Golf',    'H': 'Hotel',
+    'I': 'India',   'J': 'Juliet',   'K': 'Kilo',    'L': 'Lima',
+    'M': 'Mike',    'N': 'November', 'O': 'Oscar',   'P': 'Papa',
+    'Q': 'Quebec',  'R': 'Romeo',    'S': 'Sierra',  'T': 'Tango',
+    'U': 'Uniform', 'V': 'Victor',   'W': 'Whiskey', 'X': 'X-ray',
+    'Y': 'Yankee',  'Z': 'Zulu',
+}
+
+_VARIANT_LETTER_RE = re.compile(r"\b\d+([A-Z](?:/[A-Z])*)\b", re.I)
+
+def _variant_name(section: str) -> str | None:
+    """Extract variant letter(s) from a section title and expand to NATO phonetic.
+    Returns None if the section has no variant letter — it is not a variant entry."""
+    m = _VARIANT_LETTER_RE.search(section)
+    if not m:
+        return None
+    letters = m.group(1).upper().split("/")
+    return "/".join(_NATO.get(l, l) for l in letters)
+
+
+# Splits "Sentence. 2. Next step." but not "Preamble: 1. First step." so that
+# a context preamble stays attached to step 1.
+_STEP_SPLIT_RE = re.compile(r'(?<=[.!?])\s+(?=\d+\.\s)')
+
+# Words the pilot can say to advance to the next step.
+_CONTINUE_RE = re.compile(
+    r"^\s*(check|done|ok|okay|next|go\s+(on|ahead)|continue|ready|"
+    r"roger|copy|affirm|wilco|proceed|confirmed?|yes|yep|go)\s*[.,!]?\s*$",
+    re.IGNORECASE,
+)
+
+
+def _split_steps(reply: str) -> list[str]:
+    """Return individual steps if reply is a numbered procedure, else []."""
+    parts = _STEP_SPLIT_RE.split(reply.strip())
+    parts = [p.strip() for p in parts if p.strip()]
+    # Require at least the second chunk to start with a step number
+    if len(parts) >= 2 and re.match(r'\d+\.', parts[1]):
+        return parts
+    return []
+
+
+def _step_tts(step: str) -> str:
+    """Strip inline step numbers for cleaner TTS ('1. Do X' → 'Do X')."""
+    return re.sub(r'\b\d+\.\s+', '', step).strip()
+
+
+_FILLERS: dict[str, list[str]] = {
+    "MEDIUM": ["Hmm. ", "Right. ", "Let me think. "],
+    "LOW":    ["Hmm... ", "Uh... ", "Well... "],
+}
+
+def _voiced(reply: str, conf: str) -> str:
+    """Optionally prepend a natural filler for non-trivial queries."""
+    if conf not in _FILLERS or len(reply.split()) < 8:
+        return reply
+    if random.random() < 0.4:
+        return random.choice(_FILLERS[conf]) + reply
+    return reply
+
+
 def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
     logger.info("Pre-loading Whisper ...")
     stt._get_model()
+
+    if speak:
+        logger.info("Pre-loading TTS ...")
+        tts.prewarm()
+
+    parsed_ptt = stt._parse_key(ptt_key)
+    ptt_vk     = _ptt_vk(ptt_key)
 
     print(f"\nCheckride Copilot")
     print(f"PTT : {ptt_key.upper()}  |  Model : {model}  |  Audio : {'on' if speak else 'off'}")
     print(f"Hold [{ptt_key.upper()}] and speak.  Ctrl-C to quit.\n")
 
-    history:    list[dict] = []
-    low_streak: int        = 0   # consecutive turns with LOW reference confidence
+    history:       list[dict] = []
+    low_streak:    int        = 0
+    pending_steps: list[str]  = []   # remaining steps in an active procedure
 
     while True:
         try:
@@ -412,16 +573,56 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
 
             print(f"  You  : {transcript!r}")
 
-            state = _fetch_state()
-            mode  = "IN-JET" if state else "GROUND"
-            reply, conf = _ask_ollama(transcript, state, model, history, low_streak)
-            low_streak = (low_streak + 1) if conf == "LOW" else 0
-            print(f"  [{mode}] conf={conf} streak={low_streak}")
+            # ── Step continuation ────────────────────────────────────────────
+            if pending_steps and _CONTINUE_RE.fullmatch(transcript.strip()):
+                step  = pending_steps.pop(0)
+                reply = _step_tts(step)
+                conf  = "HIGH"
+                print(f"  [STEP] {len(pending_steps)} remaining")
+            else:
+                # Topic changed — discard pending steps
+                if pending_steps:
+                    pending_steps.clear()
+
+                state = _fetch_state()
+                mode  = "IN-JET" if state else "GROUND"
+                reply, conf = _ask_ollama(transcript, state, model, history, low_streak)
+                low_streak = (low_streak + 1) if conf == "LOW" else 0
+                print(f"  [{mode}] conf={conf} streak={low_streak}")
+
+                # Enter step mode if reply contains a numbered procedure
+                steps = _split_steps(reply)
+                if steps:
+                    pending_steps = steps[1:]
+                    reply = _step_tts(steps[0])
+                    print(f"  [STEP MODE] {len(steps)} steps, speaking step 1/{len(steps)}")
 
             print(f"  Reply: {reply}\n")
 
+            # ── TTS ─────────────────────────────────────────────────────────
             if speak:
-                tts.speak(reply)
+                stop_tts = threading.Event()
+                tts_done = threading.Event()
+
+                def _interrupt_watch():
+                    while not tts_done.is_set():
+                        if ptt_vk and _key_held(ptt_vk):
+                            stop_tts.set()
+                            return
+                        _time.sleep(0.04)
+
+                threading.Thread(target=_interrupt_watch, daemon=True).start()
+                try:
+                    voiced = _voiced(reply, conf)
+                    filler_m = re.match(r'^((?:Hmm|Uh|Well|Right|Let me think)[.,!]*\.?\s+)', voiced, re.I)
+                    if filler_m:
+                        tts.speak(filler_m.group(1).strip(), stop_event=stop_tts)
+                        if not stop_tts.is_set():
+                            tts.speak(voiced[filler_m.end():], stop_event=stop_tts)
+                    else:
+                        tts.speak(voiced, stop_event=stop_tts)
+                finally:
+                    tts_done.set()
 
         except KeyboardInterrupt:
             print("\nStopped.")
