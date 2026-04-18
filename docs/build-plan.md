@@ -1688,6 +1688,7 @@ def speak(text: str, voice_model: str = "en_US-ryan-medium"):
 
 ```
 dcs-copilot/
+├── .training                    # Any reference material (not committed)
 ├── README.md
 ├── pyproject.toml
 ├── requirements.txt
