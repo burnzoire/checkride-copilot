@@ -16,9 +16,45 @@ from pathlib import Path
 
 CHUNKS_PATH = Path(__file__).parent / "chunks.json"
 
+# Maps natural-language pilot verbs to NATOPS switch-action vocabulary.
+# BM25 fails when the question says "open" but the manual says "EXTEND".
+_EXPANSIONS: dict[str, list[str]] = {
+    "open":     ["extend", "open"],
+    "extend":   ["extend"],
+    "retract":  ["retract", "close", "stow"],
+    "close":    ["retract", "close"],
+    "stow":     ["retract", "stow"],
+    "deploy":   ["extend", "deploy", "lower", "down"],
+    "raise":    ["retract", "raise", "up"],
+    "lower":    ["lower", "extend", "down"],
+    "activate": ["arm", "on", "enable", "set"],
+    "enable":   ["arm", "on", "enable", "set"],
+    "turn":     ["switch", "set", "on", "off", "bright"],
+    "start":    ["start", "engine", "crank", "ignition"],
+    "fire":     ["release", "fire", "pickle"],
+    "launch":   ["release", "fire", "pickle"],
+    "release":  ["release", "pickle", "drop"],
+}
+
+# Chunks that are clearly intro/overview/TOC — high term density but no
+# actionable content. Penalise them by zeroing their score.
+_INTRO_RE = re.compile(
+    r"INTRODUCTION|TABLE OF CONTENTS|PART \d+ \u2013|PART \d+ -",
+    re.IGNORECASE,
+)
+
 
 def _tokenize(text: str) -> list[str]:
     return re.findall(r"[a-z0-9]+", text.lower())
+
+
+def _expand_query(query: str) -> list[str]:
+    """Return an expanded token list by replacing pilot verbs with NATOPS synonyms."""
+    tokens = _tokenize(query)
+    expanded: list[str] = []
+    for t in tokens:
+        expanded.extend(_EXPANSIONS.get(t, [t]))
+    return expanded
 
 
 @lru_cache(maxsize=1)
@@ -36,18 +72,39 @@ def _load_index():
     return bm25, chunks
 
 
-def search(query: str, top_k: int = 2) -> list[dict]:
-    """Return top_k chunks most relevant to query, each with page + text + score."""
+def search(query: str, top_k: int = 2, min_score: float = 12.0) -> list[dict]:
+    """Return top_k chunks most relevant to query, each with page + text + score.
+
+    Chunks that are intro/overview sections are excluded — they score high on
+    term frequency but contain no actionable switch-level information.
+    min_score filters out low-confidence hits that actively mislead the LLM.
+    """
     bm25, chunks = _load_index()
-    tokens = _tokenize(query)
+    tokens = _expand_query(query)
     scores = bm25.get_scores(tokens)
 
+    # Zero out intro/overview chunks before ranking
+    masked_scores = [
+        0.0 if _INTRO_RE.search(chunks[i]["text"]) else scores[i]
+        for i in range(len(chunks))
+    ]
+
     ranked = sorted(
-        range(len(chunks)), key=lambda i: scores[i], reverse=True
-    )[:top_k]
+        range(len(chunks)), key=lambda i: masked_scores[i], reverse=True
+    )[:top_k * 4]   # oversample then filter
 
     results = []
+    seen_pages: set[int] = set()
     for i in ranked:
-        if scores[i] > 0:
-            results.append({**chunks[i], "score": float(scores[i])})
+        if masked_scores[i] < min_score:
+            continue
+        # Deduplicate adjacent page chunks that say roughly the same thing
+        page = chunks[i]["page"]
+        if any(abs(page - p) <= 1 for p in seen_pages):
+            continue
+        seen_pages.add(page)
+        results.append({**chunks[i], "score": float(masked_scores[i])})
+        if len(results) >= top_k:
+            break
+
     return results

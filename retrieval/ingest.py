@@ -20,6 +20,16 @@ OVERLAP    = 100   # overlap between adjacent chunks
 
 
 def _clean(text: str) -> str:
+    # Normalise DCS cockpit interaction cues to unambiguous prose so the LLM
+    # can relay them without misreading "click" as a physical sensation.
+    text = re.sub(r"\(\s*left\s*click[^)]*\)",   "(left-click)", text, flags=re.IGNORECASE)
+    text = re.sub(r"\(\s*right\s*click[^)]*\)",  "(right-click)", text, flags=re.IGNORECASE)
+    text = re.sub(r"\(\s*middle\s*click[^)]*\)", "(middle-click)", text, flags=re.IGNORECASE)
+    text = re.sub(r"\(\s*mouse\s*wheel\s*up[^)]*\)",   "(scroll up)", text, flags=re.IGNORECASE)
+    text = re.sub(r"\(\s*mouse\s*wheel\s*down[^)]*\)", "(scroll down)", text, flags=re.IGNORECASE)
+    text = re.sub(r"\(\s*mouse\s*wheel[^)]*\)",         "(scroll wheel)", text, flags=re.IGNORECASE)
+    # Strip bare keyboard shortcuts — not useful spoken aloud
+    text = re.sub(r"\b[LR](ALT|CTRL|SHIFT)\+\S+", "", text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 

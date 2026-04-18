@@ -153,7 +153,7 @@
   },
   {
     "page": 15,
-    "text": "15 Tip: Pilot body can be toggled on/off by pressing \u201cRSHIFT+P\u201d PART 3 \u2013 COCKPIT & EQUIPMENT F/A-18C HORNET"
+    "text": "15 Tip: Pilot body can be toggled on/off by pressing \u201c PART 3 \u2013 COCKPIT & EQUIPMENT F/A-18C HORNET"
   },
   {
     "page": 16,
@@ -229,11 +229,11 @@
   },
   {
     "page": 25,
-    "text": "25 1 Night Vision Goggles (NVG) Controls: \u2022 RSHIFT+H: On/Off \u2022 RSHIFT+RALT+H: Gain Night Vision Goggles Down \u2022 RSHIFT+RCTRL+H: Gain Night Vision Goggles Up PART 3 \u2013 COCKPIT & EQUIPMENT F/A-18C HORNET Note: Night Vision Goggles and JHMCS are mutually exclusive helmet-mounted devices; you can only equip one or the other. You can select what to equip via Ground Crew request."
+    "text": "25 1 Night Vision Goggles (NVG) Controls: \u2022 On/Off \u2022 Gain Night Vision Goggles Down \u2022 Gain Night Vision Goggles Up PART 3 \u2013 COCKPIT & EQUIPMENT F/A-18C HORNET Note: Night Vision Goggles and JHMCS are mutually exclusive helmet-mounted devices; you can only equip one or the other. You can select what to equip via Ground Crew request."
   },
   {
     "page": 25,
-    "text": "ip one or the other. You can select what to equip via Ground Crew request."
+    "text": "to equip via Ground Crew request."
   },
   {
     "page": 26,
@@ -777,7 +777,7 @@
   },
   {
     "page": 82,
-    "text": "82 PRE-START-UP 1. Set Ejection Seat Lever \u2013 DOWN & ARMED Set Harness Lever - FWD 2. Parking Brake Lever \u2013 ENGAGED 3. MASTER ARM switch \u2013 SAFE 4. Battery Switch \u2013 ON (Right Click) Note: This will power the engine igniters, canopy and IFEI (Integrated Fuel / Engine Indicator) panel. 5. Check that hydraulic brake pressure gauge displays at least 3000 psi 6. (Optional) Right click and hold Fire & Ble"
+    "text": "82 PRE-START-UP 1. Set Ejection Seat Lever \u2013 DOWN & ARMED Set Harness Lever - FWD 2. Parking Brake Lever \u2013 ENGAGED 3. MASTER ARM switch \u2013 SAFE 4. Battery Switch \u2013 ON (right-click) Note: This will power the engine igniters, canopy and IFEI (Integrated Fuel / Engine Indicator) panel. 5. Check that hydraulic brake pressure gauge displays at least 3000 psi 6. (Optional) Right click and hold Fire & Ble"
   },
   {
     "page": 82,
@@ -789,7 +789,7 @@
   },
   {
     "page": 82,
-    "text": "losed during and after the test. We will have to re-open them later on. 7. (Optional) Cycle Battery switch to OFF (left click), then back to ON (right click) to rewind test audio tape. Alternatively, you can wait 10 seconds for the tape to rewind. 8. (Optional) Left click and hold Fire & Bleed Air Test switch to the \u201cChannel B\u201d (Aft) position to start the Fire/Bleed Air Test for Detection Loop B."
+    "text": "losed during and after the test. We will have to re-open them later on. 7. (Optional) Cycle Battery switch to OFF (left-click), then back to ON (right-click) to rewind test audio tape. Alternatively, you can wait 10 seconds for the tape to rewind. 8. (Optional) Left click and hold Fire & Bleed Air Test switch to the \u201cChannel B\u201d (Aft) position to start the Fire/Bleed Air Test for Detection Loop B."
   },
   {
     "page": 82,
@@ -817,23 +817,23 @@
   },
   {
     "page": 83,
-    "text": "irframe Mounted Accessory Drive), which is pneumatically connected to the APU\u2019s starter, transmits power from the ATS to the engine. Engine RPM will rise to approx. 25 % RPM. 15. When Right Engine RPM reaches 25 %, press RSHIFT+HOME to move the right throttle from the OFF detent to the IDLE detent to open the fuel valves and introduce fuel. Igniters will kick in and trigger an engine lightoff. 16."
+    "text": "irframe Mounted Accessory Drive), which is pneumatically connected to the APU\u2019s starter, transmits power from the ATS to the engine. Engine RPM will rise to approx. 25 % RPM. 15. When Right Engine RPM reaches 25 %, press to move the right throttle from the OFF detent to the IDLE detent to open the fuel valves and introduce fuel. Igniters will kick in and trigger an engine lightoff. 16. Verify that"
   },
   {
     "page": 83,
-    "text": "o open the fuel valves and introduce fuel. Igniters will kick in and trigger an engine lightoff. 16. Verify that EGT (Exhaust Gas Temperature) does not exceed 750 deg C until engine stabilizes. 17. Wait for Right Engine RPM to stabilize around 60-65 % RPM. Confirm that right generator is running by checking that the R GEN caution is extinguished. 18. During engine start, the GPWS (Ground Proximity"
+    "text": "uel valves and introduce fuel. Igniters will kick in and trigger an engine lightoff. 16. Verify that EGT (Exhaust Gas Temperature) does not exceed 750 deg C until engine stabilizes. 17. Wait for Right Engine RPM to stabilize around 60-65 % RPM. Confirm that right generator is running by checking that the R GEN caution is extinguished. 18. During engine start, the GPWS (Ground Proximity Warning Sys"
   },
   {
     "page": 83,
-    "text": "checking that the R GEN caution is extinguished. 18. During engine start, the GPWS (Ground Proximity Warning System) and Flight Controls voice alert system will do a BIT (Built-In Test). Don\u2019t worry, that\u2019s normal. You will hear \u201cRoll Left, Roll Left! Flight Controls, Flight Controls!\u201d and a \u201cDeedle deedle\u201d sound. 19. Reset MASTER CAUTION pushbutton by pressing it. 15a Throttle to OFF 15b Throttle"
+    "text": "t the R GEN caution is extinguished. 18. During engine start, the GPWS (Ground Proximity Warning System) and Flight Controls voice alert system will do a BIT (Built-In Test). Don\u2019t worry, that\u2019s normal. You will hear \u201cRoll Left, Roll Left! Flight Controls, Flight Controls!\u201d and a \u201cDeedle deedle\u201d sound. 19. Reset MASTER CAUTION pushbutton by pressing it. 15a Throttle to OFF 15b Throttle to IDLE 15a"
   },
   {
     "page": 83,
-    "text": "deedle\u201d sound. 19. Reset MASTER CAUTION pushbutton by pressing it. 15a Throttle to OFF 15b Throttle to IDLE 15a 16 Engine Cranking Engine Running 17 17 19a 19b 9 10 11 13 12 14 PART 4 \u2013 START-UP PROCEDURE F/A-18C HORNET"
+    "text": "nd. 19. Reset MASTER CAUTION pushbutton by pressing it. 15a Throttle to OFF 15b Throttle to IDLE 15a 16 Engine Cranking Engine Running 17 17 19a 19b 9 10 11 13 12 14 PART 4 \u2013 START-UP PROCEDURE F/A-18C HORNET"
   },
   {
     "page": 84,
-    "text": "84 START-UP PROCEDURE 20. Power Left and Right DDIs (Digital Display Indicator) by setting each DDI knob to DAY (right click). 21. Turn on AMPCD (Advance Multi-Purpose Color Display) by setting its Brightness knob to the right 22. Turn HUD brightness control lever right to power Heads-Up Display. 23. Turn BLK LVL knob to the right 24. Set ALT switch to RDR to use the radar altimeter as an altitude"
+    "text": "84 START-UP PROCEDURE 20. Power Left and Right DDIs (Digital Display Indicator) by setting each DDI knob to DAY (right-click). 21. Turn on AMPCD (Advance Multi-Purpose Color Display) by setting its Brightness knob to the right 22. Turn HUD brightness control lever right to power Heads-Up Display. 23. Turn BLK LVL knob to the right 24. Set ALT switch to RDR to use the radar altimeter as an altitude"
   },
   {
     "page": 84,
@@ -909,15 +909,15 @@
   },
   {
     "page": 88,
-    "text": "rive), which is pneumatically connected to the APU\u2019s starter, transmits power from the ATS to the engine. Engine RPM will rise to approx. 25 % RPM. 38. When Left Engine RPM reaches 25 %, press RALT+HOME to move the left throttle from the OFF detent to the IDLE detent to open the fuel valves and introduce fuel. Igniters will kick in and trigger an engine lightoff. 39. Verify that EGT (Exhaust Gas T"
+    "text": "rive), which is pneumatically connected to the APU\u2019s starter, transmits power from the ATS to the engine. Engine RPM will rise to approx. 25 % RPM. 38. When Left Engine RPM reaches 25 %, press to move the left throttle from the OFF detent to the IDLE detent to open the fuel valves and introduce fuel. Igniters will kick in and trigger an engine lightoff. 39. Verify that EGT (Exhaust Gas Temperature"
   },
   {
     "page": 88,
-    "text": "oduce fuel. Igniters will kick in and trigger an engine lightoff. 39. Verify that EGT (Exhaust Gas Temperature) does not exceed 750 deg C until engine stabilizes. 40. Wait for Left Engine RPM to stabilize around 60-65 % RPM. Confirm that left generator is running by checking that the L GEN caution is extinguished. 38a38a Engine Cranking Engine Running 40 Throttle to OFF 38b Throttle to IDLE 39 35a"
+    "text": ". Igniters will kick in and trigger an engine lightoff. 39. Verify that EGT (Exhaust Gas Temperature) does not exceed 750 deg C until engine stabilizes. 40. Wait for Left Engine RPM to stabilize around 60-65 % RPM. Confirm that left generator is running by checking that the L GEN caution is extinguished. 38a38a Engine Cranking Engine Running 40 Throttle to OFF 38b Throttle to IDLE 39 35a 35b 36 40"
   },
   {
     "page": 88,
-    "text": "s extinguished. 38a38a Engine Cranking Engine Running 40 Throttle to OFF 38b Throttle to IDLE 39 35a 35b 36 40 PART 4 \u2013 START-UP PROCEDURE F/A-18C HORNET"
+    "text": "shed. 38a38a Engine Cranking Engine Running 40 Throttle to OFF 38b Throttle to IDLE 39 35a 35b 36 40 PART 4 \u2013 START-UP PROCEDURE F/A-18C HORNET"
   },
   {
     "page": 89,
@@ -1289,11 +1289,11 @@
   },
   {
     "page": 124,
-    "text": "124 CARRIER TAKEOFF 35. Check the engine instruments and monitor the caution and warning lights. 36. Press \u201cLCTRL+LSHIFT+S\u201d to salute the Shooter. Alternatively, you can also do this through the ground crew menu. a) Press \u201c\\\u201d (Communication Menu) and \u201cF8\u201d to select ground crew b) Select \u201cSalute!\u201d by pressing \u201cF9\u201d 37. All Final Checkers and crew will do a quick last check, then give a thumbs up. 36"
+    "text": "124 CARRIER TAKEOFF 35. Check the engine instruments and monitor the caution and warning lights. 36. Press \u201c to salute the Shooter. Alternatively, you can also do this through the ground crew menu. a) Press \u201c\\\u201d (Communication Menu) and \u201cF8\u201d to select ground crew b) Select \u201cSalute!\u201d by pressing \u201cF9\u201d 37. All Final Checkers and crew will do a quick last check, then give a thumbs up. 36 37 37 37 PART"
   },
   {
     "page": 124,
-    "text": "pressing \u201cF9\u201d 37. All Final Checkers and crew will do a quick last check, then give a thumbs up. 36 37 37 37 PART 5 \u2013 TAKEOFF F/A-18C HORNET"
+    "text": "37. All Final Checkers and crew will do a quick last check, then give a thumbs up. 36 37 37 37 PART 5 \u2013 TAKEOFF F/A-18C HORNET"
   },
   {
     "page": 125,
@@ -1393,11 +1393,11 @@
   },
   {
     "page": 135,
-    "text": "selected) d. Press CLR on the UFC to clear current frequency e. Type \u201c127500\u201d on the UFC to set carrier radio frequency 127.5 MHz f. Press ENT on the UFC to enter this frequency g. Press the COMM switch \u2013 COMM1 on your throttle to contact the carrier (RALT+\\) h. Go in F5 \u2013 AT5 menu, then to the CVN-74 menu, then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. 1a 1b 1b 1"
+    "text": "selected) d. Press CLR on the UFC to clear current frequency e. Type \u201c127500\u201d on the UFC to set carrier radio frequency 127.5 MHz f. Press ENT on the UFC to enter this frequency g. Press the COMM switch \u2013 COMM1 on your throttle to contact the carrier ( h. Go in F5 \u2013 AT5 menu, then to the CVN-74 menu, then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. 1a 1b 1b 1d 1d 1f"
   },
   {
     "page": 135,
-    "text": "74 menu, then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. 1a 1b 1b 1d 1d 1f 1e 1g 1h 1h 1h 1i 1c PART 6 \u2013 LANDING F/A-18C HORNET"
+    "text": ", then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. 1a 1b 1b 1d 1d 1f 1e 1g 1h 1h 1h 1i 1c PART 6 \u2013 LANDING F/A-18C HORNET"
   },
   {
     "page": 136,
@@ -1497,11 +1497,11 @@
   },
   {
     "page": 144,
-    "text": "ve enough power to go around if your hook misses an arrestor wire (this is what we call a \u201cbolter\u201d) or you catch a wire and it snaps. 18. Once the aircraft has come to a full stop, throttle down, raise arrestor hook, set flaps UP, fold wings and taxi to the nearest parking area. The WING FOLD lever needs to be pulled first (scroll mousewheel), then rotated left to FOLD (left click). PART 6 \u2013 LANDI"
+    "text": "ve enough power to go around if your hook misses an arrestor wire (this is what we call a \u201cbolter\u201d) or you catch a wire and it snaps. 18. Once the aircraft has come to a full stop, throttle down, raise arrestor hook, set flaps UP, fold wings and taxi to the nearest parking area. The WING FOLD lever needs to be pulled first (scroll mousewheel), then rotated left to FOLD (left-click). PART 6 \u2013 LANDI"
   },
   {
     "page": 144,
-    "text": "needs to be pulled first (scroll mousewheel), then rotated left to FOLD (left click). PART 6 \u2013 LANDING F/A-18C HORNET"
+    "text": "needs to be pulled first (scroll mousewheel), then rotated left to FOLD (left-click). PART 6 \u2013 LANDING F/A-18C HORNET"
   },
   {
     "page": 145,
@@ -1509,15 +1509,15 @@
   },
   {
     "page": 146,
-    "text": "CARRIER LANDING LSO (LANDING SIGNAL OFFICER) 146 LSO Radio callsign: \u201cPaddles\u201d You can also roleplay in multiplayer as the \u201cLSO\u201d (Landing Signal Officer), you can! You can select the LSO camera by pressing \u201cLALT+F9\u201d. The camera can be moved and zoomed in or out using LCTRL+[Numpad *] or LCTRL+[Numpad /] You can help the pilot line up properly for landing by giving him corrective commands like \u201cCom"
+    "text": "CARRIER LANDING LSO (LANDING SIGNAL OFFICER) 146 LSO Radio callsign: \u201cPaddles\u201d You can also roleplay in multiplayer as the \u201cLSO\u201d (Landing Signal Officer), you can! You can select the LSO camera by pressing \u201c The camera can be moved and zoomed in or out using *] or /] You can help the pilot line up properly for landing by giving him corrective commands like \u201cCome right for lineup, Come Left, You\u2019re"
   },
   {
     "page": 146,
-    "text": "d /] You can help the pilot line up properly for landing by giving him corrective commands like \u201cCome right for lineup, Come Left, You\u2019re high, (Add) Power\u201d. Once the pilot has landed, you can also give him a \u201cgrading\u201d based on how he landed. Default LSO Camera View VFA-113 Stingers Plat Cam Mod Keep the aircraft within this box PART 6 \u2013 LANDING F/A-18C HORNET"
+    "text": "roperly for landing by giving him corrective commands like \u201cCome right for lineup, Come Left, You\u2019re high, (Add) Power\u201d. Once the pilot has landed, you can also give him a \u201cgrading\u201d based on how he landed. Default LSO Camera View VFA-113 Stingers Plat Cam Mod Keep the aircraft within this box PART 6 \u2013 LANDING F/A-18C HORNET"
   },
   {
     "page": 146,
-    "text": "p the aircraft within this box PART 6 \u2013 LANDING F/A-18C HORNET"
+    "text": "\u2013 LANDING F/A-18C HORNET"
   },
   {
     "page": 147,
@@ -1645,7 +1645,7 @@
   },
   {
     "page": 157,
-    "text": "system arms the corresponding engine fire or APU extinguisher system. \u2022 When fuel shutoff valves are closed, press the Fire Extinguisher Discharge pushbutton. This will discharge a chemical agent to extinguish the fire. Guard (Right Click to flip) PART 7 \u2013 ENGINE & FUEL MANAGEMENT F/A-18C HORNET"
+    "text": "system arms the corresponding engine fire or APU extinguisher system. \u2022 When fuel shutoff valves are closed, press the Fire Extinguisher Discharge pushbutton. This will discharge a chemical agent to extinguish the fire. Guard (right-click) PART 7 \u2013 ENGINE & FUEL MANAGEMENT F/A-18C HORNET"
   },
   {
     "page": 158,
@@ -3401,7 +3401,7 @@
   },
   {
     "page": 270,
-    "text": "270 3 - AN/AAQ-28(V) LITENING II TGP 3.4 \u2013 START-UP & LASING PROCEDURE 1. Press A/G Master Mode. This will allow you to arm the laser designator. 2. To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click). 3. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. 4. Moni"
+    "text": "270 3 - AN/AAQ-28(V) LITENING II TGP 3.4 \u2013 START-UP & LASING PROCEDURE 1. Press A/G Master Mode. This will allow you to arm the laser designator. 2. To power up the targeting pod, set FLIR Sensor Switch to STBY (right-click). 3. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. 4. Moni"
   },
   {
     "page": 270,
@@ -3413,7 +3413,7 @@
   },
   {
     "page": 271,
-    "text": "271 6. Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 7. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected. Sensor Control Switch AFT/FWD/LEFT/RIGHT TDC (Throttle Designator Controller) Focus Diamond (TDC is active"
+    "text": "271 6. Set FLIR Sensor Switch to ON (right-click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 7. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected. Sensor Control Switch AFT/FWD/LEFT/RIGHT TDC (Throttle Designator Controller) Focus Diamond (TDC is active"
   },
   {
     "page": 271,
@@ -3705,27 +3705,27 @@
   },
   {
     "page": 289,
-    "text": "289 3 - AN/AAQ-28(V) LITENING II TGP 3.7 \u2013 LASER MARKING The targeting pod can also use a laser marker (the laser marker cannot be tracked by air-to-ground weapons), which is an infrared laser that can only be seen with night vision goggles (RSHIFT+H to toggle NVGs). This is used mainly to provide a visual reference to other aircraft on where a target is. 1. Power up the Targeting Pod and set A/G"
+    "text": "289 3 - AN/AAQ-28(V) LITENING II TGP 3.7 \u2013 LASER MARKING The targeting pod can also use a laser marker (the laser marker cannot be tracked by air-to-ground weapons), which is an infrared laser that can only be seen with night vision goggles ( to toggle NVGs). This is used mainly to provide a visual reference to other aircraft on where a target is. 1. Power up the Targeting Pod and set A/G Master M"
   },
   {
     "page": 289,
-    "text": "visual reference to other aircraft on where a target is. 1. Power up the Targeting Pod and set A/G Master Mode as per the previous Power-Up Procedure. 2. Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page. 3. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as a"
+    "text": "reference to other aircraft on where a target is. 1. Power up the Targeting Pod and set A/G Master Mode as per the previous Power-Up Procedure. 2. Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page. 3. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an exampl"
   },
   {
     "page": 289,
-    "text": ". Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected. 4. Press the Undesignate button twice to select VVSLV mode. 5. Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode. 6. Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls"
+    "text": "the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected. 4. Press the Undesignate button twice to select VVSLV mode. 5. Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode. 6. Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew"
   },
   {
     "page": 289,
-    "text": "switch to Snowplow mode. 6. Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target 7. Use the TDC DEPRESS control (\u201cENTER\u201d) to designate target 8. Press the OSB next to \u201cTRIG\u201d. The indication will become boxed once selected, which means that a gun trigger press will fire the laser. 9. Press the OSB next to \u201cMARK\u201d to set th"
+    "text": "o Snowplow mode. 6. Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target 7. Use the TDC DEPRESS control (\u201cENTER\u201d) to designate target 8. Press the OSB next to \u201cTRIG\u201d. The indication will become boxed once selected, which means that a gun trigger press will fire the laser. 9. Press the OSB next to \u201cMARK\u201d to set the laser"
   },
   {
     "page": 289,
-    "text": "which means that a gun trigger press will fire the laser. 9. Press the OSB next to \u201cMARK\u201d to set the laser in \u201cM Arm\u201d (Marker Arm) mode. When selected, \u201cMark\u201d indication will be boxed. 10. Press and hold the gun trigger to fire laser. Once laser is firing, the laser mode will switch from M ARM to MARK. 2 3 10a 8 Gun Trigger (Second Detent) Sensor Control Switch AFT/FWD/LEFT/RIGHT 10a PART 9 \u2013 RAD"
+    "text": "eans that a gun trigger press will fire the laser. 9. Press the OSB next to \u201cMARK\u201d to set the laser in \u201cM Arm\u201d (Marker Arm) mode. When selected, \u201cMark\u201d indication will be boxed. 10. Press and hold the gun trigger to fire laser. Once laser is firing, the laser mode will switch from M ARM to MARK. 2 3 10a 8 Gun Trigger (Second Detent) Sensor Control Switch AFT/FWD/LEFT/RIGHT 10a PART 9 \u2013 RADAR & SEN"
   },
   {
     "page": 289,
-    "text": "ARK. 2 3 10a 8 Gun Trigger (Second Detent) Sensor Control Switch AFT/FWD/LEFT/RIGHT 10a PART 9 \u2013 RADAR & SENSORS F/A-18C HORNET Undesignate / Nosewheel Steering Button 7 Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS 6 7 3 4 5 9"
+    "text": "10a 8 Gun Trigger (Second Detent) Sensor Control Switch AFT/FWD/LEFT/RIGHT 10a PART 9 \u2013 RADAR & SENSORS F/A-18C HORNET Undesignate / Nosewheel Steering Button 7 Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS 6 7 3 4 5 9"
   },
   {
     "page": 290,
@@ -3965,7 +3965,7 @@
   },
   {
     "page": 308,
-    "text": "308 4 - AN/ASQ-228 ATFLIR TGP 4.4 \u2013 START-UP & LASING PROCEDURE 1. Press A/G Master Mode. This will allow you to arm the laser designator. 2. To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click). 3. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. 4. Monitor the"
+    "text": "308 4 - AN/ASQ-228 ATFLIR TGP 4.4 \u2013 START-UP & LASING PROCEDURE 1. Press A/G Master Mode. This will allow you to arm the laser designator. 2. To power up the targeting pod, set FLIR Sensor Switch to STBY (right-click). 3. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. 4. Monitor the"
   },
   {
     "page": 308,
@@ -3977,7 +3977,7 @@
   },
   {
     "page": 309,
-    "text": "309 6. Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 7. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected. Sensor Control Switch AFT/FWD/LEFT/RIGHT TDC (Throttle Designator Controller) Focus Diamond (TDC is active"
+    "text": "309 6. Set FLIR Sensor Switch to ON (right-click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 7. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected. Sensor Control Switch AFT/FWD/LEFT/RIGHT TDC (Throttle Designator Controller) Focus Diamond (TDC is active"
   },
   {
     "page": 309,
@@ -4933,11 +4933,11 @@
   },
   {
     "page": 377,
-    "text": "377 16 16. The CCIP cross will appear once a bombing solution is computed. 17. Steer aircraft to keep the DIL vertical and the CCIP cross on the target. 18. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) once CCIP cross is on target. Hold button until all programmed bombs are released. 19. Pull up before velocity vector reaches the PULL UP cue. DIL (Displayed Impact Line) Velocity Vecto"
+    "text": "377 16 16. The CCIP cross will appear once a bombing solution is computed. 17. Steer aircraft to keep the DIL vertical and the CCIP cross on the target. 18. Press and hold the Weapon Release button (\u00ab \u00bb) once CCIP cross is on target. Hold button until all programmed bombs are released. 19. Pull up before velocity vector reaches the PULL UP cue. DIL (Displayed Impact Line) Velocity Vector CCIP Cros"
   },
   {
     "page": 377,
-    "text": ". Pull up before velocity vector reaches the PULL UP cue. DIL (Displayed Impact Line) Velocity Vector CCIP Cross (On Target) Weapon Release Button Pull Up Cue 18 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.1.1 - UNGUIDED BOMB (MK-82) CCIP RELEASE MODE"
+    "text": "efore velocity vector reaches the PULL UP cue. DIL (Displayed Impact Line) Velocity Vector CCIP Cross (On Target) Weapon Release Button Pull Up Cue 18 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.1.1 - UNGUIDED BOMB (MK-82) CCIP RELEASE MODE"
   },
   {
     "page": 378,
@@ -4981,19 +4981,19 @@
   },
   {
     "page": 382,
-    "text": "382 1 Sensor Control Switch AFT/FWD/LEFT/RIGHT 18. Slew your TD (Target Designator) with the TDC controls to adjust your CCRP reference point properly. 19. Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull- Up cue. 20. When release cue appears, hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) until all bombs in the pass have been released. 21. P"
+    "text": "382 1 Sensor Control Switch AFT/FWD/LEFT/RIGHT 18. Slew your TD (Target Designator) with the TDC controls to adjust your CCRP reference point properly. 19. Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull- Up cue. 20. When release cue appears, hold the Weapon Release Button (\u00ab \u00bb) until all bombs in the pass have been released. 21. Pull up befo"
   },
   {
     "page": 382,
-    "text": "old the Weapon Release Button (\u00ab RALT+SPACE \u00bb) until all bombs in the pass have been released. 21. Pull up before velocity vector reaches the PULL UP cue. Weapon Release Button 14 TDC (Throttle Designator Controller) (Left/Right/Up/Down/Depress) 14 20a Velocity Vector CCRP Release Cue DROP BOMBS! Direction of CCRP Release Cue Target Designator (TD) ASL (Azimuth Steering Line) CCRP REL Release Cue"
+    "text": "old the Weapon Release Button (\u00ab \u00bb) until all bombs in the pass have been released. 21. Pull up before velocity vector reaches the PULL UP cue. Weapon Release Button 14 TDC (Throttle Designator Controller) (Left/Right/Up/Down/Depress) 14 20a Velocity Vector CCRP Release Cue DROP BOMBS! Direction of CCRP Release Cue Target Designator (TD) ASL (Azimuth Steering Line) CCRP REL Release Cue 14 sec to r"
   },
   {
     "page": 382,
-    "text": "rection of CCRP Release Cue Target Designator (TD) ASL (Azimuth Steering Line) CCRP REL Release Cue 14 sec to release 7.2 nm TGT (Target Range) Pull-Up Cue Pull-Up Cue 20b 20c Direction of CCRP Release Cue CCRP Release Cue Velocity Vector CCRP REL Release Cue 3 sec to release 5.1 nm TGT (Target Range) CCRP REL Release Cue 0 sec to release = Releasing! 4.5 nm TGT (Target Range) PART 10 \u2013 OFFENCE: W"
+    "text": "CCRP Release Cue Target Designator (TD) ASL (Azimuth Steering Line) CCRP REL Release Cue 14 sec to release 7.2 nm TGT (Target Range) Pull-Up Cue Pull-Up Cue 20b 20c Direction of CCRP Release Cue CCRP Release Cue Velocity Vector CCRP REL Release Cue 3 sec to release 5.1 nm TGT (Target Range) CCRP REL Release Cue 0 sec to release = Releasing! 4.5 nm TGT (Target Range) PART 10 \u2013 OFFENCE: WEAPONS & AR"
   },
   {
     "page": 382,
-    "text": "e) CCRP REL Release Cue 0 sec to release = Releasing! 4.5 nm TGT (Target Range) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.1.2 - UNGUIDED BOMB (MK-82) CCRP (AUTO) RELEASE MODE"
+    "text": "Release Cue 0 sec to release = Releasing! 4.5 nm TGT (Target Range) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.1.2 - UNGUIDED BOMB (MK-82) CCRP (AUTO) RELEASE MODE"
   },
   {
     "page": 383,
@@ -5037,11 +5037,11 @@
   },
   {
     "page": 388,
-    "text": "388 16 16. The CCIP cross will appear once a bombing solution is computed. 17. Steer aircraft to keep the DIL vertical and the CCIP cross on the target. 18. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) once CCIP cross is on target. Hold button until all programmed cluster bombs are released. 19. Pull up before velocity vector reaches the PULL UP cue. DIL (Displayed Impact Line) Veloci"
+    "text": "388 16 16. The CCIP cross will appear once a bombing solution is computed. 17. Steer aircraft to keep the DIL vertical and the CCIP cross on the target. 18. Press and hold the Weapon Release button (\u00ab \u00bb) once CCIP cross is on target. Hold button until all programmed cluster bombs are released. 19. Pull up before velocity vector reaches the PULL UP cue. DIL (Displayed Impact Line) Velocity Vector C"
   },
   {
     "page": 388,
-    "text": "ased. 19. Pull up before velocity vector reaches the PULL UP cue. DIL (Displayed Impact Line) Velocity Vector CCIP Cross (On Target) Weapon Release Button Pull Up Cue 18 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.2 \u2013 MK-20 \u201cRockeye\u201d Cluster Bombs CCIP Release Mode"
+    "text": "ull up before velocity vector reaches the PULL UP cue. DIL (Displayed Impact Line) Velocity Vector CCIP Cross (On Target) Weapon Release Button Pull Up Cue 18 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.2 \u2013 MK-20 \u201cRockeye\u201d Cluster Bombs CCIP Release Mode"
   },
   {
     "page": 389,
@@ -5101,15 +5101,15 @@
   },
   {
     "page": 395,
-    "text": "G designation with WPDSG (Waypoint Designate) button or via the HUD, but it is also possible to designate with the targeting pod or A/G radar. For the JDAM tutorial, we will use the Pre-Planned Mode while for the JSOW tutorial we will use TOO Mode. Once the setup is done and the weapon alignment has been performed, we will then be able to release them in Manual Mode. OR Use LALT+Y to toggle betwee"
+    "text": "G designation with WPDSG (Waypoint Designate) button or via the HUD, but it is also possible to designate with the targeting pod or A/G radar. For the JDAM tutorial, we will use the Pre-Planned Mode while for the JSOW tutorial we will use TOO Mode. Once the setup is done and the weapon alignment has been performed, we will then be able to release them in Manual Mode. OR Use to toggle between coord"
   },
   {
     "page": 395,
-    "text": "been performed, we will then be able to release them in Manual Mode. OR Use LALT+Y to toggle between coordinate units Mission Briefing Target Points (Pre-Planned Setup, already set up in Mission Editor) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET OR Find Target Coordinates (F10 Map, Mission Editor Waypoints, JTAC, etc.) Manual Release Mode Set Up Weapon (Pre-Planned coordinates) Set Up W"
+    "text": "been performed, we will then be able to release them in Manual Mode. OR Use to toggle between coordinate units Mission Briefing Target Points (Pre-Planned Setup, already set up in Mission Editor) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET OR Find Target Coordinates (F10 Map, Mission Editor Waypoints, JTAC, etc.) Manual Release Mode Set Up Weapon (Pre-Planned coordinates) Set Up Weapon ("
   },
   {
     "page": 395,
-    "text": "n Editor Waypoints, JTAC, etc.) Manual Release Mode Set Up Weapon (Pre-Planned coordinates) Set Up Weapon (TOO, Waypoint Designate) Set Up Weapon (TOO, Targeting Pod Designate)"
+    "text": "r Waypoints, JTAC, etc.) Manual Release Mode Set Up Weapon (Pre-Planned coordinates) Set Up Weapon (TOO, Waypoint Designate) Set Up Weapon (TOO, Targeting Pod Designate)"
   },
   {
     "page": 396,
@@ -5233,11 +5233,11 @@
   },
   {
     "page": 407,
-    "text": "407 Launch Weapons 37. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) until all selected JDAMs are launched. All selected JDAMs will automatically guide themselves via GPS to the pre-planned designated points. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.5.1 \u2013 GBU-38 JDAM PRE-PLANNED + MANUAL MODE Weapon Release Button Launched JDAM\u2019s Remaining Time of Flight to the Target"
+    "text": "407 Launch Weapons 37. Hold the Weapon Release Button (\u00ab \u00bb) until all selected JDAMs are launched. All selected JDAMs will automatically guide themselves via GPS to the pre-planned designated points. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.5.1 \u2013 GBU-38 JDAM PRE-PLANNED + MANUAL MODE Weapon Release Button Launched JDAM\u2019s Remaining Time of Flight to the Target"
   },
   {
     "page": 407,
-    "text": "NUAL MODE Weapon Release Button Launched JDAM\u2019s Remaining Time of Flight to the Target"
+    "text": "eapon Release Button Launched JDAM\u2019s Remaining Time of Flight to the Target"
   },
   {
     "page": 408,
@@ -5277,11 +5277,11 @@
   },
   {
     "page": 411,
-    "text": "411 1 11. Set A/G Master Mode. 12. To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click). 13. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeting pod is ready to"
+    "text": "411 1 11. Set A/G Master Mode. 12. To power up the targeting pod, set FLIR Sensor Switch to STBY (right-click). 13. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeting pod is ready to"
   },
   {
     "page": 411,
-    "text": "process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeting pod is ready to be used, the pod status will switch from RDY \u2013 NOT TIMED OUT to STBY (Standby). 14. Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 15. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as a"
+    "text": "process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeting pod is ready to be used, the pod status will switch from RDY \u2013 NOT TIMED OUT to STBY (Standby). 14. Set FLIR Sensor Switch to ON (right-click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 15. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as a"
   },
   {
     "page": 411,
@@ -5361,11 +5361,11 @@
   },
   {
     "page": 418,
-    "text": "418 1 34. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to release your JDAM. Selected JDAM will automatically guide itself via GPS to the designated target. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.5.2 \u2013 GBU-38 JDAM TARGETING POD + TOO Weapon Release Button Launched JDAM\u2019s Remaining Time of Flight to the Target"
+    "text": "418 1 34. Hold the Weapon Release Button (\u00ab \u00bb) to release your JDAM. Selected JDAM will automatically guide itself via GPS to the designated target. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.5.2 \u2013 GBU-38 JDAM TARGETING POD + TOO Weapon Release Button Launched JDAM\u2019s Remaining Time of Flight to the Target"
   },
   {
     "page": 418,
-    "text": "Time of Flight to the Target"
+    "text": "ight to the Target"
   },
   {
     "page": 419,
@@ -5489,15 +5489,15 @@
   },
   {
     "page": 429,
-    "text": "429 Launch Weapons 27. When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying \u201cTMR\u201d (Time to reach acceptable release zone) to \u201cIN RNG\u201d (In Range). You may now release your weapons. 28. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to drop your first JSOW. In Range Cue PART 10 \u2013 OFFENCE: WEAPONS"
+    "text": "429 Launch Weapons 27. When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying \u201cTMR\u201d (Time to reach acceptable release zone) to \u201cIN RNG\u201d (In Range). You may now release your weapons. 28. Hold the Weapon Release Button (\u00ab \u00bb) to drop your first JSOW. In Range Cue PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT"
   },
   {
     "page": 429,
-    "text": "on Release Button (\u00ab RALT+SPACE \u00bb) to drop your first JSOW. In Range Cue PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.5.3 \u2013 AGM-154A JSOW WAYPOINT DESIGNATE + TOO Weapon Release Button In Range Cue Target Designation Diamond Distance to Target (nm) JSA TOO JSOW-A Selected, TOO Mode Maximum JSOW Launch Range Minimum JSOW Launch Range Aircraft LAR (Launch Acceptable Region) 28"
+    "text": "on Release Button (\u00ab \u00bb) to drop your first JSOW. In Range Cue PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.5.3 \u2013 AGM-154A JSOW WAYPOINT DESIGNATE + TOO Weapon Release Button In Range Cue Target Designation Diamond Distance to Target (nm) JSA TOO JSOW-A Selected, TOO Mode Maximum JSOW Launch Range Minimum JSOW Launch Range Aircraft LAR (Launch Acceptable Region) 28"
   },
   {
     "page": 429,
-    "text": "JSOW Launch Range Minimum JSOW Launch Range Aircraft LAR (Launch Acceptable Region) 28"
+    "text": "h Range Minimum JSOW Launch Range Aircraft LAR (Launch Acceptable Region) 28"
   },
   {
     "page": 430,
@@ -5545,11 +5545,11 @@
   },
   {
     "page": 435,
-    "text": "435 1 2.6 \u2013 GBU-12 Paveway II (Laser-Guided Mode) 9. To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click). 10. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeti"
+    "text": "435 1 2.6 \u2013 GBU-12 Paveway II (Laser-Guided Mode) 9. To power up the targeting pod, set FLIR Sensor Switch to STBY (right-click). 10. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeti"
   },
   {
     "page": 435,
-    "text": "nitor the warm-up process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeting pod is ready to be used, the pod status will switch from RDY \u2013 NOT TIMED OUT to STBY (Standby). 11. Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 12. Press the Sensor Control Switch in the direction of the selected DDI (Right for"
+    "text": "nitor the warm-up process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeting pod is ready to be used, the pod status will switch from RDY \u2013 NOT TIMED OUT to STBY (Standby). 11. Set FLIR Sensor Switch to ON (right-click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 12. Press the Sensor Control Switch in the direction of the selected DDI (Right for"
   },
   {
     "page": 435,
@@ -5609,15 +5609,15 @@
   },
   {
     "page": 437,
-    "text": "437 1 2.6 \u2013 GBU-12 Paveway II (Laser-Guided Mode) 28. Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull-Up cue. 29. When release cue appears, hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) until bomb has been released. 30. If you want to drop other GBUs, you will have to re-enter a laser code for each bomb every time. Velocity Vector CCRP Rele"
+    "text": "437 1 2.6 \u2013 GBU-12 Paveway II (Laser-Guided Mode) 28. Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull-Up cue. 29. When release cue appears, hold the Weapon Release Button (\u00ab \u00bb) until bomb has been released. 30. If you want to drop other GBUs, you will have to re-enter a laser code for each bomb every time. Velocity Vector CCRP Release Cue Dro"
   },
   {
     "page": 437,
-    "text": "her GBUs, you will have to re-enter a laser code for each bomb every time. Velocity Vector CCRP Release Cue Drop bombs when lined up with velocity vector! Pull-Up Cue Weapon Release Button 29 29 29 29 Target Designator (TD) ASL (Azimuth Steering Line) FLIR (Targeting Pod) is the sensor of interest (SOI) AUTO release mode selected 44 sec to release Direction of CCRP Release Cue CCRP Release Cue PAR"
+    "text": "ou will have to re-enter a laser code for each bomb every time. Velocity Vector CCRP Release Cue Drop bombs when lined up with velocity vector! Pull-Up Cue Weapon Release Button 29 29 29 29 Target Designator (TD) ASL (Azimuth Steering Line) FLIR (Targeting Pod) is the sensor of interest (SOI) AUTO release mode selected 44 sec to release Direction of CCRP Release Cue CCRP Release Cue PART 10 \u2013 OFFE"
   },
   {
     "page": 437,
-    "text": "SOI) AUTO release mode selected 44 sec to release Direction of CCRP Release Cue CCRP Release Cue PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Laser Armed Laser Countdown Time until laser is automatically fired to guide the bomb you just dropped 11 nm to TGT (Target Range)"
+    "text": "elease mode selected 44 sec to release Direction of CCRP Release Cue CCRP Release Cue PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Laser Armed Laser Countdown Time until laser is automatically fired to guide the bomb you just dropped 11 nm to TGT (Target Range)"
   },
   {
     "page": 438,
@@ -5681,15 +5681,15 @@
   },
   {
     "page": 442,
-    "text": "to lock its target. The Maverick is most likely going to acquire a good lock from a distance of 7.5 miles. 15. When lock is acquired by Maverick, the MAVF crossed-out indication will disappear. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to fire missile. Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS Cage/Uncage Button Maverick Locked Maverick Aiming Reticle (Locked) Seeker Indicati"
+    "text": "to lock its target. The Maverick is most likely going to acquire a good lock from a distance of 7.5 miles. 15. When lock is acquired by Maverick, the MAVF crossed-out indication will disappear. Hold the Weapon Release Button (\u00ab \u00bb) to fire missile. Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS Cage/Uncage Button Maverick Locked Maverick Aiming Reticle (Locked) Seeker Indication Relative"
   },
   {
     "page": 442,
-    "text": "FT/RIGHT/DEPRESS Cage/Uncage Button Maverick Locked Maverick Aiming Reticle (Locked) Seeker Indication Relative to Boresight Maverick Aiming Reticle Maverick Aiming Reticle (Slewing / Not Locked) Target Maverick LockedMaverick Not Locked 13 14 14a 14b PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.7.1 \u2013 AGM-65F/G MAVERICK (IR-MAVF, IR Missile Seeker Only) Weapon Release Button 15"
+    "text": "PRESS Cage/Uncage Button Maverick Locked Maverick Aiming Reticle (Locked) Seeker Indication Relative to Boresight Maverick Aiming Reticle Maverick Aiming Reticle (Slewing / Not Locked) Target Maverick LockedMaverick Not Locked 13 14 14a 14b PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 2.7.1 \u2013 AGM-65F/G MAVERICK (IR-MAVF, IR Missile Seeker Only) Weapon Release Button 15"
   },
   {
     "page": 442,
-    "text": "RNET 2.7.1 \u2013 AGM-65F/G MAVERICK (IR-MAVF, IR Missile Seeker Only) Weapon Release Button 15"
+    "text": "\u2013 AGM-65F/G MAVERICK (IR-MAVF, IR Missile Seeker Only) Weapon Release Button 15"
   },
   {
     "page": 443,
@@ -5701,7 +5701,7 @@
   },
   {
     "page": 444,
-    "text": "444 2.7.2 \u2013 AGM-65F/G MAVERICK (IR-MAVF, Missile Slaving to Targeting Pod) 1. Press A/G Master Mode. 2. Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 3. Select FLIR page. 4. Press the Sensor Control Switch in the direction of the selected FLIR DDI page (RIGHT). 5. The Select Focus Diamond indicates what display is selected. 6. Pres"
+    "text": "444 2.7.2 \u2013 AGM-65F/G MAVERICK (IR-MAVF, Missile Slaving to Targeting Pod) 1. Press A/G Master Mode. 2. Set FLIR Sensor Switch to ON (right-click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 3. Select FLIR page. 4. Press the Sensor Control Switch in the direction of the selected FLIR DDI page (RIGHT). 5. The Select Focus Diamond indicates what display is selected. 6. Pres"
   },
   {
     "page": 444,
@@ -5765,7 +5765,7 @@
   },
   {
     "page": 448,
-    "text": "448 2.7.2 \u2013 AGM-65F/G MAVERICK (IR-MAVF, Missile Slaving to Targeting Pod) 26. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to fire missile. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 26"
+    "text": "448 2.7.2 \u2013 AGM-65F/G MAVERICK (IR-MAVF, Missile Slaving to Targeting Pod) 26. Hold the Weapon Release Button (\u00ab \u00bb) to fire missile. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 26"
   },
   {
     "page": 449,
@@ -5845,11 +5845,11 @@
   },
   {
     "page": 454,
-    "text": "454 22. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to fire missile. 23. Note: Pressing the \u00ab Undesignate \u00bb button on the stick to return the radar to GMT mode and exit tracking mode. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 22 2.7.3 \u2013 AGM-65F/G MAVERICK (IR-MAVF, Missile Slaving to Radar GMT Mode) Tracked Target Undesignate / Nosewheel Steering Button 23"
+    "text": "454 22. Hold the Weapon Release Button (\u00ab \u00bb) to fire missile. 23. Note: Pressing the \u00ab Undesignate \u00bb button on the stick to return the radar to GMT mode and exit tracking mode. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 22 2.7.3 \u2013 AGM-65F/G MAVERICK (IR-MAVF, Missile Slaving to Radar GMT Mode) Tracked Target Undesignate / Nosewheel Steering Button 23"
   },
   {
     "page": 454,
-    "text": "F, Missile Slaving to Radar GMT Mode) Tracked Target Undesignate / Nosewheel Steering Button 23"
+    "text": "Slaving to Radar GMT Mode) Tracked Target Undesignate / Nosewheel Steering Button 23"
   },
   {
     "page": 455,
@@ -5877,11 +5877,11 @@
   },
   {
     "page": 457,
-    "text": "457 1 9. To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click). 10. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeting pod is ready to be used, the pod status w"
+    "text": "457 1 9. To power up the targeting pod, set FLIR Sensor Switch to STBY (right-click). 10. From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. \u2022 Targeting pod warm-up process will take about 2 minutes. \u2022 When targeting pod is ready to be used, the pod status w"
   },
   {
     "page": 457,
-    "text": "arm-up process will take about 2 minutes. \u2022 When targeting pod is ready to be used, the pod status will switch from RDY \u2013 NOT TIMED OUT to STBY (Standby). 11. Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 12. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Foc"
+    "text": "arm-up process will take about 2 minutes. \u2022 When targeting pod is ready to be used, the pod status will switch from RDY \u2013 NOT TIMED OUT to STBY (Standby). 11. Set FLIR Sensor Switch to ON (right-click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate). 12. Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Foc"
   },
   {
     "page": 457,
@@ -5949,19 +5949,19 @@
   },
   {
     "page": 461,
-    "text": "31. Once you are within firing range (IN RNG cue will become visible on the HUD), hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to launch missile. 32. Once missile is fired, the targeting pod will automatically fire its laser on the designation point in order to guide the Maverick. 33. Once laser is firing, the laser mode will switch from L ARM to LTD/R. 34. The missile will follow the laser unt"
+    "text": "31. Once you are within firing range (IN RNG cue will become visible on the HUD), hold the Weapon Release Button (\u00ab \u00bb) to launch missile. 32. Once missile is fired, the targeting pod will automatically fire its laser on the designation point in order to guide the Maverick. 33. Once laser is firing, the laser mode will switch from L ARM to LTD/R. 34. The missile will follow the laser until impact."
   },
   {
     "page": 461,
-    "text": "is firing, the laser mode will switch from L ARM to LTD/R. 34. The missile will follow the laser until impact. 35. Once the target is destroyed, the LTD/R (Laser Target Designator/Ranger) will automatically go back to SAFE. You will need to set it back to ARM if you want to lase more targets. 36. If you want to undesignated the target, use the Undesignate/Nosewheel Steering button on the stick. 46"
+    "text": "the laser mode will switch from L ARM to LTD/R. 34. The missile will follow the laser until impact. 35. Once the target is destroyed, the LTD/R (Laser Target Designator/Ranger) will automatically go back to SAFE. You will need to set it back to ARM if you want to lase more targets. 36. If you want to undesignated the target, use the Undesignate/Nosewheel Steering button on the stick. 461 31a 2.8 \u2013"
   },
   {
     "page": 461,
-    "text": "you want to undesignated the target, use the Undesignate/Nosewheel Steering button on the stick. 461 31a 2.8 \u2013 AGM-65E MAVERICK (Laser-Guided MAV) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Laser Firing TRIG OFF Auto-Lasing ON 35 Laser Firing Weapon Release Button 31b IN RNG (In Range) Cue 32 32 IN RNG (In Range) Cue Aircraft Range to Target (nm) Maverick Seeker View Point (Slaved to Ta"
+    "text": "o undesignated the target, use the Undesignate/Nosewheel Steering button on the stick. 461 31a 2.8 \u2013 AGM-65E MAVERICK (Laser-Guided MAV) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Laser Firing TRIG OFF Auto-Lasing ON 35 Laser Firing Weapon Release Button 31b IN RNG (In Range) Cue 32 32 IN RNG (In Range) Cue Aircraft Range to Target (nm) Maverick Seeker View Point (Slaved to Targeting Pod"
   },
   {
     "page": 461,
-    "text": "e 32 32 IN RNG (In Range) Cue Aircraft Range to Target (nm) Maverick Seeker View Point (Slaved to Targeting Pod Designation Diamond)"
+    "text": "RNG (In Range) Cue Aircraft Range to Target (nm) Maverick Seeker View Point (Slaved to Targeting Pod Designation Diamond)"
   },
   {
     "page": 462,
@@ -6057,11 +6057,11 @@
   },
   {
     "page": 468,
-    "text": "uncaged, the missile will attempt to lock onto the selected target within the seeker center. The HARM has a range of up to 80 nm. 10. When lock is acquired by the HARM, the HARM crossed-out indication will disappear. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to fire missile. 7 Target Designator Box (Selected Emitter Line-of-Sight) HARM Selected Emitters SA-6 Emitter (Boxed = Selected) SA-15"
+    "text": "uncaged, the missile will attempt to lock onto the selected target within the seeker center. The HARM has a range of up to 80 nm. 10. When lock is acquired by the HARM, the HARM crossed-out indication will disappear. Hold the Weapon Release Button (\u00ab \u00bb) to fire missile. 7 Target Designator Box (Selected Emitter Line-of-Sight) HARM Selected Emitters SA-6 Emitter (Boxed = Selected) SA-15 Emitter Lo"
   },
   {
     "page": 468,
-    "text": "or Box (Selected Emitter Line-of-Sight) HARM Selected Emitters SA-6 Emitter (Boxed = Selected) SA-15 Emitter Locking (Upper Bar) SA-6 EmitterCenter of HARM Seeker 7 8 9 7 7 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET"
+    "text": "ected Emitter Line-of-Sight) HARM Selected Emitters SA-6 Emitter (Boxed = Selected) SA-15 Emitter Locking (Upper Bar) SA-6 EmitterCenter of HARM Seeker 7 8 9 7 7 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET"
   },
   {
     "page": 469,
@@ -6081,19 +6081,19 @@
   },
   {
     "page": 471,
-    "text": "471 1 2.9.2 \u2013 AGM-88C HARM (SP , Self-Protection Mode) 7. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to fire missile. Note: SP Mode allows for 360\u00b0 engagement; however, more kinetic energy is sacrificed to turn as the angle increases. Self-Protect is named as such because it is primarily designed for quick reaction to a threat. On these three RWR displays, whenever the HARM and SP mode is sel"
+    "text": "471 1 2.9.2 \u2013 AGM-88C HARM (SP , Self-Protection Mode) 7. Hold the Weapon Release Button (\u00ab \u00bb) to fire missile. Note: SP Mode allows for 360\u00b0 engagement; however, more kinetic energy is sacrificed to turn as the angle increases. Self-Protect is named as such because it is primarily designed for quick reaction to a threat. On these three RWR displays, whenever the HARM and SP mode is selected, a sq"
   },
   {
     "page": 471,
-    "text": "ed for quick reaction to a threat. On these three RWR displays, whenever the HARM and SP mode is selected, a square is placed around the selected emitter; the highest priority emitter is selected automatically. Note that a maximum of 6 emitters are displayed on the HUD, but the HARM will always cycle all emitters. Once fired, the HARM will either have already acquired the selected emitter or, if i"
+    "text": "k reaction to a threat. On these three RWR displays, whenever the HARM and SP mode is selected, a square is placed around the selected emitter; the highest priority emitter is selected automatically. Note that a maximum of 6 emitters are displayed on the HUD, but the HARM will always cycle all emitters. Once fired, the HARM will either have already acquired the selected emitter or, if it is outsid"
   },
   {
     "page": 471,
-    "text": "e all emitters. Once fired, the HARM will either have already acquired the selected emitter or, if it is outside the HARM seeker field of view, it will acquire it post-launch. HARM Selected Emitters SA-15 Emitter (Boxed = Selected) 6 SA-15 Emitter (Boxed = Selected) 6 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 7"
+    "text": "ers. Once fired, the HARM will either have already acquired the selected emitter or, if it is outside the HARM seeker field of view, it will acquire it post-launch. HARM Selected Emitters SA-15 Emitter (Boxed = Selected) 6 SA-15 Emitter (Boxed = Selected) 6 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 7"
   },
   {
     "page": 471,
-    "text": "MAMENT F/A-18C HORNET Weapon Release Button 7"
+    "text": "18C HORNET Weapon Release Button 7"
   },
   {
     "page": 472,
@@ -6381,11 +6381,11 @@
   },
   {
     "page": 490,
-    "text": "Launching the Harpoon during negative Gs can make the aircraft collide with the missile. 17. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch Harpoon. 18. Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system. Weapon Release Button 15 17 15 PART 10 \u2013 OFFENCE: WEAPON"
+    "text": "Launching the Harpoon during negative Gs can make the aircraft collide with the missile. 17. Press and hold the Weapon Release button (\u00ab \u00bb) to launch Harpoon. 18. Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system. Weapon Release Button 15 17 15 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMEN"
   },
   {
     "page": 490,
-    "text": "ily detected by the radar altimeter system. Weapon Release Button 15 17 15 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET"
+    "text": "d by the radar altimeter system. Weapon Release Button 15 17 15 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET"
   },
   {
     "page": 491,
@@ -6489,15 +6489,15 @@
   },
   {
     "page": 498,
-    "text": "498 1 12. Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that \u201cIN RNG\u201d is displayed. If you are not, steer the aircraft in the correct direction and . 13. Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile. 14. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to"
+    "text": "498 1 12. Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that \u201cIN RNG\u201d is displayed. If you are not, steer the aircraft in the correct direction and . 13. Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile. 14. Press and hold the Weapon Release button (\u00ab \u00bb) to launch Har"
   },
   {
     "page": 498,
-    "text": "aircraft collide with the missile. 14. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch Harpoon. 15. Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system. Weapon Release Button 12 14 12 2.10.2 \u2013 AGM-84D Harpoon (R/BL, Range & Bearing Launch Mode) Direction of TGT"
+    "text": "aircraft collide with the missile. 14. Press and hold the Weapon Release button (\u00ab \u00bb) to launch Harpoon. 15. Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system. Weapon Release Button 12 14 12 2.10.2 \u2013 AGM-84D Harpoon (R/BL, Range & Bearing Launch Mode) Direction of TGT Point (Diam"
   },
   {
     "page": 498,
-    "text": "lease Button 12 14 12 2.10.2 \u2013 AGM-84D Harpoon (R/BL, Range & Bearing Launch Mode) Direction of TGT Point (Diamond) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET"
+    "text": "n 12 14 12 2.10.2 \u2013 AGM-84D Harpoon (R/BL, Range & Bearing Launch Mode) Direction of TGT Point (Diamond) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET"
   },
   {
     "page": 499,
@@ -6577,15 +6577,15 @@
   },
   {
     "page": 505,
-    "text": "505 1 18. Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that \u201cIN RNG\u201d is displayed. If you are not, steer the aircraft in the correct direction and . 19. Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile. 20. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to"
+    "text": "505 1 18. Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that \u201cIN RNG\u201d is displayed. If you are not, steer the aircraft in the correct direction and . 19. Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile. 20. Press and hold the Weapon Release button (\u00ab \u00bb) to launch Har"
   },
   {
     "page": 505,
-    "text": "aircraft collide with the missile. 20. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch Harpoon. 21. Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system. 18 18 Direction of tracked target (Diamond) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Relea"
+    "text": "aircraft collide with the missile. 20. Press and hold the Weapon Release button (\u00ab \u00bb) to launch Harpoon. 21. Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system. 18 18 Direction of tracked target (Diamond) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 2"
   },
   {
     "page": 505,
-    "text": "ection of tracked target (Diamond) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 20 2.10.3 \u2013 AGM-84D Harpoon (R/BL, SEA Radar Mode)"
+    "text": "racked target (Diamond) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button 20 2.10.3 \u2013 AGM-84D Harpoon (R/BL, SEA Radar Mode)"
   },
   {
     "page": 506,
@@ -6925,11 +6925,11 @@
   },
   {
     "page": 529,
-    "text": "529 1 2.11 \u2013 AGM-84E SLAM 2.11.3.4 \u2013 Target Designation \u2013 Pre-Planned (PP) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 7. We can get target coordinates and elevation from the mission briefing or from the F10 map. We will need this information in the Deg Min Sec.Decimal-Seconds format, which can be toggled by using \u00ab LALT+Y \u00bb while being in the F10 map.. Pre-Planned Point (Deg Min Sec.Deci"
+    "text": "529 1 2.11 \u2013 AGM-84E SLAM 2.11.3.4 \u2013 Target Designation \u2013 Pre-Planned (PP) PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET 7. We can get target coordinates and elevation from the mission briefing or from the F10 map. We will need this information in the Deg Min Sec.Decimal-Seconds format, which can be toggled by using \u00ab \u00bb while being in the F10 map.. Pre-Planned Point (Deg Min Sec.Decimal-Sec"
   },
   {
     "page": 529,
-    "text": "can be toggled by using \u00ab LALT+Y \u00bb while being in the F10 map.. Pre-Planned Point (Deg Min Sec.Decimal-Seconds) Target Point Latitude Longitude Elevation (ft) TGT1 STA8 / PP1 33 49 17.83 N 35 29 37.64 E 39 Target"
+    "text": "can be toggled by using \u00ab \u00bb while being in the F10 map.. Pre-Planned Point (Deg Min Sec.Decimal-Seconds) Target Point Latitude Longitude Elevation (ft) TGT1 STA8 / PP1 33 49 17.83 N 35 29 37.64 E 39 Target"
   },
   {
     "page": 530,
@@ -7033,11 +7033,11 @@
   },
   {
     "page": 537,
-    "text": "537 1 2.11 \u2013 AGM-84E SLAM 2.11.4 \u2013 Weapon Launch & Control 15. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch SLAM missile. 16. Once SLAM is launched, the missile will fly to the cruise altitude (FLT parameter). 17. The missile will eventually enter a dive and go into the Low Altitude Penetration Stage 18. When the missile is close enough to the target, it will steer directly"
+    "text": "537 1 2.11 \u2013 AGM-84E SLAM 2.11.4 \u2013 Weapon Launch & Control 15. Press and hold the Weapon Release button (\u00ab \u00bb) to launch SLAM missile. 16. Once SLAM is launched, the missile will fly to the cruise altitude (FLT parameter). 17. The missile will eventually enter a dive and go into the Low Altitude Penetration Stage 18. When the missile is close enough to the target, it will steer directly to the targ"
   },
   {
     "page": 537,
-    "text": "titude Penetration Stage 18. When the missile is close enough to the target, it will steer directly to the target\u2019s area and enter Terminal Attack Stage. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Datalink Pod sends remote steering commands to the SLAM Weapon Release Button 15"
+    "text": "tration Stage 18. When the missile is close enough to the target, it will steer directly to the target\u2019s area and enter Terminal Attack Stage. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Datalink Pod sends remote steering commands to the SLAM Weapon Release Button 15"
   },
   {
     "page": 538,
@@ -7297,11 +7297,11 @@
   },
   {
     "page": 556,
-    "text": "556 1 2.12 \u2013 AGM-84H SLAM-ER 2.12.4 \u2013 Weapon Launch & Control 15. Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch SLAM-ER missile. 16. Once SLAM-ER is launched, the missile will fly to the cruise altitude (FLT parameter) and follow the intermediate steerpoints programmed earlier. \u2022 Note: Since the flight time of the missile can be quite long, you may want to use the autopilot t"
+    "text": "556 1 2.12 \u2013 AGM-84H SLAM-ER 2.12.4 \u2013 Weapon Launch & Control 15. Press and hold the Weapon Release button (\u00ab \u00bb) to launch SLAM-ER missile. 16. Once SLAM-ER is launched, the missile will fly to the cruise altitude (FLT parameter) and follow the intermediate steerpoints programmed earlier. \u2022 Note: Since the flight time of the missile can be quite long, you may want to use the autopilot to set the a"
   },
   {
     "page": 556,
-    "text": "\u2022 Note: Since the flight time of the missile can be quite long, you may want to use the autopilot to set the aircraft in a safe attitude. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Datalink Pod sends remote steering commands to the SLAM-ER Weapon Release Button15"
+    "text": "nce the flight time of the missile can be quite long, you may want to use the autopilot to set the aircraft in a safe attitude. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Datalink Pod sends remote steering commands to the SLAM-ER Weapon Release Button15"
   },
   {
     "page": 557,
@@ -7385,11 +7385,11 @@
   },
   {
     "page": 563,
-    "text": "good lock from a distance of less than 10 miles. 11. When lock is acquired by Walleye: \u2022 WE crossed-out indication will disappear from the HUD \u2022 WEDL crossed-out indication will disappear from the Walleye Feed. \u2022 RDY will be displayed next to the selected station. 12. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to launch Walleye. Weapon Release Button 12 Throttle Designator Controller AFT/FWD/"
+    "text": "good lock from a distance of less than 10 miles. 11. When lock is acquired by Walleye: \u2022 WE crossed-out indication will disappear from the HUD \u2022 WEDL crossed-out indication will disappear from the Walleye Feed. \u2022 RDY will be displayed next to the selected station. 12. Hold the Weapon Release Button (\u00ab \u00bb) to launch Walleye. Weapon Release Button 12 Throttle Designator Controller AFT/FWD/LEFT/RIGHT/"
   },
   {
     "page": 563,
-    "text": "(\u00ab RALT+SPACE \u00bb) to launch Walleye. Weapon Release Button 12 Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS 10 11 Walleye Crosshair (On Target) 11 11 11 Walleye Crosshair 2.13.1 \u2013 AGM-62 Walleye II (No Datalink Pod)"
+    "text": "(\u00ab \u00bb) to launch Walleye. Weapon Release Button 12 Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS 10 11 Walleye Crosshair (On Target) 11 11 11 Walleye Crosshair 2.13.1 \u2013 AGM-62 Walleye II (No Datalink Pod)"
   },
   {
     "page": 564,
@@ -7449,15 +7449,15 @@
   },
   {
     "page": 568,
-    "text": "k prior to launching in order to make your life easier and minimize corrections. 19. When lock is acquired by Walleye, verify that: \u2022 WE crossed-out indication disappeared from the HUD \u2022 WEDL crossed-out indication disappeared from the Walleye Feed. \u2022 RDY is displayed next to the selected station. 20. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to launch Walleye. 568 1 PART 10 \u2013 OFFENCE: WEAPO"
+    "text": "k prior to launching in order to make your life easier and minimize corrections. 19. When lock is acquired by Walleye, verify that: \u2022 WE crossed-out indication disappeared from the HUD \u2022 WEDL crossed-out indication disappeared from the Walleye Feed. \u2022 RDY is displayed next to the selected station. 20. Hold the Weapon Release Button (\u00ab \u00bb) to launch Walleye. 568 1 PART 10 \u2013 OFFENCE: WEAPONS & ARMAME"
   },
   {
     "page": 568,
-    "text": "0. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to launch Walleye. 568 1 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button20 Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS 17 Walleye Crosshair (Near Target) Walleye Crosshair 19 19 2.13.2 \u2013 AGM-62 Walleye II (With Datalink Pod)"
+    "text": "0. Hold the Weapon Release Button (\u00ab \u00bb) to launch Walleye. 568 1 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button20 Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS 17 Walleye Crosshair (Near Target) Walleye Crosshair 19 19 2.13.2 \u2013 AGM-62 Walleye II (With Datalink Pod)"
   },
   {
     "page": 568,
-    "text": "th Datalink Pod)"
+    "text": "Pod)"
   },
   {
     "page": 569,
@@ -7513,7 +7513,7 @@
   },
   {
     "page": 573,
-    "text": "s Management System) page 4. Click on the OSB next to 82P to select a TALD. \u2022 Pressing OSB next to STEP allows you to step between stations. 5. Press the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to launch a TALD. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button5 2 1 4a 4b 4c"
+    "text": "s Management System) page 4. Click on the OSB next to 82P to select a TALD. \u2022 Pressing OSB next to STEP allows you to step between stations. 5. Press the Weapon Release Button (\u00ab \u00bb) to launch a TALD. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Release Button5 2 1 4a 4b 4c"
   },
   {
     "page": 574,
@@ -7529,15 +7529,15 @@
   },
   {
     "page": 576,
-    "text": "576 1 1 3.1.1 - M61A2 GUN (AIR-TO-AIR) (FUNNEL / NO RADAR TRACKING) 1. Master Arm switch \u2013 ARM (UP) 2. Radar switch \u2013 OFF 3. Weapon Select Switch \u2013 A/A GUN, or \u00ab LSHIFT+X \u00bb 4. Master Mode switch will be automatically set to A/A 5. Go in SMS (Stores Management System) page and select Gun Rounds Options (MK-50 or PGU-28 rounds) 6. Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 ro"
+    "text": "576 1 1 3.1.1 - M61A2 GUN (AIR-TO-AIR) (FUNNEL / NO RADAR TRACKING) 1. Master Arm switch \u2013 ARM (UP) 2. Radar switch \u2013 OFF 3. Weapon Select Switch \u2013 A/A GUN, or \u00ab \u00bb 4. Master Mode switch will be automatically set to A/A 5. Go in SMS (Stores Management System) page and select Gun Rounds Options (MK-50 or PGU-28 rounds) 6. Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per"
   },
   {
     "page": 576,
-    "text": "ns (MK-50 or PGU-28 rounds) 6. Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute) Sensor Control Switch AFT/FWD/LEFT/RIGHT 2 3 4 5 6 Gun rounds remaining PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
+    "text": "or PGU-28 rounds) 6. Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute) Sensor Control Switch AFT/FWD/LEFT/RIGHT 2 3 4 5 6 Gun rounds remaining PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
   },
   {
     "page": 576,
-    "text": "un \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
+    "text": "S DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
   },
   {
     "page": 577,
@@ -7549,15 +7549,15 @@
   },
   {
     "page": 578,
-    "text": "578 1 3.1.2 - M61A2 GUN (AIR-TO-AIR) (RADAR TRACKING) 1. Radar Switch - OPERATE 2. Master Arm switch \u2013 ARM (UP) 3. Weapon Select Switch \u2013 A/A GUN (AFT), or \u00ab LSHIFT+X \u00bb 4. Master Mode switch will be automatically set to A/A 5. Go in SMS (Stores Management System) page and select Gun Rounds Options (MK-50 or PGU-28 rounds) 6. Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds"
+    "text": "578 1 3.1.2 - M61A2 GUN (AIR-TO-AIR) (RADAR TRACKING) 1. Radar Switch - OPERATE 2. Master Arm switch \u2013 ARM (UP) 3. Weapon Select Switch \u2013 A/A GUN (AFT), or \u00ab \u00bb 4. Master Mode switch will be automatically set to A/A 5. Go in SMS (Stores Management System) page and select Gun Rounds Options (MK-50 or PGU-28 rounds) 6. Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minu"
   },
   {
     "page": 578,
-    "text": "MK-50 or PGU-28 rounds) 6. Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute) 7. When A/A GUN is selected and radar is operating, the radar automatically switches to the ACM (Air Combat Maneuvering) GACQ (Gun Auto Acquisition) mode 1 Sensor Control Switch AFT/FWD/LEFT/RIGHT 3 4 5 6 Gun rounds remaining 2 GACQ Mode Scan Area ACM Mode 7 7 PART 10 \u2013 OFFENCE: WEAPONS"
+    "text": "PGU-28 rounds) 6. Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute) 7. When A/A GUN is selected and radar is operating, the radar automatically switches to the ACM (Air Combat Maneuvering) GACQ (Gun Auto Acquisition) mode 1 Sensor Control Switch AFT/FWD/LEFT/RIGHT 3 4 5 6 Gun rounds remaining 2 GACQ Mode Scan Area ACM Mode 7 7 PART 10 \u2013 OFFENCE: WEAPONS & ARMAME"
   },
   {
     "page": 578,
-    "text": "EFT/RIGHT 3 4 5 6 Gun rounds remaining 2 GACQ Mode Scan Area ACM Mode 7 7 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
+    "text": "3 4 5 6 Gun rounds remaining 2 GACQ Mode Scan Area ACM Mode 7 7 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
   },
   {
     "page": 579,
@@ -7573,19 +7573,19 @@
   },
   {
     "page": 580,
-    "text": "580 3.2.1 - AIM-9M SIDEWINDER AIR-TO-AIR IR MISSILE (NO RADAR) 1 1. Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours. 2. Master Arm switch \u2013 ARM (UP) 3. Radar switch \u2013 OFF 4. Weapon Select Switch \u2013 SIDEWINDER, or \u00ab LSHIFT+S \u00bb 5. Master Mode switch will be automatically set to A"
+    "text": "580 3.2.1 - AIM-9M SIDEWINDER AIR-TO-AIR IR MISSILE (NO RADAR) 1 1. Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours. 2. Master Arm switch \u2013 ARM (UP) 3. Radar switch \u2013 OFF 4. Weapon Select Switch \u2013 SIDEWINDER, or \u00ab \u00bb 5. Master Mode switch will be automatically set to A/A 6. Pre"
   },
   {
     "page": 580,
-    "text": "pon Select Switch \u2013 SIDEWINDER, or \u00ab LSHIFT+S \u00bb 5. Master Mode switch will be automatically set to A/A 6. Press and hold the Cage/Uncage switch to uncage the Sidewinder (\u00ab C \u00bb by default). Once uncaged, the Sidewinder should be actively looking for a lock on the closest heat signature. As you uncage the Sidewinder, you should hear a low growl tone when the missile seeker is searching. Sensor Contr"
+    "text": "pon Select Switch \u2013 SIDEWINDER, or \u00ab \u00bb 5. Master Mode switch will be automatically set to A/A 6. Press and hold the Cage/Uncage switch to uncage the Sidewinder (\u00ab C \u00bb by default). Once uncaged, the Sidewinder should be actively looking for a lock on the closest heat signature. As you uncage the Sidewinder, you should hear a low growl tone when the missile seeker is searching. Sensor Control Switch"
   },
   {
     "page": 580,
-    "text": "the Sidewinder, you should hear a low growl tone when the missile seeker is searching. Sensor Control Switch AFT/FWD/LEFT/RIGHT 4 CAGE/UNCAGE Button 1 2 5 3 6 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
+    "text": "winder, you should hear a low growl tone when the missile seeker is searching. Sensor Control Switch AFT/FWD/LEFT/RIGHT 4 CAGE/UNCAGE Button 1 2 5 3 6 PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
   },
   {
     "page": 580,
-    "text": "inder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
+    "text": "IGHT: Select Amraam \u2022 LEFT: No Function"
   },
   {
     "page": 581,
@@ -7597,15 +7597,15 @@
   },
   {
     "page": 582,
-    "text": "1. Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours. 2. Master Arm switch \u2013 ARM (UP) 3. Radar Switch - OPERATE 4. Weapon Select Switch \u2013 SIDEWINDER (DOWN), or \u00ab LSHIFT+S \u00bb 5. Master Mode switch will be automatically set to A/A 6. When SIDEWINDER is selected and radar is operati"
+    "text": "1. Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours. 2. Master Arm switch \u2013 ARM (UP) 3. Radar Switch - OPERATE 4. Weapon Select Switch \u2013 SIDEWINDER (DOWN), or \u00ab \u00bb 5. Master Mode switch will be automatically set to A/A 6. When SIDEWINDER is selected and radar is operating, press"
   },
   {
     "page": 582,
-    "text": "ter Mode switch will be automatically set to A/A 6. When SIDEWINDER is selected and radar is operating, press the Sensor Control Switch FWD to select ACM (Air Combat Maneuvering) radar mode 582 3.2.2 - AIM-9M SIDEWINDER AIR-TO-AIR IR MISSILE (RADAR) 1 1 Sensor Control Switch AFT/FWD/LEFT/RIGHT 4 CAGE/UNCAGE Button 1 2 5 3 6 6a 6b PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select S"
+    "text": "switch will be automatically set to A/A 6. When SIDEWINDER is selected and radar is operating, press the Sensor Control Switch FWD to select ACM (Air Combat Maneuvering) radar mode 582 3.2.2 - AIM-9M SIDEWINDER AIR-TO-AIR IR MISSILE (RADAR) 1 1 Sensor Control Switch AFT/FWD/LEFT/RIGHT 4 CAGE/UNCAGE Button 1 2 5 3 6 6a 6b PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 F"
   },
   {
     "page": 582,
-    "text": "E/UNCAGE Button 1 2 5 3 6 6a 6b PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
+    "text": "Button 1 2 5 3 6 6a 6b PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
   },
   {
     "page": 583,
@@ -7641,19 +7641,19 @@
   },
   {
     "page": 585,
-    "text": "oint Helmet Cueing System) 3. Master Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 SIDEWINDER, or \u00ab LSHIFT+S \u00bb 5. Master Mode switch will be automatically set to A/A 6. Move your head/helmet and try to place the DAC (Dynamic Aiming Cue) and AIM-9X Seeker Circle on the nearest target. Sensor Control Switch AFT/FWD/LEFT/RIGHT 4 1 3 6 2 DAC (Dynamic Aiming Cue) Elevation Angle (deg) AIM-9X Seeker C"
+    "text": "oint Helmet Cueing System) 3. Master Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 SIDEWINDER, or \u00ab \u00bb 5. Master Mode switch will be automatically set to A/A 6. Move your head/helmet and try to place the DAC (Dynamic Aiming Cue) and AIM-9X Seeker Circle on the nearest target. Sensor Control Switch AFT/FWD/LEFT/RIGHT 4 1 3 6 2 DAC (Dynamic Aiming Cue) Elevation Angle (deg) AIM-9X Seeker Circle 5 A"
   },
   {
     "page": 585,
-    "text": "l Switch AFT/FWD/LEFT/RIGHT 4 1 3 6 2 DAC (Dynamic Aiming Cue) Elevation Angle (deg) AIM-9X Seeker Circle 5 AIM-9X Sidewinder selected & armed Number of missiles available The HMD (Helmet-Mounted Display) and JHMCS (Joint Helmet-Mounted Cueing System) allow the pilot to project the Heads-Up Display in his field of vision at all times. It also allows the slaving of sensors and weapons to the helmet"
+    "text": "AFT/FWD/LEFT/RIGHT 4 1 3 6 2 DAC (Dynamic Aiming Cue) Elevation Angle (deg) AIM-9X Seeker Circle 5 AIM-9X Sidewinder selected & armed Number of missiles available The HMD (Helmet-Mounted Display) and JHMCS (Joint Helmet-Mounted Cueing System) allow the pilot to project the Heads-Up Display in his field of vision at all times. It also allows the slaving of sensors and weapons to the helmet\u2019s line o"
   },
   {
     "page": 585,
-    "text": "in his field of vision at all times. It also allows the slaving of sensors and weapons to the helmet\u2019s line of sight. In the Hornet, the JHMCS is very useful for using missiles like the AIM-9X, an upgraded version of the AIM-9 with TVC (Thrust Vectoring Control) allowing 80 deg off-boresight shots. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AF"
+    "text": "eld of vision at all times. It also allows the slaving of sensors and weapons to the helmet\u2019s line of sight. In the Hornet, the JHMCS is very useful for using missiles like the AIM-9X, an upgraded version of the AIM-9 with TVC (Thrust Vectoring Control) allowing 80 deg off-boresight shots. PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select"
   },
   {
     "page": 585,
-    "text": "PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
+    "text": "OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
   },
   {
     "page": 586,
@@ -7685,27 +7685,27 @@
   },
   {
     "page": 589,
-    "text": "589 1 3.4 - AIM-7M SPARROW AIR-TO-AIR SARH MISSILE (RADAR) 1. Radar Switch \u2013 OPERATE 2. Set RDR ATTK page on the right DDI and the SMS page on the left DDI (Digital Display Indicator) by pressing the MENU OSB, then selecting TAC or SUPT page, then choosing which menu to display on which DDI. 3. Master Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 SPARROW, or \u00ab LSHIFT+W \u00bb 5. Master Mode switch wi"
+    "text": "589 1 3.4 - AIM-7M SPARROW AIR-TO-AIR SARH MISSILE (RADAR) 1. Radar Switch \u2013 OPERATE 2. Set RDR ATTK page on the right DDI and the SMS page on the left DDI (Digital Display Indicator) by pressing the MENU OSB, then selecting TAC or SUPT page, then choosing which menu to display on which DDI. 3. Master Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 SPARROW, or \u00ab \u00bb 5. Master Mode switch will be aut"
   },
   {
     "page": 589,
-    "text": "er Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 SPARROW, or \u00ab LSHIFT+W \u00bb 5. Master Mode switch will be automatically set to A/A 6. On SMS (Stores Management System) page, set your desired target size (SMALL/MEDIUM/LARGE). 7. Press OSB next to MODE to select missile mode. NORM is a normal launch, LOFT is to make the missile fly a higher trajectory to face less dense air and thus increase energy"
+    "text": "er Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 SPARROW, or \u00ab \u00bb 5. Master Mode switch will be automatically set to A/A 6. On SMS (Stores Management System) page, set your desired target size (SMALL/MEDIUM/LARGE). 7. Press OSB next to MODE to select missile mode. NORM is a normal launch, LOFT is to make the missile fly a higher trajectory to face less dense air and thus increase energy during hi"
   },
   {
     "page": 589,
-    "text": "LOFT is to make the missile fly a higher trajectory to face less dense air and thus increase energy during hitting the target, and HELO is specifically use for helicopters. In our case, we will use NORM. 8. If you have different types of Sparrows loaded, select desired Sparrow type on the SMS page. 9. When SPARROW is selected, radar is operating, press the Sensor Select Switch RIGHT to select BVR/"
+    "text": "o make the missile fly a higher trajectory to face less dense air and thus increase energy during hitting the target, and HELO is specifically use for helicopters. In our case, we will use NORM. 8. If you have different types of Sparrows loaded, select desired Sparrow type on the SMS page. 9. When SPARROW is selected, radar is operating, press the Sensor Select Switch RIGHT to select BVR/RWS (Beyo"
   },
   {
     "page": 589,
-    "text": "9. When SPARROW is selected, radar is operating, press the Sensor Select Switch RIGHT to select BVR/RWS (Beyond Visual Range/Range While Search) radar mode and slave the TDC (Throttle Designation Controller) to the radar screen. 10. Set desired radar range scale (40 nm in our case) 11. Set desired radar azimuth range (140 deg in our case) 12. Set desired radar bar mode (4 or 2 bars are generally u"
+    "text": "PARROW is selected, radar is operating, press the Sensor Select Switch RIGHT to select BVR/RWS (Beyond Visual Range/Range While Search) radar mode and slave the TDC (Throttle Designation Controller) to the radar screen. 10. Set desired radar range scale (40 nm in our case) 11. Set desired radar azimuth range (140 deg in our case) 12. Set desired radar bar mode (4 or 2 bars are generally used) 1 Un"
   },
   {
     "page": 589,
-    "text": "adar azimuth range (140 deg in our case) 12. Set desired radar bar mode (4 or 2 bars are generally used) 1 Undesignate / Nosewheel Steering Button Sensor Control Switch AFT/FWD/LEFT/RIGHT 3 45 6 7a 8 9a 9b TDC is active on Right DDI 9b RWS (Range While Search) 10 11 12 Radar Contact Radar Contact Radar Contact TDC PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Sel"
+    "text": "uth range (140 deg in our case) 12. Set desired radar bar mode (4 or 2 bars are generally used) 1 Undesignate / Nosewheel Steering Button Sensor Control Switch AFT/FWD/LEFT/RIGHT 3 45 6 7a 8 9a 9b TDC is active on Right DDI 9b RWS (Range While Search) 10 11 12 Radar Contact Radar Contact Radar Contact TDC PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparr"
   },
   {
     "page": 589,
-    "text": "dar Contact TDC PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function 7b"
+    "text": "ct TDC PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function 7b"
   },
   {
     "page": 590,
@@ -7749,27 +7749,27 @@
   },
   {
     "page": 593,
-    "text": "593 1 3.5 - AIM-120B AMRAAM AIR-TO-AIR ACTIVE RADAR HOMING MISSILE 1. Radar Switch \u2013 OPERATE 2. Set RDR ATTK page on the right DDI and the SMS page on the left DDI (Digital Display Indicator) by pressing the MENU OSB, then selecting TAC or SUPT page, then choosing which menu to display on which DDI. 3. Master Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 Right/AMRAAM, or \u00ab LSHIFT+D \u00bb 5. Master M"
+    "text": "593 1 3.5 - AIM-120B AMRAAM AIR-TO-AIR ACTIVE RADAR HOMING MISSILE 1. Radar Switch \u2013 OPERATE 2. Set RDR ATTK page on the right DDI and the SMS page on the left DDI (Digital Display Indicator) by pressing the MENU OSB, then selecting TAC or SUPT page, then choosing which menu to display on which DDI. 3. Master Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 Right/AMRAAM, or \u00ab \u00bb 5. Master Mode switc"
   },
   {
     "page": 593,
-    "text": "3. Master Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 Right/AMRAAM, or \u00ab LSHIFT+D \u00bb 5. Master Mode switch will be automatically set to A/A 6. On SMS (Stores Management System) page, set your expected target size (SMALL/MEDIUM/LARGE). 7. Set expected target RCS (Radar Cross-Section) on the SMS page (SMALL/MEDIUM/LARGE). 8. If you have different types of AMRAAMS loaded, select desired AMRAAM st"
+    "text": "3. Master Arm switch \u2013 ARM (UP) 4. Weapon Select Switch \u2013 Right/AMRAAM, or \u00ab \u00bb 5. Master Mode switch will be automatically set to A/A 6. On SMS (Stores Management System) page, set your expected target size (SMALL/MEDIUM/LARGE). 7. Set expected target RCS (Radar Cross-Section) on the SMS page (SMALL/MEDIUM/LARGE). 8. If you have different types of AMRAAMS loaded, select desired AMRAAM station by"
   },
   {
     "page": 593,
-    "text": "age (SMALL/MEDIUM/LARGE). 8. If you have different types of AMRAAMS loaded, select desired AMRAAM station by pressing the Weapon Select Switch \u2013 Right/AMRAAM, or \u00ab LSHIFT+D \u00bb. A \u00ab SEL \u00bb symbol will be near the selected station. AIM-120Cs are shown as \u00ab AC \u00bb while AIM- 120Bs are shown as \u00ab AB \u00bb. 9. When AMRAAM is selected, radar is operating, press the Sensor Select Switch RIGHT to select BVR/RWS ("
+    "text": "L/MEDIUM/LARGE). 8. If you have different types of AMRAAMS loaded, select desired AMRAAM station by pressing the Weapon Select Switch \u2013 Right/AMRAAM, or \u00ab \u00bb. A \u00ab SEL \u00bb symbol will be near the selected station. AIM-120Cs are shown as \u00ab AC \u00bb while AIM- 120Bs are shown as \u00ab AB \u00bb. 9. When AMRAAM is selected, radar is operating, press the Sensor Select Switch RIGHT to select BVR/RWS (Beyond Visual Rang"
   },
   {
     "page": 593,
-    "text": "hen AMRAAM is selected, radar is operating, press the Sensor Select Switch RIGHT to select BVR/RWS (Beyond Visual Range/Range While Search) radar mode and slave the TDC (Throttle Designation Controller) to the radar screen. 10. Set desired radar range scale (40 nm in our case) 11. Set desired radar azimuth range (140 deg in our case) 12. Set desired radar bar mode (4 or 2 bars are generally used)"
+    "text": "cted, radar is operating, press the Sensor Select Switch RIGHT to select BVR/RWS (Beyond Visual Range/Range While Search) radar mode and slave the TDC (Throttle Designation Controller) to the radar screen. 10. Set desired radar range scale (40 nm in our case) 11. Set desired radar azimuth range (140 deg in our case) 12. Set desired radar bar mode (4 or 2 bars are generally used) 1 Undesignate / No"
   },
   {
     "page": 593,
-    "text": "azimuth range (140 deg in our case) 12. Set desired radar bar mode (4 or 2 bars are generally used) 1 Undesignate / Nosewheel Steering Button Sensor Control Switch AFT/FWD/LEFT/RIGHT 3 4 5 6 7 8 9a 9b TDC is active on Right DDI 9b RWS (Range While Search) 10 11 12 Radar Contact TDC PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 P"
+    "text": "deg in our case) 12. Set desired radar bar mode (4 or 2 bars are generally used) 1 Undesignate / Nosewheel Steering Button Sensor Control Switch AFT/FWD/LEFT/RIGHT 3 4 5 6 7 8 9a 9b TDC is active on Right DDI 9b RWS (Range While Search) 10 11 12 Radar Contact TDC PART 10 \u2013 OFFENCE: WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select"
   },
   {
     "page": 593,
-    "text": ": WEAPONS & ARMAMENT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
+    "text": "NT F/A-18C HORNET Weapon Select Switch \u2022 FWD: Select Sparrow \u2022 AFT: Select Gun \u2022 PRESS DOWN: Select Sidewinder \u2022 RIGHT: Select Amraam \u2022 LEFT: No Function"
   },
   {
     "page": 594,
@@ -9437,11 +9437,11 @@
   },
   {
     "page": 707,
-    "text": "C to clear current frequency e. Type \u201c127500\u201d on the UFC to set carrier radio frequency 127.5 MHz f. Press ENT on the UFC to enter this frequency g. Press the COMM switch \u2013 COMM1 on your throttle to contact the carrier (RALT+\\) h. Go in F5 \u2013 AT5 menu, then to the CVN-74 menu, then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. 1a 1b 1b 1d 1d 1f 1e 1g 1h 1h 1h 1i 1c PAR"
+    "text": "C to clear current frequency e. Type \u201c127500\u201d on the UFC to set carrier radio frequency 127.5 MHz f. Press ENT on the UFC to enter this frequency g. Press the COMM switch \u2013 COMM1 on your throttle to contact the carrier ( h. Go in F5 \u2013 AT5 menu, then to the CVN-74 menu, then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. 1a 1b 1b 1d 1d 1f 1e 1g 1h 1h 1h 1i 1c PART 15 \u2013"
   },
   {
     "page": 707,
-    "text": "d menu. i. And that\u2019s it, the carrier is now illuminated. 1a 1b 1b 1d 1d 1f 1e 1g 1h 1h 1h 1i 1c PART 15 \u2013 NAVIGATION & CASE III RECOVERY F/A-18C HORNET 9 \u2013 ICLS CARRIER LANDING TUTORIAL CASE III RECOVERY"
+    "text": "i. And that\u2019s it, the carrier is now illuminated. 1a 1b 1b 1d 1d 1f 1e 1g 1h 1h 1h 1i 1c PART 15 \u2013 NAVIGATION & CASE III RECOVERY F/A-18C HORNET 9 \u2013 ICLS CARRIER LANDING TUTORIAL CASE III RECOVERY"
   },
   {
     "page": 708,
@@ -9553,11 +9553,11 @@
   },
   {
     "page": 718,
-    "text": "cues. Important Note: Information from the aircraft carrier can be consulted on the kneeboard by pressing \u00ab RSHIFT+K \u00bb. PART 15 \u2013 NAVIGATION & CASE III RECOVERY F/A-18C HORNET 10 \u2013 ACLS (AUTOMATIC CARRIER LANDING SYSTEM) TUTORIAL CASE III RECOVERY (SUPERCARRIER) Paddle Switch (Nosewheel steering disengage, Autopilot disengage & G-limiter override switch)"
+    "text": "cues. Important Note: Information from the aircraft carrier can be consulted on the kneeboard by pressing \u00ab \u00bb. PART 15 \u2013 NAVIGATION & CASE III RECOVERY F/A-18C HORNET 10 \u2013 ACLS (AUTOMATIC CARRIER LANDING SYSTEM) TUTORIAL CASE III RECOVERY (SUPERCARRIER) Paddle Switch (Nosewheel steering disengage, Autopilot disengage & G-limiter override switch)"
   },
   {
     "page": 718,
-    "text": "engage, Autopilot disengage & G-limiter override switch)"
+    "text": "utopilot disengage & G-limiter override switch)"
   },
   {
     "page": 719,
@@ -9625,15 +9625,15 @@
   },
   {
     "page": 721,
-    "text": "C to clear current frequency e. Type \u201c127500\u201d on the UFC to set carrier radio frequency 127.5 MHz f. Press ENT on the UFC to enter this frequency g. Press the COMM switch \u2013 COMM1 on your throttle to contact the carrier (RALT+\\) h. Go in F5 \u2013 AT5 menu, then to the CVN-73 (George Washington Carrier) menu, then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. j. The carrier"
+    "text": "C to clear current frequency e. Type \u201c127500\u201d on the UFC to set carrier radio frequency 127.5 MHz f. Press ENT on the UFC to enter this frequency g. Press the COMM switch \u2013 COMM1 on your throttle to contact the carrier ( h. Go in F5 \u2013 AT5 menu, then to the CVN-73 (George Washington Carrier) menu, then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. j. The carrier will t"
   },
   {
     "page": 721,
-    "text": "enu, then to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. j. The carrier will then give you a final bearing (353 in this tutorial). 1a 1b 1b 1d 1d 1f 1e 1g 1h 1h 1h 1i 1c PART 15 \u2013 NAVIGATION & CASE III RECOVERY F/A-18C HORNET 10 \u2013 ACLS (AUTOMATIC CARRIER LANDING SYSTEM) TUTORIAL CASE III RECOVERY (SUPERCARRIER) 1j"
+    "text": "en to the F1 \u2013 Inbound menu. i. And that\u2019s it, the carrier is now illuminated. j. The carrier will then give you a final bearing (353 in this tutorial). 1a 1b 1b 1d 1d 1f 1e 1g 1h 1h 1h 1i 1c PART 15 \u2013 NAVIGATION & CASE III RECOVERY F/A-18C HORNET 10 \u2013 ACLS (AUTOMATIC CARRIER LANDING SYSTEM) TUTORIAL CASE III RECOVERY (SUPERCARRIER) 1j"
   },
   {
     "page": 721,
-    "text": "TUTORIAL CASE III RECOVERY (SUPERCARRIER) 1j"
+    "text": "L CASE III RECOVERY (SUPERCARRIER) 1j"
   },
   {
     "page": 722,
@@ -9841,7 +9841,7 @@
   },
   {
     "page": 736,
-    "text": "5. TEXACO should give you a pre-contact altitude (in our case 8,000 ft). 6. Set Master Arm Switch \u2013 OFF (DOWN) 7. Set Flaps to AUTO 8. Set PROBE switch to EXTEND (right click). Note: Some tankers like the KC-130 are equipped with a TACAN beacon, which can give you a direction to find it easily. Just make sure you have the correct TACAN frequency set in the A/A (Air-to-Air) Mode. Set TACAN using t"
+    "text": "5. TEXACO should give you a pre-contact altitude (in our case 8,000 ft). 6. Set Master Arm Switch \u2013 OFF (DOWN) 7. Set Flaps to AUTO 8. Set PROBE switch to EXTEND (right-click). Note: Some tankers like the KC-130 are equipped with a TACAN beacon, which can give you a direction to find it easily. Just make sure you have the correct TACAN frequency set in the A/A (Air-to-Air) Mode. Set TACAN using t"
   },
   {
     "page": 736,
