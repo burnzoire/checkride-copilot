@@ -53,6 +53,9 @@ def synthesize(text: str, model_path: Optional[Path] = None) -> tuple[np.ndarray
     buf.seek(44)  # skip WAV header
     raw = buf.read()
     audio = np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768.0
+    # Pad trailing silence so the last syllable isn't clipped by the audio buffer
+    silence = np.zeros(int(voice.config.sample_rate * 0.35), dtype=np.float32)
+    audio = np.concatenate([audio, silence])
     return audio, voice.config.sample_rate
 
 
