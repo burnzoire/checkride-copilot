@@ -1,0 +1,83 @@
+{
+  "event": "export",
+  "ts": 3600.125,
+  "data": {
+    "SelfData": {
+      "Name": "FA-18C_hornet",
+      "LatLongAlt": {
+        "Lat": 41.5234,
+        "Long": 41.0123,
+        "Alt": 6096.0
+      },
+      "Position": {
+        "x": 100000.0,
+        "y": 6096.0,
+        "z": 200000.0
+      },
+      "Heading": 4.712,
+      "Pitch": -0.005,
+      "Bank": 0.0
+    },
+    "MechInfo": {
+      "gear": {
+        "value": 0,
+        "status": 0,
+        "nose":  {"rod": 0.0},
+        "main": {
+          "left":  {"rod": 0.0},
+          "right": {"rod": 0.0}
+        }
+      },
+      "flaps": {"value": 0.0},
+      "hook":  {"value": 0.0}
+    },
+    "NavInfo": {},
+    "PayloadInfo": {
+      "Stations": [
+        {"CLSID": "{908E96A0-6D39-11E3-949A-0800200C9A66}", "count": 1},
+        {"CLSID": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}", "count": 1},
+        null,
+        null,
+        null,
+        null,
+        {"CLSID": "{40EF17B7-F508-45de-8566-6FFECC0C1AB8}", "count": 1},
+        null,
+        {"CLSID": "{908E96A0-6D39-11E3-949A-0800200C9A66}", "count": 1}
+      ]
+    },
+    "EngineInfo": {
+      "RPM_left": 72.0,
+      "RPM_right": 72.0
+    },
+    "FlightData": {
+      "IAS_ms": 205.7,
+      "TAS_ms": 208.1,
+      "Mach": 0.62,
+      "AoA_deg": 4.2,
+      "FuelKg": 1953.8
+    },
+    "CockpitParams": {
+      "master_arm": "SAFE",
+      "battery_switch": "ON",
+      "external_power": "OFF",
+      "gear_lever": "UP",
+      "flaps_sw": "AUTO",
+      "hook_lever": "UP",
+      "selected_weapon": "AIM-120C",
+      "radar_power_sw": "OPR",
+      "radar_mode": "RWS",
+      "tgp_power_sw": "STBY",
+      "tgp_mode": "STBY",
+      "tgp_tdc_priority": false,
+      "tgp_tracking": false,
+      "tgp_lasing": false,
+      "laser_armed": false,
+      "laser_code": 1688,
+      "hmd_enabled": false,
+      "autopilot_engaged": false,
+      "mfd_left_page": "radar",
+      "mfd_right_page": "SA",
+      "mfd_center_page": "HSI"
+    }
+  }
+}

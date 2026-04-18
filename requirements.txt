@@ -1,19 +1,39 @@
 # Checkride Copilot — Python dependencies
 # Pin versions before shipping; these are starting points.
+#
+# Install:
+#   python -m venv .venv && .venv/Scripts/python.exe -m pip install -r requirements.txt
+#
+# PyTorch: install separately for your CUDA version BEFORE the rest.
+#   RTX 40xx / older:  pip install torch --index-url https://download.pytorch.org/whl/cu124
+#   RTX 5080 (sm_120): pip install --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu128
 
 # LLM / MCP
-ollama
+fastmcp
 mcp
+
+# Collector HTTP API
+fastapi
+uvicorn
+
+# HTTP client (orchestrator → Ollama, slice-1 → collector)
+httpx
 
 # Voice — STT
 faster-whisper
 
-# Voice — TTS
+# Voice — TTS + playback
 piper-tts
+sounddevice
+pyaudio
+
+# PTT key listener
+pynput
 
 # Retrieval / RAG
 chromadb
 sentence-transformers
+rank-bm25
 
 # DCS telemetry
 # dcs-bios-reader  # add when package is confirmed
@@ -22,3 +42,6 @@ sentence-transformers
 pydantic
 python-dotenv
 loguru
+
+# Tests
+pytest
