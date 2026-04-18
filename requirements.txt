@@ -34,6 +34,7 @@ pynput
 chromadb
 sentence-transformers
 rank-bm25
+pypdf
 
 # DCS telemetry
 # dcs-bios-reader  # add when package is confirmed

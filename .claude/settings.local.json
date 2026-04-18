@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(curl -s http://127.0.0.1:7779/debug)",
-      "Bash(python -m json.tool)"
+      "Bash(python -m json.tool)",
+      "Bash(.venv/Scripts/python.exe -c \"import pypdf; print\\('pypdf ok'\\)\")",
+      "Bash(.venv/Scripts/python.exe -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
+      "Bash(.venv/Scripts/python.exe -c \"import fitz; print\\('fitz ok'\\)\")",
+      "Bash(.venv/Scripts/python.exe -m pip install pypdf -q)",
+      "Bash(.venv/Scripts/python.exe -c \"import pypdf; print\\('pypdf', pypdf.__version__\\)\")"
     ]
   }
 }

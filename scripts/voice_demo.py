@@ -19,6 +19,7 @@ PTT key names: caps_lock, scroll_lock, f13, or any single character.
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -32,6 +33,12 @@ from diagnostic.rules import get_rules_for_action
 from diagnostic.engine import diagnose_action
 from voice import stt, tts
 
+try:
+    from retrieval.search import search as _rag_search
+    _RAG_AVAILABLE = True
+except Exception:
+    _RAG_AVAILABLE = False
+
 
 COLLECTOR_URL   = "http://127.0.0.1:7779/state"
 OLLAMA_URL      = "http://localhost:11434/api/chat"
@@ -40,23 +47,26 @@ MAX_HISTORY     = 10    # max message pairs to keep (older turns dropped)
 STATE_FRESH_MS  = 5000  # treat state as live only if updated within this window
 
 SYSTEM_PROMPT_INFLIGHT = """\
-You are Checkride Copilot, an F/A-18C NATOPS advisor. The pilot is currently in the jet.
-Live cockpit state is provided as context — use it when the question is about current \
-systems or a specific action. Ignore it for general procedure questions.
-Answer ONLY what was asked. One sentence. 25 words maximum — hard limit.
-Never use numbered steps, bullet points, or line breaks. Prose only.
-Answer about the weapon or system the pilot named, not what happens to be loaded.
-Give specific NATOPS values, not generic advice.
-If the pilot is only setting up a question, reply: Go ahead.
+You are Checkride Copilot, a laconic but friendly F/A-18C NATOPS advisor speaking over intercom to a pilot in the jet.
+Relevant excerpts from the NATOPS guide are provided before each question under [Reference]. Use them as your primary source.
+Live cockpit state is also provided — use it when the question is about current systems or a specific action.
+Speak like an experienced WSO: direct, calm, conversational. No jargon beyond NATOPS terms.
+Keep answers to 1-2 short sentences. Never list steps or use bullet points — prose only.
+Answer about the weapon or system the pilot named, not whatever happens to be loaded.
+Give exact values from the reference (switch names, locations, settings). Do not paraphrase vaguely.
+If the reference doesn't cover the question, say so plainly — do not invent an answer.
+If the question is unclear or cut off, ask the pilot to say again in plain words.
+For social/conversational inputs (thanks, roger, etc.), respond naturally and briefly.
 """
 
 SYSTEM_PROMPT_GROUND = """\
-You are Checkride Copilot, an F/A-18C NATOPS advisor. The pilot is not currently in a jet.
-Answer from NATOPS and procedure knowledge only — do not reference any cockpit state.
-Answer ONLY what was asked. One sentence. 25 words maximum — hard limit.
-Never use numbered steps, bullet points, or line breaks. Prose only.
-Give specific NATOPS values, not generic advice.
-If the pilot is only setting up a question, reply: Go ahead.
+You are Checkride Copilot, a laconic but friendly F/A-18C NATOPS advisor.
+Relevant excerpts from the NATOPS guide are provided before each question under [Reference]. Use them as your primary source.
+Speak like an experienced WSO: direct, calm, conversational.
+Keep answers to 1-2 short sentences. Never list steps or use bullet points — prose only.
+Give exact values from the reference (switch names, locations, settings). Do not paraphrase vaguely.
+If the reference doesn't cover the question, say so plainly — do not invent an answer.
+For social/conversational inputs (thanks, roger, etc.), respond naturally and briefly.
 """
 
 
@@ -123,6 +133,34 @@ def _diagnostic_note(text: str, state: dict) -> str:
     return ""
 
 
+_AVIATION_RE = re.compile(
+    r"\b(aim|amraam|sidewinder|gbu|bomb|laser|tgp|radar|engine|gear|flap|hook|"
+    r"light|switch|panel|console|throttle|hud|mfd|sensor|fuel|hydraulic|"
+    r"speed|altitude|heading|start|master|arm|fire|release|track|lock)\b",
+    re.IGNORECASE,
+)
+
+
+def _build_search_query(transcript: str, history: list[dict]) -> str:
+    """For short or low-keyword queries, prepend the most recent topic from history."""
+    words = transcript.split()
+    has_keywords = bool(_AVIATION_RE.search(transcript))
+    if len(words) >= 6 or has_keywords:
+        return transcript
+
+    # Pull the last user turn from history to give BM25 more signal
+    for msg in reversed(history):
+        if msg["role"] == "user":
+            prior = msg["content"]
+            # Strip injected blocks so we don't pollute the search query
+            prior = re.sub(r"\[Reference\].*?\n\n", "", prior, flags=re.DOTALL)
+            prior = re.sub(r"\[Cockpit state\].*?\n\n", "", prior, flags=re.DOTALL)
+            prior = prior.replace("Pilot: ", "").strip()
+            return f"{prior} {transcript}"
+
+    return transcript
+
+
 def _ask_ollama(
     transcript: str,
     state: dict | None,
@@ -132,14 +170,22 @@ def _ask_ollama(
     in_jet    = state is not None
     sys_prompt = SYSTEM_PROMPT_INFLIGHT if in_jet else SYSTEM_PROMPT_GROUND
 
+    ref_block = ""
+    if _RAG_AVAILABLE:
+        search_query = _build_search_query(transcript, history)
+        hits = _rag_search(search_query, top_k=2)
+        if hits:
+            excerpts = "\n---\n".join(h["text"] for h in hits)
+            ref_block = f"[Reference]\n{excerpts}\n\n"
+
     if in_jet:
         diag_note = _diagnostic_note(transcript, state)
-        user_msg  = f"[Cockpit state]\n{_state_summary(state)}"
+        user_msg  = f"{ref_block}[Cockpit state]\n{_state_summary(state)}"
         if diag_note:
             user_msg += f"\n\n[Diagnostic]\n{diag_note}"
         user_msg += f"\n\nPilot: {transcript}"
     else:
-        user_msg = f"Pilot: {transcript}"
+        user_msg = f"{ref_block}Pilot: {transcript}"
 
     messages = [{"role": "system", "content": sys_prompt}]
     messages += history[-MAX_HISTORY * 2:]          # keep last N turns
@@ -150,8 +196,9 @@ def _ask_ollama(
         "messages": messages,
         "stream":   False,
         "options":  {
-            "num_predict": 60,
-            "temperature": 0.1,
+            "num_predict": 80,
+            "temperature": 0.35,
+            "repeat_penalty": 1.1,
             "stop": ["\n1", "\n2", "\n-", "\n•", "\n*", "\nStep"],
         },
     }
