@@ -1,0 +1,24 @@
+# Checkride Copilot — Python dependencies
+# Pin versions before shipping; these are starting points.
+
+# LLM / MCP
+ollama
+mcp
+
+# Voice — STT
+faster-whisper
+
+# Voice — TTS
+piper-tts
+
+# Retrieval / RAG
+chromadb
+sentence-transformers
+
+# DCS telemetry
+# dcs-bios-reader  # add when package is confirmed
+
+# Utilities
+pydantic
+python-dotenv
+loguru
