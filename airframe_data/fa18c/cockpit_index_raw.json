@@ -1,0 +1,1050 @@
+[
+  {
+    "text": "IFEI",
+    "conf": 0.989,
+    "nx": 0.3306,
+    "ny": 0.4542,
+    "area": "center_console",
+    "panel": "3_5"
+  },
+  {
+    "text": "VIdEO RECORD",
+    "conf": 0.869,
+    "nx": 0.3652,
+    "ny": 0.4542,
+    "area": "center_console",
+    "panel": "4_5"
+  },
+  {
+    "text": "Gan",
+    "conf": 0.775,
+    "nx": 0.4591,
+    "ny": 0.4846,
+    "area": "center_console",
+    "panel": "5_5"
+  },
+  {
+    "text": "REC",
+    "conf": 1.0,
+    "nx": 0.4942,
+    "ny": 0.5554,
+    "area": "center_console",
+    "panel": "5_6"
+  },
+  {
+    "text": "BIT",
+    "conf": 0.51,
+    "nx": 0.4918,
+    "ny": 0.5588,
+    "area": "center_console",
+    "panel": "5_6"
+  },
+  {
+    "text": ") BSPNSER",
+    "conf": 0.338,
+    "nx": 0.4629,
+    "ny": 0.5656,
+    "area": "center_console",
+    "panel": "5_6"
+  },
+  {
+    "text": "STBY",
+    "conf": 0.999,
+    "nx": 0.4909,
+    "ny": 0.5656,
+    "area": "center_console",
+    "panel": "5_6"
+  },
+  {
+    "text": "PED",
+    "conf": 1.0,
+    "nx": 0.4519,
+    "ny": 0.589,
+    "area": "center_console",
+    "panel": "5_7"
+  },
+  {
+    "text": "AJD",
+    "conf": 0.612,
+    "nx": 0.4519,
+    "ny": 0.5925,
+    "area": "center_console",
+    "panel": "5_7"
+  },
+  {
+    "text": "AWABEL",
+    "conf": 0.846,
+    "nx": 0.4707,
+    "ny": 0.5999,
+    "area": "center_console",
+    "panel": "5_7"
+  },
+  {
+    "text": "eon",
+    "conf": 0.351,
+    "nx": 0.5534,
+    "ny": 0.28,
+    "area": "ddi_area",
+    "panel": "6_3"
+  },
+  {
+    "text": "AIP",
+    "conf": 0.851,
+    "nx": 0.4639,
+    "ny": 0.3253,
+    "area": "ddi_area",
+    "panel": "5_3"
+  },
+  {
+    "text": "TCN",
+    "conf": 1.0,
+    "nx": 0.489,
+    "ny": 0.3261,
+    "area": "ddi_area",
+    "panel": "5_3"
+  },
+  {
+    "text": "ILS",
+    "conf": 0.999,
+    "nx": 0.5005,
+    "ny": 0.3261,
+    "area": "ddi_area",
+    "panel": "6_3"
+  },
+  {
+    "text": "DIL",
+    "conf": 0.99,
+    "nx": 0.513,
+    "ny": 0.3261,
+    "area": "ddi_area",
+    "panel": "6_3"
+  },
+  {
+    "text": "BCN",
+    "conf": 1.0,
+    "nx": 0.5255,
+    "ny": 0.3261,
+    "area": "ddi_area",
+    "panel": "6_3"
+  },
+  {
+    "text": "HDG",
+    "conf": 0.986,
+    "nx": 0.4451,
+    "ny": 0.3859,
+    "area": "ddi_area",
+    "panel": "5_4"
+  },
+  {
+    "text": "FUEL",
+    "conf": 1.0,
+    "nx": 0.409,
+    "ny": 0.3906,
+    "area": "ddi_area",
+    "panel": "4_4"
+  },
+  {
+    "text": "ENGINE",
+    "conf": 1.0,
+    "nx": 0.3489,
+    "ny": 0.391,
+    "area": "ddi_area",
+    "panel": "4_4"
+  },
+  {
+    "text": "DAY",
+    "conf": 0.998,
+    "nx": 0.4778,
+    "ny": 0.3967,
+    "area": "ddi_area",
+    "panel": "5_4"
+  },
+  {
+    "text": "FIA-18C",
+    "conf": 0.984,
+    "nx": 0.3932,
+    "ny": 0.0208,
+    "area": "hud_area",
+    "panel": "4_0"
+  },
+  {
+    "text": "Hornet",
+    "conf": 1.0,
+    "nx": 0.613,
+    "ny": 0.0213,
+    "area": "hud_area",
+    "panel": "7_0"
+  },
+  {
+    "text": "Simulator Cockpit Layout",
+    "conf": 0.992,
+    "nx": 0.5,
+    "ny": 0.0475,
+    "area": "hud_area",
+    "panel": "6_0"
+  },
+  {
+    "text": "EMERG",
+    "conf": 1.0,
+    "nx": 0.2968,
+    "ny": 0.3499,
+    "area": "left_console",
+    "panel": "3_4"
+  },
+  {
+    "text": "JETT",
+    "conf": 0.982,
+    "nx": 0.3032,
+    "ny": 0.3925,
+    "area": "left_console",
+    "panel": "3_4"
+  },
+  {
+    "text": "SELECT",
+    "conf": 0.999,
+    "nx": 0.3027,
+    "ny": 0.3988,
+    "area": "left_console",
+    "panel": "3_4"
+  },
+  {
+    "text": "CTP",
+    "conf": 0.635,
+    "nx": 0.2979,
+    "ny": 0.4073,
+    "area": "left_console",
+    "panel": "3_4"
+  },
+  {
+    "text": "LDG GEAR",
+    "conf": 0.902,
+    "nx": 0.2199,
+    "ny": 0.4417,
+    "area": "left_console",
+    "panel": "2_5"
+  },
+  {
+    "text": "EMERC",
+    "conf": 0.789,
+    "nx": 0.2203,
+    "ny": 0.4484,
+    "area": "left_console",
+    "panel": "2_5"
+  },
+  {
+    "text": "IROTATE",
+    "conf": 0.676,
+    "nx": 0.2203,
+    "ny": 0.4515,
+    "area": "left_console",
+    "panel": "2_5"
+  },
+  {
+    "text": "SIL",
+    "conf": 0.904,
+    "nx": 0.2073,
+    "ny": 0.4523,
+    "area": "left_console",
+    "panel": "2_5"
+  },
+  {
+    "text": "DOWN",
+    "conf": 0.998,
+    "nx": 0.205,
+    "ny": 0.462,
+    "area": "left_console",
+    "panel": "2_5"
+  },
+  {
+    "text": "FLAP",
+    "conf": 0.992,
+    "nx": 0.2198,
+    "ny": 0.496,
+    "area": "left_console",
+    "panel": "2_5"
+  },
+  {
+    "text": "LAUNCH BAR",
+    "conf": 0.726,
+    "nx": 0.1957,
+    "ny": 0.4967,
+    "area": "left_console",
+    "panel": "2_5"
+  },
+  {
+    "text": "SELECT JETT",
+    "conf": 0.803,
+    "nx": 0.254,
+    "ny": 0.4967,
+    "area": "left_console",
+    "panel": "3_5"
+  },
+  {
+    "text": "AUTO",
+    "conf": 0.489,
+    "nx": 0.2194,
+    "ny": 0.5003,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "RETRACT",
+    "conf": 0.947,
+    "nx": 0.194,
+    "ny": 0.5012,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "#seus",
+    "conf": 0.341,
+    "nx": 0.2421,
+    "ny": 0.5042,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "EXTEND",
+    "conf": 0.999,
+    "nx": 0.1944,
+    "ny": 0.5128,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "(JET",
+    "conf": 0.675,
+    "nx": 0.2517,
+    "ny": 0.514,
+    "area": "left_console",
+    "panel": "3_6"
+  },
+  {
+    "text": "LDG/TAX",
+    "conf": 0.969,
+    "nx": 0.1954,
+    "ny": 0.519,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "ANT | SKID",
+    "conf": 0.715,
+    "nx": 0.2199,
+    "ny": 0.519,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "STORES",
+    "conf": 0.993,
+    "nx": 0.265,
+    "ny": 0.5234,
+    "area": "left_console",
+    "panel": "3_6"
+  },
+  {
+    "text": "EMERG",
+    "conf": 1.0,
+    "nx": 0.27,
+    "ny": 0.5319,
+    "area": "left_console",
+    "panel": "3_6"
+  },
+  {
+    "text": "BPKS",
+    "conf": 0.574,
+    "nx": 0.2694,
+    "ny": 0.5346,
+    "area": "left_console",
+    "panel": "3_6"
+  },
+  {
+    "text": "HOOK",
+    "conf": 0.996,
+    "nx": 0.1833,
+    "ny": 0.5448,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "BRRK",
+    "conf": 0.95,
+    "nx": 0.2684,
+    "ny": 0.5484,
+    "area": "left_console",
+    "panel": "3_6"
+  },
+  {
+    "text": "BYPASS",
+    "conf": 1.0,
+    "nx": 0.1833,
+    "ny": 0.5495,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "FIELD",
+    "conf": 0.999,
+    "nx": 0.1833,
+    "ny": 0.5542,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "Purn",
+    "conf": 0.458,
+    "nx": 0.266,
+    "ny": 0.5554,
+    "area": "left_console",
+    "panel": "3_6"
+  },
+  {
+    "text": "CARRIER",
+    "conf": 0.999,
+    "nx": 0.1828,
+    "ny": 0.566,
+    "area": "left_console",
+    "panel": "2_6"
+  },
+  {
+    "text": "SnR",
+    "conf": 0.354,
+    "nx": 0.2102,
+    "ny": 0.598,
+    "area": "left_console",
+    "panel": "2_7"
+  },
+  {
+    "text": "TEST B",
+    "conf": 0.837,
+    "nx": 0.2617,
+    "ny": 0.5991,
+    "area": "left_console",
+    "panel": "3_7"
+  },
+  {
+    "text": "EXT",
+    "conf": 0.991,
+    "nx": 0.2165,
+    "ny": 0.6433,
+    "area": "left_console",
+    "panel": "2_7"
+  },
+  {
+    "text": "FORMAT ION",
+    "conf": 0.861,
+    "nx": 0.2174,
+    "ny": 0.6656,
+    "area": "left_console",
+    "panel": "2_7"
+  },
+  {
+    "text": "RESET",
+    "conf": 1.0,
+    "nx": 0.178,
+    "ny": 0.6738,
+    "area": "left_console",
+    "panel": "2_8"
+  },
+  {
+    "text": "ItiON",
+    "conf": 0.312,
+    "nx": 0.2015,
+    "ny": 0.6887,
+    "area": "left_console",
+    "panel": "2_8"
+  },
+  {
+    "text": "NORM",
+    "conf": 0.999,
+    "nx": 0.178,
+    "ny": 0.6952,
+    "area": "left_console",
+    "panel": "2_8"
+  },
+  {
+    "text": "GEN",
+    "conf": 0.856,
+    "nx": 0.1573,
+    "ny": 0.7019,
+    "area": "left_console",
+    "panel": "1_8"
+  },
+  {
+    "text": "CONTPO",
+    "conf": 0.711,
+    "nx": 0.1611,
+    "ny": 0.705,
+    "area": "left_console",
+    "panel": "1_8"
+  },
+  {
+    "text": "EXT   TANKS",
+    "conf": 0.916,
+    "nx": 0.2363,
+    "ny": 0.7495,
+    "area": "left_console",
+    "panel": "2_8"
+  },
+  {
+    "text": "WING",
+    "conf": 0.893,
+    "nx": 0.2251,
+    "ny": 0.7523,
+    "area": "left_console",
+    "panel": "2_9"
+  },
+  {
+    "text": "OR IDE",
+    "conf": 0.791,
+    "nx": 0.2358,
+    "ny": 0.755,
+    "area": "left_console",
+    "panel": "2_9"
+  },
+  {
+    "text": "NORM",
+    "conf": 0.647,
+    "nx": 0.2358,
+    "ny": 0.7588,
+    "area": "left_console",
+    "panel": "2_9"
+  },
+  {
+    "text": "APU",
+    "conf": 0.647,
+    "nx": 0.166,
+    "ny": 0.7624,
+    "area": "left_console",
+    "panel": "1_9"
+  },
+  {
+    "text": "STOP",
+    "conf": 1.0,
+    "nx": 0.2358,
+    "ny": 0.7637,
+    "area": "left_console",
+    "panel": "2_9"
+  },
+  {
+    "text": "READY",
+    "conf": 0.999,
+    "nx": 0.1742,
+    "ny": 0.7663,
+    "area": "left_console",
+    "panel": "2_9"
+  },
+  {
+    "text": "EMERG EXTD",
+    "conf": 0.885,
+    "nx": 0.2073,
+    "ny": 0.7785,
+    "area": "left_console",
+    "panel": "2_9"
+  },
+  {
+    "text": "GAIN",
+    "conf": 0.394,
+    "nx": 0.254,
+    "ny": 0.7846,
+    "area": "left_console",
+    "panel": "3_9"
+  },
+  {
+    "text": "ORI DE",
+    "conf": 0.628,
+    "nx": 0.254,
+    "ny": 0.7929,
+    "area": "left_console",
+    "panel": "3_9"
+  },
+  {
+    "text": "ENG CRANK",
+    "conf": 0.982,
+    "nx": 0.166,
+    "ny": 0.7933,
+    "area": "left_console",
+    "panel": "1_9"
+  },
+  {
+    "text": "NOR",
+    "conf": 0.902,
+    "nx": 0.2531,
+    "ny": 0.8042,
+    "area": "left_console",
+    "panel": "3_9"
+  },
+  {
+    "text": "TPUSIRI",
+    "conf": 0.913,
+    "nx": 0.2083,
+    "ny": 0.8081,
+    "area": "left_console",
+    "panel": "2_9"
+  },
+  {
+    "text": "Omouu",
+    "conf": 0.405,
+    "nx": 0.2001,
+    "ny": 0.9257,
+    "area": "left_console",
+    "panel": "2_11"
+  },
+  {
+    "text": "Illustration Created by:",
+    "conf": 0.983,
+    "nx": 0.5105,
+    "ny": 0.8366,
+    "area": "lower_instrument",
+    "panel": "6_10"
+  },
+  {
+    "text": "NeoEngress Simulations",
+    "conf": 0.831,
+    "nx": 0.4999,
+    "ny": 0.8615,
+    "area": "lower_instrument",
+    "panel": "5_10"
+  },
+  {
+    "text": "High-Fidelity Combat Flight Simulator",
+    "conf": 0.837,
+    "nx": 0.5005,
+    "ny": 0.8843,
+    "area": "lower_instrument",
+    "panel": "6_10"
+  },
+  {
+    "text": "Developer & Manufacturer",
+    "conf": 0.997,
+    "nx": 0.5026,
+    "ny": 0.8957,
+    "area": "lower_instrument",
+    "panel": "6_10"
+  },
+  {
+    "text": "WWWNEOENGRESS.COM",
+    "conf": 0.88,
+    "nx": 0.4985,
+    "ny": 0.942,
+    "area": "lower_instrument",
+    "panel": "5_11"
+  },
+  {
+    "text": "COOL",
+    "conf": 0.782,
+    "nx": 0.6973,
+    "ny": 0.3073,
+    "area": "right_console",
+    "panel": "8_3"
+  },
+  {
+    "text": "HMD",
+    "conf": 0.999,
+    "nx": 0.6993,
+    "ny": 0.3269,
+    "area": "right_console",
+    "panel": "8_3"
+  },
+  {
+    "text": "SP",
+    "conf": 0.964,
+    "nx": 0.6872,
+    "ny": 0.3452,
+    "area": "right_console",
+    "panel": "8_4"
+  },
+  {
+    "text": "LANDING",
+    "conf": 0.623,
+    "nx": 0.8051,
+    "ny": 0.4749,
+    "area": "right_console",
+    "panel": "9_5"
+  },
+  {
+    "text": "\"ISKID",
+    "conf": 0.545,
+    "nx": 0.8095,
+    "ny": 0.4878,
+    "area": "right_console",
+    "panel": "9_5"
+  },
+  {
+    "text": "JENSEP",
+    "conf": 0.452,
+    "nx": 0.811,
+    "ny": 0.4917,
+    "area": "right_console",
+    "panel": "9_5"
+  },
+  {
+    "text": "WING",
+    "conf": 0.976,
+    "nx": 0.8018,
+    "ny": 0.4991,
+    "area": "right_console",
+    "panel": "9_5"
+  },
+  {
+    "text": "FOLD",
+    "conf": 0.996,
+    "nx": 0.8148,
+    "ny": 0.4991,
+    "area": "right_console",
+    "panel": "9_5"
+  },
+  {
+    "text": "~50",
+    "conf": 0.485,
+    "nx": 0.7348,
+    "ny": 0.5058,
+    "area": "right_console",
+    "panel": "8_6"
+  },
+  {
+    "text": "FOL",
+    "conf": 0.992,
+    "nx": 0.809,
+    "ny": 0.51,
+    "area": "right_console",
+    "panel": "9_6"
+  },
+  {
+    "text": "330",
+    "conf": 0.391,
+    "nx": 0.731,
+    "ny": 0.5109,
+    "area": "right_console",
+    "panel": "8_6"
+  },
+  {
+    "text": "BUNO",
+    "conf": 1.0,
+    "nx": 0.7802,
+    "ny": 0.5136,
+    "area": "right_console",
+    "panel": "9_6"
+  },
+  {
+    "text": "Zi0",
+    "conf": 0.609,
+    "nx": 0.7301,
+    "ny": 0.5148,
+    "area": "right_console",
+    "panel": "8_6"
+  },
+  {
+    "text": "HOL",
+    "conf": 0.991,
+    "nx": 0.8225,
+    "ny": 0.5148,
+    "area": "right_console",
+    "panel": "9_6"
+  },
+  {
+    "text": "165407",
+    "conf": 1.0,
+    "nx": 0.7797,
+    "ny": 0.5171,
+    "area": "right_console",
+    "panel": "9_6"
+  },
+  {
+    "text": "6,",
+    "conf": 0.934,
+    "nx": 0.7411,
+    "ny": 0.5234,
+    "area": "right_console",
+    "panel": "8_6"
+  },
+  {
+    "text": "CK  SEAT",
+    "conf": 0.559,
+    "nx": 0.7743,
+    "ny": 0.5402,
+    "area": "right_console",
+    "panel": "9_6"
+  },
+  {
+    "text": "COOL",
+    "conf": 0.831,
+    "nx": 0.8456,
+    "ny": 0.5421,
+    "area": "right_console",
+    "panel": "10_6"
+  },
+  {
+    "text": "GEN",
+    "conf": 0.998,
+    "nx": 0.7878,
+    "ny": 0.5452,
+    "area": "right_console",
+    "panel": "9_6"
+  },
+  {
+    "text": "~EMERG",
+    "conf": 0.345,
+    "nx": 0.8418,
+    "ny": 0.5463,
+    "area": "right_console",
+    "panel": "10_6"
+  },
+  {
+    "text": "GE N",
+    "conf": 0.669,
+    "nx": 0.7758,
+    "ny": 0.5562,
+    "area": "right_console",
+    "panel": "9_6"
+  },
+  {
+    "text": "GEN",
+    "conf": 1.0,
+    "nx": 0.7931,
+    "ny": 0.5562,
+    "area": "right_console",
+    "panel": "9_6"
+  },
+  {
+    "text": "LGEN",
+    "conf": 0.975,
+    "nx": 0.7383,
+    "ny": 0.6038,
+    "area": "right_console",
+    "panel": "8_7"
+  },
+  {
+    "text": "R GEN",
+    "conf": 0.96,
+    "nx": 0.7917,
+    "ny": 0.6038,
+    "area": "right_console",
+    "panel": "9_7"
+  },
+  {
+    "text": "OSUiTEOCABIN",
+    "conf": 0.384,
+    "nx": 0.7637,
+    "ny": 0.6257,
+    "area": "right_console",
+    "panel": "9_7"
+  },
+  {
+    "text": "MODE",
+    "conf": 0.964,
+    "nx": 0.7373,
+    "ny": 0.6265,
+    "area": "right_console",
+    "panel": "8_7"
+  },
+  {
+    "text": "COLD",
+    "conf": 0.975,
+    "nx": 0.7556,
+    "ny": 0.6425,
+    "area": "right_console",
+    "panel": "9_7"
+  },
+  {
+    "text": "8",
+    "conf": 0.65,
+    "nx": 0.7199,
+    "ny": 0.6448,
+    "area": "right_console",
+    "panel": "8_7"
+  },
+  {
+    "text": "BLEGRMAIR",
+    "conf": 0.335,
+    "nx": 0.7878,
+    "ny": 0.6472,
+    "area": "right_console",
+    "panel": "9_7"
+  },
+  {
+    "text": "PITOT",
+    "conf": 0.996,
+    "nx": 0.7373,
+    "ny": 0.6499,
+    "area": "right_console",
+    "panel": "8_7"
+  },
+  {
+    "text": "DEFOG",
+    "conf": 0.997,
+    "nx": 0.834,
+    "ny": 0.6499,
+    "area": "right_console",
+    "panel": "10_7"
+  },
+  {
+    "text": "ENG",
+    "conf": 0.99,
+    "nx": 0.7585,
+    "ny": 0.6503,
+    "area": "right_console",
+    "panel": "9_7"
+  },
+  {
+    "text": "pue",
+    "conf": 0.356,
+    "nx": 0.8018,
+    "ny": 0.6518,
+    "area": "right_console",
+    "panel": "9_7"
+  },
+  {
+    "text": "AUTO",
+    "conf": 0.901,
+    "nx": 0.7373,
+    "ny": 0.6652,
+    "area": "right_console",
+    "panel": "8_7"
+  },
+  {
+    "text": "CONSOLES",
+    "conf": 0.997,
+    "nx": 0.7402,
+    "ny": 0.6745,
+    "area": "right_console",
+    "panel": "8_8"
+  },
+  {
+    "text": "INST PNL",
+    "conf": 0.9,
+    "nx": 0.7648,
+    "ny": 0.6745,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "FLood",
+    "conf": 0.561,
+    "nx": 0.7897,
+    "ny": 0.6745,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "MODE",
+    "conf": 0.994,
+    "nx": 0.797,
+    "ny": 0.6984,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "CHART",
+    "conf": 0.996,
+    "nx": 0.7773,
+    "ny": 0.6995,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "WARN/CAUT",
+    "conf": 0.869,
+    "nx": 0.7537,
+    "ny": 0.6999,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "ANTL ICE",
+    "conf": 0.308,
+    "nx": 0.8326,
+    "ny": 0.7132,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "OFF  BRT",
+    "conf": 0.816,
+    "nx": 0.7768,
+    "ny": 0.7156,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "LSTINFLR",
+    "conf": 0.994,
+    "nx": 0.7897,
+    "ny": 0.7229,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "S1BY",
+    "conf": 0.427,
+    "nx": 0.7291,
+    "ny": 0.7272,
+    "area": "right_console",
+    "panel": "8_8"
+  },
+  {
+    "text": "Ltd/R",
+    "conf": 0.394,
+    "nx": 0.7686,
+    "ny": 0.7277,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "RADAR",
+    "conf": 0.997,
+    "nx": 0.7421,
+    "ny": 0.7362,
+    "area": "right_console",
+    "panel": "8_8"
+  },
+  {
+    "text": "GND",
+    "conf": 0.951,
+    "nx": 0.7898,
+    "ny": 0.739,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "PUERG",
+    "conf": 0.817,
+    "nx": 0.7556,
+    "ny": 0.7421,
+    "area": "right_console",
+    "panel": "9_8"
+  },
+  {
+    "text": "GYRO",
+    "conf": 0.939,
+    "nx": 0.7999,
+    "ny": 0.7569,
+    "area": "right_console",
+    "panel": "9_9"
+  },
+  {
+    "text": "Copyright",
+    "conf": 1.0,
+    "nx": 0.7469,
+    "ny": 0.9768,
+    "area": "right_console",
+    "panel": "8_11"
+  },
+  {
+    "text": "2020 NeoEngress Simulations",
+    "conf": 0.985,
+    "nx": 0.8114,
+    "ny": 0.9768,
+    "area": "right_console",
+    "panel": "9_11"
+  },
+  {
+    "text": "AIl rights reserved_",
+    "conf": 0.802,
+    "nx": 0.8283,
+    "ny": 0.9815,
+    "area": "right_console",
+    "panel": "9_11"
+  }
+]

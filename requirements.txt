@@ -4,9 +4,13 @@
 # Install:
 #   python -m venv .venv && .venv/Scripts/python.exe -m pip install -r requirements.txt
 #
-# PyTorch: install separately for your CUDA version BEFORE the rest.
-#   RTX 40xx / older:  pip install torch --index-url https://download.pytorch.org/whl/cu124
+# PyTorch: install separately for your CUDA version BEFORE the rest, and AFTER
+# any install that may pull in a CPU-only torch (e.g. easyocr).
+#   RTX 40xx / older:  pip install torch --index-url https://download.pytorch.org/whl/cu121
 #   RTX 5080 (sm_120): pip install --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu128
+#
+# Offline dev tools (one-time, run in a separate venv to avoid clobbering torch):
+#   airframe_data/fa18c/build_index.py  →  pip install easyocr pillow
 
 # LLM / MCP
 fastmcp

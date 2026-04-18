@@ -1,0 +1,405 @@
+{
+  "airframe": "FA-18C",
+  "areas": {
+    "left_console": {
+      "label": "Left Console",
+      "panels": {
+        "emerg_jettison": {
+          "label": "Emergency Jettison Panel",
+          "switches": [
+            {
+              "canonical": "Emergency Jettison Button",
+              "alternates": ["emerg jett", "emergency jettison", "jettison button", "jett button", "emerg jettison"],
+              "positions": ["PUSH"]
+            },
+            {
+              "canonical": "Select Jettison Button",
+              "alternates": ["select jett", "selective jettison", "jettison stores", "stores jettison"],
+              "positions": ["PUSH"]
+            }
+          ]
+        },
+        "gear_flap": {
+          "label": "Landing Gear / Flap Panel",
+          "switches": [
+            {
+              "canonical": "Landing Gear Handle",
+              "alternates": ["gear handle", "gear lever", "gear switch", "LDG GEAR", "landing gear"],
+              "positions": ["UP", "DOWN"]
+            },
+            {
+              "canonical": "Emergency Landing Gear Handle",
+              "alternates": ["emerg gear", "emergency gear", "gear emergency", "EMERG GEAR"],
+              "positions": ["PULL"]
+            },
+            {
+              "canonical": "Flap Switch",
+              "alternates": ["flap lever", "flaps switch", "FLAP", "flaps control"],
+              "positions": ["HALF", "FULL", "AUTO"]
+            },
+            {
+              "canonical": "Anti-Skid Switch",
+              "alternates": ["anti skid", "antiskid", "ANT SKID", "skid control"],
+              "positions": ["ON", "OFF"]
+            },
+            {
+              "canonical": "Launch Bar Switch",
+              "alternates": ["launch bar", "LAUNCH BAR", "cat bar"],
+              "positions": ["EXTEND", "RETRACT"]
+            },
+            {
+              "canonical": "Hook Bypass Switch",
+              "alternates": ["hook bypass", "HOOK BYPASS", "arrestor bypass", "wire bypass"],
+              "positions": ["FIELD", "CARRIER"]
+            }
+          ]
+        },
+        "probe_hook": {
+          "label": "Probe / Hook Panel",
+          "switches": [
+            {
+              "canonical": "Refueling Probe Control Switch",
+              "alternates": ["probe switch", "PROBE", "refuel probe", "refueling probe", "probe control", "AAR probe", "air refueling probe", "AR probe"],
+              "positions": ["RETRACT", "EXTEND", "EMERG EXTD"]
+            },
+            {
+              "canonical": "Arresting Hook Handle",
+              "alternates": ["hook switch", "HOOK", "hook handle", "hook lever", "tail hook", "tailhook", "arresting hook", "hook control"],
+              "positions": ["UP", "DOWN"]
+            }
+          ]
+        },
+        "exterior_lights": {
+          "label": "Exterior Lights Panel",
+          "switches": [
+            {
+              "canonical": "Formation Lights Switch",
+              "alternates": ["formation lights", "formation light", "FORMAT ION", "form lights", "FORMATION"],
+              "positions": ["BRT", "MED", "DIM", "OFF"]
+            },
+            {
+              "canonical": "Position Lights Switch",
+              "alternates": ["position lights", "nav lights", "navigation lights", "wing lights", "POS LTS"],
+              "positions": ["STEADY", "FLASH", "OFF"]
+            },
+            {
+              "canonical": "Anti-Collision Lights Switch",
+              "alternates": ["anti-collision", "anticollision", "strobe", "strobes", "beacon", "ANTI COLL"],
+              "positions": ["ON", "OFF"]
+            },
+            {
+              "canonical": "LDG/TAX Light Switch",
+              "alternates": ["landing taxi light", "landing light", "taxi light", "LDG TAX", "LDG/TAX", "nose light"],
+              "positions": ["OFF", "TAXI", "LDG"]
+            },
+            {
+              "canonical": "Exterior Lights Master Switch",
+              "alternates": ["ext lights master", "EXT LTS", "exterior lights", "lights master"],
+              "positions": ["ON", "OFF"]
+            }
+          ]
+        },
+        "bleed_air": {
+          "label": "Bleed Air / ECS Panel",
+          "switches": [
+            {
+              "canonical": "Engine Anti-Ice Switch",
+              "alternates": ["engine anti ice", "eng anti ice", "ENG ANTI ICE", "anti-ice engine", "engine ice"],
+              "positions": ["ON", "OFF"]
+            },
+            {
+              "canonical": "Pitot Heat Switch",
+              "alternates": ["pitot heat", "PITOT", "pitot switch", "pitot anti ice"],
+              "positions": ["AUTO", "ON", "OFF"]
+            }
+          ]
+        },
+        "fuel": {
+          "label": "Fuel Panel",
+          "switches": [
+            {
+              "canonical": "External Tanks Wing Switch",
+              "alternates": ["ext tanks wing", "wing tanks", "EXT TANKS WING", "wing drop tanks", "external fuel"],
+              "positions": ["WING", "NORM", "STOP"]
+            },
+            {
+              "canonical": "External Tanks CL Switch",
+              "alternates": ["centerline tank", "CL tank", "center tank", "belly tank", "external CL"],
+              "positions": ["FWD", "AFT", "NORM", "STOP"]
+            }
+          ]
+        },
+        "engine_start": {
+          "label": "Engine Crank / APU Panel",
+          "switches": [
+            {
+              "canonical": "Engine Crank Switch",
+              "alternates": ["engine crank", "ENG CRANK", "crank switch", "engine start switch", "ignition crank"],
+              "positions": ["L", "OFF", "R"]
+            },
+            {
+              "canonical": "APU Switch",
+              "alternates": ["APU", "auxiliary power unit", "APU switch", "APU start"],
+              "positions": ["ON", "OFF", "READY"]
+            },
+            {
+              "canonical": "Left Generator Switch",
+              "alternates": ["L GEN", "left gen", "left generator", "LGEN"],
+              "positions": ["NORM", "OFF", "RESET"]
+            },
+            {
+              "canonical": "Right Generator Switch",
+              "alternates": ["R GEN", "right gen", "right generator", "RGEN"],
+              "positions": ["NORM", "OFF", "RESET"]
+            },
+            {
+              "canonical": "Battery Switch",
+              "alternates": ["battery switch", "BATT", "battery", "bat switch"],
+              "positions": ["ON", "OFF"]
+            }
+          ]
+        }
+      }
+    },
+    "instrument_panel": {
+      "label": "Instrument Panel",
+      "panels": {
+        "master_arm": {
+          "label": "Master Arm Panel",
+          "switches": [
+            {
+              "canonical": "Master Arm Switch",
+              "alternates": ["master arm", "MASTER ARM", "arm switch", "weapons arm", "master arm switch"],
+              "positions": ["SAFE", "ARM"]
+            },
+            {
+              "canonical": "Laser Arm Switch",
+              "alternates": ["laser arm", "LASER ARM", "laser switch", "lase arm"],
+              "positions": ["SAFE", "ARM"]
+            },
+            {
+              "canonical": "Gun Arm Switch",
+              "alternates": ["gun arm", "GUN ARM", "cannon arm"],
+              "positions": ["SAFE", "ARM"]
+            }
+          ]
+        },
+        "stores_management": {
+          "label": "Stores Management Panel",
+          "switches": [
+            {
+              "canonical": "A/G Master Mode Button",
+              "alternates": ["A/G mode", "air to ground", "AG button", "ground attack mode"],
+              "positions": ["PUSH"]
+            },
+            {
+              "canonical": "A/A Master Mode Button",
+              "alternates": ["A/A mode", "air to air", "AA button", "air combat mode"],
+              "positions": ["PUSH"]
+            },
+            {
+              "canonical": "NAV Master Mode Button",
+              "alternates": ["NAV mode", "navigation mode", "nav button"],
+              "positions": ["PUSH"]
+            }
+          ]
+        },
+        "hud_controls": {
+          "label": "HUD Control Panel",
+          "switches": [
+            {
+              "canonical": "HUD Switch",
+              "alternates": ["HUD", "head up display", "HUD switch", "HUD power"],
+              "positions": ["DAY", "NIGHT", "OFF"]
+            }
+          ]
+        },
+        "displays": {
+          "label": "DDI / AMPCD",
+          "switches": [
+            {
+              "canonical": "Left DDI",
+              "alternates": ["left DDI", "left display", "L DDI", "DDI left", "left MFD"],
+              "positions": []
+            },
+            {
+              "canonical": "Right DDI",
+              "alternates": ["right DDI", "right display", "R DDI", "DDI right", "right MFD"],
+              "positions": []
+            },
+            {
+              "canonical": "AMPCD",
+              "alternates": ["AMPCD", "center display", "MPCD", "center MFD", "AMCP"],
+              "positions": []
+            }
+          ]
+        },
+        "ufc": {
+          "label": "Up Front Controller",
+          "switches": [
+            {
+              "canonical": "UFC",
+              "alternates": ["UFC", "up front controller", "upfront controller", "keypad panel"],
+              "positions": []
+            }
+          ]
+        },
+        "speed_altitude": {
+          "label": "Speed / Altitude Instruments",
+          "switches": [
+            {
+              "canonical": "Barometric Altimeter",
+              "alternates": ["altimeter", "baro altimeter", "altitude gauge", "ALT gauge"],
+              "positions": []
+            },
+            {
+              "canonical": "Airspeed Indicator",
+              "alternates": ["airspeed", "ASI", "speed indicator", "airspeed gauge"],
+              "positions": []
+            },
+            {
+              "canonical": "Radar Altimeter",
+              "alternates": ["radar alt", "RADALT", "low altitude warning", "rad alt"],
+              "positions": []
+            }
+          ]
+        }
+      }
+    },
+    "center_console": {
+      "label": "Center Console",
+      "panels": {
+        "ifei": {
+          "label": "IFEI Panel",
+          "switches": [
+            {
+              "canonical": "IFEI",
+              "alternates": ["IFEI", "integrated fuel engine indicator", "fuel indicator", "engine indicator", "fuel display"],
+              "positions": []
+            }
+          ]
+        },
+        "video_recorder": {
+          "label": "Video Recorder Panel",
+          "switches": [
+            {
+              "canonical": "Video Recorder Switch",
+              "alternates": ["video record", "VIDEO RECORD", "VCR switch", "recorder switch"],
+              "positions": ["REC", "STBY", "OFF"]
+            }
+          ]
+        },
+        "speedbrake": {
+          "label": "Speedbrake / Throttle",
+          "switches": [
+            {
+              "canonical": "Speed Brake Switch",
+              "alternates": ["speed brake", "speedbrake", "air brake", "drag chute", "airbrake switch"],
+              "positions": ["EXTEND", "RETRACT", "AUTO"]
+            }
+          ]
+        }
+      }
+    },
+    "right_console": {
+      "label": "Right Console",
+      "panels": {
+        "lighting": {
+          "label": "Interior Lighting Panel",
+          "switches": [
+            {
+              "canonical": "Console Lights Dimmer",
+              "alternates": ["console lights", "CONSOLES", "console brightness", "console dimmer", "side console light"],
+              "positions": ["OFF to BRT"]
+            },
+            {
+              "canonical": "Instrument Panel Lights Dimmer",
+              "alternates": ["instrument lights", "INST PNL", "instrument panel lights", "panel brightness"],
+              "positions": ["OFF to BRT"]
+            },
+            {
+              "canonical": "Flood Lights Dimmer",
+              "alternates": ["flood lights", "FLOOD", "FLood", "cockpit flood", "flood lamp"],
+              "positions": ["OFF to BRT"]
+            },
+            {
+              "canonical": "Warning / Caution Lights Dimmer",
+              "alternates": ["warning lights", "caution lights", "WARN CAUT", "WARN/CAUT", "advisory lights"],
+              "positions": ["OFF to BRT"]
+            },
+            {
+              "canonical": "Chart Light Switch",
+              "alternates": ["chart light", "CHART", "map light", "kneeboard light"],
+              "positions": ["OFF", "DIM", "BRT"]
+            }
+          ]
+        },
+        "ecs": {
+          "label": "Environmental Control System Panel",
+          "switches": [
+            {
+              "canonical": "ECS Mode Switch",
+              "alternates": ["ECS mode", "MODE", "ecs switch", "pressurization mode", "air mode"],
+              "positions": ["NORM", "DUMP", "RAM"]
+            },
+            {
+              "canonical": "Cabin Temperature Control",
+              "alternates": ["cabin temp", "COLD HOT", "temperature control", "cockpit temp", "cabin temperature"],
+              "positions": ["COLD", "HOT"]
+            },
+            {
+              "canonical": "Defog Switch",
+              "alternates": ["defog", "DEFOG", "defogging", "windshield defog", "canopy defog"],
+              "positions": ["ON", "OFF"]
+            },
+            {
+              "canonical": "Engine Bleed Air Switch",
+              "alternates": ["bleed air", "ENG BLEED", "engine air", "engine bleed"],
+              "positions": ["NORM", "OFF"]
+            }
+          ]
+        },
+        "electrical": {
+          "label": "Electrical Panel",
+          "switches": [
+            {
+              "canonical": "Generator Tie Switch",
+              "alternates": ["gen tie", "GEN TIE", "generator tie", "ATCS"],
+              "positions": ["NORM", "ISOLATE"]
+            }
+          ]
+        },
+        "radar_sensor": {
+          "label": "Radar / Sensor Panel",
+          "switches": [
+            {
+              "canonical": "Radar Switch",
+              "alternates": ["radar switch", "RADAR", "radar power", "radar on off", "APG-73"],
+              "positions": ["OFF", "STBY", "OPR", "EMERG"]
+            }
+          ]
+        },
+        "hmd": {
+          "label": "HMD Panel",
+          "switches": [
+            {
+              "canonical": "HMD Switch",
+              "alternates": ["HMD", "helmet mounted display", "JHMCS", "helmet display"],
+              "positions": ["ON", "OFF"]
+            }
+          ]
+        },
+        "obogs": {
+          "label": "OBOGS / Oxygen Panel",
+          "switches": [
+            {
+              "canonical": "OBOGS Switch",
+              "alternates": ["OBOGS", "oxygen", "oxygen system", "oxygen switch", "oxy switch", "OXY switch", "oxygen flow", "O2 switch", "turn on oxygen", "oxygen on"],
+              "positions": ["ON", "OFF"]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

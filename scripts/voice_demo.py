@@ -39,10 +39,16 @@ try:
 except Exception:
     _RAG_AVAILABLE = False
 
+try:
+    from retrieval.cockpit_lookup import lookup as _cockpit_lookup, suggest as _cockpit_suggest, format_location, is_location_query
+    _LOOKUP_AVAILABLE = True
+except Exception:
+    _LOOKUP_AVAILABLE = False
+
 
 COLLECTOR_URL   = "http://127.0.0.1:7779/state"
 OLLAMA_URL      = "http://localhost:11434/api/chat"
-DEFAULT_MODEL   = "mistral:7b"
+DEFAULT_MODEL   = "qwen2.5:7b"
 MAX_HISTORY     = 10    # max message pairs to keep (older turns dropped)
 STATE_FRESH_MS  = 5000  # treat state as live only if updated within this window
 
@@ -78,8 +84,9 @@ SYSTEM_PROMPT_INFLIGHT = """\
 You are Checkride Copilot, an F/A-18C NATOPS advisor on intercom. Calm, direct, experienced — never robotic.
 Do not address the pilot as "Pilot". Do not apologise. Do not invent information.
 A [Reference confidence] block precedes each question. It contains excerpts from the NATOPS guide.
-HIGH confidence: repeat the exact switch name and setting from the reference. Nothing else.
+HIGH confidence: repeat the exact switch name and setting from the reference in one sentence. Nothing else.
 MEDIUM/LOW confidence: state what the reference does or doesn't cover, then ask ONE clarifying question.
+[Closest cockpit match] block: if present, say "Did you mean X?" using the exact switch name, then state its location.
 Never invent physical mechanisms, sensory cues, keyboard shortcuts, or console locations not in the reference.
 """ + _FEW_SHOT
 
@@ -87,8 +94,9 @@ SYSTEM_PROMPT_GROUND = """\
 You are Checkride Copilot, an F/A-18C NATOPS advisor. Calm, direct, experienced — never robotic.
 Do not address the pilot as "Pilot". Do not apologise. Do not invent information.
 A [Reference confidence] block precedes each question. It contains excerpts from the NATOPS guide.
-HIGH confidence: repeat the exact switch name and setting from the reference. Nothing else.
+HIGH confidence: repeat the exact switch name and setting from the reference in one sentence. Nothing else.
 MEDIUM/LOW confidence: state what the reference does or doesn't cover, then ask ONE clarifying question.
+[Closest cockpit match] block: if present, say "Did you mean X?" using the exact switch name, then state its location.
 Never invent physical mechanisms, sensory cues, keyboard shortcuts, or console locations not in the reference.
 """ + _FEW_SHOT
 
@@ -131,6 +139,7 @@ def _diagnostic_note(text: str, state: dict) -> str:
     keywords = {
         "aim": "fire_aim120", "amraam": "fire_aim120", "120": "fire_aim120",
         "sidewinder": "fire_aim9x", "9x": "fire_aim9x",
+        "maverick": "release_agm65", "agm": "release_agm65", "65": "release_agm65",
         "gbu": "release_gbu12", "bomb": "release_gbu12",
         "laser": "lase_target", "lase": "lase_target",
         "tgp": "tgp_track", "track": "tgp_track",
@@ -157,10 +166,10 @@ def _diagnostic_note(text: str, state: dict) -> str:
 
 
 _AVIATION_RE = re.compile(
-    r"\b(aim|amraam|sidewinder|gbu|bomb|laser|tgp|radar|engine|gear|flap|hook|"
-    r"light|switch|panel|console|throttle|hud|mfd|sensor|fuel|hydraulic|"
-    r"speed|altitude|heading|start|master|arm|fire|release|track|lock|probe|"
-    r"refuel|refueling)\b",
+    r"\b(aim|amraam|sidewinder|maverick|agm|gbu|bomb|laser|tgp|radar|engine|"
+    r"gear|flap|hook|light|switch|panel|console|throttle|hud|mfd|sensor|fuel|"
+    r"hydraulic|speed|altitude|heading|start|master|arm|fire|release|track|"
+    r"lock|probe|refuel|refueling|tacan|ils|jdam|harm|harpoon)\b",
     re.IGNORECASE,
 )
 
@@ -239,8 +248,12 @@ _PREAMBLE_RE = re.compile(
 )
 
 
+_LEAKED_TAG_RE = re.compile(r"(\.\s*Reference confidence[^.]*\.?|\s*\[Switch[^\]]*\][^.]*\.?)\s*$", re.IGNORECASE)
+
+
 def _clean_reply(text: str) -> str:
-    """Strip dangling list preambles left after stop tokens eat the list."""
+    """Strip dangling list preambles and any leaked reference-confidence tags."""
+    text = _LEAKED_TAG_RE.sub(".", text).strip()
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     lines = [l for l in lines if not _PREAMBLE_RE.match(l)]
     return " ".join(lines).strip()
@@ -251,6 +264,7 @@ def _ask_ollama(
     state: dict | None,
     model: str,
     history: list[dict],
+    low_streak: int = 0,
 ) -> str:
     in_jet    = state is not None
     sys_prompt = SYSTEM_PROMPT_INFLIGHT if in_jet else SYSTEM_PROMPT_GROUND
@@ -258,18 +272,60 @@ def _ask_ollama(
     is_meta = bool(_SKIP_RAG_RE.search(transcript))
     ref_block = "" if is_meta else "[Reference confidence: LOW — no relevant procedure found]\n\n"
     confidence = "LOW"
+
+    # Cockpit lookup: if this looks like a location query, check the switch
+    # index first — this gives a precise, authoritative answer without BM25.
+    # Try bare transcript first; if no match, try the history-augmented query
+    # so "Where is the switch?" resolves via prior turn context ("probe switch").
+    if _LOOKUP_AVAILABLE and not is_meta and is_location_query(transcript):
+        hit = _cockpit_lookup(transcript)
+        if not hit:
+            augmented = _build_search_query(transcript, history)
+            if augmented != transcript:
+                hit = _cockpit_lookup(augmented)
+        if hit:
+            # Synthesize the answer directly — skip Ollama entirely for location
+            # queries so the model can't ignore the location data and give a procedure.
+            canonical = hit["canonical"]
+            area      = hit["area_label"]
+            panel     = hit["panel_label"]
+            positions = hit.get("positions", [])
+            pos_str   = ", ".join(positions) if positions else ""
+            reply     = f"{canonical} — {area}, {panel}."
+            if pos_str:
+                reply += f" Positions: {pos_str}."
+            history.append({"role": "user",      "content": transcript})
+            history.append({"role": "assistant",  "content": reply})
+            return reply, "HIGH"
+
+    # After 2 consecutive LOW turns, drop the score floor so we inject the
+    # best available content even if it's a weak hit, and tell the model to
+    # give the procedure instead of asking yet another clarifying question.
+    fallback_mode = (not is_meta) and (low_streak >= 2)
+    min_score = 6.0 if fallback_mode else 12.0
     if _RAG_AVAILABLE and not is_meta:
         search_query = _build_search_query(transcript, history)
-        hits = _rag_search(search_query, top_k=2)
+        hits = _rag_search(search_query, top_k=3, min_score=min_score)
         if hits:
             top_score = hits[0]["score"]
             confidence = "HIGH" if top_score >= 18 else "MEDIUM" if top_score >= 14 else "LOW"
             excerpts = "\n---\n".join(h["text"] for h in hits)
-            ref_block = f"[Reference confidence: {confidence}]\n{excerpts}\n\n"
+            label = confidence
+            if fallback_mode:
+                label = f"{confidence} — give the best available procedure, do not ask again"
+            ref_block = f"[Reference confidence: {label}]\n{excerpts}\n\n"
+        else:
+            # BM25 found nothing — try cockpit index as a disambiguation hint.
+            if _LOOKUP_AVAILABLE:
+                aug = _build_search_query(transcript, history)
+                suggestion = _cockpit_suggest(aug)
+                if suggestion:
+                    loc = format_location(suggestion)
+                    ref_block = f"[Reference confidence: LOW — no procedure found]\n[Closest cockpit match: {loc}]\n\n"
+            if fallback_mode:
+                ref_block = "[Reference confidence: LOW — give the best available procedure from your knowledge, do not ask again]\n\n"
 
     # Token budget and temperature scale with confidence.
-    # HIGH: quote the switch name — 25 tokens is plenty, keep it tight.
-    # LOW/meta: natural question or social reply needs more room.
     temperature  = {"HIGH": 0.1,  "MEDIUM": 0.25, "LOW": 0.45}.get(confidence, 0.25)
     num_predict  = {"HIGH": 30,   "MEDIUM": 55,   "LOW": 65}.get(confidence, 55)
     if is_meta:
@@ -296,7 +352,7 @@ def _ask_ollama(
             "num_predict": num_predict,
             "temperature": temperature,
             "repeat_penalty": 1.15,
-            "stop": ["\n1", "\n2", "\n-", "\n•", "\n*", "\nStep", "steps:", "following steps", "[Reference"],
+            "stop": ["\n1", "\n2", "\n-", "\n•", "\n*", "\nStep", "steps:", "following steps", "[Reference", "[Switch"],
         },
     }
 
@@ -304,13 +360,12 @@ def _ask_ollama(
         r = httpx.post(OLLAMA_URL, json=payload, timeout=15.0)
         r.raise_for_status()
         reply = _clean_reply(r.json()["message"]["content"].strip())
-        # Append this turn to history for next call
         history.append({"role": "user",      "content": user_msg})
         history.append({"role": "assistant",  "content": reply})
-        return reply
+        return reply, confidence
     except Exception as e:
         logger.error(f"Ollama error: {e}")
-        return "LLM unavailable."
+        return "LLM unavailable.", "LOW"
 
 
 def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
@@ -321,7 +376,8 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
     print(f"PTT : {ptt_key.upper()}  |  Model : {model}  |  Audio : {'on' if speak else 'off'}")
     print(f"Hold [{ptt_key.upper()}] and speak.  Ctrl-C to quit.\n")
 
-    history: list[dict] = []   # grows with each turn; trimmed inside _ask_ollama
+    history:    list[dict] = []
+    low_streak: int        = 0   # consecutive turns with LOW reference confidence
 
     while True:
         try:
@@ -334,8 +390,9 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
 
             state = _fetch_state()
             mode  = "IN-JET" if state else "GROUND"
-            reply = _ask_ollama(transcript, state, model, history)
-            print(f"  [{mode}]")
+            reply, conf = _ask_ollama(transcript, state, model, history, low_streak)
+            low_streak = (low_streak + 1) if conf == "LOW" else 0
+            print(f"  [{mode}] conf={conf} streak={low_streak}")
 
             print(f"  Reply: {reply}\n")
 

@@ -36,8 +36,12 @@ def _get_model(model_name: str = _DEFAULT_MODEL):
     with _model_lock:
         if _model is None:
             from faster_whisper import WhisperModel
-            logger.info(f"Loading Whisper '{model_name}' on CUDA ...")
-            _model = WhisperModel(model_name, device="cuda", compute_type="float16")
+            try:
+                logger.info(f"Loading Whisper '{model_name}' on CUDA ...")
+                _model = WhisperModel(model_name, device="cuda", compute_type="float16")
+            except Exception as e:
+                logger.warning(f"CUDA unavailable ({e}), falling back to CPU/int8")
+                _model = WhisperModel(model_name, device="cpu", compute_type="int8")
             logger.info("Whisper ready.")
     return _model
 
@@ -122,5 +126,10 @@ def listen_once(
         vad_filter=True,
     )
     text = " ".join(s.text.strip() for s in segments).strip()
-    logger.info(f"STT [{duration_s:.1f}s]: {text!r}")
-    return text
+    from voice.corrections import correct
+    corrected = correct(text)
+    if corrected != text:
+        logger.info(f"STT [{duration_s:.1f}s]: {text!r}  →  {corrected!r}")
+    else:
+        logger.info(f"STT [{duration_s:.1f}s]: {text!r}")
+    return corrected
