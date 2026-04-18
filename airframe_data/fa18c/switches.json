@@ -60,7 +60,8 @@
             {
               "canonical": "Refueling Probe Control Switch",
               "alternates": ["probe switch", "PROBE", "refuel probe", "refueling probe", "probe control", "AAR probe", "air refueling probe", "AR probe"],
-              "positions": ["RETRACT", "EXTEND", "EMERG EXTD"]
+              "positions": ["RETRACT", "EXTEND", "EMERG EXTD"],
+              "spoken":    ["retract",  "extend",  "emergency extended"]
             },
             {
               "canonical": "Arresting Hook Handle",
@@ -75,7 +76,8 @@
             {
               "canonical": "Formation Lights Switch",
               "alternates": ["formation lights", "formation light", "FORMAT ION", "form lights", "FORMATION"],
-              "positions": ["BRT", "MED", "DIM", "OFF"]
+              "positions": ["BRT", "MED", "DIM", "OFF"],
+              "spoken":    ["bright", "medium", "dim", "off"]
             },
             {
               "canonical": "Position Lights Switch",
@@ -90,7 +92,8 @@
             {
               "canonical": "LDG/TAX Light Switch",
               "alternates": ["landing taxi light", "landing light", "taxi light", "LDG TAX", "LDG/TAX", "nose light"],
-              "positions": ["OFF", "TAXI", "LDG"]
+              "positions": ["OFF", "TAXI", "LDG"],
+              "spoken":    ["off", "taxi", "landing"]
             },
             {
               "canonical": "Exterior Lights Master Switch",
@@ -120,12 +123,14 @@
             {
               "canonical": "External Tanks Wing Switch",
               "alternates": ["ext tanks wing", "wing tanks", "EXT TANKS WING", "wing drop tanks", "external fuel"],
-              "positions": ["WING", "NORM", "STOP"]
+              "positions": ["WING", "NORM", "STOP"],
+              "spoken":    ["wing", "normal", "stop"]
             },
             {
               "canonical": "External Tanks CL Switch",
               "alternates": ["centerline tank", "CL tank", "center tank", "belly tank", "external CL"],
-              "positions": ["FWD", "AFT", "NORM", "STOP"]
+              "positions": ["FWD", "AFT", "NORM", "STOP"],
+              "spoken":    ["forward", "aft", "normal", "stop"]
             }
           ]
         },
@@ -135,7 +140,8 @@
             {
               "canonical": "Engine Crank Switch",
               "alternates": ["engine crank", "ENG CRANK", "crank switch", "engine start switch", "ignition crank"],
-              "positions": ["L", "OFF", "R"]
+              "positions": ["L", "OFF", "R"],
+              "spoken":    ["left", "off", "right"]
             },
             {
               "canonical": "APU Switch",
@@ -145,12 +151,14 @@
             {
               "canonical": "Left Generator Switch",
               "alternates": ["L GEN", "left gen", "left generator", "LGEN"],
-              "positions": ["NORM", "OFF", "RESET"]
+              "positions": ["NORM", "OFF", "RESET"],
+              "spoken":    ["normal", "off", "reset"]
             },
             {
               "canonical": "Right Generator Switch",
               "alternates": ["R GEN", "right gen", "right generator", "RGEN"],
-              "positions": ["NORM", "OFF", "RESET"]
+              "positions": ["NORM", "OFF", "RESET"],
+              "spoken":    ["normal", "off", "reset"]
             },
             {
               "canonical": "Battery Switch",
@@ -285,7 +293,8 @@
             {
               "canonical": "Video Recorder Switch",
               "alternates": ["video record", "VIDEO RECORD", "VCR switch", "recorder switch"],
-              "positions": ["REC", "STBY", "OFF"]
+              "positions": ["REC", "STBY", "OFF"],
+              "spoken":    ["record", "standby", "off"]
             }
           ]
         },
@@ -310,27 +319,32 @@
             {
               "canonical": "Console Lights Dimmer",
               "alternates": ["console lights", "CONSOLES", "console brightness", "console dimmer", "side console light"],
-              "positions": ["OFF to BRT"]
+              "positions": ["OFF to BRT"],
+              "spoken":    ["off to bright"]
             },
             {
               "canonical": "Instrument Panel Lights Dimmer",
               "alternates": ["instrument lights", "INST PNL", "instrument panel lights", "panel brightness"],
-              "positions": ["OFF to BRT"]
+              "positions": ["OFF to BRT"],
+              "spoken":    ["off to bright"]
             },
             {
               "canonical": "Flood Lights Dimmer",
               "alternates": ["flood lights", "FLOOD", "FLood", "cockpit flood", "flood lamp"],
-              "positions": ["OFF to BRT"]
+              "positions": ["OFF to BRT"],
+              "spoken":    ["off to bright"]
             },
             {
               "canonical": "Warning / Caution Lights Dimmer",
               "alternates": ["warning lights", "caution lights", "WARN CAUT", "WARN/CAUT", "advisory lights"],
-              "positions": ["OFF to BRT"]
+              "positions": ["OFF to BRT"],
+              "spoken":    ["off to bright"]
             },
             {
               "canonical": "Chart Light Switch",
               "alternates": ["chart light", "CHART", "map light", "kneeboard light"],
-              "positions": ["OFF", "DIM", "BRT"]
+              "positions": ["OFF", "DIM", "BRT"],
+              "spoken":    ["off", "dim", "bright"]
             }
           ]
         },
@@ -340,7 +354,8 @@
             {
               "canonical": "ECS Mode Switch",
               "alternates": ["ECS mode", "MODE", "ecs switch", "pressurization mode", "air mode"],
-              "positions": ["NORM", "DUMP", "RAM"]
+              "positions": ["NORM", "DUMP", "RAM"],
+              "spoken":    ["normal", "dump", "ram"]
             },
             {
               "canonical": "Cabin Temperature Control",
@@ -355,7 +370,8 @@
             {
               "canonical": "Engine Bleed Air Switch",
               "alternates": ["bleed air", "ENG BLEED", "engine air", "engine bleed"],
-              "positions": ["NORM", "OFF"]
+              "positions": ["NORM", "OFF"],
+              "spoken":    ["normal", "off"]
             }
           ]
         },
@@ -365,7 +381,8 @@
             {
               "canonical": "Generator Tie Switch",
               "alternates": ["gen tie", "GEN TIE", "generator tie", "ATCS"],
-              "positions": ["NORM", "ISOLATE"]
+              "positions": ["NORM", "ISOLATE"],
+              "spoken":    ["normal", "isolate"]
             }
           ]
         },
@@ -375,7 +392,8 @@
             {
               "canonical": "Radar Switch",
               "alternates": ["radar switch", "RADAR", "radar power", "radar on off", "APG-73"],
-              "positions": ["OFF", "STBY", "OPR", "EMERG"]
+              "positions": ["OFF", "STBY", "OPR", "EMERG"],
+              "spoken":    ["off", "standby", "operate", "emergency"]
             }
           ]
         },

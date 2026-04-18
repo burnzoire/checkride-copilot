@@ -173,28 +173,41 @@ _AVIATION_RE = re.compile(
     re.IGNORECASE,
 )
 
+_QUESTION_RE = re.compile(r"[?]|\b(where|what|how|which|when|why|can\s+you|do\s+i|should\s+i)\b", re.I)
+
+def _is_pure_social(text: str) -> bool:
+    """True if the utterance is a short acknowledgment with no question and no aviation content."""
+    words = text.split()
+    if len(words) > 6:
+        return False
+    if _QUESTION_RE.search(text):
+        return False
+    if _AVIATION_RE.search(text):
+        return False
+    return True
+
 # Meta / conversational patterns that should skip RAG entirely.
 # The model must answer these from conversation history alone.
-# Pure social/meta utterances — skip RAG, model replies from conversation history.
 _SKIP_RAG_RE = re.compile(
     r"(you\s+(just\s+)?said"
     r"|i\s+thought\s+you"
     r"|why\s+did\s+you"
     r"|what.{0,30}(got|have|has)\s+to\s+do"
     r"|doesn.?t\s+make\s+sense"
-    r"|can\s+you\s+tell\s+me\s+(which|where|what|how)"   # pilot bouncing model's question back
-    r"|you\s+tell\s+me"
-    r"|^\s*(thanks|thank\s+you|roger|copy|wilco|good|ok|okay|got\s+it|"
-    r"okay\s+got\s+it|never\s+mind|stand\s+by|affirm|negative|say\s+again)[\s.!?]*$)",
+    r"|can\s+you\s+tell\s+me\s+(which|where|what|how)"
+    r"|you\s+tell\s+me)",
     re.IGNORECASE,
 )
 
 # Social openers that a pilot might prepend to a real question.
 # Strip these before building the BM25 query so they don't dilute signal.
 _SOCIAL_PREFIX_RE = re.compile(
-    r"^\s*(thanks[.,!]?\s+|thank\s+you[.,!]?\s+|roger[.,!]?\s+|"
-    r"copy[.,!]?\s+|ok[.,!]?\s+|okay[.,!]?\s+|alright[.,!]?\s+|"
-    r"got\s+it[.,!]?\s+|understood[.,!]?\s+)",
+    r"^\s*(perfect[.,!]?\s+|great[.,!]?\s+|awesome[.,!]?\s+|excellent[.,!]?\s+|"
+    r"nice[.,!]?\s+|solid[.,!]?\s+|cool[.,!]?\s+|"
+    r"thanks[.,!]?\s+|thank\s+you[.,!]?\s+|cheers[.,!]?\s+|"
+    r"roger[.,!]?\s+|copy[.,!]?\s+|wilco[.,!]?\s+|"
+    r"ok[.,!]?\s+|okay[.,!]?\s+|alright[.,!]?\s+|"
+    r"got\s+it[.,!]?\s+|understood[.,!]?\s+|right[.,!]?\s+)",
     re.IGNORECASE,
 )
 
@@ -249,10 +262,17 @@ _PREAMBLE_RE = re.compile(
 
 
 _LEAKED_TAG_RE = re.compile(r"(\.\s*Reference confidence[^.]*\.?|\s*\[Switch[^\]]*\][^.]*\.?)\s*$", re.IGNORECASE)
+_FILLER_TAIL_RE = re.compile(
+    r"[.,!]?\s*(let me know\b|feel free\b|don'?t hesitate\b|if you (need|have|require)\b|"
+    r"hope that (helps|clarifies)\b|is there anything else\b|further (assistance|questions)\b|"
+    r"happy to help\b|here to help\b).*$",
+    re.IGNORECASE,
+)
 
 
 def _clean_reply(text: str) -> str:
-    """Strip dangling list preambles and any leaked reference-confidence tags."""
+    """Strip dangling list preambles, leaked tags, and LLM filler tails."""
+    text = _FILLER_TAIL_RE.sub("", text).strip()
     text = _LEAKED_TAG_RE.sub(".", text).strip()
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     lines = [l for l in lines if not _PREAMBLE_RE.match(l)]
@@ -269,7 +289,7 @@ def _ask_ollama(
     in_jet    = state is not None
     sys_prompt = SYSTEM_PROMPT_INFLIGHT if in_jet else SYSTEM_PROMPT_GROUND
 
-    is_meta = bool(_SKIP_RAG_RE.search(transcript))
+    is_meta = bool(_SKIP_RAG_RE.search(transcript)) or _is_pure_social(transcript)
     ref_block = "" if is_meta else "[Reference confidence: LOW — no relevant procedure found]\n\n"
     confidence = "LOW"
 
@@ -284,16 +304,18 @@ def _ask_ollama(
             if augmented != transcript:
                 hit = _cockpit_lookup(augmented)
         if hit:
-            # Synthesize the answer directly — skip Ollama entirely for location
-            # queries so the model can't ignore the location data and give a procedure.
             canonical = hit["canonical"]
             area      = hit["area_label"]
             panel     = hit["panel_label"]
-            positions = hit.get("positions", [])
-            pos_str   = ", ".join(positions) if positions else ""
-            reply     = f"{canonical} — {area}, {panel}."
-            if pos_str:
-                reply += f" Positions: {pos_str}."
+            spoken    = hit.get("spoken") or hit.get("positions", [])
+            if spoken:
+                if len(spoken) == 2:
+                    pos_str = f"{spoken[0]} or {spoken[1]}"
+                else:
+                    pos_str = ", ".join(spoken[:-1]) + f", or {spoken[-1]}"
+                reply = f"{canonical} is on the {area}, {panel}. It goes {pos_str}."
+            else:
+                reply = f"{canonical} is on the {area}, {panel}."
             history.append({"role": "user",      "content": transcript})
             history.append({"role": "assistant",  "content": reply})
             return reply, "HIGH"
@@ -352,7 +374,9 @@ def _ask_ollama(
             "num_predict": num_predict,
             "temperature": temperature,
             "repeat_penalty": 1.15,
-            "stop": ["\n1", "\n2", "\n-", "\n•", "\n*", "\nStep", "steps:", "following steps", "[Reference", "[Switch"],
+            "stop": ["\n1", "\n2", "\n-", "\n•", "\n*", "\nStep", "steps:", "following steps",
+                     "[Reference", "[Switch",
+                     "let me know", "feel free", "further assistance", "if you need", "if you have"],
         },
     }
 

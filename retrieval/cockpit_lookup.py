@@ -44,6 +44,7 @@ def _load() -> list[dict]:
                     "panel":        panel_key,
                     "panel_label":  panel["label"],
                     "positions":    sw.get("positions", []),
+                    "spoken":       sw.get("spoken", sw.get("positions", [])),
                 })
     return records
 
