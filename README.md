@@ -1,36 +1,206 @@
 # Checkride Copilot
 
-A fully local, voice-first copilot for Digital Combat Simulator (DCS). Part of the **Checkride** suite.
+A fully local, voice-first AI copilot for Digital Combat Simulator (DCS). Part of the **Checkride** suite.
 
-## Overview
-
-Checkride Copilot puts an AI weapons systems officer in your ear — no cloud, no latency, no data leaving your machine. You fly; it briefs you.
+Put an AI instructor pilot in your ear — no cloud, no subscription, no data leaving your machine. You fly; it briefs you.
 
 **MVP aircraft:** F/A-18C Hornet
 
+---
+
+## Developer Setup
+
+### Prerequisites
+
+| Requirement | Version | Notes |
+|-------------|---------|-------|
+| Python | 3.11+ | [python.org](https://python.org) — add to PATH |
+| Git | any | [git-scm.com](https://git-scm.com) |
+| Ollama | latest | [ollama.com](https://ollama.com) — must be running on `localhost:11434` |
+| CUDA toolkit | 12.x (optional) | GPU acceleration for Whisper STT. CPU fallback works but is slower. |
+| DCS World | 2.9+ | Required for live cockpit state. The demo runs without DCS for Q&A. |
+
+### 1. Clone and create a virtual environment
+
+```powershell
+git clone https://github.com/your-org/checkride-copilot.git
+cd checkride-copilot
+
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### 2. Install PyTorch (GPU users — do this first)
+
+Skip this step if you don't have an NVIDIA GPU. The CPU fallback is automatic.
+
+```powershell
+# RTX 30xx / 40xx (CUDA 12.1):
+pip install torch --index-url https://download.pytorch.org/whl/cu121
+
+# RTX 50xx (CUDA 12.8, sm_120):
+pip install --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu128
+```
+
+### 3. Install Python dependencies
+
+```powershell
+pip install -r requirements.txt
+```
+
+> **Note:** `pyaudio` requires PortAudio. If the pip install fails on Windows, install the wheel directly:
+> ```powershell
+> pip install pipwin && pipwin install pyaudio
+> ```
+
+### 4. Pull the Ollama model
+
+```powershell
+ollama pull qwen2.5:7b
+```
+
+Ollama must be running (`ollama serve`) before starting the copilot. On Windows, the Ollama installer adds a system tray app that starts automatically.
+
+### 5. Install the DCS Export.lua hook
+
+This lets the copilot read live cockpit state. Skip if you just want to test the voice Q&A without DCS running.
+
+```powershell
+python scripts/install.py
+```
+
+Restart DCS after running this. To uninstall: `python scripts/install.py --uninstall`
+
+### 6. Run the voice demo
+
+```powershell
+python scripts/voice_demo.py
+```
+
+**Default push-to-talk key:** `Caps Lock`  
+Hold to speak, release to transcribe.
+
+```powershell
+# Options:
+python scripts/voice_demo.py --ptt scroll_lock   # change PTT key
+python scripts/voice_demo.py --mic 2             # select audio input device index
+python scripts/voice_demo.py --list-mics         # list available input devices
+python scripts/voice_demo.py --tts-device 1      # select audio output device
+python scripts/voice_demo.py --no-tts            # print replies only, no audio
+```
+
+**First run:** Whisper (`small.en`, ~480 MB) and Kokoro TTS download automatically. This takes a minute on first launch; subsequent starts are fast.
+
+---
+
+## Project Structure
+
+```
+checkride-copilot/
+├── collector/          DCS telemetry ingestion (Export.lua → HTTP)
+├── data/
+│   └── airframes/fa18c/
+│       ├── procedures/ Per-procedure JSON files + index.json
+│       ├── cockpit/    Switch locations and panel layout
+│       └── facts/      Weapon and system reference facts
+├── dcs/                Export.lua snippet installed into DCS Saved Games
+├── docs/               Build plan and reference material
+├── models/
+│   └── piper/          Piper TTS voice model (bundled)
+├── mcp_server/         MCP server exposing aircraft state as tool calls
+├── orchestrator/       Conversation loop and LLM routing
+├── retrieval/          BM25 RAG over procedure documents
+├── scripts/
+│   ├── voice_demo.py   Main entry point
+│   ├── install.py      DCS Export.lua installer
+│   └── monitor.py      Live cockpit state monitor
+└── voice/              STT (faster-whisper) and TTS (Kokoro/Piper) pipeline
+```
+
+---
+
 ## Architecture
 
-| Component | Purpose |
-|-----------|---------|
-| `collector/` | DCS-BIOS / Telemachus data ingestion |
-| `mcp_server/` | Model Context Protocol server exposing aircraft state as tool calls |
-| `orchestrator/` | Conversation loop and tool-call routing |
-| `retrieval/` | Local RAG over NATOPS / Chuck's guides (Ollama embeddings) |
-| `voice/` | STT (Whisper) and TTS (Piper) pipeline |
-| `docs/` | Build plan and reference material |
+Six components, all on loopback:
+
+| Component | Responsibility |
+|-----------|----------------|
+| `collector/` | UDP server on `localhost:7778`; ingests JSON from DCS `Export.lua`; exposes `GET /state` |
+| `mcp_server/` | FastMCP server; `get_current_state`, `search_procedures`, `get_next_procedure_step` tools |
+| `orchestrator/` | Routes transcribed text → MCP tools → Ollama → TTS |
+| `retrieval/` | BM25 index over F/A-18C procedures; queried by MCP server |
+| `voice/` | PTT capture → faster-whisper STT; Kokoro/Piper TTS → headset |
+| `scripts/voice_demo.py` | Integrated single-process demo (no separate MCP/collector required) |
+
+**Data flow:**
+```
+PTT held → PyAudio capture → faster-whisper STT
+  → orchestrator → BM25 retrieval / cockpit state
+  → Ollama (qwen2.5:7b) → Kokoro TTS → headset
+```
+
+---
 
 ## Stack
 
-- **LLM:** Ollama (local, e.g. `mistral-nemo` or `llama3`)
-- **Context protocol:** MCP (Model Context Protocol)
-- **STT:** Faster-Whisper
-- **TTS:** Piper TTS
-- **Retrieval:** ChromaDB + Ollama embeddings
-- **Data source:** DCS-BIOS / Export.lua
+| Layer | Library | Model |
+|-------|---------|-------|
+| STT | faster-whisper | `small.en` (~480 MB, auto-downloaded) |
+| TTS | kokoro-onnx | `am_adam` (auto-downloaded), Piper fallback |
+| LLM | Ollama | `qwen2.5:7b` (pull manually) |
+| Retrieval | rank-bm25 | procedure JSON index |
+| Vector store | ChromaDB | local, no external service |
 
-## Status
+---
 
-Early scaffolding. See [`docs/build-plan.md`](docs/build-plan.md) for the full roadmap.
+## Running Tests
+
+```powershell
+pytest
+```
+
+---
+
+## Rewriting Procedure Steps (Instructor Voice)
+
+Procedure JSON files include a `"voiced"` field with instructor-voice rewrites for TTS delivery. To regenerate after editing procedures:
+
+```powershell
+# Preview all rewrites without saving:
+python -m data.airframes.fa18c.voice_procedures --dry-run
+
+# Rewrite a single procedure:
+python -m data.airframes.fa18c.voice_procedures --proc agm_65f_missile_ir_seeker_only
+
+# Rewrite with per-procedure approval:
+python -m data.airframes.fa18c.voice_procedures --review
+```
+
+---
+
+## Installer Builds
+
+Tagged releases (`v*.*.*`) trigger a GitHub Actions matrix build producing two Windows ZIPs — `*-gpu.zip` (CUDA 12.1) and `*-cpu.zip` — attached to the GitHub Release. `setup.ps1` in each ZIP auto-detects your GPU and offers to swap variants if needed.
+
+To cut a release:
+
+```powershell
+git tag v0.1.0 && git push origin v0.1.0
+```
+
+For manual packaging:
+
+```powershell
+# CPU (portable, works everywhere):
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements.txt pyinstaller
+pyinstaller scripts/voice_demo.py --name CheckrideCopilot --onedir --add-data "data;data" --add-data "models;models"
+
+# GPU (CUDA 12.1):
+pip install torch --index-url https://download.pytorch.org/whl/cu121
+pip install -r requirements.txt pyinstaller
+pyinstaller scripts/voice_demo.py --name CheckrideCopilot --onedir --add-data "data;data" --add-data "models;models"
+```
 
 ---
 

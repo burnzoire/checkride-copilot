@@ -1,0 +1,293 @@
+name: Build Windows Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        variant: [cpu, gpu]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PyTorch (CPU)
+        if: matrix.variant == 'cpu'
+        run: pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      # CUDA 12.1 wheels work on RTX 30xx / 40xx. RTX 50xx users will see a
+      # compute_type warning but faster-whisper falls back to int8 automatically.
+      - name: Install PyTorch (GPU / CUDA 12.1)
+        if: matrix.variant == 'gpu'
+        run: pip install torch --index-url https://download.pytorch.org/whl/cu121
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      # Pre-download Whisper small.en into the HF cache so it ships in the bundle.
+      - name: Pre-download Whisper small.en
+        run: |
+          python -c "from faster_whisper import WhisperModel; WhisperModel('small.en', device='cpu', compute_type='int8')"
+
+      - name: Pre-download Kokoro TTS
+        run: |
+          python -c "from kokoro_onnx import Kokoro; Kokoro('kokoro-v1.0.onnx', 'voices-v1.0.bin')"
+        continue-on-error: true
+
+      - name: Build with PyInstaller
+        run: |
+          pyinstaller scripts/voice_demo.py `
+            --name CheckrideCopilot `
+            --onedir `
+            --add-data "data;data" `
+            --add-data "models;models" `
+            --add-data "dcs;dcs" `
+            --hidden-import "kokoro_onnx" `
+            --hidden-import "faster_whisper" `
+            --hidden-import "pynput.keyboard._win32" `
+            --hidden-import "pynput.mouse._win32" `
+            --collect-all "faster_whisper" `
+            --collect-all "kokoro_onnx"
+
+      - name: Copy Whisper model cache
+        shell: pwsh
+        run: |
+          $cache = Join-Path $env:USERPROFILE ".cache\huggingface\hub"
+          $dest  = "dist\CheckrideCopilot\models\whisper"
+          if (Test-Path $cache) {
+            New-Item -ItemType Directory -Force -Path $dest | Out-Null
+            Copy-Item -Recurse -Force $cache $dest
+          }
+
+      - name: Copy Kokoro model cache
+        shell: pwsh
+        run: |
+          $cache = Join-Path $env:USERPROFILE ".cache\kokoro"
+          $dest  = "dist\CheckrideCopilot\models\kokoro"
+          if (Test-Path $cache) {
+            New-Item -ItemType Directory -Force -Path $dest | Out-Null
+            Copy-Item -Recurse -Force $cache $dest
+          }
+
+      # Write a variant marker so setup.ps1 knows which build it's in.
+      - name: Write variant marker
+        shell: pwsh
+        run: |
+          "${{ matrix.variant }}" | Set-Content -Path "dist\CheckrideCopilot\VARIANT" -Encoding UTF8
+
+      - name: Write setup.ps1
+        shell: pwsh
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          $tag = $env:TAG
+          $script = @"
+          # Checkride Copilot — first-time setup
+          # Right-click → Run with PowerShell
+
+          `$ErrorActionPreference = "Stop"
+          `$tag     = "$tag"
+          `$variant = (Get-Content -Path (Join-Path `$PSScriptRoot "VARIANT") -Raw).Trim()
+          `$baseUrl = "https://github.com/${{ github.repository }}/releases/download/`$tag"
+
+          Write-Host ""
+          Write-Host "=== Checkride Copilot Setup ===" -ForegroundColor Cyan
+          Write-Host "Build: `$variant" -ForegroundColor DarkGray
+          Write-Host ""
+
+          # ── GPU detection ─────────────────────────────────────────────────────
+          `$hasNvidia = `$false
+          try {
+              `$gpus = (Get-CimInstance Win32_VideoController |
+                       Where-Object { `$_.Name -match 'NVIDIA' })
+              `$hasNvidia = `$null -ne `$gpus
+          } catch {}
+
+          if (`$hasNvidia -and `$variant -eq "cpu") {
+              Write-Host "NVIDIA GPU detected. You are running the CPU build." -ForegroundColor Yellow
+              Write-Host "For significantly faster speech recognition, download the GPU build:" -ForegroundColor Yellow
+              Write-Host "  `$baseUrl/CheckrideCopilot-`$tag-windows-gpu.zip" -ForegroundColor White
+              Write-Host ""
+              `$ans = Read-Host "Switch to GPU build now? [Y/n]"
+              if (`$ans -eq "" -or `$ans -match "^[Yy]") {
+                  `$zipPath = Join-Path `$env:TEMP "CheckrideCopilot-gpu.zip"
+                  `$dest    = Split-Path `$PSScriptRoot -Parent
+                  Write-Host "Downloading GPU build..." -ForegroundColor Yellow
+                  Invoke-WebRequest -Uri "`$baseUrl/CheckrideCopilot-`$tag-windows-gpu.zip" -OutFile `$zipPath
+                  Write-Host "Extracting..." -ForegroundColor Yellow
+                  Expand-Archive -Path `$zipPath -DestinationPath `$dest -Force
+                  Remove-Item `$zipPath
+                  Write-Host "GPU build installed. Re-run setup.ps1 from the new folder to finish." -ForegroundColor Green
+                  exit 0
+              }
+          } elseif (-not `$hasNvidia -and `$variant -eq "gpu") {
+              Write-Host "No NVIDIA GPU detected but you are running the GPU build." -ForegroundColor Yellow
+              Write-Host "Speech recognition will be slower. Consider the CPU build:" -ForegroundColor Yellow
+              Write-Host "  `$baseUrl/CheckrideCopilot-`$tag-windows-cpu.zip" -ForegroundColor White
+              Write-Host ""
+          } elseif (`$hasNvidia -and `$variant -eq "gpu") {
+              Write-Host "NVIDIA GPU detected — GPU acceleration active." -ForegroundColor Green
+          } else {
+              Write-Host "No NVIDIA GPU detected — running on CPU." -ForegroundColor DarkGray
+          }
+
+          # ── Ollama ────────────────────────────────────────────────────────────
+          if (-not (Get-Command ollama -ErrorAction SilentlyContinue)) {
+              Write-Host "Downloading Ollama..." -ForegroundColor Yellow
+              `$tmp = Join-Path `$env:TEMP "OllamaSetup.exe"
+              Invoke-WebRequest -Uri "https://ollama.com/download/OllamaSetup.exe" -OutFile `$tmp
+              Start-Process `$tmp -ArgumentList "/S" -Wait
+              # Reload PATH so ollama is available in this session
+              `$env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" +
+                           [System.Environment]::GetEnvironmentVariable("PATH","User")
+              Write-Host "Ollama installed." -ForegroundColor Green
+          } else {
+              Write-Host "Ollama already installed." -ForegroundColor Green
+          }
+
+          # ── LLM model ─────────────────────────────────────────────────────────
+          Write-Host "Pulling AI model (qwen2.5:7b, ~4 GB — this may take several minutes)..." -ForegroundColor Yellow
+          ollama pull qwen2.5:7b
+          Write-Host "Model ready." -ForegroundColor Green
+
+          # ── DCS Export.lua hook ───────────────────────────────────────────────
+          Write-Host "Installing DCS telemetry hook..." -ForegroundColor Yellow
+          `$dcsSnippet = Join-Path `$PSScriptRoot "dcs\Export.lua"
+          if (Test-Path `$dcsSnippet) {
+              # Find DCS Saved Games
+              `$savedGames = Join-Path `$env:USERPROFILE "Saved Games"
+              if (-not (Test-Path `$savedGames)) {
+                  `$savedGames = Join-Path `$env:USERPROFILE "OneDrive\Saved Games"
+              }
+              `$variants = @("DCS", "DCS.openbeta", "DCS.release")
+              `$installed = `$false
+              foreach (`$v in `$variants) {
+                  `$scriptsDir = Join-Path `$savedGames "`$v\Scripts"
+                  `$exportLua  = Join-Path `$scriptsDir "export.lua"
+                  if (Test-Path `$scriptsDir) {
+                      `$snippet = Get-Content `$dcsSnippet -Raw
+                      if ((Test-Path `$exportLua) -and ((Get-Content `$exportLua -Raw) -match "Checkride Copilot")) {
+                          Write-Host "  Already installed in `$v." -ForegroundColor DarkGray
+                      } else {
+                          if (Test-Path `$exportLua) {
+                              Copy-Item `$exportLua "`$exportLua.backup_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
+                          }
+                          Add-Content -Path `$exportLua -Value "`n`$snippet"
+                          Write-Host "  Installed into `$v." -ForegroundColor Green
+                      }
+                      `$installed = `$true
+                  }
+              }
+              if (-not `$installed) {
+                  Write-Host "  DCS Saved Games folder not found — skipped." -ForegroundColor DarkYellow
+                  Write-Host "  Restart DCS and re-run setup, or install manually." -ForegroundColor DarkYellow
+              }
+          } else {
+              Write-Host "  DCS snippet not found in package — skipped." -ForegroundColor DarkYellow
+          }
+
+          Write-Host ""
+          Write-Host "Setup complete." -ForegroundColor Green
+          Write-Host "Launch CheckrideCopilot.exe to start." -ForegroundColor Cyan
+          Write-Host "Default push-to-talk key: Caps Lock" -ForegroundColor Cyan
+          Write-Host ""
+          Read-Host "Press Enter to close"
+          "@
+          $script | Set-Content -Path "dist\CheckrideCopilot\setup.ps1" -Encoding UTF8
+
+      - name: Write dist README
+        shell: pwsh
+        run: |
+          $variant = "${{ matrix.variant }}"
+          $readme = @"
+          Checkride Copilot ($variant build)
+
+          FIRST TIME:
+            Right-click setup.ps1 -> Run with PowerShell
+
+          THEN:
+            Launch CheckrideCopilot.exe
+            Hold Caps Lock to speak. Release to get an answer.
+
+          NOTES:
+            - DCS World 2.9+ required for live cockpit state (optional)
+            - GPU build: requires NVIDIA GPU, faster speech recognition
+            - CPU build: works on any PC, slightly slower STT
+          "@
+          $readme | Set-Content -Path "dist\CheckrideCopilot\README.txt" -Encoding UTF8
+
+      - name: Create ZIP archive
+        shell: pwsh
+        run: |
+          $tag     = "${{ github.ref_name }}"
+          $variant = "${{ matrix.variant }}"
+          Compress-Archive -Path "dist\CheckrideCopilot\*" `
+            -DestinationPath "CheckrideCopilot-$tag-windows-$variant.zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-${{ matrix.variant }}
+          path: CheckrideCopilot-${{ github.ref_name }}-windows-${{ matrix.variant }}.zip
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Checkride Copilot ${{ github.ref_name }}"
+          body: |
+            ## Checkride Copilot ${{ github.ref_name }}
+
+            ### Which build do I download?
+
+            | | GPU build | CPU build |
+            |---|---|---|
+            | **NVIDIA GPU (RTX 10xx–40xx)** | Recommended | Works |
+            | **NVIDIA RTX 50xx** | Works (int8 fallback) | Works |
+            | **No NVIDIA GPU / AMD / Intel** | ❌ | Recommended |
+
+            Not sure? Download the **CPU build** — it works on everything. `setup.ps1` will detect your GPU and offer to switch automatically.
+
+            ### Installation
+            1. Download the appropriate ZIP and extract to any folder
+            2. Right-click `setup.ps1` → **Run with PowerShell**
+               - Installs Ollama + AI model (~4 GB download, one-time)
+               - Installs DCS telemetry hook
+               - Offers to switch GPU↔CPU build automatically
+            3. Launch `CheckrideCopilot.exe`
+
+            ### Requirements
+            - Windows 10/11 (64-bit)
+            - ~5 GB free disk space
+            - DCS World 2.9+ *(optional — only needed for live cockpit state)*
+
+            ### Push-to-talk
+            Default key: **Caps Lock** — hold to speak, release to get an answer.
+          files: |
+            CheckrideCopilot-${{ github.ref_name }}-windows-gpu.zip
+            CheckrideCopilot-${{ github.ref_name }}-windows-cpu.zip
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}
