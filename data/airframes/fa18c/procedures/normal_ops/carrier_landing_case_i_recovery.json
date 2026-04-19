@@ -2,7 +2,10 @@
   "key": "carrier_landing_case_i_recovery",
   "canonical": "Carrier Landing (Case I Recovery)",
   "alternates": [
-    "carrier landing case recovery"
+    "carrier landing case recovery",
+    "case one recovery",
+    "case i recovery",
+    "case 1 recovery"
   ],
   "category": "normal_ops",
   "terminology": [

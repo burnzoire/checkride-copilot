@@ -10,6 +10,7 @@ speak() is synchronous — blocks until playback completes.
 
 from __future__ import annotations
 
+import re
 import time
 from pathlib import Path
 from typing import Optional
@@ -17,6 +18,44 @@ from typing import Optional
 import numpy as np
 import sounddevice as sd
 from loguru import logger
+
+
+# ── TTS text normalisation ────────────────────────────────────────────────────
+
+def _normalize(text: str) -> str:
+    """Expand aviation abbreviations and units before synthesis."""
+    # Fractions + unit (must precede bare unit rules)
+    text = re.sub(r'3/4\s*nm\b',  'three-quarter nautical mile',  text, flags=re.I)
+    text = re.sub(r'1/2\s*nm\b',  'half nautical mile',            text, flags=re.I)
+    text = re.sub(r'\b0\.1\s*nm\b', 'point-one nautical miles',    text, flags=re.I)
+
+    # ft/min before ft
+    text = re.sub(r'\b(\d[\d,]*)\s*ft/min\b', r'\1 feet per minute', text, flags=re.I)
+
+    # Ranges  X-Y <unit>
+    text = re.sub(r'\b(\d[\d,]*)-(\d[\d,]*)\s*ft\b',  r'\1 to \2 feet',           text, flags=re.I)
+    text = re.sub(r'\b(\d[\d,]*)-(\d[\d,]*)\s*kts\b', r'\1 to \2 knots',          text, flags=re.I)
+    text = re.sub(r'\b(\d[\d,]*)-(\d[\d,]*)\s*%',     r'\1 to \2 percent',        text)
+    text = re.sub(r'\b(\d[\d,]*)-(\d[\d,]*)\s*nm\b',  r'\1 to \2 nautical miles', text, flags=re.I)
+
+    # deg C before bare deg
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*deg\s*[Cc]\b', r'\1 degrees Celsius', text)
+
+    # Single units
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*ft\b',  r'\1 feet',           text, flags=re.I)
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*kts\b', r'\1 knots',          text, flags=re.I)
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*nm\b',  r'\1 nautical miles', text, flags=re.I)
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*MHz\b', r'\1 megahertz',      text)
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*psi\b', r'\1 PSI',            text, flags=re.I)
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*lbs\b', r'\1 pounds',         text, flags=re.I)
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*%',     r'\1 percent',        text)
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*deg\b', r'\1 degrees',        text, flags=re.I)
+
+    # Misc
+    text = re.sub(r'\bapprox\.\s*', 'approximately ', text, flags=re.I)
+    text = re.sub(r'\bapprox\b',    'approximately',  text, flags=re.I)
+
+    return re.sub(r'  +', ' ', text).strip()
 
 # ── Kokoro ───────────────────────────────────────────────────────────────────
 _DEFAULT_VOICE = "am_adam"   # American male — clear, authoritative
@@ -81,12 +120,13 @@ def speak(text: str, voice: str = _DEFAULT_VOICE, stop_event: threading.Event | 
     """Synthesize text and play through default audio output. Blocks until done or stop_event fires."""
     if not text or not text.strip():
         return
+    normalized = _normalize(text)
     try:
         try:
-            audio, sr = _synthesize_kokoro(text, voice)
+            audio, sr = _synthesize_kokoro(normalized, voice)
         except Exception as e:
             logger.warning(f"Kokoro failed ({e}), falling back to Piper")
-            audio, sr = _synthesize_piper(text)
+            audio, sr = _synthesize_piper(normalized)
         sd.play(audio, samplerate=sr)
         if stop_event is not None:
             stream = sd.get_stream()

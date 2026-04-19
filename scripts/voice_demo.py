@@ -245,6 +245,67 @@ def _find_proc_for_section(section_str: str) -> str | None:
     return None
 
 
+def _normalize_phrase(text: str) -> str:
+    """Lowercase and normalize text for exact phrase matching."""
+    text = re.sub(r"[^a-z0-9]+", " ", text.lower())
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _find_proc_by_exact_phrase(transcript: str) -> str | None:
+    """Return a procedure key when transcript contains an exact known phrase.
+    Uses canonical names, alternates, key text, and canonical parenthetical text.
+    """
+    query = _normalize_phrase(transcript)
+    if not query:
+        return None
+
+    matches: list[tuple[int, str]] = []
+    for entry in _PROC_INDEX:
+        key = entry["key"]
+        phrases: set[str] = {
+            entry.get("canonical", ""),
+            *(entry.get("alternates", []) or []),
+            key.replace("_", " "),
+        }
+
+        # Parenthetical canonical text often contains compact names like
+        # "Case I Recovery" that users speak verbatim.
+        canonical = entry.get("canonical", "")
+        for paren in re.findall(r"\(([^)]+)\)", canonical):
+            phrases.add(paren)
+
+        for phrase in phrases:
+            p = _normalize_phrase(phrase)
+            if len(p) < 6:
+                continue
+
+            alias_phrases = {p}
+            alias_swaps = (
+                ("case i", "case 1"), ("case i", "case one"),
+                ("case ii", "case 2"), ("case ii", "case two"),
+                ("case iii", "case 3"), ("case iii", "case three"),
+            )
+            for a, b in alias_swaps:
+                if a in p:
+                    alias_phrases.add(p.replace(a, b))
+                if b in p:
+                    alias_phrases.add(p.replace(b, a))
+
+            for ap in alias_phrases:
+                if ap in query:
+                    matches.append((len(ap), key))
+
+    if not matches:
+        return None
+
+    matches.sort(reverse=True)
+    top_len = matches[0][0]
+    top_keys = {k for n, k in matches if n == top_len}
+    if len(top_keys) != 1:
+        return None
+    return next(iter(top_keys))
+
+
 _PROC_STOPWORDS = frozenset({"how", "the", "what", "when", "where", "why", "for",
                               "and", "can", "you", "use", "do", "a", "to", "i",
                               "fire", "help", "want", "need", "me"})
@@ -286,10 +347,7 @@ def _format_step(proc_key: str, step_idx: int) -> str:
         return "Procedure unavailable."
     steps  = proc["steps"]
     action = _clean_step_text(steps[step_idx].get("voiced") or steps[step_idx]["action"])
-    remaining = len(steps) - step_idx - 1
-    suffix = f" {remaining} more to go." if remaining == 1 else (
-             f" {remaining} steps remaining." if remaining > 1 else " That's the last step.")
-    return action + suffix
+    return action
 
 
 def _format_proc_intro(proc_key: str) -> str:
@@ -298,7 +356,8 @@ def _format_proc_intro(proc_key: str) -> str:
     if not proc:
         return "Procedure unavailable."
     step1 = _clean_step_text(proc["steps"][0].get("voiced") or proc["steps"][0]["action"])
-    return f"{proc['canonical']}. First: {step1}"
+    total_steps = len(proc["steps"])
+    return f"{proc['canonical']}. {total_steps} steps total. First: {step1}"
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -593,6 +652,13 @@ def _ask_ollama(
     # BM25 (e.g. "how do I use the Maverick"), try matching against proc keywords
     # before running RAG. This bypasses BM25 weakness on generic verbs like "use".
     if not is_meta and _is_proc_request(transcript):
+        # Exact phrase matches should take precedence over disambiguation groups.
+        exact_proc = _find_proc_by_exact_phrase(transcript)
+        if exact_proc and exact_proc in _PROC_WORDS:
+            history.append({"role": "user",      "content": transcript, "ts": _time.time()})
+            history.append({"role": "assistant",  "content": f"[PROC:{exact_proc}]", "ts": _time.time()})
+            return "", "HIGH", exact_proc
+
         # Check for disambiguation group first — if the query matches a group,
         # return a sentinel that tells the run loop to enter disambiguation mode.
         dg = _match_disambig_group(transcript)

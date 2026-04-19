@@ -70,6 +70,81 @@
       ]
     },
     {
+      "id": "carrier_recovery",
+      "keywords": ["carrier recovery", "carrier landing recovery", "boat recovery", "recovery to the boat"],
+      "question": "CASE 1, 2, or 3?",
+      "options": [
+        {
+          "label": "CASE 1",
+          "keywords": ["case 1", "case i", "case one", "day vfr"],
+          "proc_key": "carrier_landing_case_i_recovery"
+        },
+        {
+          "label": "CASE 2",
+          "keywords": ["case 2", "case ii", "case two", "marginal vfr"],
+          "question": "Case II procedure is not indexed yet. Want CASE 1 or CASE 3?",
+          "options": [
+            {
+              "label": "CASE 1",
+              "keywords": ["case 1", "case i", "case one"],
+              "proc_key": "carrier_landing_case_i_recovery"
+            },
+            {
+              "label": "CASE 3",
+              "keywords": ["case 3", "case iii", "case three"],
+              "question": "ICLS or ACLS approach?",
+              "options": [
+                {
+                  "label": "ICLS",
+                  "keywords": ["icls", "instrument", "manual", "no datalink", "no acls", "ils"],
+                  "proc_key": "icls_instrument_carrier_landing_system_tutorial_case_iii_recover"
+                },
+                {
+                  "label": "ACLS",
+                  "keywords": ["acls", "automatic", "autoland", "coupled", "datalink", "mode 1", "supercarrier"],
+                  "proc_key": "acls_automatic_carrier_landing_system_tutorial_case_iii_recovery"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "CASE 3",
+          "keywords": ["case 3", "case iii", "case three", "instrument"],
+          "question": "ICLS or ACLS approach?",
+          "options": [
+            {
+              "label": "ICLS",
+              "keywords": ["icls", "instrument", "manual", "no datalink", "no acls", "ils"],
+              "proc_key": "icls_instrument_carrier_landing_system_tutorial_case_iii_recover"
+            },
+            {
+              "label": "ACLS",
+              "keywords": ["acls", "automatic", "autoland", "coupled", "datalink", "mode 1", "supercarrier"],
+              "proc_key": "acls_automatic_carrier_landing_system_tutorial_case_iii_recovery"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "case_iii",
+      "keywords": ["case iii", "case 3", "case three", "instrument recovery", "acls", "icls"],
+      "question": "ICLS or ACLS approach?",
+      "options": [
+        {
+          "label": "ICLS",
+          "keywords": ["icls", "instrument", "manual", "no datalink", "no acls", "ils"],
+          "proc_key": "icls_instrument_carrier_landing_system_tutorial_case_iii_recover"
+        },
+        {
+          "label": "ACLS",
+          "keywords": ["acls", "automatic", "autoland", "coupled", "datalink", "mode 1", "supercarrier"],
+          "proc_key": "acls_automatic_carrier_landing_system_tutorial_case_iii_recovery"
+        }
+      ]
+    },
+    {
       "id": "mk82",
       "keywords": ["mk82", "mk-82", "mk 82", "dumb bomb", "iron bomb", "unguided bomb"],
       "question": "Delivery mode:CCIP or CCRP auto?",
