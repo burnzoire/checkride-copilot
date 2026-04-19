@@ -289,11 +289,18 @@ _FILLER_TAIL_RE = re.compile(
 )
 
 
+_BOLD_RE   = re.compile(r"\*{1,2}(.+?)\*{1,2}")
+_CURLY_APOSTROPHE_RE = re.compile(r"[\u2018\u2019\u201a\u201b]")
+_CURLY_QUOTE_RE      = re.compile(r"[\u201c\u201d\u201e\u201f]")
+
 def _clean_reply(text: str) -> str:
     """Strip dangling list preambles, leaked tags, document references, and LLM filler tails."""
     text = _DOC_REF_RE.sub("", text).strip()
     text = _FILLER_TAIL_RE.sub("", text).strip()
     text = _LEAKED_TAG_RE.sub(".", text).strip()
+    text = _BOLD_RE.sub(r"\1", text)
+    text = _CURLY_APOSTROPHE_RE.sub("'", text)
+    text = _CURLY_QUOTE_RE.sub('"', text)
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     lines = [l for l in lines if not _PREAMBLE_RE.match(l)]
     return " ".join(lines).strip()
@@ -317,6 +324,7 @@ def _ask_ollama(
     # current query is too vague to resolve it, re-ask rather than hallucinate.
     # Exception: if the user said a NATO phonetic word (Delta, Echo, Golf…),
     # treat it as a variant answer and let RAG resolve it with history context.
+    _variant_resolved = False
     if is_meta and history:
         last_reply = next((m["content"] for m in reversed(history) if m["role"] == "assistant"), "")
         if last_reply.startswith("Which variant"):
@@ -330,6 +338,7 @@ def _ask_ollama(
                          for w in tl.split()))
             if exact or fuzzy:
                 is_meta = False   # phonetic heard → route through RAG with history
+                _variant_resolved = True
             else:
                 history.append({"role": "user",      "content": transcript,   "ts": _time.time()})
                 history.append({"role": "assistant",  "content": last_reply,   "ts": _time.time()})
@@ -383,7 +392,7 @@ def _ask_ollama(
             is_enumeration = bool(_ENUMERATION_RE.search(transcript))
             seen_v: set[str] = set()
             variants: list[str] = []
-            if len(sections) >= 2 and confidence != "HIGH" and not is_enumeration:
+            if len(sections) >= 2 and confidence != "HIGH" and not is_enumeration and not _variant_resolved:
                 for s in sections:
                     v = _variant_name(s)
                     if v is not None and v not in seen_v:

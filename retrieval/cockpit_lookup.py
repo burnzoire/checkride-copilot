@@ -18,7 +18,7 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-_INDEX_PATH = Path(__file__).parent.parent / "airframe_data" / "fa18c" / "switches.json"
+_INDEX_PATH = Path(__file__).parent.parent / "data" / "airframes" / "fa18c" / "switches.json"
 
 # Queries that are likely asking for a location/identity.
 # Match these before running BM25 so we get a precise answer.

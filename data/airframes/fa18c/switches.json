@@ -418,6 +418,126 @@
           ]
         }
       }
+    },
+    "throttle_grip": {
+      "label": "Throttle Grip (HOTAS)",
+      "panels": {
+        "tdc": {
+          "label": "TDC (Inboard Throttle, Top)",
+          "switches": [
+            {
+              "canonical": "Target Designation Controller",
+              "alternates": ["TDC", "thumb slew", "target designator", "TDC slew", "TDC hat", "designation controller", "target designation", "thumbstick", "sensor slew"],
+              "positions": ["UP", "DOWN", "LEFT", "RIGHT", "DEPRESS"]
+            }
+          ]
+        },
+        "scs": {
+          "label": "Sensor Control Switch (Inboard Throttle, Forward)",
+          "switches": [
+            {
+              "canonical": "Sensor Control Switch",
+              "alternates": ["SCS", "sensor select", "sensor control", "sensor switch", "DDI select", "display select", "sensor hat", "sensor designator"],
+              "positions": ["FWD (L DDI)", "AFT (R DDI)", "LEFT (HUD)", "RIGHT (FLIR/TGP)"]
+            }
+          ]
+        },
+        "speedbrake_hotas": {
+          "label": "Speed Brake Switch (Outboard Throttle, Aft)",
+          "switches": [
+            {
+              "canonical": "Speed Brake Switch",
+              "alternates": ["speed brake", "speedbrake", "airbrake", "air brake", "brake switch", "speed brake button", "SPD BRK"],
+              "positions": ["EXTEND", "RETRACT", "STOP"]
+            }
+          ]
+        },
+        "mic_switch": {
+          "label": "Mic Switch (Inboard Throttle, Left Side)",
+          "switches": [
+            {
+              "canonical": "Mic Switch",
+              "alternates": ["mic switch", "radio switch", "transmit switch", "PTT throttle", "push to talk", "comm switch", "radio transmit"],
+              "positions": ["FWD (Comm 1)", "AFT (Comm 2)", "LEFT (ICS)", "RIGHT (Guard)"]
+            }
+          ]
+        },
+        "cage_uncage": {
+          "label": "Cage/Uncage Button (Outboard Throttle, Top)",
+          "switches": [
+            {
+              "canonical": "Cage/Uncage Button",
+              "alternates": ["cage uncage", "cage button", "uncage", "seeker cage", "sidewinder cage", "missile cage", "AIM-9 cage"],
+              "positions": ["PUSH"]
+            }
+          ]
+        },
+        "cmd_dispense": {
+          "label": "Countermeasures Dispense Button (Outboard Throttle, Forward)",
+          "switches": [
+            {
+              "canonical": "Countermeasures Dispense Button",
+              "alternates": ["CMD", "chaff flare", "countermeasures", "dispense button", "chaff", "flare", "CM dispense", "countermeasure button", "dispense"],
+              "positions": ["PUSH"]
+            }
+          ]
+        }
+      }
+    },
+    "stick_grip": {
+      "label": "Control Stick (HOTAS)",
+      "panels": {
+        "trigger": {
+          "label": "Trigger (Stick, Forward Face)",
+          "switches": [
+            {
+              "canonical": "Trigger",
+              "alternates": ["trigger", "gun trigger", "fire trigger", "weapons trigger", "first detent", "second detent"],
+              "positions": ["FIRST DETENT (safety)", "SECOND DETENT (fire)"]
+            }
+          ]
+        },
+        "pickle": {
+          "label": "Pickle Button (Stick, Top)",
+          "switches": [
+            {
+              "canonical": "Weapons Release Button",
+              "alternates": ["pickle", "pickle button", "bomb release", "weapon release", "release button", "stores release", "WPN REL"],
+              "positions": ["PUSH"]
+            }
+          ]
+        },
+        "nws_undesignate": {
+          "label": "NWS / Undesignate Button (Stick, Top)",
+          "switches": [
+            {
+              "canonical": "NWS / Undesignate Button",
+              "alternates": ["NWS", "undesignate", "nose wheel steering", "NWS button", "undesignate button", "MSL override", "missile override", "break lock"],
+              "positions": ["PUSH (air: undesignate/override)", "PUSH (ground: NWS engage)"]
+            }
+          ]
+        },
+        "paddle": {
+          "label": "Paddle Switch (Stick, Aft Face)",
+          "switches": [
+            {
+              "canonical": "Autopilot Disengage Paddle Switch",
+              "alternates": ["paddle switch", "paddle", "AP disengage", "autopilot disengage", "autopilot paddle", "disengage paddle"],
+              "positions": ["PUSH"]
+            }
+          ]
+        },
+        "trim_hat": {
+          "label": "Trim Hat (Stick, Top)",
+          "switches": [
+            {
+              "canonical": "Trim Switch",
+              "alternates": ["trim hat", "trim switch", "trim", "stick trim", "pitch trim", "roll trim", "trim button"],
+              "positions": ["FWD", "AFT", "LEFT", "RIGHT"]
+            }
+          ]
+        }
+      }
     }
   }
 }

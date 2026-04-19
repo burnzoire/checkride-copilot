@@ -8,7 +8,9 @@
       "Bash(.venv/Scripts/python.exe -c \"import fitz; print\\('fitz ok'\\)\")",
       "Bash(.venv/Scripts/python.exe -m pip install pypdf -q)",
       "Bash(.venv/Scripts/python.exe -c \"import pypdf; print\\('pypdf', pypdf.__version__\\)\")",
-      "Bash(.venv/Scripts/python.exe *)"
+      "Bash(.venv/Scripts/python.exe *)",
+      "Bash(.venv/Scripts/python *)",
+      "Bash(.venv/Scripts/pip install *)"
     ]
   }
 }

@@ -9,10 +9,10 @@ Pipeline:
   5. Emit cockpit_index.json — areas > panels > labels
 
 Run:
-    python -m airframe_data.fa18c.build_index
+    python -m data.airframes.fa18c.build_index
 
-Output: airframe_data/fa18c/cockpit_index_raw.json   (OCR dump, for inspection)
-        airframe_data/fa18c/cockpit_index.json        (curated index used by search)
+Output: data/airframes/fa18c/cockpit_index_raw.json   (OCR dump, for inspection)
+        data/airframes/fa18c/cockpit_index.json        (curated index used by search)
 """
 
 import json
