@@ -1,0 +1,138 @@
+{
+  "airframe": "FA-18C",
+  "weapons": {
+    "aim120c": {
+      "canonical": "AIM-120C AMRAAM",
+      "alternates": ["AIM-120", "AMRAAM", "slammer", "fox three", "120", "active missile"],
+      "category": "a2a",
+      "source": {
+        "doc": "DCS FA-18C Early Access Manual",
+        "page": 275,
+        "section": "7.2 AIM-120C AMRAAM Employment"
+      },
+      "conditions": [
+        {
+          "condition_id": "master_arm_armed",
+          "description": "Master Arm switch must be ARM",
+          "check_field": "master_arm",
+          "required_value": "ARM",
+          "comparator": "eq",
+          "fix_instruction": "Set Master Arm switch to ARM on the instrument panel.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "aa_master_mode",
+          "description": "A/A master mode must be selected",
+          "check_field": "master_mode",
+          "required_value": "A/A",
+          "comparator": "eq",
+          "fix_instruction": "Press the A/A master mode button on the instrument panel.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "aim120_selected",
+          "description": "AIM-120C must be the selected weapon on SMS",
+          "check_field": "selected_weapon",
+          "required_value": "AIM-120C",
+          "comparator": "eq",
+          "fix_instruction": "Select AIM-120C on the SMS DDI page.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "radar_operating",
+          "description": "Radar must be powered and operating — not in STBY or OFF",
+          "check_field": "radar_mode",
+          "required_value": ["OFF", "STBY"],
+          "comparator": "not_in",
+          "fix_instruction": "Power the radar — select RWS, TWS, or STT mode on the radar switch.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "radar_tracking_mode",
+          "description": "Radar should be in STT or TWS for continuous uplink to the missile",
+          "check_field": "radar_mode",
+          "required_value": ["STT", "TWS"],
+          "comparator": "in",
+          "fix_instruction": "Radar is in RWS — lock the target in STT for a single-target shot, or use TWS for multi-target employment.",
+          "severity": "warning"
+        }
+      ]
+    },
+
+    "gbu12": {
+      "canonical": "GBU-12 Paveway II",
+      "alternates": ["GBU-12", "laser guided bomb", "LGB", "Paveway", "GBU twelve", "500 pound laser"],
+      "category": "a2g",
+      "source": {
+        "doc": "DCS FA-18C Early Access Manual",
+        "page": 356,
+        "section": "9.3 GBU-12 Paveway II Employment"
+      },
+      "conditions": [
+        {
+          "condition_id": "master_arm_armed",
+          "description": "Master Arm switch must be ARM",
+          "check_field": "master_arm",
+          "required_value": "ARM",
+          "comparator": "eq",
+          "fix_instruction": "Set Master Arm to ARM on the instrument panel.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "ag_master_mode",
+          "description": "A/G master mode must be selected",
+          "check_field": "master_mode",
+          "required_value": "A/G",
+          "comparator": "eq",
+          "fix_instruction": "Press the A/G master mode button on the instrument panel.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "gbu12_selected",
+          "description": "GBU-12 must be selected on SMS",
+          "check_field": "selected_weapon",
+          "required_value": "GBU-12",
+          "comparator": "eq",
+          "fix_instruction": "Select GBU-12 on the SMS DDI page.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "tgp_powered",
+          "description": "TGP must be powered and operational for laser guidance",
+          "check_field": "tgp_powered",
+          "required_value": true,
+          "comparator": "eq",
+          "fix_instruction": "Power the TGP on a DDI — select FLIR/TPOD and wait for OPR mode.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "tgp_tracking",
+          "description": "TGP must have an active designation in TRACK mode",
+          "check_field": "tgp_tracking",
+          "required_value": true,
+          "comparator": "eq",
+          "fix_instruction": "Designate the target in the TGP DDI — slew crosshairs and TDC depress to enter TRACK mode.",
+          "severity": "blocking"
+        },
+        {
+          "condition_id": "laser_arm_armed",
+          "description": "Laser Arm switch should be ARM before reaching the release point",
+          "check_field": "laser_arm",
+          "required_value": "ARM",
+          "comparator": "eq",
+          "fix_instruction": "Set Laser Arm switch to ARM on the Master Arm panel — it is separate from Master Arm.",
+          "severity": "warning"
+        },
+        {
+          "condition_id": "safe_release_altitude",
+          "description": "Altitude should be above minimum safe release altitude for fuze arming",
+          "check_field": "altitude_ft",
+          "required_value": 1500,
+          "comparator": "gte",
+          "fix_instruction": "You may be below 1500 ft AGL — GBU-12 fuze may not arm. Climb or abort the run.",
+          "severity": "warning"
+        }
+      ]
+    }
+  }
+}

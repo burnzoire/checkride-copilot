@@ -1,0 +1,94 @@
+{
+  "airframe": "FA-18C",
+  "facts": {
+    "tgp_track_required_for_laser": {
+      "canonical": "TGP must be in TRACK mode to fire laser",
+      "alternates": ["TGP track for laser", "TPOD track mode laser", "target pod track required", "laser requires track"],
+      "category": "sensors",
+      "claim": "The AN/ASQ-228 ATFLIR (TGP) laser will only fire when the pod is actively tracking a designation — either POINT TRACK or AREA TRACK. In SEARCH mode the laser trigger is inhibited regardless of Laser Arm state.",
+      "source": {
+        "doc": "DCS FA-18C Early Access Manual",
+        "page": 305,
+        "section": "8.1.4 Laser Operation"
+      },
+      "related_switch": "Laser Arm Switch",
+      "check_field": "tgp_tracking",
+      "value": true
+    },
+
+    "laser_arm_separate_from_master_arm": {
+      "canonical": "Laser Arm is a separate switch from Master Arm",
+      "alternates": ["laser arm separate", "two arm switches", "laser arm independent", "laser arm not master arm"],
+      "category": "weapons",
+      "claim": "The F/A-18C has two independent arm switches on the Master Arm panel: Master Arm (controls all weapon releases) and Laser Arm (controls TGP laser emission). Both must be set to ARM for laser-guided weapons. Setting Master Arm to ARM does not automatically arm the laser.",
+      "source": {
+        "doc": "DCS FA-18C Early Access Manual",
+        "page": 214,
+        "section": "6.4.1 Master Arm Panel"
+      },
+      "related_switch": "Laser Arm Switch",
+      "check_field": "laser_arm",
+      "value": "ARM"
+    },
+
+    "radar_stby_does_not_emit": {
+      "canonical": "Radar in STBY does not emit RF energy",
+      "alternates": ["radar standby no emission", "STBY radar silent", "standby mode radar", "radar off emission"],
+      "category": "sensors",
+      "claim": "When the APG-73 radar is in STBY mode, it is powered and warmed up but does not transmit RF energy. It is not detectable by threat radar warning receivers. Switching to an operating mode (RWS, TWS, STT, VS) begins emission. EMERG mode forces full power regardless of safety interlocks.",
+      "source": {
+        "doc": "DCS FA-18C Early Access Manual",
+        "page": 188,
+        "section": "5.3.2 Radar Power States"
+      },
+      "related_switch": "Radar Switch",
+      "check_field": "radar_mode",
+      "value": "STBY"
+    },
+
+    "aim120_pitbull_range": {
+      "canonical": "AIM-120 active seeker activates at approximately 10-15 nm from target",
+      "alternates": ["AMRAAM pitbull range", "AIM-120 goes active", "AMRAAM active seeker", "pitbull distance"],
+      "category": "weapons",
+      "claim": "The AIM-120C AMRAAM relies on radar uplink from the launching aircraft until its onboard active seeker goes autonomous (pitbull). In DCS this typically occurs 10-15 nm from the target depending on altitude and closure rate. After pitbull the pilot may crank or notch without the missile losing guidance.",
+      "source": {
+        "doc": "DCS FA-18C Early Access Manual",
+        "page": 278,
+        "section": "7.2.3 AIM-120 Guidance Modes"
+      },
+      "related_switch": null,
+      "check_field": null,
+      "value": null
+    },
+
+    "master_arm_required_for_all_weapons": {
+      "canonical": "Master Arm must be ARM to release any weapon including the gun",
+      "alternates": ["master arm required", "weapons need master arm", "arm before shoot", "master arm gun", "master arm bomb"],
+      "category": "weapons",
+      "claim": "No weapon — gun, missile, or bomb — can be released or fired unless the Master Arm switch is in ARM. The gun additionally requires the Gun Arm switch (also on the Master Arm panel) to be ARM. The system will not generate a firing signal with Master Arm in SAFE.",
+      "source": {
+        "doc": "DCS FA-18C Early Access Manual",
+        "page": 215,
+        "section": "6.4.1 Master Arm Panel"
+      },
+      "related_switch": "Master Arm Switch",
+      "check_field": "master_arm",
+      "value": "ARM"
+    },
+
+    "gbu12_min_release_altitude": {
+      "canonical": "GBU-12 minimum safe release altitude is 1500 ft AGL",
+      "alternates": ["GBU-12 min altitude", "LGB minimum altitude", "bomb release altitude", "GBU-12 fuze arming altitude", "laser bomb altitude"],
+      "category": "weapons",
+      "claim": "The GBU-12 Paveway II requires a minimum of approximately 1500 ft AGL to allow the fuze to arm during fall time. Releasing below this altitude risks unexploded ordnance or immediate detonation risk to the aircraft. Optimal release altitude for a medium-angle delivery is 10,000-15,000 ft AGL.",
+      "source": {
+        "doc": "DCS FA-18C Early Access Manual",
+        "page": 358,
+        "section": "9.3.2 GBU-12 Release Envelope"
+      },
+      "related_switch": null,
+      "check_field": "altitude_ft",
+      "value": 1500
+    }
+  }
+}
