@@ -1,0 +1,38 @@
+{
+  "key": "gacq_gun_acquisition",
+  "canonical": "GACQ (Gun Acquisition)",
+  "alternates": [
+    "GACQ (Gun Acquisition)",
+    "gacq acquisition"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ACM",
+    "GACQ",
+    "HMD: Helmet-Mounted Display"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 223,
+    "section": "2.1 - Air-to-Air Modes > 2.1.7 - ACM (Air Combat Maneuvering) Modes > 2.1.7.5 - GACQ (Gun Acquisition)"
+  },
+  "step_count": 4,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Setting A/A Master Mode"
+    },
+    {
+      "num": 2,
+      "action": "Making sure HMD (Helmet-Mounted Display) is OFF"
+    },
+    {
+      "num": 3,
+      "action": "Pressing the Weapon Control Switch aft to select Air-to-Air Gun and enter GACQ ACM mode."
+    },
+    {
+      "num": 4,
+      "action": "Radar will automatically attempt to lock on the nearest target To exit GACQ mode: Use Weapon Select Switch to select another weapon, or Toggle the A/A Master Mode OFF and ON."
+    }
+  ]
+}

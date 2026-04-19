@@ -1,0 +1,57 @@
+{
+  "key": "scene_track_auto_track",
+  "canonical": "Scene Track & Auto Track",
+  "alternates": [
+    "Scene Track & Auto Track",
+    "scene track auto track"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DDI",
+    "FLIR",
+    "INR",
+    "SCENE",
+    "TDC",
+    "VVSLV"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 321,
+    "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods > 4.5.5 - Scene Track & Auto Track"
+  },
+  "step_count": 8,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+    },
+    {
+      "num": 2,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 3,
+      "action": "Press the Undesignate button twice to select VVSLV mode."
+    },
+    {
+      "num": 4,
+      "action": "Press the Undesignate button twice to select unselect VVSLV."
+    },
+    {
+      "num": 5,
+      "action": "Press the Sensor Control Switch in the direction of the FLIR format page to toggle between Scene Track and Auto Track."
+    },
+    {
+      "num": 6,
+      "action": "In Scene Track, the FLIR is slaved to the location of the “scene” (area). However, it the Scene Track reticle can still be slewed with TDC AFT/FWD/LEFT/RIGHT controls (INR SCENE when slewing)."
+    },
+    {
+      "num": 7,
+      "action": "Target is automatically designated by the targeting pod in Scene Track mode."
+    },
+    {
+      "num": 8,
+      "action": "Pressing the Undesignate button once will undesignate the target."
+    }
+  ]
+}

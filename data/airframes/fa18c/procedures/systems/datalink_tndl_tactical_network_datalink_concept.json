@@ -1,0 +1,88 @@
+{
+  "key": "datalink_tndl_tactical_network_datalink_concept",
+  "canonical": "Datalink: TNDL (Tactical Network Datalink) Concept",
+  "alternates": [
+    "datalink tndl tactical network"
+  ],
+  "category": "systems",
+  "terminology": [
+    "AMPCD",
+    "BRA",
+    "CONCEPT",
+    "CT14",
+    "DATALINK",
+    "DONR",
+    "DONR1",
+    "DONR5",
+    "FA18",
+    "MEMB4",
+    "MEMBR",
+    "NETWORK",
+    "SA: Situational Awareness",
+    "TAC",
+    "TACTICAL",
+    "TDC: Target Designator Controller",
+    "TNDL: TACTICAL NETWORK DATALINK",
+    "TUC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 619,
+    "section": "Part 12 - Datalink & IFF > Datalink: TNDL (Tactical Network Datalink) Concept"
+  },
+  "step_count": 13,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Select TAC Menu"
+    },
+    {
+      "num": 2,
+      "action": "Select SA (Situational Awareness) page"
+    },
+    {
+      "num": 3,
+      "action": "Press Sensor Control Switch AFT and confirm the AMPCD Selection Diamond is visible."
+    },
+    {
+      "num": 4,
+      "action": "Place the TDC (Throttle Designator Controller) over a contract (we will select Colt 1-4 as an example, represented as Team Member D)."
+    },
+    {
+      "num": 5,
+      "action": "The Target Under Cursor (TUC) has its information displayed in the bottom right corner."
+    },
+    {
+      "num": 6,
+      "action": "The boxed MEMB4 indicates that the target under the TDC is a datalink member No. 4."
+    },
+    {
+      "num": 7,
+      "action": "The unboxed DONR1 indicates that the target under the TDC is not a datalink donor, which makes sense since it is already is a Datalink Member. DATALINK TNDL (TACTICAL NETWORK DATALINK) CONCEPT Sensor Control Switch AMPCD Selected Diamond Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS TDC on Target Target Under Cursor (TUC) Data Block FA18: Aircraft Type CT14: Colt 1-4 Callsign 17.5: Remaining Fuel (17500 lbs) BRA 141/1: Bearing, Range & Altitude from You. Target is at your 141, 1 nm out Adding & Removing Participants to/from Team & Donor Lists"
+    },
+    {
+      "num": 8,
+      "action": "Let’s remove Colt 1-4 from the Member List and replace the Team Member Slot No. 4 with Sting 1-1 (currently a Donor)."
+    },
+    {
+      "num": 9,
+      "action": "Place the TDC (Target Designator Controller) over Colt 1-4. The boxed MEMB4 label indicates it is team member No. 4 within our datalink network."
+    },
+    {
+      "num": 10,
+      "action": "Un-select (un-box) the MEMB4 label to remove Colt 1-4 as a team member. Note that “D” letter has disappeared from Colt 1-4."
+    },
+    {
+      "num": 11,
+      "action": "Place the TDC over the Sting 1-1. The boxed DONR5 label indicates it is a donor No. 5, but not a team member."
+    },
+    {
+      "num": 12,
+      "action": "Un-select (un-box) the DONR label to remove Sting 1-1 as a Donor."
+    },
+    {
+      "num": 13,
+      "action": "Select MEMBR label (boxed) to assign Sting 1-1 aircraft as a team member participant. Note that “D” letter has appeared on Sting 1-1, indicating it is now Team Member No. 4. (Note: You can do this with all networked aircraft, and it allows you to dynamically configure) your network during a mission."
+    }
+  ]
+}

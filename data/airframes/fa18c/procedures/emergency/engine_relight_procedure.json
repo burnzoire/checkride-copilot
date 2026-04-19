@@ -1,0 +1,42 @@
+{
+  "key": "engine_relight_procedure",
+  "canonical": "Engine Relight Procedure",
+  "alternates": [
+    "engine relight procedure"
+  ],
+  "category": "emergency",
+  "terminology": [
+    "APU",
+    "CRANK",
+    "ENG",
+    "RPM"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 156,
+    "section": "Part 7 - Engine & Fuel Management > Powerplant Systems > Engine Relight Procedure"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Set flamed out engine throttle to IDLE or above."
+    },
+    {
+      "num": 2,
+      "action": "Adjust aircraft airspeed to 350 kts or more. Maintaining a high airspeed will allow windmilling (air flow driving the engine compressor blades) to maintain an engine RPM between 12 % and 45 %, facilitating engine start. Windmill restart attempts made after RPM has degraded to 0 % may require up to 450 kts to obtain 12 % RPM for ignition."
+    },
+    {
+      "num": 3,
+      "action": "Make sure that you are flying below 25000 ft."
+    },
+    {
+      "num": 4,
+      "action": "Set ENG CRANK Switch to start flamed out engine"
+    },
+    {
+      "num": 5,
+      "action": "In case of a failed engine cross-bleed start, an engine restart with the APU as the bleed air source can be use as the last alternative."
+    }
+  ]
+}

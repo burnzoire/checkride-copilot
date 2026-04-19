@@ -1,0 +1,51 @@
+{
+  "key": "atth_balt_hsel_ralt_mode_procedure_example",
+  "canonical": "ATTH/BALT/HSEL/RALT Mode Procedure Example",
+  "alternates": [
+    "atth balt hsel ralt"
+  ],
+  "category": "systems",
+  "terminology": [
+    "AMPCD",
+    "ATTH",
+    "BALT",
+    "CONTROLS",
+    "HSEL: Heading Select",
+    "HSI: Horizontal Situation Indicator",
+    "MAPPED",
+    "NEED",
+    "OSB: Option Select Button",
+    "SETUP",
+    "UFC",
+    "WHAT",
+    "YOU"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 658,
+    "section": "Autopilot > AFCS (Automatic Flight Control System) > ATTH/BALT/HSEL/RALT Mode Procedure Example"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure your stick is centered, no force is applied on it and that you have an appropriate deadzone (see CONTROLS SETUP - WHAT YOU NEED MAPPED section)."
+    },
+    {
+      "num": 2,
+      "action": "If you intend to use the HSEL (Heading Select) mode, set the desired heading with the HDG switch above the AMPCD screen. Otherwise, disregard this step."
+    },
+    {
+      "num": 3,
+      "action": "Press the A/P button on the UFC (Up-Front Controller) to display autopilot modes"
+    },
+    {
+      "num": 4,
+      "action": "Press on the OSB (Option Select Button) next to the desired autopilot mode: ATTH: Attitude Hold. Aircraft will maintain the existing pitch and roll attitude between +/- 45 degrees in pitch and +/- 70 degrees in roll BALT: Barometric Altitude Hold. When engaged, aircraft will maintain current heading and barometric altitude between 0 and 70000 ft HSEL: Heading Select. Aircraft will turn to and fly the heading as set on the HSI (Horizontal Situation Indicator). RALT: Radar Altitude Hold. Aircraft will maintain current heading and radar altitude between 0 and 5000 ft."
+    },
+    {
+      "num": 5,
+      "action": "You can disengage autopilot by pressing the Paddle Switch on the control stick."
+    }
+  ]
+}

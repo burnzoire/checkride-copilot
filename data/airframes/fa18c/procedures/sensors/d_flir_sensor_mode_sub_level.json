@@ -1,0 +1,58 @@
+{
+  "key": "d_flir_sensor_mode_sub_level",
+  "canonical": "D - FLIR Sensor Mode Sub-level",
+  "alternates": [
+    "flir sensor mode level"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DDI",
+    "DSPLY",
+    "FLIR",
+    "HAFU",
+    "IFF",
+    "OSB",
+    "RRSLV",
+    "TDC: Throttle Designation Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 197,
+    "section": "2.1.1 - Radar Display > 2.1.1.2 - AZ/EL Format > D - FLIR Sensor Mode Sub-level"
+  },
+  "step_count": 8,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Ensure FLIR is powered and A/A Master Mode is selected"
+    },
+    {
+      "num": 2,
+      "action": "Set AZ/EL page on any DDI (we will take the left one), then press Sensor Control Switch LEFT to select the left DDI. Selection Diamond should be visible."
+    },
+    {
+      "num": 3,
+      "action": "Press and hold TDC (Throttle Designation Controller), then slew TDC over a HAFU symbol in the AZ/EL page."
+    },
+    {
+      "num": 4,
+      "action": "When TDC is released, HAFU symbol will become the L&S (Launch & Steering) Primary Target designated by the target."
+    },
+    {
+      "num": 5,
+      "action": "Press the OSB next to “IFF RDR” to select FLIR sub-page."
+    },
+    {
+      "num": 6,
+      "action": "In this particular situation, the FLIR line-of-sight is currently not slaved to the target we have radar locked."
+    },
+    {
+      "num": 7,
+      "action": "Press on the OSB next to RRSLV to slave the targeting pod to the radar locked target. The line-of-sight symbol should slew over the L&S."
+    },
+    {
+      "num": 8,
+      "action": "Press FLIR DSPLY to access the FLIR feed, which will show the target through the targeting pod’s sensor."
+    }
+  ]
+}

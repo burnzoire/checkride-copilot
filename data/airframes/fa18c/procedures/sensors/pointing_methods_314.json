@@ -1,0 +1,39 @@
+{
+  "key": "pointing_methods_314",
+  "canonical": "Pointing Methods",
+  "alternates": [
+    "Pointing Methods",
+    "pointing methods"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "FLIR",
+    "HSI: Horizontal Situation Indicator",
+    "MFOV",
+    "OSB: Option Select Button",
+    "SCENE",
+    "WFOV",
+    "WPDSG: Waypoint Designate",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 315,
+    "section": "Part 9 - Radar & Sensors > 4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods"
+  },
+  "step_count": 3,
+  "steps": [
+    {
+      "num": 1,
+      "action": "WYPT OSB (Option Select Button) selected on the HSI (Horizontal Situation Indicator)"
+    },
+    {
+      "num": 2,
+      "action": "Desired waypoint is selected"
+    },
+    {
+      "num": 3,
+      "action": "WPDSG (Waypoint Designate) OSB selected Targeting Pod is Powered Up FLIR Reticles (with Wide, Medium and Narrow Field-of-View) Undesignated WFOV Designated WFOV Undesignated MFOV Designated MFOV Undesignated Designated AUTO Track SCENE Track"
+    }
+  ]
+}

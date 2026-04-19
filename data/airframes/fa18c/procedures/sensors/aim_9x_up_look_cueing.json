@@ -1,0 +1,42 @@
+{
+  "key": "aim_9x_up_look_cueing",
+  "canonical": "AIM-9X Up-Look Cueing",
+  "alternates": [
+    "AIM-9X Up-Look Cueing",
+    "look cueing"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "AIM-9X: Cage/Uncage button on the throttle",
+    "HMD",
+    "TDC: Throttle Designator Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 360,
+    "section": "5 - JHMCS (Joint Helmet-Mounted Cueing System) > 5.5 - JHMCS Functions > 5.5.3 - AIM-9X Up-Look Cueing"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Set Master Mode to A/A"
+    },
+    {
+      "num": 2,
+      "action": "Select AIM-9X Sidewinder missile (Weapon Select Switch DOWN)"
+    },
+    {
+      "num": 3,
+      "action": "Set TDC (Throttle Designator Controller) priority to the Helmet Display by pressing Sensor Control Switch FWD"
+    },
+    {
+      "num": 4,
+      "action": "Press the Sensor Control Switch AFT to enter Up-Look Cueing."
+    },
+    {
+      "num": 5,
+      "action": "Uncage AIM-9X (Cage/Uncage button on the throttle) and place Up-Look Reticle on target, which allows you to launch AIM-9X missiles beyond radar limits. (Note: this function is not fully implemented yet.) Up-Look Reticle Line of Sight HMD Reticle Line of Sight Helmet Direction Up-Look Reticle Line of Sight HMD Reticle Line of Sight"
+    }
+  ]
+}

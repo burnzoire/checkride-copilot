@@ -1,0 +1,45 @@
+{
+  "key": "target_designate_method",
+  "canonical": "Target Designate Method",
+  "alternates": [
+    "target designate method"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "DEPRESS",
+    "FLIR",
+    "HSI: Horizontal Situation Indicator",
+    "MARKPOINTS",
+    "OSB: Option Select Button",
+    "SA: Situational Awareness",
+    "TDC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 694,
+    "section": "6 - Markpoints > 6.2 - How to Add Markpoints > Target Designate Method"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Slew the targeting pod to the desired markpoint location (see targeting pod section)."
+    },
+    {
+      "num": 2,
+      "action": "To designate a target, use the TDC DEPRESS control (“ENTER”)."
+    },
+    {
+      "num": 3,
+      "action": "A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well."
+    },
+    {
+      "num": 4,
+      "action": "From either the HSI (Horizontal Situation Indicator) or the SA (Situational Awareness) page, press the OSB (Option Select Button) next to MK#."
+    },
+    {
+      "num": 5,
+      "action": "The MK# will increment and the markpoint will be created at the designated target point selected when pressing the MK# OSB. (Note: Once MK#9 is created (the last of the 9 available markpoints), the next created MK# will overwrite MK#1, and so on and so) forth. 6 - MARKPOINTS"
+    }
+  ]
+}

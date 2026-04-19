@@ -1,0 +1,56 @@
+{
+  "key": "adf_automatic_direction_finder_navigation",
+  "canonical": "ADF (Automatic Direction Finder) Navigation",
+  "alternates": [
+    "ADF (Automatic Direction Finder) Navigation",
+    "automatic direction finder navigation"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "ADF",
+    "ADF1",
+    "HSI",
+    "OSB",
+    "UFC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 697,
+    "section": "Part 15 - Navigation & Case III Recovery > 7 - ADF (Automatic Direction Finder) Navigation"
+  },
+  "step_count": 8,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Set ADF switch to ADF1 (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Left click on the COMM1 knob to pull it and select COMM1 Radio"
+    },
+    {
+      "num": 3,
+      "action": "Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode"
+    },
+    {
+      "num": 4,
+      "action": "Press the OSB next to FM (“:” will appear when selected)"
+    },
+    {
+      "num": 5,
+      "action": "Press CLR on the UFC to clear current frequency"
+    },
+    {
+      "num": 6,
+      "action": "Type “113600” on the UFC to set ADF frequency 113.6 MHz"
+    },
+    {
+      "num": 7,
+      "action": "Press ENT on the UFC to enter this frequency"
+    },
+    {
+      "num": 8,
+      "action": "You will now see a circle on the HSI compass rose. This is the heading towards the ADF beacon."
+    }
+  ]
+}

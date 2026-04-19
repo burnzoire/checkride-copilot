@@ -1,0 +1,144 @@
+{
+  "key": "agm_65f_missile_slaving_targeting_pod",
+  "canonical": "AGM-65F Missile Slaving (Targeting Pod)",
+  "alternates": [
+    "AGM-65F Missile Slaving (Targeting Pod)",
+    "missile slaving targeting",
+    "AGM-65F AGM-65F Missile Slaving (Targeting Pod)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "AGM-65F",
+    "ARM",
+    "DDI",
+    "DEPRESS",
+    "DLY1: Delayed Fuze",
+    "DLY2",
+    "DSPLY",
+    "FLIR",
+    "FOV: Field of View",
+    "HUD",
+    "IMAV",
+    "INST: Instantaneous",
+    "MAV",
+    "MAVF",
+    "OPR",
+    "OSB",
+    "RNG",
+    "SMS: Stores Management System",
+    "TDC: Throttle Designator Controller",
+    "VVSLV"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 444,
+    "section": "2 - Air-to-Ground Weapons > 2.7 - AGM-65F/G Maverick (IR-MAVF) > 2.7.2 - AGM-65F Missile Slaving (Targeting Pod)"
+  },
+  "step_count": 26,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press A/G Master Mode."
+    },
+    {
+      "num": 2,
+      "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate)."
+    },
+    {
+      "num": 3,
+      "action": "Select FLIR page."
+    },
+    {
+      "num": 4,
+      "action": "Press the Sensor Control Switch in the direction of the selected FLIR DDI page (RIGHT)."
+    },
+    {
+      "num": 5,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 6,
+      "action": "Press the Undesignate button twice to select VVSLV mode."
+    },
+    {
+      "num": 7,
+      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode."
+    },
+    {
+      "num": 8,
+      "action": "When Snowplow is first entered, the FLIR is set to 0° left/right and -8° down."
+    },
+    {
+      "num": 9,
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target"
+    },
+    {
+      "num": 10,
+      "action": "To designate a target from Snowplow mode, use the TDC DEPRESS control (“ENTER”). A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well."
+    },
+    {
+      "num": 11,
+      "action": "(Optional) If desired, press the Sensor Control Switch in the direction of the FLIR format page to toggle between Area Track and Point Track."
+    },
+    {
+      "num": 12,
+      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation."
+    },
+    {
+      "num": 13,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 14,
+      "action": "Select MAVF (text should be boxed)"
+    },
+    {
+      "num": 15,
+      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed."
+    },
+    {
+      "num": 16,
+      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live."
+    },
+    {
+      "num": 17,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 18,
+      "action": "Set Sensor Control Switch to the Maverick Feed DDI (Sensor Control Switch LEFT since we showed up the MAV feed on the left DDI). A diamond will appear to show the left DDI is selected."
+    },
+    {
+      "num": 19,
+      "action": "Set Fuzing to either INST (Instantaneous), DLY1 (Delayed Fuze) or DLY2."
+    },
+    {
+      "num": 20,
+      "action": "Adjust FOV (Field of View) as required."
+    },
+    {
+      "num": 21,
+      "action": "By default, the Maverick is Caged. When the seeker is caged, it will always point forward at its boresight."
+    },
+    {
+      "num": 22,
+      "action": "Press the Cage/Uncage Button to uncage the Maverick."
+    },
+    {
+      "num": 23,
+      "action": "When the Maverick is uncaged and a A/G TGT (air-to- ground target) is designated by the targeting pod, the missile will attempt to lock onto a contrasting target within the designated TGT area. This procedure is much easier to do than trying to slew the missile itself."
+    },
+    {
+      "num": 24,
+      "action": "The Maverick is within range (distance of 7.5 miles) to the target when IN RNG cue is visible on the HUD and MAVF feed page."
+    },
+    {
+      "num": 25,
+      "action": "When lock is acquired by Maverick, the MAVF crossed- out indication will disappear."
+    },
+    {
+      "num": 26,
+      "action": "Hold Weapon Release Button (« RALT+SPACE ») to fire missile."
+    }
+  ]
+}

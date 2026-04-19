@@ -1,0 +1,59 @@
+{
+  "key": "normal_operation",
+  "canonical": "Normal Operation",
+  "alternates": [
+    "normal operation",
+    "AGM-88C Normal Operation"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "DDI",
+    "EW: Early Warning",
+    "FLIR",
+    "HARM",
+    "HUD",
+    "OSB",
+    "RAID",
+    "RWR",
+    "SMS: Stores Management System",
+    "SP: Self-Protection",
+    "TAC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 470,
+    "section": "2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.2 - AGM-88C HARM (SP) > Normal Operation"
+  },
+  "step_count": 7,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Set the TAC EW (Early Warning) page on the right DDI and the SMS (Stores Management System) page on the left DDI."
+    },
+    {
+      "num": 4,
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it"
+    },
+    {
+      "num": 5,
+      "action": "Select SP (Self-Protection) Mode"
+    },
+    {
+      "num": 6,
+      "action": "Consult the HUD, RWR or EW page ands select which emitter you want to track by pressing the RAID / FLIR Button (“I” binding). There is no range information available."
+    },
+    {
+      "num": 7,
+      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to fire missile. (Note: SP Mode allows for 360° engagement; however, more kinetic energy is) sacrificed to turn as the angle increases. Self-Protect is named as such because it is primarily designed for quick reaction to a threat. On these three RWR displays, whenever the HARM and SP mode is selected, a square is placed around the selected emitter; the highest priority emitter is selected automatically. Note that a maximum of 6 emitters are displayed on the HUD, but the HARM will always cycle all emitters. Once fired, the HARM will either have already acquired the selected emitter or, if it is outside the HARM seeker field of view, it will acquire it post-launch."
+    }
+  ]
+}

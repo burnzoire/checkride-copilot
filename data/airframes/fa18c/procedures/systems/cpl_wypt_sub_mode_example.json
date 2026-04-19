@@ -1,0 +1,73 @@
+{
+  "key": "cpl_wypt_sub_mode_example",
+  "canonical": "CPL WYPT Sub-Mode Example",
+  "alternates": [
+    "wypt mode example"
+  ],
+  "category": "systems",
+  "terminology": [
+    "CONTROLS",
+    "CPL",
+    "CRS: Course Set",
+    "CSEL",
+    "HSI",
+    "HUD",
+    "MAPPED",
+    "NEED",
+    "OSB",
+    "SEQ1",
+    "SETUP",
+    "UFC",
+    "WHAT",
+    "WYPT",
+    "YOU"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 661,
+    "section": "AFCS (Automatic Flight Control System) > CPL (Coupled Steering) Mode > CPL WYPT Sub-Mode Example"
+  },
+  "step_count": 10,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure your stick is centered, no force is applied on it and that you have an appropriate deadzone (see CONTROLS SETUP - WHAT YOU NEED MAPPED section)."
+    },
+    {
+      "num": 2,
+      "action": "Select a desired waypoint using the HSI format."
+    },
+    {
+      "num": 3,
+      "action": "Activate the WYPT navigation mode by pressing OSB next to WYPT. WYPT is boxed when selected."
+    },
+    {
+      "num": 4,
+      "action": "If desired, select AUTO to automatically follow the desired waypoint sequence (SEQ1 in our case)."
+    },
+    {
+      "num": 5,
+      "action": "If desired, click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) to intercept the waypoint from."
+    },
+    {
+      "num": 6,
+      "action": "Press the AP button on the UFC to show the autopilot options."
+    },
+    {
+      "num": 7,
+      "action": "Press the OSB adjacent “CPL” to activate coupled autopilot mode."
+    },
+    {
+      "num": 8,
+      "action": "A colon will appear (“:CPL”) to indicate that it is active. “CPL WYPT” will appear on both the HSI and HUD."
+    },
+    {
+      "num": 9,
+      "action": "The autopilot will follow the selected waypoint (or waypoint sequence if AUTO is selected)."
+    },
+    {
+      "num": 10,
+      "action": "You can disengage autopilot by pressing the Paddle Switch on the control stick."
+    }
+  ]
+}

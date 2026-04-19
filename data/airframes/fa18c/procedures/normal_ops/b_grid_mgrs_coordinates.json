@@ -1,0 +1,78 @@
+{
+  "key": "b_grid_mgrs_coordinates",
+  "canonical": "b - GRID (MGRS) Coordinates",
+  "alternates": [
+    "grid mgrs coordinates"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "DATA",
+    "DDI",
+    "DQ083998",
+    "GRID",
+    "HSI",
+    "JTAC",
+    "OSB",
+    "PRECISE",
+    "TDC: Throttle Designator Controller",
+    "UFC",
+    "WAYPOINTS",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 685,
+    "section": "5 - Waypoints > 5.5 - How to Edit Waypoints > b - GRID (MGRS) Coordinates"
+  },
+  "step_count": 12,
+  "steps": [
+    {
+      "num": 1,
+      "action": "In the HSI page, press the OSB next to DATA."
+    },
+    {
+      "num": 2,
+      "action": "You will see the waypoint sequence. We want to edit the coordinates of Waypoint 3."
+    },
+    {
+      "num": 3,
+      "action": "Press the Waypoint Increment/Decrement OSBs to select WYPT 3"
+    },
+    {
+      "num": 4,
+      "action": "Press the OSB next to UFC (Up-Front Controller)"
+    },
+    {
+      "num": 5,
+      "action": "On the UFC, press the OSB next to GRID. « : » will appear once selected ."
+    },
+    {
+      "num": 6,
+      "action": "We will add the grid coordinates of the target as sent by the JTAC: DQ083998 (Note: normal grid coordinates have 6 digits, while PRECISE) grid coordinates have 10 digits."
+    },
+    {
+      "num": 7,
+      "action": "The HSI display will be replaced by a grid menu. The letters represent grid squares of 100 x 100 km. Since the grid is DQ083998, we will select DQ."
+    },
+    {
+      "num": 8,
+      "action": "Verify that TDC is assigned to the right DDI (the TDC Assignment Diamond is shown). 5 - WAYPOINTS"
+    },
+    {
+      "num": 9,
+      "action": "Press and hold the TDC (Throttle Designator Controller), then slew the TDC cursor over grid “DQ”."
+    },
+    {
+      "num": 10,
+      "action": "Release TDC when cursor is over “DQ”. When “DQ” becomes underlined, it means the grid is selected."
+    },
+    {
+      "num": 11,
+      "action": "On the UFC, press « 083998 » to enter the grid coordinates for DQ083998, then press « ENT »."
+    },
+    {
+      "num": 12,
+      "action": "And that’s it! You have edited Waypoint 3’s coordinates. You would then have to edit elevation… but you already know how to do that, don’t you? 5 - WAYPOINTS"
+    }
+  ]
+}

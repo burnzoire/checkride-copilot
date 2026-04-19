@@ -1,0 +1,38 @@
+{
+  "key": "how_to_add_markpoints",
+  "canonical": "How to Add Markpoints",
+  "alternates": [
+    "How to Add Markpoints"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "HSI: Horizontal Situation Indicator",
+    "MARKPOINTS",
+    "OSB: Option Select Button",
+    "SA: Situational Awareness"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 693,
+    "section": "Part 15 - Navigation & Case III Recovery > 6 - Markpoints > 6.2 - How to Add Markpoints"
+  },
+  "step_count": 4,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure that no target is designated with any sensor (targeting pod, air-to-ground radar, waypoint designate). Use the Undesignate Button if you wish to un-designate a target."
+    },
+    {
+      "num": 2,
+      "action": "Fly over the location you want to mark"
+    },
+    {
+      "num": 3,
+      "action": "From either the HSI (Horizontal Situation Indicator) or the SA (Situational Awareness) page, press the OSB (Option Select Button) next to MK#."
+    },
+    {
+      "num": 4,
+      "action": "The MK# will increment and the markpoint will be created at the coordinates you were at when pressing the MK# OSB. (Note: Once MK#9 is created (the last of the 9 available markpoints), the next created MK# will overwrite MK#1, and so on and so forth.) 6 - MARKPOINTS"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "key": "mk_82_ccrp_auto",
+  "canonical": "MK-82 (CCRP/AUTO)",
+  "alternates": [
+    "MK-82 (CCRP/AUTO)",
+    "ccrp auto"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "ASL: Azimuth Steering Line",
+    "CCRP",
+    "DLY1",
+    "DRAG",
+    "EFUZ: Electronic Fuze",
+    "HUD",
+    "INST",
+    "INT",
+    "MFUZ: Mechanical Fuze",
+    "MODE",
+    "MULT",
+    "NOSE",
+    "OSB",
+    "PROG",
+    "QTY",
+    "RET",
+    "SMS: Stores Management System",
+    "TD: Target Designator",
+    "TDC: Throttle Designator Controller",
+    "UFC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 378,
+    "section": "2 - Air-to-Ground Weapons > 2.1 - Unguided Bombs > 2.1.2 - MK-82 (CCRP/AUTO)"
+  },
+  "step_count": 21,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Click on the desired bomb to select it (82B)"
+    },
+    {
+      "num": 5,
+      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 2. STEP is used to change selected station"
+    },
+    {
+      "num": 6,
+      "action": "Click on OSB next to MODE, then click on OSB to select AUTO Mode"
+    },
+    {
+      "num": 7,
+      "action": "Click on OSB next to MFUZ (Mechanical Fuze), then press on OSB next to NOSE."
+    },
+    {
+      "num": 8,
+      "action": "Click on OSB next to EFUZ (Electronic Fuze), then press on OSB next to DLY1 for a delay if desired, otherwise set to INST."
+    },
+    {
+      "num": 9,
+      "action": "Click on OSB next to DRAG, then press on OSB next to either FF (Free-Falling low-drag bomb) or RET (retarded fuze) based on your bomb type."
+    },
+    {
+      "num": 10,
+      "action": "Click on OSB next to « UFC » to activate the UFC keypad for the STORES page"
+    },
+    {
+      "num": 11,
+      "action": "Click on the OSB next to QTY (« : » means option is selected), type « 2 » on the UFC keypad, then press « ENT » (« : » means option is selected) to set 2 bombs per release."
+    },
+    {
+      "num": 12,
+      "action": "Click on the OSB next to MULT (« : » means option is selected), type « 1 » on the UFC keypad, then press « ENT » to set 1 bomb to be released simultaneously from weapon stations"
+    },
+    {
+      "num": 13,
+      "action": "Click on the OSB next to INT (« : » means option is selected), type « 500 » on the UFC keypad, then press « ENT » to set a 500 ft bomb impact spacing."
+    },
+    {
+      "num": 14,
+      "action": "To slave your TDC (Throttle Designator Controller) to your HUD, press the Sensor Control Switch FWD."
+    },
+    {
+      "num": 15,
+      "action": "You will see the « ball and chain » appear. In order to create a reference point for the CCRP, we will have to designate a specific point in space with the TDC."
+    },
+    {
+      "num": 16,
+      "action": "Enter a 25 deg dive to the target and set your velocity vector on the target."
+    },
+    {
+      "num": 17,
+      "action": "Once velocity vector is on the target, press the TDC Depress (« Enter ») to designate your CCRP reference point."
+    },
+    {
+      "num": 18,
+      "action": "Slew your TD (Target Designator) with the TDC controls to adjust your CCRP reference point properly."
+    },
+    {
+      "num": 19,
+      "action": "Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull- Up cue."
+    },
+    {
+      "num": 20,
+      "action": "When release cue appears, hold the Weapon Release Button (« RALT+SPACE ») until all bombs in the pass have been released."
+    },
+    {
+      "num": 21,
+      "action": "Pull up before velocity vector reaches the PULL UP cue."
+    }
+  ]
+}

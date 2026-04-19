@@ -1,0 +1,54 @@
+{
+  "key": "waypoint_slaved",
+  "canonical": "Waypoint Slaved",
+  "alternates": [
+    "Waypoint Slaved",
+    "waypoint slaved"
+  ],
+  "category": "navigation",
+  "terminology": [
+    "DDI",
+    "FLIR",
+    "HSI: Horizontal Situation Indicator",
+    "OSB",
+    "TDC: Throttle Designator Controller",
+    "WPSDG",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 280,
+    "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.4 - Waypoint Slaved"
+  },
+  "step_count": 7,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+    },
+    {
+      "num": 2,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 3,
+      "action": "On HSI (Horizontal Situation Indicator) page, select desired waypoint using the OSBs (Option Select Button) next to UP or DOWN arrows."
+    },
+    {
+      "num": 4,
+      "action": "Press OSB next to WYPT (boxed = selected)"
+    },
+    {
+      "num": 5,
+      "action": "Press on OSB next to WPSDG to designate waypoint as the target point (boxed = selected)"
+    },
+    {
+      "num": 6,
+      "action": "Targeting point will automatically slew to the selected waypoint."
+    },
+    {
+      "num": 7,
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target if adjustments are required."
+    }
+  ]
+}

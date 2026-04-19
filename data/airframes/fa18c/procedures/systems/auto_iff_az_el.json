@@ -1,0 +1,49 @@
+{
+  "key": "auto_iff_az_el",
+  "canonical": "Auto IFF (AZ/EL)",
+  "alternates": [],
+  "category": "systems",
+  "terminology": [
+    "CIT",
+    "FOV: Field-of-View",
+    "IFF: Identify-Friend-or-Foe",
+    "INT: Automatic Interrogation",
+    "TUTORIAL"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 645,
+    "section": "Part 12 - Datalink & IFF > IFF from AZ/EL Page > Auto IFF (AZ/EL)"
+  },
+  "step_count": 7,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Power Up IFF (Identify-Friend-or-Foe) and Datalink systems as shown previously in the MANUAL IFF example."
+    },
+    {
+      "num": 2,
+      "action": "Set AZ/EL Sub-page to IFF RDR."
+    },
+    {
+      "num": 3,
+      "action": "Select desired IFF scanning azimuth (in deg)."
+    },
+    {
+      "num": 4,
+      "action": "Select desired IFF interrogation range (in nm)."
+    },
+    {
+      "num": 5,
+      "action": "Make sure the L+S INT (Launch & Steering Interrogation) option is unboxed (de-selected)."
+    },
+    {
+      "num": 6,
+      "action": "Select AUTO INT (Automatic Interrogation) option. When selected, it will be boxed."
+    },
+    {
+      "num": 7,
+      "action": "The IFF system will automatically perform scan interrogations at the selected azimuth centered about boresight every 10 seconds. AUTO IFF TUTORIAL (AZ/EL) CIT FOV (Field-of-View): shows the azimuthal extent of manual and automatic interrogations made by the CIT (combined interrogator/transponder )."
+    }
+  ]
+}

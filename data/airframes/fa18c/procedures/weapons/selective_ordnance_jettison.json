@@ -1,0 +1,53 @@
+{
+  "key": "selective_ordnance_jettison",
+  "canonical": "Selective Ordnance Jettison",
+  "alternates": [
+    "Selective Ordnance Jettison",
+    "selective ordnance jettison"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "AIM-120",
+    "AIM-7",
+    "CTR",
+    "FUS",
+    "JETT: Jettison",
+    "JETTISON",
+    "MSL",
+    "ORDNANCE",
+    "SELECTIVE",
+    "SMS: Stores Management System"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 599,
+    "section": "Part 10 - Offence: Weapons & Armament > 4 - Selective Ordnance Jettison"
+  },
+  "step_count": 6,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Set Master Arm Switch – ON"
+    },
+    {
+      "num": 2,
+      "action": "Consult SMS (Stores Management System) page’s wingform to see what is loaded on what pylon"
+    },
+    {
+      "num": 3,
+      "action": "Select store you want to jettison (Left Inner, Right Inner, Left Outer, Right Outer, Center) using the LI, RI, LO, RO, CTR pushbuttons"
+    },
+    {
+      "num": 4,
+      "action": "Rotate the Selective Jettison knob to desired release mode (we will use RACK/LCHR). L FUS MSL and R FUS MSL are used to jettison AIM-7 or AIM-120 missiles attached to the fuselage RACK/LCHR drops the weapon and its launcher rack STORES drops the weapon but not its attachment rack"
+    },
+    {
+      "num": 5,
+      "action": "Press and hold the red JETT (Jettison) button to jettison ordnance."
+    },
+    {
+      "num": 6,
+      "action": "Return Selective Jettison knob back to SAFE 4 - SELECTIVE ORDNANCE JETTISON Emergency Jettison Button"
+    }
+  ]
+}

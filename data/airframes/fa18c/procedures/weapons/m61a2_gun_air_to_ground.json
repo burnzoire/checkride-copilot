@@ -1,0 +1,65 @@
+{
+  "key": "m61a2_gun_air_to_ground",
+  "canonical": "M61A2 Gun (Air-to-Ground)",
+  "alternates": [
+    "M61A2 Gun (Air-to-Ground)"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "CCIP",
+    "GUN",
+    "MK-50",
+    "PGU-28",
+    "RNG",
+    "SMS: Stores Management System"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 392,
+    "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.4 - M61A2 Gun (Air-to-Ground)"
+  },
+  "step_count": 10,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Select GUN (text should be boxed)"
+    },
+    {
+      "num": 5,
+      "action": "Select Gun Rounds Options (MK-50 or PGU-28 rounds)"
+    },
+    {
+      "num": 6,
+      "action": "Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute)"
+    },
+    {
+      "num": 7,
+      "action": "Set Gun Mode to CCIP (text should be boxed) Gun Reticle Pipper CCIP Mode Selected Gun Selected & Armed Gun Rounds Remaining"
+    },
+    {
+      "num": 8,
+      "action": "Set center of gun reticle on target and wait for the « IN RNG » (In Range) cue to appear."
+    },
+    {
+      "num": 9,
+      "action": "Squeeze the gun trigger (« Spacebar »)"
+    },
+    {
+      "num": 10,
+      "action": "Once you have done your run and the Breakaway X appears, break off the attack and wave off from target. In Range Cue Breakaway X"
+    }
+  ]
+}

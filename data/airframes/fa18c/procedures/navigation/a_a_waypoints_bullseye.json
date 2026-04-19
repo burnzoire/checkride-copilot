@@ -1,0 +1,43 @@
+{
+  "key": "a_a_waypoints_bullseye",
+  "canonical": "A/A Waypoints & Bullseye",
+  "alternates": [
+    "waypoints bullseye"
+  ],
+  "category": "navigation",
+  "terminology": [
+    "DATA",
+    "HSI",
+    "OSB",
+    "TDC",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 647,
+    "section": "Part 12 - Datalink & IFF > A/A Waypoints & Bullseye"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Open HSI page"
+    },
+    {
+      "num": 2,
+      "action": "Select DATA sub-menu"
+    },
+    {
+      "num": 3,
+      "action": "If we want to set Waypoint 2 as our Bullseye, select Waypoint 2 using the WYPT arrows."
+    },
+    {
+      "num": 4,
+      "action": "Press the OSB next to “A/A WP” to set Waypoint 2 as an A/A Bullseye Waypoint."
+    },
+    {
+      "num": 5,
+      "action": "You should now see the Bullseye (circle with an arrow pointing North) on your SA page and see a “BE” section in your TDC Target Info. TDC Target Info BE 276/17: Target bearing and range from Bullseye. Target is at the bullseye’s 276, 17 nm out Bullseye (Waypoint 2) Your Position TDC’s Bearing (284) and Range (15.7 nm) from Bullseye Bullseye (Waypoint 2) SA Page HSI Page HSI Page Your Position"
+    }
+  ]
+}

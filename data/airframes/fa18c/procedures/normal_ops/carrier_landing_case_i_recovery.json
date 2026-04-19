@@ -1,0 +1,100 @@
+{
+  "key": "carrier_landing_case_i_recovery",
+  "canonical": "Carrier Landing (Case I Recovery)",
+  "alternates": [
+    "carrier landing case recovery"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "AOA",
+    "AT5",
+    "CVN-74",
+    "HUD",
+    "IFLOLS: Improved Fresnel Lens Optical Landing System",
+    "LSO: Landing Signal Officer",
+    "MIL",
+    "OSB",
+    "PAPI",
+    "UFC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 134,
+    "section": "Part 6 - Landing > Carrier Landing (Case I Recovery)"
+  },
+  "step_count": 18,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Contact Carrier to turn on the lights Left click on the COMM1 knob to pull it and select COMM1 Radio Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode Press the OSB next to AM or FM to select the FM frequency (“:FM” will appear when selected) Press CLR on the UFC to clear current frequency Type “127500” on the UFC to set carrier radio frequency 127.5 MHz Press ENT on the UFC to enter this frequency Press the COMM switch – COMM1 on your throttle to contact the carrier (RALT+\\) Go in F5 – AT5 menu, then to the CVN-74 menu, then to the F1 – Inbound menu. And that’s it, the carrier is now illuminated."
+    },
+    {
+      "num": 2,
+      "action": "Set Anti-Skid Switch to OFF (Down Position), Hook Lever DOWN, Hook Bypass Switch to CARRIER, and Landing Lights ON"
+    },
+    {
+      "num": 3,
+      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD and set radar altimeter index to 370 ft or 320 (as you prefer). You use 370 ft to remind you that you need to make the ball call or 320 ft to make sure you have the proper altitude when 3/4 nm from the carrier."
+    },
+    {
+      "num": 4,
+      "action": "Enter upwind leg at approx."
+    },
+    {
+      "num": 5,
+      "action": "When turning left from the upwind leg to the crosswind leg, try to do pull a number of Gs that is 1 % of your airspeed (i.e. 3.5 G turn if going at 350 kts) while maintaining your velocity vector on the horizon line. This should line up your downwind leg to about 1.2 nm away from the runway."
+    },
+    {
+      "num": 6,
+      "action": "Slow down to 250 kts at fly at 600 ft"
+    },
+    {
+      "num": 7,
+      "action": "Set Landing Gear Lever - DOWN"
+    },
+    {
+      "num": 8,
+      "action": "Flaps Lever – FULL (DOWN)"
+    },
+    {
+      "num": 9,
+      "action": "As you enter downwind leg, slow down to ON SPEED AOA by setting the velocity vector in the middle of the “E” bracket on the HUD using elevator trim (super important) and throttle input. I cannot stress it enough: make sure you are properly trimmed. You should reach an airspeed of about 140-150 kts for an AoA (Angle of Attack) to 8.1 deg approx. If you fail to trim to 8 degrees, your AoA will be off and you will be fighting the fly-by-wire system all the way to landing. Make sure to maintain your 600 ft altitude by keeping the velocity vector on the horizon line. The AoA Indexer will also give you a good reference if you have the correct Angle of Attack or not. Airspeed Altitude Velocity Vector Velocity Vector “E” Bracket Horizon Line AoA Indexer Shows Good AoA CARRIER LANDING CASE I RECOVERY Once flying abeam the ship on the downwind leg, start your approach turn when your wing meets the ship’s Rounddown."
+    },
+    {
+      "num": 10,
+      "action": "When turning to base leg, start a 30-degree bank while maintaining the Velocity Vector and the E bracket just below the horizon line. Maintaining the 600 ft altitude will require you to adjust the throttle constantly. Forget about your airspeed: just focus on maintaining altitude and bank angle."
+    },
+    {
+      "num": 11,
+      "action": "When lined up with the ship, you will be entering the “groove” (short final)."
+    },
+    {
+      "num": 12,
+      "action": "Once wings are level, you would normally “call the ball”. Example: “403, Hornet Ball, 3.0”. (Side number of your Hornet, Aircraft Type, “Ball”, Fuel State/Remaining in thousands of pounds). The LSO (Landing Signal Officer) would then respond with “Roger Ball” and then give you corrections to land properly. Airspeed (FORGET ABOUT IT!) E Bracket Altitude Velocity Vector Horizon line."
+    },
+    {
+      "num": 13,
+      "action": "When entering the groove (final), if you set up your turn correctly the velocity vector should be lined up with the crotch of the ship. This is called “Spotting the Deck”, and you should NOT use this as a reference to land. Use the meatball, E bracket and the AoA Indexer instead as a reference (see next page), and control your glide slope and angle of attack with your throttle. That’s called flying “pitch for speed, power for altitude”."
+    },
+    {
+      "num": 14,
+      "action": "Don’t check your speed, if you have a good AoA, you’ll be on speed."
+    },
+    {
+      "num": 15,
+      "action": "Once AoA Indexer shows that you are ON SPEED (orange donut) and that your velocity vector is on the runway, just let yourself touchdown on the carrier. DO NOT FLARE. Ever. It will feel like a controlled crash into the deck; that’s normal. Don’t use brakes either. Ship’s Crotch Crotch of ship Angle of Attack (ON SPEED) Meatball Meatball CARRIER LANDING CASE I RECOVERY But what is “the ball” (or “meatball”), exactly? In fact, it’s the IFLOLS (Improved Fresnel Lens Optical Landing System), which acts a bit like PAPI lights but for aircraft carriers. The color of the lights you see will depend on what your angle with the lights and will tell you your glide slope, or in other words “if you need to add or reduce power”. The lights that will matter the most are the vertical center lights. If you see the bottom red lights (“Atomic Sunrise”), you’re about to hit the back of the ship. Throttle up and go around! If you see a centered orange light, you’re on the ball and should catch a wire. If the ball is high, this means you should reduce power very slightly. If the ball is low, you need to add power Avoid making large power corrections and stay lined up as much as possible. Overall, keep your eyes glued to your AoA Indexer and the “ball”. It will tell you what to do. IFLOLS (Improved Fresnel Lens Optical Landing System) Also called as “the ball” or “meatball”, the IFLOLS is used as visual aid to land on the carrier. Vertical scale: This is what you should monitor throughout the whole landing. AoA Indexer: provides a similar function to the IFLOS. That picture shows the AoA Indexer telling me that I am too fast and the meatball telling me I am too low. It will not tell me that I am too far left of lineup though."
+    },
+    {
+      "num": 16,
+      "action": "You should aim for the third arrestor wire. First and second wires indicate a short landing, while the fourth wire indicates a long landing."
+    },
+    {
+      "num": 17,
+      "action": "Once you touch the deck, throttle up to MIL power (just before afterburner detent). This will make sure that you have enough power to go around if your hook misses an arrestor wire (this is what we call a “bolter”) or you catch a wire and it snaps."
+    },
+    {
+      "num": 18,
+      "action": "Once the aircraft has come to a full stop, throttle down, raise arrestor hook, set flaps UP, fold wings and taxi to the nearest parking area. The WING FOLD lever needs to be pulled first (scroll mousewheel), then rotated left to FOLD (left click)."
+    }
+  ]
+}

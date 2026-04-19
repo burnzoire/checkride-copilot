@@ -10,7 +10,8 @@
       "Bash(.venv/Scripts/python.exe -c \"import pypdf; print\\('pypdf', pypdf.__version__\\)\")",
       "Bash(.venv/Scripts/python.exe *)",
       "Bash(.venv/Scripts/python *)",
-      "Bash(.venv/Scripts/pip install *)"
+      "Bash(.venv/Scripts/pip install *)",
+      "Bash(python *)"
     ]
   }
 }

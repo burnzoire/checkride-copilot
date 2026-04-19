@@ -1,0 +1,43 @@
+{
+  "key": "wacq_wide_acquisition",
+  "canonical": "WACQ (Wide Acquisition)",
+  "alternates": [
+    "WACQ (Wide Acquisition)",
+    "wacq wide acquisition"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ACM",
+    "BST",
+    "HMD: Helmet-Mounted Display",
+    "WACQ"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 220,
+    "section": "2.1 - Air-to-Air Modes > 2.1.7 - ACM (Air Combat Maneuvering) Modes > 2.1.7.4 - WACQ (Wide Acquisition)"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Setting A/A Master Mode"
+    },
+    {
+      "num": 2,
+      "action": "Making sure HMD (Helmet-Mounted Display) is OFF"
+    },
+    {
+      "num": 3,
+      "action": "Pressing the Sensor Control Switch forward to enter ACM mode (selects BST by default)"
+    },
+    {
+      "num": 4,
+      "action": "Pressing the Sensor Control Switch left to transfer ACM mode from BST to WACQ"
+    },
+    {
+      "num": 5,
+      "action": "Radar will automatically attempt to lock on the nearest target To exit ACM mode, press Undesignate Button."
+    }
+  ]
+}

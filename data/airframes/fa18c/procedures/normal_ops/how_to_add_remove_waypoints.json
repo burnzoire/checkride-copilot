@@ -1,0 +1,52 @@
+{
+  "key": "how_to_add_remove_waypoints",
+  "canonical": "How to Add/Remove Waypoints",
+  "alternates": [
+    "How to Add/Remove Waypoints",
+    "remove waypoints"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "DATA",
+    "EDIT",
+    "HOW",
+    "HSI",
+    "OSB",
+    "REMOVE",
+    "SEQUFC: Sequence UFC",
+    "UFC",
+    "WAYPOINTS"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 683,
+    "section": "Part 15 - Navigation & Case III Recovery > 5 - Waypoints > 5.4 - How to Add/Remove Waypoints"
+  },
+  "step_count": 6,
+  "steps": [
+    {
+      "num": 1,
+      "action": "In the HSI page, press the OSB next to DATA."
+    },
+    {
+      "num": 2,
+      "action": "You will see the waypoint sequence. We want to insert a 7th waypoint after Waypoint 6, which we will call Waypoint 7."
+    },
+    {
+      "num": 3,
+      "action": "Press the OSB next to SEQUFC (Sequence UFC)"
+    },
+    {
+      "num": 4,
+      "action": "On the UFC, press the OSB next to INS (Insert). « : » will appear once selected."
+    },
+    {
+      "num": 5,
+      "action": "Press « 7 », then « ENT » to enter Waypoint 7."
+    },
+    {
+      "num": 6,
+      "action": "Waypoint 7 will need coordinates, which we will add in the « HOW TO EDIT WAYPOINTS » tutorial. TO REMOVE WAYPOINTS: In the HSI page, press the OSB next to DATA. You will see the waypoint sequence. Let’s say we want to delete waypoint 2. Press the OSB next to SEQUFC (Sequence UFC) Press « CLR » to clear any displayed number on the UFC display On the UFC, press the OSB next to DEL (Delete). « : » will appear once selected. Press « 2 », then « ENT » to delete Waypoint 2 And that’s it! 5 - WAYPOINTS"
+    }
+  ]
+}

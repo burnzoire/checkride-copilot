@@ -31,6 +31,7 @@ _EXPANSIONS: dict[str, list[str]] = {
     "enable":    ["arm", "on", "enable", "set"],
     "turn":      ["switch", "set", "on", "off", "bright"],
     "start":     ["start", "engine", "crank", "ignition"],
+    "use":       ["use", "employ", "fire", "launch", "release"],
     "fire":      ["release", "fire", "pickle"],
     "firing":    ["release", "fire", "pickle"],
     "fired":     ["release", "fire", "pickle"],

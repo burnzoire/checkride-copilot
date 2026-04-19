@@ -1,0 +1,44 @@
+{
+  "key": "pullback_sub_mode",
+  "canonical": "Pullback Sub-Mode",
+  "alternates": [
+    "pullback mode",
+    "AGM-88C Pullback Sub-Mode"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "AGL",
+    "ARM",
+    "HARM",
+    "HRM",
+    "HUD",
+    "OSB",
+    "OVRD",
+    "RWR",
+    "SMS: Stores Management System"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 473,
+    "section": "2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.2 - AGM-88C HARM (SP) > Pullback Sub-Mode"
+  },
+  "step_count": 4,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)."
+    },
+    {
+      "num": 2,
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HRM OVRD to « unbox » it and make Self-Protect Pullback mode active in the process."
+    },
+    {
+      "num": 3,
+      "action": "Once HRM OVRD is unboxed and a critical threat (tracking radar lock, active missile radar lock, or semi-active radar illumination) is detected by the RWR, Pullback mode will activate automatically and the text “HARM” will appear on the HUD and Stores format."
+    },
+    {
+      "num": 4,
+      "action": "If “HARM” is displayed with no X, pressing the Weapon Release button will immediately launch a HARM against the threat. You do not need to change master mode or select the HARM. Notes Because the HARM has no ranging capability and is not slewed with another sensor in SP mode, there is no range to target provided. The HARM is best used at 30,000 feet AGL and above to maximize range. If the targeted radar turns off, the HARM will lose guidance and will likely not hit the target. Weapon Release Button HARM (no X): Pullback Mode allows you to fire a HARM at the threat."
+    }
+  ]
+}

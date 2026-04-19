@@ -1,0 +1,66 @@
+{
+  "key": "air_to_air_radar_slaving_l_s_slave",
+  "canonical": "Air-to-Air Radar Slaving (L+S Slave)",
+  "alternates": [
+    "Air-to-Air Radar Slaving (L+S Slave)",
+    "radar slaving slave"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ATTK",
+    "DDI",
+    "DEPRESS",
+    "FLIR",
+    "OSB",
+    "SLAVE: Launch & Steering Primary Target radar slave",
+    "TDC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 330,
+    "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.7 - Air-to-Air Operation > 4.7.3 - Air-to-Air Radar Slaving (L+S Slave)"
+  },
+  "step_count": 10,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure the targeting pod and radar are powered"
+    },
+    {
+      "num": 2,
+      "action": "Press the A/A Master Mode button. The RDR ATTK (radar) page will appear on the right DDI and the FLIR page will appear on the left DDI."
+    },
+    {
+      "num": 3,
+      "action": "Select RDR ATTK page by pressing the Sensor Control Switch in the direction of the DDI with the radar page (right)."
+    },
+    {
+      "num": 4,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 5,
+      "action": "Acquire a radar lock using the TDC Slew and TDC DEPRESS controls."
+    },
+    {
+      "num": 6,
+      "action": "Press the OSB next to L+S SLAVE (Launch & Steering Primary Target radar slave) to slave the slave the targeting pod to the radar lock (L&S trackfile)."
+    },
+    {
+      "num": 7,
+      "action": "Select FLIR by pressing the Sensor Control Switch in the direction of the DDI with the FLIR page (left)."
+    },
+    {
+      "num": 8,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 9,
+      "action": "You can zoom and choose desired FLIR/TV setting using the appropriate Option Select Buttons on the FLIR page."
+    },
+    {
+      "num": 10,
+      "action": "Press/bump the Sensor Control Switch in the direction of the FLIR format page (left) to attempt to Auto Track the target."
+    }
+  ]
+}

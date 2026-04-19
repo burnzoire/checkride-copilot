@@ -1,0 +1,59 @@
+{
+  "key": "shore_takeoff",
+  "canonical": "Shore Takeoff",
+  "alternates": [
+    "shore takeoff"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "BARO",
+    "HOTAS",
+    "HUD",
+    "NWS",
+    "RPM"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 102,
+    "section": "Part 5 - Takeoff > Shore Takeoff"
+  },
+  "step_count": 9,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Ensure Anti-Skid Switch is set to ON (UP Position), and Flaps are HALF (MIDDLE position), chocks are removed, Launch Bar is RETRACTED and Parking Brake is released"
+    },
+    {
+      "num": 2,
+      "action": "Throttle up and start taxiing"
+    },
+    {
+      "num": 3,
+      "action": "Aircraft is steered using the nosewheel steering (NWS), controlled with rudder pedals. The default NWS LOW GAIN Mode allows +/- 16 deg and is displayed as NWS on the HUD. The NWS HIGH GAIN Mode allows +/- 75 deg steering, which is useful on aircraft carriers or small spaces. You can activate it by pressing and holding the «Undesignate /Nosewheel Steer Switch» (key binding: « S ») button on your HOTAS. This steering mode is displayed as NWS HI on the HUD."
+    },
+    {
+      "num": 4,
+      "action": "Once lined up on the runway, hold brakes and throttle up to 80 % RPM"
+    },
+    {
+      "num": 5,
+      "action": "Release brakes and set throttle fully forward to engage afterburners"
+    },
+    {
+      "num": 6,
+      "action": "When reaching approx. 150 kts, hold stick back to set an aircraft pitch of 7 degrees AoA"
+    },
+    {
+      "num": 7,
+      "action": "Once you have a positive climb, raise landing gear up before reaching 240 kts"
+    },
+    {
+      "num": 8,
+      "action": "Set Flaps lever – AUTO"
+    },
+    {
+      "num": 9,
+      "action": "Set ALTITUDE Switch to BARO once reaching an altitude of 3000 ft to use Barometric Altitude as a reference for your HUD."
+    }
+  ]
+}

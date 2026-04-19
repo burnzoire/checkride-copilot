@@ -1,0 +1,110 @@
+{
+  "key": "mk_20_rockeye_cluster_bombs_ccip",
+  "canonical": "MK-20 Rockeye Cluster Bombs (CCIP)",
+  "alternates": [
+    "MK-20 Rockeye Cluster Bombs (CCIP)",
+    "rockeye cluster bombs ccip"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "CCIP",
+    "DIL: Displayed Impact Line",
+    "HOB: Height of Burst",
+    "INT",
+    "MFUZ: Mechanical Fuze",
+    "MK-20",
+    "MODE",
+    "MULT",
+    "OSB",
+    "PROG",
+    "QTY",
+    "SMS: Stores Management System",
+    "UFC",
+    "VT: Variable Time or Proximity"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 384,
+    "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.2 - MK-20 Rockeye Cluster Bombs (CCIP)"
+  },
+  "step_count": 19,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Click on the desired MK-20 Rockeye station to select it (RE)"
+    },
+    {
+      "num": 5,
+      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 1. STEP is used to change selected station"
+    },
+    {
+      "num": 6,
+      "action": "Click on OSB next to MODE, then click on OSB to select CCIP Mode"
+    },
+    {
+      "num": 7,
+      "action": "Click on OSB next to MFUZ (Mechanical Fuze), then press on OSB next to VT (Variable Time or Proximity). This will allow us to set the HOB (Height of Burst) setting."
+    },
+    {
+      "num": 8,
+      "action": "The « HT » (Height of Burst) option will now become available."
+    },
+    {
+      "num": 9,
+      "action": "Press on the OSB next to HT repeatedly to toggle between available Height Burst settings."
+    },
+    {
+      "num": 10,
+      "action": "Click on OSB next to « UFC » to activate the UFC keypad for the STORES page"
+    },
+    {
+      "num": 11,
+      "action": "Click on the OSB next to QTY (« : » means option is selected), type « 2 » on the UFC keypad, then press « ENT » (« : » means option is selected) to set 2 cluster bombs per release."
+    },
+    {
+      "num": 12,
+      "action": "Click on the OSB next to MULT (« : » means option is selected), type « 1 » on the UFC keypad, then press « ENT » to set 1 cluster bomb to be released simultaneously from weapon stations"
+    },
+    {
+      "num": 13,
+      "action": "Click on the OSB next to INT (« : » means option is selected), type « 500 » on the UFC keypad, then press « ENT » to set a 500 ft bomb impact spacing."
+    },
+    {
+      "num": 14,
+      "action": "Start a 30-45 degree dive on your target"
+    },
+    {
+      "num": 15,
+      "action": "Align target vertically with DIL (Displayed Impact Line), also known as Bomb Fall Line."
+    },
+    {
+      "num": 16,
+      "action": "The CCIP cross will appear once a bombing solution is computed."
+    },
+    {
+      "num": 17,
+      "action": "Steer aircraft to keep the DIL vertical and the CCIP cross on the target."
+    },
+    {
+      "num": 18,
+      "action": "Press hold Weapon Release button (« RALT+SPACE ») once CCIP cross is on target."
+    },
+    {
+      "num": 19,
+      "action": "Pull up before velocity vector reaches the PULL UP cue."
+    }
+  ]
+}

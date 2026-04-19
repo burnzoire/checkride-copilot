@@ -1,0 +1,71 @@
+{
+  "key": "an_ale_47_acmds_airborne_countermeasures_dispenser_system",
+  "canonical": "AN/ALE-47 ACMDS (Airborne Countermeasures Dispenser System)",
+  "alternates": [
+    "acmds airborne countermeasures dispenser"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ACMDS: AIRBORNE COUNTERMEASURES DISPENSER SYSTEM",
+    "AIRBORNE",
+    "ALE-47",
+    "AN/ALE-47",
+    "ARM",
+    "CHAF",
+    "CHAFF",
+    "EW: Early Warning",
+    "FLAR",
+    "FLARES",
+    "INT",
+    "MAN",
+    "MAN1",
+    "MODE",
+    "OSB",
+    "PROGRAM",
+    "RPT",
+    "S/A: Semi-Automatic",
+    "SAVE",
+    "SYSTEM",
+    "TAC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 610,
+    "section": "Part 11 - Defence: RWR & Countermeasures > AN/ALE-47 ACMDS (Airborne Countermeasures Dispenser System)"
+  },
+  "step_count": 8,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Set Master Arm Switch – ON"
+    },
+    {
+      "num": 2,
+      "action": "In the TAC menu, select the EW (Early Warning) page"
+    },
+    {
+      "num": 3,
+      "action": "Set DISPENSER switch – ON (MIDDLE)"
+    },
+    {
+      "num": 4,
+      "action": "Once aircraft is in the air, ALE-47 status will perform a series of built-in tests by going to SF TEST (Self-Test), then PBIT GO, then to STBY."
+    },
+    {
+      "num": 5,
+      "action": "Once ALE-47 status is set to STBY, click on the OSB above ALE-47 to select the countermeasure dispenser. ALE-47 will be boxed in green."
+    },
+    {
+      "num": 6,
+      "action": "Click the OSB next to MODE to select desired dispenser mode (MAN1 (Manual), S/A (Semi-Automatic), AUTO, STBY). We will choose MAN1."
+    },
+    {
+      "num": 7,
+      "action": "To create a countermeasure program: Press the OSB next to ARM Configure Chaff by pressing the OSB next to CHAF, then use the Increment/Decrement OSBs to set the desired number Configure Flares by pressing the OSB next to FLAR, then use the Increment/Decrement OSBs to set the desired number Configure the number of repetitions by pressing the OSB next to RPT, then use the Increment/Decrement OSBs to set the desired number Configure the interval time (sec) by pressing the OSB next to INT, then use the Increment/Decrement OSBs to set the desired number Press the OSB next to SAVE to save countermeasure program 1 Increment/Decrement OSBs You can set different programs by clicking STEP to cycle through different programs COUNTERMEASURES - CHAFF & FLARES AN/ALE-47 ACMDS (AIRBORNE COUNTERMEASURES DISPENSER SYSTEM) COUNTERMEASURE PROGRAM &"
+    },
+    {
+      "num": 8,
+      "action": "To dispense countermeasures using Program 1, press the Dispense Switch – AFT button (key binding: D). (Note: the Dispense Switch – FWD button will use Program 5 by default. You can) modify which program is used by either AFT or FWD Dispense by clicking on the STEP OSB. Dispense Switch AFT – OFF - FWD Countermeasure Modes MAN: manual program that can be stored and edited. You choose what the program is. AUTO: the ALE-47 chooses for you when to deploy countermeasures and what to use. Very wasteful mode, but reduces pilot workload. S/A: Semi-Automatic. ALE-47 will choose the best countermeasure program for you in response to the current threats, but you will have control on when the countermeasures are dispensed."
+    }
+  ]
+}

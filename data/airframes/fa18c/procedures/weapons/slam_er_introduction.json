@@ -1,0 +1,45 @@
+{
+  "key": "slam_er_introduction",
+  "canonical": "SLAM-ER Introduction",
+  "alternates": [
+    "SLAM-ER Introduction",
+    "slam introduction",
+    "AGM-84H SLAM-ER Introduction"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "AGM-84H",
+    "DIST",
+    "FLT",
+    "SLAM-ER",
+    "TDC: Throttle Designation Control"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 541,
+    "section": "2 - Air-to-Ground Weapons > 2.12 - AGM-84H SLAM-ER Cruise Missile > 2.12.1 - SLAM-ER Introduction"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "The missile launches from the aircraft"
+    },
+    {
+      "num": 2,
+      "action": "The missile reaches Cruise Altitude (set through the FLT, Fly-Out Profile property). The missile will also follow steerpoints programmed for the missile to follow."
+    },
+    {
+      "num": 3,
+      "action": "The missile eventually enters a dive and goes into the Low Altitude Penetration Stage"
+    },
+    {
+      "num": 4,
+      "action": "When the missile is close enough to the target, it will steer directly to the target’s area and enter Terminal Attack Stage"
+    },
+    {
+      "num": 5,
+      "action": "When missile reaches the distance parameter (DIST), the missile’s seeker head becomes active. The pilot can then manually steer the missile using the TDC (Throttle Designation Control). Communication with the missile is done through the datalink pod. (Note: the AGM-84H SLAM-ER has) no terrain following capabilities."
+    }
+  ]
+}

@@ -1,0 +1,397 @@
+{
+  "key": "part_4_start_up_procedure",
+  "canonical": "Part 4 - Start-Up Procedure",
+  "alternates": [
+    "part start procedure"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "ACC: Auxiliary Power Unit Accumulator",
+    "ALR-67",
+    "ALR67",
+    "AMAD: Airframe Mounted Accessory Drive",
+    "AMPCD: Advance Multi-Purpose Color Display",
+    "ANTI-SKID",
+    "APU: Auxiliary Power Unit",
+    "ARM",
+    "ATS: Air Turbine Starter",
+    "BIT: Built-In-Test",
+    "DDI: Digital Display Indicator",
+    "DTC",
+    "ECM",
+    "ECS: Environmental Control System",
+    "EGT: Exhaust Gas Temperature",
+    "F404",
+    "FCS: Flight Control System",
+    "FCSA",
+    "FCSB",
+    "GEN",
+    "GPS",
+    "GPWS: Ground Proximity Warning System",
+    "HMD: Helmet-Mounted Display",
+    "HSI: Horizontal Situation Indicator",
+    "HUD",
+    "HYD",
+    "IFA: In-Flight Alignment",
+    "IFEI: Integrated Fuel / Engine Indicator",
+    "IFF: Identify-Friend-or-Foe",
+    "JHMCS: Joint Helmet-Mounted Cueing System",
+    "MC1",
+    "MC2",
+    "MIDS",
+    "MUMI: Memory Unit Mission Initialization",
+    "NAV",
+    "OBOGS: On-Board Oxygen Generating System",
+    "OSB: Option Select Button",
+    "RPM",
+    "RWR",
+    "TAC: Tactical",
+    "UFC",
+    "ZTOD",
+    "ZULU"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 81,
+    "section": "Part 4 - Start-Up Procedure"
+  },
+  "step_count": 84,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Set Ejection Seat Lever – DOWN & ARMED Set Harness Lever - FWD"
+    },
+    {
+      "num": 2,
+      "action": "Parking Brake Lever – ENGAGED"
+    },
+    {
+      "num": 3,
+      "action": "MASTER ARM switch – SAFE"
+    },
+    {
+      "num": 4,
+      "action": "Battery Switch – ON (Right Click) (Note: This will power the engine igniters, canopy) and IFEI (Integrated Fuel / Engine Indicator) panel."
+    },
+    {
+      "num": 5,
+      "action": "Check that hydraulic brake pressure gauge displays at least 3000 psi"
+    },
+    {
+      "num": 6,
+      "action": "(Optional) Right click and hold Fire & Bleed Air Test switch to the “Channel A” (Forward) position to start the Fire/Bleed Air Test for Detection Loop Wait for the aural warnings sequence to finish before releasing the switch. The switch will be sprung back to the middle position on release. You should hear “Engine Fire Left, Engine Fire Left, Engine Fire Right, Engine Fire Right, APU Fire, APU Fire, Bleed Air Left, Bleed Air Left, Bleed Air Right, Bleed Air Right!” Left and right engine bleed air switches will be automatically closed during and after the test. We will have to re-open them later on."
+    },
+    {
+      "num": 7,
+      "action": "(Optional) Cycle Battery switch to OFF (left click), then back to ON (right click) to rewind test audio tape. Alternatively, you can wait 10 seconds for the tape to rewind."
+    },
+    {
+      "num": 8,
+      "action": "(Optional) Left click and hold Fire & Bleed Air Test switch to the “Channel B” (Aft) position to start the Fire/Bleed Air Test for Detection Loop B. Wait for the aural warnings sequence to finish before releasing the switch. The switch will be sprung back to the middle position. Parking brake shown in default ENGAGED position. The way to engage it is to rotate the lever in the vertical PARK position by left-clicking the lever, then pull it by scrolling the mousewheel. Ejection Seat Not Armed Ejection Seat Armed Fire & Bleed Air Test will illuminate all FIRE and BLEED cautions for the duration of the test."
+    },
+    {
+      "num": 9,
+      "action": "Verify that no APU ACC (Auxiliary Power Unit Accumulator) caution is visible on the Standby Caution Panel."
+    },
+    {
+      "num": 10,
+      "action": "Left click on the APU switch to set it to ON (FWD) to start the APU (Auxiliary Power Unit)"
+    },
+    {
+      "num": 11,
+      "action": "Verify that the APU ACC caution is visible on the Standby Caution Panel and that the APU starts spooling up. In real life, the Plane Captain (PC) would give you this confirmation, but in DCS you can just listen for the APU spooling sound."
+    },
+    {
+      "num": 12,
+      "action": "Once APU green light illuminates, the APU is now running. The APU will provides air pressure for the F404 engines’ pneumatic ATS (Air Turbine Starter)."
+    },
+    {
+      "num": 13,
+      "action": "Start right engine first by setting Engine Crank switch – R (RIGHT) using right-click. (Note: It’s good practice to start the right engine first since it) provides most of the hydraulic pressure available for the brakes."
+    },
+    {
+      "num": 14,
+      "action": "Right Engine cranking will begin as the AMAD (Airframe Mounted Accessory Drive), which is pneumatically connected to the APU’s starter, transmits power from the ATS to the engine. Engine RPM will rise to approx. 25 % RPM."
+    },
+    {
+      "num": 15,
+      "action": "When Right Engine RPM reaches 25 %, press RSHIFT+HOME to move the right throttle from the OFF detent to the IDLE detent to open the fuel valves and introduce fuel. Igniters will kick in and trigger an engine lightoff."
+    },
+    {
+      "num": 16,
+      "action": "Verify that EGT (Exhaust Gas Temperature) does not exceed 750 deg C until engine stabilizes."
+    },
+    {
+      "num": 17,
+      "action": "Wait for Right Engine RPM to stabilize around 60-65 % RPM. Confirm that right generator is running by checking that the R GEN caution is extinguished."
+    },
+    {
+      "num": 18,
+      "action": "During engine start, the GPWS (Ground Proximity Warning System) and Flight Controls voice alert system will do a BIT (Built-In Test). Don’t worry, that’s normal. You will hear “Roll Left, Roll Left! Flight Controls, Flight Controls!” and a “Deedle deedle” sound."
+    },
+    {
+      "num": 19,
+      "action": "Reset MASTER CAUTION pushbutton by pressing it. Throttle to OFF Throttle to IDLE Engine Cranking Engine Running"
+    },
+    {
+      "num": 20,
+      "action": "Power Left and Right DDIs (Digital Display Indicator) by setting each DDI knob to DAY (right click)."
+    },
+    {
+      "num": 21,
+      "action": "Turn on AMPCD (Advance Multi-Purpose Color Display) by setting its Brightness knob to the right"
+    },
+    {
+      "num": 22,
+      "action": "Turn HUD brightness control lever right to power Heads-Up Display."
+    },
+    {
+      "num": 23,
+      "action": "Turn BLK LVL knob to the right"
+    },
+    {
+      "num": 24,
+      "action": "Set ALT switch to RDR to use the radar altimeter as an altitude reference"
+    },
+    {
+      "num": 25,
+      "action": "Set ATT switch to AUTO"
+    },
+    {
+      "num": 26,
+      "action": "Right-click Bleed Air Switch to rotate it 360 degrees clockwise from NORMAL back to NORMAL to re-open engine bleed air valves. You should hear the ECS (Environmental Control System) kick in as engine bleed air valves open."
+    },
+    {
+      "num": 27,
+      "action": "Left click and hold CANOPY switch to CLOSE to close canopy."
+    },
+    {
+      "num": 28,
+      "action": "Start INS (Inertial Navigation System) Alignment. INS GROUND ALIGNMENT PROCEDURE You can either use a Normal alignment (takes roughly 8 minutes) or a Stored Heading alignment (takes roughly 90 seconds), which results in a quicker alignment. If on ground, set INS Selector switch to GND (Ground) to start the INS alignment phase. If you wish to use a Stored Heading, from the HSI (Horizontal Situation Indicator) page, press the DDI button next to STD HDG, then the stored heading alignment will proceed and last for approx. 90 seconds. Otherwise, the normal alignment will proceed and last for 8 minutes. The alignment will take a few seconds to start. You can monitor the INS (Inertial Navigation System) Ground Alignment progress on the AMPCD. The GRND QUAL timer displays the time remaining in seconds. Once OK appears next to GRND QUAL, the INS alignment is complete. Set the INS selector to IFA (In-Flight Alignment) if a GPS is available (any mission set during 1986 or later should have it). POS/AINS mode (Position/Assisted-INS) will be visible on the HSI (Horizontal Situation Indicator), meaning that the GPS is used in conjunction with INS to provide the position of the aircraft. If no GPS is available (mission set before 1986), set INS selector to NAV instead. INS"
+    },
+    {
+      "num": 29,
+      "action": "Verify that there are no cautions for engine 2 (like HYD 2A, HYD 2B, R GEN)"
+    },
+    {
+      "num": 30,
+      "action": "Set left DDI (Digital Display Indicator) to the FCS (Flight Control System) page Press the OSB (Option Select Button) under TAC (Tactical) MENU to select the SUPT (Support) MENU Press the OSB next to FCS"
+    },
+    {
+      "num": 31,
+      "action": "Press the MASTER CAUTION pushbutton two times to re-stack the cautions and advisories together. The FCS page will then be more visible."
+    },
+    {
+      "num": 32,
+      "action": "The “X”s on the FCS page indicate a FCS system error. In our case, the errors are probably due to wing droop caused by the aircraft being parked for too long."
+    },
+    {
+      "num": 33,
+      "action": "Press the FCS RESET button to reset FCS faults. “X”s should disappear."
+    },
+    {
+      "num": 34,
+      "action": "On the right DDI, the BIT FAILURES (Built-In Test) page is displayed. Press the OSB next to STOP to stop the indications from blinking. Cautions and advisories un-stacked Cautions and advisories re-stacked"
+    },
+    {
+      "num": 35,
+      "action": "Hold the LIGHTS TEST switch to test lights. Make sure cautions illuminate properly, then release the switch."
+    },
+    {
+      "num": 36,
+      "action": "Start left engine first by setting Engine Crank switch – L (LEFT) using left-click."
+    },
+    {
+      "num": 37,
+      "action": "Left Engine cranking will begin as the AMAD (Airframe Mounted Accessory Drive), which is pneumatically connected to the APU’s starter, transmits power from the ATS to the engine. Engine RPM will rise to approx. 25 % RPM."
+    },
+    {
+      "num": 38,
+      "action": "When Left Engine RPM reaches 25 %, press RALT+HOME to move the left throttle from the OFF detent to the IDLE detent to open the fuel valves and introduce fuel. Igniters will kick in and trigger an engine lightoff."
+    },
+    {
+      "num": 39,
+      "action": "Verify that EGT (Exhaust Gas Temperature) does not exceed 750 deg C until engine stabilizes."
+    },
+    {
+      "num": 40,
+      "action": "Wait for Left Engine RPM to stabilize around 60-65 % RPM. Confirm that left generator is running by checking that the L GEN caution is extinguished. Engine Cranking Engine Running Throttle to OFF Throttle to"
+    },
+    {
+      "num": 41,
+      "action": "Verify that there are no cautions for engine 1 (like HYD 1A, HYD 1B, L GEN)"
+    },
+    {
+      "num": 42,
+      "action": "Following the second engine start, the APU (Auxiliary Power Unit) will shutdown automatically approximately 1 minute after both engines are stabilized to IDLE."
+    },
+    {
+      "num": 43,
+      "action": "Set OBOGS (On-Board Oxygen Generating System) switch – ON"
+    },
+    {
+      "num": 44,
+      "action": "Set HOOK BYPASS switch to FIELD if operating on an airfield or to CARRIER if operating on an aircraft carrier."
+    },
+    {
+      "num": 45,
+      "action": "Set FLAPS lever to HALF"
+    },
+    {
+      "num": 46,
+      "action": "Set ANTI-SKID switch ON if operating on a ground airfield Set ANTI-SKID switch OFF if operating on a carrier"
+    },
+    {
+      "num": 47,
+      "action": "Set RADAR switch to OPERATE. While on the ground, radar operation is automatically inhibited."
+    },
+    {
+      "num": 48,
+      "action": "Run FCS BIT Test On the BIT FAILURES page, click the OSB next to FCS- MC to enter the Flight Control System – Mission Computer Built-In Test page MC1 and MC2 status should be GO. FCSA and FCSB status should be PBIT GO. This means the FCS BIT Test needs to be performed. Press and hold “Y” key binding to hold the FCS BIT switch to ON (UP) position. While FCS BIT switch is held (Y), press the OSB next to “FCS” to start the FCS BIT test. FCSA and FCSB status will be “IN TEST” for the duration of the test."
+    },
+    {
+      "num": 49,
+      "action": "Flight controls will move for the duration of the test. Test will be complete when the FCSA and FCSB status will be GO."
+    },
+    {
+      "num": 50,
+      "action": "Adjust AMPCD Gain, Contrast and Symbology brightness as required. This will greatly improve readability. For night operations, I would recommend setting AMPCD mode to NGT since the brightness of the moving map can easily blind you in low light conditions."
+    },
+    {
+      "num": 51,
+      "action": "Set ZULU time in the cockpit. On the AMPCD, press the OSB next to the TIMEUFC."
+    },
+    {
+      "num": 52,
+      "action": "Then, go on the UFC (Up-Front Controller) and press the OSB next to ZTOD to display ZULU time on the Heads-Up Display once the aircraft wheels are OFF the ground."
+    },
+    {
+      "num": 53,
+      "action": "Press the T/O TRIM button to set the aircraft trim for takeoff configuration."
+    },
+    {
+      "num": 54,
+      "action": "Set PITOT HEAT switch – AUTO (only use ON in case of icing conditions on ground since AUTO inhibits Pitot Heat on ground to maximize available power on takeoff)"
+    },
+    {
+      "num": 55,
+      "action": "Set HUD repeater on the left DDI Press the OSB next to MENU to enter the TAC page Press the OSB next to HUD"
+    },
+    {
+      "num": 56,
+      "action": "Set FCS page on right DDI Press the OSB next to MENU twice to enter the FCS page Press the OSB next to FCS"
+    },
+    {
+      "num": 57,
+      "action": "If you are on the ground, verify that WINGS FOLD lever is in the SPREAD position (they may be folded if you start from an aircraft carrier). If wings are folded, right click on the lever to set it to SPREAD, wait for the wings to deploy all the way and confirm visually that the wings are deployed properly. Then, scroll mousewheel to push the WING FOLD lever IN (PUSHED). The WING UNLK caution should disappear on the HUD Repeater once wings are spread and locked. Keep your wings folded if on an aircraft carrier."
+    },
+    {
+      "num": 58,
+      "action": "Set Radar Altimeter warning index to 200 ft if you intend to takeoff from a ground airfield (shore) or 80 ft from a carrier."
+    },
+    {
+      "num": 59,
+      "action": "Uncage Standby Attitude Indicator. Red flag should be removed."
+    },
+    {
+      "num": 60,
+      "action": "Set BINGO FUEL (minimum fuel needed to return to base) based on your mission profile by using the UP or DOWN arrow buttons on the IFEI panel. Usually I set 8000 lbs."
+    },
+    {
+      "num": 61,
+      "action": "Press the ALR-67 PWR button to power the Radar Warning Receiver (RWR)"
+    },
+    {
+      "num": 62,
+      "action": "Set ECM selector to STBY."
+    },
+    {
+      "num": 63,
+      "action": "Set DISPENSER switch to ON (Middle)."
+    },
+    {
+      "num": 64,
+      "action": "Power Up IFF (Identify-Friend-or-Foe) system by pressing the IFF Button, then holding the ON button on the UFC for a few seconds. When « XP » is displayed, the IFF has been powered up correctly. Verify that Mode 4A is selected (« : » means selected). If 4A is not selected, press OSB (Option Select Button) next to « 4A »."
+    },
+    {
+      "num": 65,
+      "action": "Power Up Link-16 Datalink system by pressing the D/L Button a first time to display the Link-4 datalink options, then press the D/L Button a second time to display the Link-16 datalink options. Then, hold the ON button on the UFC for a few seconds. When « ON » is displayed, the Link-16 Datalink system has been powered up correctly."
+    },
+    {
+      "num": 66,
+      "action": "On UFC, set Link 16 desired Datalink Frequency by entering it on the scratchpad, then pressing « ENT ». 127 is used by default, you can keep it."
+    },
+    {
+      "num": 67,
+      "action": "Adjust all volume knobs on the Audio Panel as required. Take special care to check that the MIDS A and MIDS B volume knobs are turned up (Multifunctional Information Distribution System)."
+    },
+    {
+      "num": 68,
+      "action": "Verify on MIDS SUPT page that Datalink information is correct (Network, AIC, F/F, Voice frequencies)."
+    },
+    {
+      "num": 69,
+      "action": "Equip either JHMCS (Joint Helmet-Mounted Cueing System) helmet or NVGs (Night Vision Goggles) as required. Press “\\” (communication menu binding) to contact ground crew Press “F8” to select “Ground Crew” Press “F8” to “Change helmet-mounted device”. Press either “F1” for JHMCS or “F2” for NVGs."
+    },
+    {
+      "num": 70,
+      "action": "Adjust Seat Height as desired. (Note: steps 71 to 76 are only required if using the JHMCS (Joint Helmet-) Mounted Cueing System)."
+    },
+    {
+      "num": 71,
+      "action": "[JHMCS] Turn HMD brightness knob to BRT (Bright)."
+    },
+    {
+      "num": 72,
+      "action": "[JHMCS] Perform HMD (Helmet-Mounted Display) BIT (Built-In Test). Go in the SUPT (Support) page. Press OSB next to BIT (Built-In-Test). Press OSB next to DISPLAYS (NOT RDY). Press on OSB next to HMD to start Helmet-Mounted Display Built-In Test. “PBIT GO” indicates that the test is ready to be run."
+    },
+    {
+      "num": 73,
+      "action": "[JHMCS] Wait until the HMD test is finished. The IN TEST indication will first blink on your helmet. While test symbology cycles on your helmet display, the BIT page will indicate “HMD IN TEST”. When test symbology starts showing the same pictures, the test can be considered complete."
+    },
+    {
+      "num": 74,
+      "action": "[JHMCS] Stop the HMD test by pressing the OSB next to “STOP”. The BIT page will then indicate “HMD GO”."
+    },
+    {
+      "num": 75,
+      "action": "[JHMCS] Perform Coarse Helmet Display Alignment. Go in the SUPT (Support) page. Press OSB next to HMD (Helmet-Mounted Display). Press OSB next to ALIGN to start JHMCS alignment. “READY” indication will then appear on your helmet cross. Move helmet cross on the alignment reference cross of the Heads- Up Display (HUD). When helmet cross and HUD cross are roughly aligned, press and hold the Cage/Uncage Button (“C” binding) for more than 2.5 sec while keeping both crosses aligned. While the alignment process is taking place, the “ALIGNING” indication is visible. The “ALIGN OK” indication appears when the alignment is complete. You can then release the Cage/Uncage button."
+    },
+    {
+      "num": 76,
+      "action": "[JHMCS] If required, perform Fine Helmet Display Alignment. The coarse alignment may not be perfect and may require a fine adjustment (FA). The “FA DX/DY” indication means that an adjustment is needed for the horizontal and vertical axis. (Throttle Designator Controller) AFT/FWD/LEFT/RIGHT controls to align the upper small cross with the HUD reference cross. Press the Cage/Uncage button to select the roll fine adjustment (FA ROLL). (Throttle Designator Controller) LEFT/RIGHT controls to align the lower small cross with the vertical line of the HUD reference cross. When fine alignment is satisfactory, press the OSB next to ALIGN to unbox it. This will save the alignment."
+    },
+    {
+      "num": 77,
+      "action": "Load the Data Transfer Cartridge (DTC) data via the MUMI (Memory Unit Mission Initialization) page. The DTC contains data for countermeasure programs, communication channels, navigation waypoints, targets, threats, datalink settings, route points, weapon settings, and more. Verify that DTC is set up and inserted. Go in the SUPT (Support) page. Press OSB next to MUMI (Memory Unit Mission Initialization). Press OSB (Option Select Button) next to each data type. This will load individual DTC partitions. (Note: As of 17/04/2025, only ALR67 and COMM data types can be loaded. More data types) will become available later on as DTC settings are integrated into DCS World. DTC items will become boxed as their respective data type is loaded."
+    },
+    {
+      "num": 78,
+      "action": "Set STROBE switch ON"
+    },
+    {
+      "num": 79,
+      "action": "Set POSITION LIGHTS switch to BRT"
+    },
+    {
+      "num": 80,
+      "action": "Set FORMATION LIGHTS to BRT"
+    },
+    {
+      "num": 81,
+      "action": "Turn on lights using the throttle Exterior Lights switch (“L”) as required."
+    },
+    {
+      "num": 82,
+      "action": "Set LANDING/TAXI light switch – ON (UP)"
+    },
+    {
+      "num": 83,
+      "action": "Left click on Parking Brake lever to disengage it (PUSHED = DISENGAGED)."
+    },
+    {
+      "num": 84,
+      "action": "Remove chocks if installed (this is usually the case when operating on an aircraft carrier) Make sure your canopy is open to communicate to the ground crew Press “\\” (communication menu binding) to contact ground crew Press “F8” to select “Ground Crew” Press “F4” to select “Wheel Chocks” Press “F2” to “Remove Wheel Chocks”. Canopy Open"
+    }
+  ]
+}

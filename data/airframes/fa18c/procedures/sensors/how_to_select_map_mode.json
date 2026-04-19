@@ -1,0 +1,37 @@
+{
+  "key": "how_to_select_map_mode",
+  "canonical": "How to Select Map Mode",
+  "alternates": [
+    "select mode"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ATTK",
+    "DDI: Digital Display Indicator",
+    "MAP",
+    "OPR",
+    "OSB: Option Select Button",
+    "SURF: Air-to- Surface",
+    "TAC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 237,
+    "section": "2.2 - Air-to-Ground Modes > 2.2.2 - MAP (Ground Mapping) Mode > How to Select Map Mode"
+  },
+  "step_count": 3,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure the Radar Power Switch is set to OPR (Operate)."
+    },
+    {
+      "num": 2,
+      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page."
+    },
+    {
+      "num": 3,
+      "action": "Alternatively, you could also select the RDR ATTK (Radar) TAC page, and press the OSB (Option Select Button) next to SURF (Air-to- Surface). The radar page will then switch from air-to-air to air-to-ground. This method works too, but it is longer than just pressing the A/G Master Mode button."
+    }
+  ]
+}

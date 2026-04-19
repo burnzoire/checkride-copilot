@@ -1,0 +1,37 @@
+{
+  "key": "navigation_to_an_existing_markpoint",
+  "canonical": "Navigation to an existing markpoint",
+  "alternates": [
+    "navigation existing markpoint"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "AFTER",
+    "HSI",
+    "HUD",
+    "MARKPOINTS",
+    "OSB: Option Select Button",
+    "WAYPOINT",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 691,
+    "section": "6 - Markpoints > 6.1 - Markpoint Navigation > Navigation to an existing markpoint"
+  },
+  "step_count": 3,
+  "steps": [
+    {
+      "num": 1,
+      "action": "From the HSI page, Press the OSB (Option Select Button) next to WYPT to set tracking mode to WAYPOINT."
+    },
+    {
+      "num": 2,
+      "action": "To select a markpoint, press the OSBs to increment or decrement the waypoint number. Since the Waypoint Database can contain up to 60 waypoints and 9 additional markpoints (stored AFTER waypoint 59). I would suggest using the decrement OSB instead of the increment OSB (quicker way to go to the MK#). since going through 60 waypoints can be a bit time-consuming."
+    },
+    {
+      "num": 3,
+      "action": "Use the HSI and HUD to navigate towards waypoint 6 - MARKPOINTS"
+    }
+  ]
+}

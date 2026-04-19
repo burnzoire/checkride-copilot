@@ -1,0 +1,223 @@
+{
+  "key": "carrier_takeoff",
+  "canonical": "Carrier Takeoff",
+  "alternates": [
+    "carrier takeoff"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "BARO",
+    "BRC: Base Recovery Course",
+    "CHKLST: Checklist",
+    "EXTEND",
+    "FCS: Flight Control System",
+    "GPS",
+    "HOTAS",
+    "HUD",
+    "ICCS: Integrated Catapult Control Station",
+    "IFA: In-Flight Alignment",
+    "JBD: Jet Blast Deflector",
+    "MIL",
+    "NAV",
+    "NWS",
+    "RETRACT",
+    "SINS: Ship Inertial Navigation System",
+    "TAKEOFF"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 107,
+    "section": "Part 5 - Takeoff > Carrier Takeoff"
+  },
+  "step_count": 47,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure the INS alignment was done with the INS Selector switch to CV. With CV mode, the alignment will take its positional data directly from the carrier via a SINS (Ship Inertial Navigation System) cable or a datalink radio frequency. Once alignment is finished, remember to verify that the INS Selector switch is set back to IFA (In-Flight Alignment) if a GPS is available (any mission set during 1986 or later should have it) or at NAV if no GPS is available."
+    },
+    {
+      "num": 2,
+      "action": "Remove chocks if installed (this is usually the case when operating on an aircraft carrier) Make sure your canopy is open to communicate to the ground crew Press “\\” (communication menu binding) to contact ground crew Press “F8” to select “Ground Crew” Press “F4” to select “Wheel Chocks” Press “F2” to “Remove Wheel Chocks”."
+    },
+    {
+      "num": 3,
+      "action": "In a carrier environment, it is highly recommended to taxi with your wings folded to facilitate movement on the deck and minimize any risk of collision with obstacles or other aircraft."
+    },
+    {
+      "num": 4,
+      "action": "Set Anti-Skid Switch to OFF (Down Position)"
+    },
+    {
+      "num": 5,
+      "action": "Set Launch Bar to RETRACT"
+    },
+    {
+      "num": 6,
+      "action": "Set HOOK BYPASS to CARRIER"
+    },
+    {
+      "num": 7,
+      "action": "Release Parking Brake (handle IN)"
+    },
+    {
+      "num": 8,
+      "action": "Throttle up and start taxiing"
+    },
+    {
+      "num": 9,
+      "action": "Aircraft is steered using the nosewheel steering (NWS), controlled with rudder pedals. The default NWS LOW GAIN Mode allows +/- 16 deg and is displayed as NWS on the HUD. The NWS HIGH GAIN Mode allows +/- 75 deg steering, which is useful on aircraft carriers or small spaces. You can activate it by pressing and holding the «Undesignate /Nosewheel Steer Switch» (key binding: « S ») button on your HOTAS. This steering mode is displayed as NWS HI on the HUD."
+    },
+    {
+      "num": 10,
+      "action": "Verify the way is clear to the catapult first. You wouldn’t want someone to accidentally land on you while you line up on Catapult 3, eh?"
+    },
+    {
+      "num": 11,
+      "action": "Taxi to approach the catapult from directly behind it. If an aircraft is occupying the catapult, wait behind the JBD (Jet Blast Deflector)."
+    },
+    {
+      "num": 12,
+      "action": "If the Taxi Director (yellow shirt) is not present on the catapult, you can use the “Ground Crew” menu to request a launch. Press “\\” (Communication Menu) and “F8” to select ground crew Select “Request Launch” by pressing “F8” JBD (Jet Blast Deflector) Deflects engine jet blast in order to not damage any aircraft or injure carrier crew. They also act as heat shields since many carrier-launched aircraft takeoff with afterburners on. Taxi Director"
+    },
+    {
+      "num": 13,
+      "action": "When ready, advance on the retracted JBD (Jet Blast Deflector) and follow the Taxi Director’s hand signals to align the aircraft on the catapult track."
+    },
+    {
+      "num": 14,
+      "action": "When the Taxi Director closes his fists, gently stop the aircraft with the wheel brakes."
+    },
+    {
+      "num": 15,
+      "action": "When the Taxi Director extends his arms, he directs you to unfold (spread) your wings."
+    },
+    {
+      "num": 16,
+      "action": "To spread wings: Right click on the WING FOLD lever and set it to SPREAD Wait for the wings to deploy properly On your HUD Repeater, you should see WING UNLK. This means that wings are spread out but not locked. Push the WING FOLD lever forward (scroll mousewheel) to lock the wing actuators. Verify that the WING UNLK caution has disappeared and you should be good to go."
+    },
+    {
+      "num": 17,
+      "action": "Set Flaps switch to HALF (MIDDLE position)"
+    },
+    {
+      "num": 18,
+      "action": "While all of this is going on, the flight crew raises the jet blast deflector (JBD) behind the aircraft."
+    },
+    {
+      "num": 19,
+      "action": "When the Taxi Director unfolds his arm, he directs you to extend your launch bar."
+    },
+    {
+      "num": 20,
+      "action": "Set Launch Bar switch to EXTEND (DOWN) to extend the launch bar. Once launch bar is deployed, Nosewheel Steering will automatically disconnect."
+    },
+    {
+      "num": 21,
+      "action": "The Catapult crew (Green Shirt) will install the holdback bar, which is used to maintain the aircraft in place until the steam catapult is fired."
+    },
+    {
+      "num": 22,
+      "action": "When the Taxi Director moves his arms back and forth, he directs you to throttle up and move forward to hook the launch bar into the catapult shuttle. Significant power may be required. (Note: If you do not own the Supercarrier,) press “U” (“Catapult Hook Up” binding) to hook Launch Bar into the Catapult Shuttle."
+    },
+    {
+      "num": 23,
+      "action": "The catapult crew (green shirt) will monitor the catapult shuttle and tell the Taxi Director when you are hooked up."
+    },
+    {
+      "num": 24,
+      "action": "When the launch bar drops over the shuttle, the aircraft will be stopped as the holdback engages the catapult buffer. Reduce power to idle."
+    },
+    {
+      "num": 25,
+      "action": "The Catapult crew will verify that the aircraft launch bar is hooked into the catapult shuttle and that the holdback bar is installed properly."
+    },
+    {
+      "num": 26,
+      "action": "When checks are complete, the crew located in the ICCS (Integrated Catapult Control Station), also called the “Bubble”, will apply tension to the catapult. You will see steam emanating from the catapult rail."
+    },
+    {
+      "num": 27,
+      "action": "When the Taxi Director folds his arm, he directs you to raise the launch bar to seat it in the catapult shuttle."
+    },
+    {
+      "num": 28,
+      "action": "Set Launch Bar switch to RETRACT (UP) to raise the launch bar. The hydraulic pressure sets the bar to stick the shuttle, and the shuttle holds it in place mechanically. A spring then allows the bar to flip as soon as the aircraft has left the shuttle and off the end of the deck."
+    },
+    {
+      "num": 29,
+      "action": "The Final Checkers (White Shirts) will inspect your aircraft for any last-minute problems."
+    },
+    {
+      "num": 30,
+      "action": "When operating from a carrier, the takeoff trim button set previously in the start-up procedure will have adjusted the stabilators at around 12 degrees nose up, which is not optimal for catapult takeoffs. Adjust takeoff trim with the stabilator trim on your HOTAS as per the table shown to the right. As an example, for a weight of 47222 lbs, we would set our stabilator to 17 deg nose up. Note 1: You can consult your stabilator angle on the SUPT (Support) FCS (Flight Control System) page Note 2: You can consult your weight on the SUPT (Support) CHKLST (Checklist) page Note 3: The Max Takeoff Weight of the Hornet is 51,900 lbs Stabilator Angle 17 deg Aircraft Weight SUPT FCS Page SUPT CHKLST Page Stabilator Angle 17 deg CARRIER TAKEOFF Catapult Longitudinal Trim Weight Board Nose Up Trim 44000 lbs and below 16 deg 45000 – 48000 lbs 17 deg 49000 lbs and above 19 deg (Note: Aircraft being launched at gross weights of 43000 lbs and above should) trim by 3 deg nose up if advised to expect 10 knots or less excess endspeed."
+    },
+    {
+      "num": 31,
+      "action": "Verify Speed Brake is retracted (IN)."
+    },
+    {
+      "num": 32,
+      "action": "Perform a control wipeout to check flight controls Stick Full Forward Stick Full Aft Stick Full Left Stick Full Right Rudder Full Left Rudder Full Right"
+    },
+    {
+      "num": 33,
+      "action": "When the Shooter gives you the « Engine Run Up » hand signal, throttle up to MAX Power and engage afterburners."
+    },
+    {
+      "num": 34,
+      "action": "Throttle up fully forward to engage afterburners and let go of the flight stick. Take note that if the arrestor hook or launch bar is down, an afterburner lockout system helps guard against inadvertent afterburner selection. The way to engage afterburners in that case is to either raise the finger lifts (press 0 & 9) and throttle up to MAX OR apply a force of approximately 32 pounds (not simulated) before the throttles can be moved to MAX. If finger lifts are not raised, the throttle will be stopped at MIL instead of MAX."
+    },
+    {
+      "num": 35,
+      "action": "Check the engine instruments and monitor the caution and warning lights."
+    },
+    {
+      "num": 36,
+      "action": "Press “LCTRL+LSHIFT+S” salute Shooter. Alternatively, you can also do this through the ground crew menu. Press “\\” (Communication Menu) and “F8” to select ground crew Select “Salute!” by pressing “F9”"
+    },
+    {
+      "num": 37,
+      "action": "All Final Checkers and crew will do a quick last check, then give a thumbs up."
+    },
+    {
+      "num": 38,
+      "action": "The Catapult Officer (Shooter) will make final checks, looking fore and aft, and then touch the deck."
+    },
+    {
+      "num": 39,
+      "action": "The Shooter will then extend his arm, giving the signal to fire the catapult."
+    },
+    {
+      "num": 40,
+      "action": "The aircraft will accelerate, reaching end speed in about two seconds."
+    },
+    {
+      "num": 41,
+      "action": "The FCS (Flight Control System) will automatically your flight control surfaces to the best climb attitude."
+    },
+    {
+      "num": 42,
+      "action": "Once you have a positive climb, take back control of the flight stick."
+    },
+    {
+      "num": 43,
+      "action": "Raise landing gear up before reaching 240 kts"
+    },
+    {
+      "num": 44,
+      "action": "Set Flaps lever – AUTO"
+    },
+    {
+      "num": 45,
+      "action": "After take off, perform Clearing Turn, which is 20 degree left and heading BRC (Base Recovery Course). Maintain 500 ft and 300 kts."
+    },
+    {
+      "num": 46,
+      "action": "After away from carrier about 7 nm, you are cleared to climb more than 500 ft."
+    },
+    {
+      "num": 47,
+      "action": "Set ALTITUDE Switch to BARO once reaching an altitude of 3000 ft to use Barometric Altitude as a reference for your HUD."
+    }
+  ]
+}

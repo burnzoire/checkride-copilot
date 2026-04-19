@@ -1,0 +1,135 @@
+{
+  "key": "agm_84d_harpoon_r_bl_sea_radar_mode",
+  "canonical": "AGM-84D Harpoon (R/BL - Sea Radar Mode)",
+  "alternates": [
+    "AGM-84D Harpoon (R/BL - Sea Radar Mode)",
+    "harpoon radar mode",
+    "AGM-84D AGM-84D Harpoon (R/BL - Sea Radar Mode)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "AGM-84D",
+    "ARM",
+    "BOL",
+    "DDI: Digital Display Indicator",
+    "FLT",
+    "HPD: AGM-84D Harpoon",
+    "HPTP: Harpoon Turnpoint",
+    "HUD",
+    "LRG",
+    "MAP",
+    "MED",
+    "MODE",
+    "OPR",
+    "OSB",
+    "POP",
+    "RNG",
+    "SEA",
+    "SEEK",
+    "SKIM",
+    "SML",
+    "SMS: Stores Management System",
+    "TDC: Throttle Designation Controller",
+    "TERM"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 501,
+    "section": "2 - Air-to-Ground Weapons > 2.10 - AGM-84D Harpoon Anti-Ship Missile > 2.10.3 - AGM-84D Harpoon (R/BL - Sea Radar Mode)"
+  },
+  "step_count": 23,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "On the SMS (Stores) page, press OSB next to HPD (AGM-84D Harpoon)"
+    },
+    {
+      "num": 4,
+      "action": "Harpoon will start an inertial alignment that takes about 25 seconds. You can monitor gyro alignment process on the SMS (Stores Management System) page. (Note: Once Harpoon alignment is complete, the timer) will disappear."
+    },
+    {
+      "num": 5,
+      "action": "Make sure the Radar Power Switch is set to OPR (Operate)."
+    },
+    {
+      "num": 6,
+      "action": "Verify that the A/G Master Mode button is pressed; it will set the right DDI (Digital Display Indicator) to the radar A-G MAP page."
+    },
+    {
+      "num": 7,
+      "action": "Toggle A-G MAP mode to A-G SEA mode by pressing the OSB next to MAP."
+    },
+    {
+      "num": 8,
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+    },
+    {
+      "num": 9,
+      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls."
+    },
+    {
+      "num": 10,
+      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Tracking mode and additional target information will be displayed."
+    },
+    {
+      "num": 11,
+      "action": "Once target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired."
+    },
+    {
+      "num": 12,
+      "action": "Once the target has been designated by the radar, the R/BL Mode will become available for selection."
+    },
+    {
+      "num": 13,
+      "action": "Select “R/BL” release mode by pressing the OSB next to “MODE” if a target is designated properly, the mode will switch from BOL to R/BL."
+    },
+    {
+      "num": 14,
+      "action": "Press OSB next to “FLT” (Fly-Out Altitude) to toggle between LOW, MED and HIGH. We will choose LOW."
+    },
+    {
+      "num": 15,
+      "action": "Press OSB next to “TERM” (Terminal Altitude) to toggle between SKIM and POP attack profiles. SKIM performs a very low-level approach all the way to impact, while POP performs a high-G \"pop-up\" maneuver to impact the target from above. In our case, we will choose SKIM."
+    },
+    {
+      "num": 16,
+      "action": "Press OSB next to “SEEK” (Search Area) to between SML (5.4 nm), MED (10.8 nm) and LRG (16.2 nm) search area distance. In our case, we will choose MED."
+    },
+    {
+      "num": 17,
+      "action": "Check that HPTP (Harpoon Turnpoint) is not selected"
+    },
+    {
+      "num": 18,
+      "action": "Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that “IN RNG” is displayed. If you are not, steer the aircraft in the correct direction and ."
+    },
+    {
+      "num": 19,
+      "action": "Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile."
+    },
+    {
+      "num": 20,
+      "action": "Press and hold the Weapon Release button (« RALT+SPACE ») to launch Harpoon."
+    },
+    {
+      "num": 21,
+      "action": "Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system."
+    },
+    {
+      "num": 22,
+      "action": "The Harpoon, at an altitude corresponding to the FLT option (LOW, 5000 ft), travels directly in the direction of the set bearing from the aircraft to the designated TGT point by the air-to-sea radar. The missile then begins searching a set programmed distance before the TGT. If it locates a target, it will engage it based on the SKIM or POP terminal modes."
+    },
+    {
+      "num": 23,
+      "action": "Pressing the « Undesignate » button on the stick will return the radar to SEA mode and exit tracking mode."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "key": "m61a2_gun_funnel_no_radar_tracking",
+  "canonical": "M61A2 Gun (Funnel / No Radar Tracking)",
+  "alternates": [
+    "M61A2 Gun (Funnel / No Radar Tracking)",
+    "funnel radar tracking",
+    "M61 M61A2 Gun (Funnel / No Radar Tracking)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ARM",
+    "GUN",
+    "MK-50",
+    "PGU-28",
+    "SMS: Stores Management System"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 576,
+    "section": "3 - Air-to-Air Weapons > 3.1 - M61A2 Gun > 3.1.1 - M61A2 Gun (Funnel / No Radar Tracking)"
+  },
+  "step_count": 8,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Radar switch – OFF"
+    },
+    {
+      "num": 3,
+      "action": "Weapon Select Switch – A/A GUN, or « LSHIFT+X »"
+    },
+    {
+      "num": 4,
+      "action": "Master Mode switch will be automatically set to A/A"
+    },
+    {
+      "num": 5,
+      "action": "Go in SMS (Stores Management System) page and select Gun Rounds Options (MK-50 or PGU-28 rounds)"
+    },
+    {
+      "num": 6,
+      "action": "Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute) Sensor Control Switch AFT/FWD/LEFT/RIGHT Gun rounds remaining Weapon Select Switch FWD: Select Sparrow AFT: Select Gun PRESS DOWN: Select Sidewinder RIGHT: Select Amraam LEFT: No Function"
+    },
+    {
+      "num": 7,
+      "action": "Fly to place either the 1000 ft Range Cue dot or the 2000 ft Range Cue dot over the target. Once the 1000 ft (or 2000 ft) Range Cue dot is on the aircraft and its wingspan fits inside the Gun Funnel, you are now in range."
+    },
+    {
+      "num": 8,
+      "action": "Squeeze the gun trigger (« Spacebar ») Gun rounds remaining Gun Selected & Armed Gun Funnel Gun Cross 1000 ft Range Cue 2000 ft Range"
+    }
+  ]
+}

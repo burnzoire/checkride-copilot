@@ -1,0 +1,47 @@
+{
+  "key": "exp1_sector_map",
+  "canonical": "EXP1 (Sector Map)",
+  "alternates": [
+    "EXP1 (Sector Map)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DEPRESS",
+    "EXP1",
+    "MAP",
+    "OSB: Option Select Button",
+    "TDC: Throttle Designation Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 240,
+    "section": "2.2 - Air-to-Ground Modes > 2.2.3 - EXP (Expanded) Modes > 2.2.3.1 - EXP1 (Sector Map)"
+  },
+  "step_count": 6,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure air-to-ground mapping (MAP) mode is selected (see section 2.2.2)."
+    },
+    {
+      "num": 2,
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+    },
+    {
+      "num": 3,
+      "action": "Press on the OSB (Option Select Button) next to EXP1."
+    },
+    {
+      "num": 4,
+      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+    },
+    {
+      "num": 5,
+      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a sector map (zoom) using the TDC controls."
+    },
+    {
+      "num": 6,
+      "action": "Release the TDC DEPRESS control to enter EXP1 mode. Corral"
+    }
+  ]
+}

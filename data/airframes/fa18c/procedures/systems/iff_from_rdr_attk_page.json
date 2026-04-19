@@ -1,0 +1,33 @@
+{
+  "key": "iff_from_rdr_attk_page",
+  "canonical": "IFF from RDR ATTK Page",
+  "alternates": [
+    "from attk page"
+  ],
+  "category": "systems",
+  "terminology": [
+    "IFF: Identify-Friend-or-Foe",
+    "OSB: Option Select Button",
+    "UFC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 638,
+    "section": "Part 12 - Datalink & IFF > IFF from RDR ATTK Page"
+  },
+  "step_count": 3,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Power Up IFF (Identify-Friend-or-Foe) system by pressing the IFF Button, then holding the ON button on the UFC for a few seconds. When « XP » is displayed, the IFF has been powered up correctly. Verify that Mode 4 is selected (« : » should be visible next to « 4 »). If it is not, press on the OSB (Option Select Button) next to it."
+    },
+    {
+      "num": 2,
+      "action": "Power Up Link-16 Datalink system by pressing the D/L Button a first time to display the Link-4 datalink options, then press the D/L Button a second time to display the Link-16 datalink options. Then, hold the ON button on the UFC for a few seconds. When « ON » is displayed, the Link-16 Datalink system has been powered up correctly."
+    },
+    {
+      "num": 3,
+      "action": "On UFC, set desired Datalink Frequency by entering it on the scratchpad, then pressing « ENT ». 127 is used by default, you can keep it."
+    }
+  ]
+}

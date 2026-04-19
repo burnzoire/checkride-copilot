@@ -1,0 +1,50 @@
+{
+  "key": "d_hmd_reject_setup",
+  "canonical": "D - HMD Reject Setup",
+  "alternates": [
+    "reject setup"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "HELMET-MOUNTED",
+    "HMD",
+    "JHMCS: JOINT HELMET-MOUNTED CUEING SYSTEM",
+    "JOINT",
+    "LEVEL",
+    "MACH",
+    "MIDS: Multi-Function Information Distribution System",
+    "OSB",
+    "REJ1",
+    "REJ2",
+    "REJECT",
+    "SYSTEM"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 350,
+    "section": "5.3 - HMD (Helmet-Mounted Display) Symbology > 5.3.2 - HMD Setup > D - HMD Reject Setup"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Access the HMD SUPT Sub-Menu"
+    },
+    {
+      "num": 2,
+      "action": "Access the REJECT Setup Sub-Menu."
+    },
+    {
+      "num": 3,
+      "action": "Use the OSBs (Option Select Buttons) next to the vertical arrows and horizontal harrows to move the selection box on the parameter you want to modify. We will select the MACH parameter."
+    },
+    {
+      "num": 4,
+      "action": "Once desired parameter is selected, press OSB next to desired occlusion/reject level setting. ON: Parameter always displayed in NORM, REJ1 or REJ2 Reject modes. LEVEL 1: Parameter only displayed in REJ1 and REJ2 HMD Reject modes. Parameter is occluded in NORM. LEVEL 2: Parameter only displayed in REJ2 HMD Reject mode. Parameter is occluded in NORM and REJ1."
+    },
+    {
+      "num": 5,
+      "action": "If desired, set the MIDS (Multi-Function Information Distribution System) Symbology occlusion range as you see fit. We will use the OSBs next to the vertical arrows to set a cutoff (occlusion) range of 50 nm, Horizontal Arrows Vertical Arrows MACH Parameter selected 4a: ON Selector HMD MIDS Symbols Cutoff Range 50 nm MACH Parameter – ON Visible in NORM, REJ1 & REJ2 4a: LEVEL 1 Selector 4a: LEVEL 2 Selector MACH Parameter Level 1: Visible in REJ1 & REJ2 5 - JHMCS (JOINT HELMET-MOUNTED CUEING SYSTEM)"
+    }
+  ]
+}

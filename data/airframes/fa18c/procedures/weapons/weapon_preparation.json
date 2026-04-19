@@ -1,0 +1,65 @@
+{
+  "key": "weapon_preparation",
+  "canonical": "Weapon Preparation",
+  "alternates": [
+    "Weapon Preparation",
+    "weapon preparation",
+    "AGM-88C Weapon Preparation"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "HARM",
+    "HSI: Horizontal Situation Indicator",
+    "OSB",
+    "PB: Pre-Briefed",
+    "SA-8",
+    "SMS: Stores Management System",
+    "UFC",
+    "WPDSG"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 477,
+    "section": "2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.3 - AGM-88C HARM (PB) > 2 - Weapon Preparation"
+  },
+  "step_count": 9,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Designate a point where the radar emitter is expected to be. This can be done with a Waypoint Designate (WPDSG) or any other method of designation (with a Targeting Pod for instance)."
+    },
+    {
+      "num": 2,
+      "action": "In our case, we will designate Waypoint 2 as the expected target location. Go to the HSI (Horizontal Situation Indicator) page, select Waypoint 2 with the selector arrows, then press OSB next to WPDSG."
+    },
+    {
+      "num": 3,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 4,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 5,
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it"
+    },
+    {
+      "num": 6,
+      "action": "Select PB (Pre-Briefed) Mode"
+    },
+    {
+      "num": 7,
+      "action": "Select desired Pull-Up mode A/C (Aircraft Pull-Up): Aircraft pulls up and lofts the missile towards the selected target point."
+    },
+    {
+      "num": 8,
+      "action": "Determine Target Code with the Target Codes Table listed in the Introduction section. We expect to attack a SA-8, so the code will be « 117 »."
+    },
+    {
+      "num": 9,
+      "action": "Enter the Target Code with the UFC. Press OSB next to « UFC » (Up-Front Controller), then press OSB next to TGT (displays « : » when selected), type « 117 » on the scratchpad, then press ENT button to enter the target code."
+    }
+  ]
+}

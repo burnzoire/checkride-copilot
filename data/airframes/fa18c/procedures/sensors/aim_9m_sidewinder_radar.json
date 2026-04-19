@@ -1,0 +1,69 @@
+{
+  "key": "aim_9m_sidewinder_radar",
+  "canonical": "AIM-9M Sidewinder (Radar)",
+  "alternates": [
+    "AIM-9M Sidewinder (Radar)",
+    "sidewinder radar",
+    "AIM-9M AIM-9M Sidewinder (Radar)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ACM: Air Combat Maneuvering",
+    "AIM-9",
+    "ARM",
+    "BST",
+    "HUD",
+    "SHOOT",
+    "SIDEWINDER",
+    "STT: Single Target Track",
+    "TD: Target Designation"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 582,
+    "section": "3 - Air-to-Air Weapons > 3.2 - AIM-9M Sidewinder > 3.2.2 - AIM-9M Sidewinder (Radar)"
+  },
+  "step_count": 10,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours."
+    },
+    {
+      "num": 2,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 3,
+      "action": "Radar Switch - OPERATE"
+    },
+    {
+      "num": 4,
+      "action": "Weapon Select Switch – SIDEWINDER (DOWN), or « LSHIFT+S »"
+    },
+    {
+      "num": 5,
+      "action": "Master Mode switch will be automatically set to A/A"
+    },
+    {
+      "num": 6,
+      "action": "When SIDEWINDER is selected and radar is operating, press the Sensor Control Switch FWD to select ACM (Air Combat Maneuvering) radar mode"
+    },
+    {
+      "num": 7,
+      "action": "Select ACM sub-mode using the Sensor Select switch again. We will select BST sub-mode."
+    },
+    {
+      "num": 8,
+      "action": "Fly to place target in dashed circle on the HUD to lock it on radar when at 5 nm or closer. When target is flying through this scan zone, it is automatically locked on to in STT (Single Target Track) mode"
+    },
+    {
+      "num": 9,
+      "action": "Press and hold the Cage/Uncage switch (« C » by default) to uncage the Sidewinder."
+    },
+    {
+      "num": 10,
+      "action": "Fly to place the Steering Dot inside the ASE/NIRD (Allowable Steering Error Normalized In-Range Display) Circle squeeze trigger (« Spacebar ») when you see the SHOOT cue over the TD (Target Designation) box on the HUD to launch missile."
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "key": "gbu_38_jdam_pre_planned",
+  "canonical": "GBU-38 JDAM (Pre-Planned)",
+  "alternates": [
+    "GBU-38 JDAM (Pre-Planned)",
+    "jdam planned",
+    "GBU-38 GBU-38 JDAM (Pre-Planned)"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "DDI",
+    "DSPLY",
+    "ELEV: Elevation",
+    "FEET",
+    "GOOD",
+    "GPS",
+    "HSI",
+    "HUD",
+    "INST: Instantaneous",
+    "IZLAR: In Zone Launch Acceptable Region",
+    "JDAM",
+    "LAT: Latitude",
+    "LON: Longitude",
+    "MARGINAL",
+    "MSN",
+    "OSB",
+    "POSN",
+    "PP: Pre-Planned",
+    "PP1",
+    "PP5",
+    "QTY",
+    "RNG",
+    "RTN",
+    "SMS: Stores Management System",
+    "TMR",
+    "UFC",
+    "UNSTABLE",
+    "ZONE"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 396,
+    "section": "2.5 - GPS-Guided Ordnance > JDAM (GBU-38) > 2.5.1 - GBU-38 JDAM (Pre-Planned)"
+  },
+  "step_count": 37,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Find coordinates of targets in Degrees Minutes Seconds:Decimal- Seconds. Do not forget target elevation. (Note: Each JDAM station can have five individual Pre-Planned points per) station (PP1 to PP5). This means 20 possible targets for four JDAMs. For simplicity’s sake, we will use: PP1 for Station 2 PP1 for Station 3 PP1 for Station 8 PP1 for Station 7."
+    },
+    {
+      "num": 2,
+      "action": "While on the ground, go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 3,
+      "action": "Click on the desired JDAM bomb to select it (J-82)"
+    },
+    {
+      "num": 4,
+      "action": "Once selected, JDAMs need about 3 minutes for alignment. It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the JDAM page."
+    },
+    {
+      "num": 5,
+      "action": "Select PP (Pre-Planned) Release Mode"
+    },
+    {
+      "num": 6,
+      "action": "Select Electronic Fuze to INST (Instantaneous)."
+    },
+    {
+      "num": 7,
+      "action": "Go in the JDAM Display page by pressing the"
+    },
+    {
+      "num": 8,
+      "action": "Select Manual Release Type"
+    },
+    {
+      "num": 9,
+      "action": "Select desired JDAM quantity to be used for this mission. Press the OSB next to QTY Select desired stations to be used for the mission (I suggest you select all of them). Selected stations will become boxed. Press the OSB next to RTN (Return)."
+    },
+    {
+      "num": 10,
+      "action": "Enter MSN (Mission) page."
+    },
+    {
+      "num": 11,
+      "action": "Make sure PP1 is selected to input Target 1 coordinates"
+    },
+    {
+      "num": 12,
+      "action": "Select"
+    },
+    {
+      "num": 13,
+      "action": "On the UFC, select ELEV (Elevation)"
+    },
+    {
+      "num": 14,
+      "action": "Select FEET (« : » will appear when selected), then enter Target 1 altitude on the scratchpad (5745), then press the ENT (Enter) button."
+    },
+    {
+      "num": 15,
+      "action": "Return to main UFC menu by pressing the TGT UFC button twice."
+    },
+    {
+      "num": 16,
+      "action": "On the UFC, select POSN (Position) « : » will appear once selected."
+    },
+    {
+      "num": 17,
+      "action": "We will add the coordinates of Target 1 (PP1) 30 °17’15.33’’ North 56 °57’49.29’’ East"
+    },
+    {
+      "num": 18,
+      "action": "On the UFC, select LAT (Latitude). « : » will appear once selected."
+    },
+    {
+      "num": 19,
+      "action": "Press « 2 » (N) to select North coordinates, type « 301715 », then « ENT » to enter Degrees Minutes Seconds."
+    },
+    {
+      "num": 20,
+      "action": "Wait for the UFC screen to reset, then type « 33 », then « ENT » to enter remaining Decimal-Seconds."
+    },
+    {
+      "num": 21,
+      "action": "On the UFC, select LON (Longitude). « : » will appear once selected."
+    },
+    {
+      "num": 22,
+      "action": "On the UFC, press « 6 » (E) to select East coordinates, type « 565749 », then « ENT » to enter Degrees Minutes Seconds."
+    },
+    {
+      "num": 23,
+      "action": "Wait for the UFC screen to reset, then type « 29 », then « ENT » to enter remaining Decimal-Seconds."
+    },
+    {
+      "num": 24,
+      "action": "Return to main UFC menu by pressing the TGT UFC button twice."
+    },
+    {
+      "num": 25,
+      "action": "Once Longitude, Latitude and Elevation coordinates are entered for PP1, the PP1 icon will be boxed and no longer crossed out."
+    },
+    {
+      "num": 26,
+      "action": "Press on STEP to select the next station (STATION 3)."
+    },
+    {
+      "num": 27,
+      "action": "Repeat process (Steps 11 through 24) for Station 3 PP1, Station 8 PP1, and Station 7 PP1."
+    },
+    {
+      "num": 28,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 29,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 30,
+      "action": "On the SMS (Stores Management System) page, verify that J-82 is selected"
+    },
+    {
+      "num": 31,
+      "action": "Set HSI on the right DDI and the JDAM Display page on the left DDI (from SMS page, press the JDAM DSPLY OSB, then select MSN (Mission) page)"
+    },
+    {
+      "num": 32,
+      "action": "Verify that Manual Release PP Release Mode is selected and that the desired station and PP is selected."
+    },
+    {
+      "num": 33,
+      "action": "Steer aircraft to the target (indicated by a diamond on the HUD) Steering Cues Target Diamond Distance to Target (nm) Time to Acceptable Release Zone JDAM Manual Release Mode"
+    },
+    {
+      "num": 34,
+      "action": "When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying “TMR” (Time to reach launch acceptable region) to “IN RNG” (In Range)."
+    },
+    {
+      "num": 35,
+      "action": "Once you are within the IZLAR (In Zone Launch Acceptable Region), the Minimum and Maximum Range circles will disappear and only the IZLAR will remain. IN ZONE cue will appear on the HUD and on the JDAM Display page. Expected JDAM flight time will also be displayed on the JDAM Display page."
+    },
+    {
+      "num": 36,
+      "action": "You may now launch your JDAMs."
+    },
+    {
+      "num": 37,
+      "action": "Hold the Weapon Release Button (« RALT+SPACE ») until all selected JDAMs are launched. All selected JDAMs will automatically guide themselves via GPS to the pre-planned designated points."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "key": "how_to_designate_undesignate_from_a_g_map_mode",
+  "canonical": "How to Designate/Undesignate from A/G MAP Mode",
+  "alternates": [
+    "designate undesignate from mode"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DEPRESS",
+    "EXP1",
+    "EXP2",
+    "EXP3",
+    "HUD",
+    "MAP",
+    "TDC: Throttle Designation Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 238,
+    "section": "2.2 - Air-to-Ground Modes > 2.2.2 - MAP (Ground Mapping) Mode > How to Designate/Undesignate from A/G MAP Mode"
+  },
+  "step_count": 7,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Once A-G MAP mode is selected, press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+    },
+    {
+      "num": 2,
+      "action": "Slew the TDC on the desired spot you want to designate using the TDC controls."
+    },
+    {
+      "num": 3,
+      "action": "Designate target by using the TDC DEPRESS control (« ENTER »)."
+    },
+    {
+      "num": 4,
+      "action": "The air-to-ground radar will automatically adjust its range to give you a better view of the point you just designated."
+    },
+    {
+      "num": 5,
+      "action": "On the Radar page, a cross will mark the designated point. On the HUD, a diamond will mark the designated point. This point can be used/slaved to by other sensors (like the targeting pod) if desired."
+    },
+    {
+      "num": 6,
+      "action": "Note: you can zoom in using either the EXP1, EXP2 or EXP3 expanded modes."
+    },
+    {
+      "num": 7,
+      "action": "Pressing the « Undesignate » button on the stick will delete the designation point."
+    }
+  ]
+}

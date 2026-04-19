@@ -1,0 +1,35 @@
+{
+  "key": "manual_vs_auto_sequencing",
+  "canonical": "Manual vs Auto Sequencing",
+  "alternates": [
+    "Manual vs Auto Sequencing",
+    "manual auto sequencing"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "HSI: Horizontal Situation Indicator",
+    "OSB: Option Select Button",
+    "SEQ",
+    "WAYPOINTS"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 682,
+    "section": "Part 15 - Navigation & Case III Recovery > 5 - Waypoints > 5.3 - Manual vs Auto Sequencing"
+  },
+  "step_count": 3,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Go in HSI (Horizontal Situation Indicator) page"
+    },
+    {
+      "num": 2,
+      "action": "Select desired Waypoint Sequence (SEQ#1, SEQ#2 or SEQ#3 depending on your flight plan)"
+    },
+    {
+      "num": 3,
+      "action": "Press the OSB (Option Select Button) next to AUTO if you want automatic waypoint sequencing (boxed). Leave it OFF if you want manual waypoint sequencing (unboxed) 5 - WAYPOINTS"
+    }
+  ]
+}

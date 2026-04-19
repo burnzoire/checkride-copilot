@@ -1,0 +1,157 @@
+{
+  "key": "weapon_launch_control_552",
+  "canonical": "Weapon Launch & Control",
+  "alternates": [
+    "Weapon Launch & Control",
+    "weapon launch control",
+    "AGM-84H Weapon Launch & Control"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ANT: Aft Antenna",
+    "AWW-13",
+    "CHNL",
+    "DDI",
+    "DIST",
+    "DL13",
+    "DSPY: AWW-13 Datalink Display",
+    "FLT",
+    "FOV",
+    "HSI: Horizontal Situation Indicator",
+    "HUD",
+    "OSB",
+    "RNG: In Range",
+    "SLAM-ER",
+    "SMS",
+    "TAC",
+    "TDC: Throttle Designator Controller",
+    "TMR",
+    "TTS: Time-to-Seeker",
+    "UFC",
+    "WHT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 553,
+    "section": "2 - Air-to-Ground Weapons > 2.12 - AGM-84H SLAM-ER Cruise Missile > 2.12.4 - Weapon Launch & Control"
+  },
+  "step_count": 29,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure the SMS (Stores) page and HSI (Horizontal Situation Indicator) pages are both visible. I recommend setting SMS on the left DDI and HSI on the right DDI."
+    },
+    {
+      "num": 2,
+      "action": "Verify the selected SLAM-ER missile’s status is RDY (ready), Master Arm is ON and the correct release profile is set."
+    },
+    {
+      "num": 3,
+      "action": "TTS indicates the Time-to-Seeker (time until the SLAM-ER seeker head becomes active and can be controlled by the pilot via the TDC and the datalink pod), in seconds."
+    },
+    {
+      "num": 4,
+      "action": "TMR indicates the time required to be within range of a valid SLAM-ER launch (max range circle), in seconds."
+    },
+    {
+      "num": 5,
+      "action": "Fly the aircraft towards the target designated (diamond on the HUD or designation circle on HSI)."
+    },
+    {
+      "num": 6,
+      "action": "Once the IN RNG (In Range) cue is visible on the Heads-Up Display and SMS (Stores) page, you may launch the missile. However, we will do a few verifications prior to missile launch."
+    },
+    {
+      "num": 7,
+      "action": "From the TAC page, select DL13 DSPY (AWW-13 Datalink Display)."
+    },
+    {
+      "num": 8,
+      "action": "The screen will switch to Datalink SLAM-ER seeker head video. Take note that no feed is yet available since the « TTS » (Time-To-Seeker » has not yet reached 0, which means that we have not yet reached the DIST parameter (Distance from target until seeker head activation) set previously."
+    },
+    {
+      "num": 9,
+      "action": "Set Sensor Control Switch to the SLAM-ER DL13 Feed DDI (Sensor Control Switch LEFT since we showed up the DL13 feed on the left DDI). A diamond will appear to show the left DDI is selected."
+    },
+    {
+      "num": 10,
+      "action": "The SLAM-ER missile installed on Station 8 is currently selected. We need to verify that the Datalink pod channel corresponds to this specific station. We need to make sure that the Datalink pod is set to Channel 008, which is the channel required for Station 8. (As an example, you would need a Datalink Pod channel of 002 for Station 2)."
+    },
+    {
+      "num": 11,
+      "action": "Press on the OSB next to the Channel Number."
+    },
+    {
+      "num": 12,
+      "action": "Press on the UFC button next to CHNL. « : » indicates Channel can be edited."
+    },
+    {
+      "num": 13,
+      "action": "Enter « 8 » on the UFC scratchpad, then press ENT button to set Datalink pod to Channel 8 (Station 8). Your SLAM-ER and Datalink Channel should now match."
+    },
+    {
+      "num": 14,
+      "action": "Press on the OSB next to the Channel Number again to deselect UFC menu."
+    },
+    {
+      "num": 15,
+      "action": "Press and hold the Weapon Release button (« RALT+SPACE ») to launch SLAM-ER missile."
+    },
+    {
+      "num": 16,
+      "action": "Once SLAM-ER is launched, the missile will fly to the cruise altitude (FLT parameter) follow intermediate steerpoints programmed earlier. (Note: Since the flight time of the missile can be quite) long, you may want to use the autopilot to set the aircraft in a safe attitude."
+    },
+    {
+      "num": 17,
+      "action": "The missile will eventually enter a dive and go into the Low Altitude Penetration Stage"
+    },
+    {
+      "num": 18,
+      "action": "When the missile is close enough to the target, it will steer directly to the target’s area and enter Terminal Attack Stage."
+    },
+    {
+      "num": 19,
+      "action": "When missile TTS (Time-to-Seeker) reaches zero, this means that the missile has reached the DIST range parameter (distance from target), which is 15 nm. Datalink feed will then display a clear picture and the seeker head becomes « Uncaged »."
+    },
+    {
+      "num": 20,
+      "action": "At this stage, you may not want to steer the missile needlessly yet until the missile goes into the Terminal Attack Stage (starts diving on the target designated previously)."
+    },
+    {
+      "num": 21,
+      "action": "Toggle field-of-view (FOV) as desired using the OSB next to FOV."
+    },
+    {
+      "num": 22,
+      "action": "Select BLK (Black) or WHT (White) symbology to give you the best visibility by using the OSB next to BLK/WHT."
+    },
+    {
+      "num": 23,
+      "action": "As a general rule, it is recommended to not fly in the same direction of the missile. If you are flying away from the missile (as in: you did a 180-deg turn to fly in opposite direction to the missile’s trajectory), turn on the A ANT (Aft Antenna) option (boxed = on). This will turn the datalink antenna aft (facing the missile) and maintain communication between the missile and the aircraft to allow remote control. Since we are not flying away from the target in this example, we will leave the A ANT option OFF."
+    },
+    {
+      "num": 24,
+      "action": "Once SLAM-ER starts its Terminal Attack (dives on the target), you will have to control the missile remotely to adjust its trajectory to strike the target."
+    },
+    {
+      "num": 25,
+      "action": "To modify the SLAM-ER’s trajectory, hold the TDC Depress button while slewing the TDC with the TDC AFT/FWD/LEFT/RIGHT controls."
+    },
+    {
+      "num": 26,
+      "action": "Slew the X symbol on the target using the TDC (Throttle Designator Controller). While the X is slewing, the video feed if frozen."
+    },
+    {
+      "num": 27,
+      "action": "Once the X symbol is slewed over the target, release TDC Depress button. This will command the missile to steer towards this new designated point and un-freeze the video feed."
+    },
+    {
+      "num": 28,
+      "action": "The missile will then keep flying until it impacts the center of the reticle. Feel free to make more adjustments if necessary."
+    },
+    {
+      "num": 29,
+      "action": "You will lose TV feed once the missile impacts the target."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "key": "start_up_lasing_procedure",
+  "canonical": "Start-Up & Lasing Procedure",
+  "alternates": [
+    "Start-Up & Lasing Procedure",
+    "start lasing procedure"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "AMPCD",
+    "ARM",
+    "ATRK",
+    "DDI: Digital Display Indicator",
+    "FLIR",
+    "LTD/R: Laser Target Designator/Ranger",
+    "LTDC",
+    "OPR",
+    "OSB: Option Select Button",
+    "PTRK",
+    "TAC",
+    "TDC: Throttle Designator Controller",
+    "TIMED",
+    "TRIG",
+    "UFC",
+    "VVSLV: Velocity Vector Slaved"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 270,
+    "section": "Part 9 - Radar & Sensors > 3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.4 - Start-Up & Lasing Procedure"
+  },
+  "step_count": 21,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press A/G Master Mode. This will allow you to arm the laser designator."
+    },
+    {
+      "num": 2,
+      "action": "To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click)."
+    },
+    {
+      "num": 3,
+      "action": "From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to “FLIR” (Forward-Looking Infrared) to select the Targeting Pod feed page."
+    },
+    {
+      "num": 4,
+      "action": "Monitor the warm-up process."
+    },
+    {
+      "num": 5,
+      "action": "When targeting pod is ready to be used, the pod status will switch from RDY – NOT TIMED OUT to STBY (Standby)."
+    },
+    {
+      "num": 6,
+      "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate)."
+    },
+    {
+      "num": 7,
+      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 8,
+      "action": "Press the Undesignate button twice rapidly to select VVSLV (Velocity Vector Slaved) mode. This will un-stow the camera and slave the targeting pod to the velocity vector. Alternatively, you can press the OSB next to VVSLV (boxed when selected)."
+    },
+    {
+      "num": 9,
+      "action": "Press the Undesignate button twice rapidly again to select Snowplow mode. When Snowplow mode is first entered, the FLIR is set to 0° left/right and -8° down. Alternatively, you can press the OSB next to VVSLV to de-select VVSLV and use Snowplow mode (un-boxed when Snowplow is selected)"
+    },
+    {
+      "num": 10,
+      "action": "Adjust DDI (Digital Display Indicator) contrast and brightness as required"
+    },
+    {
+      "num": 11,
+      "action": "Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page."
+    },
+    {
+      "num": 12,
+      "action": "Using the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls, slew the targeting pod reticle over the desired target."
+    },
+    {
+      "num": 13,
+      "action": "Use appropriate zoom level, field of view (NARROW/WIDE) and camera mode (CCD/TV or FLIR) to identify the target."
+    },
+    {
+      "num": 14,
+      "action": "Press the Sensor Control Switch Towards Selected Display (Right if our right DDI is selected) to toggle between Point Track (PTRK, tracks a moving object like a high-contrast vehicle) and Area Track (ATRK, used for a static target)."
+    },
+    {
+      "num": 15,
+      "action": "Press the OSB next to “UFC” to set the Targeting Pod laser code on the Up-Front Controller."
+    },
+    {
+      "num": 16,
+      "action": "Press the button next to “LTDC” (Laser Target Designator Code). A “:” will indicate it is selected. Then, enter the desired laser code on the keypad and press “ENT”. We will choose the default laser code 1688."
+    },
+    {
+      "num": 17,
+      "action": "Press the OSB next to “TRIG” if you want to use the laser manually. The indication will become boxed once selected, which means that a gun trigger press will fire the laser. This step is required if you are “buddy lasing” (using your own laser for someone else to use). If TRIG remains unboxed, the laser is in Automatic mode. The laser will automatically fire a few seconds before the laser-guided ordnance reaches the target."
+    },
+    {
+      "num": 18,
+      "action": "Use the TDC (Throttle Designator Controller) Depress button to designate the laser as the target point. This will slave selected air-to-ground weapons to where the laser is firing."
+    },
+    {
+      "num": 19,
+      "action": "You may now launch laser-guided weapons as per their release procedure."
+    },
+    {
+      "num": 20,
+      "action": "If TRIG option is selected (boxed), press and hold the gun trigger to fire laser. Once laser is firing, the laser mode will switch from L ARM to LTD/R. If TRIG option is not selected (unboxed, AUTO lasing), the laser will automatically fire a few seconds before the ordnance reaches the target."
+    },
+    {
+      "num": 21,
+      "action": "When desired, press the Gun Trigger a second time to stop firing the laser. You can use the Undesignate/Nosewheel Steering button to undesignate the target."
+    }
+  ]
+}

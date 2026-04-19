@@ -1,0 +1,165 @@
+{
+  "key": "too_air_to_ground_radar",
+  "canonical": "TOO / Air-to-Ground Radar",
+  "alternates": [
+    "TOO / Air-to-Ground Radar",
+    "ground radar",
+    "AGM-84E TOO / Air-to-Ground Radar"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ANG",
+    "ATTK",
+    "DDI",
+    "DEPRESS",
+    "EXP",
+    "EXP1",
+    "EXP2",
+    "EXP3",
+    "FLIR: Targeting Pod",
+    "HSI: Horizontal Situation Indicator",
+    "HUD",
+    "MAP: Ground Mapping",
+    "MODE",
+    "MSN",
+    "ORP: Offset Release Point",
+    "OSB: Option Select Button",
+    "PP: Pre-Planned",
+    "RNG: In Range",
+    "SAR",
+    "SLAM",
+    "SMS",
+    "TDC: Throttle Designation Controller",
+    "TERM: Terminal Attack",
+    "TMR",
+    "TOO: Target-of-Opportunity",
+    "TOO1",
+    "TOO2",
+    "UFC",
+    "VEL"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 521,
+    "section": "2.11 - AGM-84E SLAM Cruise Missile > 2.11.3 - Target Designation > 2.11.3.3 - TOO / Air-to-Ground Radar"
+  },
+  "step_count": 29,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press OSB next to MODE to toggle between TOO (Target-of-Opportunity) and PP (Pre-Planned) target designation modes. In this case, we will choose TOO."
+    },
+    {
+      "num": 2,
+      "action": "Press OSB next to MSN to enter the Mission Parameters page."
+    },
+    {
+      "num": 3,
+      "action": "We can define up to two Targets of Opportunity per missile station: TOO1 and TOO2. We will designate the target on TOO1. Press OSB next to TOO1 to select it."
+    },
+    {
+      "num": 4,
+      "action": "The ORP (Offset Release Point) is the designated target point (A/G TGT). For now, the field is empty since no target is defined yet."
+    },
+    {
+      "num": 5,
+      "action": "(Optional) If you want to set TERM (Terminal Attack) parameters such as heading (HDG), attack angle (ANG) and velocity (VEL), press OSB next to TOO UFC. You will be able to enter them via the UFC. However, since we will control the missile remotely during the terminal attack stage, these parameters are not required and we will leave them blank,"
+    },
+    {
+      "num": 6,
+      "action": "(Optional) We do not need O/S (Offset) parameters to the ORP since we will control the missile remotely during the terminal attack stage. Therefore, we will not need to use O/S UFC function. Parameters for Station 8"
+    },
+    {
+      "num": 7,
+      "action": "Select RDR ATTK page (since A/G Master Mode is selected, the air-to-ground radar page should be visible already) and press the Sensor Control Switch in the direction of the selected DDI (RIGHT) to slave TDC (Throttle Designation Controller) to the air-to-ground radar. Focus diamond should be visible."
+    },
+    {
+      "num": 8,
+      "action": "We could designate the target directly from the MAP (Ground Mapping) mode, but we will use Expanded Modes (EXP) to progressively get a better view before designating the target. You could switch directly from MAP to EXP3, but going from MAP →EXP1 →EXP2 →EXP3 will make your life much easier."
+    },
+    {
+      "num": 9,
+      "action": "Adjust radar range as desired, then press on the OSB (Option Select Button) next to EXP1."
+    },
+    {
+      "num": 10,
+      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+    },
+    {
+      "num": 11,
+      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a sector map (zoom) using the TDC controls."
+    },
+    {
+      "num": 12,
+      "action": "Release the TDC DEPRESS control to enter EXP1 mode."
+    },
+    {
+      "num": 13,
+      "action": "The air-to-ground radar will automatically adjust its range to give you a better view of the region you just expanded."
+    },
+    {
+      "num": 14,
+      "action": "Press on the OSB (Option Select Button) next to EXP2."
+    },
+    {
+      "num": 15,
+      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+    },
+    {
+      "num": 16,
+      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a patch map (zoom) using the TDC controls."
+    },
+    {
+      "num": 17,
+      "action": "Release the TDC DEPRESS control to enter EXP2 mode."
+    },
+    {
+      "num": 18,
+      "action": "Press on the OSB (Option Select Button) next to EXP3."
+    },
+    {
+      "num": 19,
+      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+    },
+    {
+      "num": 20,
+      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a Synthetic-Aperture Radar (SAR) map (zoom) using the TDC controls."
+    },
+    {
+      "num": 21,
+      "action": "Release the TDC DEPRESS control to enter EXP3 mode."
+    },
+    {
+      "num": 22,
+      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+    },
+    {
+      "num": 23,
+      "action": "While TDC DEPRESS is held, slew the TDC cursor on the desired spot you want to designate using the TDC controls."
+    },
+    {
+      "num": 24,
+      "action": "Release the TDC DEPRESS control to designate target. A designation cross will be visible on the RDR ATTK display. Take note that target designation with the air-to-ground radar is not very precise. If visibility allows it, a good idea would be to select the FLIR (Targeting Pod) page, which will automatically slewed over air-to-ground radar designated point. From there, you can perform some adjustments (see section 2.11.3.2 to designate a target with the targeting pod)."
+    },
+    {
+      "num": 25,
+      "action": "The target designation diamond, steering cues, range to target, SLAM indication, TMR indication (time required to be within range of a valid SLAM launch) and TOO indication will appear on the HUD. (Note: Since the air-to-ground expanded modes’ effective range is much shorter) (30-40 nm) than the maximum range of a SLAM missile, it is possible that the TMR indication is already set to IN RNG (In Range) once you designate the target."
+    },
+    {
+      "num": 26,
+      "action": "Minimum and Maximum Launch Range circles will appear on the HSI (Horizontal Situation Indicator) page."
+    },
+    {
+      "num": 27,
+      "action": "The coordinates and elevation of the designated target point will then directly transfer to the ORP (Offset Release Point) in the MSN page."
+    },
+    {
+      "num": 28,
+      "action": "Press the OSB next to RETURN to return back to the SMS (Stores) page. We are now almost ready to begin our strike and launch the missile."
+    },
+    {
+      "num": 29,
+      "action": "Please proceed to section"
+    }
+  ]
+}

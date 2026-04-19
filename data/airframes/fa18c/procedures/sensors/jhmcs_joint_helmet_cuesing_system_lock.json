@@ -1,0 +1,45 @@
+{
+  "key": "jhmcs_joint_helmet_cuesing_system_lock",
+  "canonical": "JHMCS (Joint Helmet-Cuesing System) Lock",
+  "alternates": [
+    "JHMCS (Joint Helmet-Cuesing System) Lock",
+    "jhmcs joint helmet cuesing"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ACM",
+    "HACQ: Helmet Acquisition",
+    "HMD: Helmet-Mounted Display",
+    "HUD",
+    "LHACQ: Long Range Helmet Acquisition",
+    "STT: Single Target Track"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 228,
+    "section": "2.1 - Air-to-Air Modes > 2.1.8 - Radar Lock Acquisition > 2.1.8.3 - JHMCS (Joint Helmet-Cuesing System) Lock"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press A/A Master Mode"
+    },
+    {
+      "num": 2,
+      "action": "Turn HMD Brightness Control Switch to BRT"
+    },
+    {
+      "num": 3,
+      "action": "The HMD (Helmet-Mounted Display) overlay will appear over your helmet (except when looking at the Heads-Up Display). When the HMD is looking at the HUD, it scans identically to Boresight Acquisition. When the HMD is pointed elsewhere, it maintains the scan shape but is slaved to the HMD center. When the radar scan limits are reached, the dashed circle will not move past the limits and will flash if the HMD moves farther than it can."
+    },
+    {
+      "num": 4,
+      "action": "Press Sensor Control Switch Forward to enter desired acquisition mode Holding it for more than 0.8 sec selects LHACQ (Long Range Helmet Acquisition) mode, which locks targets automatically within 40 nm of the helmet reticle Holding it for less than 0.8 sec selects HACQ (Helmet Acquisition) mode, which locks targets automatically within 10 nm of the helmet reticle"
+    },
+    {
+      "num": 5,
+      "action": "A STT (Single Target Track) lock will be performed automatically when target comes on target reticle and is within acquisition range To exit ACM mode, press Undesignate Button."
+    }
+  ]
+}

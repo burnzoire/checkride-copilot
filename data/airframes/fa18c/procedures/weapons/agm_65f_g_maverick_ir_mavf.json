@@ -1,0 +1,54 @@
+{
+  "key": "agm_65f_g_maverick_ir_mavf",
+  "canonical": "AGM-65F/G Maverick (IR-MAVF)",
+  "alternates": [
+    "AGM-65F/G Maverick (IR-MAVF)",
+    "maverick mavf"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "AGM-65F",
+    "ARM",
+    "DSPLY",
+    "IMAV",
+    "MAVF",
+    "OSB",
+    "SMS: Stores Management System"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 440,
+    "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.7 - AGM-65F/G Maverick (IR-MAVF)"
+  },
+  "step_count": 7,
+  "steps": [
+    {
+      "num": 1,
+      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation."
+    },
+    {
+      "num": 2,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 3,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 4,
+      "action": "Select MAVF (text should be boxed)"
+    },
+    {
+      "num": 5,
+      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed."
+    },
+    {
+      "num": 6,
+      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live."
+    },
+    {
+      "num": 7,
+      "action": "Master Arm switch – ARM (UP)"
+    }
+  ]
+}

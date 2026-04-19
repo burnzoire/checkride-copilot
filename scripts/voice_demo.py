@@ -59,47 +59,249 @@ STATE_FRESH_MS  = 5000  # treat state as live only if updated within this window
 
 _FEW_SHOT = """\
 
-Examples of correct responses:
+Examples:
 
 [Reference confidence: HIGH]
 Refueling Probe Control Switch EXTEND / RETRACT / EMERGENCY EXTENDED
-Pilot: How do I open the refueling probe?
+Student: How do I open the refueling probe?
 Set the Refueling Probe Control Switch to EXTEND.
 
 [Reference confidence: HIGH]
 Set FORMATION LIGHTS to BRT
-Pilot: How do I turn on formation lights?
-Set FORMATION LIGHTS to BRT.
+Student: How do I turn on formation lights?
+FORMATION LIGHTS switch to BRT — left console, exterior lights panel.
 
 [Reference confidence: MEDIUM]
 Set PROBE switch to EXTEND (step 8 of AAR procedure)
-Pilot: Where is the probe switch?
-The PROBE switch — which console are you looking at?
+Student: Where is the probe switch?
+The probe switch is on the left console. What are you trying to do — extend or retract?
 
 [Reference confidence: LOW — no relevant procedure found]
-Pilot: What's the trick to catching the wire?
-I'm not solid on that one. What's giving you trouble?
+Student: What's the trick to catching the wire?
+That's technique, and it varies. What's happening — are you high, fast, or both?
 
 [Reference confidence: LOW — no relevant procedure found]
-Pilot: Can you tell me which console to look at?
-Not certain of that location — start with the left console, that's where the fuel system switches sit.
+Student: Can you tell me which console to look at?
+Start with the left console — most of the fuel and secondary systems live there.
 """
 
 _SYSTEM_CORE = """\
-You are Checkride Copilot, an experienced F/A-18C instructor on intercom. You know this aircraft's systems and procedures intimately.
-Calm, direct, never robotic. Do not address the pilot as "Pilot". Do not apologise.
-Never mention documents, manuals, guides, or references — you are the expert, speak from knowledge.
-Never invent physical mechanisms, sensory cues, keyboard shortcuts, or locations you are not certain of.
-A [Reference confidence] block precedes each question — use it to calibrate certainty:
-HIGH: answer in 1-2 sentences. Include all relevant figures, switch names, and settings exactly. No preamble.
-MEDIUM: answer what you know, ask ONE clarifying question if needed.
-LOW: be honest that you're not certain, ask what's giving them trouble.
-[Closest cockpit match] block: say "Did you mean X?" using the exact switch name, then state its location.
+You are the Checkride Copilot — an F/A-18C Hornet instructor pilot (IP) riding
+backseat on intercom. You have 2,000+ hours in the jet. Your job is to train,
+not to recite. You explain the WHY, flag common errors, and speak the way a
+real IP would in a brief or on hot mic.
+
+Voice and tone:
+- Direct, calm, authoritative. Never robotic or encyclopaedic.
+- Do not address the student as "Pilot". Speak naturally, as to a colleague.
+- Do not apologise or hedge unnecessarily.
+- Never mention manuals, documents, or references — you are the knowledge.
+- Never invent switch positions, mechanisms, or numbers you are uncertain of.
+
+Calibrate verbosity from the [Reference confidence] block:
+HIGH  — answer in 1–2 sentences. Include exact figures, switch names, positions.
+MEDIUM — answer what you know; ask ONE focused follow-up if something is unclear.
+LOW   — be honest ("I'm not solid on that"), ask what's giving them trouble.
+
+If a [Closest cockpit match] block is present, open with "Did you mean X?" using
+the exact switch name, then give its location.
+
+This is a voice interface. Responses must be speakable — no bullet lists,
+no asterisks, no markdown. Short sentences. Under 40 words unless the question
+genuinely requires depth.
 """
 
 SYSTEM_PROMPT_INFLIGHT = _SYSTEM_CORE + _FEW_SHOT
 SYSTEM_PROMPT_GROUND   = _SYSTEM_CORE + _FEW_SHOT
 
+
+# ── Procedure index ───────────────────────────────────────────────────────────
+# index.json holds lightweight metadata (no steps). Individual proc files are
+# loaded on demand when a procedure is activated.
+
+_PROC_INDEX: list[dict] = []                # entries from index.json (no steps)
+_PROC_CACHE: dict[str, dict] = {}           # key → full proc (steps loaded lazily)
+_SECTION_NUM_TO_PROC: dict[str, str] = {}   # "2.7.1" → proc key
+_PROC_WORDS: dict[str, frozenset[str]] = {} # proc key → keyword set
+_PROC_DIR = Path(__file__).parent.parent / "data" / "airframes" / "fa18c" / "procedures"
+
+
+def _load_proc(key: str) -> dict | None:
+    """Load a single procedure file into _PROC_CACHE and return it."""
+    if key in _PROC_CACHE:
+        return _PROC_CACHE[key]
+    # Find the index entry to get the path
+    for entry in _PROC_INDEX:
+        if entry["key"] == key:
+            proc_path = _PROC_DIR / entry["path"]
+            try:
+                proc = json.loads(proc_path.read_text(encoding="utf-8"))
+                _PROC_CACHE[key] = proc
+                return proc
+            except Exception as e:
+                logger.warning(f"Could not load procedure {key}: {e}")
+                return None
+    return None
+
+
+def _init_proc_index() -> None:
+    index_path = _PROC_DIR / "index.json"
+    try:
+        data = json.loads(index_path.read_text(encoding="utf-8"))
+        _PROC_INDEX.extend(data.get("procedures", []))
+    except Exception as e:
+        logger.warning(f"Could not load procedures index: {e}")
+        return
+
+    for entry in _PROC_INDEX:
+        key = entry["key"]
+        section = entry.get("source", {}).get("section", "")
+        last_part = section.split(">")[-1] if ">" in section else section
+        m = re.search(r"(\d+(?:\.\d+)+)", last_part)
+        if m:
+            _SECTION_NUM_TO_PROC[m.group(1)] = key
+
+        words: set[str] = set()
+        for text in [entry["canonical"]] + entry.get("alternates", []):
+            for w in re.findall(r"[a-z0-9]+", text.lower()):
+                if len(w) >= 3:
+                    words.add(w)
+        _PROC_WORDS[key] = frozenset(words)
+
+_init_proc_index()
+
+
+# ── Disambiguation groups ──────────────────────────────────────────────────────
+# Loaded once; each group defines a tree of clarifying questions that routes to
+# a specific procedure key before steps begin.
+
+_DISAMBIG_GROUPS: list[dict] = []
+_DISAMBIG_KEYWORDS: list[tuple[frozenset[str], dict]] = []  # (kw_set, group)
+
+def _init_disambig() -> None:
+    path = Path(__file__).parent.parent / "data" / "airframes" / "fa18c" / "proc_groups.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        _DISAMBIG_GROUPS.extend(data.get("groups", []))
+    except Exception as e:
+        logger.warning(f"Could not load proc_groups.json: {e}")
+        return
+    for group in _DISAMBIG_GROUPS:
+        kws = frozenset(w for kw in group["keywords"]
+                        for w in re.findall(r"[a-z0-9]+", kw.lower()))
+        _DISAMBIG_KEYWORDS.append((kws, group))
+
+_init_disambig()
+
+
+def _match_disambig_group(transcript: str) -> dict | None:
+    """Return the disambiguation group whose keywords best match the transcript."""
+    tokens = frozenset(re.findall(r"[a-z0-9]+", transcript.lower()))
+    best_score, best_group = 0, None
+    for kws, group in _DISAMBIG_KEYWORDS:
+        score = len(tokens & kws)
+        if score > best_score:
+            best_score, best_group = score, group
+    return best_group if best_score > 0 else None
+
+
+def _match_disambig_option(transcript: str, options: list[dict]) -> dict | None:
+    """Return the option node whose keywords best match the transcript."""
+    tokens = frozenset(re.findall(r"[a-z0-9]+", transcript.lower()))
+    best_score, best_opt = 0, None
+    for opt in options:
+        kws = frozenset(w for kw in opt["keywords"]
+                        for w in re.findall(r"[a-z0-9]+", kw.lower()))
+        score = len(tokens & kws)
+        if score > best_score:
+            best_score, best_opt = score, opt
+    return best_opt if best_score > 0 else None
+
+
+_PROC_REQUEST_RE = re.compile(
+    r"\b("
+    r"how\s+do\s+i\s+(fire|launch|release|drop|employ|arm\s+up|set\s+up|"
+    r"start\s+up|execute|deploy|shoot|pickle|engage|lase|refuel|use|apply|target|employ)|"
+    r"(show|take|walk|talk|run|slip|step)\s+me\s+(through|over)|"
+    r"step\s+by\s+step|what\s+are\s+the\s+steps|one\s+step\s+at\s+a\s+time|"
+    r"procedure\s+for|run\s+me\s+through|talk\s+me\s+through|"
+    r"i\s+need\s+to\s+(fire|launch|release|drop|employ|shoot)|"
+    r"how\s+to\s+(fire|launch|release|drop|employ|shoot|use|apply)|"
+    r"can\s+you\s+(show|walk|take|run|slip)\s+me"
+    r")\b",
+    re.IGNORECASE,
+)
+
+def _is_proc_request(transcript: str) -> bool:
+    """True only when the pilot explicitly asks to be walked through a procedure."""
+    return bool(_PROC_REQUEST_RE.search(transcript))
+
+
+def _find_proc_for_section(section_str: str) -> str | None:
+    """Map a RAG chunk section label ('2.7.1: AGM-65F/G MAVERICK') to a proc key."""
+    m = re.match(r"(\d+(?:\.\d+)*)\s*[:\-]", section_str)
+    if m:
+        return _SECTION_NUM_TO_PROC.get(m.group(1))
+    return None
+
+
+_PROC_STOPWORDS = frozenset({"how", "the", "what", "when", "where", "why", "for",
+                              "and", "can", "you", "use", "do", "a", "to", "i",
+                              "fire", "help", "want", "need", "me"})
+
+def _find_proc_by_keywords(transcript: str) -> str | None:
+    """Return best-matching procedure key from transcript word overlap, or None.
+    Returns None on ties — caller falls through to RAG disambiguation."""
+    query = frozenset(re.findall(r"[a-z0-9]+", transcript.lower())) - _PROC_STOPWORDS
+    if not query:
+        return None
+    scores: list[tuple[int, str]] = [
+        (len(query & words), key)
+        for key, words in _PROC_WORDS.items()
+        if len(query & words) >= 1
+    ]
+    if not scores:
+        return None
+    scores.sort(reverse=True)
+    # Only return if there's a clear winner with no tie at the top
+    if len(scores) >= 2 and scores[0][0] == scores[1][0]:
+        return None
+    return scores[0][1]
+
+
+def _clean_step_text(text: str) -> str:
+    """Strip OCR artefacts from extracted PDF step text."""
+    # Remove non-printable characters (OCR noise), normalize dashes
+    text = re.sub(r"[^\x20-\x7E\u2013\u2014\u2018\u2019]", " ", text)
+    text = re.sub(r"[\u2013\u2014]", "-", text)
+    text = re.sub(r"[\u2018\u2019]", "'", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+def _format_step(proc_key: str, step_idx: int) -> str:
+    """Format a single procedure step for TTS — no step-counter noise."""
+    proc  = _load_proc(proc_key)
+    if not proc:
+        return "Procedure unavailable."
+    steps  = proc["steps"]
+    action = _clean_step_text(steps[step_idx].get("voiced") or steps[step_idx]["action"])
+    remaining = len(steps) - step_idx - 1
+    suffix = f" {remaining} more to go." if remaining == 1 else (
+             f" {remaining} steps remaining." if remaining > 1 else " That's the last step.")
+    return action + suffix
+
+
+def _format_proc_intro(proc_key: str) -> str:
+    """Name the procedure, then deliver step 1 immediately."""
+    proc  = _load_proc(proc_key)
+    if not proc:
+        return "Procedure unavailable."
+    step1 = _clean_step_text(proc["steps"][0].get("voiced") or proc["steps"][0]["action"])
+    return f"{proc['canonical']}. First: {step1}"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 def _fetch_state() -> dict | None:
     """Return state only if fresh (pilot is in an active jet). None otherwise."""
@@ -288,19 +490,30 @@ _FILLER_TAIL_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Sycophantic openers the LLM produces despite the persona prompt.
+_SYCOPHANTIC_RE = re.compile(
+    r"^\s*(great(\.| job)?|excellent(\.| job)?|perfect(\.)?|well done(\.)?|"
+    r"good (job|work|answer|response|question)(\.)?|"
+    r"you'?re doing (well|great)(\.)?|"
+    r"that'?s (correct|right|great|good)(\.)?|"
+    r"absolutely(\.)?|certainly(\.)?|of course(\.)?|"
+    r"sure(,| thing)?(\.)?)\s*",
+    re.IGNORECASE,
+)
+
 
 _BOLD_RE   = re.compile(r"\*{1,2}(.+?)\*{1,2}")
 _CURLY_APOSTROPHE_RE = re.compile(r"[\u2018\u2019\u201a\u201b]")
 _CURLY_QUOTE_RE      = re.compile(r"[\u201c\u201d\u201e\u201f]")
 
 def _clean_reply(text: str) -> str:
-    """Strip dangling list preambles, leaked tags, document references, and LLM filler tails."""
+    """Strip leaked tags, sycophantic openers, bold markers, and curly quotes."""
     text = _DOC_REF_RE.sub("", text).strip()
-    text = _FILLER_TAIL_RE.sub("", text).strip()
     text = _LEAKED_TAG_RE.sub(".", text).strip()
     text = _BOLD_RE.sub(r"\1", text)
     text = _CURLY_APOSTROPHE_RE.sub("'", text)
     text = _CURLY_QUOTE_RE.sub('"', text)
+    text = _SYCOPHANTIC_RE.sub("", text).strip()
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     lines = [l for l in lines if not _PREAMBLE_RE.match(l)]
     return " ".join(lines).strip()
@@ -312,7 +525,10 @@ def _ask_ollama(
     model: str,
     history: list[dict],
     low_streak: int = 0,
-) -> str:
+) -> tuple[str, str, str | None]:
+    """Returns (reply, confidence, proc_key).
+    proc_key is set when RAG unambiguously identifies a known procedure —
+    caller should enter procedure mode and not use the reply text."""
     in_jet    = state is not None
     sys_prompt = SYSTEM_PROMPT_INFLIGHT if in_jet else SYSTEM_PROMPT_GROUND
 
@@ -342,7 +558,7 @@ def _ask_ollama(
             else:
                 history.append({"role": "user",      "content": transcript,   "ts": _time.time()})
                 history.append({"role": "assistant",  "content": last_reply,   "ts": _time.time()})
-                return last_reply, "MEDIUM"
+                return last_reply, "MEDIUM", None
 
     # Cockpit lookup: if this looks like a location query, check the switch
     # index first — this gives a precise, authoritative answer without BM25.
@@ -360,16 +576,34 @@ def _ask_ollama(
             panel     = hit["panel_label"]
             spoken    = hit.get("spoken") or hit.get("positions", [])
             if spoken:
-                if len(spoken) == 2:
+                if len(spoken) == 1:
+                    pos_str = spoken[0]
+                elif len(spoken) == 2:
                     pos_str = f"{spoken[0]} or {spoken[1]}"
                 else:
                     pos_str = ", ".join(spoken[:-1]) + f", or {spoken[-1]}"
-                reply = f"{canonical} is on the {area}, {panel}. It goes {pos_str}."
+                reply = f"{canonical} — {area}, {panel}. {pos_str}."
             else:
-                reply = f"{canonical} is on the {area}, {panel}."
+                reply = f"{canonical} — {area}, {panel}."
             history.append({"role": "user",      "content": transcript, "ts": _time.time()})
             history.append({"role": "assistant",  "content": reply,      "ts": _time.time()})
-            return reply, "HIGH"
+            return reply, "HIGH", None
+
+    # Direct keyword match: for clear procedure requests that may score LOW on
+    # BM25 (e.g. "how do I use the Maverick"), try matching against proc keywords
+    # before running RAG. This bypasses BM25 weakness on generic verbs like "use".
+    if not is_meta and _is_proc_request(transcript):
+        # Check for disambiguation group first — if the query matches a group,
+        # return a sentinel that tells the run loop to enter disambiguation mode.
+        dg = _match_disambig_group(transcript)
+        if dg:
+            return "", "HIGH", f"__DISAMBIG__:{dg['id']}"
+
+        kw_proc = _find_proc_by_keywords(transcript)
+        if kw_proc and kw_proc in _PROC_WORDS:
+            history.append({"role": "user",      "content": transcript, "ts": _time.time()})
+            history.append({"role": "assistant",  "content": f"[PROC:{kw_proc}]", "ts": _time.time()})
+            return "", "HIGH", kw_proc
 
     # After 2 consecutive LOW turns, drop the score floor so we inject the
     # best available content even if it's a weak hit, and tell the model to
@@ -406,7 +640,24 @@ def _ask_ollama(
                     q = "Which variant? " + ", ".join(variants[:-1]) + f", or {variants[-1]}?"
                 history.append({"role": "user",      "content": transcript})
                 history.append({"role": "assistant",  "content": q})
-                return q, "MEDIUM"
+                return q, "MEDIUM", None
+
+            # Single unambiguous section — enter proc mode only when the pilot
+            # explicitly asks to be walked through something (not a general question),
+            # AND the detected procedure is actually relevant to the transcript keywords
+            # (prevents e.g. "how do I use Mavericks" → markpoints via BM25 title match).
+            if confidence in ("HIGH", "MEDIUM") and sections and not is_meta and _is_proc_request(transcript):
+                proc_key = _find_proc_for_section(sections[0])
+                if proc_key and proc_key in _PROC_WORDS:
+                    # Sanity check against the section label (not proc keywords) so
+                    # "AGM-65F Missile IR Seeker Only" correctly matches "maverick" via
+                    # the section string "2.7.1: AGM-65F/G MAVERICK".
+                    query_words   = frozenset(re.findall(r"[a-z0-9]+", transcript.lower())) - _PROC_STOPWORDS
+                    section_words = frozenset(re.findall(r"[a-z0-9]+", sections[0].lower())) - _PROC_STOPWORDS
+                    if query_words & section_words:
+                        history.append({"role": "user",      "content": transcript, "ts": _time.time()})
+                        history.append({"role": "assistant",  "content": f"[PROC:{proc_key}]", "ts": _time.time()})
+                        return "", confidence, proc_key
 
             excerpts = "\n---\n".join(h["text"] for h in hits)
             label = confidence
@@ -465,10 +716,10 @@ def _ask_ollama(
         reply = _clean_reply(r.json()["message"]["content"].strip())
         history.append({"role": "user",      "content": user_msg, "ts": _time.time()})
         history.append({"role": "assistant",  "content": reply,    "ts": _time.time()})
-        return reply, confidence
+        return reply, confidence, None
     except Exception as e:
         logger.error(f"Ollama error: {e}")
-        return "LLM unavailable.", "LOW"
+        return "LLM unavailable.", "LOW", None
 
 
 # Windows virtual-key codes for common PTT choices.
@@ -524,6 +775,22 @@ _CONTINUE_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Restart the current procedure from step 1.
+_RESTART_RE = re.compile(
+    r"\b(start\s+(from\s+)?(the\s+)?(start|beginning|top)|"
+    r"restart|from\s+the\s+(top|start|beginning)|"
+    r"back\s+to\s+(the\s+)?(start|beginning|top)|"
+    r"again\s+from\s+the\s+(start|top|beginning))\b",
+    re.IGNORECASE,
+)
+
+# Abandon the current procedure.
+_CANCEL_PROC_RE = re.compile(
+    r"^\s*(cancel|stop|forget\s+it|never\s*mind|that.?s\s+(all|it|fine|good))\s*[.,!]?\s*$",
+    re.IGNORECASE,
+)
+
+
 
 def _split_steps(reply: str) -> list[str]:
     """Return individual steps if reply is a numbered procedure, else []."""
@@ -569,46 +836,111 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
     print(f"PTT : {ptt_key.upper()}  |  Model : {model}  |  Audio : {'on' if speak else 'off'}")
     print(f"Hold [{ptt_key.upper()}] and speak.  Ctrl-C to quit.\n")
 
-    history:       list[dict] = []
-    low_streak:    int        = 0
-    pending_steps: list[str]  = []   # remaining steps in an active procedure
+    history:             list[dict] = []
+    low_streak:          int        = 0
+    active_proc:         str | None = None
+    active_step:         int        = 0
+    disambiguation_node: dict|None  = None
 
     while True:
         try:
-            transcript = stt.listen_once(ptt_key=ptt_key, device=mic_device)
+            _ctx_terms: list[str] | None = None
+            if active_proc:
+                _ap = _load_proc(active_proc)
+                if _ap:
+                    _ctx_terms = _ap.get("terminology") or None
+            transcript = stt.listen_once(ptt_key=ptt_key, device=mic_device,
+                                         context_terms=_ctx_terms)
             if not transcript:
                 print("  (nothing heard)")
                 continue
 
             print(f"  You  : {transcript!r}")
+            stripped = transcript.strip()
 
-            # ── Step continuation ────────────────────────────────────────────
-            if pending_steps and _CONTINUE_RE.fullmatch(transcript.strip()):
-                step  = pending_steps.pop(0)
-                reply = _step_tts(step)
+            # ── Cancel active procedure or disambiguation ────────────────────
+            if _CANCEL_PROC_RE.fullmatch(stripped) and (active_proc or disambiguation_node):
+                active_proc = None
+                active_step = 0
+                disambiguation_node = None
+                reply = "Roger."
                 conf  = "HIGH"
-                print(f"  [STEP] {len(pending_steps)} remaining")
-            else:
-                # Topic changed — discard pending steps
-                if pending_steps:
-                    pending_steps.clear()
+                print("  [PROC] cancelled")
 
+            # ── Restart active procedure from step 1 ─────────────────────────
+            elif active_proc and _RESTART_RE.search(stripped):
+                active_step = 0
+                reply = _format_step(active_proc, 0)
+                conf  = "HIGH"
+                _p = _load_proc(active_proc)
+                print(f"  [PROC] restart → step 1/{len(_p['steps']) if _p else '?'}")
+
+            # ── Advance to next step ──────────────────────────────────────────
+            elif active_proc and _CONTINUE_RE.fullmatch(stripped):
+                active_step += 1
+                _p = _load_proc(active_proc)
+                steps = _p["steps"] if _p else []
+                if active_step >= len(steps):
+                    reply = f"{_p['canonical'] if _p else active_proc} complete."
+                    active_proc = None
+                    active_step = 0
+                    print("  [PROC] complete")
+                else:
+                    reply = _format_step(active_proc, active_step)
+                    print(f"  [PROC] step {active_step + 1}/{len(steps)}")
+                conf = "HIGH"
+
+            # ── Disambiguation in progress ────────────────────────────────────
+            elif disambiguation_node:
+                opt = _match_disambig_option(stripped, disambiguation_node["options"])
+                if opt:
+                    if "proc_key" in opt:
+                        # Terminal node — enter the procedure
+                        active_proc = opt["proc_key"]
+                        active_step = 0
+                        disambiguation_node = None
+                        reply = _format_proc_intro(active_proc)
+                        _p = _load_proc(active_proc)
+                        print(f"  [DISAMBIG→PROC] {active_proc} ({len(_p['steps']) if _p else '?'} steps)")
+                    else:
+                        # Intermediate node — ask next question
+                        disambiguation_node = opt
+                        reply = opt["question"]
+                        print(f"  [DISAMBIG] → {opt['label']!r}: {reply!r}")
+                else:
+                    reply = f"Sorry, say that again. {disambiguation_node['question']}"
+                    print(f"  [DISAMBIG] no match, re-asking")
+                conf = "HIGH"
+
+            # ── General query (Q&A or new procedure) ─────────────────────────
+            else:
                 state = _fetch_state()
                 mode  = "IN-JET" if state else "GROUND"
-                reply, conf = _ask_ollama(transcript, state, model, history, low_streak)
+                reply, conf, proc_key = _ask_ollama(transcript, state, model, history, low_streak)
                 low_streak = (low_streak + 1) if conf == "LOW" else 0
                 print(f"  [{mode}] conf={conf} streak={low_streak}")
 
-                # Enter step mode if reply contains a numbered procedure
-                steps = _split_steps(reply)
-                if steps:
-                    pending_steps = steps[1:]
-                    reply = _step_tts(steps[0])
-                    print(f"  [STEP MODE] {len(steps)} steps, speaking step 1/{len(steps)}")
+                if proc_key and proc_key.startswith("__DISAMBIG__:"):
+                    gid = proc_key.split(":", 1)[1]
+                    dg = next((g for g in _DISAMBIG_GROUPS if g["id"] == gid), None)
+                    if dg:
+                        disambiguation_node = dg
+                        reply = dg["question"]
+                        conf  = "HIGH"
+                        print(f"  [DISAMBIG] enter group '{gid}'")
+                elif proc_key:
+                    active_proc = proc_key
+                    active_step = 0
+                    _p = _load_proc(proc_key)
+                    reply = _format_proc_intro(proc_key)
+                    conf  = "HIGH"
+                    print(f"  [PROC] enter '{proc_key}' ({len(_p['steps']) if _p else '?'} steps)")
+                elif not reply:
+                    reply = "Say again?"
 
             print(f"  Reply: {reply}\n")
 
-            # ── TTS ─────────────────────────────────────────────────────────
+            # ── TTS ──────────────────────────────────────────────────────────
             if speak:
                 stop_tts = threading.Event()
                 tts_done = threading.Event()
@@ -622,14 +954,7 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
 
                 threading.Thread(target=_interrupt_watch, daemon=True).start()
                 try:
-                    voiced = _voiced(reply, conf)
-                    filler_m = re.match(r'^((?:Hmm|Uh|Well|Right|Let me think)[.,!]*\.?\s+)', voiced, re.I)
-                    if filler_m:
-                        tts.speak(filler_m.group(1).strip(), stop_event=stop_tts)
-                        if not stop_tts.is_set():
-                            tts.speak(voiced[filler_m.end():], stop_event=stop_tts)
-                    else:
-                        tts.speak(voiced, stop_event=stop_tts)
+                    tts.speak(_voiced(reply, conf), stop_event=stop_tts)
                 finally:
                     tts_done.set()
 

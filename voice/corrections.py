@@ -56,6 +56,32 @@ _RULES: list[tuple[re.Pattern, str]] = [
     # Whisper hears "o-bogs" → "bug", "oh bogs", "obogs"
     (re.compile(r"\b(bug\s+switch|oh\s*bogs|o[\s-]bogs)\b", re.I), "OBOGS"),
 
+    # ── Common acronym mishears ──────────────────────────────────────────────
+    # FOV (Field of View) → "FOB" (Forward Operating Base)
+    (re.compile(r"\bF\.?O\.?B\.?\b",                      re.I), "FOV"),
+    # JDAM → "Jay Dam", "J-Dam"
+    (re.compile(r"\bj[-\s]dam\b",                         re.I), "JDAM"),
+    # CCRP → "C C R P", CCIP → "C C I P"
+    (re.compile(r"\bc\.?c\.?r\.?p\.?\b",                  re.I), "CCRP"),
+    (re.compile(r"\bc\.?c\.?i\.?p\.?\b",                  re.I), "CCIP"),
+    # SMS → "S M S"
+    (re.compile(r"\bs\.?m\.?s\.?\b",                      re.I), "SMS"),
+
+    # ── Targeting / seeker terms ─────────────────────────────────────────────
+    # "seeker" → "soccer", "seaker", "seeker" (small.en phonetic mishear)
+    (re.compile(r"\bsoccer\b",                            re.I), "seeker"),
+    (re.compile(r"\bseaker\b",                            re.I), "seeker"),
+    # "uncage" → "on cage", "un-cage", "uncaged" → "on caged"
+    (re.compile(r"\bon\s+caged?\b",                       re.I), r"uncage"),
+    (re.compile(r"\bun[-\s]caged?\b",                     re.I), r"uncaged"),
+    # "slaved" → "slaved" is usually correct; "slave" → sometimes "sleeve"
+    (re.compile(r"\bsleeve\s+(?:the\s+)?maverick\b",      re.I), "slave the Maverick"),
+    # "TGP" mishears: "tea gee pee" handled above; also "t-g-p"
+    (re.compile(r"\bt[-\s]g[-\s]p\b",                     re.I), "TGP"),
+    # "IR" → "eye are", "i.r."
+    (re.compile(r"\beye\s+are\b",                         re.I), "IR"),
+    (re.compile(r"\bi\.r\.\b",                            re.I), "IR"),
+
     # ── Cockpit controls ─────────────────────────────────────────────────────
     # AOA / AoA: "a o a", "angle of attack" is fine
     (re.compile(r"\ba\.?o\.?a\.?\b",                     re.I), "AoA"),

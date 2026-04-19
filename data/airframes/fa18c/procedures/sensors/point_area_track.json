@@ -1,0 +1,56 @@
+{
+  "key": "point_area_track",
+  "canonical": "Point & Area Track",
+  "alternates": [
+    "Point & Area Track",
+    "point area track"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DDI",
+    "DEPRESS",
+    "FLIR",
+    "TDC",
+    "VVSLV"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 282,
+    "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.5 - Point & Area Track"
+  },
+  "step_count": 8,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+    },
+    {
+      "num": 2,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 3,
+      "action": "Press the Undesignate button twice to select VVSLV mode."
+    },
+    {
+      "num": 4,
+      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode."
+    },
+    {
+      "num": 5,
+      "action": "Press the Sensor Control Switch in the direction of the FLIR format page to toggle between Area Track and Point Track."
+    },
+    {
+      "num": 6,
+      "action": "In Area Track, the FLIR is slaved to the location of the Target and cannot be slewed."
+    },
+    {
+      "num": 7,
+      "action": "Use the TDC DEPRESS control (“ENTER”) to designate the target."
+    },
+    {
+      "num": 8,
+      "action": "Pressing the Undesignate button once will revert back to Snowplow mode."
+    }
+  ]
+}

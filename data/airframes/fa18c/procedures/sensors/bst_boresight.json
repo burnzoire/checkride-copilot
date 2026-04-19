@@ -1,0 +1,37 @@
+{
+  "key": "bst_boresight",
+  "canonical": "BST (Boresight)",
+  "alternates": [
+    "BST (Boresight)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ACM",
+    "BST",
+    "HMD: Helmet-Mounted Display"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 218,
+    "section": "2.1 - Air-to-Air Modes > 2.1.7 - ACM (Air Combat Maneuvering) Modes > 2.1.7.2 - BST (Boresight)"
+  },
+  "step_count": 4,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Setting A/A Master Mode"
+    },
+    {
+      "num": 2,
+      "action": "Making sure HMD (Helmet-Mounted Display) is OFF"
+    },
+    {
+      "num": 3,
+      "action": "Pressing the Sensor Control Switch forward (enters ACM mode and selects BST by default)"
+    },
+    {
+      "num": 4,
+      "action": "Radar will automatically attempt to lock on the nearest target To exit ACM mode, press Undesignate Button."
+    }
+  ]
+}

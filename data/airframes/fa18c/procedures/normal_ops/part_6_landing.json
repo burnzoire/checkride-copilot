@@ -1,0 +1,31 @@
+{
+  "key": "part_6_landing",
+  "canonical": "Part 6 - Landing",
+  "alternates": [
+    "part landing"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "HUD"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 129,
+    "section": "Part 6 - Landing"
+  },
+  "step_count": 3,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Set Anti-Skid Switch to ON (UP Position) & Landing Lights ON"
+    },
+    {
+      "num": 2,
+      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD."
+    },
+    {
+      "num": 3,
+      "action": "Enter upwind leg at approx. 350 kts at about 1000 ft altitude"
+    }
+  ]
+}

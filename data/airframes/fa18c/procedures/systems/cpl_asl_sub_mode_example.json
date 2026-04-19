@@ -1,0 +1,82 @@
+{
+  "key": "cpl_asl_sub_mode_example",
+  "canonical": "CPL ASL Sub-Mode Example",
+  "alternates": [
+    "mode example"
+  ],
+  "category": "systems",
+  "terminology": [
+    "ASL: Azimuth Steering Line",
+    "BALT: Barometric Altitude Hold",
+    "CONTROLS",
+    "CPL",
+    "CRS: Course Set",
+    "CSEL",
+    "HSI",
+    "HUD",
+    "MAPPED",
+    "MK-82",
+    "NEED",
+    "OSB",
+    "SETUP",
+    "UFC",
+    "WHAT",
+    "YOU"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 663,
+    "section": "AFCS (Automatic Flight Control System) > CPL (Coupled Steering) Mode > CPL ASL Sub-Mode Example"
+  },
+  "step_count": 12,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Select A/G Master Mode"
+    },
+    {
+      "num": 2,
+      "action": "Select and arm a weapon that can be released with a CCRP/AUTO mode (like a MK-82 bomb, for instance)"
+    },
+    {
+      "num": 3,
+      "action": "Designate a target using available sensors (like a targeting pod designating a target with Auto/Point Track)."
+    },
+    {
+      "num": 4,
+      "action": "When target is designated, HSI page should display a boxed TGT (Target) and the HUD should display an ASL (Azimuth Steering Line) with a target designation diamond."
+    },
+    {
+      "num": 5,
+      "action": "Make sure your stick is centered, no force is applied on it and that you have an appropriate deadzone (see CONTROLS SETUP - WHAT YOU NEED MAPPED section)."
+    },
+    {
+      "num": 6,
+      "action": "If desired, click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) to approach the target from."
+    },
+    {
+      "num": 7,
+      "action": "Press the AP button on the UFC to show the autopilot options."
+    },
+    {
+      "num": 8,
+      "action": "Press the OSB adjacent “CPL” to activate coupled autopilot mode."
+    },
+    {
+      "num": 9,
+      "action": "A colon will appear (“:CPL”) to indicate that it is active. “CPL ASL” will appear on both the HSI and HUD."
+    },
+    {
+      "num": 10,
+      "action": "If desired, select BALT (Barometric Altitude Hold) mode to maintain level flight while steering towards the target. A colon will appear (“:BALT”) to indicate that it is active."
+    },
+    {
+      "num": 11,
+      "action": "The autopilot will steer towards the selected target."
+    },
+    {
+      "num": 12,
+      "action": "You can disengage autopilot by pressing the Paddle Switch on the control stick."
+    }
+  ]
+}

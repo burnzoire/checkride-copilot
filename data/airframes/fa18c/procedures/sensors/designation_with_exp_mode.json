@@ -1,0 +1,56 @@
+{
+  "key": "designation_with_exp_mode",
+  "canonical": "Designation with EXP Mode",
+  "alternates": [
+    "Designation with EXP Mode",
+    "designation with mode"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DEPRESS",
+    "EXP",
+    "EXP3",
+    "HUD",
+    "TDC: Throttle Designation Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 248,
+    "section": "2.2 - Air-to-Ground Modes > 2.2.3 - EXP (Expanded) Modes > 2.2.3.4 - Designation with EXP Mode"
+  },
+  "step_count": 8,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+    },
+    {
+      "num": 2,
+      "action": "Make sure one of the EXP mode is selected (see previous sections). EXP3 mode is recommended for best precision, but it can work with any other EXP mode."
+    },
+    {
+      "num": 3,
+      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+    },
+    {
+      "num": 4,
+      "action": "While TDC DEPRESS is held, slew the TDC cursor on the desired spot you want to designate using the TDC controls."
+    },
+    {
+      "num": 5,
+      "action": "Release the TDC DEPRESS control to designate target."
+    },
+    {
+      "num": 6,
+      "action": "The air-to-ground radar will automatically adjust its range to give you a better view of the point you just designated."
+    },
+    {
+      "num": 7,
+      "action": "On the Radar page, a cross will mark the designated point. On the HUD, a diamond will mark the designated point. This point can be used/slaved to by other sensors (like the targeting pod) if desired."
+    },
+    {
+      "num": 8,
+      "action": "Pressing the « Undesignate » button on the stick will delete the designation point."
+    }
+  ]
+}

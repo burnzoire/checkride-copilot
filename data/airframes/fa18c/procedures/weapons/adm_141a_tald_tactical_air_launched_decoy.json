@@ -1,0 +1,47 @@
+{
+  "key": "adm_141a_tald_tactical_air_launched_decoy",
+  "canonical": "ADM-141A TALD (Tactical AIr Launched Decoy)",
+  "alternates": [
+    "ADM-141A TALD (Tactical AIr Launched Decoy)",
+    "tald tactical launched decoy"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "OSB",
+    "SMS: Stores Management System",
+    "TALD"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 572,
+    "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.14 - ADM-141A TALD (Tactical AIr Launched Decoy)"
+  },
+  "step_count": 6,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Click on the OSB next to 82P to select a TALD. Pressing OSB next to STEP allows you to step between stations."
+    },
+    {
+      "num": 5,
+      "action": "Press the Weapon Release Button (« RALT+SPACE ») to launch a TALD."
+    },
+    {
+      "num": 6,
+      "action": "Once launched, the TALD will deploy its wings and glide for as long as it can. Radar emitters should start launching ground-to-air missiles at the decoy once they detect it."
+    }
+  ]
+}

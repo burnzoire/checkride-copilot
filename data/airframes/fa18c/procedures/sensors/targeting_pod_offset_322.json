@@ -1,0 +1,39 @@
+{
+  "key": "targeting_pod_offset_322",
+  "canonical": "Targeting Pod Offset",
+  "alternates": [
+    "Targeting Pod Offset",
+    "targeting offset"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DEPRESS",
+    "FLIR",
+    "OFFSET",
+    "TDC: Throttle Designator Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 323,
+    "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods > 4.5.6 - Targeting Pod Offset"
+  },
+  "step_count": 4,
+  "steps": [
+    {
+      "num": 1,
+      "action": "In this example, we will start from a Auto Track. The targeting pod will be tracking a reference object."
+    },
+    {
+      "num": 2,
+      "action": "Use the TDC DEPRESS control (“ENTER”) to activate OFFSET function. A “+” cross (Offset Cursor) will appear at the center of the reticle."
+    },
+    {
+      "num": 3,
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the Offset Cursor over the desired target."
+    },
+    {
+      "num": 4,
+      "action": "Press the Sensor Control Switch in the direction of the FLIR format page to move the targeting pod to the location of the Offset Cursor."
+    }
+  ]
+}

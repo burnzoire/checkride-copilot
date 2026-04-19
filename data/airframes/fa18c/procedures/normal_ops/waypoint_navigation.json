@@ -1,0 +1,44 @@
+{
+  "key": "waypoint_navigation",
+  "canonical": "Waypoint Navigation",
+  "alternates": [
+    "Waypoint Navigation",
+    "waypoint navigation"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "FROM",
+    "HSI",
+    "HUD",
+    "OSB: Option Select Button",
+    "SEQ",
+    "SEQ1",
+    "WAYPOINT",
+    "WAYPOINTS",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 681,
+    "section": "Part 15 - Navigation & Case III Recovery > 5 - Waypoints > 5.2 - Waypoint Navigation"
+  },
+  "step_count": 4,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press the OSB (Option Select Button) next to WYPT to set tracking mode to WAYPOINT."
+    },
+    {
+      "num": 2,
+      "action": "Select desired waypoint sequence by pressing the OSB next to SEQ#. We will pick Sequence 1. To display the sequence lines, press on the OSB again to make the SEQ1 text boxed."
+    },
+    {
+      "num": 3,
+      "action": "To select a waypoint, press the OSBs to increment or decrement the waypoint number."
+    },
+    {
+      "num": 4,
+      "action": "Use the HSI and HUD to navigate towards waypoint Waypoint Selected (Waypoint 1) Waypoint Data Bearing (degrees) Distance (Nm) Time-to-Go to Waypoint (minutes:seconds) WYPT Waypoint Selected (Boxed) Waypoint Decrement Waypoint Increment Waypoint Sequence 1 (Boxed) Aircraft (top down view) Waypoint 1 (Selected) TO Waypoint 1 Bearing Aircraft Heading FROM Waypoint 1 Bearing Waypoint Sequence 1 Lines Waypoint Sequence 1 Bearing Waypoint 1 (Selected) Distance to Waypoint 1 (nm) Aircraft Heading Heading Scale 5 - WAYPOINTS"
+    }
+  ]
+}

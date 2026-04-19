@@ -1,0 +1,56 @@
+{
+  "key": "target_designation",
+  "canonical": "Target Designation",
+  "alternates": [
+    "Target Designation",
+    "target designation",
+    "AGM-84E Target Designation"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ANG",
+    "MODE",
+    "MSN",
+    "ORP: Offset Release Point",
+    "OSB",
+    "PP: Pre-Planned",
+    "TERM: Terminal Attack",
+    "TOO: Target-of-Opportunity",
+    "TOO1",
+    "TOO2",
+    "UFC",
+    "VEL"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 514,
+    "section": "2 - Air-to-Ground Weapons > 2.11 - AGM-84E SLAM Cruise Missile > 2.11.3 - Target Designation"
+  },
+  "step_count": 6,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press OSB next to MODE to toggle between TOO (Target-of-Opportunity) and PP (Pre-Planned) target designation modes. In this case, we will choose TOO."
+    },
+    {
+      "num": 2,
+      "action": "Press OSB next to MSN to enter the Mission Parameters page."
+    },
+    {
+      "num": 3,
+      "action": "We can define up to two Targets of Opportunity per missile station: TOO1 and TOO2. We will designate the target on TOO1. Press OSB next to TOO1 to select it."
+    },
+    {
+      "num": 4,
+      "action": "The ORP (Offset Release Point) is the designated target point (A/G TGT). For now, the field is empty since no target is defined yet."
+    },
+    {
+      "num": 5,
+      "action": "(Optional) If you want to set TERM (Terminal Attack) parameters such as heading (HDG), attack angle (ANG) and velocity (VEL), press OSB next to TOO UFC. You will be able to enter them via the UFC. However, since we will control the missile remotely during the terminal attack stage, these parameters are not required and we will leave them blank,"
+    },
+    {
+      "num": 6,
+      "action": "(Optional) We do not need O/S (Offset) parameters to the ORP since we will control the missile remotely during the terminal attack stage. Therefore, we will not need to use O/S UFC function. Parameters for Station 8"
+    }
+  ]
+}

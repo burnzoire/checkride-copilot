@@ -1,0 +1,69 @@
+{
+  "key": "cpl_tcn_sub_mode_example",
+  "canonical": "CPL TCN Sub-Mode Example",
+  "alternates": [
+    "mode example"
+  ],
+  "category": "systems",
+  "terminology": [
+    "CONTROLS",
+    "CPL",
+    "CRS: Course Set",
+    "CSEL",
+    "HSI",
+    "HUD",
+    "MAPPED",
+    "NEED",
+    "OSB",
+    "SETUP",
+    "TACAN",
+    "TCN",
+    "UFC",
+    "WHAT",
+    "YOU"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 662,
+    "section": "AFCS (Automatic Flight Control System) > CPL (Coupled Steering) Mode > CPL TCN Sub-Mode Example"
+  },
+  "step_count": 9,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure your stick is centered, no force is applied on it and that you have an appropriate deadzone (see CONTROLS SETUP - WHAT YOU NEED MAPPED section)."
+    },
+    {
+      "num": 2,
+      "action": "Select the desired TACAN station using the UFC. Verify that the TACAN is on."
+    },
+    {
+      "num": 3,
+      "action": "Activate the TCN navigation mode by pressing OSB next to TCN. TCN is boxed when selected."
+    },
+    {
+      "num": 4,
+      "action": "If desired, click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) to intercept the TACAN station from."
+    },
+    {
+      "num": 5,
+      "action": "Press the AP button on the UFC to show the autopilot options."
+    },
+    {
+      "num": 6,
+      "action": "Press the OSB adjacent “CPL” to activate coupled autopilot mode."
+    },
+    {
+      "num": 7,
+      "action": "A colon will appear (“:CPL”) to indicate that it is active. “CPL TCN” will appear on both the HSI and HUD."
+    },
+    {
+      "num": 8,
+      "action": "The autopilot will follow the selected TACAN station."
+    },
+    {
+      "num": 9,
+      "action": "You can disengage autopilot by pressing the Paddle Switch on the control stick."
+    }
+  ]
+}

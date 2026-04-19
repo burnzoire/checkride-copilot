@@ -21,11 +21,29 @@ import pyaudio
 from loguru import logger
 from pynput import keyboard
 
-_DEFAULT_MODEL = "base.en"
+_DEFAULT_MODEL = "small.en"
 _DEFAULT_PTT   = "caps_lock"     # change via listen_once(ptt_key=...) or voice_demo --ptt
 _SAMPLE_RATE   = 16000           # Whisper native
 _CHANNELS      = 1
 _CHUNK         = 1024
+
+# Primes Whisper's decoder with F/A-18C vocabulary so it stops mangling
+# designations, NATO phonetics, and avionics abbreviations.
+_INITIAL_PROMPT = (
+    "F/A-18C Hornet cockpit query. "
+    "AIM-120 AMRAAM, AIM-9X Sidewinder, AIM-7 Sparrow, "
+    "AGM-65 Maverick, AGM-88 HARM, AGM-84 Harpoon, "
+    "GBU-12 Paveway, GBU-38 JDAM, JSOW, MK-82, "
+    "TGP, ATFLIR, LITENING, JHMCS, HMD, "
+    "DDI, UFC, AMPCD, HUD, IFEI, SMS, "
+    "TDC, SCS, HOTAS, master arm, laser arm, seeker, FOV, cage, uncage, "
+    "radar, RWS, TWS, STT, ACM, BVR, "
+    "TACAN, ILS, ICLS, ACLS, Case III, "
+    "A/G, A/A, NAV, CCIP, CCRP, "
+    "Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, "
+    "India, Juliet, Kilo, Lima, Mike, November, Oscar, Papa, "
+    "Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, X-ray, Yankee, Zulu."
+)
 
 _model      = None
 _model_lock = threading.Lock()
@@ -71,13 +89,19 @@ def _parse_key(key_spec: str) -> keyboard.Key | keyboard.KeyCode:
 
 
 def listen_once(
-    ptt_key:       str           = _DEFAULT_PTT,
-    device:        Optional[int] = None,
-    model_name:    str           = _DEFAULT_MODEL,
-    min_duration:  float         = 0.3,
+    ptt_key:       str            = _DEFAULT_PTT,
+    device:        Optional[int]  = None,
+    model_name:    str            = _DEFAULT_MODEL,
+    min_duration:  float          = 0.3,
+    context_terms: list[str]      | None = None,
 ) -> str:
     """
     Block until PTT held → audio recorded → released → transcribed.
+
+    context_terms: optional list of domain-specific words (e.g. a procedure's
+    terminology array) appended to the Whisper initial_prompt so the decoder is
+    biased towards them for this utterance.
+
     Returns transcript string (may be empty on silence/noise).
     """
     model      = _get_model(model_name)
@@ -130,11 +154,21 @@ def listen_once(
 
     audio = np.frombuffer(b"".join(frames), dtype=np.int16).astype(np.float32) / 32768.0
 
+    # Build context-aware prompt: base vocabulary + any procedure-specific terms.
+    prompt = _INITIAL_PROMPT
+    if context_terms:
+        # Strip definition text (e.g. "SMS: Stores Management System" → "SMS")
+        # and append as a comma-separated hint list.
+        bare = [t.split(":")[0].strip() for t in context_terms]
+        prompt = prompt.rstrip(".") + ", " + ", ".join(bare) + "."
+
     segments, info = model.transcribe(
         audio,
         language="en",
         beam_size=5,
         vad_filter=True,
+        condition_on_previous_text=False,
+        initial_prompt=prompt,
     )
     text = " ".join(s.text.strip() for s in segments).strip()
     from voice.corrections import correct

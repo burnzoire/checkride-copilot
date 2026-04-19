@@ -1,0 +1,58 @@
+{
+  "key": "how_to_track_a_moving_target",
+  "canonical": "How to Track a Moving Target",
+  "alternates": [
+    "track moving target"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DDI: Digital Display Indicator",
+    "GMT",
+    "GMTT",
+    "HUD",
+    "MAP",
+    "OPR",
+    "OSB",
+    "TDC: Throttle Designation Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 253,
+    "section": "2.2 - Air-to-Ground Modes > 2.2.4 - GMT (Ground Moving Target) Mode > How to Track a Moving Target"
+  },
+  "step_count": 8,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure the Radar Power Switch is set to OPR (Operate)."
+    },
+    {
+      "num": 2,
+      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page."
+    },
+    {
+      "num": 3,
+      "action": "Toggle A-G MAP mode to A-G GMT mode by pressing the OSB next to MAP."
+    },
+    {
+      "num": 4,
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+    },
+    {
+      "num": 5,
+      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls."
+    },
+    {
+      "num": 6,
+      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Ground Moving Target Track (GMTT) and additional target information will be displayed."
+    },
+    {
+      "num": 7,
+      "action": "Once GMTT is engaged and target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired."
+    },
+    {
+      "num": 8,
+      "action": "Pressing the « Undesignate » button on the stick will return the radar to GMT mode and exit tracking mode."
+    }
+  ]
+}

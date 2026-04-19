@@ -1,0 +1,83 @@
+{
+  "key": "manual_iff_identify_friend_or_foe_nctr_tutorial",
+  "canonical": "Manual IFF (Identify-Friend-or-Foe) NCTR Tutorial",
+  "alternates": [
+    "manual identify friend nctr"
+  ],
+  "category": "systems",
+  "terminology": [
+    "AMBIGUOUS",
+    "AMPCD",
+    "ATTK",
+    "BRA",
+    "DDI",
+    "DEPRESS",
+    "EXAMPLES",
+    "FA18",
+    "FRIENDLY",
+    "HAFU",
+    "HOSTILE",
+    "IFF: Identify-Friend-or-Foe",
+    "MG29",
+    "NCTR: Non-Cooperative Target Recognition",
+    "OPR",
+    "OSB: Option Select Button",
+    "TDC: Throttle Designator Controller",
+    "TUTORIAL",
+    "UFC",
+    "UKN",
+    "UNKNOWN"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 638,
+    "section": "Part 12 - Datalink & IFF > IFF from RDR ATTK Page > Manual IFF (Identify-Friend-or-Foe) NCTR Tutorial"
+  },
+  "step_count": 11,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Power Up IFF (Identify-Friend-or-Foe) system by pressing the IFF Button, then holding the ON button on the UFC for a few seconds. When « XP » is displayed, the IFF has been powered up correctly. Verify that Mode 4 is selected (« : » should be visible next to « 4 »). If it is not, press on the OSB (Option Select Button) next to it."
+    },
+    {
+      "num": 2,
+      "action": "Power Up Link-16 Datalink system by pressing the D/L Button a first time to display the Link-4 datalink options, then press the D/L Button a second time to display the Link-16 datalink options. Then, hold the ON button on the UFC for a few seconds. When « ON » is displayed, the Link-16 Datalink system has been powered up correctly."
+    },
+    {
+      "num": 3,
+      "action": "On UFC, set desired Datalink Frequency by entering it on the scratchpad, then pressing « ENT ». 127 is used by default, you can keep it."
+    },
+    {
+      "num": 4,
+      "action": "Make sure your Radar Power switch is set to OPR."
+    },
+    {
+      "num": 5,
+      "action": "Set Sensor Control Switch to the RDR ATTK DDI (Sensor Control Switch Right since we showed up the RDR ATTK on the right DDI). A diamond will appear to show the right DDI is selected."
+    },
+    {
+      "num": 6,
+      "action": "Press the OSB next to NCTR (Non-Cooperative Target Recognition) activate (boxed)"
+    },
+    {
+      "num": 7,
+      "action": "Move the TDC over the target using the TDC controls."
+    },
+    {
+      "num": 8,
+      "action": "Interrogate target by using the Sensor Control Switch DEPRESS control for less than 1 second, then Sensor Control Switch RIGHT. (Note: You can radar lock your target by) pressing TDC DEPRESS. Left/Right/Up/Down/Depress Sensor Control Switch AFT/FWD/LEFT/RIGHT/DEPRESS Contact Contact TDC over contact, TDC not depressed yet. Contact flies at Mach 0.7 at 6500 ft TDC over contact, TDC depressed, contact interrogated but still unknown. TDC’s Bearing (314) and Range (27.1 nm) from You TD Box: Contact interrogated but still unknown (Square). If you radar lock a target after having interrogated it, you will get additional information like closure speed (Vc) in kts and range (nm)."
+    },
+    {
+      "num": 9,
+      "action": "In NCTR Mode, targets that are farther than 25 nm may remain UNKNOWN or AMBIGUOUS. To get a proper identification, make sure you are within 25 nm."
+    },
+    {
+      "num": 10,
+      "action": "After a few seconds, the trackfile should turn to either HOSTILE, FRIENDLY or AMBIGUOUS HAFU symbols."
+    },
+    {
+      "num": 11,
+      "action": "You can set your Sensor Control Switch to the SA Page (Sensor Control Switch Down since we showed up the SA Page on the Lower AMPCD). A diamond will appear to show the AMPCD is selected. Then, you can move the TDC over a contact and gain additional information from it. TDC Target Info UKN: NCTR Identification (Unknown aircraft type) 544/131: Target Ground Speed & Heading BRA 311/5: Bearing, Range & Altitude from You. Target is at your 311, 5 nm out BE 225/18: Target bearing and range from Bullseye. Target is at the bullseye’s 225, 18 nm out TD Box: Contact interrogated and confirmed hostile (Diamond). TDC’s Bearing (224) and Range (18.6 nm) from Bullseye Waypoint 2 (Bullseye – A/A) (Waypoint 1 (Selected) Your Position TDC (Throttle Designator Controller) 0.8: Mach speed of contact selected by TDC 6: Altitude of contact selected by TDC (x1000 ft) Hostile Contact Bearing & Range to Selected Waypoint (Waypoint 1) SA Page Contact interrogated and confirmed hostile AMPCD Sensor Selected MANUAL IFF TUTORIAL – NCTR Square: Radar Locked Target, Identified as Friendly or Unknown by yourself alone Diamond: Radar Locked Target, Identified as Hostile by yourself alone Diamond with Caret: Radar Locked Target, Identified as Hostile by yourself and another Link-16 Datalink Donor Square with Half Circle: Radar Locked Target, Identified as Friendly by yourself and another Link-16 Datalink Donor MANUAL IFF TUTORIAL – EXAMPLES TDC’s Bearing (240) and Range (12.2 nm) from Bullseye Your Position TDC (Throttle Designator Controller) 0.9: Mach speed of contact selected by TDC 1: Altitude of contact selected by TDC (x1000 ft) Hostile Contact Bearing & Range to Selected Waypoint (Waypoint 1) Waypoint 2 (Bullseye – A/A) (Waypoint 1 (Selected) Waypoint 2 (Bullseye – A/A) (Waypoint 1 (Selected) Friendly Contact TDC (Throttle Designator Controller) 0.6: Mach speed of contact selected by TDC 6: Altitude of contact selected by TDC (x1000 ft) (Note: When hovering the TDC on a friendly target, the TDC Target Info differs slightly. See notes) in red and green. TDC Target Info MG29: NCTR Identification (MiG-29) 593/024: Target Ground Speed & Heading BRA 333/14: Bearing, Range & Altitude from You. Target is at your 333, 14 nm out BE 244/11: Target bearing and range from Bullseye. Target is at the bullseye’s 244, 11 nm out TDC Target Info FA18: NCTR Identification (F/A-18 Hornet) 0111/10.7: Friendly Contact Callsign & Range BRA 332/12: Bearing, Range & Altitude from You. Target is at your 332, 12 nm out BE 232/12: Target bearing and range from Bullseye. Target is at the bullseye’s 232, 12 nm out Your Position"
+    }
+  ]
+}

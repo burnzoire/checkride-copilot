@@ -1,0 +1,39 @@
+{
+  "key": "vs_velocity_search_mode",
+  "canonical": "VS (Velocity Search) Mode",
+  "alternates": [
+    "VS (Velocity Search) Mode",
+    "velocity search mode"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "RWS",
+    "STT: Single Target Track",
+    "TDC: Throttle Designator Controller",
+    "TWS"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 215,
+    "section": "2 - AN/APG-73 Radar > 2.1 - Air-to-Air Modes > 2.1.5 - VS (Velocity Search) Mode"
+  },
+  "step_count": 4,
+  "steps": [
+    {
+      "num": 1,
+      "action": "From radar page, slew the TDC (Throttle Designator Controller) over “RWS” or “TWS” mode indication. The “RWS/VS/TWS” mode selector will appear."
+    },
+    {
+      "num": 2,
+      "action": "Slew TDC over “VS”, then press the TDC to select Velocity Search."
+    },
+    {
+      "num": 3,
+      "action": "Targets will appear as “bricks” on a closure velocity vs azimuth scale."
+    },
+    {
+      "num": 4,
+      "action": "You may perform a STT (Single Target Track) lock the same way as you would do in RWS mode."
+    }
+  ]
+}

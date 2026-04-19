@@ -1,0 +1,38 @@
+{
+  "key": "e_air_to_ground_symbology",
+  "canonical": "E - Air-to-Ground Symbology",
+  "alternates": [
+    "ground symbology"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "HMD: Helmet-Mounted Display",
+    "HUD",
+    "JHMCS",
+    "TDC: Throttle Designator Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 346,
+    "section": "5.3 - HMD (Helmet-Mounted Display) Symbology > 5.3.1 - HMD Symbology > E - Air-to-Ground Symbology"
+  },
+  "step_count": 4,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure JHMCS is powered"
+    },
+    {
+      "num": 2,
+      "action": "Press the A/G Master Mode Button"
+    },
+    {
+      "num": 3,
+      "action": "Press Sensor Control Switch FWD to toggle the TDC (Throttle Designator Controller) priority between the HUD (Heads-Up Display) and the HMD (Helmet-Mounted Display). TDC priority is assigned to the helmet when the aiming reticle appears on the helmet."
+    },
+    {
+      "num": 4,
+      "action": "Designation can be performed with TDC controls (see sub-section"
+    }
+  ]
+}

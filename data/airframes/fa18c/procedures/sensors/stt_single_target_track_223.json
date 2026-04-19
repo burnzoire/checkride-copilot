@@ -1,0 +1,44 @@
+{
+  "key": "stt_single_target_track_223",
+  "canonical": "STT (Single Target Track)",
+  "alternates": [
+    "single target track"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DEPRESS",
+    "LTWS: Latent Track While Scan",
+    "RWS: Range While Search",
+    "STT",
+    "TDC: Throttle Designation Controller",
+    "TWS: Track While Scan"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 224,
+    "section": "2.1.8 - Radar Lock Acquisition > 2.1.8.1 - STT (Single Target Track) > STT (Single Target Track)"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press A/A Master Mode"
+    },
+    {
+      "num": 2,
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT in our case) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+    },
+    {
+      "num": 3,
+      "action": "Slew the TDC on the desired spot you want to designate using the TDC controls."
+    },
+    {
+      "num": 4,
+      "action": "Designate target by using the TDC DEPRESS control (« ENTER »). If using RWS (Range While Search), a single TDC DEPRESS will lock the target into STT mode. If LTWS (Latent Track While Scan) option is boxed/selected, the first TDC DEPRESS will designate a target as the L&S (Launch & Steering) Primary Target trackfile (soft lock), but a second TDC DEPRESS is required to lock the target into STT mode. If using TWS (Track While Scan), the first TDC DEPRESS will designate a target as the L&S (Launch & Steering) Primary Target trackfile (soft lock), but a second TDC DEPRESS is required to lock the target into STT mode."
+    },
+    {
+      "num": 5,
+      "action": "STT is exited by pressing the Undesignate button. The radar is returned to the last-entered search mode."
+    }
+  ]
+}

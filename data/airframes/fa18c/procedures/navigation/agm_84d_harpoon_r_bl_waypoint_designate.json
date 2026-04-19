@@ -1,0 +1,103 @@
+{
+  "key": "agm_84d_harpoon_r_bl_waypoint_designate",
+  "canonical": "AGM-84D Harpoon (R/BL - Waypoint Designate)",
+  "alternates": [
+    "AGM-84D Harpoon (R/BL - Waypoint Designate)",
+    "harpoon waypoint designate",
+    "AGM-84D AGM-84D Harpoon (R/BL - Waypoint Designate)"
+  ],
+  "category": "navigation",
+  "terminology": [
+    "AGM-84D",
+    "ARM",
+    "BOL",
+    "FLT",
+    "HPD: AGM-84D Harpoon",
+    "HPTP",
+    "HSI",
+    "LRG",
+    "MED",
+    "MODE",
+    "OSB",
+    "POP",
+    "RNG",
+    "SEEK",
+    "SKIM",
+    "SML",
+    "SMS: Stores Management System",
+    "TERM",
+    "WPDSG: Waypoint Designate"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 493,
+    "section": "2 - Air-to-Ground Weapons > 2.10 - AGM-84D Harpoon Anti-Ship Missile > 2.10.2 - AGM-84D Harpoon (R/BL - Waypoint Designate)"
+  },
+  "step_count": 16,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "On the SMS (Stores) page, press OSB next to HPD (AGM-84D Harpoon)"
+    },
+    {
+      "num": 4,
+      "action": "Harpoon will start an inertial alignment that takes about 25 seconds. You can monitor gyro alignment process on the SMS (Stores Management System) page. (Note: Once Harpoon alignment is complete, the timer) will disappear."
+    },
+    {
+      "num": 5,
+      "action": "If you want to use a Harpoon Turnpoint, select a desired waypoint with the HSI, then press the OSB next to HPTP. This profile makes the missile travel directly to the Harpoon Turnpoint (HPTP) and then to the Designated TGT point (we will see how to set it up in the next steps)."
+    },
+    {
+      "num": 6,
+      "action": "You will only be able to select the R/BL mode is a target is designated. This can be done by either performing a Waypoint Designate (WPDSG) action via the HSI or by using the Targeting Pod designating ship’s location with (Throttle Designation Control) Depress button. As an example, we will set Waypoint 2 as the TGT point by selecting Waypoint 2 with the OSB selectors, then pressing the OSB next to WPDSG (Waypoint Designate). Waypoint 2 will then become the designated target point."
+    },
+    {
+      "num": 7,
+      "action": "Once the TGT (Air-to-Ground Target Point) has been designated, the R/BL Mode will become available for selection."
+    },
+    {
+      "num": 8,
+      "action": "Select “R/BL” release mode by pressing the OSB next to “MODE” if a target is designated properly, the mode will switch from BOL to R/BL."
+    },
+    {
+      "num": 9,
+      "action": "Press OSB next to “FLT” (Fly-Out Altitude) to toggle between LOW, MED and HIGH. We will choose LOW."
+    },
+    {
+      "num": 10,
+      "action": "Press OSB next to “TERM” (Terminal Altitude) to toggle between SKIM and POP attack profiles. SKIM performs a very low-level approach all the way to impact, while POP performs a high-G \"pop-up\" maneuver to impact the target from above. In our case, we will choose POP."
+    },
+    {
+      "num": 11,
+      "action": "Press OSB next to “SEEK” (Search Area) to between SML (5.4 nm), MED (10.8 nm) and LRG (16.2 nm) search area distance. In our case, we will choose MED."
+    },
+    {
+      "num": 12,
+      "action": "Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that “IN RNG” is displayed. If you are not, steer the aircraft in the correct direction and ."
+    },
+    {
+      "num": 13,
+      "action": "Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile."
+    },
+    {
+      "num": 14,
+      "action": "Press and hold the Weapon Release button (« RALT+SPACE ») to launch Harpoon."
+    },
+    {
+      "num": 15,
+      "action": "Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system."
+    },
+    {
+      "num": 16,
+      "action": "The Harpoon, at an altitude corresponding to the FLT option (LOW, 5000 ft), travels either directly in the direction of the set bearing from the aircraft, directly to a Harpoon Turnpoint (HPTP) and then directly to the designated TGT point (Waypoint 2). The missile then begins searching a set programmed distance before the TGT. If it locates a target, it will engage it based on the SKIM or POP terminal modes."
+    }
+  ]
+}

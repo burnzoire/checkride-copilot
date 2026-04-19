@@ -1,0 +1,43 @@
+{
+  "key": "vacq_vertical_acquisition",
+  "canonical": "VACQ (Vertical Acquisition)",
+  "alternates": [
+    "VACQ (Vertical Acquisition)",
+    "vacq vertical acquisition"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ACM",
+    "BST",
+    "HMD: Helmet-Mounted Display",
+    "VACQ"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 219,
+    "section": "2.1 - Air-to-Air Modes > 2.1.7 - ACM (Air Combat Maneuvering) Modes > 2.1.7.3 - VACQ (Vertical Acquisition)"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Setting A/A Master Mode"
+    },
+    {
+      "num": 2,
+      "action": "Making sure HMD (Helmet-Mounted Display) is OFF"
+    },
+    {
+      "num": 3,
+      "action": "Pressing the Sensor Control Switch forward to enter ACM mode (selects BST by default)"
+    },
+    {
+      "num": 4,
+      "action": "Pressing the Sensor Control Switch aft to transfer ACM mode from BST to VACQ"
+    },
+    {
+      "num": 5,
+      "action": "Radar will automatically attempt to lock on the nearest target To exit ACM mode, press Undesignate Button."
+    }
+  ]
+}

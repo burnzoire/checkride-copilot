@@ -1,0 +1,34 @@
+{
+  "key": "overview",
+  "canonical": "Overview",
+  "alternates": [
+    "Overview"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "HSI: Horizontal Situation Indicator",
+    "OSB: Option Select Button",
+    "WPDSG: Waypoint Designate",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 276,
+    "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.1 - Overview"
+  },
+  "step_count": 3,
+  "steps": [
+    {
+      "num": 1,
+      "action": "WYPT OSB (Option Select Button) selected on the HSI (Horizontal Situation Indicator)"
+    },
+    {
+      "num": 2,
+      "action": "Desired waypoint is selected"
+    },
+    {
+      "num": 3,
+      "action": "WPDSG (Waypoint Designate) OSB selected Snowplow Mode Targeting Pod is Powered Up"
+    }
+  ]
+}

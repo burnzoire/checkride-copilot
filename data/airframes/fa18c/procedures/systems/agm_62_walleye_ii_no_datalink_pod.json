@@ -1,0 +1,81 @@
+{
+  "key": "agm_62_walleye_ii_no_datalink_pod",
+  "canonical": "AGM-62 Walleye II (No Datalink Pod)",
+  "alternates": [
+    "AGM-62 Walleye II (No Datalink Pod)",
+    "walleye datalink",
+    "AGM-62 AGM-62 Walleye II (No Datalink Pod)"
+  ],
+  "category": "systems",
+  "terminology": [
+    "AMPCD",
+    "ARM",
+    "BOMBS",
+    "CRAB",
+    "DDI",
+    "DLY: Delayed Fuze",
+    "HUD",
+    "INST: Instantaneous",
+    "MAP",
+    "OSB",
+    "SMS: Stores Management System",
+    "TDC",
+    "WEDL"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 561,
+    "section": "2 - Air-to-Ground Weapons > 2.13 - AGM-62 Walleye TV-Guided Glide Bomb > 2.13.1 - AGM-62 Walleye II (No Datalink Pod)"
+  },
+  "step_count": 12,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Click on the OSB next to WEDL to select it. The crossed-out WEDL indication means weapon employment is inhibited."
+    },
+    {
+      "num": 5,
+      "action": "Click on the OSB next to WEDL a second time to display the Walleye TV feed. DDIs will display a green-scaled screen, while the AMPCD will display a grey-scaled screen. (Note: Walleyes can only be mounted on Stations 2 and 8 (BOMBS category).)"
+    },
+    {
+      "num": 6,
+      "action": "Set Fuzing to either INST (Instantaneous), or DLY (Delayed Fuze)."
+    },
+    {
+      "num": 7,
+      "action": "Set Sensor Control Switch to the Walleye Feed DDI (Sensor Control Switch LEFT since we showed up the WEDL feed on the left DDI). A diamond will appear to show the left DDI is selected."
+    },
+    {
+      "num": 8,
+      "action": "By default, the Walleye is Caged. When the seeker is caged, it will always point forward at its boresight."
+    },
+    {
+      "num": 9,
+      "action": "Press the Cage/Uncage Button to uncage the Walleye. When uncaged, the bomb will attempt to lock onto a contrasting target within the seeker center. Sensor Control Switch AFT/FWD/LEFT/RIGHT Cage/Uncage Button Caging Retention and Boresight (CRAB) Pressing and holding this option cages the seeker. MAP - The Missile Axis Position square indicates the position of the seeker head relative to the missile boresight. This allows for a visualization of where the seeker is looking relative to the aircraft boresight when the bomb is on the aircraft. STEP selects a Walleye from another station Target Walleye Crosshair"
+    },
+    {
+      "num": 10,
+      "action": "Hold the TDC Depress button while slewing the Walleye to the target. When you release the TDC Depress button, the bomb will attempt to lock its target. The Walleye can be used from a range of 20 nm, but is most likely going to acquire a good lock from a distance of less than 10 miles."
+    },
+    {
+      "num": 11,
+      "action": "When lock is acquired by Walleye: WE crossed-out indication will disappear from the HUD WEDL crossed-out indication will disappear from the Walleye Feed. RDY will be displayed next to the selected station."
+    },
+    {
+      "num": 12,
+      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to launch Walleye."
+    }
+  ]
+}

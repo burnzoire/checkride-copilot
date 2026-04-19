@@ -1,0 +1,55 @@
+{
+  "key": "agm_88c_harm_sp",
+  "canonical": "AGM-88C HARM (SP)",
+  "alternates": [
+    "AGM-88C HARM (SP)",
+    "AGM-88C AGM-88C HARM (SP)"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "DDI",
+    "EW: Early Warning",
+    "FLIR",
+    "HARM",
+    "HUD",
+    "OSB",
+    "RAID",
+    "RWR",
+    "SMS: Stores Management System",
+    "SP: Self-Protection",
+    "TAC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 470,
+    "section": "2 - Air-to-Ground Weapons > 2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.2 - AGM-88C HARM (SP)"
+  },
+  "step_count": 6,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Set the TAC EW (Early Warning) page on the right DDI and the SMS (Stores Management System) page on the left DDI."
+    },
+    {
+      "num": 4,
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it"
+    },
+    {
+      "num": 5,
+      "action": "Select SP (Self-Protection) Mode"
+    },
+    {
+      "num": 6,
+      "action": "Consult the HUD, RWR or EW page ands select which emitter you want to track by pressing the RAID / FLIR Button (“I” binding). There is no range information available."
+    }
+  ]
+}

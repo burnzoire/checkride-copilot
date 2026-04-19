@@ -1,0 +1,48 @@
+{
+  "key": "arc_210_radio_tutorial",
+  "canonical": "ARC-210 Radio Tutorial",
+  "alternates": [
+    "radio tutorial"
+  ],
+  "category": "comms",
+  "terminology": [
+    "OSB",
+    "UFC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 651,
+    "section": "Part 13 - Radio Tutorial > ARC-210 Radio Tutorial"
+  },
+  "step_count": 7,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Left click on the COMM1 knob to pull it and select COMM1 Radio"
+    },
+    {
+      "num": 2,
+      "action": "Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode"
+    },
+    {
+      "num": 3,
+      "action": "Press the OSB next to AM or FM to select the desired frequency band (if we choose FM, the “:FM” symbol will appear when selected)"
+    },
+    {
+      "num": 4,
+      "action": "Press CLR on the UFC to clear current frequency"
+    },
+    {
+      "num": 5,
+      "action": "Type “127500” on the UFC to set carrier radio frequency 127.5 MHz"
+    },
+    {
+      "num": 6,
+      "action": "Press ENT on the UFC to enter this frequency."
+    },
+    {
+      "num": 7,
+      "action": "Press the COMM switch – COMM1 on your throttle to transmit."
+    }
+  ]
+}

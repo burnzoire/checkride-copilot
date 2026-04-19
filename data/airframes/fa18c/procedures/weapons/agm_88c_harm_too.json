@@ -1,0 +1,73 @@
+{
+  "key": "agm_88c_harm_too",
+  "canonical": "AGM-88C HARM (TOO)",
+  "alternates": [
+    "AGM-88C HARM (TOO)",
+    "AGM-88C AGM-88C HARM (TOO)"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "DDI",
+    "DSPLY",
+    "EW: Early Warning",
+    "FLIR",
+    "FOV",
+    "HANDOFF",
+    "HARM",
+    "OSB",
+    "POV: Point-of-View",
+    "RAID",
+    "SMS: Stores Management System",
+    "TAC",
+    "TOO: Target-of-Opportunity"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 466,
+    "section": "2 - Air-to-Ground Weapons > 2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.1 - AGM-88C HARM (TOO)"
+  },
+  "step_count": 10,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Set the TAC EW (Early Warning) page on the right DDI and the SMS (Stores Management System) page on the left DDI."
+    },
+    {
+      "num": 4,
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it"
+    },
+    {
+      "num": 5,
+      "action": "Select TOO (Target-of-Opportunity) Mode"
+    },
+    {
+      "num": 6,
+      "action": "Set Sensor Control Switch to the HARM page DDI (Sensor Control Switch LEFT since we showed up the HARM page on the left DDI). A diamond will appear to show the left DDI is selected."
+    },
+    {
+      "num": 7,
+      "action": "Select which emitter you want to track by pressing the RAID / FLIR FOV Button (“I” binding)."
+    },
+    {
+      "num": 8,
+      "action": "Fly align target icon with center cross seeker head. (Note: The HARM Display page is not a Top-Down view; it’s a POV (Point-of-View) of the HARM seeker) head with no ground stabilization. HARM DSPLY format provides a boresight view of the HARM seeker."
+    },
+    {
+      "num": 9,
+      "action": "Press the Cage/Uncage Button to uncage the HARM and set it to HANDOFF (H-OFF) Mode. When uncaged, the missile will attempt to lock onto the selected target within the seeker center. The HARM has a range of up to 80 nm."
+    },
+    {
+      "num": 10,
+      "action": "When lock is acquired by the HARM, the HARM crossed-out indication will disappear. Hold the Weapon Release Button (« RALT+SPACE ») to fire missile."
+    }
+  ]
+}

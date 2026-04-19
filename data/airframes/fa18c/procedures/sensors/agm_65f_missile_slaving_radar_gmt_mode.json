@@ -1,0 +1,132 @@
+{
+  "key": "agm_65f_missile_slaving_radar_gmt_mode",
+  "canonical": "AGM-65F Missile Slaving (Radar GMT Mode)",
+  "alternates": [
+    "AGM-65F Missile Slaving (Radar GMT Mode)",
+    "missile slaving radar mode",
+    "AGM-65F AGM-65F Missile Slaving (Radar GMT Mode)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "AGM-65F",
+    "ARM",
+    "DDI: Digital Display Indicator",
+    "DLY1: Delayed Fuze",
+    "DLY2",
+    "DSPLY",
+    "FOV: Field of View",
+    "GMT",
+    "GMTT",
+    "HUD",
+    "IMAV",
+    "INST: Instantaneous",
+    "MAP",
+    "MAV",
+    "MAVF",
+    "OPR",
+    "OSB",
+    "RNG",
+    "SMS: Stores Management System",
+    "TDC: Throttle Designation Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 449,
+    "section": "2 - Air-to-Ground Weapons > 2.7 - AGM-65F/G Maverick (IR-MAVF) > 2.7.3 - AGM-65F Missile Slaving (Radar GMT Mode)"
+  },
+  "step_count": 23,
+  "steps": [
+    {
+      "num": 1,
+      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation."
+    },
+    {
+      "num": 2,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 3,
+      "action": "Select MAVF (text should be boxed)"
+    },
+    {
+      "num": 4,
+      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed."
+    },
+    {
+      "num": 5,
+      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live."
+    },
+    {
+      "num": 6,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 7,
+      "action": "Make sure the Radar Power Switch is set to OPR (Operate)."
+    },
+    {
+      "num": 8,
+      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page."
+    },
+    {
+      "num": 9,
+      "action": "Toggle A-G MAP mode to A-G GMT mode by pressing the OSB next to MAP."
+    },
+    {
+      "num": 10,
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+    },
+    {
+      "num": 11,
+      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls."
+    },
+    {
+      "num": 12,
+      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Ground Moving Target Track (GMTT) and additional target information will be displayed."
+    },
+    {
+      "num": 13,
+      "action": "Once GMTT is engaged and target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired. Sensors are slaved to the Air-to-Ground Radar (RDR)"
+    },
+    {
+      "num": 14,
+      "action": "Set Sensor Control Switch to the Maverick Feed DDI (Sensor Control Switch LEFT since we showed up the MAV feed on the left DDI). A diamond will appear to show the left DDI is selected."
+    },
+    {
+      "num": 15,
+      "action": "Set Fuzing to either INST (Instantaneous), DLY1 (Delayed Fuze) or DLY2."
+    },
+    {
+      "num": 16,
+      "action": "Adjust FOV (Field of View) as required."
+    },
+    {
+      "num": 17,
+      "action": "By default, the Maverick is Caged. When the seeker is caged, it will always point forward at its boresight."
+    },
+    {
+      "num": 18,
+      "action": "Press the Cage/Uncage Button to uncage the Maverick."
+    },
+    {
+      "num": 19,
+      "action": "When the Maverick is uncaged and a A/G TGT (air-to- ground target) is designated/tracked by the radar’s ground moving target mode, the missile will attempt to lock onto a contrasting target within the designated TGT area. This procedure is much easier to do than trying to slew the missile itself."
+    },
+    {
+      "num": 20,
+      "action": "The Maverick is within range (distance of 7.5 miles) to the target when IN RNG cue is visible on the HUD and MAVF feed page."
+    },
+    {
+      "num": 21,
+      "action": "When lock is acquired by Maverick, the MAVF crossed- out indication will disappear."
+    },
+    {
+      "num": 22,
+      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to fire missile."
+    },
+    {
+      "num": 23,
+      "action": "Note: Pressing the « Undesignate » button on the stick to return the radar to GMT mode and exit tracking mode."
+    }
+  ]
+}

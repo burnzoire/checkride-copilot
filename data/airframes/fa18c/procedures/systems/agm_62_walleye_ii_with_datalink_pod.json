@@ -1,0 +1,139 @@
+{
+  "key": "agm_62_walleye_ii_with_datalink_pod",
+  "canonical": "AGM-62 Walleye II (With Datalink Pod)",
+  "alternates": [
+    "AGM-62 Walleye II (With Datalink Pod)",
+    "walleye with datalink",
+    "AGM-62 AGM-62 Walleye II (With Datalink Pod)"
+  ],
+  "category": "systems",
+  "terminology": [
+    "AMPCD",
+    "ARM",
+    "CHNL",
+    "DDI",
+    "DL13",
+    "DLY: Delayed Fuze",
+    "HUD",
+    "INST: Instantaneous",
+    "MAP",
+    "OSB",
+    "SMS: Stores Management System",
+    "TDC",
+    "UFC",
+    "WEDL",
+    "WPN"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 565,
+    "section": "2 - Air-to-Ground Weapons > 2.13 - AGM-62 Walleye TV-Guided Glide Bomb > 2.13.2 - AGM-62 Walleye II (With Datalink Pod)"
+  },
+  "step_count": 26,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Click on the OSB next to WEDL to select it. The crossed-out WEDL indication means weapon employment is inhibited."
+    },
+    {
+      "num": 5,
+      "action": "Click on the OSB next to DL13 to turn on the Datalink Pod and display the Walleye TV feed. DDIs will display a green-scaled screen, while the AMPCD will display a grey-scaled screen."
+    },
+    {
+      "num": 6,
+      "action": "Click on the OSB next to WPN (weapon). This informs the data link pod that it is to be paired with a data link capable weapon. Available data link weapons will now be listed as options for pushbuttons 1 to 4. Walleye (WEDL) will appear on pushbutton 5."
+    },
+    {
+      "num": 7,
+      "action": "Click on the OSB next to WEDL to pair the Walleye and data link pod. If successful, WEDL will appear below DL13."
+    },
+    {
+      "num": 8,
+      "action": "Station 8 is currently selected, while Datalink pod is set to Channel 002 (Station 2). This mismatch can be seen by the lack of seeker feed. We need to match the station and channel."
+    },
+    {
+      "num": 9,
+      "action": "Press on the OSB next to UFC (Up-Front Control)."
+    },
+    {
+      "num": 10,
+      "action": "Press on the UFC button next to CHNL. « : » indicates Channel can be edited."
+    },
+    {
+      "num": 11,
+      "action": "Enter « 8 » on the UFC scratchpad, then press ENT button to set Datalink pod to Channel 8 (Station 8). Your Walleye and Datalink Channel should now match."
+    },
+    {
+      "num": 12,
+      "action": "Press on the OSB next to UFC again to deselect UFC menu."
+    },
+    {
+      "num": 13,
+      "action": "Set Fuzing to either INST (Instantaneous), or DLY (Delayed Fuze)."
+    },
+    {
+      "num": 14,
+      "action": "Set Sensor Control Switch to the Walleye Feed DDI (Sensor Control Switch AFT since we showed up the WEDL feed on the lower AMPCD). A diamond will appear to show the central AMPCD is selected."
+    },
+    {
+      "num": 15,
+      "action": "By default, the Walleye is Caged. When the seeker is caged, it will always point forward at its boresight."
+    },
+    {
+      "num": 16,
+      "action": "Press the Cage/Uncage Button to uncage the Walleye. When uncaged, the bomb will attempt to lock onto a contrasting target within the seeker center. Sensor Control Switch AFT/FWD/LEFT/RIGHT Cage/Uncage Button MAP - The Missile Axis Position square indicates the position of the seeker head relative to the missile boresight. This allows for a visualization of where the seeker is looking relative to the aircraft boresight when the bomb is on the aircraft."
+    },
+    {
+      "num": 17,
+      "action": "Hold the TDC Depress button while slewing the Walleye to the target. When you release the TDC Depress button, the bomb will attempt to lock its target. The Walleye can be used from a range of 20 nm, but is most likely going to acquire a good lock from a distance of less than 10 miles. I would advise you to maintain sufficient airspeed and an altitude of at least 20000 ft; when remote-controlled, the Walleye can easily run out of altitude before reaching its target."
+    },
+    {
+      "num": 18,
+      "action": "Note: the Walleye does not need a lock to be launched when using the Datalink pod, however it is recommended to have a lock prior to launching in order to make your life easier and minimize corrections."
+    },
+    {
+      "num": 19,
+      "action": "When lock is acquired by Walleye, verify that: WE crossed-out indication disappeared from the HUD WEDL crossed-out indication disappeared from the Walleye Feed. RDY is displayed next to the selected station."
+    },
+    {
+      "num": 20,
+      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to launch Walleye."
+    },
+    {
+      "num": 21,
+      "action": "Once Walleye is launched, the Datalink pod allows you to control the missile remotely. « WEDL » indication under DL13 indicates that the Walleye is launched and the feed is directly from the Walleye TV."
+    },
+    {
+      "num": 22,
+      "action": "To modify the Walleye’s trajectory, hold the TDC Depress button while slewing the TDC with the TDC AFT/FWD/LEFT/RIGHT controls."
+    },
+    {
+      "num": 23,
+      "action": "Try to keep the missile crosshair and MAP lined up on the target. Throttle Designator Controller AFT/FWD/LEFT/RIGHT/DEPRESS MAP - The Missile Axis Position square indicates the position of the seeker head relative to the missile boresight. This allows for a visualization of where the seeker is looking relative to the aircraft boresight when the bomb is on the aircraft. Walleye Crosshair (On Target)"
+    },
+    {
+      "num": 24,
+      "action": "When the MAP and Walleye crosshair are overlapped, MAP square disappears. This means the missile is heading where the seeker is looking."
+    },
+    {
+      "num": 25,
+      "action": "Avoid overcontrolling the bomb since the bomb is heavy, draggy and loses energy very rapidly. You may run out of altitude before the bomb hits the target."
+    },
+    {
+      "num": 26,
+      "action": "You will lose TV feed once the bomb impacts the target."
+    }
+  ]
+}

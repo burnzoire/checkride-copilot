@@ -1,0 +1,46 @@
+{
+  "key": "vvslv_velocity_vector_slaved",
+  "canonical": "VVSLV (Velocity Vector Slaved)",
+  "alternates": [
+    "VVSLV (Velocity Vector Slaved)",
+    "vvslv velocity vector slaved"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DDI",
+    "DEPRESS",
+    "FLIR",
+    "OSB",
+    "RTCL",
+    "TDC",
+    "VVSLV"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 277,
+    "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.2 - VVSLV (Velocity Vector Slaved)"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+    },
+    {
+      "num": 2,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 3,
+      "action": "Select VVSLV by either: Selecting the VVSLV pushbutton on the FLIR page, or; Pressing the Undesignate button twice within one second."
+    },
+    {
+      "num": 4,
+      "action": "Press OSB next to RTCL (boxed) to display the targeting pod’s reticle"
+    },
+    {
+      "num": 5,
+      "action": "To designate a target, fly the aircraft to set the velocity vector on the target, then use the TDC DEPRESS control (“ENTER”). A diamond will appear over the designated point on the FLIR page."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "key": "unguided_bombs",
+  "canonical": "Unguided Bombs",
+  "alternates": [
+    "Unguided Bombs",
+    "unguided bombs"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "OSB",
+    "PROG",
+    "SMS: Stores Management System"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 373,
+    "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.1 - Unguided Bombs"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Click on the desired bomb to select it (82B)"
+    },
+    {
+      "num": 5,
+      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 1. STEP is used to change selected station"
+    }
+  ]
+}

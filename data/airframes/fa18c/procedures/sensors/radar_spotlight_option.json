@@ -1,0 +1,43 @@
+{
+  "key": "radar_spotlight_option",
+  "canonical": "Radar Spotlight Option",
+  "alternates": [
+    "Radar Spotlight Option",
+    "radar spotlight option"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "AACQ",
+    "SPOT",
+    "STT",
+    "TDC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 216,
+    "section": "2 - AN/APG-73 Radar > 2.1 - Air-to-Air Modes > 2.1.6 - Radar Spotlight Option"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Position the TDC over the area you wish to spotlight"
+    },
+    {
+      "num": 2,
+      "action": "Press and hold the TDC for more than one second."
+    },
+    {
+      "num": 3,
+      "action": "The radar azimuth indicator will drive to the TDC location and begin a scan centered on the cursor and constrained to 22° of azimuth."
+    },
+    {
+      "num": 4,
+      "action": "The scan area can be slewed by pressing and holding the TDC while moving it left or right."
+    },
+    {
+      "num": 5,
+      "action": "To exit Spotlight, depress and release the TDC. Alternatively, press Undesignate or assign TDC priority to another display. (Note: SPOT sub-mode can also be used with an AACQ mode. When SPOT sub-mode is) activated from an AACQ mode, the radar will attempt to STT the first target detected while SPOT is active."
+    }
+  ]
+}

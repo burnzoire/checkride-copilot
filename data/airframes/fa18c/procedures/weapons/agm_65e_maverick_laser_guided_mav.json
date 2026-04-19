@@ -1,0 +1,188 @@
+{
+  "key": "agm_65e_maverick_laser_guided_mav",
+  "canonical": "AGM-65E Maverick (Laser-Guided MAV)",
+  "alternates": [
+    "AGM-65E Maverick (Laser-Guided MAV)",
+    "maverick laser guided"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "AGM-65E",
+    "AMPCD",
+    "ARM",
+    "ATRK",
+    "CODE",
+    "DDI",
+    "DSPLY: Maverick Display",
+    "FLIR",
+    "HUD",
+    "INST: Instantaneous",
+    "LTD/R: Laser Target Designator/Ranger",
+    "LTDC",
+    "MAV",
+    "OPR",
+    "OSB: Option Select Button",
+    "PTRK",
+    "RNG",
+    "SMS: Stores Management System",
+    "TAC",
+    "TDC: Throttle Designator Controller",
+    "TIMED",
+    "TRIG",
+    "TTMR",
+    "UFC",
+    "VVSLV: Velocity Vector Slaved"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 455,
+    "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.8 - AGM-65E Maverick (Laser-Guided MAV)"
+  },
+  "step_count": 36,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Mode – A/G (switch can only be activated when wheels are off the ground)"
+    },
+    {
+      "num": 2,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Select MAV (text should be boxed) by pressing the OSB next to MAV. Press it a second time to enter the MAV DSPLY (Maverick Display) page."
+    },
+    {
+      "num": 5,
+      "action": "Laser Maverick will start a self-test that takes about 30 seconds. You can monitor cooldown progress in the MAV DSPLY page by pressing the OSB next to the crossed-out « MAV » from the SMS (Stores Management System) page. (Note: Once Maverick cooldown is complete, the timer will disappear.)"
+    },
+    {
+      "num": 6,
+      "action": "Select INST (Instantaneous) Fuzing."
+    },
+    {
+      "num": 7,
+      "action": "In the MAV DSPLY page, press the OSB next to UFC (Up-Front Controller). This will select all Laser-Maverick stations (boxed when selected) and allow us to edit their laser codes all at once. If you want to edit a specific Maverick’s laser code, press UFC again to switch between stations."
+    },
+    {
+      "num": 8,
+      "action": "Press the button next to “CODE” (Laser-Guided Maverick Laser Code). A “:” will indicate it is selected. Then, enter the desired laser code on the keypad and press “ENT”. In our case, we will choose a laser code 1456, which we will set up for our targeting pod as well in later steps. (Note: Keep in mind that if we were tracking) someone else’s laser, we would need to set the laser code to the one used by their own targeting pod."
+    },
+    {
+      "num": 9,
+      "action": "To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click)."
+    },
+    {
+      "num": 10,
+      "action": "From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to “FLIR” (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. Targeting pod warm-up process will take about 2 minutes. When targeting pod is ready to be used, the pod status will switch from RDY – NOT TIMED OUT to STBY (Standby)."
+    },
+    {
+      "num": 11,
+      "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate)."
+    },
+    {
+      "num": 12,
+      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 13,
+      "action": "Press the Undesignate button twice rapidly to select VVSLV (Velocity Vector Slaved) mode. This will un-stow the camera and slave the targeting pod to the velocity vector."
+    },
+    {
+      "num": 14,
+      "action": "Press the Undesignate button twice rapidly again to select Snowplow mode. When Snowplow mode is first entered, the FLIR is set to 0° left/right and -8° down."
+    },
+    {
+      "num": 15,
+      "action": "Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page. Verify A/G Master Mode is set since it will allow you to arm the laser designator."
+    },
+    {
+      "num": 16,
+      "action": "Using the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls, slew the targeting pod reticle over the desired target."
+    },
+    {
+      "num": 17,
+      "action": "Use appropriate zoom level, field of view (NARROW/WIDE) and camera mode (CCD/TV or FLIR) to identify the target."
+    },
+    {
+      "num": 18,
+      "action": "Press the Sensor Control Switch Towards Selected Display (Right if our right DDI is selected) to toggle between Point Track (PTRK, tracks a moving object like a high-contrast vehicle) and Area Track (ATRK, used for a static target)."
+    },
+    {
+      "num": 19,
+      "action": "Use the TDC (Throttle Designator Controller) Depress button to designate the laser as the target point. This will slave selected air- to-ground weapons to where the laser is firing and display range to target and its coordinates."
+    },
+    {
+      "num": 20,
+      "action": "Press the OSB next to “UFC” to set the Targeting Pod laser code on the Up-Front Controller."
+    },
+    {
+      "num": 21,
+      "action": "Press the button next to “LTDC” (Laser Target Designator Code). A “:” will indicate it is selected. Then, enter the desired laser code on the keypad and press “ENT”. We will choose laser code 1456, which we set previously in step 8 for the laser Mavericks themselves."
+    },
+    {
+      "num": 22,
+      "action": "Now that the targeting pod has its laser code and it matches the laser code tracked by the Laser-Guided Maverick, we can now uncage the missile to make it track the laser."
+    },
+    {
+      "num": 23,
+      "action": "On the FLIR page, make sure the OSB next to “TRIG” in unboxed (not selected). This means that the targeting pod will automatically lase (auto-lasing) just before the AGM-65E Maverick is fired. Laser Armed"
+    },
+    {
+      "num": 24,
+      "action": "While the sensor of interest is the targeting pod (Sensor Focus diamond is on the FLIR page), the Maverick remains caged and boresighted."
+    },
+    {
+      "num": 25,
+      "action": "The crossed-out MAV indicates that the Maverick is not tracking any laser yet, which is normal since the targeting pod has not started firing its laser yet."
+    },
+    {
+      "num": 26,
+      "action": "The TTMR indicates the time in seconds until the aircraft becomes within range to be able to fire the maverick."
+    },
+    {
+      "num": 27,
+      "action": "Select desired Maverick station using the OSB next to STEP. We will select Station 8."
+    },
+    {
+      "num": 28,
+      "action": "Set Sensor Control Switch to the Maverick Display page’s DDI (Sensor Control Switch LEFT since we showed up the MAV DSPLY feed on the left DDI). A focus diamond will appear to show the left DDI is selected."
+    },
+    {
+      "num": 29,
+      "action": "Press the Cage/Uncage Button to uncage the Maverick."
+    },
+    {
+      "num": 30,
+      "action": "When uncaged, the missile will scan ahead in a pattern to search for the nearest laser with the code we entered earlier (1456), then slave itself to the target designated by the targeting pod if available. (Note: If for some reason the missile is caged back, press the Cage/Uncage Button to uncage the Maverick once more.)"
+    },
+    {
+      "num": 31,
+      "action": "Once you are within firing range (IN RNG cue will become visible on the HUD), hold the Weapon Release Button (« RALT+SPACE ») to launch missile."
+    },
+    {
+      "num": 32,
+      "action": "Once missile is fired, the targeting pod will automatically fire its laser on the designation point in order to guide the Maverick."
+    },
+    {
+      "num": 33,
+      "action": "Once laser is firing, the laser mode will switch from L ARM to LTD/R."
+    },
+    {
+      "num": 34,
+      "action": "The missile will follow the laser until impact."
+    },
+    {
+      "num": 35,
+      "action": "Once the target is destroyed, the LTD/R (Laser Target Designator/Ranger) will automatically go back to SAFE. You will need to set it back to ARM if you want to lase more targets."
+    },
+    {
+      "num": 36,
+      "action": "If you want to undesignated the target, use the Undesignate/Nosewheel Steering button on the stick."
+    }
+  ]
+}

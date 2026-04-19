@@ -1,0 +1,52 @@
+{
+  "key": "jhmcs_functions",
+  "canonical": "JHMCS Functions",
+  "alternates": [
+    "JHMCS Functions",
+    "jhmcs functions"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "HMD: Helmet-Mounted Display",
+    "HUD",
+    "JHMCS",
+    "TDC: Throttle Designator Controller",
+    "TVV"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 358,
+    "section": "Part 9 - Radar & Sensors > 5 - JHMCS (Joint Helmet-Mounted Cueing System) > 5.5 - JHMCS Functions"
+  },
+  "step_count": 7,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Power up the JHMCS by setting HMD Brightness knob to BRT (Bright)"
+    },
+    {
+      "num": 2,
+      "action": "Press the A/G Master Mode Button"
+    },
+    {
+      "num": 3,
+      "action": "Press Sensor Control Switch FWD to toggle the TDC (Throttle Designator Controller) priority between the HUD (Heads-Up Display) and the HMD (Helmet-Mounted Display). TDC priority is assigned to the helmet when the aiming reticle appears on the helmet. A center dot on the HUD’s TVV means the priority is assigned to the HUD."
+    },
+    {
+      "num": 4,
+      "action": "Move the helmet’s Aiming Reticle on the target you want to designate."
+    },
+    {
+      "num": 5,
+      "action": "Press the TDC Depress (« Enter ») to designate the target. A designation diamond will appear over the target, while the aiming cross will keep following your helmet."
+    },
+    {
+      "num": 6,
+      "action": "You can slew/move the designation diamond using the TDC left/right/up/down controls."
+    },
+    {
+      "num": 7,
+      "action": "To un-designate the target, press the Undesignate button on the stick."
+    }
+  ]
+}

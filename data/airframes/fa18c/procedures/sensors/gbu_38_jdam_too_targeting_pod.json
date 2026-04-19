@@ -1,0 +1,189 @@
+{
+  "key": "gbu_38_jdam_too_targeting_pod",
+  "canonical": "GBU-38 JDAM (TOO + Targeting Pod)",
+  "alternates": [
+    "GBU-38 JDAM (TOO + Targeting Pod)",
+    "jdam targeting",
+    "GBU-38 GBU-38 JDAM (TOO + Targeting Pod)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "A/G: Air-to-Ground",
+    "AMPCD: I suggest you remove the moving map",
+    "ARM",
+    "ATRK",
+    "DDI",
+    "DEPRESS",
+    "FLIR",
+    "GOOD",
+    "GPS",
+    "HSI",
+    "HUD",
+    "INST: Instantaneous",
+    "IZLAR: In Zone Launch Acceptable Region",
+    "JDAM",
+    "JSOW",
+    "MARGINAL",
+    "MSN",
+    "OPR",
+    "OSB: Option Select Button",
+    "PTRK",
+    "QTY",
+    "RNG",
+    "RTN",
+    "SMS: Stores Management System",
+    "TAC",
+    "TDC: Throttle Designator Controller",
+    "TIMED",
+    "TMR",
+    "TOO: Target-of-Opportunity",
+    "TOO1",
+    "UNSTABLE",
+    "VVSLV: Velocity Vector Slaved",
+    "ZONE"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 409,
+    "section": "2.5 - GPS-Guided Ordnance > JDAM (GBU-38) > 2.5.2 - GBU-38 JDAM (TOO + Targeting Pod)"
+  },
+  "step_count": 34,
+  "steps": [
+    {
+      "num": 1,
+      "action": "While ground, (Stores Management System) page"
+    },
+    {
+      "num": 2,
+      "action": "Click on the desired JDAM or JSOW to select it (we will use the J-82 JDAM)"
+    },
+    {
+      "num": 3,
+      "action": "Once selected, JDAMs need about 3 minutes for alignment. It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the JDAM page."
+    },
+    {
+      "num": 4,
+      "action": "Select TOO (Target-of-Opportunity) Release Mode"
+    },
+    {
+      "num": 5,
+      "action": "Select Electronic Fuze to INST (Instantaneous)."
+    },
+    {
+      "num": 6,
+      "action": "Go in the JDAM Display page by pressing the"
+    },
+    {
+      "num": 7,
+      "action": "Select Manual Release Type"
+    },
+    {
+      "num": 8,
+      "action": "Select desired JDAM quantity to be used for this mission. Press the OSB next to QTY Select desired station(s) to be used for the mission (I suggest you select just one). Selected station(s) will become boxed. Press the OSB next to RTN (Return). If quantity is set to more than 1, the STEP function will be available to select desired weapon station. You may need to re-select TOO mode."
+    },
+    {
+      "num": 9,
+      "action": "Enter MSN (Mission) page."
+    },
+    {
+      "num": 10,
+      "action": "Select TOO1 to set Target 1 parameters. We will now have to designate Target 1 with the Targeting Pod to obtain the coordinates of this target."
+    },
+    {
+      "num": 11,
+      "action": "Set A/G Master Mode."
+    },
+    {
+      "num": 12,
+      "action": "To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click)."
+    },
+    {
+      "num": 13,
+      "action": "From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to “FLIR” (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. Targeting pod warm-up process will take about 2 minutes. When targeting pod is ready to be used, the pod status will switch from RDY – NOT TIMED OUT to STBY (Standby)."
+    },
+    {
+      "num": 14,
+      "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate)."
+    },
+    {
+      "num": 15,
+      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 16,
+      "action": "Press the Undesignate button twice rapidly to select VVSLV (Velocity Vector Slaved) mode. This will un-stow the camera and slave the targeting pod to the velocity vector."
+    },
+    {
+      "num": 17,
+      "action": "Press the Undesignate button twice rapidly again to select Snowplow mode. When Snowplow mode is first entered, the FLIR is set to 0° left/right and -8° down."
+    },
+    {
+      "num": 18,
+      "action": "Using the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls, slew the targeting pod reticle over the desired target."
+    },
+    {
+      "num": 19,
+      "action": "Use appropriate zoom level, field of view (NARROW/WIDE) and camera mode (CCD/TV or FLIR) to identify the target."
+    },
+    {
+      "num": 20,
+      "action": "Press the Sensor Control Switch Towards Selected Display (Right if our right DDI is selected) to toggle between Point Track (PTRK, tracks a moving object like a high-contrast vehicle) and Area Track (ATRK, used for a static target)."
+    },
+    {
+      "num": 21,
+      "action": "Use the TDC (Throttle Designator Controller) Depress button to designate the target point. This will slave selected air-to-ground weapons to the target point and display range to target and its coordinates."
+    },
+    {
+      "num": 22,
+      "action": "Once the target has been designated with the TDC DEPRESS control, the target coordinates will automatically since the JDAM is in TOO mode."
+    },
+    {
+      "num": 23,
+      "action": "Confirm on JDAM MSN (Mission) page that coordinates have updated properly once the TDC Depress button has been pressed."
+    },
+    {
+      "num": 24,
+      "action": "Once your JDAM selected has its target coordinates and are in TOO mode, we can now start the attack run."
+    },
+    {
+      "num": 25,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 26,
+      "action": "Verify that Master Mode is in A/G (Air-to-Ground)"
+    },
+    {
+      "num": 27,
+      "action": "On the SMS (Stores Management System) page, verify that J-82 is selected and RDY (Ready)"
+    },
+    {
+      "num": 28,
+      "action": "Set HSI on the lower AMPCD (I suggest you remove the moving map), the targeting pod feed on the right DDI, and the JDAM Display page on the left DDI (from SMS page, press the"
+    },
+    {
+      "num": 29,
+      "action": "Verify that Manual Release TOO Release Mode is selected and that the desired station and TOO is selected."
+    },
+    {
+      "num": 30,
+      "action": "Steer aircraft to the target (indicated by a diamond on the HUD)"
+    },
+    {
+      "num": 31,
+      "action": "When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying “TMR” (Time to reach launch acceptable region) to “IN RNG” (In Range)."
+    },
+    {
+      "num": 32,
+      "action": "Once you are within the IZLAR (In Zone Launch Acceptable Region), the Minimum and Maximum Range circles will disappear and only the IZLAR will remain. IN ZONE cue will appear on the HUD and on the JDAM Display page. Expected JDAM flight time will also be displayed on the JDAM Display page."
+    },
+    {
+      "num": 33,
+      "action": "You may now launch your JDAM."
+    },
+    {
+      "num": 34,
+      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to release your JDAM. Selected JDAM will automatically guide itself via GPS to the designated target."
+    }
+  ]
+}

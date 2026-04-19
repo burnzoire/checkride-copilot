@@ -1,0 +1,90 @@
+{
+  "airframe": "FA-18C",
+  "groups": [
+    {
+      "id": "maverick",
+      "keywords": ["maverick", "agm65", "agm-65"],
+      "question": "Which Maverick variant:Foxtrot, Golf, or Echo?",
+      "options": [
+        {
+          "label": "Foxtrot or Golf",
+          "keywords": ["foxtrot", "golf", "65f", "65g", "ir", "infrared", "heat", "imaging"],
+          "question": "Employment method:IR seeker only, slaved to the TGP, or slaved to the radar?",
+          "options": [
+            {
+              "label": "IR seeker only",
+              "keywords": ["seeker", "ir", "infrared", "only", "uncaged", "no tgp", "without tgp"],
+              "proc_key": "agm_65f_missile_ir_seeker_only"
+            },
+            {
+              "label": "TGP slaved",
+              "keywords": ["tgp", "targeting pod", "flir", "atflir", "litening", "pod", "slaved"],
+              "proc_key": "agm_65f_missile_slaving_targeting_pod"
+            },
+            {
+              "label": "Radar slaved",
+              "keywords": ["radar", "gmt", "ground moving", "rws", "tws"],
+              "proc_key": "agm_65f_missile_slaving_radar_gmt_mode"
+            }
+          ]
+        },
+        {
+          "label": "Echo",
+          "keywords": ["echo", "65e", "laser", "laser-guided", "ltv", "semi-active"],
+          "proc_key": "agm_65e_maverick_laser_guided_mav"
+        }
+      ]
+    },
+    {
+      "id": "harm",
+      "keywords": ["harm", "agm88", "agm-88", "anti radiation", "antiradiation", "sead"],
+      "question": "HARM mode:Self-Protection or Target of Opportunity?",
+      "options": [
+        {
+          "label": "Self-Protection",
+          "keywords": ["self protection", "self-protection", "sp", "defensive", "rwr threat", "threat"],
+          "proc_key": "agm_88c_harm_sp"
+        },
+        {
+          "label": "Target of Opportunity",
+          "keywords": ["too", "target of opportunity", "pre-briefed", "specific", "offensive"],
+          "proc_key": "agm_88c_harm_too"
+        }
+      ]
+    },
+    {
+      "id": "gun",
+      "keywords": ["gun", "cannon", "m61", "vulcan", "strafe", "strafing"],
+      "question": "Air-to-Air or Air-to-Ground gun employment?",
+      "options": [
+        {
+          "label": "Air-to-Air",
+          "keywords": ["air to air", "a a", "dogfight", "fighter", "bandit", "bogey"],
+          "proc_key": "m61a2_gun"
+        },
+        {
+          "label": "Air-to-Ground",
+          "keywords": ["air to ground", "a g", "strafe", "ground", "strafing"],
+          "proc_key": "m61a2_gun_air_to_ground"
+        }
+      ]
+    },
+    {
+      "id": "mk82",
+      "keywords": ["mk82", "mk-82", "mk 82", "dumb bomb", "iron bomb", "unguided bomb"],
+      "question": "Delivery mode:CCIP or CCRP auto?",
+      "options": [
+        {
+          "label": "CCIP",
+          "keywords": ["ccip", "manual", "dive", "visual", "direct"],
+          "proc_key": "mk_82_ccip"
+        },
+        {
+          "label": "CCRP auto",
+          "keywords": ["ccrp", "auto", "level", "loft", "toss"],
+          "proc_key": "mk_82_ccrp_auto"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "key": "snowplow",
+  "canonical": "Snowplow",
+  "alternates": [
+    "Snowplow"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DDI",
+    "DEPRESS",
+    "FLIR",
+    "TDC: Throttle Designator Controller",
+    "VVSLV"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 279,
+    "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.3 - Snowplow"
+  },
+  "step_count": 7,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+    },
+    {
+      "num": 2,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 3,
+      "action": "Press the Undesignate button twice to select VVSLV mode."
+    },
+    {
+      "num": 4,
+      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode."
+    },
+    {
+      "num": 5,
+      "action": "When Snowplow is first entered, the FLIR is set to 0° left/right and -8° down."
+    },
+    {
+      "num": 6,
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target"
+    },
+    {
+      "num": 7,
+      "action": "To designate a target from Snowplow mode, use the TDC DEPRESS control (“ENTER”). A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well. Stabilized Pointing Mode is entered when a Target is designated from Snowplow (including from a source other than the FLIR itself) or is cycled from Auto Track or Point Track via the Sensor Control Switch. In this mode, the FLIR can be slewed freely and the designated target is constantly updated to its current location. When it is not being slewed, the FLIR stabilizes to whatever position on the ground it is pointed at."
+    }
+  ]
+}

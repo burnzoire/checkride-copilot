@@ -1,0 +1,45 @@
+{
+  "key": "agm_62_walleye_tv_guided_glide_bomb",
+  "canonical": "AGM-62 Walleye TV-Guided Glide Bomb",
+  "alternates": [
+    "AGM-62 Walleye TV-Guided Glide Bomb",
+    "walleye guided glide bomb"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "AMPCD",
+    "ARM",
+    "BOMBS",
+    "OSB",
+    "SMS: Stores Management System",
+    "WEDL"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 561,
+    "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.13 - AGM-62 Walleye TV-Guided Glide Bomb"
+  },
+  "step_count": 5,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 3,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 4,
+      "action": "Click on the OSB next to WEDL to select it. The crossed-out WEDL indication means weapon employment is inhibited."
+    },
+    {
+      "num": 5,
+      "action": "Click on the OSB next to WEDL a second time to display the Walleye TV feed. DDIs will display a green-scaled screen, while the AMPCD will display a grey-scaled screen. (Note: Walleyes can only be mounted on Stations 2 and 8 (BOMBS category).)"
+    }
+  ]
+}

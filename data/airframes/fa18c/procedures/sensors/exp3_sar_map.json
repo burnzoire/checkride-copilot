@@ -1,0 +1,49 @@
+{
+  "key": "exp3_sar_map",
+  "canonical": "EXP3 (SAR Map)",
+  "alternates": [
+    "EXP3 (SAR Map)"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "DEPRESS",
+    "EXP1/2",
+    "EXP3",
+    "MAP",
+    "OSB: Option Select Button",
+    "SAR",
+    "TDC: Throttle Designation Controller"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 246,
+    "section": "2.2 - Air-to-Ground Modes > 2.2.3 - EXP (Expanded) Modes > 2.2.3.3 - EXP3 (SAR Map)"
+  },
+  "step_count": 6,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure air-to-ground mapping (MAP) mode or EXP1/2 mode is selected (see previous sections)."
+    },
+    {
+      "num": 2,
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+    },
+    {
+      "num": 3,
+      "action": "Press on the OSB (Option Select Button) next to EXP3."
+    },
+    {
+      "num": 4,
+      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+    },
+    {
+      "num": 5,
+      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a Synthetic-Aperture Radar (SAR) map (zoom) using the TDC controls."
+    },
+    {
+      "num": 6,
+      "action": "Release the TDC DEPRESS control to enter EXP3 mode."
+    }
+  ]
+}

@@ -1,0 +1,2227 @@
+{
+  "airframe": "FA-18C",
+  "procedures": [
+    {
+      "key": "part_4_start_up_procedure",
+      "canonical": "Part 4 - Start-Up Procedure",
+      "alternates": [
+        "part start procedure"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 81,
+        "section": "Part 4 - Start-Up Procedure"
+      },
+      "step_count": 84,
+      "path": "normal_ops/part_4_start_up_procedure.json"
+    },
+    {
+      "key": "shore_takeoff",
+      "canonical": "Shore Takeoff",
+      "alternates": [
+        "shore takeoff"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 102,
+        "section": "Part 5 - Takeoff > Shore Takeoff"
+      },
+      "step_count": 9,
+      "path": "normal_ops/shore_takeoff.json"
+    },
+    {
+      "key": "carrier_takeoff",
+      "canonical": "Carrier Takeoff",
+      "alternates": [
+        "carrier takeoff"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 107,
+        "section": "Part 5 - Takeoff > Carrier Takeoff"
+      },
+      "step_count": 47,
+      "path": "normal_ops/carrier_takeoff.json"
+    },
+    {
+      "key": "part_6_landing",
+      "canonical": "Part 6 - Landing",
+      "alternates": [
+        "part landing"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 129,
+        "section": "Part 6 - Landing"
+      },
+      "step_count": 3,
+      "path": "normal_ops/part_6_landing.json"
+    },
+    {
+      "key": "shore_landing_vfr",
+      "canonical": "Shore Landing (VFR)",
+      "alternates": [
+        "shore landing"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 129,
+        "section": "Part 6 - Landing > Shore Landing (VFR)"
+      },
+      "step_count": 13,
+      "path": "normal_ops/shore_landing_vfr.json"
+    },
+    {
+      "key": "carrier_landing_case_i_recovery",
+      "canonical": "Carrier Landing (Case I Recovery)",
+      "alternates": [
+        "carrier landing case recovery"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 134,
+        "section": "Part 6 - Landing > Carrier Landing (Case I Recovery)"
+      },
+      "step_count": 18,
+      "path": "normal_ops/carrier_landing_case_i_recovery.json"
+    },
+    {
+      "key": "engine_relight_procedure",
+      "canonical": "Engine Relight Procedure",
+      "alternates": [
+        "engine relight procedure"
+      ],
+      "category": "emergency",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 156,
+        "section": "Part 7 - Engine & Fuel Management > Powerplant Systems > Engine Relight Procedure"
+      },
+      "step_count": 5,
+      "path": "emergency/engine_relight_procedure.json"
+    },
+    {
+      "key": "b_function_breakdown",
+      "canonical": "B - Function Breakdown",
+      "alternates": [
+        "function breakdown"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 190,
+        "section": "2.1.1 - Radar Display > 2.1.1.2 - AZ/EL Format > B - Function Breakdown"
+      },
+      "step_count": 3,
+      "path": "sensors/b_function_breakdown.json"
+    },
+    {
+      "key": "d_flir_sensor_mode_sub_level",
+      "canonical": "D - FLIR Sensor Mode Sub-level",
+      "alternates": [
+        "flir sensor mode level"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 197,
+        "section": "2.1.1 - Radar Display > 2.1.1.2 - AZ/EL Format > D - FLIR Sensor Mode Sub-level"
+      },
+      "step_count": 8,
+      "path": "sensors/d_flir_sensor_mode_sub_level.json"
+    },
+    {
+      "key": "vs_velocity_search_mode",
+      "canonical": "VS (Velocity Search) Mode",
+      "alternates": [
+        "VS (Velocity Search) Mode",
+        "velocity search mode"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 215,
+        "section": "2 - AN/APG-73 Radar > 2.1 - Air-to-Air Modes > 2.1.5 - VS (Velocity Search) Mode"
+      },
+      "step_count": 4,
+      "path": "sensors/vs_velocity_search_mode.json"
+    },
+    {
+      "key": "radar_spotlight_option",
+      "canonical": "Radar Spotlight Option",
+      "alternates": [
+        "Radar Spotlight Option",
+        "radar spotlight option"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 216,
+        "section": "2 - AN/APG-73 Radar > 2.1 - Air-to-Air Modes > 2.1.6 - Radar Spotlight Option"
+      },
+      "step_count": 5,
+      "path": "sensors/radar_spotlight_option.json"
+    },
+    {
+      "key": "bst_boresight",
+      "canonical": "BST (Boresight)",
+      "alternates": [
+        "BST (Boresight)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 218,
+        "section": "2.1 - Air-to-Air Modes > 2.1.7 - ACM (Air Combat Maneuvering) Modes > 2.1.7.2 - BST (Boresight)"
+      },
+      "step_count": 4,
+      "path": "sensors/bst_boresight.json"
+    },
+    {
+      "key": "vacq_vertical_acquisition",
+      "canonical": "VACQ (Vertical Acquisition)",
+      "alternates": [
+        "VACQ (Vertical Acquisition)",
+        "vacq vertical acquisition"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 219,
+        "section": "2.1 - Air-to-Air Modes > 2.1.7 - ACM (Air Combat Maneuvering) Modes > 2.1.7.3 - VACQ (Vertical Acquisition)"
+      },
+      "step_count": 5,
+      "path": "sensors/vacq_vertical_acquisition.json"
+    },
+    {
+      "key": "wacq_wide_acquisition",
+      "canonical": "WACQ (Wide Acquisition)",
+      "alternates": [
+        "WACQ (Wide Acquisition)",
+        "wacq wide acquisition"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 220,
+        "section": "2.1 - Air-to-Air Modes > 2.1.7 - ACM (Air Combat Maneuvering) Modes > 2.1.7.4 - WACQ (Wide Acquisition)"
+      },
+      "step_count": 5,
+      "path": "sensors/wacq_wide_acquisition.json"
+    },
+    {
+      "key": "gacq_gun_acquisition",
+      "canonical": "GACQ (Gun Acquisition)",
+      "alternates": [
+        "GACQ (Gun Acquisition)",
+        "gacq acquisition"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 223,
+        "section": "2.1 - Air-to-Air Modes > 2.1.7 - ACM (Air Combat Maneuvering) Modes > 2.1.7.5 - GACQ (Gun Acquisition)"
+      },
+      "step_count": 4,
+      "path": "sensors/gacq_gun_acquisition.json"
+    },
+    {
+      "key": "radar_lock_acquisition",
+      "canonical": "Radar Lock Acquisition",
+      "alternates": [
+        "Radar Lock Acquisition",
+        "radar lock acquisition"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 224,
+        "section": "2 - AN/APG-73 Radar > 2.1 - Air-to-Air Modes > 2.1.8 - Radar Lock Acquisition"
+      },
+      "step_count": 5,
+      "path": "sensors/radar_lock_acquisition.json"
+    },
+    {
+      "key": "stt_single_target_track",
+      "canonical": "STT (Single Target Track)",
+      "alternates": [
+        "STT (Single Target Track)",
+        "single target track"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 224,
+        "section": "2.1 - Air-to-Air Modes > 2.1.8 - Radar Lock Acquisition > 2.1.8.1 - STT (Single Target Track)"
+      },
+      "step_count": 5,
+      "path": "sensors/stt_single_target_track.json"
+    },
+    {
+      "key": "stt_single_target_track_223",
+      "canonical": "STT (Single Target Track)",
+      "alternates": [
+        "single target track"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 224,
+        "section": "2.1.8 - Radar Lock Acquisition > 2.1.8.1 - STT (Single Target Track) > STT (Single Target Track)"
+      },
+      "step_count": 5,
+      "path": "sensors/stt_single_target_track_223.json"
+    },
+    {
+      "key": "jhmcs_joint_helmet_cuesing_system_lock",
+      "canonical": "JHMCS (Joint Helmet-Cuesing System) Lock",
+      "alternates": [
+        "JHMCS (Joint Helmet-Cuesing System) Lock",
+        "jhmcs joint helmet cuesing"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 228,
+        "section": "2.1 - Air-to-Air Modes > 2.1.8 - Radar Lock Acquisition > 2.1.8.3 - JHMCS (Joint Helmet-Cuesing System) Lock"
+      },
+      "step_count": 5,
+      "path": "sensors/jhmcs_joint_helmet_cuesing_system_lock.json"
+    },
+    {
+      "key": "how_to_select_map_mode",
+      "canonical": "How to Select Map Mode",
+      "alternates": [
+        "select mode"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 237,
+        "section": "2.2 - Air-to-Ground Modes > 2.2.2 - MAP (Ground Mapping) Mode > How to Select Map Mode"
+      },
+      "step_count": 3,
+      "path": "sensors/how_to_select_map_mode.json"
+    },
+    {
+      "key": "how_to_designate_undesignate_from_a_g_map_mode",
+      "canonical": "How to Designate/Undesignate from A/G MAP Mode",
+      "alternates": [
+        "designate undesignate from mode"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 238,
+        "section": "2.2 - Air-to-Ground Modes > 2.2.2 - MAP (Ground Mapping) Mode > How to Designate/Undesignate from A/G MAP Mode"
+      },
+      "step_count": 7,
+      "path": "sensors/how_to_designate_undesignate_from_a_g_map_mode.json"
+    },
+    {
+      "key": "exp1_sector_map",
+      "canonical": "EXP1 (Sector Map)",
+      "alternates": [
+        "EXP1 (Sector Map)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 240,
+        "section": "2.2 - Air-to-Ground Modes > 2.2.3 - EXP (Expanded) Modes > 2.2.3.1 - EXP1 (Sector Map)"
+      },
+      "step_count": 6,
+      "path": "sensors/exp1_sector_map.json"
+    },
+    {
+      "key": "how_to_select_exp1_mode",
+      "canonical": "How to Select EXP1 Mode",
+      "alternates": [
+        "select mode"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 240,
+        "section": "2.2.3 - EXP (Expanded) Modes > 2.2.3.1 - EXP1 (Sector Map) > How to Select EXP1 Mode"
+      },
+      "step_count": 9,
+      "path": "sensors/how_to_select_exp1_mode.json"
+    },
+    {
+      "key": "exp2_patch_map",
+      "canonical": "EXP2 (Patch Map)",
+      "alternates": [
+        "EXP2 (Patch Map)"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 244,
+        "section": "2.2 - Air-to-Ground Modes > 2.2.3 - EXP (Expanded) Modes > 2.2.3.2 - EXP2 (Patch Map)"
+      },
+      "step_count": 6,
+      "path": "systems/exp2_patch_map.json"
+    },
+    {
+      "key": "how_to_select_exp2_mode",
+      "canonical": "How to Select EXP2 Mode",
+      "alternates": [
+        "select mode"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 244,
+        "section": "2.2.3 - EXP (Expanded) Modes > 2.2.3.2 - EXP2 (Patch Map) > How to Select EXP2 Mode"
+      },
+      "step_count": 9,
+      "path": "systems/how_to_select_exp2_mode.json"
+    },
+    {
+      "key": "exp3_sar_map",
+      "canonical": "EXP3 (SAR Map)",
+      "alternates": [
+        "EXP3 (SAR Map)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 246,
+        "section": "2.2 - Air-to-Ground Modes > 2.2.3 - EXP (Expanded) Modes > 2.2.3.3 - EXP3 (SAR Map)"
+      },
+      "step_count": 6,
+      "path": "sensors/exp3_sar_map.json"
+    },
+    {
+      "key": "how_to_select_exp3_mode",
+      "canonical": "How to Select EXP3 Mode",
+      "alternates": [
+        "select mode"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 246,
+        "section": "2.2.3 - EXP (Expanded) Modes > 2.2.3.3 - EXP3 (SAR Map) > How to Select EXP3 Mode"
+      },
+      "step_count": 9,
+      "path": "sensors/how_to_select_exp3_mode.json"
+    },
+    {
+      "key": "designation_with_exp_mode",
+      "canonical": "Designation with EXP Mode",
+      "alternates": [
+        "Designation with EXP Mode",
+        "designation with mode"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 248,
+        "section": "2.2 - Air-to-Ground Modes > 2.2.3 - EXP (Expanded) Modes > 2.2.3.4 - Designation with EXP Mode"
+      },
+      "step_count": 8,
+      "path": "sensors/designation_with_exp_mode.json"
+    },
+    {
+      "key": "how_to_track_a_moving_target",
+      "canonical": "How to Track a Moving Target",
+      "alternates": [
+        "track moving target"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 253,
+        "section": "2.2 - Air-to-Ground Modes > 2.2.4 - GMT (Ground Moving Target) Mode > How to Track a Moving Target"
+      },
+      "step_count": 8,
+      "path": "sensors/how_to_track_a_moving_target.json"
+    },
+    {
+      "key": "how_to_track_a_moving_target_258",
+      "canonical": "How to Track a Moving Target",
+      "alternates": [
+        "track moving target"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 259,
+        "section": "2.3 - Air-to-Sea Modes > 2.3.1 - SEA Mode > How to Track a Moving Target"
+      },
+      "step_count": 8,
+      "path": "sensors/how_to_track_a_moving_target_258.json"
+    },
+    {
+      "key": "start_up_lasing_procedure",
+      "canonical": "Start-Up & Lasing Procedure",
+      "alternates": [
+        "Start-Up & Lasing Procedure",
+        "start lasing procedure"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 270,
+        "section": "Part 9 - Radar & Sensors > 3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.4 - Start-Up & Lasing Procedure"
+      },
+      "step_count": 21,
+      "path": "normal_ops/start_up_lasing_procedure.json"
+    },
+    {
+      "key": "pointing_methods",
+      "canonical": "Pointing Methods",
+      "alternates": [
+        "Pointing Methods",
+        "pointing methods"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 276,
+        "section": "Part 9 - Radar & Sensors > 3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods"
+      },
+      "step_count": 3,
+      "path": "sensors/pointing_methods.json"
+    },
+    {
+      "key": "overview",
+      "canonical": "Overview",
+      "alternates": [
+        "Overview"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 276,
+        "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.1 - Overview"
+      },
+      "step_count": 3,
+      "path": "sensors/overview.json"
+    },
+    {
+      "key": "vvslv_velocity_vector_slaved",
+      "canonical": "VVSLV (Velocity Vector Slaved)",
+      "alternates": [
+        "VVSLV (Velocity Vector Slaved)",
+        "vvslv velocity vector slaved"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 277,
+        "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.2 - VVSLV (Velocity Vector Slaved)"
+      },
+      "step_count": 5,
+      "path": "sensors/vvslv_velocity_vector_slaved.json"
+    },
+    {
+      "key": "snowplow",
+      "canonical": "Snowplow",
+      "alternates": [
+        "Snowplow"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 279,
+        "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.3 - Snowplow"
+      },
+      "step_count": 7,
+      "path": "sensors/snowplow.json"
+    },
+    {
+      "key": "waypoint_slaved",
+      "canonical": "Waypoint Slaved",
+      "alternates": [
+        "Waypoint Slaved",
+        "waypoint slaved"
+      ],
+      "category": "navigation",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 280,
+        "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.4 - Waypoint Slaved"
+      },
+      "step_count": 7,
+      "path": "navigation/waypoint_slaved.json"
+    },
+    {
+      "key": "point_area_track",
+      "canonical": "Point & Area Track",
+      "alternates": [
+        "Point & Area Track",
+        "point area track"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 282,
+        "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.5 - Point & Area Track"
+      },
+      "step_count": 8,
+      "path": "sensors/point_area_track.json"
+    },
+    {
+      "key": "targeting_pod_offset",
+      "canonical": "Targeting Pod Offset",
+      "alternates": [
+        "Targeting Pod Offset",
+        "targeting offset"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 284,
+        "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.5 - Pointing Methods > 3.5.6 - Targeting Pod Offset"
+      },
+      "step_count": 5,
+      "path": "sensors/targeting_pod_offset.json"
+    },
+    {
+      "key": "laser_spot_tracker_lst_mode",
+      "canonical": "Laser Spot Tracker (LST) Mode",
+      "alternates": [
+        "Laser Spot Tracker (LST) Mode",
+        "laser spot tracker mode"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 286,
+        "section": "Part 9 - Radar & Sensors > 3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.6 - Laser Spot Tracker (LST) Mode"
+      },
+      "step_count": 13,
+      "path": "sensors/laser_spot_tracker_lst_mode.json"
+    },
+    {
+      "key": "laser_marking",
+      "canonical": "Laser Marking",
+      "alternates": [
+        "Laser Marking",
+        "laser marking"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 289,
+        "section": "Part 9 - Radar & Sensors > 3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.7 - Laser Marking"
+      },
+      "step_count": 11,
+      "path": "sensors/laser_marking.json"
+    },
+    {
+      "key": "point_track",
+      "canonical": "Point Track",
+      "alternates": [
+        "Point Track",
+        "point track"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 292,
+        "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.8 - Air-to-Air Operation > 3.8.2 - Point Track"
+      },
+      "step_count": 15,
+      "path": "sensors/point_track.json"
+    },
+    {
+      "key": "air_to_air_radar_slaving",
+      "canonical": "Air-to-Air Radar Slaving",
+      "alternates": [
+        "Air-to-Air Radar Slaving",
+        "radar slaving"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 294,
+        "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.8 - Air-to-Air Operation > 3.8.3 - Air-to-Air Radar Slaving"
+      },
+      "step_count": 10,
+      "path": "sensors/air_to_air_radar_slaving.json"
+    },
+    {
+      "key": "start_up_lasing_procedure_307",
+      "canonical": "Start-Up & Lasing Procedure",
+      "alternates": [
+        "Start-Up & Lasing Procedure",
+        "start lasing procedure"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 308,
+        "section": "Part 9 - Radar & Sensors > 4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.4 - Start-Up & Lasing Procedure"
+      },
+      "step_count": 21,
+      "path": "normal_ops/start_up_lasing_procedure_307.json"
+    },
+    {
+      "key": "pointing_methods_314",
+      "canonical": "Pointing Methods",
+      "alternates": [
+        "Pointing Methods",
+        "pointing methods"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 315,
+        "section": "Part 9 - Radar & Sensors > 4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods"
+      },
+      "step_count": 3,
+      "path": "sensors/pointing_methods_314.json"
+    },
+    {
+      "key": "overview_314",
+      "canonical": "Overview",
+      "alternates": [
+        "Overview"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 315,
+        "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods > 4.5.1 - Overview"
+      },
+      "step_count": 3,
+      "path": "sensors/overview_314.json"
+    },
+    {
+      "key": "vvslv_velocity_vector_slaved_315",
+      "canonical": "VVSLV (Velocity Vector Slaved)",
+      "alternates": [
+        "VVSLV (Velocity Vector Slaved)",
+        "vvslv velocity vector slaved"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 316,
+        "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods > 4.5.2 - VVSLV (Velocity Vector Slaved)"
+      },
+      "step_count": 5,
+      "path": "sensors/vvslv_velocity_vector_slaved_315.json"
+    },
+    {
+      "key": "waypoint_slaved_318",
+      "canonical": "Waypoint Slaved",
+      "alternates": [
+        "Waypoint Slaved",
+        "waypoint slaved"
+      ],
+      "category": "navigation",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 319,
+        "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods > 4.5.4 - Waypoint Slaved"
+      },
+      "step_count": 7,
+      "path": "navigation/waypoint_slaved_318.json"
+    },
+    {
+      "key": "scene_track_auto_track",
+      "canonical": "Scene Track & Auto Track",
+      "alternates": [
+        "Scene Track & Auto Track",
+        "scene track auto track"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 321,
+        "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods > 4.5.5 - Scene Track & Auto Track"
+      },
+      "step_count": 8,
+      "path": "sensors/scene_track_auto_track.json"
+    },
+    {
+      "key": "targeting_pod_offset_322",
+      "canonical": "Targeting Pod Offset",
+      "alternates": [
+        "Targeting Pod Offset",
+        "targeting offset"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 323,
+        "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.5 - Pointing Methods > 4.5.6 - Targeting Pod Offset"
+      },
+      "step_count": 4,
+      "path": "sensors/targeting_pod_offset_322.json"
+    },
+    {
+      "key": "laser_spot_tracker_lst_mode_323",
+      "canonical": "Laser Spot Tracker (LST) Mode",
+      "alternates": [
+        "Laser Spot Tracker (LST) Mode",
+        "laser spot tracker mode"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 324,
+        "section": "Part 9 - Radar & Sensors > 4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.6 - Laser Spot Tracker (LST) Mode"
+      },
+      "step_count": 13,
+      "path": "sensors/laser_spot_tracker_lst_mode_323.json"
+    },
+    {
+      "key": "auto_track",
+      "canonical": "Auto Track",
+      "alternates": [
+        "Auto Track",
+        "auto track"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 328,
+        "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.7 - Air-to-Air Operation > 4.7.2 - Auto Track"
+      },
+      "step_count": 11,
+      "path": "sensors/auto_track.json"
+    },
+    {
+      "key": "air_to_air_radar_slaving_l_s_slave",
+      "canonical": "Air-to-Air Radar Slaving (L+S Slave)",
+      "alternates": [
+        "Air-to-Air Radar Slaving (L+S Slave)",
+        "radar slaving slave"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 330,
+        "section": "4 - AN/ASQ-228 ATFLIR Targeting Pod > 4.7 - Air-to-Air Operation > 4.7.3 - Air-to-Air Radar Slaving (L+S Slave)"
+      },
+      "step_count": 10,
+      "path": "sensors/air_to_air_radar_slaving_l_s_slave.json"
+    },
+    {
+      "key": "jhmcs_power_up_alignment",
+      "canonical": "JHMCS Power-Up & Alignment",
+      "alternates": [
+        "JHMCS Power-Up & Alignment",
+        "jhmcs power alignment"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 334,
+        "section": "Part 9 - Radar & Sensors > 5 - JHMCS (Joint Helmet-Mounted Cueing System) > 5.2 - JHMCS Power-Up & Alignment"
+      },
+      "step_count": 11,
+      "path": "sensors/jhmcs_power_up_alignment.json"
+    },
+    {
+      "key": "e_air_to_ground_symbology",
+      "canonical": "E - Air-to-Ground Symbology",
+      "alternates": [
+        "ground symbology"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 346,
+        "section": "5.3 - HMD (Helmet-Mounted Display) Symbology > 5.3.1 - HMD Symbology > E - Air-to-Ground Symbology"
+      },
+      "step_count": 4,
+      "path": "sensors/e_air_to_ground_symbology.json"
+    },
+    {
+      "key": "d_hmd_reject_setup",
+      "canonical": "D - HMD Reject Setup",
+      "alternates": [
+        "reject setup"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 350,
+        "section": "5.3 - HMD (Helmet-Mounted Display) Symbology > 5.3.2 - HMD Setup > D - HMD Reject Setup"
+      },
+      "step_count": 5,
+      "path": "sensors/d_hmd_reject_setup.json"
+    },
+    {
+      "key": "e_hmd_mids_multi_function_information_distribution_system_priori",
+      "canonical": "E - HMD MIDS (Multi-Function Information Distribution System) Priority Setup",
+      "alternates": [
+        "mids multi function information"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 353,
+        "section": "5.3 - HMD (Helmet-Mounted Display) Symbology > 5.3.2 - HMD Setup > E - HMD MIDS (Multi-Function Information Distribution System) Priority Setup"
+      },
+      "step_count": 9,
+      "path": "sensors/e_hmd_mids_multi_function_information_distribution_system_priori.json"
+    },
+    {
+      "key": "jhmcs_functions",
+      "canonical": "JHMCS Functions",
+      "alternates": [
+        "JHMCS Functions",
+        "jhmcs functions"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 358,
+        "section": "Part 9 - Radar & Sensors > 5 - JHMCS (Joint Helmet-Mounted Cueing System) > 5.5 - JHMCS Functions"
+      },
+      "step_count": 7,
+      "path": "sensors/jhmcs_functions.json"
+    },
+    {
+      "key": "ground_target_designation",
+      "canonical": "Ground Target Designation",
+      "alternates": [
+        "Ground Target Designation",
+        "ground target designation"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 358,
+        "section": "5 - JHMCS (Joint Helmet-Mounted Cueing System) > 5.5 - JHMCS Functions > 5.5.1 - Ground Target Designation"
+      },
+      "step_count": 7,
+      "path": "sensors/ground_target_designation.json"
+    },
+    {
+      "key": "aim_9x_up_look_cueing",
+      "canonical": "AIM-9X Up-Look Cueing",
+      "alternates": [
+        "AIM-9X Up-Look Cueing",
+        "look cueing"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 360,
+        "section": "5 - JHMCS (Joint Helmet-Mounted Cueing System) > 5.5 - JHMCS Functions > 5.5.3 - AIM-9X Up-Look Cueing"
+      },
+      "step_count": 5,
+      "path": "sensors/aim_9x_up_look_cueing.json"
+    },
+    {
+      "key": "air_to_ground_weapons",
+      "canonical": "Air-to-Ground Weapons",
+      "alternates": [
+        "Air-to-Ground Weapons",
+        "ground weapons"
+      ],
+      "category": "general",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 373,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons"
+      },
+      "step_count": 5,
+      "path": "general/air_to_ground_weapons.json"
+    },
+    {
+      "key": "unguided_bombs",
+      "canonical": "Unguided Bombs",
+      "alternates": [
+        "Unguided Bombs",
+        "unguided bombs"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 373,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.1 - Unguided Bombs"
+      },
+      "step_count": 5,
+      "path": "weapons/unguided_bombs.json"
+    },
+    {
+      "key": "mk_82_ccip",
+      "canonical": "MK-82 (CCIP)",
+      "alternates": [
+        "MK-82 (CCIP)"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 373,
+        "section": "2 - Air-to-Ground Weapons > 2.1 - Unguided Bombs > 2.1.1 - MK-82 (CCIP)"
+      },
+      "step_count": 19,
+      "path": "weapons/mk_82_ccip.json"
+    },
+    {
+      "key": "mk_82_ccrp_auto",
+      "canonical": "MK-82 (CCRP/AUTO)",
+      "alternates": [
+        "MK-82 (CCRP/AUTO)",
+        "ccrp auto"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 378,
+        "section": "2 - Air-to-Ground Weapons > 2.1 - Unguided Bombs > 2.1.2 - MK-82 (CCRP/AUTO)"
+      },
+      "step_count": 21,
+      "path": "weapons/mk_82_ccrp_auto.json"
+    },
+    {
+      "key": "mk_20_rockeye_cluster_bombs_ccip",
+      "canonical": "MK-20 Rockeye Cluster Bombs (CCIP)",
+      "alternates": [
+        "MK-20 Rockeye Cluster Bombs (CCIP)",
+        "rockeye cluster bombs ccip"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 384,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.2 - MK-20 Rockeye Cluster Bombs (CCIP)"
+      },
+      "step_count": 19,
+      "path": "weapons/mk_20_rockeye_cluster_bombs_ccip.json"
+    },
+    {
+      "key": "rockets",
+      "canonical": "Rockets",
+      "alternates": [
+        "Rockets"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 390,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.3 - Rockets"
+      },
+      "step_count": 10,
+      "path": "weapons/rockets.json"
+    },
+    {
+      "key": "m61a2_gun_air_to_ground",
+      "canonical": "M61A2 Gun (Air-to-Ground)",
+      "alternates": [
+        "M61A2 Gun (Air-to-Ground)"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 392,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.4 - M61A2 Gun (Air-to-Ground)"
+      },
+      "step_count": 10,
+      "path": "weapons/m61a2_gun_air_to_ground.json"
+    },
+    {
+      "key": "gbu_38_jdam_pre_planned",
+      "canonical": "GBU-38 JDAM (Pre-Planned)",
+      "alternates": [
+        "GBU-38 JDAM (Pre-Planned)",
+        "jdam planned",
+        "GBU-38 GBU-38 JDAM (Pre-Planned)"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 396,
+        "section": "2.5 - GPS-Guided Ordnance > JDAM (GBU-38) > 2.5.1 - GBU-38 JDAM (Pre-Planned)"
+      },
+      "step_count": 37,
+      "path": "weapons/gbu_38_jdam_pre_planned.json"
+    },
+    {
+      "key": "gbu_38_jdam_too_targeting_pod",
+      "canonical": "GBU-38 JDAM (TOO + Targeting Pod)",
+      "alternates": [
+        "GBU-38 JDAM (TOO + Targeting Pod)",
+        "jdam targeting",
+        "GBU-38 GBU-38 JDAM (TOO + Targeting Pod)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 409,
+        "section": "2.5 - GPS-Guided Ordnance > JDAM (GBU-38) > 2.5.2 - GBU-38 JDAM (TOO + Targeting Pod)"
+      },
+      "step_count": 34,
+      "path": "sensors/gbu_38_jdam_too_targeting_pod.json"
+    },
+    {
+      "key": "agm_154a_jsow_too_waypoint_designate",
+      "canonical": "AGM-154A JSOW (TOO + Waypoint Designate)",
+      "alternates": [
+        "AGM-154A JSOW (TOO + Waypoint Designate)",
+        "jsow waypoint designate",
+        "AGM-154A AGM-154A JSOW (TOO + Waypoint Designate)"
+      ],
+      "category": "navigation",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 421,
+        "section": "2.5 - GPS-Guided Ordnance > JSOW (AGM-154A/C) > 2.5.3 - AGM-154A JSOW (TOO + Waypoint Designate)"
+      },
+      "step_count": 33,
+      "path": "navigation/agm_154a_jsow_too_waypoint_designate.json"
+    },
+    {
+      "key": "gbu_12_paveway_ii_laser_guided",
+      "canonical": "GBU-12 Paveway II (Laser-Guided)",
+      "alternates": [
+        "GBU-12 Paveway II (Laser-Guided)",
+        "paveway laser guided"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 432,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.6 - GBU-12 Paveway II (Laser-Guided)"
+      },
+      "step_count": 35,
+      "path": "weapons/gbu_12_paveway_ii_laser_guided.json"
+    },
+    {
+      "key": "agm_65f_g_maverick_ir_mavf",
+      "canonical": "AGM-65F/G Maverick (IR-MAVF)",
+      "alternates": [
+        "AGM-65F/G Maverick (IR-MAVF)",
+        "maverick mavf"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 440,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.7 - AGM-65F/G Maverick (IR-MAVF)"
+      },
+      "step_count": 7,
+      "path": "weapons/agm_65f_g_maverick_ir_mavf.json"
+    },
+    {
+      "key": "agm_65f_missile_ir_seeker_only",
+      "canonical": "AGM-65F Missile IR Seeker Only",
+      "alternates": [
+        "AGM-65F Missile IR Seeker Only",
+        "missile seeker only",
+        "AGM-65F AGM-65F Missile IR Seeker Only"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 440,
+        "section": "2 - Air-to-Ground Weapons > 2.7 - AGM-65F/G Maverick (IR-MAVF) > 2.7.1 - AGM-65F Missile IR Seeker Only"
+      },
+      "step_count": 15,
+      "path": "weapons/agm_65f_missile_ir_seeker_only.json"
+    },
+    {
+      "key": "agm_65f_missile_slaving_targeting_pod",
+      "canonical": "AGM-65F Missile Slaving (Targeting Pod)",
+      "alternates": [
+        "AGM-65F Missile Slaving (Targeting Pod)",
+        "missile slaving targeting",
+        "AGM-65F AGM-65F Missile Slaving (Targeting Pod)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 444,
+        "section": "2 - Air-to-Ground Weapons > 2.7 - AGM-65F/G Maverick (IR-MAVF) > 2.7.2 - AGM-65F Missile Slaving (Targeting Pod)"
+      },
+      "step_count": 26,
+      "path": "sensors/agm_65f_missile_slaving_targeting_pod.json"
+    },
+    {
+      "key": "agm_65f_missile_slaving_radar_gmt_mode",
+      "canonical": "AGM-65F Missile Slaving (Radar GMT Mode)",
+      "alternates": [
+        "AGM-65F Missile Slaving (Radar GMT Mode)",
+        "missile slaving radar mode",
+        "AGM-65F AGM-65F Missile Slaving (Radar GMT Mode)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 449,
+        "section": "2 - Air-to-Ground Weapons > 2.7 - AGM-65F/G Maverick (IR-MAVF) > 2.7.3 - AGM-65F Missile Slaving (Radar GMT Mode)"
+      },
+      "step_count": 23,
+      "path": "sensors/agm_65f_missile_slaving_radar_gmt_mode.json"
+    },
+    {
+      "key": "agm_65e_maverick_laser_guided_mav",
+      "canonical": "AGM-65E Maverick (Laser-Guided MAV)",
+      "alternates": [
+        "AGM-65E Maverick (Laser-Guided MAV)",
+        "maverick laser guided"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 455,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.8 - AGM-65E Maverick (Laser-Guided MAV)"
+      },
+      "step_count": 36,
+      "path": "weapons/agm_65e_maverick_laser_guided_mav.json"
+    },
+    {
+      "key": "agm_88c_harm_too",
+      "canonical": "AGM-88C HARM (TOO)",
+      "alternates": [
+        "AGM-88C HARM (TOO)",
+        "AGM-88C AGM-88C HARM (TOO)"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 466,
+        "section": "2 - Air-to-Ground Weapons > 2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.1 - AGM-88C HARM (TOO)"
+      },
+      "step_count": 10,
+      "path": "weapons/agm_88c_harm_too.json"
+    },
+    {
+      "key": "agm_88c_harm_sp",
+      "canonical": "AGM-88C HARM (SP)",
+      "alternates": [
+        "AGM-88C HARM (SP)",
+        "AGM-88C AGM-88C HARM (SP)"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 470,
+        "section": "2 - Air-to-Ground Weapons > 2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.2 - AGM-88C HARM (SP)"
+      },
+      "step_count": 6,
+      "path": "weapons/agm_88c_harm_sp.json"
+    },
+    {
+      "key": "normal_operation",
+      "canonical": "Normal Operation",
+      "alternates": [
+        "normal operation",
+        "AGM-88C Normal Operation"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 470,
+        "section": "2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.2 - AGM-88C HARM (SP) > Normal Operation"
+      },
+      "step_count": 7,
+      "path": "weapons/normal_operation.json"
+    },
+    {
+      "key": "pullback_sub_mode",
+      "canonical": "Pullback Sub-Mode",
+      "alternates": [
+        "pullback mode",
+        "AGM-88C Pullback Sub-Mode"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 473,
+        "section": "2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.2 - AGM-88C HARM (SP) > Pullback Sub-Mode"
+      },
+      "step_count": 4,
+      "path": "weapons/pullback_sub_mode.json"
+    },
+    {
+      "key": "weapon_preparation",
+      "canonical": "Weapon Preparation",
+      "alternates": [
+        "Weapon Preparation",
+        "weapon preparation",
+        "AGM-88C Weapon Preparation"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 477,
+        "section": "2.9 - AGM-88C HARM Anti-Radiation Missile > 2.9.3 - AGM-88C HARM (PB) > 2 - Weapon Preparation"
+      },
+      "step_count": 9,
+      "path": "weapons/weapon_preparation.json"
+    },
+    {
+      "key": "agm_84d_harpoon_bol",
+      "canonical": "AGM-84D Harpoon (BOL)",
+      "alternates": [
+        "AGM-84D Harpoon (BOL)",
+        "AGM-84D AGM-84D Harpoon (BOL)"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 486,
+        "section": "2 - Air-to-Ground Weapons > 2.10 - AGM-84D Harpoon Anti-Ship Missile > 2.10.1 - AGM-84D Harpoon (BOL)"
+      },
+      "step_count": 19,
+      "path": "weapons/agm_84d_harpoon_bol.json"
+    },
+    {
+      "key": "agm_84d_harpoon_r_bl_waypoint_designate",
+      "canonical": "AGM-84D Harpoon (R/BL - Waypoint Designate)",
+      "alternates": [
+        "AGM-84D Harpoon (R/BL - Waypoint Designate)",
+        "harpoon waypoint designate",
+        "AGM-84D AGM-84D Harpoon (R/BL - Waypoint Designate)"
+      ],
+      "category": "navigation",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 493,
+        "section": "2 - Air-to-Ground Weapons > 2.10 - AGM-84D Harpoon Anti-Ship Missile > 2.10.2 - AGM-84D Harpoon (R/BL - Waypoint Designate)"
+      },
+      "step_count": 16,
+      "path": "navigation/agm_84d_harpoon_r_bl_waypoint_designate.json"
+    },
+    {
+      "key": "agm_84d_harpoon_r_bl_sea_radar_mode",
+      "canonical": "AGM-84D Harpoon (R/BL - Sea Radar Mode)",
+      "alternates": [
+        "AGM-84D Harpoon (R/BL - Sea Radar Mode)",
+        "harpoon radar mode",
+        "AGM-84D AGM-84D Harpoon (R/BL - Sea Radar Mode)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 501,
+        "section": "2 - Air-to-Ground Weapons > 2.10 - AGM-84D Harpoon Anti-Ship Missile > 2.10.3 - AGM-84D Harpoon (R/BL - Sea Radar Mode)"
+      },
+      "step_count": 23,
+      "path": "sensors/agm_84d_harpoon_r_bl_sea_radar_mode.json"
+    },
+    {
+      "key": "slam_introduction",
+      "canonical": "SLAM Introduction",
+      "alternates": [
+        "SLAM Introduction",
+        "slam introduction",
+        "AGM-84E SLAM Introduction"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 507,
+        "section": "2 - Air-to-Ground Weapons > 2.11 - AGM-84E SLAM Cruise Missile > 2.11.1 - SLAM Introduction"
+      },
+      "step_count": 5,
+      "path": "weapons/slam_introduction.json"
+    },
+    {
+      "key": "weapon_setup",
+      "canonical": "Weapon Setup",
+      "alternates": [
+        "Weapon Setup",
+        "weapon setup",
+        "AGM-84E Weapon Setup"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 510,
+        "section": "2 - Air-to-Ground Weapons > 2.11 - AGM-84E SLAM Cruise Missile > 2.11.2 - Weapon Setup"
+      },
+      "step_count": 17,
+      "path": "weapons/weapon_setup.json"
+    },
+    {
+      "key": "target_designation",
+      "canonical": "Target Designation",
+      "alternates": [
+        "Target Designation",
+        "target designation",
+        "AGM-84E Target Designation"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 514,
+        "section": "2 - Air-to-Ground Weapons > 2.11 - AGM-84E SLAM Cruise Missile > 2.11.3 - Target Designation"
+      },
+      "step_count": 6,
+      "path": "weapons/target_designation.json"
+    },
+    {
+      "key": "too_waypoint",
+      "canonical": "TOO / Waypoint",
+      "alternates": [
+        "TOO / Waypoint",
+        "AGM-84E TOO / Waypoint"
+      ],
+      "category": "navigation",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 514,
+        "section": "2.11 - AGM-84E SLAM Cruise Missile > 2.11.3 - Target Designation > 2.11.3.1 - TOO / Waypoint"
+      },
+      "step_count": 13,
+      "path": "navigation/too_waypoint.json"
+    },
+    {
+      "key": "too_targeting_pod",
+      "canonical": "TOO / Targeting Pod",
+      "alternates": [
+        "TOO / Targeting Pod",
+        "AGM-84E TOO / Targeting Pod"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 517,
+        "section": "2.11 - AGM-84E SLAM Cruise Missile > 2.11.3 - Target Designation > 2.11.3.2 - TOO / Targeting Pod"
+      },
+      "step_count": 19,
+      "path": "sensors/too_targeting_pod.json"
+    },
+    {
+      "key": "too_air_to_ground_radar",
+      "canonical": "TOO / Air-to-Ground Radar",
+      "alternates": [
+        "TOO / Air-to-Ground Radar",
+        "ground radar",
+        "AGM-84E TOO / Air-to-Ground Radar"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 521,
+        "section": "2.11 - AGM-84E SLAM Cruise Missile > 2.11.3 - Target Designation > 2.11.3.3 - TOO / Air-to-Ground Radar"
+      },
+      "step_count": 29,
+      "path": "sensors/too_air_to_ground_radar.json"
+    },
+    {
+      "key": "pre_planned_pp",
+      "canonical": "Pre-Planned (PP)",
+      "alternates": [
+        "Pre-Planned (PP)",
+        "AGM-84E Pre-Planned (PP)"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 528,
+        "section": "2.11 - AGM-84E SLAM Cruise Missile > 2.11.3 - Target Designation > 2.11.3.4 - Pre-Planned (PP)"
+      },
+      "step_count": 28,
+      "path": "weapons/pre_planned_pp.json"
+    },
+    {
+      "key": "weapon_launch_control",
+      "canonical": "Weapon Launch & Control",
+      "alternates": [
+        "Weapon Launch & Control",
+        "weapon launch control",
+        "AGM-84E Weapon Launch & Control"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 534,
+        "section": "2 - Air-to-Ground Weapons > 2.11 - AGM-84E SLAM Cruise Missile > 2.11.4 - Weapon Launch & Control"
+      },
+      "step_count": 27,
+      "path": "weapons/weapon_launch_control.json"
+    },
+    {
+      "key": "slam_er_introduction",
+      "canonical": "SLAM-ER Introduction",
+      "alternates": [
+        "SLAM-ER Introduction",
+        "slam introduction",
+        "AGM-84H SLAM-ER Introduction"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 541,
+        "section": "2 - Air-to-Ground Weapons > 2.12 - AGM-84H SLAM-ER Cruise Missile > 2.12.1 - SLAM-ER Introduction"
+      },
+      "step_count": 5,
+      "path": "weapons/slam_er_introduction.json"
+    },
+    {
+      "key": "weapon_setup_543",
+      "canonical": "Weapon Setup",
+      "alternates": [
+        "Weapon Setup",
+        "weapon setup",
+        "AGM-84H Weapon Setup"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 544,
+        "section": "2 - Air-to-Ground Weapons > 2.12 - AGM-84H SLAM-ER Cruise Missile > 2.12.2 - Weapon Setup"
+      },
+      "step_count": 17,
+      "path": "weapons/weapon_setup_543.json"
+    },
+    {
+      "key": "target_designation_547",
+      "canonical": "Target Designation",
+      "alternates": [
+        "Target Designation",
+        "target designation",
+        "AGM-84H Target Designation"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 548,
+        "section": "2 - Air-to-Ground Weapons > 2.12 - AGM-84H SLAM-ER Cruise Missile > 2.12.3 - Target Designation"
+      },
+      "step_count": 6,
+      "path": "weapons/target_designation_547.json"
+    },
+    {
+      "key": "too_waypoint_547",
+      "canonical": "TOO / Waypoint",
+      "alternates": [
+        "TOO / Waypoint",
+        "AGM-84H TOO / Waypoint"
+      ],
+      "category": "navigation",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 548,
+        "section": "2.12 - AGM-84H SLAM-ER Cruise Missile > 2.12.3 - Target Designation > 2.12.3.1 - TOO / Waypoint"
+      },
+      "step_count": 17,
+      "path": "navigation/too_waypoint_547.json"
+    },
+    {
+      "key": "weapon_launch_control_552",
+      "canonical": "Weapon Launch & Control",
+      "alternates": [
+        "Weapon Launch & Control",
+        "weapon launch control",
+        "AGM-84H Weapon Launch & Control"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 553,
+        "section": "2 - Air-to-Ground Weapons > 2.12 - AGM-84H SLAM-ER Cruise Missile > 2.12.4 - Weapon Launch & Control"
+      },
+      "step_count": 29,
+      "path": "weapons/weapon_launch_control_552.json"
+    },
+    {
+      "key": "agm_62_walleye_tv_guided_glide_bomb",
+      "canonical": "AGM-62 Walleye TV-Guided Glide Bomb",
+      "alternates": [
+        "AGM-62 Walleye TV-Guided Glide Bomb",
+        "walleye guided glide bomb"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 561,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.13 - AGM-62 Walleye TV-Guided Glide Bomb"
+      },
+      "step_count": 5,
+      "path": "weapons/agm_62_walleye_tv_guided_glide_bomb.json"
+    },
+    {
+      "key": "agm_62_walleye_ii_no_datalink_pod",
+      "canonical": "AGM-62 Walleye II (No Datalink Pod)",
+      "alternates": [
+        "AGM-62 Walleye II (No Datalink Pod)",
+        "walleye datalink",
+        "AGM-62 AGM-62 Walleye II (No Datalink Pod)"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 561,
+        "section": "2 - Air-to-Ground Weapons > 2.13 - AGM-62 Walleye TV-Guided Glide Bomb > 2.13.1 - AGM-62 Walleye II (No Datalink Pod)"
+      },
+      "step_count": 12,
+      "path": "systems/agm_62_walleye_ii_no_datalink_pod.json"
+    },
+    {
+      "key": "agm_62_walleye_ii_with_datalink_pod",
+      "canonical": "AGM-62 Walleye II (With Datalink Pod)",
+      "alternates": [
+        "AGM-62 Walleye II (With Datalink Pod)",
+        "walleye with datalink",
+        "AGM-62 AGM-62 Walleye II (With Datalink Pod)"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 565,
+        "section": "2 - Air-to-Ground Weapons > 2.13 - AGM-62 Walleye TV-Guided Glide Bomb > 2.13.2 - AGM-62 Walleye II (With Datalink Pod)"
+      },
+      "step_count": 26,
+      "path": "systems/agm_62_walleye_ii_with_datalink_pod.json"
+    },
+    {
+      "key": "adm_141a_tald_tactical_air_launched_decoy",
+      "canonical": "ADM-141A TALD (Tactical AIr Launched Decoy)",
+      "alternates": [
+        "ADM-141A TALD (Tactical AIr Launched Decoy)",
+        "tald tactical launched decoy"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 572,
+        "section": "Part 10 - Offence: Weapons & Armament > 2 - Air-to-Ground Weapons > 2.14 - ADM-141A TALD (Tactical AIr Launched Decoy)"
+      },
+      "step_count": 6,
+      "path": "weapons/adm_141a_tald_tactical_air_launched_decoy.json"
+    },
+    {
+      "key": "air_to_air_weapons",
+      "canonical": "Air-to-Air Weapons",
+      "alternates": [
+        "Air-to-Air Weapons"
+      ],
+      "category": "general",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 576,
+        "section": "Part 10 - Offence: Weapons & Armament > 3 - Air-to-Air Weapons"
+      },
+      "step_count": 6,
+      "path": "general/air_to_air_weapons.json"
+    },
+    {
+      "key": "m61a2_gun",
+      "canonical": "M61A2 Gun",
+      "alternates": [
+        "M61A2 Gun"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 576,
+        "section": "Part 10 - Offence: Weapons & Armament > 3 - Air-to-Air Weapons > 3.1 - M61A2 Gun"
+      },
+      "step_count": 6,
+      "path": "weapons/m61a2_gun.json"
+    },
+    {
+      "key": "m61a2_gun_funnel_no_radar_tracking",
+      "canonical": "M61A2 Gun (Funnel / No Radar Tracking)",
+      "alternates": [
+        "M61A2 Gun (Funnel / No Radar Tracking)",
+        "funnel radar tracking",
+        "M61 M61A2 Gun (Funnel / No Radar Tracking)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 576,
+        "section": "3 - Air-to-Air Weapons > 3.1 - M61A2 Gun > 3.1.1 - M61A2 Gun (Funnel / No Radar Tracking)"
+      },
+      "step_count": 8,
+      "path": "sensors/m61a2_gun_funnel_no_radar_tracking.json"
+    },
+    {
+      "key": "m61a2_gun_radar_tracking",
+      "canonical": "M61A2 Gun (Radar Tracking)",
+      "alternates": [
+        "M61A2 Gun (Radar Tracking)",
+        "radar tracking",
+        "M61 M61A2 Gun (Radar Tracking)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 578,
+        "section": "3 - Air-to-Air Weapons > 3.1 - M61A2 Gun > 3.1.2 - M61A2 Gun (Radar Tracking)"
+      },
+      "step_count": 9,
+      "path": "sensors/m61a2_gun_radar_tracking.json"
+    },
+    {
+      "key": "aim_9m_sidewinder",
+      "canonical": "AIM-9M Sidewinder",
+      "alternates": [
+        "AIM-9M Sidewinder"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 580,
+        "section": "Part 10 - Offence: Weapons & Armament > 3 - Air-to-Air Weapons > 3.2 - AIM-9M Sidewinder"
+      },
+      "step_count": 6,
+      "path": "weapons/aim_9m_sidewinder.json"
+    },
+    {
+      "key": "aim_9m_sidewinder_no_radar",
+      "canonical": "AIM-9M Sidewinder (No Radar)",
+      "alternates": [
+        "AIM-9M Sidewinder (No Radar)",
+        "sidewinder radar",
+        "AIM-9M AIM-9M Sidewinder (No Radar)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 580,
+        "section": "3 - Air-to-Air Weapons > 3.2 - AIM-9M Sidewinder > 3.2.1 - AIM-9M Sidewinder (No Radar)"
+      },
+      "step_count": 8,
+      "path": "sensors/aim_9m_sidewinder_no_radar.json"
+    },
+    {
+      "key": "aim_9m_sidewinder_radar",
+      "canonical": "AIM-9M Sidewinder (Radar)",
+      "alternates": [
+        "AIM-9M Sidewinder (Radar)",
+        "sidewinder radar",
+        "AIM-9M AIM-9M Sidewinder (Radar)"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 582,
+        "section": "3 - Air-to-Air Weapons > 3.2 - AIM-9M Sidewinder > 3.2.2 - AIM-9M Sidewinder (Radar)"
+      },
+      "step_count": 10,
+      "path": "sensors/aim_9m_sidewinder_radar.json"
+    },
+    {
+      "key": "aim_9x_sidewinder_jhmcs",
+      "canonical": "AIM-9X Sidewinder (JHMCS)",
+      "alternates": [
+        "AIM-9X Sidewinder (JHMCS)",
+        "sidewinder jhmcs"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 585,
+        "section": "Part 10 - Offence: Weapons & Armament > 3 - Air-to-Air Weapons > 3.3 - AIM-9X Sidewinder (JHMCS)"
+      },
+      "step_count": 9,
+      "path": "sensors/aim_9x_sidewinder_jhmcs.json"
+    },
+    {
+      "key": "aim_7m_sparrow_radar",
+      "canonical": "AIM-7M Sparrow (Radar)",
+      "alternates": [
+        "AIM-7M Sparrow (Radar)",
+        "sparrow radar"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 589,
+        "section": "Part 10 - Offence: Weapons & Armament > 3 - Air-to-Air Weapons > 3.4 - AIM-7M Sparrow (Radar)"
+      },
+      "step_count": 17,
+      "path": "sensors/aim_7m_sparrow_radar.json"
+    },
+    {
+      "key": "aim_120b_amraam_radar",
+      "canonical": "AIM-120B AMRAAM (Radar)",
+      "alternates": [
+        "AIM-120B AMRAAM (Radar)",
+        "amraam radar"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 593,
+        "section": "Part 10 - Offence: Weapons & Armament > 3 - Air-to-Air Weapons > 3.5 - AIM-120B AMRAAM (Radar)"
+      },
+      "step_count": 17,
+      "path": "sensors/aim_120b_amraam_radar.json"
+    },
+    {
+      "key": "selective_ordnance_jettison",
+      "canonical": "Selective Ordnance Jettison",
+      "alternates": [
+        "Selective Ordnance Jettison",
+        "selective ordnance jettison"
+      ],
+      "category": "weapons",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 599,
+        "section": "Part 10 - Offence: Weapons & Armament > 4 - Selective Ordnance Jettison"
+      },
+      "step_count": 6,
+      "path": "weapons/selective_ordnance_jettison.json"
+    },
+    {
+      "key": "an_ale_47_acmds_airborne_countermeasures_dispenser_system",
+      "canonical": "AN/ALE-47 ACMDS (Airborne Countermeasures Dispenser System)",
+      "alternates": [
+        "acmds airborne countermeasures dispenser"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 610,
+        "section": "Part 11 - Defence: RWR & Countermeasures > AN/ALE-47 ACMDS (Airborne Countermeasures Dispenser System)"
+      },
+      "step_count": 8,
+      "path": "sensors/an_ale_47_acmds_airborne_countermeasures_dispenser_system.json"
+    },
+    {
+      "key": "datalink_tndl_tactical_network_datalink_concept",
+      "canonical": "Datalink: TNDL (Tactical Network Datalink) Concept",
+      "alternates": [
+        "datalink tndl tactical network"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 619,
+        "section": "Part 12 - Datalink & IFF > Datalink: TNDL (Tactical Network Datalink) Concept"
+      },
+      "step_count": 13,
+      "path": "systems/datalink_tndl_tactical_network_datalink_concept.json"
+    },
+    {
+      "key": "iff_from_rdr_attk_page",
+      "canonical": "IFF from RDR ATTK Page",
+      "alternates": [
+        "from attk page"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 638,
+        "section": "Part 12 - Datalink & IFF > IFF from RDR ATTK Page"
+      },
+      "step_count": 3,
+      "path": "systems/iff_from_rdr_attk_page.json"
+    },
+    {
+      "key": "manual_iff_identify_friend_or_foe_nctr_tutorial",
+      "canonical": "Manual IFF (Identify-Friend-or-Foe) NCTR Tutorial",
+      "alternates": [
+        "manual identify friend nctr"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 638,
+        "section": "Part 12 - Datalink & IFF > IFF from RDR ATTK Page > Manual IFF (Identify-Friend-or-Foe) NCTR Tutorial"
+      },
+      "step_count": 11,
+      "path": "systems/manual_iff_identify_friend_or_foe_nctr_tutorial.json"
+    },
+    {
+      "key": "manual_iff_az_el",
+      "canonical": "Manual IFF (AZ/EL)",
+      "alternates": [],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 644,
+        "section": "Part 12 - Datalink & IFF > IFF from AZ/EL Page > Manual IFF (AZ/EL)"
+      },
+      "step_count": 7,
+      "path": "systems/manual_iff_az_el.json"
+    },
+    {
+      "key": "auto_iff_az_el",
+      "canonical": "Auto IFF (AZ/EL)",
+      "alternates": [],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 645,
+        "section": "Part 12 - Datalink & IFF > IFF from AZ/EL Page > Auto IFF (AZ/EL)"
+      },
+      "step_count": 7,
+      "path": "systems/auto_iff_az_el.json"
+    },
+    {
+      "key": "a_a_waypoints_bullseye",
+      "canonical": "A/A Waypoints & Bullseye",
+      "alternates": [
+        "waypoints bullseye"
+      ],
+      "category": "navigation",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 647,
+        "section": "Part 12 - Datalink & IFF > A/A Waypoints & Bullseye"
+      },
+      "step_count": 5,
+      "path": "navigation/a_a_waypoints_bullseye.json"
+    },
+    {
+      "key": "arc_210_radio_tutorial",
+      "canonical": "ARC-210 Radio Tutorial",
+      "alternates": [
+        "radio tutorial"
+      ],
+      "category": "comms",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 651,
+        "section": "Part 13 - Radio Tutorial > ARC-210 Radio Tutorial"
+      },
+      "step_count": 7,
+      "path": "comms/arc_210_radio_tutorial.json"
+    },
+    {
+      "key": "atth_balt_hsel_ralt_mode_procedure_example",
+      "canonical": "ATTH/BALT/HSEL/RALT Mode Procedure Example",
+      "alternates": [
+        "atth balt hsel ralt"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 658,
+        "section": "Autopilot > AFCS (Automatic Flight Control System) > ATTH/BALT/HSEL/RALT Mode Procedure Example"
+      },
+      "step_count": 5,
+      "path": "systems/atth_balt_hsel_ralt_mode_procedure_example.json"
+    },
+    {
+      "key": "cpl_wypt_sub_mode_example",
+      "canonical": "CPL WYPT Sub-Mode Example",
+      "alternates": [
+        "wypt mode example"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 661,
+        "section": "AFCS (Automatic Flight Control System) > CPL (Coupled Steering) Mode > CPL WYPT Sub-Mode Example"
+      },
+      "step_count": 10,
+      "path": "systems/cpl_wypt_sub_mode_example.json"
+    },
+    {
+      "key": "cpl_tcn_sub_mode_example",
+      "canonical": "CPL TCN Sub-Mode Example",
+      "alternates": [
+        "mode example"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 662,
+        "section": "AFCS (Automatic Flight Control System) > CPL (Coupled Steering) Mode > CPL TCN Sub-Mode Example"
+      },
+      "step_count": 9,
+      "path": "systems/cpl_tcn_sub_mode_example.json"
+    },
+    {
+      "key": "cpl_asl_sub_mode_example",
+      "canonical": "CPL ASL Sub-Mode Example",
+      "alternates": [
+        "mode example"
+      ],
+      "category": "systems",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 663,
+        "section": "AFCS (Automatic Flight Control System) > CPL (Coupled Steering) Mode > CPL ASL Sub-Mode Example"
+      },
+      "step_count": 12,
+      "path": "systems/cpl_asl_sub_mode_example.json"
+    },
+    {
+      "key": "waypoint_navigation",
+      "canonical": "Waypoint Navigation",
+      "alternates": [
+        "Waypoint Navigation",
+        "waypoint navigation"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 681,
+        "section": "Part 15 - Navigation & Case III Recovery > 5 - Waypoints > 5.2 - Waypoint Navigation"
+      },
+      "step_count": 4,
+      "path": "normal_ops/waypoint_navigation.json"
+    },
+    {
+      "key": "manual_vs_auto_sequencing",
+      "canonical": "Manual vs Auto Sequencing",
+      "alternates": [
+        "Manual vs Auto Sequencing",
+        "manual auto sequencing"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 682,
+        "section": "Part 15 - Navigation & Case III Recovery > 5 - Waypoints > 5.3 - Manual vs Auto Sequencing"
+      },
+      "step_count": 3,
+      "path": "normal_ops/manual_vs_auto_sequencing.json"
+    },
+    {
+      "key": "how_to_add_remove_waypoints",
+      "canonical": "How to Add/Remove Waypoints",
+      "alternates": [
+        "How to Add/Remove Waypoints",
+        "remove waypoints"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 683,
+        "section": "Part 15 - Navigation & Case III Recovery > 5 - Waypoints > 5.4 - How to Add/Remove Waypoints"
+      },
+      "step_count": 6,
+      "path": "normal_ops/how_to_add_remove_waypoints.json"
+    },
+    {
+      "key": "how_to_edit_waypoints",
+      "canonical": "How to Edit Waypoints",
+      "alternates": [
+        "How to Edit Waypoints",
+        "edit waypoints"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 684,
+        "section": "Part 15 - Navigation & Case III Recovery > 5 - Waypoints > 5.5 - How to Edit Waypoints"
+      },
+      "step_count": 9,
+      "path": "normal_ops/how_to_edit_waypoints.json"
+    },
+    {
+      "key": "a_lat_long_coordinates",
+      "canonical": "a - LAT/LONG Coordinates",
+      "alternates": [
+        "long coordinates"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 684,
+        "section": "5 - Waypoints > 5.5 - How to Edit Waypoints > a - LAT/LONG Coordinates"
+      },
+      "step_count": 9,
+      "path": "normal_ops/a_lat_long_coordinates.json"
+    },
+    {
+      "key": "b_grid_mgrs_coordinates",
+      "canonical": "b - GRID (MGRS) Coordinates",
+      "alternates": [
+        "grid mgrs coordinates"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 685,
+        "section": "5 - Waypoints > 5.5 - How to Edit Waypoints > b - GRID (MGRS) Coordinates"
+      },
+      "step_count": 12,
+      "path": "normal_ops/b_grid_mgrs_coordinates.json"
+    },
+    {
+      "key": "markpoints",
+      "canonical": "Markpoints",
+      "alternates": [
+        "Markpoints"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 691,
+        "section": "Part 15 - Navigation & Case III Recovery > 6 - Markpoints"
+      },
+      "step_count": 3,
+      "path": "normal_ops/markpoints.json"
+    },
+    {
+      "key": "markpoint_navigation",
+      "canonical": "Markpoint Navigation",
+      "alternates": [
+        "Markpoint Navigation",
+        "markpoint navigation"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 691,
+        "section": "Part 15 - Navigation & Case III Recovery > 6 - Markpoints > 6.1 - Markpoint Navigation"
+      },
+      "step_count": 3,
+      "path": "normal_ops/markpoint_navigation.json"
+    },
+    {
+      "key": "navigation_to_an_existing_markpoint",
+      "canonical": "Navigation to an existing markpoint",
+      "alternates": [
+        "navigation existing markpoint"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 691,
+        "section": "6 - Markpoints > 6.1 - Markpoint Navigation > Navigation to an existing markpoint"
+      },
+      "step_count": 3,
+      "path": "normal_ops/navigation_to_an_existing_markpoint.json"
+    },
+    {
+      "key": "how_to_add_markpoints",
+      "canonical": "How to Add Markpoints",
+      "alternates": [
+        "How to Add Markpoints"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 693,
+        "section": "Part 15 - Navigation & Case III Recovery > 6 - Markpoints > 6.2 - How to Add Markpoints"
+      },
+      "step_count": 4,
+      "path": "normal_ops/how_to_add_markpoints.json"
+    },
+    {
+      "key": "overfly_method",
+      "canonical": "Overfly Method",
+      "alternates": [
+        "overfly method"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 693,
+        "section": "6 - Markpoints > 6.2 - How to Add Markpoints > Overfly Method"
+      },
+      "step_count": 4,
+      "path": "normal_ops/overfly_method.json"
+    },
+    {
+      "key": "target_designate_method",
+      "canonical": "Target Designate Method",
+      "alternates": [
+        "target designate method"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 694,
+        "section": "6 - Markpoints > 6.2 - How to Add Markpoints > Target Designate Method"
+      },
+      "step_count": 5,
+      "path": "normal_ops/target_designate_method.json"
+    },
+    {
+      "key": "how_to_use_markpoints",
+      "canonical": "How to Use Markpoints",
+      "alternates": [
+        "How to Use Markpoints"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 695,
+        "section": "Part 15 - Navigation & Case III Recovery > 6 - Markpoints > 6.3 - How to Use Markpoints"
+      },
+      "step_count": 9,
+      "path": "normal_ops/how_to_use_markpoints.json"
+    },
+    {
+      "key": "adf_automatic_direction_finder_navigation",
+      "canonical": "ADF (Automatic Direction Finder) Navigation",
+      "alternates": [
+        "ADF (Automatic Direction Finder) Navigation",
+        "automatic direction finder navigation"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 697,
+        "section": "Part 15 - Navigation & Case III Recovery > 7 - ADF (Automatic Direction Finder) Navigation"
+      },
+      "step_count": 8,
+      "path": "normal_ops/adf_automatic_direction_finder_navigation.json"
+    },
+    {
+      "key": "tacan_navigation",
+      "canonical": "TACAN Navigation",
+      "alternates": [
+        "TACAN Navigation",
+        "tacan navigation"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 698,
+        "section": "Part 15 - Navigation & Case III Recovery > 8 - TACAN Navigation"
+      },
+      "step_count": 10,
+      "path": "normal_ops/tacan_navigation.json"
+    },
+    {
+      "key": "icls_instrument_carrier_landing_system_tutorial_case_iii_recover",
+      "canonical": "ICLS (Instrument Carrier Landing System) Tutorial / Case III Recovery",
+      "alternates": [
+        "ICLS (Instrument Carrier Landing System) Tutorial / Case III Recovery",
+        "icls instrument carrier landing"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 702,
+        "section": "Part 15 - Navigation & Case III Recovery > 9 - ICLS (Instrument Carrier Landing System) Tutorial / Case III Recovery"
+      },
+      "step_count": 22,
+      "path": "normal_ops/icls_instrument_carrier_landing_system_tutorial_case_iii_recover.json"
+    },
+    {
+      "key": "acls_automatic_carrier_landing_system_tutorial_case_iii_recovery",
+      "canonical": "ACLS (Automatic Carrier Landing System) Tutorial / Case III Recovery (Supercarrier)",
+      "alternates": [
+        "ACLS (Automatic Carrier Landing System) Tutorial / Case III Recovery (Supercarrier)",
+        "acls automatic carrier landing"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 716,
+        "section": "Part 15 - Navigation & Case III Recovery > 10 - ACLS (Automatic Carrier Landing System) Tutorial / Case III Recovery (Supercarrier)"
+      },
+      "step_count": 42,
+      "path": "normal_ops/acls_automatic_carrier_landing_system_tutorial_case_iii_recovery.json"
+    },
+    {
+      "key": "part_16_air_to_air_refueling",
+      "canonical": "Part 16 - Air-to-Air Refueling",
+      "alternates": [
+        "part refueling"
+      ],
+      "category": "normal_ops",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 733,
+        "section": "Part 16 - Air-to-Air Refueling"
+      },
+      "step_count": 18,
+      "path": "normal_ops/part_16_air_to_air_refueling.json"
+    }
+  ]
+}

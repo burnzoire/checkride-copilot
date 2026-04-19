@@ -1,0 +1,47 @@
+{
+  "key": "m61a2_gun",
+  "canonical": "M61A2 Gun",
+  "alternates": [
+    "M61A2 Gun"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "ARM",
+    "GUN",
+    "MK-50",
+    "PGU-28",
+    "SMS: Stores Management System"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 576,
+    "section": "Part 10 - Offence: Weapons & Armament > 3 - Air-to-Air Weapons > 3.1 - M61A2 Gun"
+  },
+  "step_count": 6,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 2,
+      "action": "Radar switch – OFF"
+    },
+    {
+      "num": 3,
+      "action": "Weapon Select Switch – A/A GUN, or « LSHIFT+X »"
+    },
+    {
+      "num": 4,
+      "action": "Master Mode switch will be automatically set to A/A"
+    },
+    {
+      "num": 5,
+      "action": "Go in SMS (Stores Management System) page and select Gun Rounds Options (MK-50 or PGU-28 rounds)"
+    },
+    {
+      "num": 6,
+      "action": "Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute) Sensor Control Switch AFT/FWD/LEFT/RIGHT Gun rounds remaining Weapon Select Switch FWD: Select Sparrow AFT: Select Gun PRESS DOWN: Select Sidewinder RIGHT: Select Amraam LEFT: No Function"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "key": "how_to_use_markpoints",
+  "canonical": "How to Use Markpoints",
+  "alternates": [
+    "How to Use Markpoints"
+  ],
+  "category": "normal_ops",
+  "terminology": [
+    "DDI",
+    "FLIR",
+    "HSI: Horizontal Situation Indicator",
+    "MARKPOINTS",
+    "OSB",
+    "TDC: Throttle Designator Controller",
+    "WPDSG",
+    "WPSDG",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 695,
+    "section": "Part 15 - Navigation & Case III Recovery > 6 - Markpoints > 6.3 - How to Use Markpoints"
+  },
+  "step_count": 9,
+  "steps": [
+    {
+      "num": 1,
+      "action": "We will assume Markpoint #2 (M2) has already been created beforehand with the Target Designate method mentioned earlier."
+    },
+    {
+      "num": 2,
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+    },
+    {
+      "num": 3,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 4,
+      "action": "On HSI (Horizontal Situation Indicator) page, select desired markpoint using the OSBs (Option Select Button) next to UP or DOWN arrows."
+    },
+    {
+      "num": 5,
+      "action": "Press OSB next to WYPT (boxed = selected)"
+    },
+    {
+      "num": 6,
+      "action": "Press on OSB next to WPSDG to designate waypoint/markpoint as the target point (boxed = selected)"
+    },
+    {
+      "num": 7,
+      "action": "Targeting pod will automatically slew to the selected waypoint/markpoint. 6 - MARKPOINTS"
+    },
+    {
+      "num": 8,
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target if adjustments are required."
+    },
+    {
+      "num": 9,
+      "action": "You can then use a weapon of your choice like a Maverick and fire it on the designated point (markpoint in WPDSG)."
+    }
+  ]
+}

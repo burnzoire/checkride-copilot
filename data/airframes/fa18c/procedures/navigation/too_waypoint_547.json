@@ -1,0 +1,113 @@
+{
+  "key": "too_waypoint_547",
+  "canonical": "TOO / Waypoint",
+  "alternates": [
+    "TOO / Waypoint",
+    "AGM-84H TOO / Waypoint"
+  ],
+  "category": "navigation",
+  "terminology": [
+    "ANG",
+    "DIST",
+    "HSI: Horizontal Situation Indicator",
+    "HUD",
+    "MODE",
+    "MSN",
+    "ORP: Offset Release Point",
+    "OSB",
+    "PP: Pre-Planned",
+    "SLAM-ER",
+    "SMS",
+    "STP: Steerpoint",
+    "STP1: Intermediate Steerpoint #1",
+    "STP2: Intermediate Steerpoint #2",
+    "STP3",
+    "STP4",
+    "TERM: Terminal Attack",
+    "TGT1: Target Point 1",
+    "TMR",
+    "TOO: Target-of-Opportunity",
+    "TOO1",
+    "TOO2",
+    "UFC",
+    "VEL",
+    "WPSDG: Waypoint Designate",
+    "WYPT"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 548,
+    "section": "2.12 - AGM-84H SLAM-ER Cruise Missile > 2.12.3 - Target Designation > 2.12.3.1 - TOO / Waypoint"
+  },
+  "step_count": 17,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Press OSB next to MODE to toggle between TOO (Target-of-Opportunity) and PP (Pre-Planned) target designation modes. In this case, we will choose TOO."
+    },
+    {
+      "num": 2,
+      "action": "Press OSB next to MSN to enter the Mission Parameters page."
+    },
+    {
+      "num": 3,
+      "action": "We can define up to two Targets of Opportunity per missile station: TOO1 and TOO2. We will designate the target on TOO1. Press OSB next to TOO1 to select it."
+    },
+    {
+      "num": 4,
+      "action": "The ORP (Offset Release Point) is the designated target point (A/G TGT). For now, the field is empty since no target is defined yet."
+    },
+    {
+      "num": 5,
+      "action": "(Optional) If you want to set TERM (Terminal Attack) parameters such as heading (HDG), attack angle (ANG) and velocity (VEL), press OSB next to TOO UFC. You will be able to enter them via the UFC. However, since we will control the missile remotely during the terminal attack stage, these parameters are not required and we will leave them blank,"
+    },
+    {
+      "num": 6,
+      "action": "(Optional) We do not need O/S (Offset) parameters to the ORP since we will control the missile remotely during the terminal attack stage. Therefore, we will not need to use O/S UFC function. Parameters for Station 8"
+    },
+    {
+      "num": 7,
+      "action": "In this example, Waypoint 4 is set directly on our target. It is good practice to cross-check the waypoint elevation with the F10 map."
+    },
+    {
+      "num": 8,
+      "action": "On the HSI (Horizontal Situation Indicator), press OSB to select WYPT (boxed when selected). After, select Waypoint 4 using the OSBs next to the arrows."
+    },
+    {
+      "num": 9,
+      "action": "Once the Waypoint 4 is selected, press the OSB next to WPSDG (Waypoint Designate) to designate Waypoint 4 as your TGT1 (Target Point 1). On the HSI, « WYPT » will switch to « TGT ». Minimum and Maximum Launch Range circles will appear on the HSI."
+    },
+    {
+      "num": 10,
+      "action": "The coordinates and elevation of the designated waypoint (TGT1) will then directly transfer to the ORP (Offset Release Point) in the MSN page."
+    },
+    {
+      "num": 11,
+      "action": "The target designation diamond, steering cues, range to target, SLAM-ER indication, TMR indication (time required to be within range of a valid SLAM-ER launch) and TOO indication will appear on the HUD."
+    },
+    {
+      "num": 12,
+      "action": "Press the OSB next to RETURN to return back to the SMS (Stores) page. We are now almost ready to begin our strike and launch the missile."
+    },
+    {
+      "num": 13,
+      "action": "We can select up to five intermediate steerpoints for the missile to fly through. In our case, we will select Waypoint 1, Waypoint 2 and Waypoint 3. Waypoint 4 is located on the target. For simplicity, all waypoint coordinates are already stored in our database."
+    },
+    {
+      "num": 14,
+      "action": "Press OSB next to STP (Steerpoint). Once STP is boxed, the DIST parameter (distance from target when seeker head goes active) can be modified from the UFC panel."
+    },
+    {
+      "num": 15,
+      "action": "Once STP option is selected (boxed), the UFC (Up-Front Control) will display STP1 (Intermediate Steerpoint #1). Press OSB next to STP1."
+    },
+    {
+      "num": 16,
+      "action": "Press OSB next to WYPT to enter the Waypoint Menu, then enter the Waypoint Number you want to use as a reference for the first Steerpoint on the UFC keypad (“1”), then press “ENT”."
+    },
+    {
+      "num": 17,
+      "action": "STP2 (Intermediate Steerpoint #2) field will appear once STP1 is set. Repeat the two previous steps to associate Waypoint #2 with STP2 and Waypoint #3 with STP3. When STP2 and STP3 are set, STP4 field will become visible but with no associated waypoint, which is fine."
+    }
+  ]
+}

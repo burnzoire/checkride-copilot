@@ -1,0 +1,88 @@
+{
+  "key": "point_track",
+  "canonical": "Point Track",
+  "alternates": [
+    "Point Track",
+    "point track"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ATTK",
+    "DDI",
+    "FLIR",
+    "HUD",
+    "OSB",
+    "RTCL",
+    "SLAVE",
+    "TGP",
+    "VVSLV"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 292,
+    "section": "3 - AN/AAQ-28(V) LITENING II Targeting Pod > 3.8 - Air-to-Air Operation > 3.8.2 - Point Track"
+  },
+  "step_count": 15,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Make sure the targeting pod is powered"
+    },
+    {
+      "num": 2,
+      "action": "Press the A/A Master Mode button. The RDR ATTK (radar) page will appear on the right DDI and the FLIR page will appear on the left DDI."
+    },
+    {
+      "num": 3,
+      "action": "Select FLIR by pressing the Sensor Control Switch in the direction of the DDI with the FLIR page (left)."
+    },
+    {
+      "num": 4,
+      "action": "The Select Focus Diamond indicates what display is selected."
+    },
+    {
+      "num": 5,
+      "action": "Select VVSLV by selecting the VVSLV pushbutton on the FLIR page. The FLIR will be slaved to the line of sight to the velocity vector."
+    },
+    {
+      "num": 6,
+      "action": "Press OSB next to RTCL (boxed) to display the targeting pod’s reticle"
+    },
+    {
+      "num": 7,
+      "action": "Fly the aircraft to put the velocity vector in the vicinity of the aircraft."
+    },
+    {
+      "num": 8,
+      "action": "You can zoom and choose desired FLIR/CCD (TV) setting using the appropriate Option Select Buttons on the FLIR page."
+    },
+    {
+      "num": 9,
+      "action": "Press/bump the Sensor Control Switch in the direction of the FLIR format page (left) to attempt to Point Track the target."
+    },
+    {
+      "num": 10,
+      "action": "When Point Track is obtained, a designation box will appear on the HUD and the targeting pod will track the target."
+    },
+    {
+      "num": 11,
+      "action": "If you want to “dump” the target, press the Sensor Control Switch in the direction of the DDI with the FLIR page (left)."
+    },
+    {
+      "num": 12,
+      "action": "Make sure the radar is powered"
+    },
+    {
+      "num": 13,
+      "action": "Make sure Point Track is obtained"
+    },
+    {
+      "num": 14,
+      "action": "On FLIR page, press OSB next to SLAVE to slave the radar to the targeting pod’s point track."
+    },
+    {
+      "num": 15,
+      "action": "Both the radar and the TGP will now track the target."
+    }
+  ]
+}

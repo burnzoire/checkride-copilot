@@ -1,0 +1,95 @@
+{
+  "key": "agm_65f_missile_ir_seeker_only",
+  "canonical": "AGM-65F Missile IR Seeker Only",
+  "alternates": [
+    "AGM-65F Missile IR Seeker Only",
+    "missile seeker only",
+    "AGM-65F AGM-65F Missile IR Seeker Only"
+  ],
+  "category": "weapons",
+  "terminology": [
+    "AGM-65F",
+    "ARM",
+    "DDI",
+    "DLY1: Delayed Fuze",
+    "DLY2",
+    "DSPLY",
+    "FOV: Field of View",
+    "IMAV",
+    "INST: Instantaneous",
+    "MAV",
+    "MAVF",
+    "OSB",
+    "SMS: Stores Management System",
+    "TAC",
+    "TDC"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 440,
+    "section": "2 - Air-to-Ground Weapons > 2.7 - AGM-65F/G Maverick (IR-MAVF) > 2.7.1 - AGM-65F Missile IR Seeker Only"
+  },
+  "step_count": 15,
+  "steps": [
+    {
+      "num": 1,
+      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation."
+    },
+    {
+      "num": 2,
+      "action": "Go in SMS (Stores Management System) page"
+    },
+    {
+      "num": 3,
+      "action": "Master Mode – A/G"
+    },
+    {
+      "num": 4,
+      "action": "Select MAVF (text should be boxed)"
+    },
+    {
+      "num": 5,
+      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed."
+    },
+    {
+      "num": 6,
+      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live."
+    },
+    {
+      "num": 7,
+      "action": "Master Arm switch – ARM (UP)"
+    },
+    {
+      "num": 8,
+      "action": "You can select the Maverick seeker head feed by going back to the TAC page and selecting IMAV DSPLY or by going in the STORES page and selecting MAVF twice as shown previously."
+    },
+    {
+      "num": 9,
+      "action": "Set Fuzing to either INST (Instantaneous), DLY1 (Delayed Fuze) or DLY2."
+    },
+    {
+      "num": 10,
+      "action": "Set Sensor Control Switch to the Maverick Feed DDI (Sensor Control Switch LEFT since we showed up the MAV feed on the left DDI). A diamond will appear to show the left DDI is selected."
+    },
+    {
+      "num": 11,
+      "action": "Adjust FOV (Field of View) as required."
+    },
+    {
+      "num": 12,
+      "action": "By default, the Maverick is Caged. When the seeker is caged, it will always point forward at its boresight."
+    },
+    {
+      "num": 13,
+      "action": "Press the Cage/Uncage Button to uncage the Maverick. When uncaged, the missile will attempt to lock onto a contrasting target within the seeker center."
+    },
+    {
+      "num": 14,
+      "action": "Hold the TDC Depress button while slewing the Maverick to the target. When you release the TDC Depress button, the missile will attempt to lock its target. The Maverick is most likely going to acquire a good lock from a distance of 7.5 miles."
+    },
+    {
+      "num": 15,
+      "action": "When lock is acquired by Maverick, the MAVF crossed-out indication will disappear. Hold the Weapon Release Button (« RALT+SPACE ») to fire missile."
+    }
+  ]
+}
