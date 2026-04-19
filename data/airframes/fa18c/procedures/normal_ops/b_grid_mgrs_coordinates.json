@@ -28,51 +28,63 @@
   "steps": [
     {
       "num": 1,
-      "action": "In the HSI page, press the OSB next to DATA."
+      "action": "In the HSI page, press the OSB next to DATA.",
+      "voiced": "On the HSI page, press the OSB next to DATA."
     },
     {
       "num": 2,
-      "action": "You will see the waypoint sequence. We want to edit the coordinates of Waypoint 3."
+      "action": "You will see the waypoint sequence. We want to edit the coordinates of Waypoint 3.",
+      "voiced": "Confirm waypoint sequence is visible — select the waypoint to edit."
     },
     {
       "num": 3,
-      "action": "Press the Waypoint Increment/Decrement OSBs to select WYPT 3"
+      "action": "Press the Waypoint Increment/Decrement OSBs to select WYPT 3",
+      "voiced": "Press the Waypoint Increment or Decrement OSBs to select the target waypoint."
     },
     {
       "num": 4,
-      "action": "Press the OSB next to UFC (Up-Front Controller)"
+      "action": "Press the OSB next to UFC (Up-Front Controller)",
+      "voiced": "Press the OSB next to UFC."
     },
     {
       "num": 5,
-      "action": "On the UFC, press the OSB next to GRID. « : » will appear once selected ."
+      "action": "On the UFC, press the OSB next to GRID. « : » will appear once selected .",
+      "voiced": "Press the OSB next to GRID on the UFC — confirm colon appears."
     },
     {
       "num": 6,
-      "action": "We will add the grid coordinates of the target as sent by the JTAC: DQ083998 (Note: normal grid coordinates have 6 digits, while PRECISE) grid coordinates have 10 digits."
+      "action": "We will add the grid coordinates of the target as sent by the JTAC: DQ083998 (Note: normal grid coordinates have 6 digits, while PRECISE) grid coordinates have 10 digits.",
+      "voiced": "Confirm the MGRS grid coordinates from the JTAC — 6-digit normal, 10-digit precise."
     },
     {
       "num": 7,
-      "action": "The HSI display will be replaced by a grid menu. The letters represent grid squares of 100 x 100 km. Since the grid is DQ083998, we will select DQ."
+      "action": "The HSI display will be replaced by a grid menu. The letters represent grid squares of 100 x 100 km. Since the grid is DQ083998, we will select DQ.",
+      "voiced": "Confirm grid menu appears on HSI — identify and select the 100 km grid square letters."
     },
     {
       "num": 8,
-      "action": "Verify that TDC is assigned to the right DDI (the TDC Assignment Diamond is shown). 5 - WAYPOINTS"
+      "action": "Verify that TDC is assigned to the right DDI (the TDC Assignment Diamond is shown). 5 - WAYPOINTS",
+      "voiced": "Confirm TDC is assigned to the DDI showing the grid menu."
     },
     {
       "num": 9,
-      "action": "Press and hold the TDC (Throttle Designator Controller), then slew the TDC cursor over grid “DQ”."
+      "action": "Press and hold the TDC (Throttle Designator Controller), then slew the TDC cursor over grid \"DQ\".",
+      "voiced": "Press and hold TDC, then slew the cursor over the correct grid square."
     },
     {
       "num": 10,
-      "action": "Release TDC when cursor is over “DQ”. When “DQ” becomes underlined, it means the grid is selected."
+      "action": "Release TDC when cursor is over \"DQ\". When \"DQ\" becomes underlined, it means the grid is selected.",
+      "voiced": "Release TDC when cursor is over the grid square — confirm it underlines."
     },
     {
       "num": 11,
-      "action": "On the UFC, press « 083998 » to enter the grid coordinates for DQ083998, then press « ENT »."
+      "action": "On the UFC, press « 083998 » to enter the grid coordinates for DQ083998, then press « ENT ».",
+      "voiced": "Enter the numeric grid coordinates on the UFC, then press ENT."
     },
     {
       "num": 12,
-      "action": "And that’s it! You have edited Waypoint 3’s coordinates. You would then have to edit elevation… but you already know how to do that, don’t you? 5 - WAYPOINTS"
+      "action": "And that's it! You have edited Waypoint 3's coordinates. You would then have to edit elevation… but you already know how to do that, don't you? 5 - WAYPOINTS",
+      "voiced": "Confirm waypoint coordinates are updated — edit elevation as required."
     }
   ]
 }

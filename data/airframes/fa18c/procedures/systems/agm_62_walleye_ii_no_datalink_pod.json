@@ -31,51 +31,63 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Click on the OSB next to WEDL to select it. The crossed-out WEDL indication means weapon employment is inhibited."
+      "action": "Click on the OSB next to WEDL to select it. The crossed-out WEDL indication means weapon employment is inhibited.",
+      "voiced": "Press the OSB next to WEDL to select it — crossed-out indicates weapon employment inhibited."
     },
     {
       "num": 5,
-      "action": "Click on the OSB next to WEDL a second time to display the Walleye TV feed. DDIs will display a green-scaled screen, while the AMPCD will display a grey-scaled screen. (Note: Walleyes can only be mounted on Stations 2 and 8 (BOMBS category).)"
+      "action": "Click on the OSB next to WEDL a second time to display the Walleye TV feed. DDIs will display a green-scaled screen, while the AMPCD will display a grey-scaled screen. (Note: Walleyes can only be mounted on Stations 2 and 8 (BOMBS category).)",
+      "voiced": "Press the OSB next to WEDL a second time to display the Walleye TV feed."
     },
     {
       "num": 6,
-      "action": "Set Fuzing to either INST (Instantaneous), or DLY (Delayed Fuze)."
+      "action": "Set Fuzing to either INST (Instantaneous), or DLY (Delayed Fuze).",
+      "voiced": "Set Fuzing to INST or DLY."
     },
     {
       "num": 7,
-      "action": "Set Sensor Control Switch to the Walleye Feed DDI (Sensor Control Switch LEFT since we showed up the WEDL feed on the left DDI). A diamond will appear to show the left DDI is selected."
+      "action": "Set Sensor Control Switch to the Walleye Feed DDI (Sensor Control Switch LEFT since we showed up the WEDL feed on the left DDI). A diamond will appear to show the left DDI is selected.",
+      "voiced": "Set Sensor Control Switch toward the Walleye Feed DDI — confirm diamond appears."
     },
     {
       "num": 8,
-      "action": "By default, the Walleye is Caged. When the seeker is caged, it will always point forward at its boresight."
+      "action": "By default, the Walleye is Caged. When the seeker is caged, it will always point forward at its boresight.",
+      "voiced": "Confirm Walleye is Caged by default — seeker points forward at boresight."
     },
     {
       "num": 9,
-      "action": "Press the Cage/Uncage Button to uncage the Walleye. When uncaged, the bomb will attempt to lock onto a contrasting target within the seeker center. Sensor Control Switch AFT/FWD/LEFT/RIGHT Cage/Uncage Button Caging Retention and Boresight (CRAB) Pressing and holding this option cages the seeker. MAP - The Missile Axis Position square indicates the position of the seeker head relative to the missile boresight. This allows for a visualization of where the seeker is looking relative to the aircraft boresight when the bomb is on the aircraft. STEP selects a Walleye from another station Target Walleye Crosshair"
+      "action": "Press the Cage/Uncage Button to uncage the Walleye. When uncaged, the bomb will attempt to lock onto a contrasting target within the seeker center. Sensor Control Switch AFT/FWD/LEFT/RIGHT Cage/Uncage Button Caging Retention and Boresight (CRAB) Pressing and holding this option cages the seeker. MAP - The Missile Axis Position square indicates the position of the seeker head relative to the missile boresight. This allows for a visualization of where the seeker is looking relative to the aircraft boresight when the bomb is on the aircraft. STEP selects a Walleye from another station Target Walleye Crosshair",
+      "voiced": "Press the Cage/Uncage Button to uncage the Walleye."
     },
     {
       "num": 10,
-      "action": "Hold the TDC Depress button while slewing the Walleye to the target. When you release the TDC Depress button, the bomb will attempt to lock its target. The Walleye can be used from a range of 20 nm, but is most likely going to acquire a good lock from a distance of less than 10 miles."
+      "action": "Hold the TDC Depress button while slewing the Walleye to the target. When you release the TDC Depress button, the bomb will attempt to lock its target. The Walleye can be used from a range of 20 nm, but is most likely going to acquire a good lock from a distance of less than 10 miles.",
+      "voiced": "Hold TDC DEPRESS while slewing Walleye to the target, then release to attempt lock."
     },
     {
       "num": 11,
-      "action": "When lock is acquired by Walleye: WE crossed-out indication will disappear from the HUD WEDL crossed-out indication will disappear from the Walleye Feed. RDY will be displayed next to the selected station."
+      "action": "When lock is acquired by Walleye: WE crossed-out indication will disappear from the HUD WEDL crossed-out indication will disappear from the Walleye Feed. RDY will be displayed next to the selected station.",
+      "voiced": "Confirm lock acquired — WE and WEDL crossed-out clear, RDY shows at the station."
     },
     {
       "num": 12,
-      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to launch Walleye."
+      "action": "Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to launch Walleye.",
+      "voiced": "Hold the Weapon Release Button to launch Walleye."
     }
   ]
 }

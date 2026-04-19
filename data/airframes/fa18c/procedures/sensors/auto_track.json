@@ -26,47 +26,58 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure the targeting pod is powered"
+      "action": "Make sure the targeting pod is powered",
+      "voiced": "Confirm the targeting pod is powered."
     },
     {
       "num": 2,
-      "action": "Press the A/A Master Mode button. The RDR ATTK (radar) page will appear on the right DDI and the FLIR page will appear on the left DDI."
+      "action": "Press the A/A Master Mode button. The RDR ATTK (radar) page will appear on the right DDI and the FLIR page will appear on the left DDI.",
+      "voiced": "Press the A/A Master Mode Button — RDR ATTK appears on the right DDI, FLIR on the left."
     },
     {
       "num": 3,
-      "action": "Select FLIR by pressing the Sensor Control Switch in the direction of the DDI with the FLIR page (left)."
+      "action": "Select FLIR by pressing the Sensor Control Switch in the direction of the DDI with the FLIR page (left).",
+      "voiced": "Press Sensor Control Switch toward the FLIR DDI to select it."
     },
     {
       "num": 4,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm the Select Focus Diamond appears on the FLIR DDI."
     },
     {
       "num": 5,
-      "action": "Select BST (Boresight) mode by selecting the BST pushbutton on the FLIR page. The FLIR will be slaved to the boresight line of sight."
+      "action": "Select BST (Boresight) mode by selecting the BST pushbutton on the FLIR page. The FLIR will be slaved to the boresight line of sight.",
+      "voiced": "Press the BST pushbutton on the FLIR page to select Boresight — FLIR slews to boresight."
     },
     {
       "num": 6,
-      "action": "Press OSB next to RTCL (boxed) to display the targeting pod’s reticle Sensor Control Switch AFT/FWD/LEFT/RIGHT Reticle 4 - AN/ASQ-228"
+      "action": "Press OSB next to RTCL (boxed) to display the targeting pod's reticle Sensor Control Switch AFT/FWD/LEFT/RIGHT Reticle 4 - AN/ASQ-228",
+      "voiced": "Press OSB next to RTCL to display the targeting pod reticle — confirm it boxes."
     },
     {
       "num": 7,
-      "action": "Use the TDC (Throttle Designator Controller) AFT/FWD/LEFT/AFT Controls to slew the targeting pod on the target. Slewing the targeting pod will automatically disengage Boresight mode."
+      "action": "Use the TDC (Throttle Designator Controller) AFT/FWD/LEFT/AFT Controls to slew the targeting pod on the target. Slewing the targeting pod will automatically disengage Boresight mode.",
+      "voiced": "Use TDC AFT/FWD/Left/Right to slew the pod onto target — slewing disengages Boresight automatically."
     },
     {
       "num": 8,
-      "action": "You can zoom and choose desired FLIR/TV setting using the appropriate Option Select Buttons on the FLIR page."
+      "action": "You can zoom and choose desired FLIR/TV setting using the appropriate Option Select Buttons on the FLIR page.",
+      "voiced": "Use the FLIR page OSBs to zoom and select desired FLIR/TV setting."
     },
     {
       "num": 9,
-      "action": "Press/bump the Sensor Control Switch in the direction of the FLIR format page (left) to attempt to Auto Track the target."
+      "action": "Press/bump the Sensor Control Switch in the direction of the FLIR format page (left) to attempt to Auto Track the target.",
+      "voiced": "Bump Sensor Control Switch toward the FLIR page to attempt Auto Track."
     },
     {
       "num": 10,
-      "action": "When Auto Track is obtained, a designation box will appear on the HUD and the targeting pod will track the target."
+      "action": "When Auto Track is obtained, a designation box will appear on the HUD and the targeting pod will track the target.",
+      "voiced": "Confirm Auto Track — designation box on HUD, pod actively tracks target."
     },
     {
       "num": 11,
-      "action": "If you want to “dump” the target, press the Sensor Control Switch in the direction of the DDI with the FLIR page (left)."
+      "action": "If you want to \"dump\" the target, press the Sensor Control Switch in the direction of the DDI with the FLIR page (left).",
+      "voiced": "Press Sensor Control Switch toward the FLIR DDI to dump the target."
     }
   ]
 }

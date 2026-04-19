@@ -23,23 +23,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Slew the targeting pod to the desired markpoint location (see targeting pod section)."
+      "action": "Slew the targeting pod to the desired markpoint location (see targeting pod section).",
+      "voiced": "Slew the targeting pod to the desired markpoint location."
     },
     {
       "num": 2,
-      "action": "To designate a target, use the TDC DEPRESS control (“ENTER”)."
+      "action": "To designate a target, use the TDC DEPRESS control (\u201cENTER\u201d).",
+      "voiced": "Press TDC Depress to designate the target."
     },
     {
       "num": 3,
-      "action": "A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well."
+      "action": "A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well.",
+      "voiced": "Confirm the diamond appears over the designated point on the FLIR page and HUD."
     },
     {
       "num": 4,
-      "action": "From either the HSI (Horizontal Situation Indicator) or the SA (Situational Awareness) page, press the OSB (Option Select Button) next to MK#."
+      "action": "From either the HSI (Horizontal Situation Indicator) or the SA (Situational Awareness) page, press the OSB (Option Select Button) next to MK#.",
+      "voiced": "From the HSI or SA page, press the OSB next to MK#."
     },
     {
       "num": 5,
-      "action": "The MK# will increment and the markpoint will be created at the designated target point selected when pressing the MK# OSB. (Note: Once MK#9 is created (the last of the 9 available markpoints), the next created MK# will overwrite MK#1, and so on and so) forth. 6 - MARKPOINTS"
+      "action": "The MK# will increment and the markpoint will be created at the designated target point selected when pressing the MK# OSB. (Note: Once MK#9 is created (the last of the 9 available markpoints), the next created MK# will overwrite MK#1, and so on and so) forth. 6 - MARKPOINTS",
+      "voiced": "MK# increments and the markpoint is stored at the designated point — after MK#9 it wraps to MK#1."
     }
   ]
 }

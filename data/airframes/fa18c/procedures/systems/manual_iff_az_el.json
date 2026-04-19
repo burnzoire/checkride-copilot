@@ -22,31 +22,38 @@
   "steps": [
     {
       "num": 1,
-      "action": "Power Up IFF (Identify-Friend-or-Foe) and Datalink systems as shown previously in the MANUAL IFF – NCTR example."
+      "action": "Power Up IFF (Identify-Friend-or-Foe) and Datalink systems as shown previously in the MANUAL IFF – NCTR example.",
+      "voiced": "Power up IFF and Datalink as shown in the Manual IFF NCTR procedure."
     },
     {
       "num": 2,
-      "action": "Make sure your Radar Power switch is set to OPR and Master Mode is set to A/A."
+      "action": "Make sure your Radar Power switch is set to OPR and Master Mode is set to A/A.",
+      "voiced": "Confirm Radar Power switch is set to OPR and Master Mode is A/A."
     },
     {
       "num": 3,
-      "action": "Set Sensor Control Switch to the AZ/EL DDI (Sensor Control Switch Left since we showed up the AZ/EL page on the left DDI). A diamond will appear to show the left DDI is selected."
+      "action": "Set Sensor Control Switch to the AZ/EL DDI (Sensor Control Switch Left since we showed up the AZ/EL page on the left DDI). A diamond will appear to show the left DDI is selected.",
+      "voiced": "Set Sensor Control Switch toward the AZ/EL DDI — confirm diamond appears."
     },
     {
       "num": 4,
-      "action": "Set AZ/EL Sub-page to IFF RDR."
+      "action": "Set AZ/EL Sub-page to IFF RDR.",
+      "voiced": "Set the AZ/EL Sub-page to IFF RDR."
     },
     {
       "num": 5,
-      "action": "Press the OSB next to L&S INT (Launch & Steering Interrogation) activate (boxed)."
+      "action": "Press the OSB next to L&S INT (Launch & Steering Interrogation) activate (boxed).",
+      "voiced": "Press the OSB next to L&S INT to activate — confirm it boxes."
     },
     {
       "num": 6,
-      "action": "Move the TDC over the target using the TDC controls."
+      "action": "Move the TDC over the target using the TDC controls.",
+      "voiced": "Slew the TDC over the target."
     },
     {
       "num": 7,
-      "action": "Interrogate target by using the Sensor Control Switch DEPRESS control for less than 1 second, then Sensor Control Switch RIGHT."
+      "action": "Interrogate target by using the Sensor Control Switch DEPRESS control for less than 1 second, then Sensor Control Switch RIGHT.",
+      "voiced": "Press Sensor Control Switch DEPRESS under 1 second, then Sensor Control Switch RIGHT to interrogate."
     }
   ]
 }

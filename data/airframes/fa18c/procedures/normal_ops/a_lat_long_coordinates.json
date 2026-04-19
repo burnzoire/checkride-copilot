@@ -23,39 +23,48 @@
   "steps": [
     {
       "num": 1,
-      "action": "In the HSI page, press the OSB next to DATA."
+      "action": "In the HSI page, press the OSB next to DATA.",
+      "voiced": "On the HSI page, press the OSB next to DATA."
     },
     {
       "num": 2,
-      "action": "You will see the waypoint sequence. We want to edit the coordinates of Waypoint 7 (which we created in the previous tutorial)."
+      "action": "You will see the waypoint sequence. We want to edit the coordinates of Waypoint 7 (which we created in the previous tutorial).",
+      "voiced": "Confirm the waypoint sequence is visible — select the waypoint to edit."
     },
     {
       "num": 3,
-      "action": "Press the Waypoint Increment/Decrement OSBs to select WYPT 7"
+      "action": "Press the Waypoint Increment/Decrement OSBs to select WYPT 7",
+      "voiced": "Press the Waypoint Increment or Decrement OSBs to select the target waypoint."
     },
     {
       "num": 4,
-      "action": "Press the OSB next to UFC (Up-Front Controller)"
+      "action": "Press the OSB next to UFC (Up-Front Controller)",
+      "voiced": "Press the OSB next to UFC."
     },
     {
       "num": 5,
-      "action": "On the UFC, press the OSB next to POSN (Position). « : » will appear once selected."
+      "action": "On the UFC, press the OSB next to POSN (Position). « : » will appear once selected.",
+      "voiced": "Press the OSB next to POSN on the UFC — confirm colon appears."
     },
     {
       "num": 6,
-      "action": "We will add the coordinates of the Senaki-Kolkhi Airdrome, which are in (deg, minutes, sec): 42°14.31’ North 42°03.64’ East"
+      "action": "We will add the coordinates of the Senaki-Kolkhi Airdrome, which are in (deg, minutes, sec): 42°14.31' North 42°03.64' East",
+      "voiced": "Confirm the latitude/longitude coordinates for the target waypoint."
     },
     {
       "num": 7,
-      "action": "On the UFC, press « 2 » (N) to select North coordinates, type « 421431 », then « ENT » to enter them."
+      "action": "On the UFC, press « 2 » (N) to select North coordinates, type « 421431 », then « ENT » to enter them.",
+      "voiced": "On the UFC, press 2 for North, enter the latitude digits, then press ENT."
     },
     {
       "num": 8,
-      "action": "On the UFC, press « 6 » (E) to select East coordinates, type « 420364 », then « ENT » to enter them."
+      "action": "On the UFC, press « 6 » (E) to select East coordinates, type « 420364 », then « ENT » to enter them.",
+      "voiced": "Press 6 for East, enter the longitude digits, then press ENT."
     },
     {
       "num": 9,
-      "action": "And that’s it! You have edited Waypoint 7’s coordinates. If you click on the OSB next to HSI, you can see that Waypoint 7 is now visible in the sequence lines. 5 - WAYPOINTS"
+      "action": "And that's it! You have edited Waypoint 7's coordinates. If you click on the OSB next to HSI, you can see that Waypoint 7 is now visible in the sequence lines. 5 - WAYPOINTS",
+      "voiced": "Confirm waypoint coordinates are updated — verify on the HSI sequence lines."
     }
   ]
 }

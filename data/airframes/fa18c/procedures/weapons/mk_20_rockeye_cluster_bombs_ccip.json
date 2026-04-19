@@ -32,79 +32,98 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Click on the desired MK-20 Rockeye station to select it (RE)"
+      "action": "Click on the desired MK-20 Rockeye station to select it (RE)",
+      "voiced": "Select the desired MK-20 Rockeye station — confirm RE boxes."
     },
     {
       "num": 5,
-      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 1. STEP is used to change selected station"
+      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 1. STEP is used to change selected station",
+      "voiced": "Toggle programs with the OSB next to PROG and select a delivery program."
     },
     {
       "num": 6,
-      "action": "Click on OSB next to MODE, then click on OSB to select CCIP Mode"
+      "action": "Click on OSB next to MODE, then click on OSB to select CCIP Mode",
+      "voiced": "Press the OSB next to MODE and select CCIP."
     },
     {
       "num": 7,
-      "action": "Click on OSB next to MFUZ (Mechanical Fuze), then press on OSB next to VT (Variable Time or Proximity). This will allow us to set the HOB (Height of Burst) setting."
+      "action": "Click on OSB next to MFUZ (Mechanical Fuze), then press on OSB next to VT (Variable Time or Proximity). This will allow us to set the HOB (Height of Burst) setting.",
+      "voiced": "Press the OSB next to MFUZ, then select VT to enable Height of Burst setting."
     },
     {
       "num": 8,
-      "action": "The « HT » (Height of Burst) option will now become available."
+      "action": "The \u00ab HT \u00bb (Height of Burst) option will now become available.",
+      "voiced": "Confirm HT option becomes available."
     },
     {
       "num": 9,
-      "action": "Press on the OSB next to HT repeatedly to toggle between available Height Burst settings."
+      "action": "Press on the OSB next to HT repeatedly to toggle between available Height Burst settings.",
+      "voiced": "Press the OSB next to HT to select the desired Height of Burst setting."
     },
     {
       "num": 10,
-      "action": "Click on OSB next to « UFC » to activate the UFC keypad for the STORES page"
+      "action": "Click on OSB next to \u00ab UFC \u00bb to activate the UFC keypad for the STORES page",
+      "voiced": "Press the OSB next to UFC to activate the UFC keypad."
     },
     {
       "num": 11,
-      "action": "Click on the OSB next to QTY (« : » means option is selected), type « 2 » on the UFC keypad, then press « ENT » (« : » means option is selected) to set 2 cluster bombs per release."
+      "action": "Click on the OSB next to QTY (\u00ab : \u00bb means option is selected), type \u00ab 2 \u00bb on the UFC keypad, then press \u00ab ENT \u00bb (\u00ab : \u00bb means option is selected) to set 2 cluster bombs per release.",
+      "voiced": "Press the OSB next to QTY, enter desired quantity, then press ENT."
     },
     {
       "num": 12,
-      "action": "Click on the OSB next to MULT (« : » means option is selected), type « 1 » on the UFC keypad, then press « ENT » to set 1 cluster bomb to be released simultaneously from weapon stations"
+      "action": "Click on the OSB next to MULT (\u00ab : \u00bb means option is selected), type \u00ab 1 \u00bb on the UFC keypad, then press \u00ab ENT \u00bb to set 1 cluster bomb to be released simultaneously from weapon stations",
+      "voiced": "Press the OSB next to MULT, enter desired multiplier, then press ENT."
     },
     {
       "num": 13,
-      "action": "Click on the OSB next to INT (« : » means option is selected), type « 500 » on the UFC keypad, then press « ENT » to set a 500 ft bomb impact spacing."
+      "action": "Click on the OSB next to INT (\u00ab : \u00bb means option is selected), type \u00ab 500 \u00bb on the UFC keypad, then press \u00ab ENT \u00bb to set a 500 ft bomb impact spacing.",
+      "voiced": "Press the OSB next to INT, enter desired impact spacing in feet, then press ENT."
     },
     {
       "num": 14,
-      "action": "Start a 30-45 degree dive on your target"
+      "action": "Start a 30-45 degree dive on your target",
+      "voiced": "Start a 30-45 degree dive on the target."
     },
     {
       "num": 15,
-      "action": "Align target vertically with DIL (Displayed Impact Line), also known as Bomb Fall Line."
+      "action": "Align target vertically with DIL (Displayed Impact Line), also known as Bomb Fall Line.",
+      "voiced": "Align the target vertically with the DIL (Bomb Fall Line)."
     },
     {
       "num": 16,
-      "action": "The CCIP cross will appear once a bombing solution is computed."
+      "action": "The CCIP cross will appear once a bombing solution is computed.",
+      "voiced": "Confirm CCIP cross appears once a bombing solution is computed."
     },
     {
       "num": 17,
-      "action": "Steer aircraft to keep the DIL vertical and the CCIP cross on the target."
+      "action": "Steer aircraft to keep the DIL vertical and the CCIP cross on the target.",
+      "voiced": "Steer to keep DIL vertical and CCIP cross on the target."
     },
     {
       "num": 18,
-      "action": "Press hold Weapon Release button (« RALT+SPACE ») once CCIP cross is on target."
+      "action": "Press hold Weapon Release button (\u00ab RALT+SPACE \u00bb) once CCIP cross is on target.",
+      "voiced": "Hold Weapon Release Button once CCIP cross is on target."
     },
     {
       "num": 19,
-      "action": "Pull up before velocity vector reaches the PULL UP cue."
+      "action": "Pull up before velocity vector reaches the PULL UP cue.",
+      "voiced": "Pull up before velocity vector reaches the PULL UP cue."
     }
   ]
 }

@@ -22,23 +22,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Press A/A Master Mode"
+      "action": "Press A/A Master Mode",
+      "voiced": "Press A/A Master Mode."
     },
     {
       "num": 2,
-      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT in our case) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT in our case) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible).",
+      "voiced": "Press Sensor Control Switch toward the radar display — confirm TDC diamond appears on that screen."
     },
     {
       "num": 3,
-      "action": "Slew the TDC on the desired spot you want to designate using the TDC controls."
+      "action": "Slew the TDC on the desired spot you want to designate using the TDC controls.",
+      "voiced": "Slew TDC to the target."
     },
     {
       "num": 4,
-      "action": "Designate target by using the TDC DEPRESS control (« ENTER »). If using RWS (Range While Search), a single TDC DEPRESS will lock the target into STT mode. If LTWS (Latent Track While Scan) option is boxed/selected, the first TDC DEPRESS will designate a target as the L&S (Launch & Steering) Primary Target trackfile (soft lock), but a second TDC DEPRESS is required to lock the target into STT mode. If using TWS (Track While Scan), the first TDC DEPRESS will designate a target as the L&S (Launch & Steering) Primary Target trackfile (soft lock), but a second TDC DEPRESS is required to lock the target into STT mode."
+      "action": "Designate target by using the TDC DEPRESS control (« ENTER »). If using RWS (Range While Search), a single TDC DEPRESS will lock the target into STT mode. If LTWS (Latent Track While Scan) option is boxed/selected, the first TDC DEPRESS will designate a target as the L&S (Launch & Steering) Primary Target trackfile (soft lock), but a second TDC DEPRESS is required to lock the target into STT mode. If using TWS (Track While Scan), the first TDC DEPRESS will designate a target as the L&S (Launch & Steering) Primary Target trackfile (soft lock), but a second TDC DEPRESS is required to lock the target into STT mode.",
+      "voiced": "Press TDC DEPRESS — in RWS that's an immediate STT lock; in LTWS or TWS, first depress soft-locks L&S, second depress locks STT."
     },
     {
       "num": 5,
-      "action": "STT is exited by pressing the Undesignate button. The radar is returned to the last-entered search mode."
+      "action": "STT is exited by pressing the Undesignate button. The radar is returned to the last-entered search mode.",
+      "voiced": "Press Undesignate Button to break STT and return to search."
     }
   ]
 }

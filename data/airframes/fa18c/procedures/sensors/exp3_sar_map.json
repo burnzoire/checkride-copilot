@@ -23,27 +23,33 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure air-to-ground mapping (MAP) mode or EXP1/2 mode is selected (see previous sections)."
+      "action": "Make sure air-to-ground mapping (MAP) mode or EXP1/2 mode is selected (see previous sections).",
+      "voiced": "Confirm MAP or EXP1/2 mode is selected."
     },
     {
       "num": 2,
-      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible).",
+      "voiced": "Press Sensor Control Switch toward the radar screen — confirm TDC diamond appears."
     },
     {
       "num": 3,
-      "action": "Press on the OSB (Option Select Button) next to EXP3."
+      "action": "Press on the OSB (Option Select Button) next to EXP3.",
+      "voiced": "Press the OSB next to EXP3."
     },
     {
       "num": 4,
-      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+      "action": "Press and hold TDC DEPRESS control (« ENTER »).",
+      "voiced": "Press and hold TDC DEPRESS."
     },
     {
       "num": 5,
-      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a Synthetic-Aperture Radar (SAR) map (zoom) using the TDC controls."
+      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a Synthetic-Aperture Radar (SAR) map (zoom) using the TDC controls.",
+      "voiced": "While holding TDC DEPRESS, slew the corral over the desired SAR region."
     },
     {
       "num": 6,
-      "action": "Release the TDC DEPRESS control to enter EXP3 mode."
+      "action": "Release the TDC DEPRESS control to enter EXP3 mode.",
+      "voiced": "Release TDC DEPRESS to enter EXP3 SAR mode."
     }
   ]
 }

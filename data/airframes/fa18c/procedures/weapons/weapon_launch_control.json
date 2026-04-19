@@ -35,111 +35,138 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure the SMS (Stores) page and HSI (Horizontal Situation Indicator) pages are both visible. I recommend setting SMS on the left DDI and HSI on the right DDI."
+      "action": "Make sure the SMS (Stores) page and HSI (Horizontal Situation Indicator) pages are both visible. I recommend setting SMS on the left DDI and HSI on the right DDI.",
+      "voiced": "Set SMS on the left DDI and HSI on the right DDI."
     },
     {
       "num": 2,
-      "action": "Verify the selected SLAM missile’s status is RDY (ready), Master Arm is ON and the correct release profile is set."
+      "action": "Verify the selected SLAM missile's status is RDY (ready), Master Arm is ON and the correct release profile is set.",
+      "voiced": "Confirm SLAM status is RDY, Master Arm is ON, and release profile is correct."
     },
     {
       "num": 3,
-      "action": "TTS indicates the Time-to-Seeker (time until the SLAM seeker head becomes active and can be controlled by the pilot via the TDC and the datalink pod), in seconds."
+      "action": "TTS indicates the Time-to-Seeker (time until the SLAM seeker head becomes active and can be controlled by the pilot via the TDC and the datalink pod), in seconds.",
+      "voiced": "Confirm TTS shows time until SLAM seeker head becomes active."
     },
     {
       "num": 4,
-      "action": "TMR indicates the time required to be within range of a valid SLAM launch (max range circle), in seconds."
+      "action": "TMR indicates the time required to be within range of a valid SLAM launch (max range circle), in seconds.",
+      "voiced": "Confirm TMR shows time until within valid SLAM launch range."
     },
     {
       "num": 5,
-      "action": "Fly the aircraft towards the target designated (diamond on the HUD or designation circle on HSI)."
+      "action": "Fly the aircraft towards the target designated (diamond on the HUD or designation circle on HSI).",
+      "voiced": "Fly toward the designated target — diamond on HUD or circle on HSI."
     },
     {
       "num": 6,
-      "action": "Once the IN RNG (In Range) cue is visible on the Heads-Up Display and SMS (Stores) page, you may launch the missile. However, we will do a few verifications prior to missile launch."
+      "action": "Once the IN RNG (In Range) cue is visible on the Heads-Up Display and SMS (Stores) page, you may launch the missile. However, we will do a few verifications prior to missile launch.",
+      "voiced": "Confirm IN RNG cue on HUD and SMS before launch — verify settings first."
     },
     {
       "num": 7,
-      "action": "On the SMS (Stores) page, press OSB next to SLAM to unbox it."
+      "action": "On the SMS (Stores) page, press OSB next to SLAM to unbox it.",
+      "voiced": "Press the OSB next to SLAM on the SMS page to unbox it."
     },
     {
       "num": 8,
-      "action": "With « DL13 » only being boxed, the screen will switch to Datalink SLAM seeker head video. Take note that no feed is yet available since the « TTS » (Time-To-Seeker » has not yet reached 0, which means that we have not yet reached the DIST parameter (Distance from target until seeker head activation) set previously."
+      "action": "With \u00ab DL13 \u00bb only being boxed, the screen will switch to Datalink SLAM seeker head video. Take note that no feed is yet available since the \u00ab TTS \u00bb (Time-To-Seeker \u00bb has not yet reached 0, which means that we have not yet reached the DIST parameter (Distance from target until seeker head activation) set previously.",
+      "voiced": "Confirm DL13 feed shows — no video until TTS reaches zero at the DIST parameter."
     },
     {
       "num": 9,
-      "action": "Set Sensor Control Switch to the SLAM DL13 Feed DDI (Sensor Control Switch LEFT since we showed up the DL13 feed on the left DDI). A diamond will appear to show the left DDI is selected."
+      "action": "Set Sensor Control Switch to the SLAM DL13 Feed DDI (Sensor Control Switch LEFT since we showed up the DL13 feed on the left DDI). A diamond will appear to show the left DDI is selected.",
+      "voiced": "Set Sensor Control Switch toward the DL13 Feed DDI — confirm diamond appears."
     },
     {
       "num": 10,
-      "action": "The SLAM missile installed on Station 8 is currently selected. We need to verify that the Datalink pod channel corresponds to this specific station. We need to make sure that the Datalink pod is set to Channel 008, which is the channel required for Station 8. (As an example, you would need a Datalink Pod channel of 002 for Station 2)."
+      "action": "The SLAM missile installed on Station 8 is currently selected. We need to verify that the Datalink pod channel corresponds to this specific station. We need to make sure that the Datalink pod is set to Channel 008, which is the channel required for Station 8. (As an example, you would need a Datalink Pod channel of 002 for Station 2).",
+      "voiced": "Confirm Datalink pod channel matches the selected SLAM station number."
     },
     {
       "num": 11,
-      "action": "Press on the OSB next to UFC (Up-Front Control)."
+      "action": "Press on the OSB next to UFC (Up-Front Control).",
+      "voiced": "Press the OSB next to UFC."
     },
     {
       "num": 12,
-      "action": "Press on the UFC button next to CHNL. « : » indicates Channel can be edited."
+      "action": "Press on the UFC button next to CHNL. \u00ab : \u00bb indicates Channel can be edited.",
+      "voiced": "Press the UFC button next to CHNL — confirm colon indicates editable."
     },
     {
       "num": 13,
-      "action": "Enter « 8 » on the UFC scratchpad, then press ENT button to set Datalink pod to Channel 8 (Station 8). Your SLAM and Datalink Channel should now match."
+      "action": "Enter \u00ab 8 \u00bb on the UFC scratchpad, then press ENT button to set Datalink pod to Channel 8 (Station 8). Your SLAM and Datalink Channel should now match.",
+      "voiced": "Enter the station number on the UFC scratchpad, then press ENT."
     },
     {
       "num": 14,
-      "action": "Press on the OSB next to UFC again to deselect UFC menu."
+      "action": "Press on the OSB next to UFC again to deselect UFC menu.",
+      "voiced": "Press the OSB next to UFC again to deselect the UFC menu."
     },
     {
       "num": 15,
-      "action": "Press and hold the Weapon Release button (« RALT+SPACE ») to launch SLAM missile."
+      "action": "Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch SLAM missile.",
+      "voiced": "Press and hold the Weapon Release Button to launch SLAM."
     },
     {
       "num": 16,
-      "action": "Once SLAM is launched, the missile will fly to the cruise altitude (FLT parameter)."
+      "action": "Once SLAM is launched, the missile will fly to the cruise altitude (FLT parameter).",
+      "voiced": "Confirm SLAM climbs to cruise altitude per FLT parameter after launch."
     },
     {
       "num": 17,
-      "action": "The missile will eventually enter a dive and go into the Low Altitude Penetration Stage"
+      "action": "The missile will eventually enter a dive and go into the Low Altitude Penetration Stage",
+      "voiced": "Confirm missile enters Low Altitude Penetration Stage as it approaches the target area."
     },
     {
       "num": 18,
-      "action": "When the missile is close enough to the target, it will steer directly to the target’s area and enter Terminal Attack Stage."
+      "action": "When the missile is close enough to the target, it will steer directly to the target's area and enter Terminal Attack Stage.",
+      "voiced": "Confirm missile steers to target area and enters Terminal Attack Stage."
     },
     {
       "num": 19,
-      "action": "When missile TTS (Time-to-Seeker) reaches zero, this means that the missile has reached the DIST range parameter (distance from target), which is 15 nm. Datalink feed will then display a clear picture and the seeker head becomes « Uncaged »."
+      "action": "When missile TTS (Time-to-Seeker) reaches zero, this means that the missile has reached the DIST range parameter (distance from target), which is 15 nm. Datalink feed will then display a clear picture and the seeker head becomes \u00ab Uncaged \u00bb.",
+      "voiced": "Confirm TTS reaches zero — Datalink feed clears and seeker head uncages at DIST range."
     },
     {
       "num": 20,
-      "action": "At this stage, you may not want to steer the missile needlessly yet until the missile goes into the Terminal Attack Stage (starts diving on the target designated previously)."
+      "action": "At this stage, you may not want to steer the missile needlessly yet until the missile goes into the Terminal Attack Stage (starts diving on the target designated previously).",
+      "voiced": "Hold off steering until missile enters Terminal Attack Stage."
     },
     {
       "num": 21,
-      "action": "Toggle field-of-view (FOV) as desired using the OSB next to FOV."
+      "action": "Toggle field-of-view (FOV) as desired using the OSB next to FOV.",
+      "voiced": "Toggle FOV as desired using the OSB next to FOV."
     },
     {
       "num": 22,
-      "action": "As a general rule, it is recommended to not fly in the same direction of the missile. If you are flying away from the missile (as in: you did a 180-deg turn to fly in opposite direction to the missile’s trajectory), turn on the A ANT (Aft Antenna) option (boxed = on). This will turn the datalink antenna aft (facing the missile) and maintain communication between the missile and the aircraft to allow remote control. Since we are not flying away from the target in this example, we will leave the A ANT option OFF."
+      "action": "As a general rule, it is recommended to not fly in the same direction of the missile. If you are flying away from the missile (as in: you did a 180-deg turn to fly in opposite direction to the missile's trajectory), turn on the A ANT (Aft Antenna) option (boxed = on). This will turn the datalink antenna aft (facing the missile) and maintain communication between the missile and the aircraft to allow remote control. Since we are not flying away from the target in this example, we will leave the A ANT option OFF.",
+      "voiced": "If flying away from the missile, enable A ANT to maintain datalink — leave OFF otherwise."
     },
     {
       "num": 23,
-      "action": "Once SLAM starts its Terminal Attack (dives on the target), you will have to control the missile remotely to adjust its trajectory to strike the target."
+      "action": "Once SLAM starts its Terminal Attack (dives on the target), you will have to control the missile remotely to adjust its trajectory to strike the target.",
+      "voiced": "When SLAM begins Terminal Attack, take remote control to adjust trajectory."
     },
     {
       "num": 24,
-      "action": "To modify the SLAM’s trajectory, hold the TDC Depress button while slewing the TDC with the TDC AFT/FWD/LEFT/RIGHT controls."
+      "action": "To modify the SLAM's trajectory, hold the TDC Depress button while slewing the TDC with the TDC AFT/FWD/LEFT/RIGHT controls.",
+      "voiced": "Hold TDC DEPRESS and slew with TDC controls to adjust SLAM trajectory."
     },
     {
       "num": 25,
-      "action": "Slew the missile crosshair on the target using the TDC (Throttle Designator Controller)."
+      "action": "Slew the missile crosshair on the target using the TDC (Throttle Designator Controller).",
+      "voiced": "Slew the missile crosshair onto the target using the TDC."
     },
     {
       "num": 26,
-      "action": "Once the missile crosshair is lined up on the target, release the TDC Depress button. The missile will then keep flying until it impacts the center of the reticle."
+      "action": "Once the missile crosshair is lined up on the target, release the TDC Depress button. The missile will then keep flying until it impacts the center of the reticle.",
+      "voiced": "Release TDC DEPRESS once crosshair is on target — missile flies to impact."
     },
     {
       "num": 27,
-      "action": "You will lose TV feed once the missile impacts the target."
+      "action": "You will lose TV feed once the missile impacts the target.",
+      "voiced": "Confirm TV feed cuts when missile impacts the target."
     }
   ]
 }

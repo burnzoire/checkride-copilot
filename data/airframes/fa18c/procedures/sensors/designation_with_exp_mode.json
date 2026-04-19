@@ -22,35 +22,43 @@
   "steps": [
     {
       "num": 1,
-      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible).",
+      "voiced": "Press Sensor Control Switch RIGHT to slave TDC to the radar screen — confirm TDC diamond appears."
     },
     {
       "num": 2,
-      "action": "Make sure one of the EXP mode is selected (see previous sections). EXP3 mode is recommended for best precision, but it can work with any other EXP mode."
+      "action": "Make sure one of the EXP mode is selected (see previous sections). EXP3 mode is recommended for best precision, but it can work with any other EXP mode.",
+      "voiced": "Confirm an EXP mode is selected — EXP3 gives best precision."
     },
     {
       "num": 3,
-      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+      "action": "Press and hold TDC DEPRESS control (\u00ab ENTER \u00bb).",
+      "voiced": "Press and hold TDC DEPRESS."
     },
     {
       "num": 4,
-      "action": "While TDC DEPRESS is held, slew the TDC cursor on the desired spot you want to designate using the TDC controls."
+      "action": "While TDC DEPRESS is held, slew the TDC cursor on the desired spot you want to designate using the TDC controls.",
+      "voiced": "While holding TDC DEPRESS, slew the cursor over the desired designation point."
     },
     {
       "num": 5,
-      "action": "Release the TDC DEPRESS control to designate target."
+      "action": "Release the TDC DEPRESS control to designate target.",
+      "voiced": "Release TDC DEPRESS to designate."
     },
     {
       "num": 6,
-      "action": "The air-to-ground radar will automatically adjust its range to give you a better view of the point you just designated."
+      "action": "The air-to-ground radar will automatically adjust its range to give you a better view of the point you just designated.",
+      "voiced": "Confirm the radar auto-adjusts range to center the designated point."
     },
     {
       "num": 7,
-      "action": "On the Radar page, a cross will mark the designated point. On the HUD, a diamond will mark the designated point. This point can be used/slaved to by other sensors (like the targeting pod) if desired."
+      "action": "On the Radar page, a cross will mark the designated point. On the HUD, a diamond will mark the designated point. This point can be used/slaved to by other sensors (like the targeting pod) if desired.",
+      "voiced": "Confirm cross on radar and diamond on HUD — other sensors can slave to this point."
     },
     {
       "num": 8,
-      "action": "Pressing the « Undesignate » button on the stick will delete the designation point."
+      "action": "Pressing the \u00ab Undesignate \u00bb button on the stick will delete the designation point.",
+      "voiced": "Press the Undesignate button on the stick to clear the designation."
     }
   ]
 }

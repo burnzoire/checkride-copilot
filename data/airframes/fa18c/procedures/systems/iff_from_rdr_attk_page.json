@@ -19,15 +19,18 @@
   "steps": [
     {
       "num": 1,
-      "action": "Power Up IFF (Identify-Friend-or-Foe) system by pressing the IFF Button, then holding the ON button on the UFC for a few seconds. When « XP » is displayed, the IFF has been powered up correctly. Verify that Mode 4 is selected (« : » should be visible next to « 4 »). If it is not, press on the OSB (Option Select Button) next to it."
+      "action": "Power Up IFF (Identify-Friend-or-Foe) system by pressing the IFF Button, then holding the ON button on the UFC for a few seconds. When « XP » is displayed, the IFF has been powered up correctly. Verify that Mode 4 is selected (« : » should be visible next to « 4 »). If it is not, press on the OSB (Option Select Button) next to it.",
+      "voiced": "Press the IFF Button, hold ON until XP displays, then confirm Mode 4 is selected — colon visible next to 4."
     },
     {
       "num": 2,
-      "action": "Power Up Link-16 Datalink system by pressing the D/L Button a first time to display the Link-4 datalink options, then press the D/L Button a second time to display the Link-16 datalink options. Then, hold the ON button on the UFC for a few seconds. When « ON » is displayed, the Link-16 Datalink system has been powered up correctly."
+      "action": "Power Up Link-16 Datalink system by pressing the D/L Button a first time to display the Link-4 datalink options, then press the D/L Button a second time to display the Link-16 datalink options. Then, hold the ON button on the UFC for a few seconds. When « ON » is displayed, the Link-16 Datalink system has been powered up correctly.",
+      "voiced": "Press D/L twice to cycle to Link-16, then hold ON until ON displays."
     },
     {
       "num": 3,
-      "action": "On UFC, set desired Datalink Frequency by entering it on the scratchpad, then pressing « ENT ». 127 is used by default, you can keep it."
+      "action": "On UFC, set desired Datalink Frequency by entering it on the scratchpad, then pressing « ENT ». 127 is used by default, you can keep it.",
+      "voiced": "Enter the datalink frequency on the UFC scratchpad and press ENT — 127 is standard."
     }
   ]
 }

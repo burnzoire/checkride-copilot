@@ -21,35 +21,43 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours."
+      "action": "Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours.",
+      "voiced": "Set IR COOL switch to NORM — seeker needs cooling to see through background heat."
     },
     {
       "num": 2,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 3,
-      "action": "Radar switch – OFF"
+      "action": "Radar switch \u2013 OFF",
+      "voiced": "Set Radar switch to OFF."
     },
     {
       "num": 4,
-      "action": "Weapon Select Switch – SIDEWINDER, or « LSHIFT+S »"
+      "action": "Weapon Select Switch \u2013 SIDEWINDER, or \u00ab LSHIFT+S \u00bb",
+      "voiced": "Set Weapon Select Switch to SIDEWINDER."
     },
     {
       "num": 5,
-      "action": "Master Mode switch will be automatically set to A/A"
+      "action": "Master Mode switch will be automatically set to A/A",
+      "voiced": "Master mode auto-transitions to A/A."
     },
     {
       "num": 6,
-      "action": "Press and hold the Cage/Uncage switch to uncage the Sidewinder (« C » by default). Once uncaged, the Sidewinder should be actively looking for a lock on the closest heat signature. As you uncage the Sidewinder, you should hear a low growl tone when the missile seeker is searching."
+      "action": "Press and hold the Cage/Uncage switch to uncage the Sidewinder (\u00ab C \u00bb by default). Once uncaged, the Sidewinder should be actively looking for a lock on the closest heat signature. As you uncage the Sidewinder, you should hear a low growl tone when the missile seeker is searching.",
+      "voiced": "Press and hold Cage/Uncage Button to uncage — listen for the growl, that's the seeker searching."
     },
     {
       "num": 7,
-      "action": "Fly to place the target inside the Sidewinder seeker circle until a high-pitched audio sound confirms that missile’s seeker acquired a solid lock."
+      "action": "Fly to place the target inside the Sidewinder seeker circle until a high-pitched audio sound confirms that missile's seeker acquired a solid lock.",
+      "voiced": "Place target inside the seeker circle — wait for the high-pitched tone confirming solid lock."
     },
     {
       "num": 8,
-      "action": "Squeeze the gun trigger (« Spacebar ») to launch missile."
+      "action": "Squeeze the gun trigger (\u00ab Spacebar \u00bb) to launch missile.",
+      "voiced": "Squeeze the trigger to launch."
     }
   ]
 }

@@ -20,23 +20,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set flamed out engine throttle to IDLE or above."
+      "action": "Set flamed out engine throttle to IDLE or above.",
+      "voiced": "Set the flamed-out engine throttle to IDLE or above."
     },
     {
       "num": 2,
-      "action": "Adjust aircraft airspeed to 350 kts or more. Maintaining a high airspeed will allow windmilling (air flow driving the engine compressor blades) to maintain an engine RPM between 12 % and 45 %, facilitating engine start. Windmill restart attempts made after RPM has degraded to 0 % may require up to 450 kts to obtain 12 % RPM for ignition."
+      "action": "Adjust aircraft airspeed to 350 kts or more. Maintaining a high airspeed will allow windmilling (air flow driving the engine compressor blades) to maintain an engine RPM between 12 % and 45 %, facilitating engine start. Windmill restart attempts made after RPM has degraded to 0 % may require up to 450 kts to obtain 12 % RPM for ignition.",
+      "voiced": "Accelerate to 350 knots minimum — windmilling holds RPM in the 12 to 45 percent band for ignition. If RPM has decayed to zero, you need 450 knots."
     },
     {
       "num": 3,
-      "action": "Make sure that you are flying below 25000 ft."
+      "action": "Make sure that you are flying below 25000 ft.",
+      "voiced": "Confirm altitude below 25,000 feet."
     },
     {
       "num": 4,
-      "action": "Set ENG CRANK Switch to start flamed out engine"
+      "action": "Set ENG CRANK Switch to start flamed out engine",
+      "voiced": "Set ENG CRANK Switch to start the flamed-out engine."
     },
     {
       "num": 5,
-      "action": "In case of a failed engine cross-bleed start, an engine restart with the APU as the bleed air source can be use as the last alternative."
+      "action": "In case of a failed engine cross-bleed start, an engine restart with the APU as the bleed air source can be use as the last alternative.",
+      "voiced": "If cross-bleed start fails, select APU as bleed air source for a last-resort restart."
     }
   ]
 }

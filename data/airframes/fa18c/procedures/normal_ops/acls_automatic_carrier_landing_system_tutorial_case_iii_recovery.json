@@ -52,171 +52,213 @@
   "steps": [
     {
       "num": 1,
-      "action": "Contact Carrier to turn on the lights Left click on the COMM1 knob to pull it and select COMM1 Radio Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode Press the OSB next to AM or FM to select the FM frequency (“:FM” will appear when selected) Press CLR on the UFC to clear current frequency Type “127500” on the UFC to set carrier radio frequency 127.5 MHz Press ENT on the UFC to enter this frequency Press the COMM switch – COMM1 on your throttle to contact the carrier (RALT+\\) Go in F5 – AT5 menu, then to the CVN-73 (George Washington Carrier) menu, then to the F1 – Inbound menu. And that’s it, the carrier is now illuminated. The carrier will then give you a final bearing (353 in this tutorial)."
+      "action": "Contact Carrier to turn on the lights Left click on the COMM1 knob to pull it and select COMM1 Radio Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode Press the OSB next to AM or FM to select the FM frequency (\":FM\" will appear when selected) Press CLR on the UFC to clear current frequency Type \"127500\" on the UFC to set carrier radio frequency 127.5 MHz Press ENT on the UFC to enter this frequency Press the COMM switch – COMM1 on your throttle to contact the carrier (RALT+\\) Go in F5 – AT5 menu, then to the CVN-73 (George Washington Carrier) menu, then to the F1 – Inbound menu. And that's it, the carrier is now illuminated. The carrier will then give you a final bearing (353 in this tutorial).",
+      "voiced": "Contact carrier on 127.5 FM via COMM1, select Inbound — confirm carrier illuminates and provides final bearing."
     },
     {
       "num": 2,
-      "action": "Adjust your interior cockpit lights as required"
+      "action": "Adjust your interior cockpit lights as required",
+      "voiced": "Adjust interior cockpit lights as required."
     },
     {
       "num": 3,
-      "action": "Set your HSI page on the left DDI, your FCS page on the right DDI, and the CHKLST page on the center AMPCD."
+      "action": "Set your HSI page on the left DDI, your FCS page on the right DDI, and the CHKLST page on the center AMPCD.",
+      "voiced": "Set HSI on left DDI, FCS on right DDI, CHKLST on center AMPCD."
     },
     {
       "num": 4,
-      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD and set radar altimeter index to 370 ft or 320 (as you prefer). You use 370 ft to remind you that you need to make the ball call or 320 ft to make sure you have the proper altitude when 3/4 nm from the carrier. 10 – ACLS (AUTOMATIC CARRIER LANDING SYSTEM) TUTORIAL CASE III RECOVERY (SUPERCARRIER) (Note: we will assume the carrier’s TACAN frequency is 73X, our ICLS channel is 11 and our Link 4 Datalink Frequency is 336.0 MHz.)"
+      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD and set radar altimeter index to 370 ft or 320 (as you prefer). You use 370 ft to remind you that you need to make the ball call or 320 ft to make sure you have the proper altitude when 3/4 nm from the carrier. 10 – ACLS (AUTOMATIC CARRIER LANDING SYSTEM) TUTORIAL CASE III RECOVERY (SUPERCARRIER) (Note: we will assume the carrier's TACAN frequency is 73X, our ICLS channel is 11 and our Link 4 Datalink Frequency is 336.0 MHz.)",
+      "voiced": "Set ALTITUDE switch to RDR and radar altimeter index to 370 or 320 ft."
     },
     {
       "num": 5,
-      "action": "On the UFC (Up-Front Control) Panel, press the TCN button and press the ON/OFF button if the ON indication is extinguished."
+      "action": "On the UFC (Up-Front Control) Panel, press the TCN button and press the ON/OFF button if the ON indication is extinguished.",
+      "voiced": "Press TCN on the UFC, then press ON/OFF if TACAN is not already on."
     },
     {
       "num": 6,
-      "action": "Press the T/R OSB button to set it to Transmit/Receive. The “:” symbol indicates that it is selected."
+      "action": "Press the T/R OSB button to set it to Transmit/Receive. The \":\" symbol indicates that it is selected.",
+      "voiced": "Press T/R for Transmit/Receive mode — confirm colon indicates selected."
     },
     {
       "num": 7,
-      "action": "Press “73” on the scratchpad and press “ENT” to enter frequency."
+      "action": "Press \"73\" on the scratchpad and press \"ENT\" to enter frequency.",
+      "voiced": "Enter the carrier TACAN channel on the scratchpad, then press ENT."
     },
     {
       "num": 8,
-      "action": "Press the X or Y OSB to select the right letter of the TACAN frequency (73X in our case)."
+      "action": "Press the X or Y OSB to select the right letter of the TACAN frequency (73X in our case).",
+      "voiced": "Press X or Y to select the correct TACAN frequency suffix."
     },
     {
       "num": 9,
-      "action": "On the UFC (Up-Front Control) Panel, press the ILS button and press the ON/OFF button if the ON indication is extinguished."
+      "action": "On the UFC (Up-Front Control) Panel, press the ILS button and press the ON/OFF button if the ON indication is extinguished.",
+      "voiced": "Press ILS on the UFC, then press ON/OFF if ICLS is not already on."
     },
     {
       "num": 10,
-      "action": "Press “11” on the scratchpad and press “ENT” to enter ICLS channel."
+      "action": "Press \"11\" on the scratchpad and press \"ENT\" to enter ICLS channel.",
+      "voiced": "Enter the ICLS channel on the scratchpad, then press ENT."
     },
     {
       "num": 11,
-      "action": "On the UFC (Up-Front Control) Panel, press the D/L (Datalink) button once to access the Link 4 Datalink menu, and then press the ON/OFF button if the ON indication is extinguished."
+      "action": "On the UFC (Up-Front Control) Panel, press the D/L (Datalink) button once to access the Link 4 Datalink menu, and then press the ON/OFF button if the ON indication is extinguished.",
+      "voiced": "Press D/L on the UFC to access Link 4 Datalink, then press ON/OFF to enable it."
     },
     {
       "num": 12,
-      "action": "Press “3360” on the scratchpad and press “ENT” to enter Link 4 Datalink frequency (336.0 MHz)."
+      "action": "Press \"3360\" on the scratchpad and press \"ENT\" to enter Link 4 Datalink frequency (336.0 MHz).",
+      "voiced": "Enter the Link 4 Datalink frequency on the scratchpad, then press ENT."
     },
     {
       "num": 13,
-      "action": "On the left DDI, which should be set to the HSI (Horizontal Situation Indicator) page, press OSB next to ACL (Automatic Carrier Landing)."
+      "action": "On the left DDI, which should be set to the HSI (Horizontal Situation Indicator) page, press OSB next to ACL (Automatic Carrier Landing).",
+      "voiced": "On the HSI page, press the OSB next to ACL."
     },
     {
       "num": 14,
-      "action": "For a few seconds, the Automatic Carrier System will perform a handshake test with the carrier using the Link 4 Datalink frequency (336.0 MHz) we entered previously. For the duration of the test, “TEST” indication is visible. “UTM FAIL” indication means the Link 4 datalink frequency Is not set correctly."
+      "action": "For a few seconds, the Automatic Carrier System will perform a handshake test with the carrier using the Link 4 Datalink frequency (336.0 MHz) we entered previously. For the duration of the test, \"TEST\" indication is visible. \"UTM FAIL\" indication means the Link 4 datalink frequency Is not set correctly.",
+      "voiced": "Confirm TEST indication appears — UTM FAIL means Link 4 frequency is incorrect."
     },
     {
       "num": 15,
-      "action": "Once test is finished and datalink handshake process is performed, the “TEST” indication will disappear and the “ACL 1” indication will be visible."
+      "action": "Once test is finished and datalink handshake process is performed, the \"TEST\" indication will disappear and the \"ACL 1\" indication will be visible.",
+      "voiced": "Confirm TEST disappears and ACL 1 indication appears."
     },
     {
       "num": 16,
-      "action": "On right DDI, set the SUPT HSI (Horizontal Situation Display) page."
+      "action": "On right DDI, set the SUPT HSI (Horizontal Situation Display) page.",
+      "voiced": "Set SUPT HSI page on the right DDI."
     },
     {
       "num": 17,
-      "action": "If not selected/boxed already, press the OSB next to ILS to select tracking mode to ICLS. Once selected, ILS should be boxed."
+      "action": "If not selected/boxed already, press the OSB next to ILS to select tracking mode to ICLS. Once selected, ILS should be boxed.",
+      "voiced": "Press the OSB next to ILS — confirm ILS boxes."
     },
     {
       "num": 18,
-      "action": "Press the OSB next to TACAN to select tracking mode to TACAN. Once selected, TCN should be boxed."
+      "action": "Press the OSB next to TACAN to select tracking mode to TACAN. Once selected, TCN should be boxed.",
+      "voiced": "Press the OSB next to TACAN — confirm TCN boxes."
     },
     {
       "num": 19,
-      "action": "Click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) for TACAN approach (353 for the Marshal Radial and Final Bearing)."
+      "action": "Click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) for TACAN approach (353 for the Marshal Radial and Final Bearing).",
+      "voiced": "Set CRS knob to the Marshal Radial and Final Bearing."
     },
     {
       "num": 20,
-      "action": "When you are 25 nm from carrier, follow the Marshal Radial (353) and descend from 10,000 ft to 6,000 ft at 300 kts with a descent rate of 4000 ft/min."
+      "action": "When you are 25 nm from carrier, follow the Marshal Radial (353) and descend from 10,000 ft to 6,000 ft at 300 kts with a descent rate of 4000 ft/min.",
+      "voiced": "At 25 nm, follow Marshal Radial and descend to 6,000 ft at 300 kts, 4000 ft/min."
     },
     {
       "num": 21,
-      "action": "Once you are on the Marshal Radial (353) at 6000 ft and 300 kts, line up the aircraft the Final Bearing radial (353), then call “Established” on the radio."
+      "action": "Once you are on the Marshal Radial (353) at 6000 ft and 300 kts, line up the aircraft the Final Bearing radial (353), then call \"Established\" on the radio.",
+      "voiced": "On Marshal Radial at 6000 ft, line up on Final Bearing and call Established."
     },
     {
       "num": 22,
-      "action": "The “DATA” indication on the HUD means that you have received new commands from the carrier via the Link 4 Datalink."
+      "action": "The \"DATA\" indication on the HUD means that you have received new commands from the carrier via the Link 4 Datalink.",
+      "voiced": "Confirm DATA indication on HUD — new commands received from carrier via datalink."
     },
     {
       "num": 23,
-      "action": "On the ACLS page, you will notice the following instructions being sent to you to perform the Case III Recovery: CMD A/S (Commanded Airspeed): 300 kts CMD ALT (Commanded Altitude): 6000 ft CMD ROD (Commanded Rate of Descent): 0 ft/min since we are already at 6000 ft T/C: Traffic & Control Mode 10 – ACLS (AUTOMATIC CARRIER LANDING SYSTEM) TUTORIAL CASE III RECOVERY (SUPERCARRIER) Distance to Carrier (nm) Altitude (ft) Airspeed (kts) Bearing/Distance to Carrier (nm)"
+      "action": "On the ACLS page, you will notice the following instructions being sent to you to perform the Case III Recovery: CMD A/S (Commanded Airspeed): 300 kts CMD ALT (Commanded Altitude): 6000 ft CMD ROD (Commanded Rate of Descent): 0 ft/min since we are already at 6000 ft T/C: Traffic & Control Mode 10 – ACLS (AUTOMATIC CARRIER LANDING SYSTEM) TUTORIAL CASE III RECOVERY (SUPERCARRIER) Distance to Carrier (nm) Altitude (ft) Airspeed (kts) Bearing/Distance to Carrier (nm)",
+      "voiced": "Confirm ACLS commands — 300 kts, 6000 ft, 0 ft/min ROD, T/C mode."
     },
     {
       "num": 24,
-      "action": "Once you are 20 nm from the Carrier, call “Commencing” on the radio and descend to 5000 ft at 250 kts with a descent rate of 4000 ft/min."
+      "action": "Once you are 20 nm from the Carrier, call \"Commencing\" on the radio and descend to 5000 ft at 250 kts with a descent rate of 4000 ft/min.",
+      "voiced": "At 20 nm, call Commencing and descend to 5000 ft at 250 kts."
     },
     {
       "num": 25,
-      "action": "The “DATA” indication on the HUD means that you have received new commands from the carrier via the Link 4 Datalink."
+      "action": "The \"DATA\" indication on the HUD means that you have received new commands from the carrier via the Link 4 Datalink.",
+      "voiced": "Confirm DATA indication — new commands received from carrier."
     },
     {
       "num": 26,
-      "action": "On the ACLS page, you will notice the following instructions being sent to you to perform the Case III Recovery: CMD A/S (Commanded Airspeed): 250 kts CMD ALT (Commanded Altitude): 5000 ft CMD ROD (Commanded Rate of Descent): 4000 ft/min T/C: Traffic & Control Mode The Double Chevrons indicate the position of the carrier."
+      "action": "On the ACLS page, you will notice the following instructions being sent to you to perform the Case III Recovery: CMD A/S (Commanded Airspeed): 250 kts CMD ALT (Commanded Altitude): 5000 ft CMD ROD (Commanded Rate of Descent): 4000 ft/min T/C: Traffic & Control Mode The Double Chevrons indicate the position of the carrier.",
+      "voiced": "Confirm ACLS commands — 250 kts, 5000 ft, 4000 ft/min ROD."
     },
     {
       "num": 27,
-      "action": "Perform a “Check In” call for the approach on the radio and confirm the final bearing (353)."
+      "action": "Perform a \"Check In\" call for the approach on the radio and confirm the final bearing (353).",
+      "voiced": "Call Check In on the radio and confirm the final bearing."
     },
     {
       "num": 28,
-      "action": "When at 5000 ft, call “Platform” on the radio and descend to 1200 ft at 250 kts with a descent rate of 2000 ft/min."
+      "action": "When at 5000 ft, call \"Platform\" on the radio and descend to 1200 ft at 250 kts with a descent rate of 2000 ft/min.",
+      "voiced": "At 5000 ft, call Platform and descend to 1200 ft at 250 kts, 2000 ft/min."
     },
     {
       "num": 29,
-      "action": "The “DATA” indication on the HUD means that you have received new commands from the carrier via the Link 4 Datalink."
+      "action": "The \"DATA\" indication on the HUD means that you have received new commands from the carrier via the Link 4 Datalink.",
+      "voiced": "Confirm DATA indication — new commands received from carrier."
     },
     {
       "num": 30,
-      "action": "On the ACLS page, you will notice the following instructions being sent to you to perform the Case III Recovery: CMD A/S (Commanded Airspeed): 250 kts CMD ALT (Commanded Altitude): 1200 ft CMD ROD (Commanded Rate of Descent): 2000 ft/min T/C: Traffic & Control Mode The Double Chevrons indicate the position of the carrier."
+      "action": "On the ACLS page, you will notice the following instructions being sent to you to perform the Case III Recovery: CMD A/S (Commanded Airspeed): 250 kts CMD ALT (Commanded Altitude): 1200 ft CMD ROD (Commanded Rate of Descent): 2000 ft/min T/C: Traffic & Control Mode The Double Chevrons indicate the position of the carrier.",
+      "voiced": "Confirm ACLS commands — 250 kts, 1200 ft, 2000 ft/min ROD."
     },
     {
       "num": 31,
-      "action": "When reaching 10 nm from carrier, set landing gear down, full flaps, On Speed AoA, Anti-Skid Switch to OFF, Hook Lever DOWN, Hook Bypass Switch to CARRIER."
+      "action": "When reaching 10 nm from carrier, set landing gear down, full flaps, On Speed AoA, Anti-Skid Switch to OFF, Hook Lever DOWN, Hook Bypass Switch to CARRIER.",
+      "voiced": "At 10 nm — gear DOWN, full flaps, On Speed AoA, Anti-Skid OFF, Hook DOWN, Hook Bypass CARRIER."
     },
     {
       "num": 32,
-      "action": "When reaching 8 nm from carrier, reduce speed to 140 kts (with the throttle) and maintain 1200 ft."
+      "action": "When reaching 8 nm from carrier, reduce speed to 140 kts (with the throttle) and maintain 1200 ft.",
+      "voiced": "At 8 nm, reduce to 140 kts and maintain 1200 ft."
     },
     {
       "num": 33,
-      "action": "The “DATA” indication on the HUD means that you have received new commands from the carrier via the Link 4 Datalink."
+      "action": "The \"DATA\" indication on the HUD means that you have received new commands from the carrier via the Link 4 Datalink.",
+      "voiced": "Confirm DATA indication — new commands received from carrier."
     },
     {
       "num": 34,
-      "action": "On the ACLS page, you will notice the following instructions being sent to you to perform the Case III Recovery: CMD A/S (Commanded Airspeed): 140 kts CMD ALT (Commanded Altitude): 1200 ft CMD ROD (Commanded Rate of Descent): 2000 ft/min T/C: Traffic & Control Mode LND CHK indication: aircraft should be in landing configuration (gear down, hook down, flaps down, etc.) and landing checks should be performed. The Double Chevrons indicate the position of the carrier."
+      "action": "On the ACLS page, you will notice the following instructions being sent to you to perform the Case III Recovery: CMD A/S (Commanded Airspeed): 140 kts CMD ALT (Commanded Altitude): 1200 ft CMD ROD (Commanded Rate of Descent): 2000 ft/min T/C: Traffic & Control Mode LND CHK indication: aircraft should be in landing configuration (gear down, hook down, flaps down, etc.) and landing checks should be performed. The Double Chevrons indicate the position of the carrier.",
+      "voiced": "Confirm ACLS commands — 140 kts, 1200 ft — confirm LND CHK indication and landing configuration."
     },
     {
       "num": 35,
-      "action": "When entering final bearing, the localizer line is used to guide yourself laterally on the runway. Line up Velocity Vector with the Localizer Line. « Chase » the line."
+      "action": "When entering final bearing, the localizer line is used to guide yourself laterally on the runway. Line up Velocity Vector with the Localizer Line. « Chase » the line.",
+      "voiced": "On final bearing, chase the localizer line with your velocity vector."
     },
     {
       "num": 36,
-      "action": "When reaching approx. 7 nm from the carrier, the glide slope line will appear. The glide slope line is used to guide yourself vertically on the glide path. Line up Velocity Vector with the Glide Slope Line. « Chase » the line."
+      "action": "When reaching approx. 7 nm from the carrier, the glide slope line will appear. The glide slope line is used to guide yourself vertically on the glide path. Line up Velocity Vector with the Glide Slope Line. « Chase » the line.",
+      "voiced": "At 7 nm, intercept the glide slope line — chase it with the velocity vector."
     },
     {
       "num": 37,
-      "action": "When reaching 6 nm from carrier and flying at 1200 ft altitude and 140 kts airspeed, the carrier will call “ACLS Lock On” followed by your current distance and a “Say Needles” call. The ACLS page will display ACL RDY MODE 1."
+      "action": "When reaching 6 nm from carrier and flying at 1200 ft altitude and 140 kts airspeed, the carrier will call \"ACLS Lock On\" followed by your current distance and a \"Say Needles\" call. The ACLS page will display ACL RDY MODE 1.",
+      "voiced": "At 6 nm, confirm carrier calls ACLS Lock On and ACLS page shows ACL RDY MODE 1."
     },
     {
       "num": 38,
-      "action": "Engage ACLS Mode 1 to perform a fully automatic landing. Press “AP” button, then select “CPL” (Coupled) Autopilot mode."
+      "action": "Engage ACLS Mode 1 to perform a fully automatic landing. Press \"AP\" button, then select \"CPL\" (Coupled) Autopilot mode.",
+      "voiced": "Press AP, then select CPL to engage ACLS Mode 1 for automatic landing."
     },
     {
       "num": 39,
-      "action": "The HUD will display “CPLD P/R” (Coupled Autopilot Pitch/Roll) and ATC (Automatic Throttle Controller). The throttle will maintain 140 kts while the autopilot will ensure the aircraft is on a correct localizer and glide slope to land on the aircraft carrier. The “Tadpole” symbol represents the ideal glide slope determined by the datalink system."
+      "action": "The HUD will display \"CPLD P/R\" (Coupled Autopilot Pitch/Roll) and ATC (Automatic Throttle Controller). The throttle will maintain 140 kts while the autopilot will ensure the aircraft is on a correct localizer and glide slope to land on the aircraft carrier. The \"Tadpole\" symbol represents the ideal glide slope determined by the datalink system.",
+      "voiced": "Confirm CPLD P/R and ATC on HUD — autopilot and throttle now controlling the approach."
     },
     {
       "num": 40,
-      "action": "At this point, the aircraft should land on the carrier by itself."
+      "action": "At this point, the aircraft should land on the carrier by itself.",
+      "voiced": "Confirm aircraft is flying the approach automatically."
     },
     {
       "num": 41,
-      "action": "When at 3/4 nm, call the ball with the radio."
+      "action": "When at 3/4 nm, call the ball with the radio.",
+      "voiced": "At 3/4 nm, call the ball."
     },
     {
       "num": 42,
-      "action": "Note: The TILT message appears on the HUD if you lose datalink for more than two seconds."
+      "action": "Note: The TILT message appears on the HUD if you lose datalink for more than two seconds.",
+      "voiced": "If TILT appears on HUD, datalink has been lost for more than two seconds."
     }
   ]
 }

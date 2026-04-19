@@ -38,87 +38,108 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Click on the desired bomb to select it (82B)"
+      "action": "Click on the desired bomb to select it (82B)",
+      "voiced": "Select the desired bomb on the SMS page."
     },
     {
       "num": 5,
-      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 2. STEP is used to change selected station"
+      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 2. STEP is used to change selected station",
+      "voiced": "Toggle programs with the OSB next to PROG and select a delivery program."
     },
     {
       "num": 6,
-      "action": "Click on OSB next to MODE, then click on OSB to select AUTO Mode"
+      "action": "Click on OSB next to MODE, then click on OSB to select AUTO Mode",
+      "voiced": "Press the OSB next to MODE and select AUTO."
     },
     {
       "num": 7,
-      "action": "Click on OSB next to MFUZ (Mechanical Fuze), then press on OSB next to NOSE."
+      "action": "Click on OSB next to MFUZ (Mechanical Fuze), then press on OSB next to NOSE.",
+      "voiced": "Press the OSB next to MFUZ, then select NOSE."
     },
     {
       "num": 8,
-      "action": "Click on OSB next to EFUZ (Electronic Fuze), then press on OSB next to DLY1 for a delay if desired, otherwise set to INST."
+      "action": "Click on OSB next to EFUZ (Electronic Fuze), then press on OSB next to DLY1 for a delay if desired, otherwise set to INST.",
+      "voiced": "Press the OSB next to EFUZ, then set to INST or DLY1 as desired."
     },
     {
       "num": 9,
-      "action": "Click on OSB next to DRAG, then press on OSB next to either FF (Free-Falling low-drag bomb) or RET (retarded fuze) based on your bomb type."
+      "action": "Click on OSB next to DRAG, then press on OSB next to either FF (Free-Falling low-drag bomb) or RET (retarded fuze) based on your bomb type.",
+      "voiced": "Press the OSB next to DRAG, then select FF or RET based on bomb type."
     },
     {
       "num": 10,
-      "action": "Click on OSB next to « UFC » to activate the UFC keypad for the STORES page"
+      "action": "Click on OSB next to \u00ab UFC \u00bb to activate the UFC keypad for the STORES page",
+      "voiced": "Press the OSB next to UFC to activate the UFC keypad."
     },
     {
       "num": 11,
-      "action": "Click on the OSB next to QTY (« : » means option is selected), type « 2 » on the UFC keypad, then press « ENT » (« : » means option is selected) to set 2 bombs per release."
+      "action": "Click on the OSB next to QTY (\u00ab : \u00bb means option is selected), type \u00ab 2 \u00bb on the UFC keypad, then press \u00ab ENT \u00bb (\u00ab : \u00bb means option is selected) to set 2 bombs per release.",
+      "voiced": "Press the OSB next to QTY, enter desired quantity, then press ENT."
     },
     {
       "num": 12,
-      "action": "Click on the OSB next to MULT (« : » means option is selected), type « 1 » on the UFC keypad, then press « ENT » to set 1 bomb to be released simultaneously from weapon stations"
+      "action": "Click on the OSB next to MULT (\u00ab : \u00bb means option is selected), type \u00ab 1 \u00bb on the UFC keypad, then press \u00ab ENT \u00bb to set 1 bomb to be released simultaneously from weapon stations",
+      "voiced": "Press the OSB next to MULT, enter desired multiplier, then press ENT."
     },
     {
       "num": 13,
-      "action": "Click on the OSB next to INT (« : » means option is selected), type « 500 » on the UFC keypad, then press « ENT » to set a 500 ft bomb impact spacing."
+      "action": "Click on the OSB next to INT (\u00ab : \u00bb means option is selected), type \u00ab 500 \u00bb on the UFC keypad, then press \u00ab ENT \u00bb to set a 500 ft bomb impact spacing.",
+      "voiced": "Press the OSB next to INT, enter desired impact spacing in feet, then press ENT."
     },
     {
       "num": 14,
-      "action": "To slave your TDC (Throttle Designator Controller) to your HUD, press the Sensor Control Switch FWD."
+      "action": "To slave your TDC (Throttle Designator Controller) to your HUD, press the Sensor Control Switch FWD.",
+      "voiced": "Press Sensor Control Switch FWD to slave TDC to the HUD."
     },
     {
       "num": 15,
-      "action": "You will see the « ball and chain » appear. In order to create a reference point for the CCRP, we will have to designate a specific point in space with the TDC."
+      "action": "You will see the \u00ab ball and chain \u00bb appear. In order to create a reference point for the CCRP, we will have to designate a specific point in space with the TDC.",
+      "voiced": "Confirm ball and chain appears — designate CCRP reference point with TDC."
     },
     {
       "num": 16,
-      "action": "Enter a 25 deg dive to the target and set your velocity vector on the target."
+      "action": "Enter a 25 deg dive to the target and set your velocity vector on the target.",
+      "voiced": "Enter a 25 degree dive and set velocity vector on the target."
     },
     {
       "num": 17,
-      "action": "Once velocity vector is on the target, press the TDC Depress (« Enter ») to designate your CCRP reference point."
+      "action": "Once velocity vector is on the target, press the TDC Depress (\u00ab Enter \u00bb) to designate your CCRP reference point.",
+      "voiced": "Press TDC DEPRESS to designate the CCRP reference point."
     },
     {
       "num": 18,
-      "action": "Slew your TD (Target Designator) with the TDC controls to adjust your CCRP reference point properly."
+      "action": "Slew your TD (Target Designator) with the TDC controls to adjust your CCRP reference point properly.",
+      "voiced": "Slew the TD with TDC controls to adjust the CCRP reference point."
     },
     {
       "num": 19,
-      "action": "Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull- Up cue."
+      "action": "Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull- Up cue.",
+      "voiced": "Fly level with velocity vector aligned on the ASL above the pull-up cue."
     },
     {
       "num": 20,
-      "action": "When release cue appears, hold the Weapon Release Button (« RALT+SPACE ») until all bombs in the pass have been released."
+      "action": "When release cue appears, hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) until all bombs in the pass have been released.",
+      "voiced": "Hold the Weapon Release Button when release cue appears until all bombs release."
     },
     {
       "num": 21,
-      "action": "Pull up before velocity vector reaches the PULL UP cue."
+      "action": "Pull up before velocity vector reaches the PULL UP cue.",
+      "voiced": "Pull up before velocity vector reaches the PULL UP cue."
     }
   ]
 }

@@ -20,23 +20,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set Master Mode to A/A"
+      "action": "Set Master Mode to A/A",
+      "voiced": "Select A/A Master Mode."
     },
     {
       "num": 2,
-      "action": "Select AIM-9X Sidewinder missile (Weapon Select Switch DOWN)"
+      "action": "Select AIM-9X Sidewinder missile (Weapon Select Switch DOWN)",
+      "voiced": "Select AIM-9X Sidewinder with Weapon Select Switch DOWN."
     },
     {
       "num": 3,
-      "action": "Set TDC (Throttle Designator Controller) priority to the Helmet Display by pressing Sensor Control Switch FWD"
+      "action": "Set TDC (Throttle Designator Controller) priority to the Helmet Display by pressing Sensor Control Switch FWD",
+      "voiced": "Set TDC priority to the Helmet Display with Sensor Control Switch FWD."
     },
     {
       "num": 4,
-      "action": "Press the Sensor Control Switch AFT to enter Up-Look Cueing."
+      "action": "Press the Sensor Control Switch AFT to enter Up-Look Cueing.",
+      "voiced": "Press Sensor Control Switch AFT to enter Up-Look Cueing."
     },
     {
       "num": 5,
-      "action": "Uncage AIM-9X (Cage/Uncage button on the throttle) and place Up-Look Reticle on target, which allows you to launch AIM-9X missiles beyond radar limits. (Note: this function is not fully implemented yet.) Up-Look Reticle Line of Sight HMD Reticle Line of Sight Helmet Direction Up-Look Reticle Line of Sight HMD Reticle Line of Sight"
+      "action": "Uncage AIM-9X (Cage/Uncage button on the throttle) and place Up-Look Reticle on target, which allows you to launch AIM-9X missiles beyond radar limits. (Note: this function is not fully implemented yet.) Up-Look Reticle Line of Sight HMD Reticle Line of Sight Helmet Direction Up-Look Reticle Line of Sight HMD Reticle Line of Sight",
+      "voiced": "Press Cage/Uncage Button to uncage the AIM-9X, then place the Up-Look Reticle on target."
     }
   ]
 }

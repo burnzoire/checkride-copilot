@@ -38,79 +38,98 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "On the SMS (Stores) page, press OSB next to HPD (AGM-84D Harpoon)"
+      "action": "On the SMS (Stores) page, press OSB next to HPD (AGM-84D Harpoon)",
+      "voiced": "Press the OSB next to HPD on the SMS page."
     },
     {
       "num": 4,
-      "action": "Harpoon will start an inertial alignment that takes about 25 seconds. You can monitor gyro alignment process on the SMS (Stores Management System) page. (Note: Once Harpoon alignment is complete, the timer will disappear.)"
+      "action": "Harpoon will start an inertial alignment that takes about 25 seconds. You can monitor gyro alignment process on the SMS (Stores Management System) page. (Note: Once Harpoon alignment is complete, the timer will disappear.)",
+      "voiced": "Confirm gyro alignment begins — takes ~25 seconds; timer clears when complete."
     },
     {
       "num": 5,
-      "action": "Press the OSB next to « UFC » (Up-Front Controller) to program Harpoon release parameters"
+      "action": "Press the OSB next to \u00ab UFC \u00bb (Up-Front Controller) to program Harpoon release parameters",
+      "voiced": "Press the OSB next to UFC to program Harpoon release parameters."
     },
     {
       "num": 6,
-      "action": "On the UFC, press the button next to “SRCH” (Search Point). A “:” will indicate it is selected. Then, enter on the keypad the desired distance from launch to when the Harpoon will begin searching for a target. Press “ENT” afterwards. In our case, we will choose a Search Point distance of 5 nm."
+      "action": "On the UFC, press the button next to \u201cSRCH\u201d (Search Point). A \u201c:\u201d will indicate it is selected. Then, enter on the keypad the desired distance from launch to when the Harpoon will begin searching for a target. Press \u201cENT\u201d afterwards. In our case, we will choose a Search Point distance of 5 nm.",
+      "voiced": "Press UFC button next to SRCH, enter desired search point distance, then press ENT."
     },
     {
       "num": 7,
-      "action": "On the UFC, press the button next to “DSTR” (Self-Destruct Distance). A “:” will indicate it is selected. Then, enter on the keypad the desired missile self-destruction distance, and press “ENT”. In our case, we will choose a self-destruction distance of 50 nm."
+      "action": "On the UFC, press the button next to \u201cDSTR\u201d (Self-Destruct Distance). A \u201c:\u201d will indicate it is selected. Then, enter on the keypad the desired missile self-destruction distance, and press \u201cENT\u201d. In our case, we will choose a self-destruction distance of 50 nm.",
+      "voiced": "Press UFC button next to DSTR, enter self-destruct distance, then press ENT."
     },
     {
       "num": 8,
-      "action": "On the UFC, press the button next to “BRG” (Bearing). A “:” will indicate it is selected. Then, enter on the keypad the desired bearing (in degrees) the Harpoon will travel, and press “ENT”. In our case, we will choose a bearing of 305."
+      "action": "On the UFC, press the button next to \u201cBRG\u201d (Bearing). A \u201c:\u201d will indicate it is selected. Then, enter on the keypad the desired bearing (in degrees) the Harpoon will travel, and press \u201cENT\u201d. In our case, we will choose a bearing of 305.",
+      "voiced": "Press UFC button next to BRG, enter desired bearing in degrees, then press ENT."
     },
     {
       "num": 9,
-      "action": "Verify “BOL” release mode is selected (can be toggled to R/BL with the OSB next to “MODE” if a target is designated, which we will see in the R/BL tutorial)."
+      "action": "Verify \u201cBOL\u201d release mode is selected (can be toggled to R/BL with the OSB next to \u201cMODE\u201d if a target is designated, which we will see in the R/BL tutorial).",
+      "voiced": "Confirm BOL release mode is selected."
     },
     {
       "num": 10,
-      "action": "Press OSB next to “FLT” (Fly-Out Altitude) to toggle between LOW, MED and HIGH. We will choose LOW."
+      "action": "Press OSB next to \u201cFLT\u201d (Fly-Out Altitude) to toggle between LOW, MED and HIGH. We will choose LOW.",
+      "voiced": "Press the OSB next to FLT to set fly-out altitude — LOW, MED, or HIGH."
     },
     {
       "num": 11,
-      "action": "Press OSB next to “TERM” (Terminal Altitude) to toggle between SKIM and POP attack profiles. SKIM performs a very low-level approach all the way to impact, while POP performs a high-G \"pop-up\" maneuver to impact the target from above. In our case, we will choose SKIM."
+      "action": "Press OSB next to \u201cTERM\u201d (Terminal Altitude) to toggle between SKIM and POP attack profiles. SKIM performs a very low-level approach all the way to impact, while POP performs a high-G \"pop-up\" maneuver to impact the target from above. In our case, we will choose SKIM.",
+      "voiced": "Press the OSB next to TERM to select SKIM or POP terminal attack profile."
     },
     {
       "num": 12,
-      "action": "Set HSI (Horizontal Situation Indicator) on the other DDI from the SUPT menu. This will display the Harpoon profile without the use of a FXP (Fixpoint) or a HPTP (Harpoon Turnpoint). This basic profile will launch the missile and make it turn immediately to the bearing programmed earlier. (Note: Each Harpoon missile must be programmed individually since these programs are not shared between missiles.) Your Position (Weapon Launch) Harpoon Self-Destruct Point (50 nm after Weapon Launch) Search Point (5 nm from weapon launch) 14ia"
+      "action": "Set HSI (Horizontal Situation Indicator) on the other DDI from the SUPT menu. This will display the Harpoon profile without the use of a FXP (Fixpoint) or a HPTP (Harpoon Turnpoint). This basic profile will launch the missile and make it turn immediately to the bearing programmed earlier. (Note: Each Harpoon missile must be programmed individually since these programs are not shared between missiles.) Your Position (Weapon Launch) Harpoon Self-Destruct Point (50 nm after Weapon Launch) Search Point (5 nm from weapon launch) 14ia",
+      "voiced": "Set HSI on the other DDI from the SUPT menu to display the Harpoon profile."
     },
     {
       "num": 13,
-      "action": "When launched in BOL mode, the Harpoon travels either directly in the direction of the set bearing from the aircraft, directly to a Harpoon Turnpoint (HPTP) and then to the set bearing, or directly to the Fixpoint (FXP)."
+      "action": "When launched in BOL mode, the Harpoon travels either directly in the direction of the set bearing from the aircraft, directly to a Harpoon Turnpoint (HPTP) and then to the set bearing, or directly to the Fixpoint (FXP).",
+      "voiced": "Confirm Harpoon travels to set bearing, optionally via HPTP or FXP."
     },
     {
       "num": 14,
-      "action": "Use Fixpoint or HPTP as required. If you want to use a Fixpoint, press the OSB next to FXP. This will create a Fixpoint, which is located halfway in distance between the search point and destruct point, based on the bearing value at that time. The course between the FXP and the aircraft then pivots around said FXP. If you want to use a Harpoon Turnpoint, select a desired waypoint with the HSI, then press the OSB next to HPTP. This profile makes the missile travel directly to the Harpoon Turnpoint (HPTP) and then to the set bearing."
+      "action": "Use Fixpoint or HPTP as required. If you want to use a Fixpoint, press the OSB next to FXP. This will create a Fixpoint, which is located halfway in distance between the search point and destruct point, based on the bearing value at that time. The course between the FXP and the aircraft then pivots around said FXP. If you want to use a Harpoon Turnpoint, select a desired waypoint with the HSI, then press the OSB next to HPTP. This profile makes the missile travel directly to the Harpoon Turnpoint (HPTP) and then to the set bearing.",
+      "voiced": "Optionally configure FXP or HPTP using the appropriate OSBs on the Harpoon page."
     },
     {
       "num": 15,
-      "action": "Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that “IN ZONE” is displayed. If you are not, steer the aircraft in the correct direction."
+      "action": "Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that \u201cIN ZONE\u201d is displayed. If you are not, steer the aircraft in the correct direction.",
+      "voiced": "Confirm IN ZONE cue is displayed — maneuver toward launch zone if needed."
     },
     {
       "num": 16,
-      "action": "Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile."
+      "action": "Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile.",
+      "voiced": "Confirm altitude above 2500 ft and wings level before launch."
     },
     {
       "num": 17,
-      "action": "Press and hold the Weapon Release button (« RALT+SPACE ») to launch Harpoon."
+      "action": "Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch Harpoon.",
+      "voiced": "Press and hold the Weapon Release Button to launch Harpoon."
     },
     {
       "num": 18,
-      "action": "Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system."
+      "action": "Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system.",
+      "voiced": "Confirm momentary radar altimeter warning after launch is normal."
     },
     {
       "num": 19,
-      "action": "The Harpoon, at an altitude corresponding to the FLT option (LOW, 5000 ft), travels either directly in the direction of the set bearing from the aircraft, directly to a Harpoon Turnpoint (HPTP) and then to the set bearing (305), or directly to the Fixpoint (FXP). At the defined search distance (5 nm after reaching the HPTP), the Harpoon will then initiate its search for a target. If it locates one, it will engage it based on the SKIM or POP terminal options (SKIM in our case). If it does not find a target before reaching the self-destruct point, it self-destructs (50 nm after launch)."
+      "action": "The Harpoon, at an altitude corresponding to the FLT option (LOW, 5000 ft), travels either directly in the direction of the set bearing from the aircraft, directly to a Harpoon Turnpoint (HPTP) and then to the set bearing (305), or directly to the Fixpoint (FXP). At the defined search distance (5 nm after reaching the HPTP), the Harpoon will then initiate its search for a target. If it locates one, it will engage it based on the SKIM or POP terminal options (SKIM in our case). If it does not find a target before reaching the self-destruct point, it self-destructs (50 nm after launch).",
+      "voiced": "Confirm Harpoon flies to bearing then searches and engages per SKIM or POP profile."
     }
   ]
 }

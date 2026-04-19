@@ -24,31 +24,38 @@
   "steps": [
     {
       "num": 1,
-      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI.",
+      "voiced": "Select the FLIR page, then press Sensor Control Switch toward the active DDI."
     },
     {
       "num": 2,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm the Select Focus Diamond appears on the FLIR DDI."
     },
     {
       "num": 3,
-      "action": "On HSI (Horizontal Situation Indicator) page, select desired waypoint using the OSBs (Option Select Button) next to UP or DOWN arrows."
+      "action": "On HSI (Horizontal Situation Indicator) page, select desired waypoint using the OSBs (Option Select Button) next to UP or DOWN arrows.",
+      "voiced": "On the HSI page, use the UP or DOWN OSBs to select the desired waypoint."
     },
     {
       "num": 4,
-      "action": "Press OSB next to WYPT (boxed = selected)"
+      "action": "Press OSB next to WYPT (boxed = selected)",
+      "voiced": "Press the OSB next to WYPT — confirm it boxes."
     },
     {
       "num": 5,
-      "action": "Press on OSB next to WPSDG to designate waypoint as the target point (boxed = selected)"
+      "action": "Press on OSB next to WPSDG to designate waypoint as the target point (boxed = selected)",
+      "voiced": "Press the OSB next to WPSDG to designate the waypoint as target — confirm it boxes."
     },
     {
       "num": 6,
-      "action": "Targeting point will automatically slew to the selected waypoint."
+      "action": "Targeting point will automatically slew to the selected waypoint.",
+      "voiced": "Confirm the targeting pod slews automatically to the selected waypoint."
     },
     {
       "num": 7,
-      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target if adjustments are required."
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target if adjustments are required.",
+      "voiced": "Use TDC Aft/Fwd/Left/Right to fine-slew the pod reticle onto target if needed."
     }
   ]
 }

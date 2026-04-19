@@ -23,15 +23,18 @@
   "steps": [
     {
       "num": 1,
-      "action": "Radar: The AZ/EL format displays an azimuth/elevation view similar to the RDR ATTK display but in the vertical plane. It provides the pilot the ability to center the scan in both azimuth as well as elevation via the cursor as a more intuitive alternative to using the Antenna Elevation wheel and Attack format elevation caret. The radar can also be commanded into Single Target Track (STT) from the Az/El (methodology is pretty much the same as with the RDR ATTK display). Furthermore, L&S/DT2 trackfile designation is available using the cursor or Undesignate button."
+      "action": "Radar: The AZ/EL format displays an azimuth/elevation view similar to the RDR ATTK display but in the vertical plane. It provides the pilot the ability to center the scan in both azimuth as well as elevation via the cursor as a more intuitive alternative to using the Antenna Elevation wheel and Attack format elevation caret. The radar can also be commanded into Single Target Track (STT) from the Az/El (methodology is pretty much the same as with the RDR ATTK display). Furthermore, L&S/DT2 trackfile designation is available using the cursor or Undesignate button.",
+      "voiced": "Confirm AZ/EL gives you a vertical-plane picture — steer the scan with the cursor instead of chasing elevation with the antenna wheel."
     },
     {
       "num": 2,
-      "action": "IFF (Identify-Friend-or-Foe) Interrogator: Manual IFF functions are similar to the ones in the RDR ATTK page, but the AZ/EL page allows you to perform automatic identification (AUTO IFF) for a specific range and azimuth. AUTO IFF will be further explained in the PART 12 – DATALINK & IFF section."
+      "action": "IFF (Identify-Friend-or-Foe) Interrogator: Manual IFF functions are similar to the ones in the RDR ATTK page, but the AZ/EL page allows you to perform automatic identification (AUTO IFF) for a specific range and azimuth. AUTO IFF will be further explained in the PART 12 – DATALINK & IFF section.",
+      "voiced": "Confirm AUTO IFF is your AZ/EL edge — specific range and azimuth, hands-off interrogation."
     },
     {
       "num": 3,
-      "action": "FLIR (Forward-Looking Infrared) Targeting Pod Sensor Mode: The FLIR sub-level allows you to slave your targeting pod to a radar-locked target and switch to the FLIR display. This is useful when you want to quickly perform a visual identification of a target if you cannot get a reliable IFF."
+      "action": "FLIR (Forward-Looking Infrared) Targeting Pod Sensor Mode: The FLIR sub-level allows you to slave your targeting pod to a radar-locked target and switch to the FLIR display. This is useful when you want to quickly perform a visual identification of a target if you cannot get a reliable IFF.",
+      "voiced": "Confirm the FLIR sub-level lets you slave the pod to your radar lock and visually ID when IFF gives you nothing solid."
     }
   ]
 }

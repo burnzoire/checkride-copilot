@@ -47,143 +47,178 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Click on the desired bomb to select it (82LG, Laser-Guided)"
+      "action": "Click on the desired bomb to select it (82LG, Laser-Guided)",
+      "voiced": "Select the desired laser-guided bomb on the SMS page."
     },
     {
       "num": 5,
-      "action": "We will create a weapon delivery program by selecting a preset program and modifying it. Toggle programs with the OSB next to PROG. We will use PROG 1 for simplicity."
+      "action": "We will create a weapon delivery program by selecting a preset program and modifying it. Toggle programs with the OSB next to PROG. We will use PROG 1 for simplicity.",
+      "voiced": "Toggle programs with the OSB next to PROG and select a delivery program."
     },
     {
       "num": 6,
-      "action": "The Release Mode can be set to either CCIP or CCRP (AUTO). In our case, we will choose CCRP (AUTO)."
+      "action": "The Release Mode can be set to either CCIP or CCRP (AUTO). In our case, we will choose CCRP (AUTO).",
+      "voiced": "Set release mode to CCRP (AUTO)."
     },
     {
       "num": 7,
-      "action": "Leave MFUZ (Mechanical Fuze) to OFF."
+      "action": "Leave MFUZ (Mechanical Fuze) to OFF.",
+      "voiced": "Leave MFUZ to OFF."
     },
     {
       "num": 8,
-      "action": "Click on OSB next to EFUZ (Electronic Fuze), then press on OSB next to DLY1 for a delay if desired, otherwise set to INST (Instantaneous)."
+      "action": "Click on OSB next to EFUZ (Electronic Fuze), then press on OSB next to DLY1 for a delay if desired, otherwise set to INST (Instantaneous).",
+      "voiced": "Press the OSB next to EFUZ, then set to INST or DLY1 as desired."
     },
     {
       "num": 9,
-      "action": "To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click)."
+      "action": "To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click).",
+      "voiced": "Set FLIR Sensor Switch to STBY to begin targeting pod warm-up."
     },
     {
       "num": 10,
-      "action": "From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to “FLIR” (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. Targeting pod warm-up process will take about 2 minutes. When targeting pod is ready to be used, the pod status will switch from RDY – NOT TIMED OUT to STBY (Standby)."
+      "action": "From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. Targeting pod warm-up process will take about 2 minutes. When targeting pod is ready to be used, the pod status will switch from RDY \u2013 NOT TIMED OUT to STBY (Standby).",
+      "voiced": "Select the FLIR page — monitor warm-up; pod status switches to STBY when ready in ~2 minutes."
     },
     {
       "num": 11,
-      "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate)."
+      "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate).",
+      "voiced": "Set FLIR Sensor Switch to ON — confirm pod switches from STBY to OPR."
     },
     {
       "num": 12,
-      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected."
+      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Press Sensor Control Switch toward the selected DDI — confirm Select Focus Diamond appears."
     },
     {
       "num": 13,
-      "action": "Press the Undesignate button twice rapidly to select VVSLV (Velocity Vector Slaved) mode. This will un-stow the camera and slave the targeting pod to the velocity vector."
+      "action": "Press the Undesignate button twice rapidly to select VVSLV (Velocity Vector Slaved) mode. This will un-stow the camera and slave the targeting pod to the velocity vector.",
+      "voiced": "Press the Undesignate button twice to select VVSLV mode."
     },
     {
       "num": 14,
-      "action": "Press the Undesignate button twice rapidly again to select Snowplow mode. When Snowplow mode is first entered, the FLIR is set to 0° left/right and -8° down."
+      "action": "Press the Undesignate button twice rapidly again to select Snowplow mode. When Snowplow mode is first entered, the FLIR is set to 0\u00b0 left/right and -8\u00b0 down.",
+      "voiced": "Press Undesignate twice again to enter Snowplow mode — FLIR initializes to 0\u00b0 azimuth and -8\u00b0."
     },
     {
       "num": 15,
-      "action": "Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page. Verify A/G Master Mode is set since it will allow you to arm the laser designator."
+      "action": "Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page. Verify A/G Master Mode is set since it will allow you to arm the laser designator.",
+      "voiced": "Set LTD/R switch to ARM — confirm L ARM appears on the FLIR page."
     },
     {
       "num": 16,
-      "action": "Using the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls, slew the targeting pod reticle over the desired target."
+      "action": "Using the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls, slew the targeting pod reticle over the desired target.",
+      "voiced": "Use TDC Aft/Fwd/Left/Right to slew the pod reticle over the target."
     },
     {
       "num": 17,
-      "action": "Use appropriate zoom level, field of view (NARROW/WIDE) and camera mode (CCD/TV or FLIR) to identify the target."
+      "action": "Use appropriate zoom level, field of view (NARROW/WIDE) and camera mode (CCD/TV or FLIR) to identify the target.",
+      "voiced": "Set zoom level, FOV, and camera mode as required to identify the target."
     },
     {
       "num": 18,
-      "action": "Press the Sensor Control Switch Towards Selected Display (Right if our right DDI is selected) to toggle between Point Track (PTRK, tracks a moving object like a high-contrast vehicle) and Area Track (ATRK, used for a static target)."
+      "action": "Press the Sensor Control Switch Towards Selected Display (Right if our right DDI is selected) to toggle between Point Track (PTRK, tracks a moving object like a high-contrast vehicle) and Area Track (ATRK, used for a static target).",
+      "voiced": "Press Sensor Control Switch toward selected display to toggle Point Track or Area Track."
     },
     {
       "num": 19,
-      "action": "Use the TDC (Throttle Designator Controller) Depress button to designate the laser as the target point. This will slave selected air-to- ground weapons to where the laser is firing and display range to target and its coordinates."
+      "action": "Use the TDC (Throttle Designator Controller) Depress button to designate the laser as the target point. This will slave selected air-to- ground weapons to where the laser is firing and display range to target and its coordinates.",
+      "voiced": "Press TDC DEPRESS to designate the laser as the target point."
     },
     {
       "num": 20,
-      "action": "Press the OSB next to “UFC” to set the Targeting Pod laser code on the Up-Front Controller."
+      "action": "Press the OSB next to \u201cUFC\u201d to set the Targeting Pod laser code on the Up-Front Controller.",
+      "voiced": "Press the OSB next to UFC to set the targeting pod laser code."
     },
     {
       "num": 21,
-      "action": "Press the button next to “LTDC” (Laser Target Designator Code). A “:” will indicate it is selected. Then, enter the desired targeting pod designation laser code on the keypad and press “ENT”. We will choose the default laser code 1688."
+      "action": "Press the button next to \u201cLTDC\u201d (Laser Target Designator Code). A \u201c:\u201d will indicate it is selected. Then, enter the desired targeting pod designation laser code on the keypad and press \u201cENT\u201d. We will choose the default laser code 1688.",
+      "voiced": "Press UFC button next to LTDC, enter the targeting pod laser code, then press ENT."
     },
     {
       "num": 22,
-      "action": "Now that the targeting pod has its designation laser code, we need to tell the Stores Management System which laser code the GBU has been programmed to track by the ground crew."
+      "action": "Now that the targeting pod has its designation laser code, we need to tell the Stores Management System which laser code the GBU has been programmed to track by the ground crew.",
+      "voiced": "Confirm targeting pod laser code is set — now enter the bomb's tracking laser code in SMS."
     },
     {
       "num": 23,
-      "action": "In SMS (Stores Management System) page, select GBUs (82LG, boxed when selected)."
+      "action": "In SMS (Stores Management System) page, select GBUs (82LG, boxed when selected).",
+      "voiced": "Select the GBUs on the SMS page."
     },
     {
       "num": 24,
-      "action": "Press the OSB next to “CODE”."
+      "action": "Press the OSB next to \u201cCODE\u201d.",
+      "voiced": "Press the OSB next to CODE."
     },
     {
       "num": 25,
-      "action": "Press the button next to “CODE” (Guided Bomb Laser Code). A “:” will indicate it is selected. Then, enter the laser code of the GBU-12 on the keypad and press “ENT”. We will select laser code 1688, as set by the ground crew previously. (Note: There is an important distinction to make. The) targeting pod’s designation laser code (set in step 21) can be changed while in flight. However, the laser code of the GBU-12 itself is set on the ground by the ground crew (or via the Mission Editor). This specific step does not change the laser code of the bomb itself, it merely tells the Stores Management System that the bomb equipped on the jet will track a laser code set to 1688. You are basically telling the aircraft what it has loaded."
+      "action": "Press the button next to \u201cCODE\u201d (Guided Bomb Laser Code). A \u201c:\u201d will indicate it is selected. Then, enter the laser code of the GBU-12 on the keypad and press \u201cENT\u201d. We will select laser code 1688, as set by the ground crew previously. (Note: There is an important distinction to make. The) targeting pod's designation laser code (set in step 21) can be changed while in flight. However, the laser code of the GBU-12 itself is set on the ground by the ground crew (or via the Mission Editor). This specific step does not change the laser code of the bomb itself, it merely tells the Stores Management System that the bomb equipped on the jet will track a laser code set to 1688. You are basically telling the aircraft what it has loaded.",
+      "voiced": "Press UFC button next to CODE, enter the GBU-12 laser code, then press ENT."
     },
     {
       "num": 26,
-      "action": "The 82LG indication will then display “RDY” since it now has all the information it needs to launch, track a laser with a specific code, then home on the target."
+      "action": "The 82LG indication will then display \u201cRDY\u201d since it now has all the information it needs to launch, track a laser with a specific code, then home on the target.",
+      "voiced": "Confirm 82LG shows RDY — laser code set and weapon is ready."
     },
     {
       "num": 27,
-      "action": "Press the OSB next to “TRIG” if you want to use the laser manually. The indication will become boxed once selected, which means that a gun trigger press will fire the laser. This step is required if you are “buddy lasing” (using your own laser for someone else to use). In our case, we will let the TRIG option off/unboxed. If TRIG remains unboxed, the laser is in Automatic mode. The laser will automatically fire a few seconds before the laser- guided ordnance reaches the target."
+      "action": "Press the OSB next to \u201cTRIG\u201d if you want to use the laser manually. The indication will become boxed once selected, which means that a gun trigger press will fire the laser. This step is required if you are \u201cbuddy lasing\u201d (using your own laser for someone else to use). In our case, we will let the TRIG option off/unboxed. If TRIG remains unboxed, the laser is in Automatic mode. The laser will automatically fire a few seconds before the laser- guided ordnance reaches the target.",
+      "voiced": "Leave TRIG unboxed for auto-lasing — box it for manual or buddy-lasing."
     },
     {
       "num": 28,
-      "action": "Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull-Up cue."
+      "action": "Fly level and keep your velocity vector aligned with the ASL (Azimuth Steering Line) and above the Pull-Up cue.",
+      "voiced": "Fly level with velocity vector aligned on the ASL above the pull-up cue."
     },
     {
       "num": 29,
-      "action": "When release cue appears, hold the Weapon Release Button (« RALT+SPACE ») until bomb has been released."
+      "action": "When release cue appears, hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) until bomb has been released.",
+      "voiced": "Hold the Weapon Release Button when release cue appears until bomb releases."
     },
     {
       "num": 30,
-      "action": "If you want to drop other GBUs, you will have to re-enter a laser code for each bomb every time."
+      "action": "If you want to drop other GBUs, you will have to re-enter a laser code for each bomb every time.",
+      "voiced": "If dropping additional GBUs, re-enter the laser code for each bomb."
     },
     {
       "num": 31,
-      "action": "When bombs are falling and auto-lasing is selected (TRIG option unboxed/off), laser will automatically fire when the GBU is close enough to the target."
+      "action": "When bombs are falling and auto-lasing is selected (TRIG option unboxed/off), laser will automatically fire when the GBU is close enough to the target.",
+      "voiced": "Confirm with auto-lasing, laser fires automatically when GBU is close to target."
     },
     {
       "num": 32,
-      "action": "Once laser is firing, the laser mode will switch from L ARM to LTD/R. The TTI (Time-to-Impact) will become visible."
+      "action": "Once laser is firing, the laser mode will switch from L ARM to LTD/R. The TTI (Time-to-Impact) will become visible.",
+      "voiced": "Confirm laser mode switches from L ARM to LTD/R — TTI becomes visible."
     },
     {
       "num": 33,
-      "action": "The bomb will track the laser for as long as it is fired until it reaches the target."
+      "action": "The bomb will track the laser for as long as it is fired until it reaches the target.",
+      "voiced": "Confirm bomb tracks laser until impact."
     },
     {
       "num": 34,
-      "action": "Once the target is destroyed, the LTD/R (Laser Target Designator/Ranger) will automatically go back to SAFE. You will need to set it back to ARM if you want to lase more targets."
+      "action": "Once the target is destroyed, the LTD/R (Laser Target Designator/Ranger) will automatically go back to SAFE. You will need to set it back to ARM if you want to lase more targets.",
+      "voiced": "Confirm LTD/R returns to SAFE after target destroyed — re-arm to lase additional targets."
     },
     {
       "num": 35,
-      "action": "If you want to undesignated the target, use the Undesignate/Nosewheel Steering button on the stick. CODE flashing cue means the next GBU-12 laser code has not been set FLIR (Targeting Pod) is the sensor of interest (SOI) Bomb has been dropped 14 seconds until auto-lasing occurs Laser Armed Laser Firing Laser Firing Laser Armed Bomb Falling TTI (Time-to-Impact): 9 sec Laser Countdown TTI (Time-to-Impact) TRIG OFF Auto-Lasing ON"
+      "action": "If you want to undesignated the target, use the Undesignate/Nosewheel Steering button on the stick. CODE flashing cue means the next GBU-12 laser code has not been set FLIR (Targeting Pod) is the sensor of interest (SOI) Bomb has been dropped 14 seconds until auto-lasing occurs Laser Armed Laser Firing Laser Firing Laser Armed Bomb Falling TTI (Time-to-Impact): 9 sec Laser Countdown TTI (Time-to-Impact) TRIG OFF Auto-Lasing ON",
+      "voiced": "Press the Undesignate/Nosewheel Steering button to clear target designation."
     }
   ]
 }

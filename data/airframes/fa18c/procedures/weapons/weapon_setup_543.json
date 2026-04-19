@@ -40,71 +40,88 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch – ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode – A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "On the SMS (Stores) page, press OSB next to SLMR to power up the AGM-84H SLAM-ER missile."
+      "action": "On the SMS (Stores) page, press OSB next to SLMR to power up the AGM-84H SLAM-ER missile.",
+      "voiced": "On the SMS page, press the OSB next to SLMR to power up the SLAM-ER."
     },
     {
       "num": 4,
-      "action": "On the SMS (Stores) page, click on the OSB next to DL13 to turn on the Datalink Pod."
+      "action": "On the SMS (Stores) page, click on the OSB next to DL13 to turn on the Datalink Pod.",
+      "voiced": "Press the OSB next to DL13 to turn on the Datalink Pod."
     },
     {
       "num": 5,
-      "action": "Use STEP function to select desired SLAM-ER missile station."
+      "action": "Use STEP function to select desired SLAM-ER missile station.",
+      "voiced": "Use STEP to select the desired SLAM-ER missile station."
     },
     {
       "num": 6,
-      "action": "Once selected, the SLAM-ER needs about 3 minutes for alignment."
+      "action": "Once selected, the SLAM-ER needs about 3 minutes for alignment.",
+      "voiced": "Allow approximately 3 minutes for SLAM-ER alignment."
     },
     {
       "num": 7,
-      "action": "Alignment It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the SMS page and RDY indicator appears on the SMS page."
+      "action": "Alignment It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the SMS page and RDY indicator appears on the SMS page.",
+      "voiced": "Confirm alignment progresses UNSTABLE to MARGINAL to GOOD — TIMING disappears and RDY appears."
     },
     {
       "num": 8,
-      "action": "Press OSB (Option Select Button) next to WEP. This will allow you to choose what SLAM-ER missile is communicating with the Datalink pod."
+      "action": "Press OSB (Option Select Button) next to WEP. This will allow you to choose what SLAM-ER missile is communicating with the Datalink pod.",
+      "voiced": "Press the OSB next to WEP to pair SLAM-ER with the Datalink pod."
     },
     {
       "num": 9,
-      "action": "Select corresponding SLAM-ER station using the OSBs on the left side. In our case, the lower SLMR (yellow) OSB needs to be slaved to Station 8 (boxed)."
+      "action": "Select corresponding SLAM-ER station using the OSBs on the left side. In our case, the lower SLMR (yellow) OSB needs to be slaved to Station 8 (boxed).",
+      "voiced": "Select the corresponding SLMR station OSB to slave it to the Datalink pod."
     },
     {
       "num": 10,
-      "action": "Once communication between SLAM-ER station and datalink pod has been established, a SLMR indication will be displayed under the boxed DL13 indication. Station 8 Station 2"
+      "action": "Once communication between SLAM-ER station and datalink pod has been established, a SLMR indication will be displayed under the boxed DL13 indication. Station 8 Station 2",
+      "voiced": "Confirm SLMR indication appears under the boxed DL13 indication."
     },
     {
       "num": 11,
-      "action": "Press OSB next to FLT (Fly-Out Altitude) parameter to toggle between HIGH (35,000 ft), MED (15,000 ft) and LOW (5,000 ft). We will set it to MED."
+      "action": "Press OSB next to FLT (Fly-Out Altitude) parameter to toggle between HIGH (35,000 ft), MED (15,000 ft) and LOW (5,000 ft). We will set it to MED.",
+      "voiced": "Press the OSB next to FLT to set fly-out altitude — HIGH, MED, or LOW."
     },
     {
       "num": 12,
-      "action": "Press OSB next to EFUZ (Electronic Fuze) to toggle parameter to INST (Instantaneous)."
+      "action": "Press OSB next to EFUZ (Electronic Fuze) to toggle parameter to INST (Instantaneous).",
+      "voiced": "Press the OSB next to EFUZ and set it to INST."
     },
     {
       "num": 13,
-      "action": "Press OSB next to SLMR DSPLY to enter the SLAM-ER DISPLAY page."
+      "action": "Press OSB next to SLMR DSPLY to enter the SLAM-ER DISPLAY page.",
+      "voiced": "Press the OSB next to SLMR DSPLY to enter the SLAM-ER Display page."
     },
     {
       "num": 14,
-      "action": "Once you are in the SLAM-ER DISPLAY page, press OSB next to REL TYPE (Release Type), then press OSB next to MAN to select a Manual Release."
+      "action": "Once you are in the SLAM-ER DISPLAY page, press OSB next to REL TYPE (Release Type), then press OSB next to MAN to select a Manual Release.",
+      "voiced": "Press OSB next to REL TYPE, then press MAN to select Manual Release."
     },
     {
       "num": 15,
-      "action": "Press OSB next to UFC (Up-Front Control). Once UFC is boxed, the DIST parameter (distance from target when seeker head goes active) can be modified from the UFC panel."
+      "action": "Press OSB next to UFC (Up-Front Control). Once UFC is boxed, the DIST parameter (distance from target when seeker head goes active) can be modified from the UFC panel.",
+      "voiced": "Press the OSB next to UFC to box it — DIST parameter is now editable."
     },
     {
       "num": 16,
-      "action": "Press OSB next to DIST to select this field. “:” indicates the field is selected. Then, enter “15” on the UFC keypad, then press “ENT” button to set a DIST parameter of 15 nm."
+      "action": "Press OSB next to DIST to select this field. \":\" indicates the field is selected. Then, enter \"15\" on the UFC keypad, then press \"ENT\" button to set a DIST parameter of 15 nm.",
+      "voiced": "Press OSB next to DIST, enter 15 on the UFC keypad, then press ENT."
     },
     {
       "num": 17,
-      "action": "Press OSB next to UFC to unselect (unbox) the function."
+      "action": "Press OSB next to UFC to unselect (unbox) the function.",
+      "voiced": "Press the OSB next to UFC again to unbox it."
     }
   ]
 }

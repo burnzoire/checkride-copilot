@@ -37,67 +37,83 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "On the SMS (Stores) page, press OSB next to HPD (AGM-84D Harpoon)"
+      "action": "On the SMS (Stores) page, press OSB next to HPD (AGM-84D Harpoon)",
+      "voiced": "Press the OSB next to HPD to select the Harpoon."
     },
     {
       "num": 4,
-      "action": "Harpoon will start an inertial alignment that takes about 25 seconds. You can monitor gyro alignment process on the SMS (Stores Management System) page. (Note: Once Harpoon alignment is complete, the timer) will disappear."
+      "action": "Harpoon will start an inertial alignment that takes about 25 seconds. You can monitor gyro alignment process on the SMS (Stores Management System) page. (Note: Once Harpoon alignment is complete, the timer) will disappear.",
+      "voiced": "Confirm Harpoon alignment starts — monitor progress on the SMS page; timer clears when complete."
     },
     {
       "num": 5,
-      "action": "If you want to use a Harpoon Turnpoint, select a desired waypoint with the HSI, then press the OSB next to HPTP. This profile makes the missile travel directly to the Harpoon Turnpoint (HPTP) and then to the Designated TGT point (we will see how to set it up in the next steps)."
+      "action": "If you want to use a Harpoon Turnpoint, select a desired waypoint with the HSI, then press the OSB next to HPTP. This profile makes the missile travel directly to the Harpoon Turnpoint (HPTP) and then to the Designated TGT point (we will see how to set it up in the next steps).",
+      "voiced": "Select a waypoint on the HSI and press the OSB next to HPTP to set a Harpoon Turnpoint if desired."
     },
     {
       "num": 6,
-      "action": "You will only be able to select the R/BL mode is a target is designated. This can be done by either performing a Waypoint Designate (WPDSG) action via the HSI or by using the Targeting Pod designating ship’s location with (Throttle Designation Control) Depress button. As an example, we will set Waypoint 2 as the TGT point by selecting Waypoint 2 with the OSB selectors, then pressing the OSB next to WPDSG (Waypoint Designate). Waypoint 2 will then become the designated target point."
+      "action": "You will only be able to select the R/BL mode is a target is designated. This can be done by either performing a Waypoint Designate (WPDSG) action via the HSI or by using the Targeting Pod designating ship's location with (Throttle Designation Control) Depress button. As an example, we will set Waypoint 2 as the TGT point by selecting Waypoint 2 with the OSB selectors, then pressing the OSB next to WPDSG (Waypoint Designate). Waypoint 2 will then become the designated target point.",
+      "voiced": "Select the target waypoint on the HSI, then press the OSB next to WPDSG to designate it as target."
     },
     {
       "num": 7,
-      "action": "Once the TGT (Air-to-Ground Target Point) has been designated, the R/BL Mode will become available for selection."
+      "action": "Once the TGT (Air-to-Ground Target Point) has been designated, the R/BL Mode will become available for selection.",
+      "voiced": "Confirm R/BL mode is now available once the TGT is designated."
     },
     {
       "num": 8,
-      "action": "Select “R/BL” release mode by pressing the OSB next to “MODE” if a target is designated properly, the mode will switch from BOL to R/BL."
+      "action": "Select \u201cR/BL\u201d release mode by pressing the OSB next to \u201cMODE\u201d if a target is designated properly, the mode will switch from BOL to R/BL.",
+      "voiced": "Press the OSB next to MODE to select R/BL release mode — confirm it switches from BOL."
     },
     {
       "num": 9,
-      "action": "Press OSB next to “FLT” (Fly-Out Altitude) to toggle between LOW, MED and HIGH. We will choose LOW."
+      "action": "Press OSB next to \u201cFLT\u201d (Fly-Out Altitude) to toggle between LOW, MED and HIGH. We will choose LOW.",
+      "voiced": "Press the OSB next to FLT to select fly-out altitude — LOW, MED, or HIGH."
     },
     {
       "num": 10,
-      "action": "Press OSB next to “TERM” (Terminal Altitude) to toggle between SKIM and POP attack profiles. SKIM performs a very low-level approach all the way to impact, while POP performs a high-G \"pop-up\" maneuver to impact the target from above. In our case, we will choose POP."
+      "action": "Press OSB next to \u201cTERM\u201d (Terminal Altitude) to toggle between SKIM and POP attack profiles. SKIM performs a very low-level approach all the way to impact, while POP performs a high-G \"pop-up\" maneuver to impact the target from above. In our case, we will choose POP.",
+      "voiced": "Press the OSB next to TERM to select SKIM or POP terminal attack profile."
     },
     {
       "num": 11,
-      "action": "Press OSB next to “SEEK” (Search Area) to between SML (5.4 nm), MED (10.8 nm) and LRG (16.2 nm) search area distance. In our case, we will choose MED."
+      "action": "Press OSB next to \u201cSEEK\u201d (Search Area) to between SML (5.4 nm), MED (10.8 nm) and LRG (16.2 nm) search area distance. In our case, we will choose MED.",
+      "voiced": "Press the OSB next to SEEK to select search area — SML, MED, or LRG."
     },
     {
       "num": 12,
-      "action": "Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that “IN RNG” is displayed. If you are not, steer the aircraft in the correct direction and ."
+      "action": "Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that \u201cIN RNG\u201d is displayed. If you are not, steer the aircraft in the correct direction and .",
+      "voiced": "Confirm IN RNG displays — if not, steer aircraft to get in range."
     },
     {
       "num": 13,
-      "action": "Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile."
+      "action": "Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile.",
+      "voiced": "Confirm altitude is above 2,500 ft and aircraft is level — do not launch in negative G."
     },
     {
       "num": 14,
-      "action": "Press and hold the Weapon Release button (« RALT+SPACE ») to launch Harpoon."
+      "action": "Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch Harpoon.",
+      "voiced": "Press and hold Weapon Release Button to launch the Harpoon."
     },
     {
       "num": 15,
-      "action": "Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system."
+      "action": "Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system.",
+      "voiced": "Confirm launch — brief radar altimeter warning after release is normal."
     },
     {
       "num": 16,
-      "action": "The Harpoon, at an altitude corresponding to the FLT option (LOW, 5000 ft), travels either directly in the direction of the set bearing from the aircraft, directly to a Harpoon Turnpoint (HPTP) and then directly to the designated TGT point (Waypoint 2). The missile then begins searching a set programmed distance before the TGT. If it locates a target, it will engage it based on the SKIM or POP terminal modes."
+      "action": "The Harpoon, at an altitude corresponding to the FLT option (LOW, 5000 ft), travels either directly in the direction of the set bearing from the aircraft, directly to a Harpoon Turnpoint (HPTP) and then directly to the designated TGT point (Waypoint 2). The missile then begins searching a set programmed distance before the TGT. If it locates a target, it will engage it based on the SKIM or POP terminal modes.",
+      "voiced": "Confirm Harpoon navigates via HPTP to TGT, searches at set distance, then engages per selected terminal mode."
     }
   ]
 }

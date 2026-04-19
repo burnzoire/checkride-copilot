@@ -27,47 +27,58 @@
   "steps": [
     {
       "num": 1,
-      "action": "Power up the Targeting Pod and set A/G Master Mode as per the previous Power-Up Procedure."
+      "action": "Power up the Targeting Pod and set A/G Master Mode as per the previous Power-Up Procedure.",
+      "voiced": "Power up the targeting pod and select A/G Master Mode."
     },
     {
       "num": 2,
-      "action": "Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page."
+      "action": "Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page.",
+      "voiced": "Set LTD/R switch to ARM — confirm L ARM indication appears on the FLIR page."
     },
     {
       "num": 3,
-      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected."
+      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Press Sensor Control Switch toward the selected DDI — confirm Select Focus Diamond appears."
     },
     {
       "num": 4,
-      "action": "Press the Undesignate button twice to select VVSLV mode."
+      "action": "Press the Undesignate button twice to select VVSLV mode.",
+      "voiced": "Press the Undesignate button twice to select VVSLV mode."
     },
     {
       "num": 5,
-      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode."
+      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode.",
+      "voiced": "Press Undesignate twice again to deselect VVSLV and enter Snowplow mode."
     },
     {
       "num": 6,
-      "action": "Use (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target"
+      "action": "Use (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target",
+      "voiced": "Use TDC Aft/Fwd/Left/Right to slew the pod reticle over the target."
     },
     {
       "num": 7,
-      "action": "Use the TDC DEPRESS control (“ENTER”) to designate target"
+      "action": "Use the TDC DEPRESS control (\u201cENTER\u201d) to designate target",
+      "voiced": "Press TDC DEPRESS to designate the target."
     },
     {
       "num": 8,
-      "action": "Press the OSB next to “TRIG”. The indication will become boxed once selected, which means that a gun trigger press will fire the laser."
+      "action": "Press the OSB next to \u201cTRIG\u201d. The indication will become boxed once selected, which means that a gun trigger press will fire the laser.",
+      "voiced": "Press the OSB next to TRIG — confirm it boxes."
     },
     {
       "num": 9,
-      "action": "Press the OSB next to “MARK” to set the laser in “M Arm” (Marker Arm) mode. When selected, “Mark” indication will be boxed."
+      "action": "Press the OSB next to \u201cMARK\u201d to set the laser in \u201cM Arm\u201d (Marker Arm) mode. When selected, \u201cMark\u201d indication will be boxed.",
+      "voiced": "Press the OSB next to MARK to arm the laser marker — confirm MARK boxes."
     },
     {
       "num": 10,
-      "action": "Press and hold the gun trigger to fire laser. Once laser is firing, the laser mode will switch from M ARM to MARK."
+      "action": "Press and hold the gun trigger to fire laser. Once laser is firing, the laser mode will switch from M ARM to MARK.",
+      "voiced": "Press and hold gun trigger to fire laser — mode switches from M ARM to MARK."
     },
     {
       "num": 11,
-      "action": "An infrared laser will be visible with your night vision goggles."
+      "action": "An infrared laser will be visible with your night vision goggles.",
+      "voiced": "Confirm infrared laser is visible through night vision goggles."
     }
   ]
 }

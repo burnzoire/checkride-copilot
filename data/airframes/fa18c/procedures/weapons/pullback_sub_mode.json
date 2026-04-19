@@ -26,19 +26,23 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)."
+      "action": "Master Arm switch \u2013 ARM (UP).",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "In SMS (Stores Management System) page, click on the OSB next to HRM OVRD to « unbox » it and make Self-Protect Pullback mode active in the process."
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HRM OVRD to \u00ab unbox \u00bb it and make Self-Protect Pullback mode active in the process.",
+      "voiced": "On the SMS page, press the OSB next to HRM OVRD to unbox it — activates Self-Protect Pullback mode."
     },
     {
       "num": 3,
-      "action": "Once HRM OVRD is unboxed and a critical threat (tracking radar lock, active missile radar lock, or semi-active radar illumination) is detected by the RWR, Pullback mode will activate automatically and the text “HARM” will appear on the HUD and Stores format."
+      "action": "Once HRM OVRD is unboxed and a critical threat (tracking radar lock, active missile radar lock, or semi-active radar illumination) is detected by the RWR, Pullback mode will activate automatically and the text \u201cHARM\u201d will appear on the HUD and Stores format.",
+      "voiced": "When HRM OVRD is unboxed and RWR detects a critical threat, Pullback activates automatically — HARM appears on the HUD."
     },
     {
       "num": 4,
-      "action": "If “HARM” is displayed with no X, pressing the Weapon Release button will immediately launch a HARM against the threat. You do not need to change master mode or select the HARM. Notes Because the HARM has no ranging capability and is not slewed with another sensor in SP mode, there is no range to target provided. The HARM is best used at 30,000 feet AGL and above to maximize range. If the targeted radar turns off, the HARM will lose guidance and will likely not hit the target. Weapon Release Button HARM (no X): Pullback Mode allows you to fire a HARM at the threat."
+      "action": "If \u201cHARM\u201d is displayed with no X, pressing the Weapon Release button will immediately launch a HARM against the threat. You do not need to change master mode or select the HARM. Notes Because the HARM has no ranging capability and is not slewed with another sensor in SP mode, there is no range to target provided. The HARM is best used at 30,000 feet AGL and above to maximize range. If the targeted radar turns off, the HARM will lose guidance and will likely not hit the target. Weapon Release Button HARM (no X): Pullback Mode allows you to fire a HARM at the threat.",
+      "voiced": "When HARM shows with no X, press Weapon Release — shot fires immediately, no mode change required."
     }
   ]
 }

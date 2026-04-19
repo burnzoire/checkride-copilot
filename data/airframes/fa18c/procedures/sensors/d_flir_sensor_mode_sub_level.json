@@ -24,35 +24,43 @@
   "steps": [
     {
       "num": 1,
-      "action": "Ensure FLIR is powered and A/A Master Mode is selected"
+      "action": "Ensure FLIR is powered and A/A Master Mode is selected",
+      "voiced": "Confirm FLIR is powered and A/A Master Mode is selected."
     },
     {
       "num": 2,
-      "action": "Set AZ/EL page on any DDI (we will take the left one), then press Sensor Control Switch LEFT to select the left DDI. Selection Diamond should be visible."
+      "action": "Set AZ/EL page on any DDI (we will take the left one), then press Sensor Control Switch LEFT to select the left DDI. Selection Diamond should be visible.",
+      "voiced": "Set the AZ/EL page on a DDI, then press Sensor Control Switch toward that DDI — confirm Selection Diamond appears."
     },
     {
       "num": 3,
-      "action": "Press and hold TDC (Throttle Designation Controller), then slew TDC over a HAFU symbol in the AZ/EL page."
+      "action": "Press and hold TDC (Throttle Designation Controller), then slew TDC over a HAFU symbol in the AZ/EL page.",
+      "voiced": "Press and hold TDC, then slew over a HAFU symbol on the AZ/EL page."
     },
     {
       "num": 4,
-      "action": "When TDC is released, HAFU symbol will become the L&S (Launch & Steering) Primary Target designated by the target."
+      "action": "When TDC is released, HAFU symbol will become the L&S (Launch & Steering) Primary Target designated by the target.",
+      "voiced": "Release TDC — confirm HAFU becomes the L&S Primary Target."
     },
     {
       "num": 5,
-      "action": "Press the OSB next to “IFF RDR” to select FLIR sub-page."
+      "action": "Press the OSB next to \u201cIFF RDR\u201d to select FLIR sub-page.",
+      "voiced": "Press the OSB next to IFF RDR to select the FLIR sub-page."
     },
     {
       "num": 6,
-      "action": "In this particular situation, the FLIR line-of-sight is currently not slaved to the target we have radar locked."
+      "action": "In this particular situation, the FLIR line-of-sight is currently not slaved to the target we have radar locked.",
+      "voiced": "Confirm FLIR line-of-sight is not yet slaved to the radar-locked target."
     },
     {
       "num": 7,
-      "action": "Press on the OSB next to RRSLV to slave the targeting pod to the radar locked target. The line-of-sight symbol should slew over the L&S."
+      "action": "Press on the OSB next to RRSLV to slave the targeting pod to the radar locked target. The line-of-sight symbol should slew over the L&S.",
+      "voiced": "Press the OSB next to RRSLV to slave the pod to the radar-locked target — confirm LOS slews to L&S."
     },
     {
       "num": 8,
-      "action": "Press FLIR DSPLY to access the FLIR feed, which will show the target through the targeting pod’s sensor."
+      "action": "Press FLIR DSPLY to access the FLIR feed, which will show the target through the targeting pod's sensor.",
+      "voiced": "Press FLIR DSPLY to view the targeting pod feed."
     }
   ]
 }

@@ -626,7 +626,7 @@ def _ask_ollama(
             is_enumeration = bool(_ENUMERATION_RE.search(transcript))
             seen_v: set[str] = set()
             variants: list[str] = []
-            if len(sections) >= 2 and confidence != "HIGH" and not is_enumeration and not _variant_resolved:
+            if len(sections) >= 2 and confidence != "HIGH" and not is_enumeration and not _variant_resolved and _is_proc_request(transcript):
                 for s in sections:
                     v = _variant_name(s)
                     if v is not None and v not in seen_v:

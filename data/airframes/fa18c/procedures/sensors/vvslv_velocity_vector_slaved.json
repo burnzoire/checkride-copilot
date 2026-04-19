@@ -24,23 +24,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI.",
+      "voiced": "Select the FLIR page and press Sensor Control Switch toward that DDI."
     },
     {
       "num": 2,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm the Select Focus Diamond is on the FLIR display."
     },
     {
       "num": 3,
-      "action": "Select VVSLV by either: Selecting the VVSLV pushbutton on the FLIR page, or; Pressing the Undesignate button twice within one second."
+      "action": "Select VVSLV by either: Selecting the VVSLV pushbutton on the FLIR page, or; Pressing the Undesignate button twice within one second.",
+      "voiced": "Select VVSLV via the VVSLV pushbutton on the FLIR page, or press Undesignate twice within one second."
     },
     {
       "num": 4,
-      "action": "Press OSB next to RTCL (boxed) to display the targeting pod’s reticle"
+      "action": "Press OSB next to RTCL (boxed) to display the targeting pod's reticle",
+      "voiced": "Press OSB next to RTCL to display the pod reticle."
     },
     {
       "num": 5,
-      "action": "To designate a target, fly the aircraft to set the velocity vector on the target, then use the TDC DEPRESS control (“ENTER”). A diamond will appear over the designated point on the FLIR page."
+      "action": "To designate a target, fly the aircraft to set the velocity vector on the target, then use the TDC DEPRESS control (\u201cENTER\u201d). A diamond will appear over the designated point on the FLIR page.",
+      "voiced": "Fly the velocity vector onto the target, then press TDC DEPRESS to designate."
     }
   ]
 }

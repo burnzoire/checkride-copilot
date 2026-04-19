@@ -20,19 +20,23 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure JHMCS is powered"
+      "action": "Make sure JHMCS is powered",
+      "voiced": "Confirm JHMCS is powered before you touch anything else."
     },
     {
       "num": 2,
-      "action": "Press the A/G Master Mode Button"
+      "action": "Press the A/G Master Mode Button",
+      "voiced": "Press the A/G Master Mode Button."
     },
     {
       "num": 3,
-      "action": "Press Sensor Control Switch FWD to toggle the TDC (Throttle Designator Controller) priority between the HUD (Heads-Up Display) and the HMD (Helmet-Mounted Display). TDC priority is assigned to the helmet when the aiming reticle appears on the helmet."
+      "action": "Press Sensor Control Switch FWD to toggle the TDC (Throttle Designator Controller) priority between the HUD (Heads-Up Display) and the HMD (Helmet-Mounted Display). TDC priority is assigned to the helmet when the aiming reticle appears on the helmet.",
+      "voiced": "Press Sensor Control Switch FWD to toggle TDC priority between HUD and HMD — reticle on the helmet confirms priority is there."
     },
     {
       "num": 4,
-      "action": "Designation can be performed with TDC controls (see sub-section"
+      "action": "Designation can be performed with TDC controls (see sub-section",
+      "voiced": "Designate with TDC controls once priority is on the HMD."
     }
   ]
 }

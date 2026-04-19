@@ -17,15 +17,18 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set Anti-Skid Switch to ON (UP Position) & Landing Lights ON"
+      "action": "Set Anti-Skid Switch to ON (UP Position) & Landing Lights ON",
+      "voiced": "Set Anti-Skid Switch ON and Landing Lights ON."
     },
     {
       "num": 2,
-      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD."
+      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD.",
+      "voiced": "Set ALTITUDE Switch to RDR."
     },
     {
       "num": 3,
-      "action": "Enter upwind leg at approx. 350 kts at about 1000 ft altitude"
+      "action": "Enter upwind leg at approx. 350 kts at about 1000 ft altitude",
+      "voiced": "Enter upwind at 350 knots, 1000 feet."
     }
   ]
 }

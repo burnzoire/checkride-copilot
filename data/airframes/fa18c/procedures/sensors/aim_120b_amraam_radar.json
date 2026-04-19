@@ -39,71 +39,88 @@
   "steps": [
     {
       "num": 1,
-      "action": "Radar Switch – OPERATE"
+      "action": "Radar Switch \u2013 OPERATE",
+      "voiced": "Set Radar Switch to OPERATE."
     },
     {
       "num": 2,
-      "action": "Set RDR ATTK page on the right DDI and the SMS page on the left DDI (Digital Display Indicator) by pressing the MENU OSB, then selecting TAC or SUPT page, then choosing which menu to display on which DDI."
+      "action": "Set RDR ATTK page on the right DDI and the SMS page on the left DDI (Digital Display Indicator) by pressing the MENU OSB, then selecting TAC or SUPT page, then choosing which menu to display on which DDI.",
+      "voiced": "Set RDR ATTK on the right DDI and SMS on the left DDI."
     },
     {
       "num": 3,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 4,
-      "action": "Weapon Select Switch – Right/AMRAAM, or « LSHIFT+D »"
+      "action": "Weapon Select Switch \u2013 Right/AMRAAM, or \u00ab LSHIFT+D \u00bb",
+      "voiced": "Press Weapon Select Switch RIGHT to select AMRAAM."
     },
     {
       "num": 5,
-      "action": "Master Mode switch will be automatically set to A/A"
+      "action": "Master Mode switch will be automatically set to A/A",
+      "voiced": "Confirm Master Mode automatically sets to A/A."
     },
     {
       "num": 6,
-      "action": "On SMS (Stores Management System) page, set your expected target size (SMALL/MEDIUM/LARGE)."
+      "action": "On SMS (Stores Management System) page, set your expected target size (SMALL/MEDIUM/LARGE).",
+      "voiced": "Set expected target size on the SMS page — SMALL, MEDIUM, or LARGE."
     },
     {
       "num": 7,
-      "action": "Set expected target RCS (Radar Cross-Section) on the SMS page (SMALL/MEDIUM/LARGE)."
+      "action": "Set expected target RCS (Radar Cross-Section) on the SMS page (SMALL/MEDIUM/LARGE).",
+      "voiced": "Set expected target RCS on the SMS page — SMALL, MEDIUM, or LARGE."
     },
     {
       "num": 8,
-      "action": "If you have different types of AMRAAMS loaded, select desired AMRAAM station by pressing the Weapon Select Switch – Right/AMRAAM, or « LSHIFT+D ». A « SEL » symbol will be near the selected station. AIM-120Cs are shown as « AC » while AIM- 120Bs are shown as « AB »."
+      "action": "If you have different types of AMRAAMS loaded, select desired AMRAAM station by pressing the Weapon Select Switch \u2013 Right/AMRAAM, or \u00ab LSHIFT+D \u00bb. A \u00ab SEL \u00bb symbol will be near the selected station. AIM-120Cs are shown as \u00ab AC \u00bb while AIM- 120Bs are shown as \u00ab AB \u00bb.",
+      "voiced": "If multiple AMRAAM types loaded, press Weapon Select Switch RIGHT to select desired station — confirm SEL symbol."
     },
     {
       "num": 9,
-      "action": "When AMRAAM is selected, radar is operating, press the Sensor Select Switch RIGHT select BVR/RWS (Beyond Visual Range/Range While Search) radar mode and slave the TDC (Throttle Designation Controller) to the radar screen."
+      "action": "When AMRAAM is selected, radar is operating, press the Sensor Select Switch RIGHT select BVR/RWS (Beyond Visual Range/Range While Search) radar mode and slave the TDC (Throttle Designation Controller) to the radar screen.",
+      "voiced": "Press Sensor Select Switch RIGHT to select BVR/RWS mode and slave TDC to the radar."
     },
     {
       "num": 10,
-      "action": "Set desired radar range scale (40 nm in our case)"
+      "action": "Set desired radar range scale (40 nm in our case)",
+      "voiced": "Set desired radar range scale."
     },
     {
       "num": 11,
-      "action": "Set desired radar azimuth range (140 deg in our case)"
+      "action": "Set desired radar azimuth range (140 deg in our case)",
+      "voiced": "Set desired radar azimuth range."
     },
     {
       "num": 12,
-      "action": "Set desired radar bar mode (4 or 2 bars are generally used) Undesignate / Nosewheel Steering Button Sensor Control Switch AFT/FWD/LEFT/RIGHT TDC is active on Right DDI RWS (Range While Search) Radar Contact Weapon Select Switch FWD: Select Sparrow AFT: Select Gun PRESS DOWN: Select Sidewinder RIGHT: Select Amraam LEFT: No Function"
+      "action": "Set desired radar bar mode (4 or 2 bars are generally used) Undesignate / Nosewheel Steering Button Sensor Control Switch AFT/FWD/LEFT/RIGHT TDC is active on Right DDI RWS (Range While Search) Radar Contact Weapon Select Switch FWD: Select Sparrow AFT: Select Gun PRESS DOWN: Select Sidewinder RIGHT: Select Amraam LEFT: No Function",
+      "voiced": "Set desired radar bar mode — 4 or 2 bars recommended."
     },
     {
       "num": 13,
-      "action": "Control your antenna elevation to make sure the radar scans the desired area."
+      "action": "Control your antenna elevation to make sure the radar scans the desired area.",
+      "voiced": "Adjust antenna elevation to scan the desired area."
     },
     {
       "num": 14,
-      "action": "Move the TDC over the target using the TDC controls."
+      "action": "Move the TDC over the target using the TDC controls.",
+      "voiced": "Slew the TDC over the target."
     },
     {
       "num": 15,
-      "action": "Lock target by using the TDC DEPRESS control (« ENTER »)."
+      "action": "Lock target by using the TDC DEPRESS control (\u00ab ENTER \u00bb).",
+      "voiced": "Press TDC DEPRESS to lock the target."
     },
     {
       "num": 16,
-      "action": "Fly to place target in ASE circle on the HUD to lock it on radar. When target is flying through this scan zone, it is automatically locked on to in STT (Single Target Track) mode"
+      "action": "Fly to place target in ASE circle on the HUD to lock it on radar. When target is flying through this scan zone, it is automatically locked on to in STT (Single Target Track) mode",
+      "voiced": "Fly to place target in the ASE circle — auto-locks in STT when target enters scan zone."
     },
     {
       "num": 17,
-      "action": "Fly to place the Steering Dot inside the ASE/NIRD (Allowable Steering Error / Normalized In-Range Display) Circle and squeeze (and hold) the gun trigger (« Spacebar ») when you see the SHOOT cue over the TD (Target Designation) box on the HUD to launch missile. Note 1: You can unlock a target by pressing the Undesignate Button Note 2: You can also use ACM (Air Combat Maneuvering) radar modes to lock a target, as shown in the AIM-9 Sidewinder tutorial."
+      "action": "Fly to place the Steering Dot inside the ASE/NIRD (Allowable Steering Error / Normalized In-Range Display) Circle and squeeze (and hold) the gun trigger (\u00ab Spacebar \u00bb) when you see the SHOOT cue over the TD (Target Designation) box on the HUD to launch missile. Note 1: You can unlock a target by pressing the Undesignate Button Note 2: You can also use ACM (Air Combat Maneuvering) radar modes to lock a target, as shown in the AIM-9 Sidewinder tutorial.",
+      "voiced": "Place Steering Dot inside the ASE/NIRD circle and squeeze trigger when SHOOT cue appears to launch."
     }
   ]
 }

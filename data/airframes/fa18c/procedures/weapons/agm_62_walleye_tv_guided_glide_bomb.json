@@ -23,23 +23,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch – ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode – A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Click on the OSB next to WEDL to select it. The crossed-out WEDL indication means weapon employment is inhibited."
+      "action": "Click on the OSB next to WEDL to select it. The crossed-out WEDL indication means weapon employment is inhibited.",
+      "voiced": "Press the OSB next to WEDL to select it — crossed-out means employment is inhibited."
     },
     {
       "num": 5,
-      "action": "Click on the OSB next to WEDL a second time to display the Walleye TV feed. DDIs will display a green-scaled screen, while the AMPCD will display a grey-scaled screen. (Note: Walleyes can only be mounted on Stations 2 and 8 (BOMBS category).)"
+      "action": "Click on the OSB next to WEDL a second time to display the Walleye TV feed. DDIs will display a green-scaled screen, while the AMPCD will display a grey-scaled screen. (Note: Walleyes can only be mounted on Stations 2 and 8 (BOMBS category).)",
+      "voiced": "Press the OSB next to WEDL a second time to bring up the Walleye TV feed."
     }
   ]
 }

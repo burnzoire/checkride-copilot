@@ -31,43 +31,53 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Set the TAC EW (Early Warning) page on the right DDI and the SMS (Stores Management System) page on the left DDI."
+      "action": "Set the TAC EW (Early Warning) page on the right DDI and the SMS (Stores Management System) page on the left DDI.",
+      "voiced": "Set TAC EW on the right DDI and SMS on the left DDI."
     },
     {
       "num": 4,
-      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it"
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it",
+      "voiced": "Press the OSB next to HARM to select it."
     },
     {
       "num": 5,
-      "action": "Select TOO (Target-of-Opportunity) Mode"
+      "action": "Select TOO (Target-of-Opportunity) Mode",
+      "voiced": "Select TOO mode."
     },
     {
       "num": 6,
-      "action": "Set Sensor Control Switch to the HARM page DDI (Sensor Control Switch LEFT since we showed up the HARM page on the left DDI). A diamond will appear to show the left DDI is selected."
+      "action": "Set Sensor Control Switch to the HARM page DDI (Sensor Control Switch LEFT since we showed up the HARM page on the left DDI). A diamond will appear to show the left DDI is selected.",
+      "voiced": "Set Sensor Control Switch toward the HARM page DDI — confirm diamond appears."
     },
     {
       "num": 7,
-      "action": "Select which emitter you want to track by pressing the RAID / FLIR FOV Button (“I” binding)."
+      "action": "Select which emitter you want to track by pressing the RAID / FLIR FOV Button (\u201cI\u201d binding).",
+      "voiced": "Select the desired emitter using the RAID/FLIR FOV Button."
     },
     {
       "num": 8,
-      "action": "Fly align target icon with center cross seeker head. (Note: The HARM Display page is not a Top-Down view; it’s a POV (Point-of-View) of the HARM seeker) head with no ground stabilization. HARM DSPLY format provides a boresight view of the HARM seeker."
+      "action": "Fly align target icon with center cross seeker head. (Note: The HARM Display page is not a Top-Down view; it's a POV (Point-of-View) of the HARM seeker) head with no ground stabilization. HARM DSPLY format provides a boresight view of the HARM seeker.",
+      "voiced": "Fly to align the target icon with the HARM seeker center cross."
     },
     {
       "num": 9,
-      "action": "Press the Cage/Uncage Button to uncage the HARM and set it to HANDOFF (H-OFF) Mode. When uncaged, the missile will attempt to lock onto the selected target within the seeker center. The HARM has a range of up to 80 nm."
+      "action": "Press the Cage/Uncage Button to uncage the HARM and set it to HANDOFF (H-OFF) Mode. When uncaged, the missile will attempt to lock onto the selected target within the seeker center. The HARM has a range of up to 80 nm.",
+      "voiced": "Press the Cage/Uncage Button to uncage HARM and enter HANDOFF mode."
     },
     {
       "num": 10,
-      "action": "When lock is acquired by the HARM, the HARM crossed-out indication will disappear. Hold the Weapon Release Button (« RALT+SPACE ») to fire missile."
+      "action": "When lock is acquired by the HARM, the HARM crossed-out indication will disappear. Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to fire missile.",
+      "voiced": "Confirm HARM crossed-out clears when lock acquired — hold Weapon Release Button to fire."
     }
   ]
 }

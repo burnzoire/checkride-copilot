@@ -23,35 +23,43 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Radar switch – OFF"
+      "action": "Radar switch \u2013 OFF",
+      "voiced": "Set Radar switch to OFF."
     },
     {
       "num": 3,
-      "action": "Weapon Select Switch – A/A GUN, or « LSHIFT+X »"
+      "action": "Weapon Select Switch \u2013 A/A GUN, or \u00ab LSHIFT+X \u00bb",
+      "voiced": "Set Weapon Select Switch to A/A GUN."
     },
     {
       "num": 4,
-      "action": "Master Mode switch will be automatically set to A/A"
+      "action": "Master Mode switch will be automatically set to A/A",
+      "voiced": "Master mode auto-transitions to A/A."
     },
     {
       "num": 5,
-      "action": "Go in SMS (Stores Management System) page and select Gun Rounds Options (MK-50 or PGU-28 rounds)"
+      "action": "Go in SMS (Stores Management System) page and select Gun Rounds Options (MK-50 or PGU-28 rounds)",
+      "voiced": "On the SMS page, select your Gun Rounds option — MK-50 or PGU-28."
     },
     {
       "num": 6,
-      "action": "Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute) Sensor Control Switch AFT/FWD/LEFT/RIGHT Gun rounds remaining Weapon Select Switch FWD: Select Sparrow AFT: Select Gun PRESS DOWN: Select Sidewinder RIGHT: Select Amraam LEFT: No Function"
+      "action": "Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute) Sensor Control Switch AFT/FWD/LEFT/RIGHT Gun rounds remaining Weapon Select Switch FWD: Select Sparrow AFT: Select Gun PRESS DOWN: Select Sidewinder RIGHT: Select Amraam LEFT: No Function",
+      "voiced": "Set Gun Firing Rate to HI for 6,000 rpm or LO for 4,000 rpm."
     },
     {
       "num": 7,
-      "action": "Fly to place either the 1000 ft Range Cue dot or the 2000 ft Range Cue dot over the target. Once the 1000 ft (or 2000 ft) Range Cue dot is on the aircraft and its wingspan fits inside the Gun Funnel, you are now in range."
+      "action": "Fly to place either the 1000 ft Range Cue dot or the 2000 ft Range Cue dot over the target. Once the 1000 ft (or 2000 ft) Range Cue dot is on the aircraft and its wingspan fits inside the Gun Funnel, you are now in range.",
+      "voiced": "Place the Range Cue dot on target — you're in range when wingspan fits inside the Gun Funnel."
     },
     {
       "num": 8,
-      "action": "Squeeze the gun trigger (« Spacebar ») Gun rounds remaining Gun Selected & Armed Gun Funnel Gun Cross 1000 ft Range Cue 2000 ft Range"
+      "action": "Squeeze the gun trigger (\u00ab Spacebar \u00bb) Gun rounds remaining Gun Selected & Armed Gun Funnel Gun Cross 1000 ft Range Cue 2000 ft Range",
+      "voiced": "Squeeze the trigger to fire."
     }
   ]
 }

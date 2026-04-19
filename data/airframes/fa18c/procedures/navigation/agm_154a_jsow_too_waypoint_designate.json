@@ -51,135 +51,168 @@
   "steps": [
     {
       "num": 1,
-      "action": "Normally, JSOW strikes using TOO (Target of Opportunity) use waypoint already defined in the mission editor. However, you should always cross-check with the F10 map if the coordinates make sense in terms of Longitude, Latitude and Elevation and modify them if required. Open the SUPT HSI page, then press open the “DATA” sub-menu. Cycle through existing waypoints and verify their coordinates and elevation. You can convert each waypoint to PRECISE coordinates by clicking on the OSB next to PRECISE. It will add two digits to existing coordinates."
+      "action": "Normally, JSOW strikes using TOO (Target of Opportunity) use waypoint already defined in the mission editor. However, you should always cross-check with the F10 map if the coordinates make sense in terms of Longitude, Latitude and Elevation and modify them if required. Open the SUPT HSI page, then press open the \u201cDATA\u201d sub-menu. Cycle through existing waypoints and verify their coordinates and elevation. You can convert each waypoint to PRECISE coordinates by clicking on the OSB next to PRECISE. It will add two digits to existing coordinates.",
+      "voiced": "Verify waypoint coordinates and elevation on the HSI DATA page — convert to PRECISE if needed."
     },
     {
       "num": 2,
-      "action": "Set A/G Master Mode."
+      "action": "Set A/G Master Mode.",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "While on the ground, go in SMS (Stores Management System) page"
+      "action": "While on the ground, go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Click on the desired JSOW to select it (JSA for AGM-154A and JSC for AGM-154C)"
+      "action": "Click on the desired JSOW to select it (JSA for AGM-154A and JSC for AGM-154C)",
+      "voiced": "Press the OSB next to the desired JSOW — JSA for AGM-154A, JSC for AGM-154C."
     },
     {
       "num": 5,
-      "action": "Once selected, JSOWs need about 3 minutes for alignment. It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the JSOW page."
+      "action": "Once selected, JSOWs need about 3 minutes for alignment. It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the JSOW page.",
+      "voiced": "Confirm JSOW alignment starts — monitor from UNSTABLE to MARGINAL to GOOD, ~3 minutes."
     },
     {
       "num": 6,
-      "action": "Select TOO (Target of Opportunity) Release Mode"
+      "action": "Select TOO (Target of Opportunity) Release Mode",
+      "voiced": "Select TOO release mode."
     },
     {
       "num": 7,
-      "action": "Select Electronic Fuze to INST (Instantaneous)."
+      "action": "Select Electronic Fuze to INST (Instantaneous).",
+      "voiced": "Set Electronic Fuze to INST."
     },
     {
       "num": 8,
-      "action": "Go in the JSOW Display page by pressing the"
+      "action": "Go in the JSOW Display page by pressing the",
+      "voiced": "Open the JSOW Display page from the SMS page."
     },
     {
       "num": 9,
-      "action": "Select Manual Release Type"
+      "action": "Select Manual Release Type",
+      "voiced": "Select Manual Release Type."
     },
     {
       "num": 10,
-      "action": "Select desired JSOW quantity to be used for this mission. In our case, we want to drop two JSOWs on Target 1. Press the OSB next to QTY Select desired stations to be used for the mission. Selected stations will become boxed. Press the OSB next to RTN (Return)."
+      "action": "Select desired JSOW quantity to be used for this mission. In our case, we want to drop two JSOWs on Target 1. Press the OSB next to QTY Select desired stations to be used for the mission. Selected stations will become boxed. Press the OSB next to RTN (Return).",
+      "voiced": "Select JSOW quantity and desired stations — confirm stations box, then press the OSB next to RTN."
     },
     {
       "num": 11,
-      "action": "Enter MSN (Mission) page."
+      "action": "Enter MSN (Mission) page.",
+      "voiced": "Enter the MSN page."
     },
     {
       "num": 12,
-      "action": "Select TOO1 to set Target 1 parameters"
+      "action": "Select TOO1 to set Target 1 parameters",
+      "voiced": "Press the OSB next to TOO1 to set Target 1 parameters."
     },
     {
       "num": 13,
-      "action": "Select"
+      "action": "Select",
+      "voiced": "Select the appropriate target option."
     },
     {
       "num": 14,
-      "action": "On the UFC, Select HT (Height). « : » will appear when selected. Then, enter the Height above target in feet at which the JSOW cluster bomb will detonate. As an example, enter 100 on the scratchpad, then press the ENT (Enter) button. The greater the HT, the bigger radius the blast will have. (Note: This step is only required for AGM-154A (cluster) bombs). For the AGM154C, there is no HT setting."
+      "action": "On the UFC, Select HT (Height). \u00ab : \u00bb will appear when selected. Then, enter the Height above target in feet at which the JSOW cluster bomb will detonate. As an example, enter 100 on the scratchpad, then press the ENT (Enter) button. The greater the HT, the bigger radius the blast will have. (Note: This step is only required for AGM-154A (cluster) bombs). For the AGM154C, there is no HT setting.",
+      "voiced": "On the UFC, select HT, enter the cluster burst height in feet, then press ENT. AGM-154A only — not applicable for AGM-154C."
     },
     {
       "num": 15,
-      "action": "Return to main UFC menu by pressing the TOO UFC button twice. Waypoint Used for TOO Target Point Waypoint Used TGT1 Waypoint WP1 (Note:) To access the burst height (HT) in pre-planned mode on MSN, you will need to press TGT UFC then press TERM (Terminal Attack Stage) , and select HT; one extra step vs TOO mode."
+      "action": "Return to main UFC menu by pressing the TOO UFC button twice. Waypoint Used for TOO Target Point Waypoint Used TGT1 Waypoint WP1 (Note:) To access the burst height (HT) in pre-planned mode on MSN, you will need to press TGT UFC then press TERM (Terminal Attack Stage) , and select HT; one extra step vs TOO mode.",
+      "voiced": "Return to the main UFC menu by pressing TOO UFC twice."
     },
     {
       "num": 16,
-      "action": "Our current configuration is 2 stations with 2 JSOW-As each. Therefore, the second JSOW on the rack has the same release parameters and we only need to set up release parameters for Station 2, where the other two JSOW-As are installed."
+      "action": "Our current configuration is 2 stations with 2 JSOW-As each. Therefore, the second JSOW on the rack has the same release parameters and we only need to set up release parameters for Station 2, where the other two JSOW-As are installed.",
+      "voiced": "Confirm Station 2 requires the same release parameter setup as Station 8."
     },
     {
       "num": 17,
-      "action": "Press on STEP to select the next station (STATION 2)."
+      "action": "Press on STEP to select the next station (STATION 2).",
+      "voiced": "Press STEP to select Station 2."
     },
     {
       "num": 18,
-      "action": "Repeat process (Steps 12 through 15) for Station 2 TOO1. Station 8 Station 2 Parameters for Station 8 (Used for Targets 1 & 3) Station 2 Station 8 Parameters for Station 2 (Used for Targets 2 & 4)"
+      "action": "Repeat process (Steps 12 through 15) for Station 2 TOO1. Station 8 Station 2 Parameters for Station 8 (Used for Targets 1 & 3) Station 2 Station 8 Parameters for Station 2 (Used for Targets 2 & 4)",
+      "voiced": "Repeat Steps 12 through 15 to configure Station 2 TOO1 parameters."
     },
     {
       "num": 19,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 20,
-      "action": "Verify Master Mode is set to A/G"
+      "action": "Verify Master Mode is set to A/G",
+      "voiced": "Confirm Master Mode is set to A/G."
     },
     {
       "num": 21,
-      "action": "On the SMS (Stores Management System) page, verify that JSA is selected"
+      "action": "On the SMS (Stores Management System) page, verify that JSA is selected",
+      "voiced": "Confirm JSA is selected on the SMS page."
     },
     {
       "num": 22,
-      "action": "Set HSI on the right DDI and the JSOW Display page on the left DDI (from SMS page, press the JSOW DSPLY OSB, then select MSN (Mission) page)"
+      "action": "Set HSI on the right DDI and the JSOW Display page on the left DDI (from SMS page, press the JSOW DSPLY OSB, then select MSN (Mission) page)",
+      "voiced": "Set HSI on the right DDI and the JSOW Display MSN page on the left DDI."
     },
     {
       "num": 23,
-      "action": "Verify that Manual Release TOO Release Mode is selected and that the desired station and TOO is selected."
+      "action": "Verify that Manual Release TOO Release Mode is selected and that the desired station and TOO is selected.",
+      "voiced": "Confirm Manual Release TOO mode is selected with correct station and TOO active."
     },
     {
       "num": 24,
-      "action": "On the HSI, select Waypoint 1 using the OSBs next to the arrows."
+      "action": "On the HSI, select Waypoint 1 using the OSBs next to the arrows.",
+      "voiced": "On the HSI, select Waypoint 1 using the arrow OSBs."
     },
     {
       "num": 25,
-      "action": "Once the Waypoint 1 is selected, press the OSB next to WPSDG (Waypoint Designate) to designate Waypoint 1 as your TGT1 (Target Point 1). On the HSI, « WYPT » will switch to « TGT »."
+      "action": "Once the Waypoint 1 is selected, press the OSB next to WPSDG (Waypoint Designate) to designate Waypoint 1 as your TGT1 (Target Point 1). On the HSI, \u00ab WYPT \u00bb will switch to \u00ab TGT \u00bb.",
+      "voiced": "Press the OSB next to WPSDG to designate Waypoint 1 as TGT1 — confirm WYPT switches to TGT."
     },
     {
       "num": 26,
-      "action": "Steer aircraft to the target (indicated by a diamond on the HUD) Target Designation Diamond Distance to Target (nm) Steering Cue"
+      "action": "Steer aircraft to the target (indicated by a diamond on the HUD) Target Designation Diamond Distance to Target (nm) Steering Cue",
+      "voiced": "Steer toward the target designation diamond on the HUD."
     },
     {
       "num": 27,
-      "action": "When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying “TMR” (Time to reach acceptable release zone) to “IN RNG” (In Range). You may now release your weapons."
+      "action": "When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying \u201cTMR\u201d (Time to reach acceptable release zone) to \u201cIN RNG\u201d (In Range). You may now release your weapons.",
+      "voiced": "Confirm HUD shows IN RNG — you are now within the acceptable release zone."
     },
     {
       "num": 28,
-      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to drop your first JSOW. In Range Cue"
+      "action": "Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to drop your first JSOW. In Range Cue",
+      "voiced": "Hold the Weapon Release Button to drop the first JSOW."
     },
     {
       "num": 29,
-      "action": "Once the JSOW is released, the system will step to the next available JSOW. However, keep in mind that your next JSOW will still be slaved to Waypoint 1. You need to designate Waypoint 2 as your Target Point."
+      "action": "Once the JSOW is released, the system will step to the next available JSOW. However, keep in mind that your next JSOW will still be slaved to Waypoint 1. You need to designate Waypoint 2 as your Target Point.",
+      "voiced": "Confirm system steps to next JSOW — designate Waypoint 2 as the next target before releasing."
     },
     {
       "num": 30,
-      "action": "On the HSI, select Waypoint 2 using the OSBs next to the arrows."
+      "action": "On the HSI, select Waypoint 2 using the OSBs next to the arrows.",
+      "voiced": "On the HSI, select Waypoint 2 using the arrow OSBs."
     },
     {
       "num": 31,
-      "action": "Once the Waypoint 2 is selected, press the OSB next to WPSDG (Waypoint Designate) to designate Waypoint 2 as your TGT2 (Target Point 2). On the HSI, « WYPT » will switch to « TGT »."
+      "action": "Once the Waypoint 2 is selected, press the OSB next to WPSDG (Waypoint Designate) to designate Waypoint 2 as your TGT2 (Target Point 2). On the HSI, \u00ab WYPT \u00bb will switch to \u00ab TGT \u00bb.",
+      "voiced": "Press the OSB next to WPSDG to designate Waypoint 2 as TGT2 — confirm WYPT switches to TGT."
     },
     {
       "num": 32,
-      "action": "Verify that TOO and station match as per our plan, then release weapon when ready."
+      "action": "Verify that TOO and station match as per our plan, then release weapon when ready.",
+      "voiced": "Confirm TOO and station match the plan, then hold Weapon Release Button."
     },
     {
       "num": 33,
-      "action": "Repeat for remaining bombs."
+      "action": "Repeat for remaining bombs.",
+      "voiced": "Repeat the designation and release process for remaining JSOWs."
     }
   ]
 }

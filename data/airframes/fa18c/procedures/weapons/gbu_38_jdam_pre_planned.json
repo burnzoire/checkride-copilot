@@ -47,151 +47,188 @@
   "steps": [
     {
       "num": 1,
-      "action": "Find coordinates of targets in Degrees Minutes Seconds:Decimal- Seconds. Do not forget target elevation. (Note: Each JDAM station can have five individual Pre-Planned points per) station (PP1 to PP5). This means 20 possible targets for four JDAMs. For simplicity’s sake, we will use: PP1 for Station 2 PP1 for Station 3 PP1 for Station 8 PP1 for Station 7."
+      "action": "Find coordinates of targets in Degrees Minutes Seconds:Decimal- Seconds. Do not forget target elevation. (Note: Each JDAM station can have five individual Pre-Planned points per) station (PP1 to PP5). This means 20 possible targets for four JDAMs. For simplicity's sake, we will use: PP1 for Station 2 PP1 for Station 3 PP1 for Station 8 PP1 for Station 7.",
+      "voiced": "Find target coordinates in Degrees Minutes Seconds format — include elevation for each target."
     },
     {
       "num": 2,
-      "action": "While on the ground, go in SMS (Stores Management System) page"
+      "action": "While on the ground, go in SMS (Stores Management System) page",
+      "voiced": "On the ground, open the SMS page."
     },
     {
       "num": 3,
-      "action": "Click on the desired JDAM bomb to select it (J-82)"
+      "action": "Click on the desired JDAM bomb to select it (J-82)",
+      "voiced": "Select the desired JDAM on the SMS page."
     },
     {
       "num": 4,
-      "action": "Once selected, JDAMs need about 3 minutes for alignment. It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the JDAM page."
+      "action": "Once selected, JDAMs need about 3 minutes for alignment. It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the JDAM page.",
+      "voiced": "Confirm JDAM alignment begins — status progresses UNSTABLE to MARGINAL to GOOD in ~3 minutes."
     },
     {
       "num": 5,
-      "action": "Select PP (Pre-Planned) Release Mode"
+      "action": "Select PP (Pre-Planned) Release Mode",
+      "voiced": "Select PP release mode."
     },
     {
       "num": 6,
-      "action": "Select Electronic Fuze to INST (Instantaneous)."
+      "action": "Select Electronic Fuze to INST (Instantaneous).",
+      "voiced": "Set Electronic Fuze to INST."
     },
     {
       "num": 7,
-      "action": "Go in the JDAM Display page by pressing the"
+      "action": "Go in the JDAM Display page by pressing the",
+      "voiced": "Access the JDAM Display page."
     },
     {
       "num": 8,
-      "action": "Select Manual Release Type"
+      "action": "Select Manual Release Type",
+      "voiced": "Select Manual Release Type."
     },
     {
       "num": 9,
-      "action": "Select desired JDAM quantity to be used for this mission. Press the OSB next to QTY Select desired stations to be used for the mission (I suggest you select all of them). Selected stations will become boxed. Press the OSB next to RTN (Return)."
+      "action": "Select desired JDAM quantity to be used for this mission. Press the OSB next to QTY Select desired stations to be used for the mission (I suggest you select all of them). Selected stations will become boxed. Press the OSB next to RTN (Return).",
+      "voiced": "Press the OSB next to QTY, select desired stations, then press RTN."
     },
     {
       "num": 10,
-      "action": "Enter MSN (Mission) page."
+      "action": "Enter MSN (Mission) page.",
+      "voiced": "Enter the MSN page."
     },
     {
       "num": 11,
-      "action": "Make sure PP1 is selected to input Target 1 coordinates"
+      "action": "Make sure PP1 is selected to input Target 1 coordinates",
+      "voiced": "Confirm PP1 is selected to input Target 1 coordinates."
     },
     {
       "num": 12,
-      "action": "Select"
+      "action": "Select",
+      "voiced": "Select the TGT UFC option."
     },
     {
       "num": 13,
-      "action": "On the UFC, select ELEV (Elevation)"
+      "action": "On the UFC, select ELEV (Elevation)",
+      "voiced": "Press UFC button next to ELEV to set target elevation."
     },
     {
       "num": 14,
-      "action": "Select FEET (« : » will appear when selected), then enter Target 1 altitude on the scratchpad (5745), then press the ENT (Enter) button."
+      "action": "Select FEET (\u00ab : \u00bb will appear when selected), then enter Target 1 altitude on the scratchpad (5745), then press the ENT (Enter) button.",
+      "voiced": "Select FEET, enter target altitude, then press ENT."
     },
     {
       "num": 15,
-      "action": "Return to main UFC menu by pressing the TGT UFC button twice."
+      "action": "Return to main UFC menu by pressing the TGT UFC button twice.",
+      "voiced": "Return to main UFC menu by pressing the TGT UFC button twice."
     },
     {
       "num": 16,
-      "action": "On the UFC, select POSN (Position) « : » will appear once selected."
+      "action": "On the UFC, select POSN (Position) \u00ab : \u00bb will appear once selected.",
+      "voiced": "Press UFC button next to POSN to enter target position."
     },
     {
       "num": 17,
-      "action": "We will add the coordinates of Target 1 (PP1) 30 °17’15.33’’ North 56 °57’49.29’’ East"
+      "action": "We will add the coordinates of Target 1 (PP1) 30 \u00b017'15.33'' North 56 \u00b057'49.29'' East",
+      "voiced": "Enter Target 1 coordinates for PP1."
     },
     {
       "num": 18,
-      "action": "On the UFC, select LAT (Latitude). « : » will appear once selected."
+      "action": "On the UFC, select LAT (Latitude). \u00ab : \u00bb will appear once selected.",
+      "voiced": "Press UFC button next to LAT to enter latitude."
     },
     {
       "num": 19,
-      "action": "Press « 2 » (N) to select North coordinates, type « 301715 », then « ENT » to enter Degrees Minutes Seconds."
+      "action": "Press \u00ab 2 \u00bb (N) to select North coordinates, type \u00ab 301715 \u00bb, then \u00ab ENT \u00bb to enter Degrees Minutes Seconds.",
+      "voiced": "Select N or S, enter Degrees Minutes Seconds, then press ENT."
     },
     {
       "num": 20,
-      "action": "Wait for the UFC screen to reset, then type « 33 », then « ENT » to enter remaining Decimal-Seconds."
+      "action": "Wait for the UFC screen to reset, then type \u00ab 33 \u00bb, then \u00ab ENT \u00bb to enter remaining Decimal-Seconds.",
+      "voiced": "Wait for UFC to reset, enter Decimal-Seconds, then press ENT."
     },
     {
       "num": 21,
-      "action": "On the UFC, select LON (Longitude). « : » will appear once selected."
+      "action": "On the UFC, select LON (Longitude). \u00ab : \u00bb will appear once selected.",
+      "voiced": "Press UFC button next to LON to enter longitude."
     },
     {
       "num": 22,
-      "action": "On the UFC, press « 6 » (E) to select East coordinates, type « 565749 », then « ENT » to enter Degrees Minutes Seconds."
+      "action": "On the UFC, press \u00ab 6 \u00bb (E) to select East coordinates, type \u00ab 565749 \u00bb, then \u00ab ENT \u00bb to enter Degrees Minutes Seconds.",
+      "voiced": "Select E or W, enter Degrees Minutes Seconds, then press ENT."
     },
     {
       "num": 23,
-      "action": "Wait for the UFC screen to reset, then type « 29 », then « ENT » to enter remaining Decimal-Seconds."
+      "action": "Wait for the UFC screen to reset, then type \u00ab 29 \u00bb, then \u00ab ENT \u00bb to enter remaining Decimal-Seconds.",
+      "voiced": "Wait for UFC to reset, enter Decimal-Seconds, then press ENT."
     },
     {
       "num": 24,
-      "action": "Return to main UFC menu by pressing the TGT UFC button twice."
+      "action": "Return to main UFC menu by pressing the TGT UFC button twice.",
+      "voiced": "Return to main UFC menu by pressing the TGT UFC button twice."
     },
     {
       "num": 25,
-      "action": "Once Longitude, Latitude and Elevation coordinates are entered for PP1, the PP1 icon will be boxed and no longer crossed out."
+      "action": "Once Longitude, Latitude and Elevation coordinates are entered for PP1, the PP1 icon will be boxed and no longer crossed out.",
+      "voiced": "Confirm PP1 icon boxes and is no longer crossed out — coordinates entered."
     },
     {
       "num": 26,
-      "action": "Press on STEP to select the next station (STATION 3)."
+      "action": "Press on STEP to select the next station (STATION 3).",
+      "voiced": "Press STEP to select the next station."
     },
     {
       "num": 27,
-      "action": "Repeat process (Steps 11 through 24) for Station 3 PP1, Station 8 PP1, and Station 7 PP1."
+      "action": "Repeat process (Steps 11 through 24) for Station 3 PP1, Station 8 PP1, and Station 7 PP1.",
+      "voiced": "Repeat coordinate entry for all remaining stations."
     },
     {
       "num": 28,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 29,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 30,
-      "action": "On the SMS (Stores Management System) page, verify that J-82 is selected"
+      "action": "On the SMS (Stores Management System) page, verify that J-82 is selected",
+      "voiced": "Confirm J-82 is selected on the SMS page."
     },
     {
       "num": 31,
-      "action": "Set HSI on the right DDI and the JDAM Display page on the left DDI (from SMS page, press the JDAM DSPLY OSB, then select MSN (Mission) page)"
+      "action": "Set HSI on the right DDI and the JDAM Display page on the left DDI (from SMS page, press the JDAM DSPLY OSB, then select MSN (Mission) page)",
+      "voiced": "Set HSI on the right DDI and JDAM Display on the left DDI."
     },
     {
       "num": 32,
-      "action": "Verify that Manual Release PP Release Mode is selected and that the desired station and PP is selected."
+      "action": "Verify that Manual Release PP Release Mode is selected and that the desired station and PP is selected.",
+      "voiced": "Confirm Manual Release PP mode and desired station are selected."
     },
     {
       "num": 33,
-      "action": "Steer aircraft to the target (indicated by a diamond on the HUD) Steering Cues Target Diamond Distance to Target (nm) Time to Acceptable Release Zone JDAM Manual Release Mode"
+      "action": "Steer aircraft to the target (indicated by a diamond on the HUD) Steering Cues Target Diamond Distance to Target (nm) Time to Acceptable Release Zone JDAM Manual Release Mode",
+      "voiced": "Steer toward the target — diamond appears on HUD."
     },
     {
       "num": 34,
-      "action": "When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying “TMR” (Time to reach launch acceptable region) to “IN RNG” (In Range)."
+      "action": "When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying \u201cTMR\u201d (Time to reach launch acceptable region) to \u201cIN RNG\u201d (In Range).",
+      "voiced": "Confirm HUD switches from TMR to IN RNG when within the launch zone."
     },
     {
       "num": 35,
-      "action": "Once you are within the IZLAR (In Zone Launch Acceptable Region), the Minimum and Maximum Range circles will disappear and only the IZLAR will remain. IN ZONE cue will appear on the HUD and on the JDAM Display page. Expected JDAM flight time will also be displayed on the JDAM Display page."
+      "action": "Once you are within the IZLAR (In Zone Launch Acceptable Region), the Minimum and Maximum Range circles will disappear and only the IZLAR will remain. IN ZONE cue will appear on the HUD and on the JDAM Display page. Expected JDAM flight time will also be displayed on the JDAM Display page.",
+      "voiced": "Confirm IN ZONE cue and JDAM flight time appear on the HUD and JDAM Display page."
     },
     {
       "num": 36,
-      "action": "You may now launch your JDAMs."
+      "action": "You may now launch your JDAMs.",
+      "voiced": "Confirm ready to launch JDAMs."
     },
     {
       "num": 37,
-      "action": "Hold the Weapon Release Button (« RALT+SPACE ») until all selected JDAMs are launched. All selected JDAMs will automatically guide themselves via GPS to the pre-planned designated points."
+      "action": "Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) until all selected JDAMs are launched. All selected JDAMs will automatically guide themselves via GPS to the pre-planned designated points.",
+      "voiced": "Hold the Weapon Release Button until all selected JDAMs are launched."
     }
   ]
 }

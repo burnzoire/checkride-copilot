@@ -32,51 +32,63 @@
   "steps": [
     {
       "num": 1,
-      "action": "Select A/G Master Mode"
+      "action": "Select A/G Master Mode",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 2,
-      "action": "Select and arm a weapon that can be released with a CCRP/AUTO mode (like a MK-82 bomb, for instance)"
+      "action": "Select and arm a weapon that can be released with a CCRP/AUTO mode (like a MK-82 bomb, for instance)",
+      "voiced": "Select and arm a CCRP/AUTO compatible weapon."
     },
     {
       "num": 3,
-      "action": "Designate a target using available sensors (like a targeting pod designating a target with Auto/Point Track)."
+      "action": "Designate a target using available sensors (like a targeting pod designating a target with Auto/Point Track).",
+      "voiced": "Designate a target using available sensors."
     },
     {
       "num": 4,
-      "action": "When target is designated, HSI page should display a boxed TGT (Target) and the HUD should display an ASL (Azimuth Steering Line) with a target designation diamond."
+      "action": "When target is designated, HSI page should display a boxed TGT (Target) and the HUD should display an ASL (Azimuth Steering Line) with a target designation diamond.",
+      "voiced": "Confirm HSI shows boxed TGT and HUD shows ASL with designation diamond."
     },
     {
       "num": 5,
-      "action": "Make sure your stick is centered, no force is applied on it and that you have an appropriate deadzone (see CONTROLS SETUP - WHAT YOU NEED MAPPED section)."
+      "action": "Make sure your stick is centered, no force is applied on it and that you have an appropriate deadzone (see CONTROLS SETUP - WHAT YOU NEED MAPPED section).",
+      "voiced": "Confirm stick is centered with no input force and deadzone is configured."
     },
     {
       "num": 6,
-      "action": "If desired, click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) to approach the target from."
+      "action": "If desired, click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) to approach the target from.",
+      "voiced": "Optionally set the CRS knob for desired approach course."
     },
     {
       "num": 7,
-      "action": "Press the AP button on the UFC to show the autopilot options."
+      "action": "Press the AP button on the UFC to show the autopilot options.",
+      "voiced": "Press AP on the UFC to show autopilot options."
     },
     {
       "num": 8,
-      "action": "Press the OSB adjacent “CPL” to activate coupled autopilot mode."
+      "action": "Press the OSB adjacent \u201cCPL\u201d to activate coupled autopilot mode.",
+      "voiced": "Press the OSB next to CPL to activate coupled autopilot mode."
     },
     {
       "num": 9,
-      "action": "A colon will appear (“:CPL”) to indicate that it is active. “CPL ASL” will appear on both the HSI and HUD."
+      "action": "A colon will appear (\u201c:CPL\u201d) to indicate that it is active. \u201cCPL ASL\u201d will appear on both the HSI and HUD.",
+      "voiced": "Confirm :CPL is active and CPL ASL appears on HSI and HUD."
     },
     {
       "num": 10,
-      "action": "If desired, select BALT (Barometric Altitude Hold) mode to maintain level flight while steering towards the target. A colon will appear (“:BALT”) to indicate that it is active."
+      "action": "If desired, select BALT (Barometric Altitude Hold) mode to maintain level flight while steering towards the target. A colon will appear (\u201c:BALT\u201d) to indicate that it is active.",
+      "voiced": "Optionally select BALT to hold barometric altitude — confirm :BALT is active."
     },
     {
       "num": 11,
-      "action": "The autopilot will steer towards the selected target."
+      "action": "The autopilot will steer towards the selected target.",
+      "voiced": "Confirm autopilot steers toward the designated target."
     },
     {
       "num": 12,
-      "action": "You can disengage autopilot by pressing the Paddle Switch on the control stick."
+      "action": "You can disengage autopilot by pressing the Paddle Switch on the control stick.",
+      "voiced": "Press the Paddle Switch on the control stick to disengage autopilot."
     }
   ]
 }

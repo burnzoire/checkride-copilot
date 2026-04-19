@@ -22,31 +22,38 @@
   "steps": [
     {
       "num": 1,
-      "action": "Power up the JHMCS by setting HMD Brightness knob to BRT (Bright)"
+      "action": "Power up the JHMCS by setting HMD Brightness knob to BRT (Bright)",
+      "voiced": "Set HMD Brightness knob to BRT to power up the JHMCS."
     },
     {
       "num": 2,
-      "action": "Press the A/G Master Mode Button"
+      "action": "Press the A/G Master Mode Button",
+      "voiced": "Press the A/G Master Mode Button."
     },
     {
       "num": 3,
-      "action": "Press Sensor Control Switch FWD to toggle the TDC (Throttle Designator Controller) priority between the HUD (Heads-Up Display) and the HMD (Helmet-Mounted Display). TDC priority is assigned to the helmet when the aiming reticle appears on the helmet. A center dot on the HUD’s TVV means the priority is assigned to the HUD."
+      "action": "Press Sensor Control Switch FWD to toggle the TDC (Throttle Designator Controller) priority between the HUD (Heads-Up Display) and the HMD (Helmet-Mounted Display). TDC priority is assigned to the helmet when the aiming reticle appears on the helmet. A center dot on the HUD’s TVV means the priority is assigned to the HUD.",
+      "voiced": "Press Sensor Control Switch FWD to toggle TDC priority — aiming reticle on helmet means JHMCS has priority."
     },
     {
       "num": 4,
-      "action": "Move the helmet’s Aiming Reticle on the target you want to designate."
+      "action": "Move the helmet’s Aiming Reticle on the target you want to designate.",
+      "voiced": "Slew your head to place the Aiming Reticle on the target."
     },
     {
       "num": 5,
-      "action": "Press the TDC Depress (« Enter ») to designate the target. A designation diamond will appear over the target, while the aiming cross will keep following your helmet."
+      "action": "Press the TDC Depress (« Enter ») to designate the target. A designation diamond will appear over the target, while the aiming cross will keep following your helmet.",
+      "voiced": "Press TDC Depress to designate — confirm designation diamond appears over target."
     },
     {
       "num": 6,
-      "action": "You can slew/move the designation diamond using the TDC left/right/up/down controls."
+      "action": "You can slew/move the designation diamond using the TDC left/right/up/down controls.",
+      "voiced": "Use TDC Left/Right/Up/Down to refine the designation diamond position."
     },
     {
       "num": 7,
-      "action": "To un-designate the target, press the Undesignate button on the stick."
+      "action": "To un-designate the target, press the Undesignate button on the stick.",
+      "voiced": "Press the Undesignate button on the stick to clear the designation."
     }
   ]
 }

@@ -24,43 +24,53 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure the targeting pod and radar are powered"
+      "action": "Make sure the targeting pod and radar are powered",
+      "voiced": "Confirm targeting pod and radar are powered."
     },
     {
       "num": 2,
-      "action": "Press the A/A Master Mode button. The RDR ATTK (radar) page will appear on the right DDI and the FLIR page will appear on the left DDI."
+      "action": "Press the A/A Master Mode button. The RDR ATTK (radar) page will appear on the right DDI and the FLIR page will appear on the left DDI.",
+      "voiced": "Press A/A Master Mode — RDR ATTK appears on right DDI, FLIR on left DDI."
     },
     {
       "num": 3,
-      "action": "Select RDR ATTK page by pressing the Sensor Control Switch in the direction of the DDI with the radar page (right)."
+      "action": "Select RDR ATTK page by pressing the Sensor Control Switch in the direction of the DDI with the radar page (right).",
+      "voiced": "Press Sensor Control Switch RIGHT to select the RDR ATTK page."
     },
     {
       "num": 4,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm Select Focus Diamond appears on the RDR ATTK DDI."
     },
     {
       "num": 5,
-      "action": "Acquire a radar lock using the TDC Slew and TDC DEPRESS controls."
+      "action": "Acquire a radar lock using the TDC Slew and TDC DEPRESS controls.",
+      "voiced": "Acquire a radar lock using TDC slew and TDC DEPRESS."
     },
     {
       "num": 6,
-      "action": "Press the OSB next to RRSLV (radar slave) to slave the slave the targeting pod to the radar lock (L&S trackfile)."
+      "action": "Press the OSB next to RRSLV (radar slave) to slave the slave the targeting pod to the radar lock (L&S trackfile).",
+      "voiced": "Press the OSB next to RRSLV to slave the targeting pod to the radar lock."
     },
     {
       "num": 7,
-      "action": "Select FLIR by pressing the Sensor Control Switch in the direction of the DDI with the FLIR page (left)."
+      "action": "Select FLIR by pressing the Sensor Control Switch in the direction of the DDI with the FLIR page (left).",
+      "voiced": "Press Sensor Control Switch LEFT to select the FLIR page."
     },
     {
       "num": 8,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm Select Focus Diamond appears on the FLIR DDI."
     },
     {
       "num": 9,
-      "action": "You can zoom and choose desired FLIR/CCD (TV) setting using the appropriate Option Select Buttons on the FLIR page."
+      "action": "You can zoom and choose desired FLIR/CCD (TV) setting using the appropriate Option Select Buttons on the FLIR page.",
+      "voiced": "Adjust zoom and FLIR/CCD mode using the OSBs on the FLIR page."
     },
     {
       "num": 10,
-      "action": "Press/bump the Sensor Control Switch in the direction of the FLIR format page (left) to attempt to Point Track the target."
+      "action": "Press/bump the Sensor Control Switch in the direction of the FLIR format page (left) to attempt to Point Track the target.",
+      "voiced": "Press Sensor Control Switch toward the FLIR page to attempt Point Track."
     }
   ]
 }

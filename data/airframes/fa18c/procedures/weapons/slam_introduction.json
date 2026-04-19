@@ -23,23 +23,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "The missile launches from the aircraft"
+      "action": "The missile launches from the aircraft",
+      "voiced": "SLAM launches from the aircraft."
     },
     {
       "num": 2,
-      "action": "The missile reaches Cruise Altitude (set through the FLT, Fly-Out Profile property)"
+      "action": "The missile reaches Cruise Altitude (set through the FLT, Fly-Out Profile property)",
+      "voiced": "Missile climbs to cruise altitude as set by the FLT fly-out profile, following programmed steerpoints."
     },
     {
       "num": 3,
-      "action": "The missile eventually enters a dive and goes into the Low Altitude Penetration Stage"
+      "action": "The missile eventually enters a dive and goes into the Low Altitude Penetration Stage",
+      "voiced": "Missile enters a dive and transitions to Low Altitude Penetration Stage."
     },
     {
       "num": 4,
-      "action": "When the missile is close enough to the target, it will steer directly to the target’s area and enter Terminal Attack Stage"
+      "action": "When the missile is close enough to the target, it will steer directly to the target’s area and enter Terminal Attack Stage",
+      "voiced": "When close enough, missile steers directly to the target area and enters Terminal Attack Stage."
     },
     {
       "num": 5,
-      "action": "When missile reaches the distance parameter (DIST), the missile’s seeker head becomes active. The pilot can then manually steer the missile using the TDC (Throttle Designation Control). Communication with the missile is done through the datalink pod. (Note: the AGM-84E SLAM has no) terrain following capabilities."
+      "action": "When missile reaches the distance parameter (DIST), the missile’s seeker head becomes active. The pilot can then manually steer the missile using the TDC (Throttle Designation Control). Communication with the missile is done through the datalink pod. (Note: the AGM-84E SLAM has no) terrain following capabilities.",
+      "voiced": "When DIST is reached, seeker activates — steer the missile manually with TDC via the datalink pod."
     }
   ]
 }

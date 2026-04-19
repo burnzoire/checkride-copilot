@@ -39,75 +39,93 @@
   "steps": [
     {
       "num": 1,
-      "action": "Consult mission briefing to know on which radio frequency you need to contact the tanker. In our case, we will use the frequency 251.000 AM on the COMM1 radio."
+      "action": "Consult mission briefing to know on which radio frequency you need to contact the tanker. In our case, we will use the frequency 251.000 AM on the COMM1 radio.",
+      "voiced": "Check mission briefing for tanker radio frequency."
     },
     {
       "num": 2,
-      "action": "Find tanker using TACAN frequency as shown in the NAVIGATION - TACAN section. (Note: Current DCS implementation now requires TACAN mode to be set to T/R) (Transmit-Receive) instead of A/A (Air-to-Air)."
+      "action": "Find tanker using TACAN frequency as shown in the NAVIGATION - TACAN section. (Note: Current DCS implementation now requires TACAN mode to be set to T/R) (Transmit-Receive) instead of A/A (Air-to-Air).",
+      "voiced": "Find the tanker using TACAN — set mode to T/R Transmit-Receive."
     },
     {
       "num": 3,
-      "action": "Set your radio to 251 AM and turn radio VOL knobs ON, and press “/” to communicate with TEXACO (tanker callsign)."
+      "action": "Set your radio to 251 AM and turn radio VOL knobs ON, and press \"/\" to communicate with TEXACO (tanker callsign).",
+      "voiced": "Set radio to tanker frequency AM, turn volume on, and contact tanker."
     },
     {
       "num": 4,
-      "action": "Select Tanker – Texaco (F6) communication menu, and then select “Intent to Refuel”"
+      "action": "Select Tanker – Texaco (F6) communication menu, and then select \"Intent to Refuel\"",
+      "voiced": "Select Intent to Refuel from the tanker comms menu."
     },
     {
       "num": 5,
-      "action": "TEXACO should give you a pre-contact altitude (in our case 8,000 ft)."
+      "action": "TEXACO should give you a pre-contact altitude (in our case 8,000 ft).",
+      "voiced": "Confirm tanker issues a pre-contact altitude."
     },
     {
       "num": 6,
-      "action": "Set Master Arm Switch – OFF (DOWN)"
+      "action": "Set Master Arm Switch – OFF (DOWN)",
+      "voiced": "Set Master Arm switch to OFF."
     },
     {
       "num": 7,
-      "action": "Set Flaps to AUTO"
+      "action": "Set Flaps to AUTO",
+      "voiced": "Set Flaps to AUTO."
     },
     {
       "num": 8,
-      "action": "Set PROBE switch to EXTEND (right click). (Note: Some tankers like the KC-130 are) equipped with a TACAN beacon, which can give you a direction to find it easily. Just make sure you have the correct TACAN frequency set in the A/A (Air-to-Air) Mode. Set TACAN using the NAVIGATION TACAN tutorial."
+      "action": "Set PROBE switch to EXTEND (right click). (Note: Some tankers like the KC-130 are) equipped with a TACAN beacon, which can give you a direction to find it easily. Just make sure you have the correct TACAN frequency set in the A/A (Air-to-Air) Mode. Set TACAN using the NAVIGATION TACAN tutorial.",
+      "voiced": "Set PROBE switch to EXTEND."
     },
     {
       "num": 9,
-      "action": "Make sure refueling probe has deployed correctly."
+      "action": "Make sure refueling probe has deployed correctly.",
+      "voiced": "Confirm refueling probe is fully deployed."
     },
     {
       "num": 10,
-      "action": "When you are less than 0.1 nm away from tanker, position yourself as shown on picture."
+      "action": "When you are less than 0.1 nm away from tanker, position yourself as shown on picture.",
+      "voiced": "Within 0.1 nm of tanker — move into pre-contact position."
     },
     {
       "num": 11,
-      "action": "When in position, use your radio menu to select “Ready Pre-Contact” (F1)."
+      "action": "When in position, use your radio menu to select \"Ready Pre-Contact\" (F1).",
+      "voiced": "When in position, call Ready Pre-Contact on the radio."
     },
     {
       "num": 12,
-      "action": "The tanker’s pilot should answer you with “Cleared Contact” and should deploy his drogue basket and start to accelerate to cruising speed."
+      "action": "The tanker's pilot should answer you with \"Cleared Contact\" and should deploy his drogue basket and start to accelerate to cruising speed.",
+      "voiced": "Confirm tanker calls Cleared Contact and deploys drogue basket."
     },
     {
       "num": 13,
-      "action": "Fly formation with the tanker and approach the drogue basket very slowly (make sure you remain about 2-3 kts faster than the tanker) with very gentle inputs. Use stick for big corrections, but keep trimming constantly for small corrections."
+      "action": "Fly formation with the tanker and approach the drogue basket very slowly (make sure you remain about 2-3 kts faster than the tanker) with very gentle inputs. Use stick for big corrections, but keep trimming constantly for small corrections.",
+      "voiced": "Approach basket 2-3 kts faster than tanker — gentle inputs, trim constantly."
     },
     {
       "num": 14,
-      "action": "Keep the aircraft trimmed at ALL TIMES. Approaching untrimmed is living hell. Be careful with the throttle since it has a long response time. Use airbrake if you need to slow down quickly while maintaining altitude."
+      "action": "Keep the aircraft trimmed at ALL TIMES. Approaching untrimmed is living hell. Be careful with the throttle since it has a long response time. Use airbrake if you need to slow down quickly while maintaining altitude.",
+      "voiced": "Stay trimmed at all times — use airbrake to bleed speed quickly if needed."
     },
     {
       "num": 15,
-      "action": "Insert your probe into the drogue basket by using your reference points. The 10 deg Pitch Line should be lined up vertically with the left-most refueling pod, and you should be aligned with the engine pylon for lateral movements"
+      "action": "Insert your probe into the drogue basket by using your reference points. The 10 deg Pitch Line should be lined up vertically with the left-most refueling pod, and you should be aligned with the engine pylon for lateral movements",
+      "voiced": "Insert probe using reference points — 10-degree pitch line aligned with refueling pod."
     },
     {
       "num": 16,
-      "action": "Additional drag should be generated by the drogue once you have contact with the drogue: your aircraft will slightly decelerate. Throttle up a little to keep the probe in. Once the probe is taking fuel, the tanker pilot should tell you “You’re taking fuel” and a green light should illuminate on the tanker’s refueling pod."
+      "action": "Additional drag should be generated by the drogue once you have contact with the drogue: your aircraft will slightly decelerate. Throttle up a little to keep the probe in. Once the probe is taking fuel, the tanker pilot should tell you \"You're taking fuel\" and a green light should illuminate on the tanker's refueling pod.",
+      "voiced": "On contact, add slight throttle — confirm tanker calls you're taking fuel and green light illuminates."
     },
     {
       "num": 17,
-      "action": "Keep formation with the tanker until your refueling is complete. Don’t look at the basket, look at the tanker’s refueling pod."
+      "action": "Keep formation with the tanker until your refueling is complete. Don't look at the basket, look at the tanker's refueling pod.",
+      "voiced": "Hold formation — watch the tanker's refueling pod, not the basket."
     },
     {
       "num": 18,
-      "action": "Detach your probe from the basket by throttling down and set PROBE switch to RETRACT. AIR-TO-AIR REFUELING DEMO Probe Retracted Probe Extended Airspeed (kts) 10 deg Pitch Line Velocity Vector Use this vertical line as a reference point for lateral movements Tanker’s Refueling Pod Green light = You’re taking fuel. Refueling Pod Of course, all of this seems much easier said than done. You will very likely do following mistakes: Approach too fast and miss the basket Oscillate vertically without being able to line up with the basket Keep going either too fast or too slow Drift left or right Overcompensate control inputs Forget the airbrake on Here are various demos of air-to-air refueling. https://www.youtube.com/watch?v=T5dOLIqGQ-I https://www.youtube.com/watch?v=k8gDUUYy8Io The next slide will give you a couple of tips to help you catch that basket and slurp that delicious jet fuel like a crack addict. AIR-TO-AIR REFUELING DEMO Remaining CALM is key for a successful refueling. If you lose your cool, take a break and try again once you are relaxed. Silk hands and a clear head are needed for that part. If you overshoot (or are about to fly past) the tanker, you can bleed speed very fast by deploying your airbrakes. You can go from 400 kts to 300 kts in a matter of seconds. Avoid combining roll, pitch and yaw movements at the same time when you are tracking the basket. Failing to do so will make you drift vertically and horizontally, which doesn’t help at all and may induce PIO (Pilot induced oscillations). Try to stay in the same horizontal plane as much as possible. It is easier if you try to “break down” your control inputs in separate movements. I try to avoid gunning my throttle, pitching up/down, rolling and using my rudder at the same time. I generally avoid using the rudder and instead focus on using small pitch and roll inputs only in order to make the aircraft’s response predictable. Combining different control inputs can make the aircraft react in a way that makes it all very difficult for your brain to predict and process. I tend to make sure my plane is straight and level at first and that I am more or less lined up with the basket. Once I have a satisfying attitude and that the basket is placed as per the reference points (10 deg pitch line lined up with refueling pod), I gradually throttle up and increase speed to match the tanker’s speed. In this case, the tanker’s speed is 270 kts. Make sure that you keep a constant speed. Avoid big throttle movements as the Hornet’s engines do not respond instantaneously. Once my speed matches the tanker’s, I can gradually accelerate to a speed that is 2-3 kts faster (271 in our case), approaching the basket very slowly. At that part, the ONLY two things I am watching are my AIRSPEED and the 10 DEG PITCH LINE BEING LINED UP WITH THE TANKER’S ENGINE (NOT THE BASKET). Nothing else matters. Once I am approaching the basket, I make sure to avoid inducing yawing motion with the rudder pedals. I displace myself with roll and pitch (vertical) stick input only."
+      "action": "Detach your probe from the basket by throttling down and set PROBE switch to RETRACT. AIR-TO-AIR REFUELING DEMO Probe Retracted Probe Extended Airspeed (kts) 10 deg Pitch Line Velocity Vector Use this vertical line as a reference point for lateral movements Tanker's Refueling Pod Green light = You're taking fuel. Refueling Pod Of course, all of this seems much easier said than done. You will very likely do following mistakes: Approach too fast and miss the basket Oscillate vertically without being able to line up with the basket Keep going either too fast or too slow Drift left or right Overcompensate control inputs Forget the airbrake on Here are various demos of air-to-air refueling. https://www.youtube.com/watch?v=T5dOLIqGQ-I https://www.youtube.com/watch?v=k8gDUUYy8Io The next slide will give you a couple of tips to help you catch that basket and slurp that delicious jet fuel like a crack addict. AIR-TO-AIR REFUELING DEMO Remaining CALM is key for a successful refueling. If you lose your cool, take a break and try again once you are relaxed. Silk hands and a clear head are needed for that part. If you overshoot (or are about to fly past) the tanker, you can bleed speed very fast by deploying your airbrakes. You can go from 400 kts to 300 kts in a matter of seconds. Avoid combining roll, pitch and yaw movements at the same time when you are tracking the basket. Failing to do so will make you drift vertically and horizontally, which doesn't help at all and may induce PIO (Pilot induced oscillations). Try to stay in the same horizontal plane as much as possible. It is easier if you try to \"break down\" your control inputs in separate movements. I try to avoid gunning my throttle, pitching up/down, rolling and using my rudder at the same time. I generally avoid using the rudder and instead focus on using small pitch and roll inputs only in order to make the aircraft's response predictable. Combining different control inputs can make the aircraft react in a way that makes it all very difficult for your brain to predict and process. I tend to make sure my plane is straight and level at first and that I am more or less lined up with the basket. Once I have a satisfying attitude and that the basket is placed as per the reference points (10 deg pitch line lined up with refueling pod), I gradually throttle up and increase speed to match the tanker's speed. In this case, the tanker's speed is 270 kts. Make sure that you keep a constant speed. Avoid big throttle movements as the Hornet's engines do not respond instantaneously. Once my speed matches the tanker's, I can gradually accelerate to a speed that is 2-3 kts faster (271 in our case), approaching the basket very slowly. At that part, the ONLY two things I am watching are my AIRSPEED and the 10 DEG PITCH LINE BEING LINED UP WITH THE TANKER'S ENGINE (NOT THE BASKET). Nothing else matters. Once I am approaching the basket, I make sure to avoid inducing yawing motion with the rudder pedals. I displace myself with roll and pitch (vertical) stick input only.",
+      "voiced": "Throttle back to detach probe, then set PROBE switch to RETRACT."
     }
   ]
 }

@@ -25,39 +25,48 @@
   "steps": [
     {
       "num": 1,
-      "action": "We will assume Markpoint #2 (M2) has already been created beforehand with the Target Designate method mentioned earlier."
+      "action": "We will assume Markpoint #2 (M2) has already been created beforehand with the Target Designate method mentioned earlier.",
+      "voiced": "Confirm markpoint has already been created using Target Designate."
     },
     {
       "num": 2,
-      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI.",
+      "voiced": "Select the FLIR page and press the Sensor Control Switch toward the selected DDI."
     },
     {
       "num": 3,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm Select Focus Diamond shows the correct DDI is selected."
     },
     {
       "num": 4,
-      "action": "On HSI (Horizontal Situation Indicator) page, select desired markpoint using the OSBs (Option Select Button) next to UP or DOWN arrows."
+      "action": "On HSI (Horizontal Situation Indicator) page, select desired markpoint using the OSBs (Option Select Button) next to UP or DOWN arrows.",
+      "voiced": "On the HSI page, use the UP or DOWN OSBs to select the desired markpoint."
     },
     {
       "num": 5,
-      "action": "Press OSB next to WYPT (boxed = selected)"
+      "action": "Press OSB next to WYPT (boxed = selected)",
+      "voiced": "Press the OSB next to WYPT — confirm it boxes."
     },
     {
       "num": 6,
-      "action": "Press on OSB next to WPSDG to designate waypoint/markpoint as the target point (boxed = selected)"
+      "action": "Press on OSB next to WPSDG to designate waypoint/markpoint as the target point (boxed = selected)",
+      "voiced": "Press the OSB next to WPSDG to designate the markpoint as target — confirm it boxes."
     },
     {
       "num": 7,
-      "action": "Targeting pod will automatically slew to the selected waypoint/markpoint. 6 - MARKPOINTS"
+      "action": "Targeting pod will automatically slew to the selected waypoint/markpoint. 6 - MARKPOINTS",
+      "voiced": "Confirm targeting pod auto-slews to the selected markpoint."
     },
     {
       "num": 8,
-      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target if adjustments are required."
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target if adjustments are required.",
+      "voiced": "Slew the TDC to fine-adjust the targeting pod reticle over the target."
     },
     {
       "num": 9,
-      "action": "You can then use a weapon of your choice like a Maverick and fire it on the designated point (markpoint in WPDSG)."
+      "action": "You can then use a weapon of your choice like a Maverick and fire it on the designated point (markpoint in WPDSG).",
+      "voiced": "Weapon is now slaved to the designated markpoint — clear to employ."
     }
   ]
 }

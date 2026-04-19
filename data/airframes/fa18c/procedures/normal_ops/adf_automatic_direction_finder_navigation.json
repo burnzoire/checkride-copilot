@@ -22,35 +22,43 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set ADF switch to ADF1 (UP)"
+      "action": "Set ADF switch to ADF1 (UP)",
+      "voiced": "Set ADF switch to ADF1."
     },
     {
       "num": 2,
-      "action": "Left click on the COMM1 knob to pull it and select COMM1 Radio"
+      "action": "Left click on the COMM1 knob to pull it and select COMM1 Radio",
+      "voiced": "Pull the COMM1 knob to select COMM1 Radio."
     },
     {
       "num": 3,
-      "action": "Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode"
+      "action": "Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode",
+      "voiced": "Set COMM1 Radio Channel Selector to Manual mode."
     },
     {
       "num": 4,
-      "action": "Press the OSB next to FM (“:” will appear when selected)"
+      "action": "Press the OSB next to FM (\":\" will appear when selected)",
+      "voiced": "Press the OSB next to FM — confirm colon appears."
     },
     {
       "num": 5,
-      "action": "Press CLR on the UFC to clear current frequency"
+      "action": "Press CLR on the UFC to clear current frequency",
+      "voiced": "Press CLR on the UFC to clear the current frequency."
     },
     {
       "num": 6,
-      "action": "Type “113600” on the UFC to set ADF frequency 113.6 MHz"
+      "action": "Type \"113600\" on the UFC to set ADF frequency 113.6 MHz",
+      "voiced": "Enter the ADF frequency on the UFC scratchpad."
     },
     {
       "num": 7,
-      "action": "Press ENT on the UFC to enter this frequency"
+      "action": "Press ENT on the UFC to enter this frequency",
+      "voiced": "Press ENT to enter the frequency."
     },
     {
       "num": 8,
-      "action": "You will now see a circle on the HSI compass rose. This is the heading towards the ADF beacon."
+      "action": "You will now see a circle on the HSI compass rose. This is the heading towards the ADF beacon.",
+      "voiced": "Confirm ADF bearing circle appears on the HSI compass rose."
     }
   ]
 }

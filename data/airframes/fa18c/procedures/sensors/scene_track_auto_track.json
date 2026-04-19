@@ -23,35 +23,43 @@
   "steps": [
     {
       "num": 1,
-      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI.",
+      "voiced": "Select the FLIR page, then press Sensor Control Switch toward the active DDI."
     },
     {
       "num": 2,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm the Select Focus Diamond appears on the FLIR DDI."
     },
     {
       "num": 3,
-      "action": "Press the Undesignate button twice to select VVSLV mode."
+      "action": "Press the Undesignate button twice to select VVSLV mode.",
+      "voiced": "Press the Undesignate button twice to select VVSLV mode."
     },
     {
       "num": 4,
-      "action": "Press the Undesignate button twice to select unselect VVSLV."
+      "action": "Press the Undesignate button twice to select unselect VVSLV.",
+      "voiced": "Press Undesignate twice again to deselect VVSLV."
     },
     {
       "num": 5,
-      "action": "Press the Sensor Control Switch in the direction of the FLIR format page to toggle between Scene Track and Auto Track."
+      "action": "Press the Sensor Control Switch in the direction of the FLIR format page to toggle between Scene Track and Auto Track.",
+      "voiced": "Press Sensor Control Switch toward the FLIR page to toggle between Scene Track and Auto Track."
     },
     {
       "num": 6,
-      "action": "In Scene Track, the FLIR is slaved to the location of the “scene” (area). However, it the Scene Track reticle can still be slewed with TDC AFT/FWD/LEFT/RIGHT controls (INR SCENE when slewing)."
+      "action": "In Scene Track, the FLIR is slaved to the location of the \u201cscene\u201d (area). However, it the Scene Track reticle can still be slewed with TDC AFT/FWD/LEFT/RIGHT controls (INR SCENE when slewing).",
+      "voiced": "In Scene Track, FLIR slaves to the scene area — use TDC to slew the reticle; INR SCENE shows when slewing."
     },
     {
       "num": 7,
-      "action": "Target is automatically designated by the targeting pod in Scene Track mode."
+      "action": "Target is automatically designated by the targeting pod in Scene Track mode.",
+      "voiced": "Confirm target is auto-designated in Scene Track mode."
     },
     {
       "num": 8,
-      "action": "Pressing the Undesignate button once will undesignate the target."
+      "action": "Pressing the Undesignate button once will undesignate the target.",
+      "voiced": "Press Undesignate once to clear the target designation."
     }
   ]
 }

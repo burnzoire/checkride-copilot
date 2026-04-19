@@ -23,35 +23,43 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure the Radar Power Switch is set to OPR (Operate)."
+      "action": "Make sure the Radar Power Switch is set to OPR (Operate).",
+      "voiced": "Confirm Radar Power Switch is set to OPR."
     },
     {
       "num": 2,
-      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page."
+      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page.",
+      "voiced": "Press the A/G Master Mode Button — radar A-G MAP page appears on the right DDI."
     },
     {
       "num": 3,
-      "action": "Toggle A-G MAP mode to A-G SEA mode by pressing the OSB next to MAP."
+      "action": "Toggle A-G MAP mode to A-G SEA mode by pressing the OSB next to MAP.",
+      "voiced": "Press the OSB next to MAP to toggle to A-G SEA mode."
     },
     {
       "num": 4,
-      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible).",
+      "voiced": "Press Sensor Control Switch RIGHT to slave TDC to the radar screen — confirm TDC diamond appears."
     },
     {
       "num": 5,
-      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls."
+      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls.",
+      "voiced": "Slew the TDC cursor over the desired target brick."
     },
     {
       "num": 6,
-      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Tracking mode and additional target information will be displayed."
+      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Tracking mode and additional target information will be displayed.",
+      "voiced": "Press Sensor Control Switch RIGHT to command acquisition — radar transitions to Tracking mode."
     },
     {
       "num": 7,
-      "action": "Once target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired."
+      "action": "Once target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired.",
+      "voiced": "Confirm brick with motion vector on radar and diamond on HUD — other sensors can slave to this point."
     },
     {
       "num": 8,
-      "action": "Pressing the « Undesignate » button on the stick will return the radar to SEA mode and exit tracking mode."
+      "action": "Pressing the \u00ab Undesignate \u00bb button on the stick will return the radar to SEA mode and exit tracking mode.",
+      "voiced": "Press the Undesignate button on the stick to exit tracking and return to SEA mode."
     }
   ]
 }

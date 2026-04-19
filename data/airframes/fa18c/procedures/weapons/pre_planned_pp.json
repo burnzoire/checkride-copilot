@@ -38,115 +38,143 @@
   "steps": [
     {
       "num": 1,
-      "action": "Press OSB next to MODE to toggle between TOO (Target-of-Opportunity) and PP (Pre-Planned) target designation modes. In this case, we will choose PP."
+      "action": "Press OSB next to MODE to toggle between TOO (Target-of-Opportunity) and PP (Pre-Planned) target designation modes. In this case, we will choose PP.",
+      "voiced": "Press the OSB next to MODE to select PP target designation mode."
     },
     {
       "num": 2,
-      "action": "Press OSB next to MSN to enter the Mission Parameters page."
+      "action": "Press OSB next to MSN to enter the Mission Parameters page.",
+      "voiced": "Press the OSB next to MSN to enter the Mission Parameters page."
     },
     {
       "num": 3,
-      "action": "We can define up to five Pre-Planned targets per missile station: PP1 through PP5. We will designate the target on PP1. Press OSB next to another PP# to select it if you desire."
+      "action": "We can define up to five Pre-Planned targets per missile station: PP1 through PP5. We will designate the target on PP1. Press OSB next to another PP# to select it if you desire.",
+      "voiced": "Press the OSB next to PP1 to select the first pre-planned target."
     },
     {
       "num": 4,
-      "action": "The TGT is the pre-planned target point (A/G TGT). For now, the field is empty since no target is defined yet."
+      "action": "The TGT is the pre-planned target point (A/G TGT). For now, the field is empty since no target is defined yet.",
+      "voiced": "Confirm TGT field is empty — no target defined yet."
     },
     {
       "num": 5,
-      "action": "(Optional) If you want to set TERM (Terminal Attack) parameters such as heading (HDG), attack angle (ANG) and velocity (VEL), press OSB next to TGTUFC, then press OSB next to TERM on the UFC. You will be able to enter terminal parameters via the UFC. However, since we will control the missile remotely during the terminal attack stage, these parameters are not required and we will leave them blank,"
+      "action": "(Optional) If you want to set TERM (Terminal Attack) parameters such as heading (HDG), attack angle (ANG) and velocity (VEL), press OSB next to TGTUFC, then press OSB next to TERM on the UFC. You will be able to enter terminal parameters via the UFC. However, since we will control the missile remotely during the terminal attack stage, these parameters are not required and we will leave them blank,",
+      "voiced": "Optionally set TERM attack parameters via TGTUFC — leave blank for remote terminal control."
     },
     {
       "num": 6,
-      "action": "(Optional) We do not need O/S (Offset) parameters to the TGT since we will control the missile remotely during the terminal attack stage. Therefore, we will not need to use O/S UFC function. Parameters for Station 8"
+      "action": "(Optional) We do not need O/S (Offset) parameters to the TGT since we will control the missile remotely during the terminal attack stage. Therefore, we will not need to use O/S UFC function. Parameters for Station 8",
+      "voiced": "Confirm O/S offset parameters are not required — leave blank for remote terminal control."
     },
     {
       "num": 7,
-      "action": "We can get target coordinates and elevation from the mission briefing or from the F10 map. We will need this information in the Deg Min Sec.Decimal-Seconds format, which can be toggled by using « LALT+Y » while being in the F10 map.."
+      "action": "We can get target coordinates and elevation from the mission briefing or from the F10 map. We will need this information in the Deg Min Sec.Decimal-Seconds format, which can be toggled by using \u00ab LALT+Y \u00bb while being in the F10 map..",
+      "voiced": "Obtain target coordinates and elevation in Degrees Minutes Seconds format."
     },
     {
       "num": 8,
-      "action": "Crossed-out PP Points mean no valid coordinates are entered yet."
+      "action": "Crossed-out PP Points mean no valid coordinates are entered yet.",
+      "voiced": "Confirm crossed-out PP points indicate no valid coordinates entered yet."
     },
     {
       "num": 9,
-      "action": "Make sure PP1 is selected to input Target 1 coordinates"
+      "action": "Make sure PP1 is selected to input Target 1 coordinates",
+      "voiced": "Confirm PP1 is selected to input Target 1 coordinates."
     },
     {
       "num": 10,
-      "action": "Select"
+      "action": "Select",
+      "voiced": "Select the TGT UFC option."
     },
     {
       "num": 11,
-      "action": "On the UFC, select ELEV (Elevation)"
+      "action": "On the UFC, select ELEV (Elevation)",
+      "voiced": "Press UFC button next to ELEV to set target elevation."
     },
     {
       "num": 12,
-      "action": "Select FT (« : » will appear when selected), then enter Target 1 altitude on the scratchpad (39), then press the ENT (Enter) button."
+      "action": "Select FT (\u00ab : \u00bb will appear when selected), then enter Target 1 altitude on the scratchpad (39), then press the ENT (Enter) button.",
+      "voiced": "Select FT, enter target altitude, then press ENT."
     },
     {
       "num": 13,
-      "action": "Return to main UFC menu by pressing the TGT UFC button twice."
+      "action": "Return to main UFC menu by pressing the TGT UFC button twice.",
+      "voiced": "Return to main UFC menu by pressing the TGT UFC button twice."
     },
     {
       "num": 14,
-      "action": "On the UFC, select POSN (Position) « : » will appear once selected."
+      "action": "On the UFC, select POSN (Position) \u00ab : \u00bb will appear once selected.",
+      "voiced": "Press UFC button next to POSN to enter target position."
     },
     {
       "num": 15,
-      "action": "We will add the coordinates of Target 1 (PP1) 33 °49’17.83’’ North 35 °29’37.64’’ East"
+      "action": "We will add the coordinates of Target 1 (PP1) 33 \u00b049'17.83'' North 35 \u00b029'37.64'' East",
+      "voiced": "Enter Target 1 coordinates for PP1."
     },
     {
       "num": 16,
-      "action": "On the UFC, select LAT (Latitude). « : » will appear once selected."
+      "action": "On the UFC, select LAT (Latitude). \u00ab : \u00bb will appear once selected.",
+      "voiced": "Press UFC button next to LAT to enter latitude."
     },
     {
       "num": 17,
-      "action": "Press « 2 » (N) to select North coordinates, type « 334917 », then « ENT » to enter Degrees Minutes Seconds."
+      "action": "Press \u00ab 2 \u00bb (N) to select North coordinates, type \u00ab 334917 \u00bb, then \u00ab ENT \u00bb to enter Degrees Minutes Seconds.",
+      "voiced": "Select N or S, enter Degrees Minutes Seconds, then press ENT."
     },
     {
       "num": 18,
-      "action": "Wait for the UFC screen to reset, then type « 83 », then « ENT » to enter remaining Decimal-Seconds."
+      "action": "Wait for the UFC screen to reset, then type \u00ab 83 \u00bb, then \u00ab ENT \u00bb to enter remaining Decimal-Seconds.",
+      "voiced": "Wait for UFC to reset, enter Decimal-Seconds, then press ENT."
     },
     {
       "num": 19,
-      "action": "On the UFC, select LON (Longitude). « : » will appear once selected."
+      "action": "On the UFC, select LON (Longitude). \u00ab : \u00bb will appear once selected.",
+      "voiced": "Press UFC button next to LON to enter longitude."
     },
     {
       "num": 20,
-      "action": "On the UFC, press « 6 » (E) to select East coordinates, type « 352937 », then « ENT » to enter Degrees Minutes Seconds."
+      "action": "On the UFC, press \u00ab 6 \u00bb (E) to select East coordinates, type \u00ab 352937 \u00bb, then \u00ab ENT \u00bb to enter Degrees Minutes Seconds.",
+      "voiced": "Select E or W, enter Degrees Minutes Seconds, then press ENT."
     },
     {
       "num": 21,
-      "action": "Wait for the UFC screen to reset, then type « 64 », then « ENT » to enter remaining Decimal-Seconds."
+      "action": "Wait for the UFC screen to reset, then type \u00ab 64 \u00bb, then \u00ab ENT \u00bb to enter remaining Decimal-Seconds.",
+      "voiced": "Wait for UFC to reset, enter Decimal-Seconds, then press ENT."
     },
     {
       "num": 22,
-      "action": "Return to main UFC menu by pressing the TGT UFC button twice."
+      "action": "Return to main UFC menu by pressing the TGT UFC button twice.",
+      "voiced": "Return to main UFC menu by pressing the TGT UFC button twice."
     },
     {
       "num": 23,
-      "action": "Once Longitude, Latitude and Elevation coordinates are entered for PP1, the PP1 icon will be boxed and no longer crossed out."
+      "action": "Once Longitude, Latitude and Elevation coordinates are entered for PP1, the PP1 icon will be boxed and no longer crossed out.",
+      "voiced": "Confirm PP1 icon boxes and is no longer crossed out — coordinates entered."
     },
     {
       "num": 24,
-      "action": "The coordinates and elevation of the designated target point will then directly transfer to the TGT in the MSN page."
+      "action": "The coordinates and elevation of the designated target point will then directly transfer to the TGT in the MSN page.",
+      "voiced": "Confirm target coordinates transfer to the TGT in the MSN page."
     },
     {
       "num": 25,
-      "action": "Press the OSB next to RETURN to return back to the SMS (Stores) page. We are now almost ready to begin our strike and launch the missile. Station 8 Target 1"
+      "action": "Press the OSB next to RETURN to return back to the SMS (Stores) page. We are now almost ready to begin our strike and launch the missile. Station 8 Target 1",
+      "voiced": "Press the OSB next to RETURN to go back to the SMS page."
     },
     {
       "num": 26,
-      "action": "The SLAM indication, TMR indication (time required to be within range of a valid SLAM launch) and PP indication will appear on the HUD."
+      "action": "The SLAM indication, TMR indication (time required to be within range of a valid SLAM launch) and PP indication will appear on the HUD.",
+      "voiced": "Confirm SLAM indication, TMR, and PP indication appear on the HUD."
     },
     {
       "num": 27,
-      "action": "Minimum and Maximum Launch Range circles will appear on the HSI (Horizontal Situation Indicator) page."
+      "action": "Minimum and Maximum Launch Range circles will appear on the HSI (Horizontal Situation Indicator) page.",
+      "voiced": "Confirm minimum and maximum launch range circles appear on the HSI."
     },
     {
       "num": 28,
-      "action": "Please proceed to section"
+      "action": "Please proceed to section",
+      "voiced": "Proceed to the launch procedure section."
     }
   ]
 }

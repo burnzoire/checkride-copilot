@@ -21,23 +21,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch – ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode – A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Click on the desired bomb to select it (82B)"
+      "action": "Click on the desired bomb to select it (82B)",
+      "voiced": "Select the desired weapon on the SMS page."
     },
     {
       "num": 5,
-      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 1. STEP is used to change selected station"
+      "action": "We will create a weapon delivery program by selecting a preset program. Toggle programs with the OSB next to PROG. We will use PROG 1. STEP is used to change selected station",
+      "voiced": "Toggle delivery programs with the OSB next to PROG — use STEP to change the selected station."
     }
   ]
 }

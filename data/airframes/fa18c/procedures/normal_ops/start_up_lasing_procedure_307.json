@@ -33,87 +33,108 @@
   "steps": [
     {
       "num": 1,
-      "action": "Press A/G Master Mode. This will allow you to arm the laser designator."
+      "action": "Press A/G Master Mode. This will allow you to arm the laser designator.",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 2,
-      "action": "To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click)."
+      "action": "To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click).",
+      "voiced": "Set FLIR Sensor Switch to STBY to power up the targeting pod."
     },
     {
       "num": 3,
-      "action": "From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to “FLIR” (Forward-Looking Infrared) to select the Targeting Pod feed page."
+      "action": "From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \"FLIR\" (Forward-Looking Infrared) to select the Targeting Pod feed page.",
+      "voiced": "On the TAC page, press the OSB next to FLIR to select the targeting pod feed."
     },
     {
       "num": 4,
-      "action": "Monitor the warm-up process."
+      "action": "Monitor the warm-up process.",
+      "voiced": "Monitor the targeting pod warm-up process."
     },
     {
       "num": 5,
-      "action": "When targeting pod is ready to be used, the pod status will switch from RDY – NOT TIMED OUT to STBY (Standby)."
+      "action": "When targeting pod is ready to be used, the pod status will switch from RDY – NOT TIMED OUT to STBY (Standby).",
+      "voiced": "Confirm pod status switches from RDY NOT TIMED OUT to STBY."
     },
     {
       "num": 6,
-      "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate)."
+      "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate).",
+      "voiced": "Set FLIR Sensor Switch to ON — confirm pod mode changes from STBY to OPR."
     },
     {
       "num": 7,
-      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected."
+      "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Press Sensor Control Switch toward the selected DDI — confirm Select Focus Diamond appears."
     },
     {
       "num": 8,
-      "action": "Press the Undesignate button twice rapidly to select VVSLV (Velocity Vector Slaved) mode. This will un-stow the camera and slave the targeting pod to the velocity vector. Alternatively, you can press the OSB next to VVSLV (boxed when selected)."
+      "action": "Press the Undesignate button twice rapidly to select VVSLV (Velocity Vector Slaved) mode. This will un-stow the camera and slave the targeting pod to the velocity vector. Alternatively, you can press the OSB next to VVSLV (boxed when selected).",
+      "voiced": "Press Undesignate twice to select VVSLV — pod slaves to velocity vector."
     },
     {
       "num": 9,
-      "action": "If desired, press the OSB next to VVSLV to de-select VVSLV to be able to slew the targeting pod directly."
+      "action": "If desired, press the OSB next to VVSLV to de-select VVSLV to be able to slew the targeting pod directly.",
+      "voiced": "Press OSB next to VVSLV to deselect it and enable direct pod slewing."
     },
     {
       "num": 10,
-      "action": "Adjust DDI (Digital Display Indicator) contrast and brightness as required"
+      "action": "Adjust DDI (Digital Display Indicator) contrast and brightness as required",
+      "voiced": "Adjust DDI contrast and brightness as required."
     },
     {
       "num": 11,
-      "action": "Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page."
+      "action": "Set LTD/R (Laser Target Designator/Ranger) switch to ARM. This will arm the laser. Confirm that L ARM indication is displayed on the FLIR page.",
+      "voiced": "Set LTD/R switch to ARM — confirm L ARM indication on the FLIR page."
     },
     {
       "num": 12,
-      "action": "Using the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls, slew the targeting pod reticle over the desired target."
+      "action": "Using the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls, slew the targeting pod reticle over the desired target.",
+      "voiced": "Slew the TDC to position the targeting pod reticle over the target."
     },
     {
       "num": 13,
-      "action": "Use appropriate zoom level, field of view (NARROW/WIDE/MEDIUM) and camera mode (TV or FLIR) to identify the target."
+      "action": "Use appropriate zoom level, field of view (NARROW/WIDE/MEDIUM) and camera mode (TV or FLIR) to identify the target.",
+      "voiced": "Adjust zoom, FOV, and camera mode to identify the target."
     },
     {
       "num": 14,
-      "action": "Press the Sensor Control Switch Towards Selected Display (Right if our right DDI is selected) to toggle between Auto Track (similar to Point Track, tracks a moving object like a high-contrast vehicle) and SCENE Track (similar to Area Track, used for a static target)."
+      "action": "Press the Sensor Control Switch Towards Selected Display (Right if our right DDI is selected) to toggle between Auto Track (similar to Point Track, tracks a moving object like a high-contrast vehicle) and SCENE Track (similar to Area Track, used for a static target).",
+      "voiced": "Press Sensor Control Switch toward selected DDI to toggle between Auto Track and SCENE Track."
     },
     {
       "num": 15,
-      "action": "Press the OSB next to “UFC” to set the Targeting Pod laser code on the Up-Front Controller."
+      "action": "Press the OSB next to \"UFC\" to set the Targeting Pod laser code on the Up-Front Controller.",
+      "voiced": "Press the OSB next to UFC to access laser code settings."
     },
     {
       "num": 16,
-      "action": "Press the button next to “LTDC” (Laser Target Designator Code). A “:” will indicate it is selected. Then, enter the desired laser code on the keypad and press “ENT”. We will choose a laser code of 1687. 4 - AN/ASQ-228"
+      "action": "Press the button next to \"LTDC\" (Laser Target Designator Code). A \":\" will indicate it is selected. Then, enter the desired laser code on the keypad and press \"ENT\". We will choose a laser code of 1687. 4 - AN/ASQ-228",
+      "voiced": "Press LTDC on the UFC — enter the laser code on the keypad, then press ENT."
     },
     {
       "num": 17,
-      "action": "Press the OSB next to “TRIG” if you want to use the laser manually. The indication will become boxed once selected, which means that a gun trigger press will fire the laser. This step is required if you are “buddy lasing” (using your own laser for someone else to use). If TRIG remains unboxed, the laser is in Automatic mode. The laser will automatically fire a few seconds before the laser-guided ordnance reaches the target."
+      "action": "Press the OSB next to \"TRIG\" if you want to use the laser manually. The indication will become boxed once selected, which means that a gun trigger press will fire the laser. This step is required if you are \"buddy lasing\" (using your own laser for someone else to use). If TRIG remains unboxed, the laser is in Automatic mode. The laser will automatically fire a few seconds before the laser-guided ordnance reaches the target.",
+      "voiced": "Box TRIG for manual lasing — leave unboxed for automatic lasing."
     },
     {
       "num": 18,
-      "action": "When either Scene Track or Auto Track is performed, the target point is automatically designated. Air-to-ground weapons will be slaved to what the targeting pod is tracking and, incidentally, where the laser is firing."
+      "action": "When either Scene Track or Auto Track is performed, the target point is automatically designated. Air-to-ground weapons will be slaved to what the targeting pod is tracking and, incidentally, where the laser is firing.",
+      "voiced": "Confirm target is auto-designated when Scene Track or Auto Track is active."
     },
     {
       "num": 19,
-      "action": "You may now launch laser-guided weapons as per their release procedure."
+      "action": "You may now launch laser-guided weapons as per their release procedure.",
+      "voiced": "Laser is designated — clear to launch laser-guided weapons."
     },
     {
       "num": 20,
-      "action": "If TRIG option is selected (boxed), press and hold the gun trigger to fire laser. Once laser is firing, the laser mode will switch from L ARM to LTD/R. If TRIG option is not selected (unboxed, AUTO lasing), the laser will automatically fire a few seconds before the ordnance reaches the target."
+      "action": "If TRIG option is selected (boxed), press and hold the gun trigger to fire laser. Once laser is firing, the laser mode will switch from L ARM to LTD/R. If TRIG option is not selected (unboxed, AUTO lasing), the laser will automatically fire a few seconds before the ordnance reaches the target.",
+      "voiced": "For manual lasing, press and hold gun trigger — confirm mode switches to LTD/R."
     },
     {
       "num": 21,
-      "action": "When desired, press the Gun Trigger a second time to stop firing the laser. You can use the Undesignate/Nosewheel Steering button to undesignate the target."
+      "action": "When desired, press the Gun Trigger a second time to stop firing the laser. You can use the Undesignate/Nosewheel Steering button to undesignate the target.",
+      "voiced": "Press gun trigger again to stop lasing — press Undesignate to clear target designation."
     }
   ]
 }

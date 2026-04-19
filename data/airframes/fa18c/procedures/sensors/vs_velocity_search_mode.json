@@ -21,19 +21,23 @@
   "steps": [
     {
       "num": 1,
-      "action": "From radar page, slew the TDC (Throttle Designator Controller) over “RWS” or “TWS” mode indication. The “RWS/VS/TWS” mode selector will appear."
+      "action": "From radar page, slew the TDC (Throttle Designator Controller) over \u201cRWS\u201d or \u201cTWS\u201d mode indication. The \u201cRWS/VS/TWS\u201d mode selector will appear.",
+      "voiced": "From the radar page, slew TDC over the RWS or TWS indication to bring up the mode selector."
     },
     {
       "num": 2,
-      "action": "Slew TDC over “VS”, then press the TDC to select Velocity Search."
+      "action": "Slew TDC over \u201cVS\u201d, then press the TDC to select Velocity Search.",
+      "voiced": "Slew TDC over VS, then depress to select Velocity Search."
     },
     {
       "num": 3,
-      "action": "Targets will appear as “bricks” on a closure velocity vs azimuth scale."
+      "action": "Targets will appear as \u201cbricks\u201d on a closure velocity vs azimuth scale.",
+      "voiced": "Targets display as bricks on the closure velocity versus azimuth scale."
     },
     {
       "num": 4,
-      "action": "You may perform a STT (Single Target Track) lock the same way as you would do in RWS mode."
+      "action": "You may perform a STT (Single Target Track) lock the same way as you would do in RWS mode.",
+      "voiced": "Execute an STT lock the same way you would in RWS."
     }
   ]
 }

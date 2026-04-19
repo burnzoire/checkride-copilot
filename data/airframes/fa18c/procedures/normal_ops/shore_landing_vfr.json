@@ -18,55 +18,68 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set Anti-Skid Switch to ON (UP Position) & Landing Lights ON"
+      "action": "Set Anti-Skid Switch to ON (UP Position) & Landing Lights ON",
+      "voiced": "Set Anti-Skid switch to ON and turn Landing Lights ON."
     },
     {
       "num": 2,
-      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD."
+      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD.",
+      "voiced": "Set ALTITUDE switch to RDR for radar altimeter reference."
     },
     {
       "num": 3,
-      "action": "Enter upwind leg at approx. 350 kts at about 1000 ft altitude"
+      "action": "Enter upwind leg at approx. 350 kts at about 1000 ft altitude",
+      "voiced": "Enter upwind leg at approximately 350 kts and 1000 ft."
     },
     {
       "num": 4,
-      "action": "When turning left from the upwind leg to the crosswind leg, try to pull a number of Gs that is 1 % of your airspeed (i.e. 3.5 G turn if going at 350 kts) while maintaining your velocity vector on the horizon line. This should line up your downwind leg to about 1.2 nm away from the runway."
+      "action": "When turning left from the upwind leg to the crosswind leg, try to pull a number of Gs that is 1 % of your airspeed (i.e. 3.5 G turn if going at 350 kts) while maintaining your velocity vector on the horizon line. This should line up your downwind leg to about 1.2 nm away from the runway.",
+      "voiced": "Turn crosswind — pull G equal to 1% of airspeed to offset downwind leg 1.2 nm from runway."
     },
     {
       "num": 5,
-      "action": "Slow down to 250 kts and fly at 600 ft"
+      "action": "Slow down to 250 kts and fly at 600 ft",
+      "voiced": "Slow to 250 kts and descend to 600 ft."
     },
     {
       "num": 6,
-      "action": "Set Landing Gear Lever - DOWN"
+      "action": "Set Landing Gear Lever - DOWN",
+      "voiced": "Set Landing Gear lever to DOWN."
     },
     {
       "num": 7,
-      "action": "Flaps Lever – FULL (DOWN)"
+      "action": "Flaps Lever – FULL (DOWN)",
+      "voiced": "Set Flaps lever to FULL."
     },
     {
       "num": 8,
-      "action": "As you enter downwind leg, slow down to ON SPEED AOA by setting the velocity vector in the middle of the “E” bracket on the HUD using elevator trim and throttle input. You should reach an airspeed of about 140-150 kts for an AoA (Angle of Attack) to 8.1 deg approx. Make sure to maintain your 600 ft altitude by keeping the velocity vector on the horizon line. The AoA Indexer will also give you a good reference if you have the correct Angle of Attack or not."
+      "action": "As you enter downwind leg, slow down to ON SPEED AOA by setting the velocity vector in the middle of the \"E\" bracket on the HUD using elevator trim and throttle input. You should reach an airspeed of about 140-150 kts for an AoA (Angle of Attack) to 8.1 deg approx. Make sure to maintain your 600 ft altitude by keeping the velocity vector on the horizon line. The AoA Indexer will also give you a good reference if you have the correct Angle of Attack or not.",
+      "voiced": "Trim to On Speed AoA — velocity vector in the E bracket at 600 ft on downwind."
     },
     {
       "num": 9,
-      "action": "When turning to base leg, start a 30-degree bank while maintaining the Velocity Vector and the E bracket just below the horizon line. Maintaining the 600 ft altitude will require you to adjust the throttle constantly."
+      "action": "When turning to base leg, start a 30-degree bank while maintaining the Velocity Vector and the E bracket just below the horizon line. Maintaining the 600 ft altitude will require you to adjust the throttle constantly.",
+      "voiced": "Turn base in 30-degree bank — maintain velocity vector and E bracket just below horizon."
     },
     {
       "num": 10,
-      "action": "When lined up with the runway, set velocity vector on the runway and keep it there. Keep your velocity vector pointed on the runway with your flight stick, and control your glide slope and angle of attack with your throttle. That’s called flying “pitch for speed, power for altitude”."
+      "action": "When lined up with the runway, set velocity vector on the runway and keep it there. Keep your velocity vector pointed on the runway with your flight stick, and control your glide slope and angle of attack with your throttle. That's called flying \"pitch for speed, power for altitude\".",
+      "voiced": "Line up with runway — keep velocity vector on the runway, control altitude with throttle."
     },
     {
       "num": 11,
-      "action": "Don’t check your speed, if you have a good AoA and velocity vector, you’ll be on speed."
+      "action": "Don't check your speed, if you have a good AoA and velocity vector, you'll be on speed.",
+      "voiced": "Focus on AoA and velocity vector — speed follows automatically."
     },
     {
       "num": 12,
-      "action": "Once AoA Indexer shows that you are ON SPEED (orange donut) and that your velocity vector is on the runway, just let yourself touchdown on the runway. It will feel like a controlled crash into the ground; that’s normal."
+      "action": "Once AoA Indexer shows that you are ON SPEED (orange donut) and that your velocity vector is on the runway, just let yourself touchdown on the runway. It will feel like a controlled crash into the ground; that's normal.",
+      "voiced": "When AoA Indexer shows orange donut and velocity vector is on runway, allow touchdown."
     },
     {
       "num": 13,
-      "action": "Once nose gear is firmly on the ground, use toe brakes to decelerate until coming to a full stop."
+      "action": "Once nose gear is firmly on the ground, use toe brakes to decelerate until coming to a full stop.",
+      "voiced": "Once nose gear is on the ground, use toe brakes to decelerate to a full stop."
     }
   ]
 }

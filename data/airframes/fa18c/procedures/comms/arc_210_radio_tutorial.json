@@ -18,31 +18,38 @@
   "steps": [
     {
       "num": 1,
-      "action": "Left click on the COMM1 knob to pull it and select COMM1 Radio"
+      "action": "Left click on the COMM1 knob to pull it and select COMM1 Radio",
+      "voiced": "Pull the COMM1 knob to select COMM1 Radio."
     },
     {
       "num": 2,
-      "action": "Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode"
+      "action": "Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode",
+      "voiced": "Set COMM1 Channel Selector to M for Manual Mode."
     },
     {
       "num": 3,
-      "action": "Press the OSB next to AM or FM to select the desired frequency band (if we choose FM, the “:FM” symbol will appear when selected)"
+      "action": "Press the OSB next to AM or FM to select the desired frequency band (if we choose FM, the \":FM\" symbol will appear when selected)",
+      "voiced": "Press the OSB next to AM or FM to select your frequency band."
     },
     {
       "num": 4,
-      "action": "Press CLR on the UFC to clear current frequency"
+      "action": "Press CLR on the UFC to clear current frequency",
+      "voiced": "Press CLR on the UFC to clear the current frequency."
     },
     {
       "num": 5,
-      "action": "Type “127500” on the UFC to set carrier radio frequency 127.5 MHz"
+      "action": "Type \"127500\" on the UFC to set carrier radio frequency 127.5 MHz",
+      "voiced": "Type 127500 on the UFC to set frequency 127.5 MHz."
     },
     {
       "num": 6,
-      "action": "Press ENT on the UFC to enter this frequency."
+      "action": "Press ENT on the UFC to enter this frequency.",
+      "voiced": "Press ENT on the UFC to confirm the frequency."
     },
     {
       "num": 7,
-      "action": "Press the COMM switch – COMM1 on your throttle to transmit."
+      "action": "Press the COMM switch \u2013 COMM1 on your throttle to transmit.",
+      "voiced": "Set COMM switch to COMM1 on the throttle to transmit."
     }
   ]
 }

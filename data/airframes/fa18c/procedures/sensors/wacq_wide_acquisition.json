@@ -21,23 +21,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Setting A/A Master Mode"
+      "action": "Setting A/A Master Mode",
+      "voiced": "Select A/A Master Mode."
     },
     {
       "num": 2,
-      "action": "Making sure HMD (Helmet-Mounted Display) is OFF"
+      "action": "Making sure HMD (Helmet-Mounted Display) is OFF",
+      "voiced": "Confirm HMD is OFF."
     },
     {
       "num": 3,
-      "action": "Pressing the Sensor Control Switch forward to enter ACM mode (selects BST by default)"
+      "action": "Pressing the Sensor Control Switch forward to enter ACM mode (selects BST by default)",
+      "voiced": "Press Sensor Control Switch forward to enter ACM — defaults to BST."
     },
     {
       "num": 4,
-      "action": "Pressing the Sensor Control Switch left to transfer ACM mode from BST to WACQ"
+      "action": "Pressing the Sensor Control Switch left to transfer ACM mode from BST to WACQ",
+      "voiced": "Press Sensor Control Switch left to transfer from BST to WACQ."
     },
     {
       "num": 5,
-      "action": "Radar will automatically attempt to lock on the nearest target To exit ACM mode, press Undesignate Button."
+      "action": "Radar will automatically attempt to lock on the nearest target To exit ACM mode, press Undesignate Button.",
+      "voiced": "Radar auto-acquires the nearest target — press Undesignate Button to exit ACM."
     }
   ]
 }

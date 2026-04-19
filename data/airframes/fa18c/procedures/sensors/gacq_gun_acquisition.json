@@ -20,19 +20,23 @@
   "steps": [
     {
       "num": 1,
-      "action": "Setting A/A Master Mode"
+      "action": "Setting A/A Master Mode",
+      "voiced": "Select A/A Master Mode."
     },
     {
       "num": 2,
-      "action": "Making sure HMD (Helmet-Mounted Display) is OFF"
+      "action": "Making sure HMD (Helmet-Mounted Display) is OFF",
+      "voiced": "Confirm HMD is OFF — GACQ won't behave with the helmet competing for scan volume."
     },
     {
       "num": 3,
-      "action": "Pressing the Weapon Control Switch aft to select Air-to-Air Gun and enter GACQ ACM mode."
+      "action": "Pressing the Weapon Control Switch aft to select Air-to-Air Gun and enter GACQ ACM mode.",
+      "voiced": "Press Weapon Control Switch aft to select Air-to-Air Gun and enter GACQ."
     },
     {
       "num": 4,
-      "action": "Radar will automatically attempt to lock on the nearest target To exit GACQ mode: Use Weapon Select Switch to select another weapon, or Toggle the A/A Master Mode OFF and ON."
+      "action": "Radar will automatically attempt to lock on the nearest target To exit GACQ mode: Use Weapon Select Switch to select another weapon, or Toggle the A/A Master Mode OFF and ON.",
+      "voiced": "Radar acquires nearest target automatically — exit GACQ with Weapon Select Switch or cycle A/A Master Mode off and back on."
     }
   ]
 }

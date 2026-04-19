@@ -23,39 +23,48 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure air-to-ground mapping (MAP) mode is selected (see section 2.2.2)."
+      "action": "Make sure air-to-ground mapping (MAP) mode is selected (see section 2.2.2).",
+      "voiced": "Confirm air-to-ground MAP mode is selected."
     },
     {
       "num": 2,
-      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible).",
+      "voiced": "Press Sensor Control Switch RIGHT to slave TDC to the radar — confirm diamond appears."
     },
     {
       "num": 3,
-      "action": "Press on the OSB (Option Select Button) next to EXP1."
+      "action": "Press on the OSB (Option Select Button) next to EXP1.",
+      "voiced": "Press the OSB next to EXP1."
     },
     {
       "num": 4,
-      "action": "Press and hold TDC DEPRESS control (« ENTER »)."
+      "action": "Press and hold TDC DEPRESS control (\u00ab ENTER \u00bb).",
+      "voiced": "Press and hold TDC DEPRESS."
     },
     {
       "num": 5,
-      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a sector map (zoom) using the TDC controls."
+      "action": "While TDC DEPRESS is held, slew the trapezoidal corral over the desired region you want to set as a sector map (zoom) using the TDC controls.",
+      "voiced": "While holding TDC DEPRESS, slew the corral over the desired sector region."
     },
     {
       "num": 6,
-      "action": "Release the TDC DEPRESS control to enter EXP1 mode. Corral"
+      "action": "Release the TDC DEPRESS control to enter EXP1 mode. Corral",
+      "voiced": "Release TDC DEPRESS to enter EXP1 mode."
     },
     {
       "num": 7,
-      "action": "The air-to-ground radar will automatically adjust its range to give you a better view of the region you just expanded."
+      "action": "The air-to-ground radar will automatically adjust its range to give you a better view of the region you just expanded.",
+      "voiced": "Confirm radar auto-adjusts range to the expanded region."
     },
     {
       "num": 8,
-      "action": "You can designate a target using the method described in section 2.2.3.4 (Designation with EXP mode)."
+      "action": "You can designate a target using the method described in section 2.2.3.4 (Designation with EXP mode).",
+      "voiced": "Designate a target using the EXP mode designation method."
     },
     {
       "num": 9,
-      "action": "Pressing the « Undesignate » button on the stick will exit EXP1 mode. Undesignate / Nosewheel Steering Button Beirut Rafic Hariri Airport EXP1 Region FAST Option Boxing the FAST scan option doubles the radar's rate of scan for a reduction of approximately half the scan quality."
+      "action": "Pressing the \u00ab Undesignate \u00bb button on the stick will exit EXP1 mode. Undesignate / Nosewheel Steering Button Beirut Rafic Hariri Airport EXP1 Region FAST Option Boxing the FAST scan option doubles the radar's rate of scan for a reduction of approximately half the scan quality.",
+      "voiced": "Press the Undesignate button to exit EXP1 mode."
     }
   ]
 }

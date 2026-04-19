@@ -21,31 +21,38 @@
   "steps": [
     {
       "num": 1,
-      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI."
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI.",
+      "voiced": "Select the FLIR page, then press Sensor Control Switch toward the active DDI."
     },
     {
       "num": 2,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm the Select Focus Diamond appears on the FLIR DDI."
     },
     {
       "num": 3,
-      "action": "Press the Undesignate button twice to select VVSLV mode."
+      "action": "Press the Undesignate button twice to select VVSLV mode.",
+      "voiced": "Press the Undesignate button twice to select VVSLV mode."
     },
     {
       "num": 4,
-      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode."
+      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode.",
+      "voiced": "Press Undesignate twice again to deselect VVSLV and enter Snowplow mode."
     },
     {
       "num": 5,
-      "action": "When Snowplow is first entered, the FLIR is set to 0° left/right and -8° down."
+      "action": "When Snowplow is first entered, the FLIR is set to 0\u00b0 left/right and -8\u00b0 down.",
+      "voiced": "Confirm Snowplow initializes the FLIR to 0\u00b0 azimuth and -8\u00b0 depression."
     },
     {
       "num": 6,
-      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target"
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target",
+      "voiced": "Use TDC Aft/Fwd/Left/Right to slew the pod reticle over target."
     },
     {
       "num": 7,
-      "action": "To designate a target from Snowplow mode, use the TDC DEPRESS control (“ENTER”). A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well. Stabilized Pointing Mode is entered when a Target is designated from Snowplow (including from a source other than the FLIR itself) or is cycled from Auto Track or Point Track via the Sensor Control Switch. In this mode, the FLIR can be slewed freely and the designated target is constantly updated to its current location. When it is not being slewed, the FLIR stabilizes to whatever position on the ground it is pointed at."
+      "action": "To designate a target from Snowplow mode, use the TDC DEPRESS control (\u00abENTER\u00bb). A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well. Stabilized Pointing Mode is entered when a Target is designated from Snowplow (including from a source other than the FLIR itself) or is cycled from Auto Track or Point Track via the Sensor Control Switch. In this mode, the FLIR can be slewed freely and the designated target is constantly updated to its current location. When it is not being slewed, the FLIR stabilizes to whatever position on the ground it is pointed at.",
+      "voiced": "Press TDC DEPRESS to designate — diamond appears on FLIR and HUD, pod enters Stabilized Pointing Mode."
     }
   ]
 }

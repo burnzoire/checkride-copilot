@@ -21,27 +21,33 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch – ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode – A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Click on the OSB next to 82P to select a TALD. Pressing OSB next to STEP allows you to step between stations."
+      "action": "Click on the OSB next to 82P to select a TALD. Pressing OSB next to STEP allows you to step between stations.",
+      "voiced": "Press the OSB next to 82P to select a TALD, then press STEP to change stations."
     },
     {
       "num": 5,
-      "action": "Press the Weapon Release Button (« RALT+SPACE ») to launch a TALD."
+      "action": "Press the Weapon Release Button (« RALT+SPACE ») to launch a TALD.",
+      "voiced": "Press Weapon Release Button to launch."
     },
     {
       "num": 6,
-      "action": "Once launched, the TALD will deploy its wings and glide for as long as it can. Radar emitters should start launching ground-to-air missiles at the decoy once they detect it."
+      "action": "Once launched, the TALD will deploy its wings and glide for as long as it can. Radar emitters should start launching ground-to-air missiles at the decoy once they detect it.",
+      "voiced": "Wings deploy on release — radar emitters will track and engage the decoy."
     }
   ]
 }

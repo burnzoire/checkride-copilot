@@ -23,15 +23,18 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure the Radar Power Switch is set to OPR (Operate)."
+      "action": "Make sure the Radar Power Switch is set to OPR (Operate).",
+      "voiced": "Set Radar Power Switch to OPR."
     },
     {
       "num": 2,
-      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page."
+      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page.",
+      "voiced": "Press the A/G Master Mode button to bring up the radar MAP page on the right DDI."
     },
     {
       "num": 3,
-      "action": "Alternatively, you could also select the RDR ATTK (Radar) TAC page, and press the OSB (Option Select Button) next to SURF (Air-to- Surface). The radar page will then switch from air-to-air to air-to-ground. This method works too, but it is longer than just pressing the A/G Master Mode button."
+      "action": "Alternatively, you could also select the RDR ATTK (Radar) TAC page, and press the OSB (Option Select Button) next to SURF (Air-to- Surface). The radar page will then switch from air-to-air to air-to-ground. This method works too, but it is longer than just pressing the A/G Master Mode button.",
+      "voiced": "Alternatively, select the RDR ATTK TAC page and press the OSB next to SURF — slower than the Master Mode button but it works."
     }
   ]
 }

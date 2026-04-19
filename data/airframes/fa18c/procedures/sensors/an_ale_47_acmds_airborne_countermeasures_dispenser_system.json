@@ -37,35 +37,43 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set Master Arm Switch – ON"
+      "action": "Set Master Arm Switch \u2013 ON",
+      "voiced": "Set Master Arm Switch to ON."
     },
     {
       "num": 2,
-      "action": "In the TAC menu, select the EW (Early Warning) page"
+      "action": "In the TAC menu, select the EW (Early Warning) page",
+      "voiced": "Select the EW page from the TAC menu."
     },
     {
       "num": 3,
-      "action": "Set DISPENSER switch – ON (MIDDLE)"
+      "action": "Set DISPENSER switch \u2013 ON (MIDDLE)",
+      "voiced": "Set DISPENSER switch to ON."
     },
     {
       "num": 4,
-      "action": "Once aircraft is in the air, ALE-47 status will perform a series of built-in tests by going to SF TEST (Self-Test), then PBIT GO, then to STBY."
+      "action": "Once aircraft is in the air, ALE-47 status will perform a series of built-in tests by going to SF TEST (Self-Test), then PBIT GO, then to STBY.",
+      "voiced": "Once airborne, confirm ALE-47 cycles through SF TEST, PBIT GO, then to STBY."
     },
     {
       "num": 5,
-      "action": "Once ALE-47 status is set to STBY, click on the OSB above ALE-47 to select the countermeasure dispenser. ALE-47 will be boxed in green."
+      "action": "Once ALE-47 status is set to STBY, click on the OSB above ALE-47 to select the countermeasure dispenser. ALE-47 will be boxed in green.",
+      "voiced": "Once status shows STBY, press the OSB above ALE-47 to select it — confirm it boxes green."
     },
     {
       "num": 6,
-      "action": "Click the OSB next to MODE to select desired dispenser mode (MAN1 (Manual), S/A (Semi-Automatic), AUTO, STBY). We will choose MAN1."
+      "action": "Click the OSB next to MODE to select desired dispenser mode (MAN1 (Manual), S/A (Semi-Automatic), AUTO, STBY). We will choose MAN1.",
+      "voiced": "Press the OSB next to MODE to select desired dispenser mode — MAN1, S/A, AUTO, or STBY."
     },
     {
       "num": 7,
-      "action": "To create a countermeasure program: Press the OSB next to ARM Configure Chaff by pressing the OSB next to CHAF, then use the Increment/Decrement OSBs to set the desired number Configure Flares by pressing the OSB next to FLAR, then use the Increment/Decrement OSBs to set the desired number Configure the number of repetitions by pressing the OSB next to RPT, then use the Increment/Decrement OSBs to set the desired number Configure the interval time (sec) by pressing the OSB next to INT, then use the Increment/Decrement OSBs to set the desired number Press the OSB next to SAVE to save countermeasure program 1 Increment/Decrement OSBs You can set different programs by clicking STEP to cycle through different programs COUNTERMEASURES - CHAFF & FLARES AN/ALE-47 ACMDS (AIRBORNE COUNTERMEASURES DISPENSER SYSTEM) COUNTERMEASURE PROGRAM &"
+      "action": "To create a countermeasure program: Press the OSB next to ARM Configure Chaff by pressing the OSB next to CHAF, then use the Increment/Decrement OSBs to set the desired number Configure Flares by pressing the OSB next to FLAR, then use the Increment/Decrement OSBs to set the desired number Configure the number of repetitions by pressing the OSB next to RPT, then use the Increment/Decrement OSBs to set the desired number Configure the interval time (sec) by pressing the OSB next to INT, then use the Increment/Decrement OSBs to set the desired number Press the OSB next to SAVE to save countermeasure program 1 Increment/Decrement OSBs You can set different programs by clicking STEP to cycle through different programs COUNTERMEASURES - CHAFF & FLARES AN/ALE-47 ACMDS (AIRBORNE COUNTERMEASURES DISPENSER SYSTEM) COUNTERMEASURE PROGRAM &",
+      "voiced": "Press OSB next to ARM, configure CHAF, FLAR, RPT, and INT quantities, then press SAVE."
     },
     {
       "num": 8,
-      "action": "To dispense countermeasures using Program 1, press the Dispense Switch – AFT button (key binding: D). (Note: the Dispense Switch – FWD button will use Program 5 by default. You can) modify which program is used by either AFT or FWD Dispense by clicking on the STEP OSB. Dispense Switch AFT – OFF - FWD Countermeasure Modes MAN: manual program that can be stored and edited. You choose what the program is. AUTO: the ALE-47 chooses for you when to deploy countermeasures and what to use. Very wasteful mode, but reduces pilot workload. S/A: Semi-Automatic. ALE-47 will choose the best countermeasure program for you in response to the current threats, but you will have control on when the countermeasures are dispensed."
+      "action": "To dispense countermeasures using Program 1, press the Dispense Switch \u2013 AFT button (key binding: D). (Note: the Dispense Switch \u2013 FWD button will use Program 5 by default. You can) modify which program is used by either AFT or FWD Dispense by clicking on the STEP OSB. Dispense Switch AFT \u2013 OFF - FWD Countermeasure Modes MAN: manual program that can be stored and edited. You choose what the program is. AUTO: the ALE-47 chooses for you when to deploy countermeasures and what to use. Very wasteful mode, but reduces pilot workload. S/A: Semi-Automatic. ALE-47 will choose the best countermeasure program for you in response to the current threats, but you will have control on when the countermeasures are dispensed.",
+      "voiced": "Press the Dispense Switch AFT to dispense countermeasures using Program 1."
     }
   ]
 }

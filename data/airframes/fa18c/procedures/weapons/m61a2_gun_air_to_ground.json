@@ -23,43 +23,53 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Select GUN (text should be boxed)"
+      "action": "Select GUN (text should be boxed)",
+      "voiced": "Select GUN — confirm it boxes."
     },
     {
       "num": 5,
-      "action": "Select Gun Rounds Options (MK-50 or PGU-28 rounds)"
+      "action": "Select Gun Rounds Options (MK-50 or PGU-28 rounds)",
+      "voiced": "Select desired gun rounds — MK-50 or PGU-28."
     },
     {
       "num": 6,
-      "action": "Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute)"
+      "action": "Set Gun Firing Rate Option (HI = 6000 rounds per minute, LO = 4000 rounds per minute)",
+      "voiced": "Set gun firing rate — HI for 6000 rpm, LO for 4000 rpm."
     },
     {
       "num": 7,
-      "action": "Set Gun Mode to CCIP (text should be boxed) Gun Reticle Pipper CCIP Mode Selected Gun Selected & Armed Gun Rounds Remaining"
+      "action": "Set Gun Mode to CCIP (text should be boxed) Gun Reticle Pipper CCIP Mode Selected Gun Selected & Armed Gun Rounds Remaining",
+      "voiced": "Set Gun Mode to CCIP — confirm it boxes."
     },
     {
       "num": 8,
-      "action": "Set center of gun reticle on target and wait for the « IN RNG » (In Range) cue to appear."
+      "action": "Set center of gun reticle on target and wait for the \u00ab IN RNG \u00bb (In Range) cue to appear.",
+      "voiced": "Place gun reticle on target and wait for the IN RNG cue."
     },
     {
       "num": 9,
-      "action": "Squeeze the gun trigger (« Spacebar »)"
+      "action": "Squeeze the gun trigger (\u00ab Spacebar \u00bb)",
+      "voiced": "Squeeze the gun trigger to fire."
     },
     {
       "num": 10,
-      "action": "Once you have done your run and the Breakaway X appears, break off the attack and wave off from target. In Range Cue Breakaway X"
+      "action": "Once you have done your run and the Breakaway X appears, break off the attack and wave off from target. In Range Cue Breakaway X",
+      "voiced": "When Breakaway X appears, break off the attack."
     }
   ]
 }

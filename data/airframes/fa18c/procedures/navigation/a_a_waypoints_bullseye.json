@@ -21,23 +21,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Open HSI page"
+      "action": "Open HSI page",
+      "voiced": "Select the HSI page."
     },
     {
       "num": 2,
-      "action": "Select DATA sub-menu"
+      "action": "Select DATA sub-menu",
+      "voiced": "Select the DATA sub-menu."
     },
     {
       "num": 3,
-      "action": "If we want to set Waypoint 2 as our Bullseye, select Waypoint 2 using the WYPT arrows."
+      "action": "If we want to set Waypoint 2 as our Bullseye, select Waypoint 2 using the WYPT arrows.",
+      "voiced": "Use the WYPT arrows to select the desired waypoint as your Bullseye."
     },
     {
       "num": 4,
-      "action": "Press the OSB next to “A/A WP” to set Waypoint 2 as an A/A Bullseye Waypoint."
+      "action": "Press the OSB next to \u201cA/A WP\u201d to set Waypoint 2 as an A/A Bullseye Waypoint.",
+      "voiced": "Press the OSB next to A/A WP to designate that waypoint as the A/A Bullseye."
     },
     {
       "num": 5,
-      "action": "You should now see the Bullseye (circle with an arrow pointing North) on your SA page and see a “BE” section in your TDC Target Info. TDC Target Info BE 276/17: Target bearing and range from Bullseye. Target is at the bullseye’s 276, 17 nm out Bullseye (Waypoint 2) Your Position TDC’s Bearing (284) and Range (15.7 nm) from Bullseye Bullseye (Waypoint 2) SA Page HSI Page HSI Page Your Position"
+      "action": "You should now see the Bullseye (circle with an arrow pointing North) on your SA page and see a \u201cBE\u201d section in your TDC Target Info. TDC Target Info BE 276/17: Target bearing and range from Bullseye. Target is at the bullseye's 276, 17 nm out Bullseye (Waypoint 2) Your Position TDC's Bearing (284) and Range (15.7 nm) from Bullseye Bullseye (Waypoint 2) SA Page HSI Page HSI Page Your Position",
+      "voiced": "Confirm the Bullseye circle appears on the SA page and BE bearing and range shows in TDC Target Info."
     }
   ]
 }

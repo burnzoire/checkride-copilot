@@ -21,15 +21,18 @@
   "steps": [
     {
       "num": 1,
-      "action": "Go in HSI (Horizontal Situation Indicator) page"
+      "action": "Go in HSI (Horizontal Situation Indicator) page",
+      "voiced": "Select HSI on the DDI."
     },
     {
       "num": 2,
-      "action": "Select desired Waypoint Sequence (SEQ#1, SEQ#2 or SEQ#3 depending on your flight plan)"
+      "action": "Select desired Waypoint Sequence (SEQ#1, SEQ#2 or SEQ#3 depending on your flight plan)",
+      "voiced": "Press the OSB next to SEQ1, SEQ2, or SEQ3 to select your sequence."
     },
     {
       "num": 3,
-      "action": "Press the OSB (Option Select Button) next to AUTO if you want automatic waypoint sequencing (boxed). Leave it OFF if you want manual waypoint sequencing (unboxed) 5 - WAYPOINTS"
+      "action": "Press the OSB (Option Select Button) next to AUTO if you want automatic waypoint sequencing (boxed). Leave it OFF if you want manual waypoint sequencing (unboxed) 5 - WAYPOINTS",
+      "voiced": "Press the OSB next to AUTO to box it for automatic sequencing — leave it unboxed for manual."
     }
   ]
 }

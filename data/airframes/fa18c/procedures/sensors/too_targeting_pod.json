@@ -40,79 +40,98 @@
   "steps": [
     {
       "num": 1,
-      "action": "Press OSB next to MODE to toggle between TOO (Target-of-Opportunity) and PP (Pre-Planned) target designation modes. In this case, we will choose TOO."
+      "action": "Press OSB next to MODE to toggle between TOO (Target-of-Opportunity) and PP (Pre-Planned) target designation modes. In this case, we will choose TOO.",
+      "voiced": "Press the OSB next to MODE to select TOO target designation mode."
     },
     {
       "num": 2,
-      "action": "Press OSB next to MSN to enter the Mission Parameters page."
+      "action": "Press OSB next to MSN to enter the Mission Parameters page.",
+      "voiced": "Press the OSB next to MSN to enter the Mission Parameters page."
     },
     {
       "num": 3,
-      "action": "We can define up to two Targets of Opportunity per missile station: TOO1 and TOO2. We will designate the target on TOO1. Press OSB next to TOO1 to select it."
+      "action": "We can define up to two Targets of Opportunity per missile station: TOO1 and TOO2. We will designate the target on TOO1. Press OSB next to TOO1 to select it.",
+      "voiced": "Press the OSB next to TOO1 to select the first target of opportunity."
     },
     {
       "num": 4,
-      "action": "The ORP (Offset Release Point) is the designated target point (A/G TGT). For now, the field is empty since no target is defined yet."
+      "action": "The ORP (Offset Release Point) is the designated target point (A/G TGT). For now, the field is empty since no target is defined yet.",
+      "voiced": "Confirm ORP field is empty — no target designated yet."
     },
     {
       "num": 5,
-      "action": "(Optional) If you want to set TERM (Terminal Attack) parameters such as heading (HDG), attack angle (ANG) and velocity (VEL), press OSB next to TOO UFC. You will be able to enter them via the UFC. However, since we will control the missile remotely during the terminal attack stage, these parameters are not required and we will leave them blank,"
+      "action": "(Optional) If you want to set TERM (Terminal Attack) parameters such as heading (HDG), attack angle (ANG) and velocity (VEL), press OSB next to TOO UFC. You will be able to enter them via the UFC. However, since we will control the missile remotely during the terminal attack stage, these parameters are not required and we will leave them blank,",
+      "voiced": "Optionally set TERM attack parameters via TOO UFC — leave blank for remote terminal control."
     },
     {
       "num": 6,
-      "action": "(Optional) We do not need O/S (Offset) parameters to the ORP since we will control the missile remotely during the terminal attack stage. Therefore, we will not need to use O/S UFC function. Parameters for Station 8"
+      "action": "(Optional) We do not need O/S (Offset) parameters to the ORP since we will control the missile remotely during the terminal attack stage. Therefore, we will not need to use O/S UFC function. Parameters for Station 8",
+      "voiced": "Confirm O/S offset parameters are not required — leave blank for remote terminal control."
     },
     {
       "num": 7,
-      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI to slave TDC to the targeting pod."
+      "action": "Select FLIR page and press the Sensor Control Switch in the direction of the selected DDI to slave TDC to the targeting pod.",
+      "voiced": "Select the FLIR page and press Sensor Control Switch toward that DDI to slave TDC."
     },
     {
       "num": 8,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm the Select Focus Diamond appears on the FLIR DDI."
     },
     {
       "num": 9,
-      "action": "Press the Undesignate button twice to select VVSLV mode."
+      "action": "Press the Undesignate button twice to select VVSLV mode.",
+      "voiced": "Press the Undesignate button twice to select VVSLV mode."
     },
     {
       "num": 10,
-      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode."
+      "action": "Press the Undesignate button twice to select unselect VVSLV and switch to Snowplow mode.",
+      "voiced": "Press Undesignate twice again to deselect VVSLV and enter Snowplow mode."
     },
     {
       "num": 11,
-      "action": "When Snowplow is first entered, the FLIR is set to 0° left/right and -8° down."
+      "action": "When Snowplow is first entered, the FLIR is set to 0\u00b0 left/right and -8\u00b0 down.",
+      "voiced": "Confirm Snowplow initializes the FLIR to 0\u00b0 azimuth and -8\u00b0 depression."
     },
     {
       "num": 12,
-      "action": "Set Zoom level, TV/FLIR mode and Field-of-View as required."
+      "action": "Set Zoom level, TV/FLIR mode and Field-of-View as required.",
+      "voiced": "Set zoom level, TV/FLIR mode, and field of view as required."
     },
     {
       "num": 13,
-      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target."
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the targeting pod reticle over the desired target.",
+      "voiced": "Use TDC Aft/Fwd/Left/Right to slew the pod reticle over the target."
     },
     {
       "num": 14,
-      "action": "To designate a target from Snowplow mode, use the TDC DEPRESS control (“ENTER”). A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well."
+      "action": "To designate a target from Snowplow mode, use the TDC DEPRESS control (\u201cENTER\u201d). A diamond will appear over the designated point on the FLIR page and on the Heads-Up Display as well.",
+      "voiced": "Press TDC DEPRESS to designate — diamond appears on FLIR and HUD."
     },
     {
       "num": 15,
-      "action": "The target designation diamond, steering cues, range to target, SLAM indication, TMR indication (time required to be within range of a valid SLAM launch) and TOO indication will appear on the HUD. (Note: Since the targeting pod’s effective range is much shorter than the maximum) range of a SLAM missile, it is possible that the TMR indication is already set to IN RNG (In Range) once you designate the target."
+      "action": "The target designation diamond, steering cues, range to target, SLAM indication, TMR indication (time required to be within range of a valid SLAM launch) and TOO indication will appear on the HUD. (Note: Since the targeting pod's effective range is much shorter than the maximum) range of a SLAM missile, it is possible that the TMR indication is already set to IN RNG (In Range) once you designate the target.",
+      "voiced": "Confirm designation diamond, SLAM indication, and TMR or IN RNG cue appear on the HUD."
     },
     {
       "num": 16,
-      "action": "Minimum and Maximum Launch Range circles will appear on the HSI."
+      "action": "Minimum and Maximum Launch Range circles will appear on the HSI.",
+      "voiced": "Confirm minimum and maximum launch range circles appear on the HSI."
     },
     {
       "num": 17,
-      "action": "The coordinates and elevation of the designated target point will then directly transfer to the ORP (Offset Release Point) in the MSN page."
+      "action": "The coordinates and elevation of the designated target point will then directly transfer to the ORP (Offset Release Point) in the MSN page.",
+      "voiced": "Confirm target coordinates transfer to the ORP in the MSN page."
     },
     {
       "num": 18,
-      "action": "Press the OSB next to RETURN to return back to the SMS (Stores) page. We are now almost ready to begin our strike and launch the missile."
+      "action": "Press the OSB next to RETURN to return back to the SMS (Stores) page. We are now almost ready to begin our strike and launch the missile.",
+      "voiced": "Press the OSB next to RETURN to go back to the SMS page."
     },
     {
       "num": 19,
-      "action": "Please proceed to section"
+      "action": "Please proceed to section",
+      "voiced": "Proceed to the launch procedure section."
     }
   ]
 }

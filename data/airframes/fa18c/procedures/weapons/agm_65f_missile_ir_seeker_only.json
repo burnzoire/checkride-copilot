@@ -33,63 +33,78 @@
   "steps": [
     {
       "num": 1,
-      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation."
+      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation.",
+      "voiced": "Select MAVF airborne — Weight on Wheels inhibits cooldown on the ground. Expect about 3 minutes."
     },
     {
       "num": 2,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 3,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode – A/G",
+      "voiced": "Set Master Mode to A/G."
     },
     {
       "num": 4,
-      "action": "Select MAVF (text should be boxed)"
+      "action": "Select MAVF (text should be boxed)",
+      "voiced": "Select MAVF — confirm text boxes."
     },
     {
       "num": 5,
-      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed."
+      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed.",
+      "voiced": "Press the OSB next to the crossed-out MAVF to monitor seeker cooldown."
     },
     {
       "num": 6,
-      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live."
+      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live.",
+      "voiced": "Confirm cooldown complete — timer clears and MAVF feed goes live."
     },
     {
       "num": 7,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch – ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 8,
-      "action": "You can select the Maverick seeker head feed by going back to the TAC page and selecting IMAV DSPLY or by going in the STORES page and selecting MAVF twice as shown previously."
+      "action": "You can select the Maverick seeker head feed by going back to the TAC page and selecting IMAV DSPLY or by going in the STORES page and selecting MAVF twice as shown previously.",
+      "voiced": "Select IMAV DSPLY on the TAC page, or select MAVF twice on STORES, to bring up the seeker feed."
     },
     {
       "num": 9,
-      "action": "Set Fuzing to either INST (Instantaneous), DLY1 (Delayed Fuze) or DLY2."
+      "action": "Set Fuzing to either INST (Instantaneous), DLY1 (Delayed Fuze) or DLY2.",
+      "voiced": "Set fuzing to INST, DLY1, or DLY2 as required."
     },
     {
       "num": 10,
-      "action": "Set Sensor Control Switch to the Maverick Feed DDI (Sensor Control Switch LEFT since we showed up the MAV feed on the left DDI). A diamond will appear to show the left DDI is selected."
+      "action": "Set Sensor Control Switch to the Maverick Feed DDI (Sensor Control Switch LEFT since we showed up the MAV feed on the left DDI). A diamond will appear to show the left DDI is selected.",
+      "voiced": "Set Sensor Control Switch LEFT to designate the Maverick feed DDI — confirm diamond appears."
     },
     {
       "num": 11,
-      "action": "Adjust FOV (Field of View) as required."
+      "action": "Adjust FOV (Field of View) as required.",
+      "voiced": "Adjust FOV as required."
     },
     {
       "num": 12,
-      "action": "By default, the Maverick is Caged. When the seeker is caged, it will always point forward at its boresight."
+      "action": "By default, the Maverick is Caged. When the seeker is caged, it will always point forward at its boresight.",
+      "voiced": "Confirm seeker is caged — it holds boresight until you uncage it."
     },
     {
       "num": 13,
-      "action": "Press the Cage/Uncage Button to uncage the Maverick. When uncaged, the missile will attempt to lock onto a contrasting target within the seeker center."
+      "action": "Press the Cage/Uncage Button to uncage the Maverick. When uncaged, the missile will attempt to lock onto a contrasting target within the seeker center.",
+      "voiced": "Press the Cage/Uncage Button to uncage the Maverick."
     },
     {
       "num": 14,
-      "action": "Hold the TDC Depress button while slewing the Maverick to the target. When you release the TDC Depress button, the missile will attempt to lock its target. The Maverick is most likely going to acquire a good lock from a distance of 7.5 miles."
+      "action": "Hold the TDC Depress button while slewing the Maverick to the target. When you release the TDC Depress button, the missile will attempt to lock its target. The Maverick is most likely going to acquire a good lock from a distance of 7.5 miles.",
+      "voiced": "Hold TDC Depress and slew to the target, then release to command lock."
     },
     {
       "num": 15,
-      "action": "When lock is acquired by Maverick, the MAVF crossed-out indication will disappear. Hold the Weapon Release Button (« RALT+SPACE ») to fire missile."
+      "action": "When lock is acquired by Maverick, the MAVF crossed-out indication will disappear. Hold the Weapon Release Button (« RALT+SPACE ») to fire missile.",
+      "voiced": "When the MAVF crossed-out indication clears, hold Weapon Release Button to fire."
     }
   ]
 }

@@ -24,15 +24,18 @@
   "steps": [
     {
       "num": 1,
-      "action": "WYPT OSB (Option Select Button) selected on the HSI (Horizontal Situation Indicator)"
+      "action": "WYPT OSB (Option Select Button) selected on the HSI (Horizontal Situation Indicator)",
+      "voiced": "Select WYPT on the HSI page."
     },
     {
       "num": 2,
-      "action": "Desired waypoint is selected"
+      "action": "Desired waypoint is selected",
+      "voiced": "Select your desired waypoint."
     },
     {
       "num": 3,
-      "action": "WPDSG (Waypoint Designate) OSB selected Targeting Pod is Powered Up FLIR Reticles (with Wide, Medium and Narrow Field-of-View) Undesignated WFOV Designated WFOV Undesignated MFOV Designated MFOV Undesignated Designated AUTO Track SCENE Track"
+      "action": "WPDSG (Waypoint Designate) OSB selected Targeting Pod is Powered Up FLIR Reticles (with Wide, Medium and Narrow Field-of-View) Undesignated WFOV Designated WFOV Undesignated MFOV Designated MFOV Undesignated Designated AUTO Track SCENE Track",
+      "voiced": "Press WPDSG to designate the waypoint as the target point."
     }
   ]
 }

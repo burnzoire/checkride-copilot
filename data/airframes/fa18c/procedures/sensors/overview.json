@@ -20,15 +20,18 @@
   "steps": [
     {
       "num": 1,
-      "action": "WYPT OSB (Option Select Button) selected on the HSI (Horizontal Situation Indicator)"
+      "action": "WYPT OSB (Option Select Button) selected on the HSI (Horizontal Situation Indicator)",
+      "voiced": "Confirm WYPT is selected on the HSI."
     },
     {
       "num": 2,
-      "action": "Desired waypoint is selected"
+      "action": "Desired waypoint is selected",
+      "voiced": "Confirm your desired waypoint is set."
     },
     {
       "num": 3,
-      "action": "WPDSG (Waypoint Designate) OSB selected Snowplow Mode Targeting Pod is Powered Up"
+      "action": "WPDSG (Waypoint Designate) OSB selected Snowplow Mode Targeting Pod is Powered Up",
+      "voiced": "Select WPDSG — pod should be powered and slaved to that point."
     }
   ]
 }

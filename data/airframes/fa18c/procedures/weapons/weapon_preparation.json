@@ -27,39 +27,48 @@
   "steps": [
     {
       "num": 1,
-      "action": "Designate a point where the radar emitter is expected to be. This can be done with a Waypoint Designate (WPDSG) or any other method of designation (with a Targeting Pod for instance)."
+      "action": "Designate a point where the radar emitter is expected to be. This can be done with a Waypoint Designate (WPDSG) or any other method of designation (with a Targeting Pod for instance).",
+      "voiced": "Designate the expected emitter location via WPDSG or targeting pod."
     },
     {
       "num": 2,
-      "action": "In our case, we will designate Waypoint 2 as the expected target location. Go to the HSI (Horizontal Situation Indicator) page, select Waypoint 2 with the selector arrows, then press OSB next to WPDSG."
+      "action": "In our case, we will designate Waypoint 2 as the expected target location. Go to the HSI (Horizontal Situation Indicator) page, select Waypoint 2 with the selector arrows, then press OSB next to WPDSG.",
+      "voiced": "On the HSI page, select the target waypoint, then press the OSB next to WPDSG."
     },
     {
       "num": 3,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch – ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 4,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode – A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 5,
-      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it"
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it",
+      "voiced": "On the SMS page, press the OSB next to HARM to select it."
     },
     {
       "num": 6,
-      "action": "Select PB (Pre-Briefed) Mode"
+      "action": "Select PB (Pre-Briefed) Mode",
+      "voiced": "Select PB mode."
     },
     {
       "num": 7,
-      "action": "Select desired Pull-Up mode A/C (Aircraft Pull-Up): Aircraft pulls up and lofts the missile towards the selected target point."
+      "action": "Select desired Pull-Up mode A/C (Aircraft Pull-Up): Aircraft pulls up and lofts the missile towards the selected target point.",
+      "voiced": "Select Pull-Up mode A/C — aircraft pulls up and lofts toward target."
     },
     {
       "num": 8,
-      "action": "Determine Target Code with the Target Codes Table listed in the Introduction section. We expect to attack a SA-8, so the code will be « 117 »."
+      "action": "Determine Target Code with the Target Codes Table listed in the Introduction section. We expect to attack a SA-8, so the code will be « 117 ».",
+      "voiced": "Determine the target emitter code from the Target Codes Table."
     },
     {
       "num": 9,
-      "action": "Enter the Target Code with the UFC. Press OSB next to « UFC » (Up-Front Controller), then press OSB next to TGT (displays « : » when selected), type « 117 » on the scratchpad, then press ENT button to enter the target code."
+      "action": "Enter the Target Code with the UFC. Press OSB next to « UFC » (Up-Front Controller), then press OSB next to TGT (displays « : » when selected), type « 117 » on the scratchpad, then press ENT button to enter the target code.",
+      "voiced": "Press OSB next to UFC, press TGT, enter the target code on the scratchpad, then press ENT."
     }
   ]
 }

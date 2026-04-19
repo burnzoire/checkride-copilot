@@ -27,43 +27,53 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours."
+      "action": "Set IR COOL switch to NORM. Infrared seeker in the AIM-9 nose must be cooled down to increase sensitivity and reduce background noise. There is enough coolant for 3 hours.",
+      "voiced": "Set IR COOL switch to NORM — seeker requires cooldown; 3 hours of coolant available."
     },
     {
       "num": 2,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 3,
-      "action": "Radar Switch - OPERATE"
+      "action": "Radar Switch - OPERATE",
+      "voiced": "Set Radar Switch to OPERATE."
     },
     {
       "num": 4,
-      "action": "Weapon Select Switch – SIDEWINDER (DOWN), or « LSHIFT+S »"
+      "action": "Weapon Select Switch \u2013 SIDEWINDER (DOWN), or \u00ab LSHIFT+S \u00bb",
+      "voiced": "Press Weapon Select Switch DOWN to select SIDEWINDER."
     },
     {
       "num": 5,
-      "action": "Master Mode switch will be automatically set to A/A"
+      "action": "Master Mode switch will be automatically set to A/A",
+      "voiced": "Confirm Master Mode automatically sets to A/A."
     },
     {
       "num": 6,
-      "action": "When SIDEWINDER is selected and radar is operating, press the Sensor Control Switch FWD to select ACM (Air Combat Maneuvering) radar mode"
+      "action": "When SIDEWINDER is selected and radar is operating, press the Sensor Control Switch FWD to select ACM (Air Combat Maneuvering) radar mode",
+      "voiced": "Press Sensor Control Switch FWD to select ACM radar mode."
     },
     {
       "num": 7,
-      "action": "Select ACM sub-mode using the Sensor Select switch again. We will select BST sub-mode."
+      "action": "Select ACM sub-mode using the Sensor Select switch again. We will select BST sub-mode.",
+      "voiced": "Press Sensor Select Switch again to select BST sub-mode."
     },
     {
       "num": 8,
-      "action": "Fly to place target in dashed circle on the HUD to lock it on radar when at 5 nm or closer. When target is flying through this scan zone, it is automatically locked on to in STT (Single Target Track) mode"
+      "action": "Fly to place target in dashed circle on the HUD to lock it on radar when at 5 nm or closer. When target is flying through this scan zone, it is automatically locked on to in STT (Single Target Track) mode",
+      "voiced": "Fly to place target in the dashed circle on the HUD — auto-locks in STT at 5 nm or closer."
     },
     {
       "num": 9,
-      "action": "Press and hold the Cage/Uncage switch (« C » by default) to uncage the Sidewinder."
+      "action": "Press and hold the Cage/Uncage switch (\u00ab C \u00bb by default) to uncage the Sidewinder.",
+      "voiced": "Press and hold the Cage/Uncage switch to uncage the Sidewinder."
     },
     {
       "num": 10,
-      "action": "Fly to place the Steering Dot inside the ASE/NIRD (Allowable Steering Error Normalized In-Range Display) Circle squeeze trigger (« Spacebar ») when you see the SHOOT cue over the TD (Target Designation) box on the HUD to launch missile."
+      "action": "Fly to place the Steering Dot inside the ASE/NIRD (Allowable Steering Error Normalized In-Range Display) Circle squeeze trigger (\u00ab Spacebar \u00bb) when you see the SHOOT cue over the TD (Target Designation) box on the HUD to launch missile.",
+      "voiced": "Place Steering Dot inside the ASE/NIRD circle and squeeze trigger when SHOOT cue appears to launch."
     }
   ]
 }

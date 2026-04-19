@@ -35,91 +35,113 @@
   "steps": [
     {
       "num": 1,
-      "action": "Contact Carrier to turn on the lights Left click on the COMM1 knob to pull it and select COMM1 Radio Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode Press the OSB next to AM or FM to select the FM frequency (“:FM” will appear when selected) Press CLR on the UFC to clear current frequency Type “127500” on the UFC to set carrier radio frequency 127.5 MHz Press ENT on the UFC to enter this frequency Press the COMM switch – COMM1 on your throttle to contact the carrier (RALT+\\) Go in F5 – AT5 menu, then to the CVN-74 menu, then to the F1 – Inbound menu. And that’s it, the carrier is now illuminated. 9 –"
+      "action": "Contact Carrier to turn on the lights Left click on the COMM1 knob to pull it and select COMM1 Radio Scroll mousewheel on COMM1 Radio Channel Selector to M (Manual) Mode Press the OSB next to AM or FM to select the FM frequency (\":FM\" will appear when selected) Press CLR on the UFC to clear current frequency Type \"127500\" on the UFC to set carrier radio frequency 127.5 MHz Press ENT on the UFC to enter this frequency Press the COMM switch – COMM1 on your throttle to contact the carrier (RALT+\\) Go in F5 – AT5 menu, then to the CVN-74 menu, then to the F1 – Inbound menu. And that's it, the carrier is now illuminated. 9 –",
+      "voiced": "Contact carrier on 127.5 FM via COMM1 and select Inbound to illuminate the carrier."
     },
     {
       "num": 2,
-      "action": "Adjust your interior cockpit lights as required"
+      "action": "Adjust your interior cockpit lights as required",
+      "voiced": "Adjust interior cockpit lights as required."
     },
     {
       "num": 3,
-      "action": "Set your HSI page on the left DDI, your FCS page on the right DDI, and the CHKLST page on the center AMPCD."
+      "action": "Set your HSI page on the left DDI, your FCS page on the right DDI, and the CHKLST page on the center AMPCD.",
+      "voiced": "Set HSI on left DDI, FCS on right DDI, CHKLST on center AMPCD."
     },
     {
       "num": 4,
-      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD and set radar altimeter index to 370 ft or 320 (as you prefer). You use 370 ft to remind you that you need to make the ball call or 320 ft to make sure you have the proper altitude when 3/4 nm from the carrier. 9 – ICLS CARRIER LANDING TUTORIAL CASE III RECOVERY (Note: we will assume the carrier’s TACAN frequency is 74X and our ICLS channel is 11.)"
+      "action": "Set ALTITUDE Switch to RDR to use your radar altimeter as a reference for your HUD and set radar altimeter index to 370 ft or 320 (as you prefer). You use 370 ft to remind you that you need to make the ball call or 320 ft to make sure you have the proper altitude when 3/4 nm from the carrier. 9 – ICLS CARRIER LANDING TUTORIAL CASE III RECOVERY (Note: we will assume the carrier's TACAN frequency is 74X and our ICLS channel is 11.)",
+      "voiced": "Set ALTITUDE switch to RDR and radar altimeter index to 370 or 320 ft."
     },
     {
       "num": 5,
-      "action": "On the UFC (Up-Front Control) Panel, press the TCN button and press the ON/OFF button if the ON indication is extinguished."
+      "action": "On the UFC (Up-Front Control) Panel, press the TCN button and press the ON/OFF button if the ON indication is extinguished.",
+      "voiced": "Press TCN on the UFC, then press ON/OFF if TACAN is not already on."
     },
     {
       "num": 6,
-      "action": "Press the T/R OSB button to set it to Transmit/Receive. The “:” symbol indicates that it is selected."
+      "action": "Press the T/R OSB button to set it to Transmit/Receive. The \":\" symbol indicates that it is selected.",
+      "voiced": "Press T/R for Transmit/Receive mode — confirm colon indicates selected."
     },
     {
       "num": 7,
-      "action": "Press “74” on the scratchpad and press “ENT” to enter frequency."
+      "action": "Press \"74\" on the scratchpad and press \"ENT\" to enter frequency.",
+      "voiced": "Enter the carrier TACAN channel on the scratchpad, then press ENT."
     },
     {
       "num": 8,
-      "action": "Press the X or Y OSB to select the right letter of the TACAN frequency (74X in our case)."
+      "action": "Press the X or Y OSB to select the right letter of the TACAN frequency (74X in our case).",
+      "voiced": "Press X or Y to select the correct TACAN frequency suffix."
     },
     {
       "num": 9,
-      "action": "Press the OSB next to TACAN to select tracking mode to TACAN. Once selected, TCN should be boxed."
+      "action": "Press the OSB next to TACAN to select tracking mode to TACAN. Once selected, TCN should be boxed.",
+      "voiced": "Press the OSB next to TACAN — confirm TCN boxes."
     },
     {
       "num": 10,
-      "action": "Click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) for TACAN approach (030 for the Marshal Radial). CSEL, Selected Course 9 – ICLS CARRIER LANDING TUTORIAL CASE III RECOVERY (Note: we will assume the carrier’s TACAN frequency is 74X and our ICLS channel is 11.)"
+      "action": "Click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) for TACAN approach (030 for the Marshal Radial). CSEL, Selected Course 9 – ICLS CARRIER LANDING TUTORIAL CASE III RECOVERY (Note: we will assume the carrier's TACAN frequency is 74X and our ICLS channel is 11.)",
+      "voiced": "Set CRS knob to the Marshal Radial for TACAN approach."
     },
     {
       "num": 11,
-      "action": "On the UFC (Up-Front Control) Panel, press the ILS button and press the ON/OFF button if the ON indication is extinguished."
+      "action": "On the UFC (Up-Front Control) Panel, press the ILS button and press the ON/OFF button if the ON indication is extinguished.",
+      "voiced": "Press ILS on the UFC, then press ON/OFF if ICLS is not already on."
     },
     {
       "num": 12,
-      "action": "Press “11” on the scratchpad and press “ENT” to enter ICLS channel."
+      "action": "Press \"11\" on the scratchpad and press \"ENT\" to enter ICLS channel.",
+      "voiced": "Enter the ICLS channel on the scratchpad, then press ENT."
     },
     {
       "num": 13,
-      "action": "Press the OSB next to ILS to select tracking mode to ICLS. Once selected, ILS should be boxed. 9 –"
+      "action": "Press the OSB next to ILS to select tracking mode to ICLS. Once selected, ILS should be boxed. 9 –",
+      "voiced": "Press the OSB next to ILS — confirm ILS boxes."
     },
     {
       "num": 14,
-      "action": "When you are 25 nm from carrier, follow the Marshal Radial (030) and descend from 10,000 ft to 5,000 ft at 250 kts."
+      "action": "When you are 25 nm from carrier, follow the Marshal Radial (030) and descend from 10,000 ft to 5,000 ft at 250 kts.",
+      "voiced": "At 25 nm, follow Marshal Radial and descend from 10,000 to 5,000 ft at 250 kts."
     },
     {
       "num": 15,
-      "action": "Maintain 5,000 ft until being 15 nm from carrier Inside Marshal Zone, 25 nm from Carrier 10,000 ft, 250 kts, 4000 ft/min descent Aircraft Carrier 5,000 ft, 15 nm from carrier Steer 90 deg right to 120 deg 25 nm from TACAN 15 nm from TACAN 7 deg deviation from TACAN radial 030 2 deg deviation from TACAN radial 030 4 deg deviation dot 8 deg deviation dot 9 –"
+      "action": "Maintain 5,000 ft until being 15 nm from carrier Inside Marshal Zone, 25 nm from Carrier 10,000 ft, 250 kts, 4000 ft/min descent Aircraft Carrier 5,000 ft, 15 nm from carrier Steer 90 deg right to 120 deg 25 nm from TACAN 15 nm from TACAN 7 deg deviation from TACAN radial 030 2 deg deviation from TACAN radial 030 4 deg deviation dot 8 deg deviation dot 9 –",
+      "voiced": "Maintain 5,000 ft until 15 nm from carrier."
     },
     {
       "num": 16,
-      "action": "Steer 90 deg right to a heading of 120 and set TACAN course to the Carrier Runway Heading (000/360)."
+      "action": "Steer 90 deg right to a heading of 120 and set TACAN course to the Carrier Runway Heading (000/360).",
+      "voiced": "Turn 90 degrees right to heading 120 and set TACAN course to carrier runway heading."
     },
     {
       "num": 17,
-      "action": "When crossing the carrier’s runway heading radial of 360, steer aircraft to 360 for Final Approach. Aircraft Carrier 5,000 ft, 15 nm from carrier Steer 90 deg right to 120 deg Fly Heading 120 for 12 nm 10 nm from carrier Steer to Heading 360 for Final Heading 120 Heading 360 9 –"
+      "action": "When crossing the carrier's runway heading radial of 360, steer aircraft to 360 for Final Approach. Aircraft Carrier 5,000 ft, 15 nm from carrier Steer 90 deg right to 120 deg Fly Heading 120 for 12 nm 10 nm from carrier Steer to Heading 360 for Final Heading 120 Heading 360 9 –",
+      "voiced": "When crossing the 360-degree radial, turn to heading 360 for final approach."
     },
     {
       "num": 18,
-      "action": "When reaching 8 nm from carrier, set landing gear down, full flaps, On Speed AoA, Anti-Skid Switch to OFF, Hook Lever DOWN, Hook Bypass Switch to CARRIER."
+      "action": "When reaching 8 nm from carrier, set landing gear down, full flaps, On Speed AoA, Anti-Skid Switch to OFF, Hook Lever DOWN, Hook Bypass Switch to CARRIER.",
+      "voiced": "At 8 nm — gear DOWN, full flaps, On Speed AoA, Anti-Skid OFF, Hook DOWN, Hook Bypass CARRIER."
     },
     {
       "num": 19,
-      "action": "When entering final bearing, intercept localizer line to guide yourself laterally on the runway. Line up Velocity Vector with the Localizer Line. « Chase » the line."
+      "action": "When entering final bearing, intercept localizer line to guide yourself laterally on the runway. Line up Velocity Vector with the Localizer Line. « Chase » the line.",
+      "voiced": "Intercept the localizer line and chase it with the velocity vector for lateral guidance."
     },
     {
       "num": 20,
-      "action": "When reaching approx. 7 nm from the carrier, the glide slope line will appear. Intercept the glide slope line to guide yourself vertically on the glide path. Line up Velocity Vector with the Glide Slope Line. « Chase » the line."
+      "action": "When reaching approx. 7 nm from the carrier, the glide slope line will appear. Intercept the glide slope line to guide yourself vertically on the glide path. Line up Velocity Vector with the Glide Slope Line. « Chase » the line.",
+      "voiced": "At 7 nm, intercept the glide slope line — chase it with the velocity vector."
     },
     {
       "num": 21,
-      "action": "Keep your velocity vector lined up with the glide slope bar and the localizer bar. Perform gentle corrections until you reach 3/4 nm from the carrier."
+      "action": "Keep your velocity vector lined up with the glide slope bar and the localizer bar. Perform gentle corrections until you reach 3/4 nm from the carrier.",
+      "voiced": "Keep velocity vector on glide slope and localizer with gentle corrections to 3/4 nm."
     },
     {
       "num": 22,
-      "action": "Use Meatball as reference when at 3/4 nm and land. Aircraft Carrier 10 nm from carrier Steer to Heading 360 for Final 8 nm from carrier Gear down, full flaps, ON SPEED AoA Entering Final Bearing Intercept localizer and glide slope 3/4 nm from carrier Use Meatball as a reference to land 9 – ICLS CARRIER LANDING TUTORIAL CASE III RECOVERY 9 –"
+      "action": "Use Meatball as reference when at 3/4 nm and land. Aircraft Carrier 10 nm from carrier Steer to Heading 360 for Final 8 nm from carrier Gear down, full flaps, ON SPEED AoA Entering Final Bearing Intercept localizer and glide slope 3/4 nm from carrier Use Meatball as a reference to land 9 – ICLS CARRIER LANDING TUTORIAL CASE III RECOVERY 9 –",
+      "voiced": "At 3/4 nm, transition to meatball and land."
     }
   ]
 }

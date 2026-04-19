@@ -27,27 +27,33 @@
   "steps": [
     {
       "num": 1,
-      "action": "Set Master Arm Switch – ON"
+      "action": "Set Master Arm Switch \u2013 ON",
+      "voiced": "Set Master Arm Switch to ON."
     },
     {
       "num": 2,
-      "action": "Consult SMS (Stores Management System) page’s wingform to see what is loaded on what pylon"
+      "action": "Consult SMS (Stores Management System) page's wingform to see what is loaded on what pylon",
+      "voiced": "Check SMS page wingform to identify what is loaded on each pylon."
     },
     {
       "num": 3,
-      "action": "Select store you want to jettison (Left Inner, Right Inner, Left Outer, Right Outer, Center) using the LI, RI, LO, RO, CTR pushbuttons"
+      "action": "Select store you want to jettison (Left Inner, Right Inner, Left Outer, Right Outer, Center) using the LI, RI, LO, RO, CTR pushbuttons",
+      "voiced": "Select the store to jettison using LI, RI, LO, RO, or CTR pushbuttons."
     },
     {
       "num": 4,
-      "action": "Rotate the Selective Jettison knob to desired release mode (we will use RACK/LCHR). L FUS MSL and R FUS MSL are used to jettison AIM-7 or AIM-120 missiles attached to the fuselage RACK/LCHR drops the weapon and its launcher rack STORES drops the weapon but not its attachment rack"
+      "action": "Rotate the Selective Jettison knob to desired release mode (we will use RACK/LCHR). L FUS MSL and R FUS MSL are used to jettison AIM-7 or AIM-120 missiles attached to the fuselage RACK/LCHR drops the weapon and its launcher rack STORES drops the weapon but not its attachment rack",
+      "voiced": "Rotate Selective Jettison knob to desired release mode — RACK/LCHR or STORES."
     },
     {
       "num": 5,
-      "action": "Press and hold the red JETT (Jettison) button to jettison ordnance."
+      "action": "Press and hold the red JETT (Jettison) button to jettison ordnance.",
+      "voiced": "Press and hold the red JETT button to jettison."
     },
     {
       "num": 6,
-      "action": "Return Selective Jettison knob back to SAFE 4 - SELECTIVE ORDNANCE JETTISON Emergency Jettison Button"
+      "action": "Return Selective Jettison knob back to SAFE 4 - SELECTIVE ORDNANCE JETTISON Emergency Jettison Button",
+      "voiced": "Return Selective Jettison knob to SAFE."
     }
   ]
 }

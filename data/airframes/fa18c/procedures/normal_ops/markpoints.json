@@ -23,15 +23,18 @@
   "steps": [
     {
       "num": 1,
-      "action": "From the HSI page, Press the OSB (Option Select Button) next to WYPT to set tracking mode to WAYPOINT."
+      "action": "From the HSI page, Press the OSB (Option Select Button) next to WYPT to set tracking mode to WAYPOINT.",
+      "voiced": "Press the OSB next to WYPT on the HSI page to set tracking mode to Waypoint."
     },
     {
       "num": 2,
-      "action": "To select a markpoint, press the OSBs to increment or decrement the waypoint number. Since the Waypoint Database can contain up to 60 waypoints and 9 additional markpoints (stored AFTER waypoint 59). I would suggest using the decrement OSB instead of the increment OSB (quicker way to go to the MK#). since going through 60 waypoints can be a bit time-consuming."
+      "action": "To select a markpoint, press the OSBs to increment or decrement the waypoint number. Since the Waypoint Database can contain up to 60 waypoints and 9 additional markpoints (stored AFTER waypoint 59). I would suggest using the decrement OSB instead of the increment OSB (quicker way to go to the MK#). since going through 60 waypoints can be a bit time-consuming.",
+      "voiced": "Use the decrement OSB to step down to your markpoint — markpoints sit after waypoint 59, so decrement is faster."
     },
     {
       "num": 3,
-      "action": "Use the HSI and HUD to navigate towards waypoint 6 - MARKPOINTS"
+      "action": "Use the HSI and HUD to navigate towards waypoint 6 - MARKPOINTS",
+      "voiced": "Track to the markpoint using the HSI and HUD."
     }
   ]
 }

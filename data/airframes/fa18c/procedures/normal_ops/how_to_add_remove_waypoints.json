@@ -26,27 +26,33 @@
   "steps": [
     {
       "num": 1,
-      "action": "In the HSI page, press the OSB next to DATA."
+      "action": "In the HSI page, press the OSB next to DATA.",
+      "voiced": "On the HSI page, press the OSB next to DATA."
     },
     {
       "num": 2,
-      "action": "You will see the waypoint sequence. We want to insert a 7th waypoint after Waypoint 6, which we will call Waypoint 7."
+      "action": "You will see the waypoint sequence. We want to insert a 7th waypoint after Waypoint 6, which we will call Waypoint 7.",
+      "voiced": "Confirm the waypoint sequence is displayed as expected."
     },
     {
       "num": 3,
-      "action": "Press the OSB next to SEQUFC (Sequence UFC)"
+      "action": "Press the OSB next to SEQUFC (Sequence UFC)",
+      "voiced": "Press the OSB next to SEQUFC."
     },
     {
       "num": 4,
-      "action": "On the UFC, press the OSB next to INS (Insert). « : » will appear once selected."
+      "action": "On the UFC, press the OSB next to INS (Insert). « : » will appear once selected.",
+      "voiced": "On the UFC, press the OSB next to INS."
     },
     {
       "num": 5,
-      "action": "Press « 7 », then « ENT » to enter Waypoint 7."
+      "action": "Press « 7 », then « ENT » to enter Waypoint 7.",
+      "voiced": "Press the desired waypoint number, then ENT."
     },
     {
       "num": 6,
-      "action": "Waypoint 7 will need coordinates, which we will add in the « HOW TO EDIT WAYPOINTS » tutorial. TO REMOVE WAYPOINTS: In the HSI page, press the OSB next to DATA. You will see the waypoint sequence. Let’s say we want to delete waypoint 2. Press the OSB next to SEQUFC (Sequence UFC) Press « CLR » to clear any displayed number on the UFC display On the UFC, press the OSB next to DEL (Delete). « : » will appear once selected. Press « 2 », then « ENT » to delete Waypoint 2 And that’s it! 5 - WAYPOINTS"
+      "action": "Waypoint 7 will need coordinates, which we will add in the « HOW TO EDIT WAYPOINTS » tutorial. TO REMOVE WAYPOINTS: In the HSI page, press the OSB next to DATA. You will see the waypoint sequence. Let’s say we want to delete waypoint 2. Press the OSB next to SEQUFC (Sequence UFC) Press « CLR » to clear any displayed number on the UFC display On the UFC, press the OSB next to DEL (Delete). « : » will appear once selected. Press « 2 », then « ENT » to delete Waypoint 2 And that’s it! 5 - WAYPOINTS",
+      "voiced": "Confirm the new waypoint appears in sequence — coordinates still need to be entered."
     }
   ]
 }

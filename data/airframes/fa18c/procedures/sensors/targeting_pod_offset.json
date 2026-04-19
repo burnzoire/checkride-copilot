@@ -22,23 +22,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "In this second example, we will start from a Point Track (PTRK). The targeting pod will be tracking a reference object."
+      "action": "In this second example, we will start from a Point Track (PTRK). The targeting pod will be tracking a reference object.",
+      "voiced": "Starting from PTRK — pod is already tracking a reference object."
     },
     {
       "num": 2,
-      "action": "Use the TDC DEPRESS control (“ENTER”) to activate OFFSET function. A “+” cross (Offset Cursor) will appear at the center of the reticle."
+      "action": "Use the TDC DEPRESS control (\u201cENTER\u201d) to activate OFFSET function. A \u201c+\u201d cross (Offset Cursor) will appear at the center of the reticle.",
+      "voiced": "Press TDC DEPRESS to activate OFFSET — Offset Cursor appears at reticle center."
     },
     {
       "num": 3,
-      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the Offset Cursor over the desired target."
+      "action": "Use the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls to slew the Offset Cursor over the desired target.",
+      "voiced": "Slew TDC Aft, Fwd, Left, or Right to place the Offset Cursor on the target."
     },
     {
       "num": 4,
-      "action": "Use the TDC DEPRESS control (“ENTER”) a second time to designate the location of the Offset Cursor as the new Target Designation point (TGT)."
+      "action": "Use the TDC DEPRESS control (\u201cENTER\u201d) a second time to designate the location of the Offset Cursor as the new Target Designation point (TGT).",
+      "voiced": "Press TDC DEPRESS again to designate the Offset Cursor as the new target point."
     },
     {
       "num": 5,
-      "action": "Press the Sensor Control Switch in the direction of the FLIR format page to move the targeting pod to the location of the Offset Cursor."
+      "action": "Press the Sensor Control Switch in the direction of the FLIR format page to move the targeting pod to the location of the Offset Cursor.",
+      "voiced": "Press Sensor Control Switch toward the FLIR format page to cue the pod to that location."
     }
   ]
 }

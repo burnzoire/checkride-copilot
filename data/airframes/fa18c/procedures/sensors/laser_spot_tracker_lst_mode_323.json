@@ -28,55 +28,68 @@
   "steps": [
     {
       "num": 1,
-      "action": "Find out what the laser code used by the friendly is (in our case, the friendly JTAC uses code 1688). Make sure the friendly asset is lasing the target before attempting to track it."
+      "action": "Find out what the laser code used by the friendly is (in our case, the friendly JTAC uses code 1688). Make sure the friendly asset is lasing the target before attempting to track it.",
+      "voiced": "Confirm the JTAC laser code and verify they are actively lasing the target."
     },
     {
       "num": 2,
-      "action": "Power up the Targeting Pod and set A/G Master Mode as per the previous Power-Up Procedure."
+      "action": "Power up the Targeting Pod and set A/G Master Mode as per the previous Power-Up Procedure.",
+      "voiced": "Power up the Targeting Pod and select A/G Master Mode per the Power-Up Procedure."
     },
     {
       "num": 3,
-      "action": "(N/A) Set the LST/NFLR (Laser Spot Tracker) switch to ON. (Note: This step is no longer required for LITENING and ATFLIR pods.)"
+      "action": "(N/A) Set the LST/NFLR (Laser Spot Tracker) switch to ON. (Note: This step is no longer required for LITENING and ATFLIR pods.)",
+      "voiced": "Confirm LST/NFLR switch step is N/A — not required for LITENING or ATFLIR pods."
     },
     {
       "num": 4,
-      "action": "Press the OSB next to “UFC” to set the LSS (Laser Spot Search) code on the Up-Front Controller."
+      "action": "Press the OSB next to \u201cUFC\u201d to set the LSS (Laser Spot Search) code on the Up-Front Controller.",
+      "voiced": "Press the OSB next to UFC to set the LSS code on the Up-Front Controller."
     },
     {
       "num": 5,
-      "action": "Press the button next to “LSTC” (Laser Spot Track Code). A “:” will indicate it is selected. Then, enter the desired laser code on the keypad and press “ENT”. We will choose the default code used by the JTAC, which is 1688."
+      "action": "Press the button next to \u201cLSTC\u201d (Laser Spot Track Code). A \u201c:\u201d will indicate it is selected. Then, enter the desired laser code on the keypad and press \u201cENT\u201d. We will choose the default code used by the JTAC, which is 1688.",
+      "voiced": "Press the button next to LSTC, enter the laser code on the keypad, then press ENT."
     },
     {
       "num": 6,
-      "action": "Slew the targeting pod using the Sensor Control Switch (Sets Focus Diamond) and TDC controls within the vicinity of the JTAC location. If the targeting pod is looking too far from the laser, it will not be able to find the laser."
+      "action": "Slew the targeting pod using the Sensor Control Switch (Sets Focus Diamond) and TDC controls within the vicinity of the JTAC location. If the targeting pod is looking too far from the laser, it will not be able to find the laser.",
+      "voiced": "Slew the pod near the JTAC location using Sensor Control Switch and TDC — must be close to acquire the laser."
     },
     {
       "num": 7,
-      "action": "Press the OSB next to “LST” (Laser Spot Track) on the FLIR Format. Once LST is selected, the indication will be boxed."
+      "action": "Press the OSB next to \u201cLST\u201d (Laser Spot Track) on the FLIR Format. Once LST is selected, the indication will be boxed.",
+      "voiced": "Press the OSB next to LST on the FLIR Format — confirm it boxes."
     },
     {
       "num": 8,
-      "action": "While the targeting pod is searching for a laser, the FLIR image feed is blank, \"LST\" flashes on the top of the FLIR format and on the HUD."
+      "action": "While the targeting pod is searching for a laser, the FLIR image feed is blank, \"LST\" flashes on the top of the FLIR format and on the HUD.",
+      "voiced": "Confirm pod is searching — FLIR feed blanks and LST flashes on FLIR format and HUD."
     },
     {
       "num": 9,
-      "action": "When targeting pod has found a friendly laser, the FLIR format will show the video feed centered on that laser and the “LST” indication will be solid. It will actively track the JTAC laser."
+      "action": "When targeting pod has found a friendly laser, the FLIR format will show the video feed centered on that laser and the \u201cLST\u201d indication will be solid. It will actively track the JTAC laser.",
+      "voiced": "Confirm LST solid and video feed centered on laser — pod is actively tracking."
     },
     {
       "num": 10,
-      "action": "Use the TDC (Throttle Designator Controller) Depress button to designate the laser as the target point. This will slave selected air-to- ground weapons to where the laser is firing."
+      "action": "Use the TDC (Throttle Designator Controller) Depress button to designate the laser as the target point. This will slave selected air-to- ground weapons to where the laser is firing.",
+      "voiced": "Press TDC Depress to designate the laser as the target point — slaves A/G weapons to the laser."
     },
     {
       "num": 11,
-      "action": "You may now launch laser-guided weapons as per their release procedure."
+      "action": "You may now launch laser-guided weapons as per their release procedure.",
+      "voiced": "Proceed with the laser-guided weapon release procedure."
     },
     {
       "num": 12,
-      "action": "When desired, press the OSB next to LST to stop tracking the laser."
+      "action": "When desired, press the OSB next to LST to stop tracking the laser.",
+      "voiced": "Press the OSB next to LST to stop tracking the laser when done."
     },
     {
       "num": 13,
-      "action": "Pressing the Undesignate/Nosewheel Steering button will undesignate the target."
+      "action": "Pressing the Undesignate/Nosewheel Steering button will undesignate the target.",
+      "voiced": "Press the Undesignate/Nosewheel Steering button to clear the designation."
     }
   ]
 }

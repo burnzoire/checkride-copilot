@@ -24,47 +24,58 @@
   "steps": [
     {
       "num": 1,
-      "action": "To equip the JHMCS (Joint Helmet-Mounted Cueing System) helmet, you have to contact the ground crew. Press “\\” (communication menu binding) to contact ground crew Press “F8” to select “Ground Crew” Press “F8” to “Change helmet-mounted device”. Press either “F1” for JHMCS or “F2” for NVGs."
+      "action": "To equip the JHMCS (Joint Helmet-Mounted Cueing System) helmet, you have to contact the ground crew. Press \"\\\" (communication menu binding) to contact ground crew Press \"F8\" to select \"Ground Crew\" Press \"F8\" to \"Change helmet-mounted device\". Press either \"F1\" for JHMCS or \"F2\" for NVGs.",
+      "voiced": "Contact ground crew and select JHMCS as the helmet-mounted device."
     },
     {
       "num": 2,
-      "action": "Turn HMD brightness knob to BRT (Bright)."
+      "action": "Turn HMD brightness knob to BRT (Bright).",
+      "voiced": "Turn HMD brightness knob to BRT."
     },
     {
       "num": 3,
-      "action": "Perform HMD (Helmet-Mounted Display) BIT (Built-In Test). Go in the SUPT (Support) page. Press OSB next to BIT (Built-In-Test). Press OSB next to DISPLAYS (NOT RDY). Press on OSB next to HMD to start Helmet-Mounted Display Built-In Test. “PBIT GO” indicates that the test is ready to be run."
+      "action": "Perform HMD (Helmet-Mounted Display) BIT (Built-In Test). Go in the SUPT (Support) page. Press OSB next to BIT (Built-In-Test). Press OSB next to DISPLAYS (NOT RDY). Press on OSB next to HMD to start Helmet-Mounted Display Built-In Test. \"PBIT GO\" indicates that the test is ready to be run.",
+      "voiced": "On the SUPT page, press BIT, then DISPLAYS, then HMD to start the HMD Built-In Test — confirm PBIT GO."
     },
     {
       "num": 4,
-      "action": "Wait until the HMD test is finished. The IN TEST indication will first blink on your helmet. While test symbology cycles on your helmet display, the BIT page will indicate “HMD IN TEST”. When test symbology starts showing the same pictures, the test can be considered complete."
+      "action": "Wait until the HMD test is finished. The IN TEST indication will first blink on your helmet. While test symbology cycles on your helmet display, the BIT page will indicate \"HMD IN TEST\". When test symbology starts showing the same pictures, the test can be considered complete.",
+      "voiced": "Wait for HMD test to complete — IN TEST blinks, then HMD IN TEST shows on BIT page."
     },
     {
       "num": 5,
-      "action": "Stop the HMD test by pressing the OSB next to “STOP”. The BIT page will then indicate “HMD GO”."
+      "action": "Stop the HMD test by pressing the OSB next to \"STOP\". The BIT page will then indicate \"HMD GO\".",
+      "voiced": "Press the OSB next to STOP to end the test — confirm HMD GO."
     },
     {
       "num": 6,
-      "action": "Perform Coarse Helmet Display Alignment. Go in the SUPT (Support) page. Press OSB next to HMD (Helmet-Mounted Display). Press OSB next to ALIGN to start JHMCS alignment. “READY” indication will then appear on your helmet cross. Move helmet cross on the alignment reference cross of the Heads-Up Display (HUD). When helmet cross and HUD cross are roughly aligned, press and hold the Cage/Uncage Button (“C” binding) for more than 2.5 sec while keeping both crosses aligned. While the alignment process is taking place, the “ALIGNING” indication is visible. The “ALIGN OK” indication appears when the alignment is complete. You can then release the Cage/Uncage button."
+      "action": "Perform Coarse Helmet Display Alignment. Go in the SUPT (Support) page. Press OSB next to HMD (Helmet-Mounted Display). Press OSB next to ALIGN to start JHMCS alignment. \"READY\" indication will then appear on your helmet cross. Move helmet cross on the alignment reference cross of the Heads-Up Display (HUD). When helmet cross and HUD cross are roughly aligned, press and hold the Cage/Uncage Button (\"C\" binding) for more than 2.5 sec while keeping both crosses aligned. While the alignment process is taking place, the \"ALIGNING\" indication is visible. The \"ALIGN OK\" indication appears when the alignment is complete. You can then release the Cage/Uncage button.",
+      "voiced": "On SUPT page, press HMD then ALIGN, align helmet cross to HUD cross, hold Cage/Uncage 2.5 sec — confirm ALIGN OK."
     },
     {
       "num": 7,
-      "action": "If required, perform Fine Helmet Display Alignment. The coarse alignment may not be perfect and may require a fine adjustment (FA). The “FA DX/DY” indication means that an adjustment is needed for the horizontal and vertical axis. (Throttle Designator Controller) AFT/FWD/LEFT/RIGHT controls to align the upper small cross with the HUD reference cross. Press the Cage/Uncage button to select the roll fine adjustment (FA ROLL). (Throttle Designator Controller) LEFT/RIGHT controls to align the lower small cross with the vertical line of the HUD reference cross. When fine alignment is satisfactory, press the OSB next to ALIGN to unbox it. This will save the alignment."
+      "action": "If required, perform Fine Helmet Display Alignment. The coarse alignment may not be perfect and may require a fine adjustment (FA). The \"FA DX/DY\" indication means that an adjustment is needed for the horizontal and vertical axis. (Throttle Designator Controller) AFT/FWD/LEFT/RIGHT controls to align the upper small cross with the HUD reference cross. Press the Cage/Uncage button to select the roll fine adjustment (FA ROLL). (Throttle Designator Controller) LEFT/RIGHT controls to align the lower small cross with the vertical line of the HUD reference cross. When fine alignment is satisfactory, press the OSB next to ALIGN to unbox it. This will save the alignment.",
+      "voiced": "If fine alignment needed, use TDC controls to align FA DX/DY crosses, then press ALIGN OSB to save."
     },
     {
       "num": 8,
-      "action": "The default setting for the JHMCS is that the HMD overlay will only be visible when looking away from the Heads-Up Display."
+      "action": "The default setting for the JHMCS is that the HMD overlay will only be visible when looking away from the Heads-Up Display.",
+      "voiced": "Confirm HMD overlay is only visible when looking away from the HUD by default."
     },
     {
       "num": 9,
-      "action": "Press Sensor Control Switch FWD to toggle the TDC (Throttle Designator Controller) priority between the HUD (Heads-Up Display) and the HMD (Helmet-Mounted Display). TDC priority is assigned to the helmet when the aiming reticle appears on the helmet. A center dot on the HUD’s TVV means the priority is assigned to the HUD."
+      "action": "Press Sensor Control Switch FWD to toggle the TDC (Throttle Designator Controller) priority between the HUD (Heads-Up Display) and the HMD (Helmet-Mounted Display). TDC priority is assigned to the helmet when the aiming reticle appears on the helmet. A center dot on the HUD's TVV means the priority is assigned to the HUD.",
+      "voiced": "Press Sensor Control Switch FWD to toggle TDC priority between HUD and HMD."
     },
     {
       "num": 10,
-      "action": "Select either A/A Master Mode for using the JHMCS with air-to- air missiles or A/G Master Mode to designate ground targets with the helmet."
+      "action": "Select either A/A Master Mode for using the JHMCS with air-to- air missiles or A/G Master Mode to designate ground targets with the helmet.",
+      "voiced": "Select A/A or A/G Master Mode as required."
     },
     {
       "num": 11,
-      "action": "To manually “blank” (occlude) the Helmet-Mounted Display, press the Recce Event Marker button on the stick (“R” binding). When enabled, all HMD symbology is hidden."
+      "action": "To manually \"blank\" (occlude) the Helmet-Mounted Display, press the Recce Event Marker button on the stick (\"R\" binding). When enabled, all HMD symbology is hidden.",
+      "voiced": "Press the Recce Event Marker button to manually blank the HMD symbology."
     }
   ]
 }

@@ -21,23 +21,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Position the TDC over the area you wish to spotlight"
+      "action": "Position the TDC over the area you wish to spotlight",
+      "voiced": "Slew TDC over the area you want to spotlight."
     },
     {
       "num": 2,
-      "action": "Press and hold the TDC for more than one second."
+      "action": "Press and hold the TDC for more than one second.",
+      "voiced": "Press and hold TDC for more than one second."
     },
     {
       "num": 3,
-      "action": "The radar azimuth indicator will drive to the TDC location and begin a scan centered on the cursor and constrained to 22° of azimuth."
+      "action": "The radar azimuth indicator will drive to the TDC location and begin a scan centered on the cursor and constrained to 22° of azimuth.",
+      "voiced": "Radar drives to that position and begins a 22-degree azimuth scan centered on the cursor."
     },
     {
       "num": 4,
-      "action": "The scan area can be slewed by pressing and holding the TDC while moving it left or right."
+      "action": "The scan area can be slewed by pressing and holding the TDC while moving it left or right.",
+      "voiced": "Press and hold TDC while slewing left or right to reposition the scan area."
     },
     {
       "num": 5,
-      "action": "To exit Spotlight, depress and release the TDC. Alternatively, press Undesignate or assign TDC priority to another display. (Note: SPOT sub-mode can also be used with an AACQ mode. When SPOT sub-mode is) activated from an AACQ mode, the radar will attempt to STT the first target detected while SPOT is active."
+      "action": "To exit Spotlight, depress and release the TDC. Alternatively, press Undesignate or assign TDC priority to another display. (Note: SPOT sub-mode can also be used with an AACQ mode. When SPOT sub-mode is) activated from an AACQ mode, the radar will attempt to STT the first target detected while SPOT is active.",
+      "voiced": "Depress and release TDC to exit Spotlight, or press Undesignate Button, or reassign TDC priority."
     }
   ]
 }

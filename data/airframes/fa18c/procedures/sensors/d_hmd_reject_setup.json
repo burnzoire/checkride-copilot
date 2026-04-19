@@ -28,23 +28,28 @@
   "steps": [
     {
       "num": 1,
-      "action": "Access the HMD SUPT Sub-Menu"
+      "action": "Access the HMD SUPT Sub-Menu",
+      "voiced": "Select the HMD SUPT sub-menu."
     },
     {
       "num": 2,
-      "action": "Access the REJECT Setup Sub-Menu."
+      "action": "Access the REJECT Setup Sub-Menu.",
+      "voiced": "Select the REJECT setup sub-menu."
     },
     {
       "num": 3,
-      "action": "Use the OSBs (Option Select Buttons) next to the vertical arrows and horizontal harrows to move the selection box on the parameter you want to modify. We will select the MACH parameter."
+      "action": "Use the OSBs (Option Select Buttons) next to the vertical arrows and horizontal harrows to move the selection box on the parameter you want to modify. We will select the MACH parameter.",
+      "voiced": "Use the arrow OSBs to move the selection box to the parameter you want to modify."
     },
     {
       "num": 4,
-      "action": "Once desired parameter is selected, press OSB next to desired occlusion/reject level setting. ON: Parameter always displayed in NORM, REJ1 or REJ2 Reject modes. LEVEL 1: Parameter only displayed in REJ1 and REJ2 HMD Reject modes. Parameter is occluded in NORM. LEVEL 2: Parameter only displayed in REJ2 HMD Reject mode. Parameter is occluded in NORM and REJ1."
+      "action": "Once desired parameter is selected, press OSB next to desired occlusion/reject level setting. ON: Parameter always displayed in NORM, REJ1 or REJ2 Reject modes. LEVEL 1: Parameter only displayed in REJ1 and REJ2 HMD Reject modes. Parameter is occluded in NORM. LEVEL 2: Parameter only displayed in REJ2 HMD Reject mode. Parameter is occluded in NORM and REJ1.",
+      "voiced": "Press the OSB next to the desired reject level — ON shows in all modes, LEVEL 1 in REJ1 and REJ2 only, LEVEL 2 in REJ2 only."
     },
     {
       "num": 5,
-      "action": "If desired, set the MIDS (Multi-Function Information Distribution System) Symbology occlusion range as you see fit. We will use the OSBs next to the vertical arrows to set a cutoff (occlusion) range of 50 nm, Horizontal Arrows Vertical Arrows MACH Parameter selected 4a: ON Selector HMD MIDS Symbols Cutoff Range 50 nm MACH Parameter – ON Visible in NORM, REJ1 & REJ2 4a: LEVEL 1 Selector 4a: LEVEL 2 Selector MACH Parameter Level 1: Visible in REJ1 & REJ2 5 - JHMCS (JOINT HELMET-MOUNTED CUEING SYSTEM)"
+      "action": "If desired, set the MIDS (Multi-Function Information Distribution System) Symbology occlusion range as you see fit. We will use the OSBs next to the vertical arrows to set a cutoff (occlusion) range of 50 nm, Horizontal Arrows Vertical Arrows MACH Parameter selected 4a: ON Selector HMD MIDS Symbols Cutoff Range 50 nm MACH Parameter – ON Visible in NORM, REJ1 & REJ2 4a: LEVEL 1 Selector 4a: LEVEL 2 Selector MACH Parameter Level 1: Visible in REJ1 & REJ2 5 - JHMCS (JOINT HELMET-MOUNTED CUEING SYSTEM)",
+      "voiced": "Use the vertical arrow OSBs to set your MIDS symbology cutoff range."
     }
   ]
 }

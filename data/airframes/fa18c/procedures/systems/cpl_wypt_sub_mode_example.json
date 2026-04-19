@@ -31,43 +31,53 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure your stick is centered, no force is applied on it and that you have an appropriate deadzone (see CONTROLS SETUP - WHAT YOU NEED MAPPED section)."
+      "action": "Make sure your stick is centered, no force is applied on it and that you have an appropriate deadzone (see CONTROLS SETUP - WHAT YOU NEED MAPPED section).",
+      "voiced": "Confirm stick is centered with no input force and deadzone is configured."
     },
     {
       "num": 2,
-      "action": "Select a desired waypoint using the HSI format."
+      "action": "Select a desired waypoint using the HSI format.",
+      "voiced": "Select the desired waypoint on the HSI format."
     },
     {
       "num": 3,
-      "action": "Activate the WYPT navigation mode by pressing OSB next to WYPT. WYPT is boxed when selected."
+      "action": "Activate the WYPT navigation mode by pressing OSB next to WYPT. WYPT is boxed when selected.",
+      "voiced": "Press the OSB next to WYPT to activate WYPT navigation mode — confirm WYPT boxes."
     },
     {
       "num": 4,
-      "action": "If desired, select AUTO to automatically follow the desired waypoint sequence (SEQ1 in our case)."
+      "action": "If desired, select AUTO to automatically follow the desired waypoint sequence (SEQ1 in our case).",
+      "voiced": "Optionally select AUTO to follow the desired waypoint sequence automatically."
     },
     {
       "num": 5,
-      "action": "If desired, click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) to intercept the waypoint from."
+      "action": "If desired, click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) to intercept the waypoint from.",
+      "voiced": "Optionally set the CRS knob for desired course to intercept the waypoint."
     },
     {
       "num": 6,
-      "action": "Press the AP button on the UFC to show the autopilot options."
+      "action": "Press the AP button on the UFC to show the autopilot options.",
+      "voiced": "Press AP on the UFC to show autopilot options."
     },
     {
       "num": 7,
-      "action": "Press the OSB adjacent “CPL” to activate coupled autopilot mode."
+      "action": "Press the OSB adjacent \u201cCPL\u201d to activate coupled autopilot mode.",
+      "voiced": "Press the OSB next to CPL to activate coupled autopilot mode."
     },
     {
       "num": 8,
-      "action": "A colon will appear (“:CPL”) to indicate that it is active. “CPL WYPT” will appear on both the HSI and HUD."
+      "action": "A colon will appear (\u201c:CPL\u201d) to indicate that it is active. \u201cCPL WYPT\u201d will appear on both the HSI and HUD.",
+      "voiced": "Confirm :CPL is active and CPL WYPT appears on HSI and HUD."
     },
     {
       "num": 9,
-      "action": "The autopilot will follow the selected waypoint (or waypoint sequence if AUTO is selected)."
+      "action": "The autopilot will follow the selected waypoint (or waypoint sequence if AUTO is selected).",
+      "voiced": "Confirm autopilot follows the selected waypoint or sequence."
     },
     {
       "num": 10,
-      "action": "You can disengage autopilot by pressing the Paddle Switch on the control stick."
+      "action": "You can disengage autopilot by pressing the Paddle Switch on the control stick.",
+      "voiced": "Press the Paddle Switch on the control stick to disengage autopilot."
     }
   ]
 }

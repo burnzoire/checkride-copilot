@@ -38,95 +38,118 @@
   "steps": [
     {
       "num": 1,
-      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation."
+      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation.",
+      "voiced": "Confirm cooldown initiates on first missile selection — takes ~3 minutes; must be airborne."
     },
     {
       "num": 2,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 3,
-      "action": "Select MAVF (text should be boxed)"
+      "action": "Select MAVF (text should be boxed)",
+      "voiced": "Select MAVF — confirm it boxes."
     },
     {
       "num": 4,
-      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed."
+      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out \u00ab MAVF \u00bb, which will show you the Maverick seeker head feed.",
+      "voiced": "Press the OSB next to MAVF to monitor seeker cooldown progress."
     },
     {
       "num": 5,
-      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live."
+      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live.",
+      "voiced": "Confirm cooldown complete — timer clears and MAVF feed goes live."
     },
     {
       "num": 6,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 7,
-      "action": "Make sure the Radar Power Switch is set to OPR (Operate)."
+      "action": "Make sure the Radar Power Switch is set to OPR (Operate).",
+      "voiced": "Confirm Radar Power Switch is set to OPR."
     },
     {
       "num": 8,
-      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page."
+      "action": "Pressing the A/G Master Mode button will set the right DDI (Digital Display Indicator) to the radar A-G MAP page.",
+      "voiced": "Press the A/G Master Mode Button — radar A-G MAP page appears on the right DDI."
     },
     {
       "num": 9,
-      "action": "Toggle A-G MAP mode to A-G GMT mode by pressing the OSB next to MAP."
+      "action": "Toggle A-G MAP mode to A-G GMT mode by pressing the OSB next to MAP.",
+      "voiced": "Press the OSB next to MAP to toggle to A-G GMT mode."
     },
     {
       "num": 10,
-      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible).",
+      "voiced": "Press Sensor Control Switch RIGHT to slave TDC to the radar screen — confirm TDC diamond appears."
     },
     {
       "num": 11,
-      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls."
+      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls.",
+      "voiced": "Slew the TDC cursor over the desired target brick."
     },
     {
       "num": 12,
-      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Ground Moving Target Track (GMTT) and additional target information will be displayed."
+      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Ground Moving Target Track (GMTT) and additional target information will be displayed.",
+      "voiced": "Press Sensor Control Switch RIGHT to command acquisition — radar transitions to GMTT."
     },
     {
       "num": 13,
-      "action": "Once GMTT is engaged and target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired. Sensors are slaved to the Air-to-Ground Radar (RDR)"
+      "action": "Once GMTT is engaged and target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired. Sensors are slaved to the Air-to-Ground Radar (RDR)",
+      "voiced": "Confirm brick with motion vector on radar and diamond on HUD."
     },
     {
       "num": 14,
-      "action": "Set Sensor Control Switch to the Maverick Feed DDI (Sensor Control Switch LEFT since we showed up the MAV feed on the left DDI). A diamond will appear to show the left DDI is selected."
+      "action": "Set Sensor Control Switch to the Maverick Feed DDI (Sensor Control Switch LEFT since we showed up the MAV feed on the left DDI). A diamond will appear to show the left DDI is selected.",
+      "voiced": "Set Sensor Control Switch toward the MAV feed DDI — confirm diamond appears."
     },
     {
       "num": 15,
-      "action": "Set Fuzing to either INST (Instantaneous), DLY1 (Delayed Fuze) or DLY2."
+      "action": "Set Fuzing to either INST (Instantaneous), DLY1 (Delayed Fuze) or DLY2.",
+      "voiced": "Set Fuzing to INST, DLY1, or DLY2."
     },
     {
       "num": 16,
-      "action": "Adjust FOV (Field of View) as required."
+      "action": "Adjust FOV (Field of View) as required.",
+      "voiced": "Adjust FOV as required."
     },
     {
       "num": 17,
-      "action": "By default, the Maverick is Caged. When the seeker is caged, it will always point forward at its boresight."
+      "action": "By default, the Maverick is Caged. When the seeker is caged, it will always point forward at its boresight.",
+      "voiced": "Confirm Maverick is Caged by default — seeker points forward at boresight."
     },
     {
       "num": 18,
-      "action": "Press the Cage/Uncage Button to uncage the Maverick."
+      "action": "Press the Cage/Uncage Button to uncage the Maverick.",
+      "voiced": "Press the Cage/Uncage Button to uncage the Maverick."
     },
     {
       "num": 19,
-      "action": "When the Maverick is uncaged and a A/G TGT (air-to- ground target) is designated/tracked by the radar’s ground moving target mode, the missile will attempt to lock onto a contrasting target within the designated TGT area. This procedure is much easier to do than trying to slew the missile itself."
+      "action": "When the Maverick is uncaged and a A/G TGT (air-to- ground target) is designated/tracked by the radar's ground moving target mode, the missile will attempt to lock onto a contrasting target within the designated TGT area. This procedure is much easier to do than trying to slew the missile itself.",
+      "voiced": "When uncaged with GMTT active, Maverick attempts to lock a contrasting target in the designated area."
     },
     {
       "num": 20,
-      "action": "The Maverick is within range (distance of 7.5 miles) to the target when IN RNG cue is visible on the HUD and MAVF feed page."
+      "action": "The Maverick is within range (distance of 7.5 miles) to the target when IN RNG cue is visible on the HUD and MAVF feed page.",
+      "voiced": "Confirm IN RNG cue on HUD and MAVF feed — Maverick is within range."
     },
     {
       "num": 21,
-      "action": "When lock is acquired by Maverick, the MAVF crossed- out indication will disappear."
+      "action": "When lock is acquired by Maverick, the MAVF crossed- out indication will disappear.",
+      "voiced": "Confirm MAVF crossed-out clears when lock is acquired."
     },
     {
       "num": 22,
-      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to fire missile."
+      "action": "Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to fire missile.",
+      "voiced": "Hold the Weapon Release Button to fire."
     },
     {
       "num": 23,
-      "action": "Note: Pressing the « Undesignate » button on the stick to return the radar to GMT mode and exit tracking mode."
+      "action": "Note: Pressing the \u00ab Undesignate \u00bb button on the stick to return the radar to GMT mode and exit tracking mode.",
+      "voiced": "Press the Undesignate button to return radar to GMT and exit tracking mode."
     }
   ]
 }

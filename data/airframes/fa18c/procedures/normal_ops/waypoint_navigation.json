@@ -26,19 +26,23 @@
   "steps": [
     {
       "num": 1,
-      "action": "Press the OSB (Option Select Button) next to WYPT to set tracking mode to WAYPOINT."
+      "action": "Press the OSB (Option Select Button) next to WYPT to set tracking mode to WAYPOINT.",
+      "voiced": "Press the OSB next to WYPT."
     },
     {
       "num": 2,
-      "action": "Select desired waypoint sequence by pressing the OSB next to SEQ#. We will pick Sequence 1. To display the sequence lines, press on the OSB again to make the SEQ1 text boxed."
+      "action": "Select desired waypoint sequence by pressing the OSB next to SEQ#. We will pick Sequence 1. To display the sequence lines, press on the OSB again to make the SEQ1 text boxed.",
+      "voiced": "Press the OSB next to SEQ1, then press it again to box the sequence."
     },
     {
       "num": 3,
-      "action": "To select a waypoint, press the OSBs to increment or decrement the waypoint number."
+      "action": "To select a waypoint, press the OSBs to increment or decrement the waypoint number.",
+      "voiced": "Press the increment or decrement OSBs to select your waypoint."
     },
     {
       "num": 4,
-      "action": "Use the HSI and HUD to navigate towards waypoint Waypoint Selected (Waypoint 1) Waypoint Data Bearing (degrees) Distance (Nm) Time-to-Go to Waypoint (minutes:seconds) WYPT Waypoint Selected (Boxed) Waypoint Decrement Waypoint Increment Waypoint Sequence 1 (Boxed) Aircraft (top down view) Waypoint 1 (Selected) TO Waypoint 1 Bearing Aircraft Heading FROM Waypoint 1 Bearing Waypoint Sequence 1 Lines Waypoint Sequence 1 Bearing Waypoint 1 (Selected) Distance to Waypoint 1 (nm) Aircraft Heading Heading Scale 5 - WAYPOINTS"
+      "action": "Use the HSI and HUD to navigate towards waypoint Waypoint Selected (Waypoint 1) Waypoint Data Bearing (degrees) Distance (Nm) Time-to-Go to Waypoint (minutes:seconds) WYPT Waypoint Selected (Boxed) Waypoint Decrement Waypoint Increment Waypoint Sequence 1 (Boxed) Aircraft (top down view) Waypoint 1 (Selected) TO Waypoint 1 Bearing Aircraft Heading FROM Waypoint 1 Bearing Waypoint Sequence 1 Lines Waypoint Sequence 1 Bearing Waypoint 1 (Selected) Distance to Waypoint 1 (nm) Aircraft Heading Heading Scale 5 - WAYPOINTS",
+      "voiced": "Navigate to the selected waypoint using the HSI and HUD."
     }
   ]
 }

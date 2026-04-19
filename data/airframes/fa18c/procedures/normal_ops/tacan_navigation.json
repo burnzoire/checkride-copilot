@@ -28,43 +28,53 @@
   "steps": [
     {
       "num": 1,
-      "action": "Determine the TACAN frequency you want to track by opening the map with F10 and by clicking on the airport you want to track. The frequency of the TACAN beacon for Senaki-Kolkhi is 31X (TSK)."
+      "action": "Determine the TACAN frequency you want to track by opening the map with F10 and by clicking on the airport you want to track. The frequency of the TACAN beacon for Senaki-Kolkhi is 31X (TSK).",
+      "voiced": "Determine the TACAN frequency for the station you want to track."
     },
     {
       "num": 2,
-      "action": "Select the HSI page on either DDI"
+      "action": "Select the HSI page on either DDI",
+      "voiced": "Select the HSI page on a DDI."
     },
     {
       "num": 3,
-      "action": "On the UFC (Up-Front Control) Panel, press the TCN button and press the ON/OFF button if the ON indication is extinguished."
+      "action": "On the UFC (Up-Front Control) Panel, press the TCN button and press the ON/OFF button if the ON indication is extinguished.",
+      "voiced": "Press TCN on the UFC, then press ON/OFF if TACAN is not already on."
     },
     {
       "num": 4,
-      "action": "Press the T/R OSB button to set it to Transmit/Receive. The “:” symbol indicates that it is selected."
+      "action": "Press the T/R OSB button to set it to Transmit/Receive. The \":\" symbol indicates that it is selected.",
+      "voiced": "Press T/R to set Transmit/Receive mode — confirm colon indicates selected."
     },
     {
       "num": 5,
-      "action": "Press “31” on the scratchpad and press “ENT” to enter frequency."
+      "action": "Press \"31\" on the scratchpad and press \"ENT\" to enter frequency.",
+      "voiced": "Enter the TACAN channel number on the scratchpad, then press ENT."
     },
     {
       "num": 6,
-      "action": "Press the X or Y OSB to select the right letter of the TACAN frequency (31X in our case)."
+      "action": "Press the X or Y OSB to select the right letter of the TACAN frequency (31X in our case).",
+      "voiced": "Press X or Y to select the correct TACAN frequency suffix."
     },
     {
       "num": 7,
-      "action": "If you are tracking an aerial TACAN beacon (i.e. on a tanker), press the A/A OSB button to select air-to-air mode. The “:” symbol indicates that the mode is selected. Otherwise, make sure A/A is not selected (no “:” symbol)."
+      "action": "If you are tracking an aerial TACAN beacon (i.e. on a tanker), press the A/A OSB button to select air-to-air mode. The \":\" symbol indicates that the mode is selected. Otherwise, make sure A/A is not selected (no \":\" symbol).",
+      "voiced": "If tracking an aerial beacon, press A/A OSB — leave unselected for ground TACAN."
     },
     {
       "num": 8,
-      "action": "Press the OSB next to TACAN to select tracking mode to TACAN. Once selected, TCN should be boxed."
+      "action": "Press the OSB next to TACAN to select tracking mode to TACAN. Once selected, TCN should be boxed.",
+      "voiced": "Press the OSB next to TACAN — confirm TCN boxes."
     },
     {
       "num": 9,
-      "action": "Click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) for TACAN approach. This is useful when approaching a carrier/airfield from a certain direction."
+      "action": "Click and hold (Left/Right mouse button) the CRS (Course Set) knob to set desired course (CSEL) for TACAN approach. This is useful when approaching a carrier/airfield from a certain direction.",
+      "voiced": "Set the CRS knob to the desired TACAN approach course."
     },
     {
       "num": 10,
-      "action": "Once frequency is set and options are set, you can track the TACAN beacon via the HSI page and the HUD (Heads-Up Display). TACAN Course Indication (CSEL, selected course) Distance to TACAN (nm) TACAN Name (TSK) TACAN Bearing TACAN Course Deviation Reference (8 deg deviation) TACAN Course Deviation Reference (4 deg deviation) Aircraft Heading 8 – TACAN NAVIGATION TSK TACAN Data Bearing (degrees) Distance (Nm) Time-to-Go to TACAN (minutes:seconds) TACAN Name TACAN Bearing (T Triangle) Distance to TACAN (nm) TACAN Name (TSK) TACAN Bearing Arrow Aircraft Heading TACAN Course Deviation Reference (8 deg deviation) TACAN Course Deviation Reference (4 deg deviation) Aircraft Track Course Selected (CSEL) 8 – TACAN NAVIGATION Course Line Arrow TACAN Here’s a nice trick for you. If you click the OSB next to DATA while in the main HSI page, then click the OSB next to TCN, you can find the whole TACAN database. You can cycle through every TACAN station using the Increment/Decrement OSBs."
+      "action": "Once frequency is set and options are set, you can track the TACAN beacon via the HSI page and the HUD (Heads-Up Display). TACAN Course Indication (CSEL, selected course) Distance to TACAN (nm) TACAN Name (TSK) TACAN Bearing TACAN Course Deviation Reference (8 deg deviation) TACAN Course Deviation Reference (4 deg deviation) Aircraft Heading 8 – TACAN NAVIGATION TSK TACAN Data Bearing (degrees) Distance (Nm) Time-to-Go to TACAN (minutes:seconds) TACAN Name TACAN Bearing (T Triangle) Distance to TACAN (nm) TACAN Name (TSK) TACAN Bearing Arrow Aircraft Heading TACAN Course Deviation Reference (8 deg deviation) TACAN Course Deviation Reference (4 deg deviation) Aircraft Track Course Selected (CSEL) 8 – TACAN NAVIGATION Course Line Arrow TACAN Here's a nice trick for you. If you click the OSB next to DATA while in the main HSI page, then click the OSB next to TCN, you can find the whole TACAN database. You can cycle through every TACAN station using the Increment/Decrement OSBs.",
+      "voiced": "Confirm TACAN bearing and distance show on HSI and HUD."
     }
   ]
 }

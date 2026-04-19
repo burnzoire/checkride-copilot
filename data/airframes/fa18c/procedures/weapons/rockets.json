@@ -25,43 +25,53 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 4,
-      "action": "Select desired rocket pods; « 68R » stands for LAU-68 rocket launcher pod. In our case, text should be boxed when selected."
+      "action": "Select desired rocket pods; \u00ab 68R \u00bb stands for LAU-68 rocket launcher pod. In our case, text should be boxed when selected.",
+      "voiced": "Select the desired rocket pod — confirm it boxes."
     },
     {
       "num": 5,
-      "action": "Select desired Firing mode Option (SGL for Single, SAL for Salvo)"
+      "action": "Select desired Firing mode Option (SGL for Single, SAL for Salvo)",
+      "voiced": "Select desired firing mode — SGL for Single, SAL for Salvo."
     },
     {
       "num": 6,
-      "action": "Set desired Rocket Motor (MTR) Type (M4 or M66)"
+      "action": "Set desired Rocket Motor (MTR) Type (M4 or M66)",
+      "voiced": "Set desired Rocket Motor type — M4 or M66."
     },
     {
       "num": 7,
-      "action": "Set Rocket Mode to CCIP (text should be boxed) Rocket Reticle Pipper CCIP Mode Selected Rockets Selected & Armed Rockets Remaining"
+      "action": "Set Rocket Mode to CCIP (text should be boxed) Rocket Reticle Pipper CCIP Mode Selected Rockets Selected & Armed Rockets Remaining",
+      "voiced": "Set Rocket Mode to CCIP — confirm it boxes."
     },
     {
       "num": 8,
-      "action": "Set center of gun reticle on target and wait for the « IN RNG » (In Range) cue to appear."
+      "action": "Set center of gun reticle on target and wait for the \u00ab IN RNG \u00bb (In Range) cue to appear.",
+      "voiced": "Place rocket reticle on target and wait for the IN RNG cue."
     },
     {
       "num": 9,
-      "action": "Press the Weapon Release button (« RALT+ SPACE ») to fire rockets"
+      "action": "Press the Weapon Release button (\u00ab RALT+ SPACE \u00bb) to fire rockets",
+      "voiced": "Press the Weapon Release Button to fire rockets."
     },
     {
       "num": 10,
-      "action": "Once you have done your run and the Breakaway X appears, break off the attack and wave off from target. In Range Cue Breakaway X"
+      "action": "Once you have done your run and the Breakaway X appears, break off the attack and wave off from target. In Range Cue Breakaway X",
+      "voiced": "When Breakaway X appears, break off the attack."
     }
   ]
 }

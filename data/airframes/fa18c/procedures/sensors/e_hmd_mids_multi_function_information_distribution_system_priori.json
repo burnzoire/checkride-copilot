@@ -24,39 +24,48 @@
   "steps": [
     {
       "num": 1,
-      "action": "Access the HMD SUPT Sub-Menu"
+      "action": "Access the HMD SUPT Sub-Menu",
+      "voiced": "Access the HMD SUPT Sub-Menu."
     },
     {
       "num": 2,
-      "action": "Access the MIDS Setup Sub-Menu."
+      "action": "Access the MIDS Setup Sub-Menu.",
+      "voiced": "Access the MIDS Setup Sub-Menu."
     },
     {
       "num": 3,
-      "action": "Verify that SEL (Select) function is un-boxed, then use the OSBs (Option Select Buttons) next to the vertical arrows to select the datalink trackfile type you want to change the priority of. We will select the DONORS parameter."
+      "action": "Verify that SEL (Select) function is un-boxed, then use the OSBs (Option Select Buttons) next to the vertical arrows to select the datalink trackfile type you want to change the priority of. We will select the DONORS parameter.",
+      "voiced": "Confirm SEL is un-boxed, then use the arrow OSBs to select the trackfile type to reprioritize."
     },
     {
       "num": 4,
-      "action": "Once desired parameter is selected, press OSB next to SEL to select the parameter. SEL should become boxed."
+      "action": "Once desired parameter is selected, press OSB next to SEL to select the parameter. SEL should become boxed.",
+      "voiced": "Press the OSB next to SEL to select the parameter — confirm SEL boxes."
     },
     {
       "num": 5,
-      "action": "Use the OSBs next to the vertical arrows to move the selected datalink trackfile type across the priority scale (“1” being the highest, “5” being the lowest). We will change DONORS priority from “4” to “1”, which means that the DONORS datalink trackfiles will always be shown in priority when compared to other trackfile types if there are more than 7 datalink trackfiles."
+      "action": "Use the OSBs next to the vertical arrows to move the selected datalink trackfile type across the priority scale (\u201c1\u201d being the highest, \u201c5\u201d being the lowest). We will change DONORS priority from \u201c4\u201d to \u201c1\u201d, which means that the DONORS datalink trackfiles will always be shown in priority when compared to other trackfile types if there are more than 7 datalink trackfiles.",
+      "voiced": "Use the arrow OSBs to set the desired priority level — 1 is highest, 5 is lowest."
     },
     {
       "num": 6,
-      "action": "Once selected parameter is at the priority you want, press OSB next to SEL to de-select the parameter. SEL should become un-boxed."
+      "action": "Once selected parameter is at the priority you want, press OSB next to SEL to de-select the parameter. SEL should become un-boxed.",
+      "voiced": "Press the OSB next to SEL to de-select the parameter — confirm SEL un-boxes."
     },
     {
       "num": 7,
-      "action": "If desired, set the MIDS (Multi-Function Information Distribution System) Symbology occlusion range as you see fit. We will use the OSBs next to the vertical arrows to set a cutoff (occlusion) range of 45 nm,"
+      "action": "If desired, set the MIDS (Multi-Function Information Distribution System) Symbology occlusion range as you see fit. We will use the OSBs next to the vertical arrows to set a cutoff (occlusion) range of 45 nm,",
+      "voiced": "Set MIDS symbology occlusion range using the arrow OSBs as desired."
     },
     {
       "num": 8,
-      "action": "The CLSTFR BLNK (Closest Friendly Trackfile Blank) function, when selected (boxed), allows you to occlude the closest friendly datalink trackfiles if desired."
+      "action": "The CLSTFR BLNK (Closest Friendly Trackfile Blank) function, when selected (boxed), allows you to occlude the closest friendly datalink trackfiles if desired.",
+      "voiced": "Optionally press CLSTFR BLNK to occlude the closest friendly datalink trackfiles."
     },
     {
       "num": 9,
-      "action": "The MEMBER BLNK (Flight Member Trackfile Blank) function, when selected (boxed), allows you to occlude the flight member datalink trackfiles if desired."
+      "action": "The MEMBER BLNK (Flight Member Trackfile Blank) function, when selected (boxed), allows you to occlude the flight member datalink trackfiles if desired.",
+      "voiced": "Optionally press MEMBER BLNK to occlude flight member datalink trackfiles."
     }
   ]
 }

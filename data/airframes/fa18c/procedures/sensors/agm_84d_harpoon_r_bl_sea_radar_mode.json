@@ -41,95 +41,118 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode \u2013 A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "On the SMS (Stores) page, press OSB next to HPD (AGM-84D Harpoon)"
+      "action": "On the SMS (Stores) page, press OSB next to HPD (AGM-84D Harpoon)",
+      "voiced": "Press the OSB next to HPD on the SMS page."
     },
     {
       "num": 4,
-      "action": "Harpoon will start an inertial alignment that takes about 25 seconds. You can monitor gyro alignment process on the SMS (Stores Management System) page. (Note: Once Harpoon alignment is complete, the timer) will disappear."
+      "action": "Harpoon will start an inertial alignment that takes about 25 seconds. You can monitor gyro alignment process on the SMS (Stores Management System) page. (Note: Once Harpoon alignment is complete, the timer) will disappear.",
+      "voiced": "Confirm gyro alignment begins — takes ~25 seconds; timer clears when complete."
     },
     {
       "num": 5,
-      "action": "Make sure the Radar Power Switch is set to OPR (Operate)."
+      "action": "Make sure the Radar Power Switch is set to OPR (Operate).",
+      "voiced": "Confirm Radar Power Switch is set to OPR."
     },
     {
       "num": 6,
-      "action": "Verify that the A/G Master Mode button is pressed; it will set the right DDI (Digital Display Indicator) to the radar A-G MAP page."
+      "action": "Verify that the A/G Master Mode button is pressed; it will set the right DDI (Digital Display Indicator) to the radar A-G MAP page.",
+      "voiced": "Confirm A/G Master Mode is active — radar A-G MAP page appears on the right DDI."
     },
     {
       "num": 7,
-      "action": "Toggle A-G MAP mode to A-G SEA mode by pressing the OSB next to MAP."
+      "action": "Toggle A-G MAP mode to A-G SEA mode by pressing the OSB next to MAP.",
+      "voiced": "Press the OSB next to MAP to toggle to A-G SEA mode."
     },
     {
       "num": 8,
-      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible)."
+      "action": "Press the Sensor Control Switch in the direction of the radar screen (RIGHT) to slave the TDC (Throttle Designation Controller) to the current radar screen (diamond should be visible).",
+      "voiced": "Press Sensor Control Switch RIGHT to slave TDC to the radar — confirm diamond appears."
     },
     {
       "num": 9,
-      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls."
+      "action": "Slew the TDC cursor on the desired target (brick) you want to track using the TDC controls.",
+      "voiced": "Slew the TDC cursor over the desired target brick."
     },
     {
       "num": 10,
-      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Tracking mode and additional target information will be displayed."
+      "action": "Press the Sensor Control Switch in the direction of the DDI (right) to command acquisition of the target. When Sensor Control Switch is released, target tracking is commanded. The radar mode will change to Tracking mode and additional target information will be displayed.",
+      "voiced": "Press Sensor Control Switch RIGHT to command acquisition — radar transitions to Tracking mode."
     },
     {
       "num": 11,
-      "action": "Once target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired."
+      "action": "Once target is tracked: On the Radar page, a brick with a motion vector, target speed and heading will be visible. On the HUD, a diamond will mark the tracked target. This point can be used/slaved to by other sensors (like the targeting pod) if desired.",
+      "voiced": "Confirm brick with motion vector on radar and diamond on HUD."
     },
     {
       "num": 12,
-      "action": "Once the target has been designated by the radar, the R/BL Mode will become available for selection."
+      "action": "Once the target has been designated by the radar, the R/BL Mode will become available for selection.",
+      "voiced": "Confirm R/BL mode becomes available once target is designated."
     },
     {
       "num": 13,
-      "action": "Select “R/BL” release mode by pressing the OSB next to “MODE” if a target is designated properly, the mode will switch from BOL to R/BL."
+      "action": "Select \u201cR/BL\u201d release mode by pressing the OSB next to \u201cMODE\u201d if a target is designated properly, the mode will switch from BOL to R/BL.",
+      "voiced": "Press the OSB next to MODE to select R/BL — confirm mode switches from BOL to R/BL."
     },
     {
       "num": 14,
-      "action": "Press OSB next to “FLT” (Fly-Out Altitude) to toggle between LOW, MED and HIGH. We will choose LOW."
+      "action": "Press OSB next to \u201cFLT\u201d (Fly-Out Altitude) to toggle between LOW, MED and HIGH. We will choose LOW.",
+      "voiced": "Press the OSB next to FLT to set fly-out altitude — select LOW, MED, or HIGH."
     },
     {
       "num": 15,
-      "action": "Press OSB next to “TERM” (Terminal Altitude) to toggle between SKIM and POP attack profiles. SKIM performs a very low-level approach all the way to impact, while POP performs a high-G \"pop-up\" maneuver to impact the target from above. In our case, we will choose SKIM."
+      "action": "Press OSB next to \u201cTERM\u201d (Terminal Altitude) to toggle between SKIM and POP attack profiles. SKIM performs a very low-level approach all the way to impact, while POP performs a high-G \"pop-up\" maneuver to impact the target from above. In our case, we will choose SKIM.",
+      "voiced": "Press the OSB next to TERM to select SKIM or POP terminal attack profile."
     },
     {
       "num": 16,
-      "action": "Press OSB next to “SEEK” (Search Area) to between SML (5.4 nm), MED (10.8 nm) and LRG (16.2 nm) search area distance. In our case, we will choose MED."
+      "action": "Press OSB next to \u201cSEEK\u201d (Search Area) to between SML (5.4 nm), MED (10.8 nm) and LRG (16.2 nm) search area distance. In our case, we will choose MED.",
+      "voiced": "Press the OSB next to SEEK to select search area size — SML, MED, or LRG."
     },
     {
       "num": 17,
-      "action": "Check that HPTP (Harpoon Turnpoint) is not selected"
+      "action": "Check that HPTP (Harpoon Turnpoint) is not selected",
+      "voiced": "Confirm HPTP is not selected."
     },
     {
       "num": 18,
-      "action": "Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that “IN RNG” is displayed. If you are not, steer the aircraft in the correct direction and ."
+      "action": "Check the IN ZONE/IN RNG/TTMR/out of zone cue and confirm that \u201cIN RNG\u201d is displayed. If you are not, steer the aircraft in the correct direction and .",
+      "voiced": "Confirm IN RNG cue is displayed — maneuver toward the target zone if needed."
     },
     {
       "num": 19,
-      "action": "Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile."
+      "action": "Make sure you are above the minimum launch altitude of 2500 ft and flying level. Launching the Harpoon during negative Gs can make the aircraft collide with the missile.",
+      "voiced": "Confirm altitude above 2500 ft and wings level before launch."
     },
     {
       "num": 20,
-      "action": "Press and hold the Weapon Release button (« RALT+SPACE ») to launch Harpoon."
+      "action": "Press and hold the Weapon Release button (\u00ab RALT+SPACE \u00bb) to launch Harpoon.",
+      "voiced": "Press and hold the Weapon Release Button to launch Harpoon."
     },
     {
       "num": 21,
-      "action": "Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system."
+      "action": "Once launched, there can be a momentary radar altimeter warning; that is normal due to the free-falling missile being momentarily detected by the radar altimeter system.",
+      "voiced": "Confirm momentary radar altimeter warning after launch is normal."
     },
     {
       "num": 22,
-      "action": "The Harpoon, at an altitude corresponding to the FLT option (LOW, 5000 ft), travels directly in the direction of the set bearing from the aircraft to the designated TGT point by the air-to-sea radar. The missile then begins searching a set programmed distance before the TGT. If it locates a target, it will engage it based on the SKIM or POP terminal modes."
+      "action": "The Harpoon, at an altitude corresponding to the FLT option (LOW, 5000 ft), travels directly in the direction of the set bearing from the aircraft to the designated TGT point by the air-to-sea radar. The missile then begins searching a set programmed distance before the TGT. If it locates a target, it will engage it based on the SKIM or POP terminal modes.",
+      "voiced": "Confirm Harpoon flies to designated bearing then searches and engages per SKIM or POP profile."
     },
     {
       "num": 23,
-      "action": "Pressing the « Undesignate » button on the stick will return the radar to SEA mode and exit tracking mode."
+      "action": "Pressing the \u00ab Undesignate \u00bb button on the stick will return the radar to SEA mode and exit tracking mode.",
+      "voiced": "Press the Undesignate button to return radar to SEA mode and exit tracking."
     }
   ]
 }

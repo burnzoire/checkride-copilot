@@ -29,31 +29,38 @@
   "steps": [
     {
       "num": 1,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch – ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     },
     {
       "num": 2,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode – A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 3,
-      "action": "Set the TAC EW (Early Warning) page on the right DDI and the SMS (Stores Management System) page on the left DDI."
+      "action": "Set the TAC EW (Early Warning) page on the right DDI and the SMS (Stores Management System) page on the left DDI.",
+      "voiced": "Set TAC EW on the right DDI and SMS on the left DDI."
     },
     {
       "num": 4,
-      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it"
+      "action": "In SMS (Stores Management System) page, click on the OSB next to HARM to select it",
+      "voiced": "Press the OSB next to HARM to select it."
     },
     {
       "num": 5,
-      "action": "Select SP (Self-Protection) Mode"
+      "action": "Select SP (Self-Protection) Mode",
+      "voiced": "Select SP mode."
     },
     {
       "num": 6,
-      "action": "Consult the HUD, RWR or EW page ands select which emitter you want to track by pressing the RAID / FLIR Button (“I” binding). There is no range information available."
+      "action": "Consult the HUD, RWR or EW page ands select which emitter you want to track by pressing the RAID / FLIR Button (\u201cI\u201d binding). There is no range information available.",
+      "voiced": "Select your emitter on the HUD, RWR, or EW page using the RAID/FLIR Button — no range available in SP mode."
     },
     {
       "num": 7,
-      "action": "Hold the Weapon Release Button (« RALT+SPACE ») to fire missile. (Note: SP Mode allows for 360° engagement; however, more kinetic energy is) sacrificed to turn as the angle increases. Self-Protect is named as such because it is primarily designed for quick reaction to a threat. On these three RWR displays, whenever the HARM and SP mode is selected, a square is placed around the selected emitter; the highest priority emitter is selected automatically. Note that a maximum of 6 emitters are displayed on the HUD, but the HARM will always cycle all emitters. Once fired, the HARM will either have already acquired the selected emitter or, if it is outside the HARM seeker field of view, it will acquire it post-launch."
+      "action": "Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to fire missile. (Note: SP Mode allows for 360\u00b0 engagement; however, more kinetic energy is) sacrificed to turn as the angle increases. Self-Protect is named as such because it is primarily designed for quick reaction to a threat. On these three RWR displays, whenever the HARM and SP mode is selected, a square is placed around the selected emitter; the highest priority emitter is selected automatically. Note that a maximum of 6 emitters are displayed on the HUD, but the HARM will always cycle all emitters. Once fired, the HARM will either have already acquired the selected emitter or, if it is outside the HARM seeker field of view, it will acquire it post-launch.",
+      "voiced": "Hold the Weapon Release Button to fire — HARM acquires the selected emitter on or after launch."
     }
   ]
 }

@@ -24,31 +24,38 @@
   "steps": [
     {
       "num": 1,
-      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation."
+      "action": "The AGM-65F requires its seeker to be cooled by releasing a fluid stored inside onto it for it to be able to see properly and cannot be operated until it is cooled. Upon first selection of it on the STORES format, cooling will be initiated. A timer counting down to operating status can be seen on the IMAV DSPLY format, which takes approximately 3 minutes. Note: The cooldown should be started while you are in the air and the missile is selected since the Weight On Wheels (WoW) signal inhibits missile cooldown initiation.",
+      "voiced": "Confirm cooldown initiates on first missile selection — takes ~3 minutes; must be airborne, Weight on Wheels inhibits it."
     },
     {
       "num": 2,
-      "action": "Go in SMS (Stores Management System) page"
+      "action": "Go in SMS (Stores Management System) page",
+      "voiced": "Select the SMS page."
     },
     {
       "num": 3,
-      "action": "Master Mode – A/G"
+      "action": "Master Mode – A/G",
+      "voiced": "Select A/G Master Mode."
     },
     {
       "num": 4,
-      "action": "Select MAVF (text should be boxed)"
+      "action": "Select MAVF (text should be boxed)",
+      "voiced": "Select MAVF — confirm it boxes."
     },
     {
       "num": 5,
-      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed."
+      "action": "Maverick cooldown process will start and take about 3 minutes. Monitor cooldown progress by pressing the OSB next to the crossed-out « MAVF », which will show you the Maverick seeker head feed.",
+      "voiced": "Press the OSB next to MAVF to monitor seeker cooldown progress."
     },
     {
       "num": 6,
-      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live."
+      "action": "Once Maverick cooldown is complete, the timer will disappear and the MAVF Feed will go live.",
+      "voiced": "Confirm cooldown complete — timer clears and MAVF feed goes live."
     },
     {
       "num": 7,
-      "action": "Master Arm switch – ARM (UP)"
+      "action": "Master Arm switch – ARM (UP)",
+      "voiced": "Set Master Arm switch to ARM."
     }
   ]
 }

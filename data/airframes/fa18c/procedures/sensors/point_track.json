@@ -26,63 +26,78 @@
   "steps": [
     {
       "num": 1,
-      "action": "Make sure the targeting pod is powered"
+      "action": "Make sure the targeting pod is powered",
+      "voiced": "Confirm the targeting pod is powered."
     },
     {
       "num": 2,
-      "action": "Press the A/A Master Mode button. The RDR ATTK (radar) page will appear on the right DDI and the FLIR page will appear on the left DDI."
+      "action": "Press the A/A Master Mode button. The RDR ATTK (radar) page will appear on the right DDI and the FLIR page will appear on the left DDI.",
+      "voiced": "Press the A/A Master Mode Button — RDR ATTK on right DDI, FLIR on left."
     },
     {
       "num": 3,
-      "action": "Select FLIR by pressing the Sensor Control Switch in the direction of the DDI with the FLIR page (left)."
+      "action": "Select FLIR by pressing the Sensor Control Switch in the direction of the DDI with the FLIR page (left).",
+      "voiced": "Press Sensor Control Switch toward the FLIR DDI to select it."
     },
     {
       "num": 4,
-      "action": "The Select Focus Diamond indicates what display is selected."
+      "action": "The Select Focus Diamond indicates what display is selected.",
+      "voiced": "Confirm the Select Focus Diamond appears on the FLIR DDI."
     },
     {
       "num": 5,
-      "action": "Select VVSLV by selecting the VVSLV pushbutton on the FLIR page. The FLIR will be slaved to the line of sight to the velocity vector."
+      "action": "Select VVSLV by selecting the VVSLV pushbutton on the FLIR page. The FLIR will be slaved to the line of sight to the velocity vector.",
+      "voiced": "Press the VVSLV pushbutton on the FLIR page to select VVSLV."
     },
     {
       "num": 6,
-      "action": "Press OSB next to RTCL (boxed) to display the targeting pod’s reticle"
+      "action": "Press OSB next to RTCL (boxed) to display the targeting pod's reticle",
+      "voiced": "Press OSB next to RTCL to display the pod reticle — confirm it boxes."
     },
     {
       "num": 7,
-      "action": "Fly the aircraft to put the velocity vector in the vicinity of the aircraft."
+      "action": "Fly the aircraft to put the velocity vector in the vicinity of the aircraft.",
+      "voiced": "Fly to place the velocity vector near the target."
     },
     {
       "num": 8,
-      "action": "You can zoom and choose desired FLIR/CCD (TV) setting using the appropriate Option Select Buttons on the FLIR page."
+      "action": "You can zoom and choose desired FLIR/CCD (TV) setting using the appropriate Option Select Buttons on the FLIR page.",
+      "voiced": "Use the FLIR page OSBs to zoom and select desired FLIR or CCD setting."
     },
     {
       "num": 9,
-      "action": "Press/bump the Sensor Control Switch in the direction of the FLIR format page (left) to attempt to Point Track the target."
+      "action": "Press/bump the Sensor Control Switch in the direction of the FLIR format page (left) to attempt to Point Track the target.",
+      "voiced": "Bump Sensor Control Switch toward the FLIR page to attempt Point Track."
     },
     {
       "num": 10,
-      "action": "When Point Track is obtained, a designation box will appear on the HUD and the targeting pod will track the target."
+      "action": "When Point Track is obtained, a designation box will appear on the HUD and the targeting pod will track the target.",
+      "voiced": "Confirm Point Track — designation box on HUD, pod actively tracks."
     },
     {
       "num": 11,
-      "action": "If you want to “dump” the target, press the Sensor Control Switch in the direction of the DDI with the FLIR page (left)."
+      "action": "If you want to \"dump\" the target, press the Sensor Control Switch in the direction of the DDI with the FLIR page (left).",
+      "voiced": "Press Sensor Control Switch toward the FLIR DDI to dump the target."
     },
     {
       "num": 12,
-      "action": "Make sure the radar is powered"
+      "action": "Make sure the radar is powered",
+      "voiced": "Confirm the radar is powered."
     },
     {
       "num": 13,
-      "action": "Make sure Point Track is obtained"
+      "action": "Make sure Point Track is obtained",
+      "voiced": "Confirm Point Track is obtained."
     },
     {
       "num": 14,
-      "action": "On FLIR page, press OSB next to SLAVE to slave the radar to the targeting pod’s point track."
+      "action": "On FLIR page, press OSB next to SLAVE to slave the radar to the targeting pod's point track.",
+      "voiced": "Press OSB next to SLAVE on the FLIR page to slave the radar to the Point Track."
     },
     {
       "num": 15,
-      "action": "Both the radar and the TGP will now track the target."
+      "action": "Both the radar and the TGP will now track the target.",
+      "voiced": "Confirm both radar and TGP are tracking the target."
     }
   ]
 }
