@@ -584,6 +584,137 @@
       "example": "301, Hornet Ball, 3.2"
     },
     {
+      "key": "radio_airfield_inbound",
+      "title": "Airfield Inbound Call",
+      "description": "Quick pattern-entry phrase for uncontrolled or traffic-style field calls.",
+      "alternates": [
+        "how do i land at kobuleti",
+        "how do i land at cobaltia",
+        "kobuleti traffic call",
+        "cobaltia traffic call",
+        "what do i say to land",
+        "airfield inbound radio call",
+        "inbound full stop call",
+        "uncontrolled field radio",
+        "land at nearby airfield",
+        "i do not know what to say on the radio"
+      ],
+      "tags": [
+        "radio",
+        "comms",
+        "landing",
+        "airfield",
+        "traffic",
+        "kobuleti",
+        "tower"
+      ],
+      "steps": [
+        "Use this template: [airfield] traffic, [callsign], [count]-ship Hornet, [direction], [distance] miles, [altitude], inbound full stop.",
+        "Example: Kobuleti traffic, Enfield 1-1, 1-ship Hornet, west, 12 miles, 3000, inbound full stop.",
+        "If tower-controlled, replace traffic with Tower and add request landing at the end."
+      ],
+      "example": "Kobuleti traffic, Enfield 1-1, 1-ship Hornet, west, 12 miles, 3000, inbound full stop."
+    },
+    {
+      "key": "radio_tanker_precontact",
+      "title": "Tanker Pre-Contact Call",
+      "description": "Minimal tanker comm flow for rejoin and refueling.",
+      "alternates": [
+        "tanker comms",
+        "how to call tanker",
+        "tanker pre-contact",
+        "request rejoin tanker",
+        "air to air refuel radio"
+      ],
+      "tags": [
+        "radio",
+        "comms",
+        "tanker",
+        "refuel",
+        "a2a"
+      ],
+      "steps": [
+        "First call: [tanker callsign], [callsign], request rejoin.",
+        "Pre-contact call: [tanker callsign], [callsign], pre-contact.",
+        "If disconnecting: [tanker callsign], [callsign], disconnecting, reforming right echelon."
+      ],
+      "example": "Texaco 1-1, Enfield 1-1, pre-contact."
+    },
+    {
+      "key": "radio_awacs_picture",
+      "title": "AWACS Picture/Bogey Dope",
+      "description": "Request tactical picture from AWACS.",
+      "alternates": [
+        "awacs call format",
+        "request picture",
+        "bogey dope",
+        "what do i say to awacs",
+        "magic picture"
+      ],
+      "tags": [
+        "radio",
+        "comms",
+        "awacs",
+        "picture",
+        "bogey",
+        "dope"
+      ],
+      "steps": [
+        "Picture request: [awacs callsign], [callsign], request picture.",
+        "Single-group request: [awacs callsign], [callsign], request bogey dope.",
+        "After response, read back commit or hold intent as needed."
+      ],
+      "example": "Magic, Enfield 1-1, request picture."
+    },
+    {
+      "key": "radio_jtac_checkin",
+      "title": "JTAC Check-In",
+      "description": "Standard CAS check-in skeleton before 9-line.",
+      "alternates": [
+        "jtac check in",
+        "ready for 9-line",
+        "cas radio checkin",
+        "what do i say to jtac",
+        "joint terminal attack controller"
+      ],
+      "tags": [
+        "radio",
+        "comms",
+        "jtac",
+        "cas",
+        "9-line"
+      ],
+      "steps": [
+        "Template: [jtac callsign], [callsign], type [aircraft], [position], angels [altitude], playtime [minutes], ordnance [load], abort code [code], ready for 9-line.",
+        "Keep it concise and include only current loadout and realistic playtime.",
+        "Copy 9-line verbatim and read back restrictions before attack." 
+      ],
+      "example": "Axeman 1-1, Enfield 1-1, F/A-18, south, angels 12, playtime 20, 2 by GBU-12, abort code Thunder, ready for 9-line."
+    },
+    {
+      "key": "radio_emergency_mayday",
+      "title": "Emergency Mayday Call",
+      "description": "Immediate emergency call template.",
+      "alternates": [
+        "mayday call",
+        "emergency radio",
+        "declare emergency",
+        "what do i say in an emergency"
+      ],
+      "tags": [
+        "radio",
+        "comms",
+        "emergency",
+        "mayday"
+      ],
+      "steps": [
+        "Template: Mayday, Mayday, Mayday, [callsign], [nature of emergency], [position], [altitude], [intentions], souls [count], fuel [state].",
+        "Example: Mayday, Mayday, Mayday, Enfield 1-1, engine fire, 10 miles east of Kobuleti, 4000, diverting immediate landing Kobuleti, souls 1, fuel 2.1.",
+        "After declaring, aviate first and keep follow-up transmissions short."
+      ],
+      "example": "Mayday, Mayday, Mayday, Enfield 1-1, engine fire, 10 miles east of Kobuleti, 4000, diverting immediate landing Kobuleti, souls 1, fuel 2.1."
+    },
+    {
       "key": "dispense_countermeasures",
       "title": "Dispense Chaff and Flares",
       "description": "Manually dispense countermeasures or run a CMDS program.",

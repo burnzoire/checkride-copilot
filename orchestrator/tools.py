@@ -70,6 +70,45 @@ def _procedure_intents(query: str) -> dict[str, bool]:
     }
 
 
+def _quick_action_intents(query: str) -> dict[str, bool]:
+    q = query.lower()
+    tokens = _query_tokens(query)
+    wants_radio = bool(
+        {
+            "radio",
+            "comms",
+            "traffic",
+            "tower",
+            "awacs",
+            "jtac",
+            "tanker",
+            "mayday",
+            "say",
+        }
+        & tokens
+    ) or "what to say" in q
+    wants_landing = bool(
+        {
+            "land",
+            "landing",
+            "inbound",
+            "airfield",
+            "runway",
+            "tower",
+            "traffic",
+        }
+        & tokens
+    )
+    wants_refuel = bool({"refuel", "refueling", "tanker", "pre", "contact"} & tokens) or "pre-contact" in q
+
+    return {
+        "radio": wants_radio,
+        "landing": wants_landing,
+        "refuel": wants_refuel,
+        "landing_radio": wants_radio and wants_landing,
+    }
+
+
 def _expand_procedure_query_tokens(query: str) -> set[str]:
     tokens = _query_tokens(query)
     intents = _procedure_intents(query)
@@ -398,6 +437,7 @@ def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, 
 
     tokens = {t for t in _query_tokens(query) if t not in _QUICK_ACTION_STOPWORDS}
     intents = _procedure_intents(query)
+    qa_intents = _quick_action_intents(query)
 
     if intents["tgp"] and intents["power"]:
         for action in _ACTIONS:
@@ -421,9 +461,10 @@ def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, 
     best_score = 0
 
     for action in _ACTIONS:
+        key = str(action.get("key", ""))
         text = " ".join(
             [
-                action.get("key", "").replace("_", " "),
+                key.replace("_", " "),
                 action.get("title", ""),
                 action.get("description", ""),
                 " ".join(action.get("alternates", []) or []),
@@ -434,7 +475,7 @@ def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, 
         words = {w for w in _query_tokens(text) if w not in _QUICK_ACTION_STOPWORDS}
         overlap = len(tokens & words)
         bonus = 0
-        if action.get("key") == "carrier_call_the_ball" and re.search(r"\b(cull|coal|call)\s+the\s+(bull|ball)\b", query):
+        if key == "carrier_call_the_ball" and re.search(r"\b(cull|coal|call)\s+the\s+(bull|ball)\b", query):
             bonus += 5
         if intents["tgp"] and "tgp" in words:
             bonus += 2
@@ -444,6 +485,24 @@ def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, 
             bonus += 3
         if intents["track"] and re.search(r"\bpoint|track|ptrk\b", text):
             bonus += 3
+
+        # Route "how do I say inbound/landing" requests to concise radio phrase quick actions.
+        if qa_intents["landing_radio"]:
+            if key == "radio_airfield_inbound":
+                bonus += 10
+            elif key.startswith("radio_"):
+                bonus += 3
+            if key == "radio_tanker_precontact":
+                bonus -= 6
+        elif qa_intents["radio"] and key.startswith("radio_"):
+            bonus += 2
+
+        if qa_intents["refuel"] and key == "radio_tanker_precontact":
+            bonus += 6
+
+        if re.search(r"\b(cobaltia|kobuleti)\b", query) and key == "radio_airfield_inbound":
+            bonus += 4
+
         score = overlap + bonus
         if score > best_score:
             best = action

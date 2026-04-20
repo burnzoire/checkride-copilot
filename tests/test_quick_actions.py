@@ -41,3 +41,24 @@ def test_cull_the_bull_maps_to_call_the_ball_quick_action():
     assert result["found"] is True
     assert result["key"] == "carrier_call_the_ball"
     assert "Hornet Ball" in (result.get("example") or "")
+
+
+def test_kobuleti_landing_radio_query_maps_to_airfield_inbound_action():
+    result = tool_get_quick_action(
+        {"query": "I want to land at Kobuleti but I don't know how to say it on the radio"},
+        Session(),
+    )
+    assert result["ok"] is True
+    assert result["found"] is True
+    assert result["key"] == "radio_airfield_inbound"
+    assert "Kobuleti traffic" in (result.get("example") or "")
+
+
+def test_cobaltia_landing_radio_query_maps_to_airfield_inbound_action():
+    result = tool_get_quick_action(
+        {"query": "I need to land at nearby Cobaltia airfield, but I don't know what to say on the radio."},
+        Session(),
+    )
+    assert result["ok"] is True
+    assert result["found"] is True
+    assert result["key"] == "radio_airfield_inbound"
