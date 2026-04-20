@@ -17,6 +17,24 @@ function Get-PythonExe {
     throw "Python 3.11+ is required. Install Python, then run setup.ps1 again."
 }
 
+function Assert-PythonVersion([string]$pythonExe) {
+    if ($pythonExe -eq "py") {
+        $version = (& py -3 -c "import sys; print(f'{sys.version_info[0]}.{sys.version_info[1]}')").Trim()
+    } else {
+        $version = (& python -c "import sys; print(f'{sys.version_info[0]}.{sys.version_info[1]}')").Trim()
+    }
+
+    $parts = $version.Split(".")
+    if ($parts.Length -lt 2) {
+        throw "Unable to determine Python version."
+    }
+    $major = [int]$parts[0]
+    $minor = [int]$parts[1]
+    if ($major -ne 3 -or $minor -lt 11) {
+        throw "Python 3.11+ is required (detected $version)."
+    }
+}
+
 function Refresh-Path {
     $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH", "Machine") + ";" +
                 [System.Environment]::GetEnvironmentVariable("PATH", "User")
@@ -39,8 +57,9 @@ function Ensure-Uv {
 
     Write-Host "Installing uv..." -ForegroundColor Yellow
     $py = Get-PythonExe
+    Assert-PythonVersion -pythonExe $py
     if ($py -eq "py") {
-        & py -3.11 -m pip install --user uv
+        & py -3 -m pip install --user uv
     } else {
         & python -m pip install --user uv
     }
@@ -104,7 +123,8 @@ function Confirm-Step([string]$message) {
     return ($answer -eq "" -or $answer -match "^[Yy]")
 }
 
-if (-not $IsWindows) {
+$runningOnWindows = $env:OS -eq "Windows_NT"
+if (-not $runningOnWindows) {
     throw "This installer currently supports Windows only."
 }
 
@@ -115,6 +135,9 @@ Write-Host ""
 Write-Host "=== Checkride Copilot Source Setup ===" -ForegroundColor Cyan
 Write-Host "Repo: $root" -ForegroundColor DarkGray
 Write-Host ""
+
+$pythonExe = Get-PythonExe
+Assert-PythonVersion -pythonExe $pythonExe
 
 $gpu = Get-GpuInfo
 if ($gpu.Names.Count -gt 0) {
