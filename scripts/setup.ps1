@@ -46,7 +46,7 @@ function Assert-TrustedInstaller([string]$path, [string]$expectedPublisherContai
         throw "Installer signature validation failed with status: $($sig.Status)"
     }
     $safePublisher = [regex]::Escape($expectedPublisherContains)
-    if (-not ($sig.SignerCertificate.Subject -match "^CN=$safePublisher(,|$)")) {
+    if (-not ($sig.SignerCertificate.Subject -match "CN=$safePublisher(,|$)")) {
         throw "Unexpected installer signer: $($sig.SignerCertificate.Subject)"
     }
 }
@@ -84,7 +84,7 @@ function Get-GpuInfo {
     }
 
     $nvidia = @($gpus | Where-Object { $_.Name -match "NVIDIA" })
-    $rtx50 = @($nvidia | Where-Object { $_.Name -match "RTX\s*50(60|70|80|90)\b" })
+    $rtx50 = @($nvidia | Where-Object { $_.Name -match "RTX\s*50[5-9]\d\b" })
     return [pscustomobject]@{
         HasNvidia = $nvidia.Count -gt 0
         IsRtx50 = $rtx50.Count -gt 0
@@ -155,7 +155,7 @@ Write-Host ""
 Write-Host "Recommended PyTorch: $($torch.Label)" -ForegroundColor Green
 Write-Host "Reason: $($torch.Why)" -ForegroundColor DarkGray
 if ($torch.Channel -eq "cu128-nightly") {
-    Write-Host "Note: nightly wheels can be less stable; rerun setup with CPU/CUDA 12.1 if needed." -ForegroundColor DarkYellow
+    Write-Host "Note: nightly wheels can be less stable; re-run setup with CPU/CUDA 12.1 if needed." -ForegroundColor DarkYellow
 }
 
 if (-not (Confirm-Step "Proceed with this PyTorch selection and full install?")) {
