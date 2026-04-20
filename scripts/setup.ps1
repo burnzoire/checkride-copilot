@@ -22,6 +22,16 @@ function Refresh-Path {
                 [System.Environment]::GetEnvironmentVariable("PATH", "User")
 }
 
+function Assert-TrustedInstaller([string]$path, [string]$expectedPublisherContains) {
+    $sig = Get-AuthenticodeSignature -FilePath $path
+    if ($sig.Status -ne "Valid") {
+        throw "Installer signature validation failed with status: $($sig.Status)"
+    }
+    if (-not $sig.SignerCertificate.Subject.Contains($expectedPublisherContains)) {
+        throw "Unexpected installer signer: $($sig.SignerCertificate.Subject)"
+    }
+}
+
 function Ensure-Uv {
     if (Get-Command uv -ErrorAction SilentlyContinue) {
         return
@@ -30,7 +40,7 @@ function Ensure-Uv {
     Write-Host "Installing uv..." -ForegroundColor Yellow
     $py = Get-PythonExe
     if ($py -eq "py") {
-        & py -3 -m pip install --user uv
+        & py -3.11 -m pip install --user uv
     } else {
         & python -m pip install --user uv
     }
@@ -54,7 +64,7 @@ function Get-GpuInfo {
     }
 
     $nvidia = @($gpus | Where-Object { $_.Name -match "NVIDIA" })
-    $rtx50 = @($nvidia | Where-Object { $_.Name -match "RTX\s*50\d{2}\b" })
+    $rtx50 = @($nvidia | Where-Object { $_.Name -match "RTX\s*50\d{2}" })
     return [pscustomobject]@{
         HasNvidia = $nvidia.Count -gt 0
         IsRtx50 = $rtx50.Count -gt 0
@@ -147,6 +157,7 @@ if (-not $SkipOllama) {
         Write-Host "Installing Ollama..." -ForegroundColor Yellow
         $tmp = Join-Path $env:TEMP "OllamaSetup.exe"
         Invoke-WebRequest -Uri "https://ollama.com/download/OllamaSetup.exe" -OutFile $tmp
+        Assert-TrustedInstaller -path $tmp -expectedPublisherContains "Ollama"
         Start-Process $tmp -ArgumentList "/S" -Wait
         Remove-Item $tmp -ErrorAction SilentlyContinue
         Refresh-Path
