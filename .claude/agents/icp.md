@@ -32,3 +32,21 @@ When asked to rewrite a procedure step for spoken delivery:
 6. No "Note:" annotations — omit them
 7. Under 20 words unless the action genuinely requires more
 8. Output ONLY the rewritten text. No preamble, quotes, or numbering
+9. Avoid emdashes as they don't result in natural pauses. Use commas or periods instead.
+10. Ensure natural spoken flow, avoid abrupt sentences that would sound robotic when read aloud.
+
+## Procedure pacing
+
+Not all steps are checklist items. Some are part of a continuous maneuver where the pilot cannot pause between sub-actions. You must set a `pace` field on every step:
+
+- `"pace": "checklist"` — discrete action; pilot pauses, confirms, then says "continue"
+- `"pace": "maneuver"` — part of a continuous physical maneuver; no pause between steps; all consecutive maneuver steps are delivered as a single spoken block
+
+**Rules for assigning pace:**
+
+- Switch selections, system set-ups, pre-flight items → `checklist`
+- Weapon release sequences (pickle, pull, egress), arrest/bolter responses, formation breakouts, emergency responses → `maneuver`
+- Any step that starts with a trigger condition ("when...", "as...", "once...") and flows immediately into the next action → `maneuver`
+- If in doubt about whether a pilot could realistically pause between two steps, assign `maneuver`
+
+When rewriting a maneuver-paced group, write each step's `voiced` to flow naturally into the next — short, urgent, present tense. The group will be read as one continuous sentence chain.

@@ -11,11 +11,22 @@ Rewrite procedure steps in instructor voice using the ICP agent.
 
 1. Read `data/airframes/fa18c/procedures/index.json` to find the target procedure(s).
 2. For each procedure, read its JSON file.
-3. For every step, use the **icp** subagent to rewrite `step["action"]` in instructor voice. Pass the raw action text and ask for a rewritten version only — no preamble, no explanation.
-4. Set `step["voiced"]` to the rewritten text.
-5. Write the updated JSON back to the same file (preserve all other fields exactly).
-6. After each procedure, print a summary: procedure canonical name + how many steps were written.
+3. **Pacing pass first** — before rewriting any text, read through all steps and decide `pace` for each:
+   - `"checklist"` — discrete action the pilot can pause before and after
+   - `"maneuver"` — part of a continuous physical maneuver (no realistic pause point)
+   
+   Assign `pace` based on the ICP agent's pacing rules. Print your pacing decisions as a table (step num | pace | reason) and ask for confirmation before proceeding to the rewrite pass. If any grouping looks wrong, resolve it before writing.
 
-**Strict 1:1 mapping required.** Every step gets a `voiced` field — including informational steps with no imperative action. For those, write a short check or confirm cue ("Confirm seeker is caged — holds boresight until uncaged.") rather than skipping or merging into the next step. The step number in `voiced` must always correspond to the same step number in `action`.
+4. **Rewrite pass** — for every step, use the **icp** subagent to rewrite `step["action"]` in instructor voice according to its pace:
+   - `checklist` steps: one clean imperative sentence, ≤20 words
+   - `maneuver` steps: short, urgent, flows into the next — write as if calling it on hot mic mid-maneuver
 
-Show each rewritten step as you go so the user can spot problems before the file is saved. If a rewrite looks wrong (e.g. the control name was substituted, or it's longer than the original without good reason), flag it and ask before writing.
+5. Set both `step["voiced"]` and `step["pace"]` on every step. Do not remove or alter any other fields.
+
+6. Write the updated JSON back to the same file (preserve all other fields exactly).
+
+7. After each procedure, print a summary: canonical name, step count, how many were marked maneuver.
+
+**Strict 1:1 mapping required.** Every step gets both `voiced` and `pace` — including informational steps (assign `checklist`, write a short confirm cue). Never skip or merge steps in the JSON structure — grouping for delivery is handled at runtime by the `pace` field.
+
+Show each rewritten step as you go so the user can spot problems before the file is saved. If a rewrite looks wrong (control name substituted, longer than original without good reason, or pace seems wrong), flag it and ask before writing.

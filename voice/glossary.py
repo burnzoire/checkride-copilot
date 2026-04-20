@@ -70,6 +70,11 @@ GLOSSARY: dict[str, str] = {
     "AIM-9":     "aim nine",
     "AIM-7":     "aim seven",
     "AIM-120":   "aim one-twenty",
+    "MFUZ":      "m-fuze",
+    "EFUZ":      "e-fuze",
+    "INST":      "instant",
+    "DLY1":      "delay one",
+    "DLY2":      "delay two",
 
     # Sensors / avionics
     "FCR":       "F-C-R",
@@ -112,6 +117,9 @@ GLOSSARY: dict[str, str] = {
     "NWS":       "nose wheel steering",
     "WOW":       "weight on wheels",
 
+    # Directions / references
+    "FWD":       "forward",
+
     # HOTAS already handled in tts._normalize
 }
 
@@ -120,7 +128,7 @@ GLOSSARY: dict[str, str] = {
 _WORD_CAPS: frozenset[str] = frozenset({
     # Position / state labels
     "DOWN", "UP", "FORWARD", "AFT", "LEFT", "RIGHT",
-    "ON", "OFF", "IN", "OUT",
+    "ON", "OFF", "IN", "OUT", "INBOARD", "OUTBOARD",
     "ARM", "ARMED", "SAFE",
     "OPEN", "CLOSED", "CLOSE",
     "EXTEND", "RETRACT",

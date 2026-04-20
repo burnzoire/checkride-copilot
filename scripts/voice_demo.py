@@ -345,14 +345,41 @@ def _clean_step_text(text: str) -> str:
     return text
 
 
+def _maneuver_group_start(steps: list, step_idx: int) -> int:
+    """Return index of the first step in the maneuver group containing step_idx."""
+    if steps[step_idx].get("pace") != "maneuver":
+        return step_idx
+    i = step_idx
+    while i > 0 and steps[i - 1].get("pace") == "maneuver":
+        i -= 1
+    return i
+
+
+def _maneuver_group_end(steps: list, step_idx: int) -> int:
+    """Return index of the last step in a maneuver group starting at step_idx."""
+    if steps[step_idx].get("pace") != "maneuver":
+        return step_idx
+    i = step_idx
+    while i + 1 < len(steps) and steps[i + 1].get("pace") == "maneuver":
+        i += 1
+    return i
+
+
 def _format_step(proc_key: str, step_idx: int) -> str:
-    """Format a single procedure step for TTS — no step-counter noise."""
+    """Format a procedure step for TTS. Maneuver-paced steps are joined as one block."""
     proc  = _load_proc(proc_key)
     if not proc:
         return _pick("proc_unavailable")
-    steps  = proc["steps"]
-    action = _clean_step_text(steps[step_idx].get("voiced") or steps[step_idx]["action"])
-    return action
+    steps = proc["steps"]
+    step  = steps[step_idx]
+    if step.get("pace") == "maneuver":
+        parts = []
+        i = step_idx
+        while i < len(steps) and steps[i].get("pace") == "maneuver":
+            parts.append(_clean_step_text(steps[i].get("voiced") or steps[i]["action"]))
+            i += 1
+        return " ".join(parts)
+    return _clean_step_text(step.get("voiced") or step["action"])
 
 
 def _format_proc_intro(proc_key: str) -> str:
@@ -436,7 +463,9 @@ _AVIATION_RE = re.compile(
     r"gear|flap|hook|light|switch|panel|console|throttle|hud|mfd|sensor|fuel|"
     r"hydraulic|speed|altitude|heading|start|master|arm|fire|release|track|"
     r"lock|probe|refuel|refueling|tacan|ils|jdam|harm|harpoon|"
-    r"weapon|weapons|missile|select|target|engage|stick|hotas)\b",
+    r"weapon|weapons|missile|select|target|engage|stick|hotas|"
+    r"delivery|ccrp|ccip|mk[-\s]?\d+|procedure|approach|intercept|landing|"
+    r"carrier|recovery|catapult|trap|bolter|bingo|fence|marshal)\b",
     re.IGNORECASE,
 )
 
@@ -612,7 +641,8 @@ def _ask_ollama(
 
     # Pure social acks (no question, no aviation) have nothing to answer.
     # Return a canned acknowledgment instead of letting the LLM hallucinate suggestions.
-    if _is_pure_social(transcript):
+    # Never short-circuit an explicit procedure request — even if the phrasing is short.
+    if _is_pure_social(transcript) and not _is_proc_request(transcript):
         return _pick("roger"), "MEDIUM", None
 
     # If the previous assistant turn was a disambiguation question and the
@@ -688,10 +718,15 @@ def _ask_ollama(
             history.append({"role": "assistant",  "content": f"[PROC:{exact_proc}]", "ts": _time.time()})
             return "", "HIGH", exact_proc
 
-        # Check for disambiguation group first — if the query matches a group,
-        # return a sentinel that tells the run loop to enter disambiguation mode.
+        # Check for disambiguation group — but if the transcript already names a
+        # specific option (e.g. "CCIP mode"), resolve it immediately without asking.
         dg = _match_disambig_group(transcript)
         if dg:
+            opt = _match_disambig_option(transcript, dg["options"])
+            if opt and opt["proc_key"] in _PROC_WORDS:
+                history.append({"role": "user",      "content": transcript, "ts": _time.time()})
+                history.append({"role": "assistant",  "content": f"[PROC:{opt['proc_key']}]", "ts": _time.time()})
+                return "", "HIGH", opt["proc_key"]
             return "", "HIGH", f"__DISAMBIG__:{dg['id']}"
 
         kw_proc = _find_proc_by_keywords(transcript)
@@ -872,6 +907,15 @@ _CONTINUE_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Repeat the current step.
+_REPEAT_RE = re.compile(
+    r"^\s*(what|huh|say\s+again|come\s+again|repeat|again|"
+    r"what\s+(did\s+you\s+(say|just\s+say)|was\s+that)|"
+    r"repeat\s+(the\s+)?(last(\s+step)?|that)|"
+    r"i\s+(didn.?t|did\s+not)\s+(hear|catch)\s+(that|you))\s*[?,!.]?\s*$",
+    re.IGNORECASE,
+)
+
 # Restart the current procedure from step 1.
 _RESTART_RE = re.compile(
     r"\b(start\s+(from\s+)?(the\s+)?(start|beginning|top)|"
@@ -994,6 +1038,16 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
                 conf  = "HIGH"
                 print("  [PROC] cancelled")
 
+            # ── Repeat the current step ──────────────────────────────────────
+            elif active_proc and _REPEAT_RE.fullmatch(stripped):
+                _p = _load_proc(active_proc)
+                steps = _p["steps"] if _p else []
+                group_start = _maneuver_group_start(steps, active_step)
+                active_step = group_start
+                reply = _format_step(active_proc, active_step)
+                conf  = "HIGH"
+                print(f"  [PROC] repeat step {active_step + 1}/{len(steps)}")
+
             # ── Restart active procedure from step 1 ─────────────────────────
             elif active_proc and _RESTART_RE.search(stripped):
                 active_step = 0
@@ -1004,9 +1058,11 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
 
             # ── Advance to next step ──────────────────────────────────────────
             elif active_proc and _CONTINUE_RE.fullmatch(stripped):
-                active_step += 1
                 _p = _load_proc(active_proc)
                 steps = _p["steps"] if _p else []
+                # Skip past any maneuver group that was just delivered
+                group_end = _maneuver_group_end(steps, active_step)
+                active_step = group_end + 1
                 if active_step >= len(steps):
                     reply = f"{_p['canonical'] if _p else active_proc} complete."
                     active_proc = None
