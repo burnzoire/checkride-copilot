@@ -200,10 +200,11 @@ _init_disambig()
 
 def _match_disambig_group(transcript: str) -> dict | None:
     """Return the disambiguation group whose keywords best match the transcript."""
-    tokens = frozenset(re.findall(r"[a-z0-9]+", transcript.lower()))
+    tokens = frozenset(w for w in re.findall(r"[a-z0-9]+", transcript.lower()) if len(w) >= 3)
     best_score, best_group = 0, None
     for kws, group in _DISAMBIG_KEYWORDS:
-        score = len(tokens & kws)
+        filtered_kws = frozenset(w for w in kws if len(w) >= 3)
+        score = len(tokens & filtered_kws)
         if score > best_score:
             best_score, best_group = score, group
     return best_group if best_score > 0 else None
@@ -211,11 +212,12 @@ def _match_disambig_group(transcript: str) -> dict | None:
 
 def _match_disambig_option(transcript: str, options: list[dict]) -> dict | None:
     """Return the option node whose keywords best match the transcript."""
-    tokens = frozenset(re.findall(r"[a-z0-9]+", transcript.lower()))
+    tokens = frozenset(w for w in re.findall(r"[a-z0-9]+", transcript.lower()) if len(w) >= 3)
     best_score, best_opt = 0, None
     for opt in options:
         kws = frozenset(w for kw in opt["keywords"]
-                        for w in re.findall(r"[a-z0-9]+", kw.lower()))
+                        for w in re.findall(r"[a-z0-9]+", kw.lower())
+                        if len(w) >= 3)
         score = len(tokens & kws)
         if score > best_score:
             best_score, best_opt = score, opt
@@ -635,7 +637,8 @@ def _ask_ollama(
     in_jet    = state is not None
     sys_prompt = SYSTEM_PROMPT_INFLIGHT if in_jet else SYSTEM_PROMPT_GROUND
 
-    is_meta = bool(_SKIP_RAG_RE.search(transcript)) or _is_pure_social(transcript)
+    is_meta = (bool(_SKIP_RAG_RE.search(transcript)) or _is_pure_social(transcript)) \
+              and not _is_proc_request(transcript)
     ref_block = "" if is_meta else "[Reference confidence: LOW — no relevant procedure found. Do not invent system names, acronyms, or switch names. Ask what the pilot is trying to do.]\n\n"
     confidence = "MEDIUM" if is_meta else "LOW"
 
@@ -776,7 +779,7 @@ def _ask_ollama(
             # explicitly asks to be walked through something (not a general question),
             # AND the detected procedure is actually relevant to the transcript keywords
             # (prevents e.g. "how do I use Mavericks" → markpoints via BM25 title match).
-            if confidence in ("HIGH", "MEDIUM") and sections and not is_meta and _is_proc_request(transcript):
+            if confidence == "HIGH" and sections and not is_meta and _is_proc_request(transcript):
                 proc_key = _find_proc_for_section(sections[0])
                 if proc_key and proc_key in _PROC_WORDS:
                     # Sanity check against the section label (not proc keywords) so
@@ -1099,9 +1102,10 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
             else:
                 state = _fetch_state()
                 mode  = "IN-JET" if state else "GROUND"
-                reply, conf, proc_key = _ask_ollama(transcript, state, model, history, low_streak)
+                reply, route_conf, proc_key = _ask_ollama(transcript, state, model, history, low_streak)
+                conf = route_conf
                 new_streak = (low_streak + 1) if conf == "LOW" else 0
-                print(f"  [{mode}] conf={conf} streak={new_streak}")
+                print(f"  [{mode}] route={route_conf} streak={new_streak}")
 
                 if proc_key and proc_key.startswith("__DISAMBIG__:"):
                     gid = proc_key.split(":", 1)[1]
@@ -1110,14 +1114,14 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
                         disambiguation_node = dg
                         reply = dg["question"]
                         conf  = "HIGH"
-                        print(f"  [DISAMBIG] enter group '{gid}'")
+                        print(f"  [DISAMBIG] enter group '{gid}' (routed {route_conf})")
                 elif proc_key:
                     active_proc = proc_key
                     active_step = 0
                     _p = _load_proc(proc_key)
                     reply = _format_proc_intro(proc_key)
                     conf  = "HIGH"
-                    print(f"  [PROC] enter '{proc_key}' ({len(_p['steps']) if _p else '?'} steps)")
+                    print(f"  [PROC] enter '{proc_key}' routed={route_conf} ({len(_p['steps']) if _p else '?'} steps)")
                 elif conf == "LOW":
                     # Clear questions (question word + ≥ 3 words) are intelligible even when
                     # RAG scores LOW — let the LLM reply through without streak interception.

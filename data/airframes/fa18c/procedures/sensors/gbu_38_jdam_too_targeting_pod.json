@@ -52,172 +52,206 @@
     {
       "num": 1,
       "action": "While ground, (Stores Management System) page",
-      "voiced": "Open the SMS page on the ground."
+      "voiced": "Select the SMS page while on the ground.",
+      "pace": "checklist"
     },
     {
       "num": 2,
       "action": "Click on the desired JDAM or JSOW to select it (we will use the J-82 JDAM)",
-      "voiced": "Select the desired JDAM on the SMS page."
+      "voiced": "Select the desired JDAM on the SMS page.",
+      "pace": "checklist"
     },
     {
       "num": 3,
       "action": "Once selected, JDAMs need about 3 minutes for alignment. It will go from 10 UNSTABLE, to 06 MARGINAL and finally 01 GOOD. When alignment is complete, the TIMING indicator will disappear from the JDAM page.",
-      "voiced": "Confirm JDAM alignment begins — status progresses UNSTABLE to MARGINAL to GOOD in ~3 minutes."
+      "voiced": "Allow approximately 3 minutes for JDAM alignment, from UNSTABLE through MARGINAL to GOOD.",
+      "pace": "checklist"
     },
     {
       "num": 4,
       "action": "Select TOO (Target-of-Opportunity) Release Mode",
-      "voiced": "Select TOO release mode."
+      "voiced": "Select TOO Release Mode.",
+      "pace": "checklist"
     },
     {
       "num": 5,
       "action": "Select Electronic Fuze to INST (Instantaneous).",
-      "voiced": "Set Electronic Fuze to INST."
+      "voiced": "Select Electronic Fuze to INST.",
+      "pace": "checklist"
     },
     {
       "num": 6,
       "action": "Go in the JDAM Display page by pressing the",
-      "voiced": "Access the JDAM Display page."
+      "voiced": "Select the JDAM Display page.",
+      "pace": "checklist"
     },
     {
       "num": 7,
       "action": "Select Manual Release Type",
-      "voiced": "Select Manual Release Type."
+      "voiced": "Select Manual Release Type.",
+      "pace": "checklist"
     },
     {
       "num": 8,
       "action": "Select desired JDAM quantity to be used for this mission. Press the OSB next to QTY Select desired station(s) to be used for the mission (I suggest you select just one). Selected station(s) will become boxed. Press the OSB next to RTN (Return). If quantity is set to more than 1, the STEP function will be available to select desired weapon station. You may need to re-select TOO mode.",
-      "voiced": "Press the OSB next to QTY, select desired station, press RTN — re-select TOO mode if needed."
+      "voiced": "Press the OSB next to QTY, select your desired quantity and station, then press RTN.",
+      "pace": "checklist"
     },
     {
       "num": 9,
       "action": "Enter MSN (Mission) page.",
-      "voiced": "Enter the MSN page."
+      "voiced": "Enter the MSN page.",
+      "pace": "checklist"
     },
     {
       "num": 10,
       "action": "Select TOO1 to set Target 1 parameters. We will now have to designate Target 1 with the Targeting Pod to obtain the coordinates of this target.",
-      "voiced": "Select TOO1 to set Target 1 parameters."
+      "voiced": "Select TOO1 to begin setting Target 1 parameters.",
+      "pace": "checklist"
     },
     {
       "num": 11,
       "action": "Set A/G Master Mode.",
-      "voiced": "Press the A/G Master Mode button."
+      "voiced": "Set A/G Master Mode.",
+      "pace": "checklist"
     },
     {
       "num": 12,
       "action": "To power up the targeting pod, set FLIR Sensor Switch to STBY (Right Click).",
-      "voiced": "Set FLIR Sensor Switch to STBY to begin targeting pod warm-up."
+      "voiced": "Set the FLIR Sensor Switch to STBY.",
+      "pace": "checklist"
     },
     {
       "num": 13,
       "action": "From the TAC page on either DDI or the AMPCD, press the OSB (Option Select Button) next to \u201cFLIR\u201d (Forward-Looking Infrared) to select the Targeting Pod feed page. Monitor the warm-up process. Targeting pod warm-up process will take about 2 minutes. When targeting pod is ready to be used, the pod status will switch from RDY \u2013 NOT TIMED OUT to STBY (Standby).",
-      "voiced": "Select the FLIR page — monitor warm-up; pod status switches to STBY when ready in ~2 minutes."
+      "voiced": "Select FLIR from the TAC page and monitor warm-up until pod status reads STBY.",
+      "pace": "checklist"
     },
     {
       "num": 14,
       "action": "Set FLIR Sensor Switch to ON (Right Click). Confirm that Targeting Pod mode switches from STBY to OPR (Operate).",
-      "voiced": "Set FLIR Sensor Switch to ON — confirm pod switches from STBY to OPR."
+      "voiced": "Set the FLIR Sensor Switch to ON, confirm pod transitions from STBY to OPR.",
+      "pace": "checklist"
     },
     {
       "num": 15,
       "action": "Press the Sensor Control Switch in the direction of the selected DDI (Right for the Right DDI as an example). The Select Focus Diamond indicates what display is selected.",
-      "voiced": "Press Sensor Control Switch toward the FLIR DDI — confirm Select Focus Diamond appears."
+      "voiced": "Press the Sensor Control Switch toward your selected DDI to take control of the pod.",
+      "pace": "checklist"
     },
     {
       "num": 16,
       "action": "Press the Undesignate button twice rapidly to select VVSLV (Velocity Vector Slaved) mode. This will un-stow the camera and slave the targeting pod to the velocity vector.",
-      "voiced": "Press the Undesignate button twice to select VVSLV mode."
+      "voiced": "Press the Undesignate button twice rapidly to select VVSLV mode and un-stow the pod.",
+      "pace": "checklist"
     },
     {
       "num": 17,
       "action": "Press the Undesignate button twice rapidly again to select Snowplow mode. When Snowplow mode is first entered, the FLIR is set to 0\u00b0 left/right and -8\u00b0 down.",
-      "voiced": "Press Undesignate twice again to enter Snowplow mode — FLIR initializes to 0\u00b0 azimuth and -8\u00b0."
+      "voiced": "Press the Undesignate button twice rapidly again to select Snowplow mode.",
+      "pace": "checklist"
     },
     {
       "num": 18,
       "action": "Using the TDC (Throttle Designator Controller) Aft/Fwd/Left/Right controls, slew the targeting pod reticle over the desired target.",
-      "voiced": "Use TDC Aft/Fwd/Left/Right to slew the pod reticle over the target."
+      "voiced": "Use the TDC controls to slew the pod reticle over your desired target.",
+      "pace": "checklist"
     },
     {
       "num": 19,
       "action": "Use appropriate zoom level, field of view (NARROW/WIDE) and camera mode (CCD/TV or FLIR) to identify the target.",
-      "voiced": "Set zoom level, FOV, and camera mode as required to identify the target."
+      "voiced": "Select appropriate zoom, field of view, and camera mode to positively identify the target.",
+      "pace": "checklist"
     },
     {
       "num": 20,
       "action": "Press the Sensor Control Switch Towards Selected Display (Right if our right DDI is selected) to toggle between Point Track (PTRK, tracks a moving object like a high-contrast vehicle) and Area Track (ATRK, used for a static target).",
-      "voiced": "Press Sensor Control Switch toward the selected display to toggle Point Track or Area Track."
+      "voiced": "Press the Sensor Control Switch toward the selected display to toggle between PTRK and ATRK.",
+      "pace": "checklist"
     },
     {
       "num": 21,
       "action": "Use the TDC (Throttle Designator Controller) Depress button to designate the target point. This will slave selected air-to-ground weapons to the target point and display range to target and its coordinates.",
-      "voiced": "Press TDC DEPRESS to designate the target — weapon slaves to target coordinates."
+      "voiced": "Press the TDC Depress button to designate the target point.",
+      "pace": "checklist"
     },
     {
       "num": 22,
       "action": "Once the target has been designated with the TDC DEPRESS control, the target coordinates will automatically since the JDAM is in TOO mode.",
-      "voiced": "Confirm JDAM coordinates update automatically in TOO mode."
+      "voiced": "Confirm target coordinates transfer automatically to the JDAM via TOO mode.",
+      "pace": "checklist"
     },
     {
       "num": 23,
       "action": "Confirm on JDAM MSN (Mission) page that coordinates have updated properly once the TDC Depress button has been pressed.",
-      "voiced": "Verify JDAM MSN page shows updated target coordinates."
+      "voiced": "Verify on the JDAM MSN page that coordinates have updated correctly.",
+      "pace": "checklist"
     },
     {
       "num": 24,
       "action": "Once your JDAM selected has its target coordinates and are in TOO mode, we can now start the attack run.",
-      "voiced": "Confirm JDAM has target coordinates in TOO mode — ready for attack."
+      "voiced": "With coordinates loaded and TOO mode confirmed, begin your attack run.",
+      "pace": "checklist"
     },
     {
       "num": 25,
       "action": "Master Arm switch \u2013 ARM (UP)",
-      "voiced": "Set Master Arm switch to ARM."
+      "voiced": "Set Master Arm switch to ARM.",
+      "pace": "checklist"
     },
     {
       "num": 26,
       "action": "Verify that Master Mode is in A/G (Air-to-Ground)",
-      "voiced": "Confirm Master Mode is A/G."
+      "voiced": "Verify Master Mode is in A/G.",
+      "pace": "checklist"
     },
     {
       "num": 27,
       "action": "On the SMS (Stores Management System) page, verify that J-82 is selected and RDY (Ready)",
-      "voiced": "Confirm J-82 is selected and shows RDY on the SMS page."
+      "voiced": "Verify J-82 is selected and shows RDY on the SMS page.",
+      "pace": "checklist"
     },
     {
       "num": 28,
       "action": "Set HSI on the lower AMPCD (I suggest you remove the moving map), the targeting pod feed on the right DDI, and the JDAM Display page on the left DDI (from SMS page, press the",
-      "voiced": "Set HSI on the AMPCD, targeting pod on the right DDI, JDAM Display on the left DDI."
+      "voiced": "Set HSI on the AMPCD, targeting pod on the right DDI, and JDAM Display on the left DDI.",
+      "pace": "checklist"
     },
     {
       "num": 29,
       "action": "Verify that Manual Release TOO Release Mode is selected and that the desired station and TOO is selected.",
-      "voiced": "Confirm Manual Release TOO mode and desired station are selected."
+      "voiced": "Verify Manual Release TOO mode is selected with the correct station and TOO active.",
+      "pace": "checklist"
     },
     {
       "num": 30,
       "action": "Steer aircraft to the target (indicated by a diamond on the HUD)",
-      "voiced": "Steer toward the target — diamond appears on HUD."
+      "voiced": "Steer toward the target diamond on the HUD.",
+      "pace": "checklist"
     },
     {
       "num": 31,
       "action": "When you are within the acceptable release zone (between the minimum and maximum release limits identified on the HSI), the HUD will switch from displaying \u201cTMR\u201d (Time to reach launch acceptable region) to \u201cIN RNG\u201d (In Range).",
-      "voiced": "Confirm HUD switches from TMR to IN RNG when within the launch zone."
+      "voiced": "Confirm HUD transitions from TMR to IN RNG.",
+      "pace": "checklist"
     },
     {
       "num": 32,
       "action": "Once you are within the IZLAR (In Zone Launch Acceptable Region), the Minimum and Maximum Range circles will disappear and only the IZLAR will remain. IN ZONE cue will appear on the HUD and on the JDAM Display page. Expected JDAM flight time will also be displayed on the JDAM Display page.",
-      "voiced": "Confirm IN ZONE cue and JDAM flight time appear on the HUD and JDAM Display page."
+      "voiced": "When IN ZONE appears on the HUD, confirm expected JDAM flight time on the JDAM Display page.",
+      "pace": "checklist"
     },
     {
       "num": 33,
       "action": "You may now launch your JDAM.",
-      "voiced": "Confirm ready to launch JDAM."
+      "voiced": "Confirm IN ZONE. Ready to release.",
+      "pace": "checklist"
     },
     {
       "num": 34,
       "action": "Hold the Weapon Release Button (\u00ab RALT+SPACE \u00bb) to release your JDAM. Selected JDAM will automatically guide itself via GPS to the designated target.",
-      "voiced": "Hold the Weapon Release Button to release JDAM — weapon guides via GPS to target."
+      "voiced": "Hold the Weapon Release Button to release the JDAM.",
+      "pace": "checklist"
     }
   ]
 }

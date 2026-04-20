@@ -145,6 +145,23 @@
       ]
     },
     {
+      "id": "jdam",
+      "keywords": ["jdam", "gbu-38", "gbu 38", "gbu38", "guided bomb", "gps bomb", "precision bomb"],
+      "question": "Pre-Planned or Target of Opportunity with the targeting pod?",
+      "options": [
+        {
+          "label": "Pre-Planned",
+          "keywords": ["pre planned", "preplanned", "pre-planned", "coordinates", "waypoint", "known target", "loaded"],
+          "proc_key": "gbu_38_jdam_pre_planned"
+        },
+        {
+          "label": "TOO targeting pod",
+          "keywords": ["too", "targeting pod", "tgp", "target of opportunity", "designate", "atflir", "litening", "pod"],
+          "proc_key": "gbu_38_jdam_too_targeting_pod"
+        }
+      ]
+    },
+    {
       "id": "mk82",
       "keywords": ["mk82", "mk-82", "mk 82", "dumb bomb", "iron bomb", "unguided bomb"],
       "question": "Delivery mode:CCIP or CCRP auto?",

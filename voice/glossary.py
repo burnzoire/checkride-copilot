@@ -92,6 +92,7 @@ GLOSSARY: dict[str, str] = {
     "MFD":       "M-F-D",
     "SMS":       "S-M-S",
     "BIT":       "built-in test",
+    "TOO":       "T-O-O",
 
     # Navigation / comms
     "TACAN":     "tay-can",
