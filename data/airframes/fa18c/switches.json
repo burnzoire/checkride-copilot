@@ -684,7 +684,8 @@
               "dcs_actions": {
                 "Extend": "Speed Brake Switch - EXTEND",
                 "Retract": "Speed Brake Switch - RETRACT"
-              }
+              },
+              "spoken_location": "Speed Brake Switch is on the center console."
             }
           ]
         }
@@ -1022,7 +1023,8 @@
               ],
               "dcs_actions": {
                 "Depress": "Throttle Designator Controller - DEPRESS"
-              }
+              },
+              "spoken_location": "Target Designation Controller is on the inboard throttle."
             }
           ]
         },
@@ -1053,7 +1055,8 @@
                 "Left (HUD)": "Sensor Control Switch - Left",
                 "Right (FLIR/TGP)": "Sensor Control Switch - Right",
                 "Depress": "Sensor Control Switch - Depress"
-              }
+              },
+              "spoken_location": "Sensor Control Switch is on the inboard throttle."
             }
           ]
         },
@@ -1079,7 +1082,8 @@
               "dcs_actions": {
                 "Extend": "Speed Brake Switch - EXTEND",
                 "Retract": "Speed Brake Switch - RETRACT"
-              }
+              },
+              "spoken_location": "Speed Brake Switch is on the center console."
             }
           ]
         },
@@ -1125,7 +1129,8 @@
               ],
               "dcs_actions": {
                 "Cage/Uncage": "Cage/Uncage Button"
-              }
+              },
+              "spoken_location": "Cage/Uncage Button is on the outboard throttle."
             }
           ]
         },
@@ -1253,7 +1258,8 @@
               ],
               "dcs_actions": {
                 "Disengage": "Autopilot/Nosewheel Steering Disengage (Paddle) Switch"
-              }
+              },
+              "spoken_location": "Autopilot Disengage Paddle is on the stick, aft face."
             }
           ]
         },
@@ -1282,7 +1288,8 @@
                 "Pitch Down": "Trimmer Switch - PUSH(DESCEND)",
                 "Roll Left": "Trimmer Switch - LEFT WING DOWN",
                 "Roll Right": "Trimmer Switch - RIGHT WING DOWN"
-              }
+              },
+              "spoken_location": "Trim Switch is a hat switch on top of the stick."
             }
           ]
         },

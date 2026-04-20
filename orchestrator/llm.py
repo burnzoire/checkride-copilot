@@ -44,18 +44,19 @@ You are Checkride Copilot, an F/A-18C instructor pilot (IP/ICP) voice assistant.
 You are operating in an LLM-first tool-calling harness.
 Rules:
 1) Use tools before answering procedural or switch-location questions.
-1a) For short focused requests (for example "turn on TGP", "zoom TGP", "point track"), call get_quick_action first.
-1b) Use full procedures only when the request is clearly multi-step and long-form.
+1a) For short focused requests or questions about simple actions (e.g., "turn on TGP", "how do I dispense chaff", "zoom TGP", "point track", "select amraam"), call get_quick_action first.
+1b) Use full procedures only when the request is clearly multi-step and long-form (e.g., "walk me through startup", "pre-flight procedure").
 1c) For questions about the user's configuration or keybinds (e.g., "what button have I assigned X to?"), call lookup_switch first.
 2) Never invent switch names, procedure keys, or cockpit states.
 3) If confidence is low, ask one precise clarifying question.
-4) Keep spoken answers concise: usually 1-2 sentences.
+4) Keep spoken answers concise: usually 1-2 sentences. For lookup_switch results: if the user asks "where", give the location; if they ask "what button", give the keybind. Avoid redundant location descriptions (e.g., don't say "throttle grip and outboard throttle" — use one).
 5) If start_procedure succeeds, confirm activation and brief first step.
 6) For an active procedure, navigation words (next/repeat/restart/cancel) are handled externally.
 7) If the user asks for details, example phrasing, or "more info" on a current step, call get_active_procedure and use current_step_more_info when available.
 8) Never cite or mention manuals, pages, references, PDFs, or document sections in spoken replies.
 9) Give direct instructor coaching tone. Do not say "the manual says" or "according to NATOPS".
 10) Never guess. If no tool evidence is available, call a tool first or ask one precise clarifying question.
+11) For closing or acknowledgment statements (e.g., "that's it", "thank you", "sounds good", "roger", "copy that", "all set"), respond briefly without calling tools or asking clarifying questions. Example responses: "You're welcome", "Roger that", "Good luck out there".
 """.strip()
 
 
@@ -70,6 +71,31 @@ def _is_call_the_ball_query(text: str) -> bool:
             and re.search(r"\bball|bull\b", q)
         )
     )
+
+
+def _is_closing_statement(text: str) -> bool:
+    """Detect acknowledgment/closing statements that don't require tool calls."""
+    q = text.lower().strip()
+    # Match common closing patterns
+    closing_patterns = [
+        r"\b(that's it|that is it|all set|we're good|sounds good|roger|copy|wilco|thanks|thank you|cheers|gotcha|got it|ok|okay)\b",
+        r"^(yep|yup|sure|good|alright|thanks)(?:\s|$)",
+        r"^(roger that|copy that|understood)$",
+    ]
+    return any(re.search(pattern, q) for pattern in closing_patterns)
+
+
+def _closing_statement_reply() -> str:
+    """Return a brief, instructor-appropriate closing acknowledgment."""
+    replies = [
+        "Roger that.",
+        "Copy.",
+        "You're welcome.",
+        "Good luck out there.",
+        "Let me know if you need anything else.",
+    ]
+    import random
+    return random.choice(replies)
 
 
 def _call_the_ball_fast_reply() -> str:
@@ -102,6 +128,9 @@ def clean_reply(text: str) -> str:
     text = re.sub(r"\s+", " ", text)
     # Strip adjacent duplicate words — catches model stutters like "select select".
     text = re.sub(r"\b(\w+) \1\b", r"\1", text, flags=re.I)
+    # Strip phrase-level duplication: "It's bound to X... It's bound to X..."
+    # Matches multi-word phrases (3-11 words) that appear twice in succession.
+    text = re.sub(r"(\S+(?:\s+\S+){2,10}?)\s+\1\b", r"\1", text, flags=re.I)
     return text.strip()
 
 
@@ -174,6 +203,10 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
     # Deterministic phraseology path for critical carrier comms callouts.
     if _is_call_the_ball_query(transcript):
         return _call_the_ball_fast_reply()
+
+    # Detect and handle closing/acknowledgment statements without tool calls.
+    if _is_closing_statement(transcript):
+        return _closing_statement_reply()
 
     messages: list[dict[str, Any]] = [{"role": "system", "content": SYSTEM_PROMPT}]
     messages += session.history[-MAX_HISTORY * 2 :]

@@ -96,6 +96,7 @@ GLOSSARY: dict[str, str] = {
     "BIT":       "built-in test",
     "TOO":       "T-O-O",
     "STBY":      "standby",
+    "EW":        "E-W",
 
     # Navigation / comms
     "TACAN":     "tay-can",

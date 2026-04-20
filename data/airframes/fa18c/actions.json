@@ -588,14 +588,18 @@
       "title": "Dispense Chaff and Flares",
       "description": "Manually dispense countermeasures or run a CMDS program.",
       "alternates": [
-        "dispense chaff flare",
+        "dispense chaff flares",
+        "dispense chaff and flares",
         "deploy countermeasures",
         "drop chaff",
         "pop flares",
         "chaff and flare",
         "cmds dispense",
         "run countermeasure program",
-        "defensive systems"
+        "defensive systems",
+        "countermeasures dispense",
+        "how do i dispense",
+        "count of measures"
       ],
       "tags": [
         "chaff",

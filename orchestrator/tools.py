@@ -286,11 +286,13 @@ def tool_lookup_switch(args: dict[str, Any], _session: Session) -> dict[str, Any
         return {"ok": False, "found": False, "error": "No switch matched"}
 
     kb = describe_switch(hit.get("dcs_actions") or {})
+    # Prefer concise spoken_location over verbose formatted_location if available
+    location = hit.get("spoken_location") or format_location(hit)
     return {
         "ok": True,
         "found": True,
         "canonical": hit.get("canonical"),
-        "location": format_location(hit),
+        "location": location,
         "keybinds": kb,
     }
 

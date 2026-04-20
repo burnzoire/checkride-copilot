@@ -47,6 +47,11 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\b(tay\s*can|takin|taken)\b",          re.I), "TACAN"),
     # ILS: "i l s"
     (re.compile(r"\bi\.?l\.?s\.?\b",                     re.I), "ILS"),
+    # Countermeasures: "chaffin" → "chaff and", "measures" → "countermeasures"
+    (re.compile(r"\bchaffin\b",                            re.I), "chaff and"),
+    (re.compile(r"\b(kind of\s+)?measures\s+dispense",       re.I), r"\1countermeasures dispense"),
+    (re.compile(r"\bdispense\s+measures\b",                   re.I), "dispense countermeasures"),
+
     # HOTAS: spoken as letters or phonetic spellings
     (re.compile(r"\bh[\s.\-]?o[\s.\-]?t[\s.\-]?a[\s.\-]?s\b", re.I), "HOTAS"),
     (re.compile(r"\b(hotass|ho\s*tas|hoe\s*tas)\b",        re.I), "HOTAS"),
