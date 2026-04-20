@@ -1,0 +1,54 @@
+[project]
+name = "checkride-copilot"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "mcp",
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "faster-whisper",
+    "kokoro",
+    "piper-tts",
+    "nvidia-cublas-cu12; platform_system == 'Windows'",
+    "nvidia-cudnn-cu12; platform_system == 'Windows'",
+    "sounddevice",
+    "pyaudio",
+    "pynput",
+    "chromadb",
+    "sentence-transformers",
+    "rank-bm25",
+    "pypdf",
+    "pydantic",
+    "python-dotenv",
+    "loguru",
+    "pytest",
+]
+
+[project.scripts]
+start = "orchestrator.orchestrator:main"
+start-demo = "scripts.voice_demo:main"
+start-demo-llm = "scripts.voice_spike_llm_first:main"
+test = "pytest:main"
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = [
+    "collector*",
+    "diagnostic*",
+    "mcp_server*",
+    "mission*",
+    "orchestrator*",
+    "retrieval*",
+    "voice*",
+]
+
+
+

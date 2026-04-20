@@ -20,14 +20,13 @@ Put an AI instructor pilot in your ear — no cloud, no subscription, no data le
 | CUDA toolkit | 12.x (optional) | GPU acceleration for Whisper STT. CPU fallback works but is slower. |
 | DCS World | 2.9+ | Required for live cockpit state. The demo runs without DCS for Q&A. |
 
-### 1. Clone and create a virtual environment
+### 1. Clone and install uv
 
 ```powershell
 git clone https://github.com/your-org/checkride-copilot.git
 cd checkride-copilot
 
-python -m venv .venv
-.venv\Scripts\activate
+pip install --user uv
 ```
 
 ### 2. Install PyTorch (GPU users — do this first)
@@ -36,21 +35,37 @@ Skip this step if you don't have an NVIDIA GPU. The CPU fallback is automatic.
 
 ```powershell
 # RTX 30xx / 40xx (CUDA 12.1):
-pip install torch --index-url https://download.pytorch.org/whl/cu121
+uv pip install torch --index-url https://download.pytorch.org/whl/cu121
 
 # RTX 50xx (CUDA 12.8, sm_120):
-pip install --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu128
+uv pip install --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu128
 ```
 
-### 3. Install Python dependencies
+### Windows GPU quickstart (fresh clone)
+
+If you want the most straightforward NVIDIA setup on Windows, run these exactly:
 
 ```powershell
-pip install -r requirements.txt
+uv sync
+uv pip install --index-url https://download.pytorch.org/whl/cu121 torch
+uv run python -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available())"
+uv run start
+```
+
+Notes:
+- `uv sync` installs NVIDIA CUDA runtime wheels (`nvidia-cublas-cu12`, `nvidia-cudnn-cu12`) used by faster-whisper.
+- The app auto-discovers those DLL paths on Windows at runtime.
+- If `torch.cuda.is_available()` prints `False`, update your NVIDIA driver and retry.
+
+### 3. Install project dependencies
+
+```powershell
+uv sync
 ```
 
 > **Note:** `pyaudio` requires PortAudio. If the pip install fails on Windows, install the wheel directly:
 > ```powershell
-> pip install pipwin && pipwin install pyaudio
+> uv pip install pipwin && uv run pipwin install pyaudio
 > ```
 
 ### 4. Pull the Ollama model
@@ -74,7 +89,7 @@ Restart DCS after running this. To uninstall: `python scripts/install.py --unins
 ### 6. Run the voice demo
 
 ```powershell
-python scripts/voice_demo.py
+uv run start-demo
 ```
 
 **Default push-to-talk key:** `Caps Lock`  
@@ -82,11 +97,18 @@ Hold to speak, release to transcribe.
 
 ```powershell
 # Options:
-python scripts/voice_demo.py --ptt scroll_lock   # change PTT key
-python scripts/voice_demo.py --mic 2             # select audio input device index
-python scripts/voice_demo.py --list-mics         # list available input devices
-python scripts/voice_demo.py --tts-device 1      # select audio output device
-python scripts/voice_demo.py --no-tts            # print replies only, no audio
+uv run start-demo --ptt scroll_lock   # change PTT key
+uv run start-demo --mic 2             # select audio input device index
+uv run start-demo --list-mics         # list available input devices
+uv run start-demo --tts-device 1      # select audio output device
+uv run start-demo --no-tts            # print replies only, no audio
+```
+
+For the orchestrator entry point and tests, use:
+
+```powershell
+uv run start
+uv run test
 ```
 
 **First run:** Whisper (`small.en`, ~480 MB) and Kokoro TTS download automatically. This takes a minute on first launch; subsequent starts are fast.

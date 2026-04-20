@@ -27,7 +27,10 @@ httpx
 faster-whisper
 
 # Voice — TTS + playback
+kokoro
 piper-tts
+nvidia-cublas-cu12; platform_system == "Windows"
+nvidia-cudnn-cu12; platform_system == "Windows"
 sounddevice
 pyaudio
 

@@ -1165,7 +1165,7 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
             break
 
 
-if __name__ == "__main__":
+def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--ptt",      default="caps_lock",
                         help="PTT key (default: caps_lock)")
@@ -1178,3 +1178,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     run(ptt_key=args.ptt, mic_device=args.mic, speak=not args.no_speak, model=args.model)
+
+
+if __name__ == "__main__":
+    main()

@@ -119,7 +119,11 @@ def _synthesize_piper(text: str) -> tuple[np.ndarray, int]:
 # ── Public API ───────────────────────────────────────────────────────────────
 def prewarm(voice: str = _DEFAULT_VOICE) -> None:
     """Load the Kokoro pipeline and GPU weights now so the first speak() has no delay."""
-    _get_kokoro(voice)
+    try:
+        _get_kokoro(voice)
+    except Exception as e:
+        # Do not fail startup if Kokoro is unavailable; speak() will use Piper fallback.
+        logger.warning(f"Kokoro prewarm skipped ({e}); Piper fallback will be used")
 
 
 def speak(text: str, voice: str = _DEFAULT_VOICE, stop_event: threading.Event | None = None) -> None:

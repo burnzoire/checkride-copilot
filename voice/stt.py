@@ -13,6 +13,9 @@ Usage:
 
 from __future__ import annotations
 
+import os
+import platform
+import site
 import threading
 from typing import Optional
 
@@ -47,6 +50,8 @@ _INITIAL_PROMPT = (
 
 _model      = None
 _model_lock = threading.Lock()
+_force_cpu  = False
+_cuda_path_ready = False
 
 _pa      = None
 _pa_lock = threading.Lock()
@@ -60,19 +65,65 @@ def _get_pa() -> pyaudio.PyAudio:
     return _pa
 
 
+def _ensure_windows_cuda_runtime_paths() -> None:
+    """Expose CUDA runtime DLL paths from pip-installed NVIDIA packages."""
+    global _cuda_path_ready
+    if _cuda_path_ready or platform.system() != "Windows":
+        return
+
+    candidate_dirs: list[str] = []
+    for base in site.getsitepackages():
+        cublas_bin = os.path.join(base, "nvidia", "cublas", "bin")
+        cudnn_bin = os.path.join(base, "nvidia", "cudnn", "bin")
+        for d in (cublas_bin, cudnn_bin):
+            if os.path.isdir(d):
+                candidate_dirs.append(d)
+
+    if not candidate_dirs:
+        _cuda_path_ready = True
+        return
+
+    current_path = os.environ.get("PATH", "")
+    path_parts = current_path.split(os.pathsep) if current_path else []
+    for d in candidate_dirs:
+        if d not in path_parts:
+            path_parts.insert(0, d)
+        try:
+            os.add_dll_directory(d)
+        except Exception:
+            pass
+
+    os.environ["PATH"] = os.pathsep.join(path_parts)
+    logger.info("Added NVIDIA runtime DLL paths from Python packages")
+    _cuda_path_ready = True
+
+
 def _get_model(model_name: str = _DEFAULT_MODEL):
-    global _model
+    global _model, _force_cpu
     with _model_lock:
         if _model is None:
+            _ensure_windows_cuda_runtime_paths()
             from faster_whisper import WhisperModel
-            try:
-                logger.info(f"Loading Whisper '{model_name}' on CUDA ...")
-                _model = WhisperModel(model_name, device="cuda", compute_type="float16")
-            except Exception as e:
-                logger.warning(f"CUDA unavailable ({e}), falling back to CPU/int8")
+            if _force_cpu:
+                logger.info(f"Loading Whisper '{model_name}' on CPU/int8 ...")
                 _model = WhisperModel(model_name, device="cpu", compute_type="int8")
+            else:
+                try:
+                    logger.info(f"Loading Whisper '{model_name}' on CUDA ...")
+                    _model = WhisperModel(model_name, device="cuda", compute_type="float16")
+                except Exception as e:
+                    logger.warning(f"CUDA unavailable ({e}), falling back to CPU/int8")
+                    _force_cpu = True
+                    _model = WhisperModel(model_name, device="cpu", compute_type="int8")
             logger.info("Whisper ready.")
     return _model
+
+
+def _reset_model_to_cpu() -> None:
+    global _model, _force_cpu
+    with _model_lock:
+        _model = None
+        _force_cpu = True
 
 
 def _parse_key(key_spec: str) -> keyboard.Key | keyboard.KeyCode:
@@ -162,14 +213,31 @@ def listen_once(
         bare = [t.split(":")[0].strip() for t in context_terms]
         prompt = prompt.rstrip(".") + ", " + ", ".join(bare) + "."
 
-    segments, info = model.transcribe(
-        audio,
-        language="en",
-        beam_size=5,
-        vad_filter=True,
-        condition_on_previous_text=False,
-        initial_prompt=prompt,
-    )
+    try:
+        segments, info = model.transcribe(
+            audio,
+            language="en",
+            beam_size=5,
+            vad_filter=True,
+            condition_on_previous_text=False,
+            initial_prompt=prompt,
+        )
+    except Exception as e:
+        msg = str(e).lower()
+        if any(k in msg for k in ("cublas", "cudnn", "cuda", "libcudart")):
+            logger.warning(f"Whisper CUDA runtime failed ({e}); retrying on CPU/int8")
+            _reset_model_to_cpu()
+            model = _get_model(model_name)
+            segments, info = model.transcribe(
+                audio,
+                language="en",
+                beam_size=5,
+                vad_filter=True,
+                condition_on_previous_text=False,
+                initial_prompt=prompt,
+            )
+        else:
+            raise
     text = " ".join(s.text.strip() for s in segments).strip()
     from voice.corrections import correct
     corrected = correct(text)
