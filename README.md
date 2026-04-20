@@ -28,7 +28,7 @@ This installer auto-detects your GPU and recommends/installs the correct PyTorch
 It also installs/pulls everything else needed (uv, project deps, Ollama, model, DCS hook).
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1
+powershell -ExecutionPolicy RemoteSigned -File .\scripts\setup.ps1
 ```
 
 Optional flags:

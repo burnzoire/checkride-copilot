@@ -54,7 +54,7 @@ function Get-GpuInfo {
     }
 
     $nvidia = @($gpus | Where-Object { $_.Name -match "NVIDIA" })
-    $rtx50 = @($nvidia | Where-Object { $_.Name -match "RTX\s*50|RTX\s*5\d{3}" })
+    $rtx50 = @($nvidia | Where-Object { $_.Name -match "RTX\s*50\d{2}\b" })
     return [pscustomobject]@{
         HasNvidia = $nvidia.Count -gt 0
         IsRtx50 = $rtx50.Count -gt 0
