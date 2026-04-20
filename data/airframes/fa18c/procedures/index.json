@@ -248,6 +248,25 @@
       "path": "sensors/radar_lock_acquisition.json"
     },
     {
+      "key": "tws_multi_target_engagement",
+      "canonical": "TWS Multi-Target Engagement (AIM-120)",
+      "alternates": [
+        "TWS multi-target engagement",
+        "track while scan multi-target",
+        "TWS multiple bandits",
+        "engage multiple targets TWS",
+        "multi-target AMRAAM TWS"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "DCS FA-18C Hornet Guide",
+        "page": 206,
+        "section": "2.1 - Air-to-Air Modes > 2.1.4 - TWS (Track While Scan)"
+      },
+      "step_count": 18,
+      "path": "sensors/tws_multi_target_engagement.json"
+    },
+    {
       "key": "stt_single_target_track",
       "canonical": "STT (Single Target Track)",
       "alternates": [

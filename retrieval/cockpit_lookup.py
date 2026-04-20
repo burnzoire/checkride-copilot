@@ -37,14 +37,16 @@ def _load() -> list[dict]:
         for panel_key, panel in area["panels"].items():
             for sw in panel["switches"]:
                 records.append({
-                    "canonical":    sw["canonical"],
-                    "alternates":   sw.get("alternates", []),
-                    "area":         area_key,
-                    "area_label":   area["label"],
-                    "panel":        panel_key,
-                    "panel_label":  panel["label"],
-                    "positions":    sw.get("positions", []),
-                    "spoken":       sw.get("spoken", sw.get("positions", [])),
+                    "canonical":        sw["canonical"],
+                    "alternates":       sw.get("alternates", []),
+                    "area":             area_key,
+                    "area_label":       area["label"],
+                    "panel":            panel_key,
+                    "panel_label":      panel["label"],
+                    "positions":        sw.get("positions", []),
+                    "spoken":           sw.get("spoken", sw.get("positions", [])),
+                    "spoken_location":  sw.get("spoken_location"),
+                    "dcs_actions":      sw.get("dcs_actions"),
                 })
     return records
 

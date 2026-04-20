@@ -46,6 +46,7 @@ except Exception:
 
 try:
     from retrieval.cockpit_lookup import lookup as _cockpit_lookup, suggest as _cockpit_suggest, format_location, is_location_query
+    from retrieval.keybinds import describe_switch as _describe_keybinds
     _LOOKUP_AVAILABLE = True
 except Exception:
     _LOOKUP_AVAILABLE = False
@@ -96,12 +97,15 @@ Voice and tone:
 - Do not address the student as "Pilot". Speak naturally, as to a colleague.
 - Do not apologise or hedge unnecessarily.
 - Never mention manuals, documents, or references — you are the knowledge.
-- Never invent switch positions, mechanisms, or numbers you are uncertain of.
+- Never invent switch names, system names, acronyms, positions, or mechanisms.
+  If you do not have reliable information, say so and ask a clarifying question.
+  Inventing a plausible-sounding name is worse than admitting uncertainty.
 
 Calibrate verbosity from the [Reference confidence] block:
 HIGH  — answer in 1–2 sentences. Include exact figures, switch names, positions.
 MEDIUM — answer what you know; ask ONE focused follow-up if something is unclear.
-LOW   — be honest ("I'm not solid on that"), ask what's giving them trouble.
+LOW   — no reference data was found. Do NOT attempt to answer from general knowledge.
+        Ask what the pilot is trying to accomplish. Never invent a system or switch name.
 
 If a [Closest cockpit match] block is present, open with "Did you mean X?" using
 the exact switch name, then give its location.
@@ -220,13 +224,14 @@ def _match_disambig_option(transcript: str, options: list[dict]) -> dict | None:
 
 _PROC_REQUEST_RE = re.compile(
     r"\b("
-    r"how\s+do\s+i\s+(fire|launch|release|drop|employ|arm\s+up|set\s+up|"
-    r"start\s+up|execute|deploy|shoot|pickle|engage|lase|refuel|use|apply|target|employ)|"
+    # "how do/can/should/would I <verb>" — all modal forms, not just "do"
+    r"how\s+(do|can|should|would)\s+i\s+(fire|launch|release|drop|employ|arm\s+up|set\s+up|"
+    r"start\s+up|execute|deploy|shoot|pickle|engage|lase|refuel|use|apply|target)|"
     r"(show|take|walk|talk|run|slip|step)\s+me\s+(through|over)|"
     r"step\s+by\s+step|what\s+are\s+the\s+steps|one\s+step\s+at\s+a\s+time|"
     r"procedure\s+for|run\s+me\s+through|talk\s+me\s+through|"
-    r"i\s+need\s+to\s+(fire|launch|release|drop|employ|shoot)|"
-    r"how\s+to\s+(fire|launch|release|drop|employ|shoot|use|apply)|"
+    r"i\s+need\s+to\s+(fire|launch|release|drop|employ|shoot|engage)|"
+    r"how\s+to\s+(fire|launch|release|drop|employ|shoot|use|apply|engage)|"
     r"can\s+you\s+(show|walk|take|run|slip)\s+me"
     r")\b",
     re.IGNORECASE,
@@ -344,7 +349,7 @@ def _format_step(proc_key: str, step_idx: int) -> str:
     """Format a single procedure step for TTS — no step-counter noise."""
     proc  = _load_proc(proc_key)
     if not proc:
-        return "Procedure unavailable."
+        return _pick("proc_unavailable")
     steps  = proc["steps"]
     action = _clean_step_text(steps[step_idx].get("voiced") or steps[step_idx]["action"])
     return action
@@ -354,7 +359,7 @@ def _format_proc_intro(proc_key: str) -> str:
     """Name the procedure, then deliver step 1 immediately."""
     proc  = _load_proc(proc_key)
     if not proc:
-        return "Procedure unavailable."
+        return _pick("proc_unavailable")
     step1 = _clean_step_text(proc["steps"][0].get("voiced") or proc["steps"][0]["action"])
     total_steps = len(proc["steps"])
     return f"{proc['canonical']}. {total_steps} steps total. First: {step1}"
@@ -430,7 +435,8 @@ _AVIATION_RE = re.compile(
     r"\b(aim|amraam|sidewinder|maverick|agm|gbu|bomb|laser|tgp|radar|engine|"
     r"gear|flap|hook|light|switch|panel|console|throttle|hud|mfd|sensor|fuel|"
     r"hydraulic|speed|altitude|heading|start|master|arm|fire|release|track|"
-    r"lock|probe|refuel|refueling|tacan|ils|jdam|harm|harpoon)\b",
+    r"lock|probe|refuel|refueling|tacan|ils|jdam|harm|harpoon|"
+    r"weapon|weapons|missile|select|target|engage|stick|hotas)\b",
     re.IGNORECASE,
 )
 
@@ -467,7 +473,16 @@ _SKIP_RAG_RE = re.compile(
     r"|what.{0,30}(got|have|has)\s+to\s+do"
     r"|doesn.?t\s+make\s+sense"
     r"|can\s+you\s+tell\s+me\s+(which|where|what|how)"
-    r"|you\s+tell\s+me)",
+    r"|you\s+tell\s+me"
+    # Bare referential follow-ons — no standalone aviation content; must use history.
+    # BM25 augmentation with history pollutes these queries and picks wrong procs.
+    r"|show\s+me\s+(how|that|it)"
+    r"|walk\s+me\s+through\s+(it|that)"
+    r"|how\s+do\s+(i|you)\s+do\s+that"
+    r"|how\s+does\s+that\s+work"
+    r"|tell\s+me\s+(more|how\s+to)"
+    r"|and\s+how(\s+do\s+i)?"
+    r")",
     re.IGNORECASE,
 )
 
@@ -592,8 +607,13 @@ def _ask_ollama(
     sys_prompt = SYSTEM_PROMPT_INFLIGHT if in_jet else SYSTEM_PROMPT_GROUND
 
     is_meta = bool(_SKIP_RAG_RE.search(transcript)) or _is_pure_social(transcript)
-    ref_block = "" if is_meta else "[Reference confidence: LOW — no relevant procedure found]\n\n"
-    confidence = "LOW"
+    ref_block = "" if is_meta else "[Reference confidence: LOW — no relevant procedure found. Do not invent system names, acronyms, or switch names. Ask what the pilot is trying to do.]\n\n"
+    confidence = "MEDIUM" if is_meta else "LOW"
+
+    # Pure social acks (no question, no aviation) have nothing to answer.
+    # Return a canned acknowledgment instead of letting the LLM hallucinate suggestions.
+    if _is_pure_social(transcript):
+        return _pick("roger"), "MEDIUM", None
 
     # If the previous assistant turn was a disambiguation question and the
     # current query is too vague to resolve it, re-ask rather than hallucinate.
@@ -633,17 +653,26 @@ def _ask_ollama(
             canonical = hit["canonical"]
             area      = hit["area_label"]
             panel     = hit["panel_label"]
-            spoken    = hit.get("spoken") or hit.get("positions", [])
-            if spoken:
-                if len(spoken) == 1:
-                    pos_str = spoken[0]
-                elif len(spoken) == 2:
-                    pos_str = f"{spoken[0]} or {spoken[1]}"
-                else:
-                    pos_str = ", ".join(spoken[:-1]) + f", or {spoken[-1]}"
-                reply = f"{canonical} — {area}, {panel}. {pos_str}."
+            # Use pre-written spoken_location if available, else build from parts.
+            if hit.get("spoken_location"):
+                reply = hit["spoken_location"]
             else:
-                reply = f"{canonical} — {area}, {panel}."
+                spoken = hit.get("spoken") or hit.get("positions", [])
+                if spoken:
+                    if len(spoken) == 1:
+                        pos_str = spoken[0]
+                    elif len(spoken) == 2:
+                        pos_str = f"{spoken[0]} or {spoken[1]}"
+                    else:
+                        pos_str = ", ".join(spoken[:-1]) + f", or {spoken[-1]}"
+                    reply = f"{canonical} — {area}, {panel}. {pos_str}."
+                else:
+                    reply = f"{canonical} — {area}, {panel}."
+            dcs_actions = hit.get("dcs_actions")
+            if dcs_actions:
+                kb = _describe_keybinds(dcs_actions)
+                if kb:
+                    reply = reply.rstrip(".") + f". {kb}"
             history.append({"role": "user",      "content": transcript, "ts": _time.time()})
             history.append({"role": "assistant",  "content": reply,      "ts": _time.time()})
             return reply, "HIGH", None
@@ -742,11 +771,13 @@ def _ask_ollama(
                     loc = format_location(suggestion)
                     ref_block = f"[Reference confidence: LOW — no procedure found]\n[Closest cockpit match: {loc}]\n\n"
             if fallback_mode:
-                ref_block = "[Reference confidence: LOW — give the best available procedure from your knowledge, do not ask again]\n\n"
+                ref_block = "[Reference confidence: LOW — no procedure found. Do not invent a procedure or system name. Tell the pilot you don't have that procedure and ask what they're trying to accomplish.]\n\n"
 
     # Token budget and temperature scale with confidence.
-    temperature  = {"HIGH": 0.1,  "MEDIUM": 0.25, "LOW": 0.45}.get(confidence, 0.25)
-    num_predict  = {"HIGH": 120,  "MEDIUM": 100,  "LOW": 100}.get(confidence, 100)
+    # LOW is lowest — no reference material means the model must follow instructions
+    # tightly (don't invent), not improvise freely. High temp at LOW = hallucination.
+    temperature  = {"HIGH": 0.1,  "MEDIUM": 0.25, "LOW": 0.15}.get(confidence, 0.25)
+    num_predict  = {"HIGH": 120,  "MEDIUM": 100,  "LOW": 60}.get(confidence, 100)
     if is_meta:
         temperature, num_predict = 0.45, 40
 
@@ -785,7 +816,7 @@ def _ask_ollama(
         return reply, confidence, None
     except Exception as e:
         logger.error(f"Ollama error: {e}")
-        return "LLM unavailable.", "LOW", None
+        return _pick("llm_unavailable"), "LOW", None
 
 
 # Windows virtual-key codes for common PTT choices.
@@ -837,7 +868,7 @@ _STEP_SPLIT_RE = re.compile(r'(?<=[.!?])\s+(?=\d+\.\s)')
 # Words the pilot can say to advance to the next step.
 _CONTINUE_RE = re.compile(
     r"^\s*(check|done|ok|okay|next|go\s+(on|ahead)|continue|ready|"
-    r"roger|copy|affirm|wilco|proceed|confirmed?|yes|yep|go)\s*[.,!]?\s*$",
+    r"roger|copy|affirm|affirmative|wilco|proceed|confirm(ed)?|yes|yep|go)\s*[.,!]?\s*$",
     re.IGNORECASE,
 )
 
@@ -877,6 +908,36 @@ _FILLERS: dict[str, list[str]] = {
     "MEDIUM": ["Hmm. ", "Right. ", "Let me think. "],
     "LOW":    ["Hmm... ", "Uh... ", "Well... "],
 }
+
+_CANNED: dict[str, list[str]] = {
+    "roger": [
+        "Roger.", "Copy.", "Wilco.", "Understood.", "Got it.",
+    ],
+    "say_again": [
+        "Say again?", "Come again?", "Didn't catch that — say again.",
+        "Say that again?", "Missed that one.",
+    ],
+    "were_you_asking": [
+        "Were you asking —", "Did you mean —", "Are you asking about —",
+        "Just to check —", "Is this about —",
+    ],
+    "not_following": [
+        "Sorry, not following that one.", "Can't get a handle on that — try me again.",
+        "Not sure what you're after. Come again?", "Lost you there.",
+        "Say again — didn't get that.",
+    ],
+    "proc_unavailable": [
+        "Procedure unavailable.", "Can't pull up that procedure right now.",
+        "That one's not available.", "Procedure not found.",
+    ],
+    "llm_unavailable": [
+        "LLM unavailable.", "Stand by — system issue.", "No joy on that right now.",
+        "Comms issue — try again.", "System's not responding.",
+    ],
+}
+
+def _pick(key: str) -> str:
+    return random.choice(_CANNED[key])
 
 def _voiced(reply: str, conf: str) -> str:
     """Optionally prepend a natural filler for non-trivial queries."""
@@ -929,7 +990,7 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
                 active_proc = None
                 active_step = 0
                 disambiguation_node = None
-                reply = "Roger."
+                reply = _pick("roger")
                 conf  = "HIGH"
                 print("  [PROC] cancelled")
 
@@ -974,7 +1035,7 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
                         reply = opt["question"]
                         print(f"  [DISAMBIG] → {opt['label']!r}: {reply!r}")
                 else:
-                    reply = f"Sorry, say that again. {disambiguation_node['question']}"
+                    reply = f"{_pick('say_again')} {disambiguation_node['question']}"
                     print(f"  [DISAMBIG] no match, re-asking")
                 conf = "HIGH"
 
@@ -983,8 +1044,8 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
                 state = _fetch_state()
                 mode  = "IN-JET" if state else "GROUND"
                 reply, conf, proc_key = _ask_ollama(transcript, state, model, history, low_streak)
-                low_streak = (low_streak + 1) if conf == "LOW" else 0
-                print(f"  [{mode}] conf={conf} streak={low_streak}")
+                new_streak = (low_streak + 1) if conf == "LOW" else 0
+                print(f"  [{mode}] conf={conf} streak={new_streak}")
 
                 if proc_key and proc_key.startswith("__DISAMBIG__:"):
                     gid = proc_key.split(":", 1)[1]
@@ -1001,8 +1062,23 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
                     reply = _format_proc_intro(proc_key)
                     conf  = "HIGH"
                     print(f"  [PROC] enter '{proc_key}' ({len(_p['steps']) if _p else '?'} steps)")
+                elif conf == "LOW":
+                    # Clear questions (question word + ≥ 3 words) are intelligible even when
+                    # RAG scores LOW — let the LLM reply through without streak interception.
+                    _clear_q = bool(_QUESTION_RE.search(transcript)) and len(transcript.split()) >= 3
+                    if _clear_q:
+                        pass  # use LLM reply as-is; streak still increments
+                    elif new_streak == 1:
+                        reply = _pick("say_again")
+                    elif new_streak == 2:
+                        reply = f"{_pick('were_you_asking')} {reply}?" if reply else _pick("say_again")
+                    else:
+                        reply = _pick("not_following")
+                        new_streak = 0
                 elif not reply:
-                    reply = "Say again?"
+                    reply = _pick("say_again")
+
+                low_streak = new_streak
 
             print(f"  Reply: {reply}\n")
 

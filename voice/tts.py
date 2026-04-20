@@ -19,11 +19,14 @@ import numpy as np
 import sounddevice as sd
 from loguru import logger
 
+from voice.glossary import apply as _apply_glossary
+
 
 # ── TTS text normalisation ────────────────────────────────────────────────────
 
 def _normalize(text: str) -> str:
     """Expand aviation abbreviations and units before synthesis."""
+    text = _apply_glossary(text)
     # Fractions + unit (must precede bare unit rules)
     text = re.sub(r'3/4\s*nm\b',  'three-quarter nautical mile',  text, flags=re.I)
     text = re.sub(r'1/2\s*nm\b',  'half nautical mile',            text, flags=re.I)
@@ -50,6 +53,9 @@ def _normalize(text: str) -> str:
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*lbs\b', r'\1 pounds',         text, flags=re.I)
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*%',     r'\1 percent',        text)
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*deg\b', r'\1 degrees',        text, flags=re.I)
+
+    # Acronym pronunciations
+    text = re.sub(r'\bHOTAS\b', 'ho-tass', text)
 
     # Misc
     text = re.sub(r'\bapprox\.\s*', 'approximately ', text, flags=re.I)

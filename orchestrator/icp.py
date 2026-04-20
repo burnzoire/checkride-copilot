@@ -11,6 +11,7 @@ Usage from voice_demo:
     voiced = rewrite_step("Master Arm switch - ARM (UP) Alignment Time Remaining")
 """
 
+import random
 import re
 import httpx
 from loguru import logger
@@ -87,7 +88,10 @@ def ask_icp(
         return _call(ICP_SYSTEM, prompt, model)
     except Exception as e:
         logger.warning(f"ICP LLM error: {e}")
-        return "Stand by — comms issue."
+        return random.choice([
+            "Stand by — comms issue.", "No joy right now, try again.",
+            "System's not responding.", "Can't get that right now.",
+        ])
 
 
 def rewrite_step(action: str, model: str = DEFAULT_MODEL) -> str:

@@ -9,13 +9,28 @@
           "switches": [
             {
               "canonical": "Emergency Jettison Button",
-              "alternates": ["emerg jett", "emergency jettison", "jettison button", "jett button", "emerg jettison"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "emerg jett",
+                "emergency jettison",
+                "jettison button",
+                "jett button",
+                "emerg jettison"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             },
             {
               "canonical": "Select Jettison Button",
-              "alternates": ["select jett", "selective jettison", "jettison stores", "stores jettison"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "select jett",
+                "selective jettison",
+                "jettison stores",
+                "stores jettison"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             }
           ]
         },
@@ -24,33 +39,81 @@
           "switches": [
             {
               "canonical": "Landing Gear Handle",
-              "alternates": ["gear handle", "gear lever", "gear switch", "LDG GEAR", "landing gear"],
-              "positions": ["UP", "DOWN"]
+              "alternates": [
+                "gear handle",
+                "gear lever",
+                "gear switch",
+                "LDG GEAR",
+                "landing gear"
+              ],
+              "positions": [
+                "UP",
+                "DOWN"
+              ]
             },
             {
               "canonical": "Emergency Landing Gear Handle",
-              "alternates": ["emerg gear", "emergency gear", "gear emergency", "EMERG GEAR"],
-              "positions": ["PULL"]
+              "alternates": [
+                "emerg gear",
+                "emergency gear",
+                "gear emergency",
+                "EMERG GEAR"
+              ],
+              "positions": [
+                "PULL"
+              ]
             },
             {
               "canonical": "Flap Switch",
-              "alternates": ["flap lever", "flaps switch", "FLAP", "flaps control"],
-              "positions": ["HALF", "FULL", "AUTO"]
+              "alternates": [
+                "flap lever",
+                "flaps switch",
+                "FLAP",
+                "flaps control"
+              ],
+              "positions": [
+                "HALF",
+                "FULL",
+                "AUTO"
+              ]
             },
             {
               "canonical": "Anti-Skid Switch",
-              "alternates": ["anti skid", "antiskid", "ANT SKID", "skid control"],
-              "positions": ["ON", "OFF"]
+              "alternates": [
+                "anti skid",
+                "antiskid",
+                "ANT SKID",
+                "skid control"
+              ],
+              "positions": [
+                "ON",
+                "OFF"
+              ]
             },
             {
               "canonical": "Launch Bar Switch",
-              "alternates": ["launch bar", "LAUNCH BAR", "cat bar"],
-              "positions": ["EXTEND", "RETRACT"]
+              "alternates": [
+                "launch bar",
+                "LAUNCH BAR",
+                "cat bar"
+              ],
+              "positions": [
+                "EXTEND",
+                "RETRACT"
+              ]
             },
             {
               "canonical": "Hook Bypass Switch",
-              "alternates": ["hook bypass", "HOOK BYPASS", "arrestor bypass", "wire bypass"],
-              "positions": ["FIELD", "CARRIER"]
+              "alternates": [
+                "hook bypass",
+                "HOOK BYPASS",
+                "arrestor bypass",
+                "wire bypass"
+              ],
+              "positions": [
+                "FIELD",
+                "CARRIER"
+              ]
             }
           ]
         },
@@ -59,14 +122,43 @@
           "switches": [
             {
               "canonical": "Refueling Probe Control Switch",
-              "alternates": ["probe switch", "PROBE", "refuel probe", "refueling probe", "probe control", "AAR probe", "air refueling probe", "AR probe"],
-              "positions": ["RETRACT", "EXTEND", "EMERG EXTD"],
-              "spoken":    ["retract",  "extend",  "emergency extended"]
+              "alternates": [
+                "probe switch",
+                "PROBE",
+                "refuel probe",
+                "refueling probe",
+                "probe control",
+                "AAR probe",
+                "air refueling probe",
+                "AR probe"
+              ],
+              "positions": [
+                "RETRACT",
+                "EXTEND",
+                "EMERG EXTD"
+              ],
+              "spoken": [
+                "retract",
+                "extend",
+                "emergency extended"
+              ]
             },
             {
               "canonical": "Arresting Hook Handle",
-              "alternates": ["hook switch", "HOOK", "hook handle", "hook lever", "tail hook", "tailhook", "arresting hook", "hook control"],
-              "positions": ["UP", "DOWN"]
+              "alternates": [
+                "hook switch",
+                "HOOK",
+                "hook handle",
+                "hook lever",
+                "tail hook",
+                "tailhook",
+                "arresting hook",
+                "hook control"
+              ],
+              "positions": [
+                "UP",
+                "DOWN"
+              ]
             }
           ]
         },
@@ -75,30 +167,89 @@
           "switches": [
             {
               "canonical": "Formation Lights Switch",
-              "alternates": ["formation lights", "formation light", "FORMAT ION", "form lights", "FORMATION"],
-              "positions": ["BRT", "MED", "DIM", "OFF"],
-              "spoken":    ["bright", "medium", "dim", "off"]
+              "alternates": [
+                "formation lights",
+                "formation light",
+                "FORMAT ION",
+                "form lights",
+                "FORMATION"
+              ],
+              "positions": [
+                "BRT",
+                "MED",
+                "DIM",
+                "OFF"
+              ],
+              "spoken": [
+                "bright",
+                "medium",
+                "dim",
+                "off"
+              ]
             },
             {
               "canonical": "Position Lights Switch",
-              "alternates": ["position lights", "nav lights", "navigation lights", "wing lights", "POS LTS"],
-              "positions": ["STEADY", "FLASH", "OFF"]
+              "alternates": [
+                "position lights",
+                "nav lights",
+                "navigation lights",
+                "wing lights",
+                "POS LTS"
+              ],
+              "positions": [
+                "STEADY",
+                "FLASH",
+                "OFF"
+              ]
             },
             {
               "canonical": "Anti-Collision Lights Switch",
-              "alternates": ["anti-collision", "anticollision", "strobe", "strobes", "beacon", "ANTI COLL"],
-              "positions": ["ON", "OFF"]
+              "alternates": [
+                "anti-collision",
+                "anticollision",
+                "strobe",
+                "strobes",
+                "beacon",
+                "ANTI COLL"
+              ],
+              "positions": [
+                "ON",
+                "OFF"
+              ]
             },
             {
               "canonical": "LDG/TAX Light Switch",
-              "alternates": ["landing taxi light", "landing light", "taxi light", "LDG TAX", "LDG/TAX", "nose light"],
-              "positions": ["OFF", "TAXI", "LDG"],
-              "spoken":    ["off", "taxi", "landing"]
+              "alternates": [
+                "landing taxi light",
+                "landing light",
+                "taxi light",
+                "LDG TAX",
+                "LDG/TAX",
+                "nose light"
+              ],
+              "positions": [
+                "OFF",
+                "TAXI",
+                "LDG"
+              ],
+              "spoken": [
+                "off",
+                "taxi",
+                "landing"
+              ]
             },
             {
               "canonical": "Exterior Lights Master Switch",
-              "alternates": ["ext lights master", "EXT LTS", "exterior lights", "lights master"],
-              "positions": ["ON", "OFF"]
+              "alternates": [
+                "ext lights master",
+                "EXT LTS",
+                "exterior lights",
+                "lights master"
+              ],
+              "positions": [
+                "ON",
+                "OFF"
+              ]
             }
           ]
         },
@@ -107,13 +258,31 @@
           "switches": [
             {
               "canonical": "Engine Anti-Ice Switch",
-              "alternates": ["engine anti ice", "eng anti ice", "ENG ANTI ICE", "anti-ice engine", "engine ice"],
-              "positions": ["ON", "OFF"]
+              "alternates": [
+                "engine anti ice",
+                "eng anti ice",
+                "ENG ANTI ICE",
+                "anti-ice engine",
+                "engine ice"
+              ],
+              "positions": [
+                "ON",
+                "OFF"
+              ]
             },
             {
               "canonical": "Pitot Heat Switch",
-              "alternates": ["pitot heat", "PITOT", "pitot switch", "pitot anti ice"],
-              "positions": ["AUTO", "ON", "OFF"]
+              "alternates": [
+                "pitot heat",
+                "PITOT",
+                "pitot switch",
+                "pitot anti ice"
+              ],
+              "positions": [
+                "AUTO",
+                "ON",
+                "OFF"
+              ]
             }
           ]
         },
@@ -122,15 +291,45 @@
           "switches": [
             {
               "canonical": "External Tanks Wing Switch",
-              "alternates": ["ext tanks wing", "wing tanks", "EXT TANKS WING", "wing drop tanks", "external fuel"],
-              "positions": ["WING", "NORM", "STOP"],
-              "spoken":    ["wing", "normal", "stop"]
+              "alternates": [
+                "ext tanks wing",
+                "wing tanks",
+                "EXT TANKS WING",
+                "wing drop tanks",
+                "external fuel"
+              ],
+              "positions": [
+                "WING",
+                "NORM",
+                "STOP"
+              ],
+              "spoken": [
+                "wing",
+                "normal",
+                "stop"
+              ]
             },
             {
               "canonical": "External Tanks CL Switch",
-              "alternates": ["centerline tank", "CL tank", "center tank", "belly tank", "external CL"],
-              "positions": ["FWD", "AFT", "NORM", "STOP"],
-              "spoken":    ["forward", "aft", "normal", "stop"]
+              "alternates": [
+                "centerline tank",
+                "CL tank",
+                "center tank",
+                "belly tank",
+                "external CL"
+              ],
+              "positions": [
+                "FWD",
+                "AFT",
+                "NORM",
+                "STOP"
+              ],
+              "spoken": [
+                "forward",
+                "aft",
+                "normal",
+                "stop"
+              ]
             }
           ]
         },
@@ -139,31 +338,88 @@
           "switches": [
             {
               "canonical": "Engine Crank Switch",
-              "alternates": ["engine crank", "ENG CRANK", "crank switch", "engine start switch", "ignition crank"],
-              "positions": ["L", "OFF", "R"],
-              "spoken":    ["left", "off", "right"]
+              "alternates": [
+                "engine crank",
+                "ENG CRANK",
+                "crank switch",
+                "engine start switch",
+                "ignition crank"
+              ],
+              "positions": [
+                "L",
+                "OFF",
+                "R"
+              ],
+              "spoken": [
+                "left",
+                "off",
+                "right"
+              ]
             },
             {
               "canonical": "APU Switch",
-              "alternates": ["APU", "auxiliary power unit", "APU switch", "APU start"],
-              "positions": ["ON", "OFF", "READY"]
+              "alternates": [
+                "APU",
+                "auxiliary power unit",
+                "APU switch",
+                "APU start"
+              ],
+              "positions": [
+                "ON",
+                "OFF",
+                "READY"
+              ]
             },
             {
               "canonical": "Left Generator Switch",
-              "alternates": ["L GEN", "left gen", "left generator", "LGEN"],
-              "positions": ["NORM", "OFF", "RESET"],
-              "spoken":    ["normal", "off", "reset"]
+              "alternates": [
+                "L GEN",
+                "left gen",
+                "left generator",
+                "LGEN"
+              ],
+              "positions": [
+                "NORM",
+                "OFF",
+                "RESET"
+              ],
+              "spoken": [
+                "normal",
+                "off",
+                "reset"
+              ]
             },
             {
               "canonical": "Right Generator Switch",
-              "alternates": ["R GEN", "right gen", "right generator", "RGEN"],
-              "positions": ["NORM", "OFF", "RESET"],
-              "spoken":    ["normal", "off", "reset"]
+              "alternates": [
+                "R GEN",
+                "right gen",
+                "right generator",
+                "RGEN"
+              ],
+              "positions": [
+                "NORM",
+                "OFF",
+                "RESET"
+              ],
+              "spoken": [
+                "normal",
+                "off",
+                "reset"
+              ]
             },
             {
               "canonical": "Battery Switch",
-              "alternates": ["battery switch", "BATT", "battery", "bat switch"],
-              "positions": ["ON", "OFF"]
+              "alternates": [
+                "battery switch",
+                "BATT",
+                "battery",
+                "bat switch"
+              ],
+              "positions": [
+                "ON",
+                "OFF"
+              ]
             }
           ]
         }
@@ -177,18 +433,42 @@
           "switches": [
             {
               "canonical": "Master Arm Switch",
-              "alternates": ["master arm", "MASTER ARM", "arm switch", "weapons arm", "master arm switch"],
-              "positions": ["SAFE", "ARM"]
+              "alternates": [
+                "master arm",
+                "MASTER ARM",
+                "arm switch",
+                "weapons arm",
+                "master arm switch"
+              ],
+              "positions": [
+                "SAFE",
+                "ARM"
+              ]
             },
             {
               "canonical": "Laser Arm Switch",
-              "alternates": ["laser arm", "LASER ARM", "laser switch", "lase arm"],
-              "positions": ["SAFE", "ARM"]
+              "alternates": [
+                "laser arm",
+                "LASER ARM",
+                "laser switch",
+                "lase arm"
+              ],
+              "positions": [
+                "SAFE",
+                "ARM"
+              ]
             },
             {
               "canonical": "Gun Arm Switch",
-              "alternates": ["gun arm", "GUN ARM", "cannon arm"],
-              "positions": ["SAFE", "ARM"]
+              "alternates": [
+                "gun arm",
+                "GUN ARM",
+                "cannon arm"
+              ],
+              "positions": [
+                "SAFE",
+                "ARM"
+              ]
             }
           ]
         },
@@ -197,18 +477,38 @@
           "switches": [
             {
               "canonical": "A/G Master Mode Button",
-              "alternates": ["A/G mode", "air to ground", "AG button", "ground attack mode"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "A/G mode",
+                "air to ground",
+                "AG button",
+                "ground attack mode"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             },
             {
               "canonical": "A/A Master Mode Button",
-              "alternates": ["A/A mode", "air to air", "AA button", "air combat mode"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "A/A mode",
+                "air to air",
+                "AA button",
+                "air combat mode"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             },
             {
               "canonical": "NAV Master Mode Button",
-              "alternates": ["NAV mode", "navigation mode", "nav button"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "NAV mode",
+                "navigation mode",
+                "nav button"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             }
           ]
         },
@@ -217,8 +517,17 @@
           "switches": [
             {
               "canonical": "HUD Switch",
-              "alternates": ["HUD", "head up display", "HUD switch", "HUD power"],
-              "positions": ["DAY", "NIGHT", "OFF"]
+              "alternates": [
+                "HUD",
+                "head up display",
+                "HUD switch",
+                "HUD power"
+              ],
+              "positions": [
+                "DAY",
+                "NIGHT",
+                "OFF"
+              ]
             }
           ]
         },
@@ -227,17 +536,35 @@
           "switches": [
             {
               "canonical": "Left DDI",
-              "alternates": ["left DDI", "left display", "L DDI", "DDI left", "left MFD"],
+              "alternates": [
+                "left DDI",
+                "left display",
+                "L DDI",
+                "DDI left",
+                "left MFD"
+              ],
               "positions": []
             },
             {
               "canonical": "Right DDI",
-              "alternates": ["right DDI", "right display", "R DDI", "DDI right", "right MFD"],
+              "alternates": [
+                "right DDI",
+                "right display",
+                "R DDI",
+                "DDI right",
+                "right MFD"
+              ],
               "positions": []
             },
             {
               "canonical": "AMPCD",
-              "alternates": ["AMPCD", "center display", "MPCD", "center MFD", "AMCP"],
+              "alternates": [
+                "AMPCD",
+                "center display",
+                "MPCD",
+                "center MFD",
+                "AMCP"
+              ],
               "positions": []
             }
           ]
@@ -247,7 +574,12 @@
           "switches": [
             {
               "canonical": "UFC",
-              "alternates": ["UFC", "up front controller", "upfront controller", "keypad panel"],
+              "alternates": [
+                "UFC",
+                "up front controller",
+                "upfront controller",
+                "keypad panel"
+              ],
               "positions": []
             }
           ]
@@ -257,17 +589,32 @@
           "switches": [
             {
               "canonical": "Barometric Altimeter",
-              "alternates": ["altimeter", "baro altimeter", "altitude gauge", "ALT gauge"],
+              "alternates": [
+                "altimeter",
+                "baro altimeter",
+                "altitude gauge",
+                "ALT gauge"
+              ],
               "positions": []
             },
             {
               "canonical": "Airspeed Indicator",
-              "alternates": ["airspeed", "ASI", "speed indicator", "airspeed gauge"],
+              "alternates": [
+                "airspeed",
+                "ASI",
+                "speed indicator",
+                "airspeed gauge"
+              ],
               "positions": []
             },
             {
               "canonical": "Radar Altimeter",
-              "alternates": ["radar alt", "RADALT", "low altitude warning", "rad alt"],
+              "alternates": [
+                "radar alt",
+                "RADALT",
+                "low altitude warning",
+                "rad alt"
+              ],
               "positions": []
             }
           ]
@@ -282,7 +629,13 @@
           "switches": [
             {
               "canonical": "IFEI",
-              "alternates": ["IFEI", "integrated fuel engine indicator", "fuel indicator", "engine indicator", "fuel display"],
+              "alternates": [
+                "IFEI",
+                "integrated fuel engine indicator",
+                "fuel indicator",
+                "engine indicator",
+                "fuel display"
+              ],
               "positions": []
             }
           ]
@@ -292,9 +645,22 @@
           "switches": [
             {
               "canonical": "Video Recorder Switch",
-              "alternates": ["video record", "VIDEO RECORD", "VCR switch", "recorder switch"],
-              "positions": ["REC", "STBY", "OFF"],
-              "spoken":    ["record", "standby", "off"]
+              "alternates": [
+                "video record",
+                "VIDEO RECORD",
+                "VCR switch",
+                "recorder switch"
+              ],
+              "positions": [
+                "REC",
+                "STBY",
+                "OFF"
+              ],
+              "spoken": [
+                "record",
+                "standby",
+                "off"
+              ]
             }
           ]
         },
@@ -303,8 +669,18 @@
           "switches": [
             {
               "canonical": "Speed Brake Switch",
-              "alternates": ["speed brake", "speedbrake", "air brake", "drag chute", "airbrake switch"],
-              "positions": ["EXTEND", "RETRACT", "AUTO"]
+              "alternates": [
+                "speed brake",
+                "speedbrake",
+                "air brake",
+                "drag chute",
+                "airbrake switch"
+              ],
+              "positions": [
+                "EXTEND",
+                "RETRACT",
+                "AUTO"
+              ]
             }
           ]
         }
@@ -318,33 +694,85 @@
           "switches": [
             {
               "canonical": "Console Lights Dimmer",
-              "alternates": ["console lights", "CONSOLES", "console brightness", "console dimmer", "side console light"],
-              "positions": ["OFF to BRT"],
-              "spoken":    ["off to bright"]
+              "alternates": [
+                "console lights",
+                "CONSOLES",
+                "console brightness",
+                "console dimmer",
+                "side console light"
+              ],
+              "positions": [
+                "OFF to BRT"
+              ],
+              "spoken": [
+                "off to bright"
+              ]
             },
             {
               "canonical": "Instrument Panel Lights Dimmer",
-              "alternates": ["instrument lights", "INST PNL", "instrument panel lights", "panel brightness"],
-              "positions": ["OFF to BRT"],
-              "spoken":    ["off to bright"]
+              "alternates": [
+                "instrument lights",
+                "INST PNL",
+                "instrument panel lights",
+                "panel brightness"
+              ],
+              "positions": [
+                "OFF to BRT"
+              ],
+              "spoken": [
+                "off to bright"
+              ]
             },
             {
               "canonical": "Flood Lights Dimmer",
-              "alternates": ["flood lights", "FLOOD", "FLood", "cockpit flood", "flood lamp"],
-              "positions": ["OFF to BRT"],
-              "spoken":    ["off to bright"]
+              "alternates": [
+                "flood lights",
+                "FLOOD",
+                "FLood",
+                "cockpit flood",
+                "flood lamp"
+              ],
+              "positions": [
+                "OFF to BRT"
+              ],
+              "spoken": [
+                "off to bright"
+              ]
             },
             {
               "canonical": "Warning / Caution Lights Dimmer",
-              "alternates": ["warning lights", "caution lights", "WARN CAUT", "WARN/CAUT", "advisory lights"],
-              "positions": ["OFF to BRT"],
-              "spoken":    ["off to bright"]
+              "alternates": [
+                "warning lights",
+                "caution lights",
+                "WARN CAUT",
+                "WARN/CAUT",
+                "advisory lights"
+              ],
+              "positions": [
+                "OFF to BRT"
+              ],
+              "spoken": [
+                "off to bright"
+              ]
             },
             {
               "canonical": "Chart Light Switch",
-              "alternates": ["chart light", "CHART", "map light", "kneeboard light"],
-              "positions": ["OFF", "DIM", "BRT"],
-              "spoken":    ["off", "dim", "bright"]
+              "alternates": [
+                "chart light",
+                "CHART",
+                "map light",
+                "kneeboard light"
+              ],
+              "positions": [
+                "OFF",
+                "DIM",
+                "BRT"
+              ],
+              "spoken": [
+                "off",
+                "dim",
+                "bright"
+              ]
             }
           ]
         },
@@ -353,25 +781,68 @@
           "switches": [
             {
               "canonical": "ECS Mode Switch",
-              "alternates": ["ECS mode", "MODE", "ecs switch", "pressurization mode", "air mode"],
-              "positions": ["NORM", "DUMP", "RAM"],
-              "spoken":    ["normal", "dump", "ram"]
+              "alternates": [
+                "ECS mode",
+                "MODE",
+                "ecs switch",
+                "pressurization mode",
+                "air mode"
+              ],
+              "positions": [
+                "NORM",
+                "DUMP",
+                "RAM"
+              ],
+              "spoken": [
+                "normal",
+                "dump",
+                "ram"
+              ]
             },
             {
               "canonical": "Cabin Temperature Control",
-              "alternates": ["cabin temp", "COLD HOT", "temperature control", "cockpit temp", "cabin temperature"],
-              "positions": ["COLD", "HOT"]
+              "alternates": [
+                "cabin temp",
+                "COLD HOT",
+                "temperature control",
+                "cockpit temp",
+                "cabin temperature"
+              ],
+              "positions": [
+                "COLD",
+                "HOT"
+              ]
             },
             {
               "canonical": "Defog Switch",
-              "alternates": ["defog", "DEFOG", "defogging", "windshield defog", "canopy defog"],
-              "positions": ["ON", "OFF"]
+              "alternates": [
+                "defog",
+                "DEFOG",
+                "defogging",
+                "windshield defog",
+                "canopy defog"
+              ],
+              "positions": [
+                "ON",
+                "OFF"
+              ]
             },
             {
               "canonical": "Engine Bleed Air Switch",
-              "alternates": ["bleed air", "ENG BLEED", "engine air", "engine bleed"],
-              "positions": ["NORM", "OFF"],
-              "spoken":    ["normal", "off"]
+              "alternates": [
+                "bleed air",
+                "ENG BLEED",
+                "engine air",
+                "engine bleed"
+              ],
+              "positions": [
+                "NORM",
+                "OFF"
+              ],
+              "spoken": [
+                "normal",
+                "off"
+              ]
             }
           ]
         },
@@ -380,9 +851,20 @@
           "switches": [
             {
               "canonical": "Generator Tie Switch",
-              "alternates": ["gen tie", "GEN TIE", "generator tie", "ATCS"],
-              "positions": ["NORM", "ISOLATE"],
-              "spoken":    ["normal", "isolate"]
+              "alternates": [
+                "gen tie",
+                "GEN TIE",
+                "generator tie",
+                "ATCS"
+              ],
+              "positions": [
+                "NORM",
+                "ISOLATE"
+              ],
+              "spoken": [
+                "normal",
+                "isolate"
+              ]
             }
           ]
         },
@@ -391,9 +873,25 @@
           "switches": [
             {
               "canonical": "Radar Switch",
-              "alternates": ["radar switch", "RADAR", "radar power", "radar on off", "APG-73"],
-              "positions": ["OFF", "STBY", "OPR", "EMERG"],
-              "spoken":    ["off", "standby", "operate", "emergency"]
+              "alternates": [
+                "radar switch",
+                "RADAR",
+                "radar power",
+                "radar on off",
+                "APG-73"
+              ],
+              "positions": [
+                "OFF",
+                "STBY",
+                "OPR",
+                "EMERG"
+              ],
+              "spoken": [
+                "off",
+                "standby",
+                "operate",
+                "emergency"
+              ]
             }
           ]
         },
@@ -402,8 +900,16 @@
           "switches": [
             {
               "canonical": "HMD Switch",
-              "alternates": ["HMD", "helmet mounted display", "JHMCS", "helmet display"],
-              "positions": ["ON", "OFF"]
+              "alternates": [
+                "HMD",
+                "helmet mounted display",
+                "JHMCS",
+                "helmet display"
+              ],
+              "positions": [
+                "ON",
+                "OFF"
+              ]
             }
           ]
         },
@@ -412,8 +918,22 @@
           "switches": [
             {
               "canonical": "OBOGS Switch",
-              "alternates": ["OBOGS", "oxygen", "oxygen system", "oxygen switch", "oxy switch", "OXY switch", "oxygen flow", "O2 switch", "turn on oxygen", "oxygen on"],
-              "positions": ["ON", "OFF"]
+              "alternates": [
+                "OBOGS",
+                "oxygen",
+                "oxygen system",
+                "oxygen switch",
+                "oxy switch",
+                "OXY switch",
+                "oxygen flow",
+                "O2 switch",
+                "turn on oxygen",
+                "oxygen on"
+              ],
+              "positions": [
+                "ON",
+                "OFF"
+              ]
             }
           ]
         }
@@ -427,8 +947,24 @@
           "switches": [
             {
               "canonical": "Target Designation Controller",
-              "alternates": ["TDC", "thumb slew", "target designator", "TDC slew", "TDC hat", "designation controller", "target designation", "thumbstick", "sensor slew"],
-              "positions": ["UP", "DOWN", "LEFT", "RIGHT", "DEPRESS"]
+              "alternates": [
+                "TDC",
+                "thumb slew",
+                "target designator",
+                "TDC slew",
+                "TDC hat",
+                "designation controller",
+                "target designation",
+                "thumbstick",
+                "sensor slew"
+              ],
+              "positions": [
+                "UP",
+                "DOWN",
+                "LEFT",
+                "RIGHT",
+                "DEPRESS"
+              ]
             }
           ]
         },
@@ -437,8 +973,22 @@
           "switches": [
             {
               "canonical": "Sensor Control Switch",
-              "alternates": ["SCS", "sensor select", "sensor control", "sensor switch", "DDI select", "display select", "sensor hat", "sensor designator"],
-              "positions": ["FWD (L DDI)", "AFT (R DDI)", "LEFT (HUD)", "RIGHT (FLIR/TGP)"]
+              "alternates": [
+                "SCS",
+                "sensor select",
+                "sensor control",
+                "sensor switch",
+                "DDI select",
+                "display select",
+                "sensor hat",
+                "sensor designator"
+              ],
+              "positions": [
+                "FWD (L DDI)",
+                "AFT (R DDI)",
+                "LEFT (HUD)",
+                "RIGHT (FLIR/TGP)"
+              ]
             }
           ]
         },
@@ -447,8 +997,20 @@
           "switches": [
             {
               "canonical": "Speed Brake Switch",
-              "alternates": ["speed brake", "speedbrake", "airbrake", "air brake", "brake switch", "speed brake button", "SPD BRK"],
-              "positions": ["EXTEND", "RETRACT", "STOP"]
+              "alternates": [
+                "speed brake",
+                "speedbrake",
+                "airbrake",
+                "air brake",
+                "brake switch",
+                "speed brake button",
+                "SPD BRK"
+              ],
+              "positions": [
+                "EXTEND",
+                "RETRACT",
+                "STOP"
+              ]
             }
           ]
         },
@@ -457,8 +1019,21 @@
           "switches": [
             {
               "canonical": "Mic Switch",
-              "alternates": ["mic switch", "radio switch", "transmit switch", "PTT throttle", "push to talk", "comm switch", "radio transmit"],
-              "positions": ["FWD (Comm 1)", "AFT (Comm 2)", "LEFT (ICS)", "RIGHT (Guard)"]
+              "alternates": [
+                "mic switch",
+                "radio switch",
+                "transmit switch",
+                "PTT throttle",
+                "push to talk",
+                "comm switch",
+                "radio transmit"
+              ],
+              "positions": [
+                "FWD (Comm 1)",
+                "AFT (Comm 2)",
+                "LEFT (ICS)",
+                "RIGHT (Guard)"
+              ]
             }
           ]
         },
@@ -467,8 +1042,18 @@
           "switches": [
             {
               "canonical": "Cage/Uncage Button",
-              "alternates": ["cage uncage", "cage button", "uncage", "seeker cage", "sidewinder cage", "missile cage", "AIM-9 cage"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "cage uncage",
+                "cage button",
+                "uncage",
+                "seeker cage",
+                "sidewinder cage",
+                "missile cage",
+                "AIM-9 cage"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             }
           ]
         },
@@ -477,8 +1062,20 @@
           "switches": [
             {
               "canonical": "Countermeasures Dispense Button",
-              "alternates": ["CMD", "chaff flare", "countermeasures", "dispense button", "chaff", "flare", "CM dispense", "countermeasure button", "dispense"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "CMD",
+                "chaff flare",
+                "countermeasures",
+                "dispense button",
+                "chaff",
+                "flare",
+                "CM dispense",
+                "countermeasure button",
+                "dispense"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             }
           ]
         }
@@ -492,8 +1089,18 @@
           "switches": [
             {
               "canonical": "Trigger",
-              "alternates": ["trigger", "gun trigger", "fire trigger", "weapons trigger", "first detent", "second detent"],
-              "positions": ["FIRST DETENT (safety)", "SECOND DETENT (fire)"]
+              "alternates": [
+                "trigger",
+                "gun trigger",
+                "fire trigger",
+                "weapons trigger",
+                "first detent",
+                "second detent"
+              ],
+              "positions": [
+                "FIRST DETENT (safety)",
+                "SECOND DETENT (fire)"
+              ]
             }
           ]
         },
@@ -502,8 +1109,18 @@
           "switches": [
             {
               "canonical": "Weapons Release Button",
-              "alternates": ["pickle", "pickle button", "bomb release", "weapon release", "release button", "stores release", "WPN REL"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "pickle",
+                "pickle button",
+                "bomb release",
+                "weapon release",
+                "release button",
+                "stores release",
+                "WPN REL"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             }
           ]
         },
@@ -512,8 +1129,20 @@
           "switches": [
             {
               "canonical": "NWS / Undesignate Button",
-              "alternates": ["NWS", "undesignate", "nose wheel steering", "NWS button", "undesignate button", "MSL override", "missile override", "break lock"],
-              "positions": ["PUSH (air: undesignate/override)", "PUSH (ground: NWS engage)"]
+              "alternates": [
+                "NWS",
+                "undesignate",
+                "nose wheel steering",
+                "NWS button",
+                "undesignate button",
+                "MSL override",
+                "missile override",
+                "break lock"
+              ],
+              "positions": [
+                "PUSH (air: undesignate/override)",
+                "PUSH (ground: NWS engage)"
+              ]
             }
           ]
         },
@@ -522,8 +1151,17 @@
           "switches": [
             {
               "canonical": "Autopilot Disengage Paddle Switch",
-              "alternates": ["paddle switch", "paddle", "AP disengage", "autopilot disengage", "autopilot paddle", "disengage paddle"],
-              "positions": ["PUSH"]
+              "alternates": [
+                "paddle switch",
+                "paddle",
+                "AP disengage",
+                "autopilot disengage",
+                "autopilot paddle",
+                "disengage paddle"
+              ],
+              "positions": [
+                "PUSH"
+              ]
             }
           ]
         },
@@ -532,8 +1170,56 @@
           "switches": [
             {
               "canonical": "Trim Switch",
-              "alternates": ["trim hat", "trim switch", "trim", "stick trim", "pitch trim", "roll trim", "trim button"],
-              "positions": ["FWD", "AFT", "LEFT", "RIGHT"]
+              "alternates": [
+                "trim hat",
+                "trim switch",
+                "trim",
+                "stick trim",
+                "pitch trim",
+                "roll trim",
+                "trim button"
+              ],
+              "positions": [
+                "FWD",
+                "AFT",
+                "LEFT",
+                "RIGHT"
+              ]
+            }
+          ]
+        },
+        "weapon_select_hat": {
+          "label": "Weapon Select Hat (Stick)",
+          "switches": [
+            {
+              "canonical": "Weapon Select Switch",
+              "alternates": [
+                "WSS",
+                "weapon select",
+                "weapons select switch",
+                "weapon selector",
+                "missile select switch",
+                "arm select switch"
+              ],
+              "positions": [
+                "FWD (Sparrow)",
+                "AFT (Gun)",
+                "IN (AMRAAM)",
+                "DOWN (Sidewinder)"
+              ],
+              "spoken": [
+                "Forward for Sparrow",
+                "Aft for Gun",
+                "In for AMRAAM",
+                "Down for Sidewinder"
+              ],
+              "dcs_actions": {
+                "AMRAAM": "Select AMRAAM",
+                "Sparrow": "Select Sparrow",
+                "Gun": "Select Gun",
+                "Sidewinder": "Select Sidewinder"
+              },
+              "spoken_location": "Weapon Select is on the stick. Forward is Sparrow, aft is Gun, inboard is AMRAAM, and down is Sidewinder."
             }
           ]
         }

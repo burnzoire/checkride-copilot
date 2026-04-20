@@ -1,0 +1,122 @@
+{
+  "key": "tws_multi_target_engagement",
+  "canonical": "TWS Multi-Target Engagement (AIM-120)",
+  "alternates": [
+    "TWS multi-target engagement",
+    "track while scan multi-target",
+    "TWS multiple bandits",
+    "engage multiple targets TWS",
+    "multi-target AMRAAM TWS"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "ACT: Active — missile has gone pitbull",
+    "ASE: Allowable Steering Error",
+    "DT2: Designated Target 2 — secondary trackfile",
+    "HAFU: Hostile Ambiguous Friendly Unknown — radar contact symbol",
+    "L&S: Launch and Steering — primary trackfile",
+    "NIRD: Normalized In-Range Display",
+    "RWS: Range While Search",
+    "STT: Single Target Track",
+    "TDC: Throttle Designation Controller",
+    "TWS: Track While Scan"
+  ],
+  "source": {
+    "doc": "DCS FA-18C Hornet Guide",
+    "page": 206,
+    "section": "2.1 - Air-to-Air Modes > 2.1.4 - TWS (Track While Scan)"
+  },
+  "step_count": 18,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Radar Switch \u2013 OPERATE",
+      "voiced": "Set Radar Switch to OPERATE."
+    },
+    {
+      "num": 2,
+      "action": "Weapon Select Switch \u2013 RIGHT to select AMRAAM. Master Mode automatically sets to A/A.",
+      "voiced": "Press Weapon Select Switch RIGHT \u2014 select AMRAAM. Confirm A/A Master Mode."
+    },
+    {
+      "num": 3,
+      "action": "Master Arm switch \u2013 ARM (UP)",
+      "voiced": "Set Master Arm to ARM."
+    },
+    {
+      "num": 4,
+      "action": "Set RDR ATTK page on the right DDI and SMS page on the left DDI.",
+      "voiced": "Set RDR ATTK on the right DDI and SMS on the left."
+    },
+    {
+      "num": 5,
+      "action": "On SMS page, set expected target SIZE and RCS (SMALL / MEDIUM / LARGE).",
+      "voiced": "On the SMS page, set target size and RCS."
+    },
+    {
+      "num": 6,
+      "action": "Press Sensor Control Switch RIGHT to slave the TDC to the RDR ATTK page. Confirm Select Focus Diamond appears on the radar DDI.",
+      "voiced": "Press Sensor Control Switch RIGHT \u2014 confirm TDC diamond on the radar screen."
+    },
+    {
+      "num": 7,
+      "action": "Slew TDC to the mode indicator on the RDR ATTK page (reads RWS or VS). A mode pop-up appears showing RWS / VS / TWS. Slew TDC to TWS and depress to select. Note: entering TWS drops azimuth to a maximum of 80\u00b0 \u2014 120\u00b0 is not available in TWS.",
+      "voiced": "Slew TDC to the mode indicator and select TWS. Azimuth will drop to 80\u00b0 max on entry."
+    },
+    {
+      "num": 8,
+      "action": "Set scan volume. 80\u00b0 azimuth / 2 bars gives the widest picture. 40\u00b0 / 4 bars gives faster trackfile refresh on maneuvering contacts at closer range. Narrowing the scan helps hold trackfiles in a turning fight.",
+      "voiced": "Set scan volume \u2014 80 and 2 bar for a wide picture, 40 and 4 bar for tighter refresh on close maneuvering threats."
+    },
+    {
+      "num": 9,
+      "action": "Adjust the Antenna Elevation wheel to center the scan volume on the expected threat altitude.",
+      "voiced": "Adjust antenna elevation to center on the threat altitude."
+    },
+    {
+      "num": 10,
+      "action": "Confirm AUTO scan centering is active (default on TWS entry). In AUTO, azimuth and elevation follow the L&S trackfile automatically. If the display shows MAN, press the AUTO OSB on the RDR ATTK page.",
+      "voiced": "Confirm AUTO scan centering is active \u2014 scan follows L&S automatically."
+    },
+    {
+      "num": 11,
+      "action": "Slew TDC over the first threat HAFU symbol. TDC DEPRESS \u2013 designates that contact as L&S (primary target). This is a soft designation, not an STT lock \u2014 the radar continues to scan. Confirm a square TD box appears on the HUD.",
+      "voiced": "Slew TDC to the first threat and press TDC DEPRESS \u2014 that\u2019s your L&S. Confirm square on HUD. Radar stays in search."
+    },
+    {
+      "num": 12,
+      "action": "Slew TDC over the second threat HAFU symbol. TDC DEPRESS \u2013 designates that contact as DT2 (secondary target). Confirm an X symbol appears on the HUD for DT2.",
+      "voiced": "Slew TDC to the second threat and press TDC DEPRESS \u2014 that\u2019s your DT2. Confirm X on HUD."
+    },
+    {
+      "num": 13,
+      "action": "Fly to place the Steering Dot inside the ASE / NIRD circle on the HUD for the L&S. Monitor the HUD for the SHOOT cue above the L&S TD box. TWS requires active maneuvering to reach the LAR \u2014 do not go STT, the radar must stay in search to uplink to both missiles.",
+      "voiced": "Fly the Steering Dot into the ASE circle for L&S. Wait for the SHOOT cue. Stay in TWS \u2014 do not push to STT."
+    },
+    {
+      "num": 14,
+      "action": "When SHOOT cue appears over the L&S TD box, squeeze and hold the trigger to launch missile 1. Call Fox Three. The radar remains in TWS and continues scanning \u2014 uplink to missile 1 is active. Do NOT promote L&S to STT; doing so will break uplink to a second missile.",
+      "voiced": "SHOOT cue \u2014 squeeze trigger. Fox Three. Radar stays in TWS, uplink active. Do not go STT."
+    },
+    {
+      "num": 15,
+      "action": "Press the Undesignate Button once. This swaps L&S and DT2: the previous DT2 becomes the new L&S, and the old L&S becomes DT2. Verify the TD box on the HUD has moved to the second target.",
+      "voiced": "Press Undesignate Button once to swap L&S and DT2. Confirm TD box has moved to target 2."
+    },
+    {
+      "num": 16,
+      "action": "Fly to place the Steering Dot inside the ASE / NIRD circle for the new L&S (target 2). Wait for SHOOT cue.",
+      "voiced": "Fly Steering Dot into the ASE circle for the new L&S. Wait for SHOOT cue."
+    },
+    {
+      "num": 17,
+      "action": "When SHOOT cue appears, squeeze and hold the trigger to launch missile 2. Call Fox Three. The radar is now uplinking to both missiles simultaneously while remaining in search.",
+      "voiced": "SHOOT cue \u2014 squeeze trigger. Fox Three. Radar is now uplinking to both missiles."
+    },
+    {
+      "num": 18,
+      "action": "Monitor the ACT timers on the HUD. When a missile\u2019s ACT timer reaches zero, it has gone pitbull and is self-guiding \u2014 uplink from the radar is no longer required for that missile. Once both missiles are pitbull, you may crank, beam, or notch as tactically appropriate.",
+      "voiced": "Watch the ACT timers. When each missile hits pitbull, uplink drops \u2014 crank or notch as needed."
+    }
+  ]
+}
