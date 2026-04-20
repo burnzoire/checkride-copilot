@@ -1,0 +1,46 @@
+{
+  "key": "tgp_quick_start",
+  "canonical": "TGP Power On Quick Start",
+  "alternates": [
+    "TGP Power On Quick Start",
+    "turn on tgp",
+    "power on targeting pod",
+    "atflir quick start"
+  ],
+  "category": "sensors",
+  "terminology": [
+    "A/G",
+    "ATFLIR",
+    "DDI",
+    "FLIR",
+    "FOV",
+    "OSB",
+    "PTRK",
+    "SOI",
+    "TDC",
+    "VVSLV"
+  ],
+  "source": {
+    "doc": "Checkride Copilot Procedure Pack",
+    "page": 0,
+    "section": "F/A-18C ATFLIR power-on quick-start workflow"
+  },
+  "step_count": 3,
+  "steps": [
+    {
+      "num": 1,
+      "action": "Confirm the ATFLIR pod is loaded and aircraft electrical power is available.",
+      "voiced": "Confirm ATFLIR is loaded and the jet is powered."
+    },
+    {
+      "num": 2,
+      "action": "On a DDI or AMPCD, open TAC and set FLIR sensor switch to STBY.",
+      "voiced": "Open TAC and set FLIR to STBY to start pod warmup."
+    },
+    {
+      "num": 3,
+      "action": "Press FLIR on TAC to display the targeting pod format, wait for STBY, then set FLIR to ON and confirm OPR.",
+      "voiced": "Press FLIR on TAC, wait for STBY, then set FLIR ON and confirm OPR."
+    }
+  ]
+}

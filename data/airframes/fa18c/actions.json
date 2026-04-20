@@ -1,0 +1,80 @@
+{
+  "airframe": "FA-18C",
+  "actions": [
+    {
+      "key": "tgp_power_on",
+      "title": "TGP Power On",
+      "description": "Get ATFLIR from cold to operational in a minimal flow.",
+      "alternates": [
+        "turn on tgp",
+        "power on targeting pod",
+        "power on atflir",
+        "enable targeting pod"
+      ],
+      "tags": ["tgp", "atflir", "flir", "power", "startup"],
+      "steps": [
+        "On a DDI or AMPCD, open TAC and set FLIR to STBY.",
+        "Press FLIR to display the pod page and wait for warmup to complete.",
+        "Set FLIR to ON and confirm pod status is OPR."
+      ]
+    },
+    {
+      "key": "tgp_zoom",
+      "title": "TGP Zoom And FOV",
+      "description": "Change pod magnification and field of view with HOTAS controls.",
+      "alternates": [
+        "how do i zoom the tgp",
+        "targeting pod zoom",
+        "atflir zoom",
+        "change flir fov",
+        "tgp hotas zoom",
+        "radar antenna elevation tgp",
+        "swap between wide and narrow",
+        "wide and narrow tgp",
+        "wide narrow fov"
+      ],
+      "tags": ["tgp", "zoom", "fov", "flir", "sensor", "hotas", "raid", "soi", "wide", "narrow"],
+      "steps": [
+        "Make the TGP page Sensor of Interest by pressing Sensor Control Switch toward the FLIR display.",
+        "Use HOTAS Radar Antenna Elevation control on the throttle only for magnification in and out.",
+        "Use HOTAS RAID/FOV button to toggle between Wide and Narrow FOV.",
+        "Refine with TDC slew so the target stays centered while zoomed."
+      ]
+    },
+    {
+      "key": "tgp_point_track",
+      "title": "TGP Point Track",
+      "description": "Command and verify PTRK on a target.",
+      "alternates": [
+        "point track tgp",
+        "how do i point track",
+        "targeting pod point track",
+        "ptrk"
+      ],
+      "tags": ["tgp", "point", "track", "ptrk", "designate"],
+      "steps": [
+        "Slew the FLIR reticle over the target and press TDC DEPRESS to designate.",
+        "Bump Sensor Control Switch toward FLIR to command Point Track.",
+        "Confirm PTRK cue and stable track; press Undesignate to drop track if needed."
+      ]
+    },
+    {
+      "key": "carrier_call_the_ball",
+      "title": "Carrier Call The Ball",
+      "description": "Standard ball-call phraseology in the groove.",
+      "alternates": [
+        "call the ball",
+        "carrier ball call",
+        "cull the bull",
+        "what do i say to lso"
+      ],
+      "tags": ["carrier", "lso", "ball", "comms", "recovery"],
+      "steps": [
+        "When wings are level in the groove and you have the ball, make your call.",
+        "Format: side number, Hornet Ball, fuel state in thousands.",
+        "Example: 301, Hornet Ball, 3.2."
+      ],
+      "example": "301, Hornet Ball, 3.2"
+    }
+  ]
+}

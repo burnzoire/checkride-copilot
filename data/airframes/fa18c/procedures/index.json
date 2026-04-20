@@ -2241,6 +2241,24 @@
       },
       "step_count": 18,
       "path": "normal_ops/part_16_air_to_air_refueling.json"
+    },
+    {
+      "key": "tgp_quick_start",
+      "canonical": "TGP Power On Quick Start",
+      "alternates": [
+        "TGP Power On Quick Start",
+        "turn on tgp",
+        "power on targeting pod",
+        "atflir quick start"
+      ],
+      "category": "sensors",
+      "source": {
+        "doc": "Checkride Copilot Procedure Pack",
+        "page": 0,
+        "section": "F/A-18C ATFLIR power-on quick-start workflow"
+      },
+      "step_count": 3,
+      "path": "sensors/tgp_quick_start.json"
     }
   ]
 }

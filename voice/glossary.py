@@ -84,6 +84,8 @@ GLOSSARY: dict[str, str] = {
     "VSR":       "V-S-R",
     "TCS":       "T-C-S",
     "FLIR":      "fleer",
+    "TGP":       "T-G-P",
+    "ATFLIR":    "at-fleer",
     "HUD":       "hud",
     "DDI":       "D-D-I",
     "MPCD":      "M-P-C-D",
@@ -93,6 +95,7 @@ GLOSSARY: dict[str, str] = {
     "SMS":       "S-M-S",
     "BIT":       "built-in test",
     "TOO":       "T-O-O",
+    "STBY":      "standby",
 
     # Navigation / comms
     "TACAN":     "tay-can",
@@ -117,6 +120,7 @@ GLOSSARY: dict[str, str] = {
     "SAS":       "S-A-S",
     "NWS":       "nose wheel steering",
     "WOW":       "weight on wheels",
+    "HOTAS":     "ho-taz",
 
     # Directions / references
     "FWD":       "forward",

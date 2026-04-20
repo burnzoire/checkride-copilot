@@ -7,7 +7,7 @@ from typing import Any
 import httpx
 
 from orchestrator.session import Session
-from orchestrator.tools import TOOL_REGISTRY, TOOL_SCHEMAS
+from orchestrator.tools import TOOL_REGISTRY, TOOL_SCHEMAS, load_proc
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 MAX_HISTORY = 10
@@ -32,23 +32,83 @@ TEMP_BY_CONF = {
 }
 
 SYSTEM_PROMPT = """
-You are Checkride Copilot, an F/A-18C instructor voice assistant.
+You are Checkride Copilot, an F/A-18C instructor pilot (IP/ICP) voice assistant.
 
 You are operating in an LLM-first tool-calling harness.
 Rules:
 1) Use tools before answering procedural or switch-location questions.
+1a) For short focused requests (for example "turn on TGP", "zoom TGP", "point track"), call get_quick_action first.
+1b) Use full procedures only when the request is clearly multi-step and long-form.
 2) Never invent switch names, procedure keys, or cockpit states.
 3) If confidence is low, ask one precise clarifying question.
 4) Keep spoken answers concise: usually 1-2 sentences.
 5) If start_procedure succeeds, confirm activation and brief first step.
 6) For an active procedure, navigation words (next/repeat/restart/cancel) are handled externally.
+7) If the user asks for details, example phrasing, or "more info" on a current step, call get_active_procedure and use current_step_more_info when available.
+8) Never cite or mention manuals, pages, references, PDFs, or document sections in spoken replies.
+9) Give direct instructor coaching tone. Do not say "the manual says" or "according to NATOPS".
+10) Never guess. If no tool evidence is available, call a tool first or ask one precise clarifying question.
 """.strip()
+
+
+def _is_call_the_ball_query(text: str) -> bool:
+    q = text.lower()
+    if "call the ball" in q:
+        return True
+    return bool(
+        re.search(r"\b(cull|coal|call)\s+the\s+(bull|ball)\b", q)
+        or (
+            re.search(r"\bcarrier|groove|approach|final\b", q)
+            and re.search(r"\bball|bull\b", q)
+        )
+    )
+
+
+def _call_the_ball_fast_reply() -> str:
+    proc = load_proc("carrier_landing_case_i_recovery")
+    if not proc:
+        return (
+            "In the groove with wings level, make the ball call: side number, Hornet Ball, "
+            "then fuel in thousands, for example, three-zero-one, Hornet Ball, three-point-two."
+        )
+
+    for step in proc.get("steps", []):
+        action = str(step.get("action", "")).lower()
+        voiced = str(step.get("voiced", ""))
+        if "call the ball" in action or "call the ball" in voiced.lower():
+            more = str(step.get("more_info", "")).strip()
+            if more:
+                return more
+            if voiced:
+                return voiced
+
+    return (
+        "In the groove with wings level, make the ball call: side number, Hornet Ball, "
+        "then fuel in thousands, for example, three-zero-one, Hornet Ball, three-point-two."
+    )
 
 
 def clean_reply(text: str) -> str:
     text = text.strip()
     text = re.sub(r"\*{1,2}(.+?)\*{1,2}", r"\1", text)
     text = re.sub(r"\s+", " ", text)
+
+    # Remove exact adjacent sentence duplication, which occasionally appears
+    # in low-latency completions.
+    parts = re.findall(r"[^.!?]+[.!?]?", text)
+    cleaned: list[str] = []
+    last_norm = ""
+    for p in parts:
+        s = p.strip()
+        if not s:
+            continue
+        norm = re.sub(r"\s+", " ", s).strip().lower()
+        if norm == last_norm:
+            continue
+        cleaned.append(s)
+        last_norm = norm
+    text = " ".join(cleaned)
+
     return text.strip()
 
 
@@ -117,6 +177,11 @@ def _parse_tool_call(call: dict[str, Any]) -> tuple[str, dict[str, Any]]:
 
 def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str:
     session.last_reply_incomplete = False
+
+    # Deterministic phraseology path for critical carrier comms callouts.
+    if _is_call_the_ball_query(transcript):
+        return _call_the_ball_fast_reply()
+
     messages: list[dict[str, Any]] = [{"role": "system", "content": SYSTEM_PROMPT}]
     messages += session.history[-MAX_HISTORY * 2 :]
 
@@ -153,6 +218,34 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
         tool_calls = msg.get("tool_calls") or []
 
         if not tool_calls:
+            # Hard grounding guard: do not allow a direct answer before at least
+            # one tool result has been collected for this turn.
+            if total_tool_calls == 0:
+                docs_fn = TOOL_REGISTRY.get("search_natops")
+                if docs_fn:
+                    try:
+                        docs_result = docs_fn({"query": transcript, "top_k": 3}, session)
+                    except Exception as e:
+                        docs_result = {"ok": False, "error": f"Grounding docs search failed: {e}"}
+                    total_tool_calls += 1
+                    messages.append(
+                        {
+                            "role": "tool",
+                            "name": "search_natops",
+                            "content": json.dumps(docs_result),
+                        }
+                    )
+                    messages.append(
+                        {
+                            "role": "user",
+                            "content": (
+                                "Use only grounded tool output. "
+                                "If evidence is insufficient, ask one precise clarifying question."
+                            ),
+                        }
+                    )
+                    continue
+
             content = clean_reply(msg.get("content", ""))
             if not content:
                 return "Say again?"
@@ -211,6 +304,30 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
 
             total_tool_calls += 1
             messages.append({"role": "tool", "name": name, "content": json.dumps(result)})
+
+            # If a short-action lookup fails, immediately fall back to docs search
+            # so we still attempt to answer from indexed content before replying.
+            if (
+                name == "get_quick_action"
+                and isinstance(result, dict)
+                and result.get("ok") is True
+                and result.get("found") is False
+                and total_tool_calls < MAX_TOOL_CALLS
+            ):
+                docs_fn = TOOL_REGISTRY.get("search_natops")
+                if docs_fn:
+                    try:
+                        docs_result = docs_fn({"query": transcript, "top_k": 3}, session)
+                    except Exception as e:
+                        docs_result = {"ok": False, "error": f"Fallback docs search failed: {e}"}
+                    total_tool_calls += 1
+                    messages.append(
+                        {
+                            "role": "tool",
+                            "name": "search_natops",
+                            "content": json.dumps(docs_result),
+                        }
+                    )
 
         if total_tool_calls >= MAX_TOOL_CALLS:
             messages.append(

@@ -96,7 +96,8 @@
     {
       "num": 12,
       "action": "Once wings are level, you would normally \"call the ball\". Example: \"403, Hornet Ball, 3.0\". (Side number of your Hornet, Aircraft Type, \"Ball\", Fuel State/Remaining in thousands of pounds). The LSO (Landing Signal Officer) would then respond with \"Roger Ball\" and then give you corrections to land properly.",
-      "voiced": "Call the ball. Says side number, Hornet Ball, followed by fuel state in thousands.",
+      "voiced": "Call the ball. Say side number, Hornet Ball, followed by fuel state in thousands.",
+      "more_info": "Example ball call: \"301, Hornet Ball, 3.2\". Format is side number, aircraft type, the word Ball, then fuel in thousands of pounds.",
       "pace": "checklist"
     },
     {

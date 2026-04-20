@@ -105,6 +105,7 @@ _SECTION_ANCHORS: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bamraam|aim.?120\b",     re.I), "AMRAAM"),
     (re.compile(r"\btacan\b",               re.I), "TACAN"),
     (re.compile(r"\bils\b",                 re.I), "ILS"),
+    (re.compile(r"\bcarrier|case\s*i|case\s*1|ball|groove|iflols|lso\b", re.I), "LANDING"),
     (re.compile(r"\brefuel|probe\b",        re.I), "REFUELING"),
 ]
 
@@ -119,7 +120,7 @@ def _section_affinity(query: str) -> str | None:
     return None
 
 
-def search(query: str, top_k: int = 2, min_score: float = 12.0) -> list[dict]:
+def search(query: str, top_k: int = 2, min_score: float = 14.0) -> list[dict]:
     """Return top_k chunks most relevant to query, each with page + text + score.
 
     Chunks that are intro/overview sections are excluded — they score high on

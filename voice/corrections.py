@@ -13,6 +13,10 @@ import re
 # Each entry: (compiled regex, replacement string)
 # Replacements run in order — put more specific patterns before general ones.
 _RULES: list[tuple[re.Pattern, str]] = [
+    # ── Carrier comms phraseology ───────────────────────────────────────────
+    # "call the ball" often misheard as "cull the bull" or similar.
+    (re.compile(r"\b(cull|coal|call)\s+the\s+(bull|ball)\b", re.I), "call the ball"),
+
     # ── Missile designations ────────────────────────────────────────────────
     # AGM-XX: Whisper hears "age em", "a g m", "aim", "in age em"
     (re.compile(r"\bin\s+age\s+em[-\s]?(\d+)\b",       re.I), r"AGM-\1"),
@@ -43,6 +47,12 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\b(tay\s*can|takin|taken)\b",          re.I), "TACAN"),
     # ILS: "i l s"
     (re.compile(r"\bi\.?l\.?s\.?\b",                     re.I), "ILS"),
+    # HOTAS: spoken as letters or phonetic spellings
+    (re.compile(r"\bh[\s.\-]?o[\s.\-]?t[\s.\-]?a[\s.\-]?s\b", re.I), "HOTAS"),
+    (re.compile(r"\b(hotass|ho\s*tas|hoe\s*tas)\b",        re.I), "HOTAS"),
+    (re.compile(r"\bhotez\b",                                 re.I), "HOTAS"),
+    # "HOTAS" often misheard as "hotels" in short phrases like "on my HOTAS"
+    (re.compile(r"\b(my|your|the|on|with|use)\s+hotels\b",  re.I), r"\1 HOTAS"),
     # FLIR / TGP pod names
     (re.compile(r"\bat\s*flair\b",                       re.I), "ATFLIR"),
     (re.compile(r"\bat\s*flir\b",                        re.I), "ATFLIR"),

@@ -20,8 +20,101 @@ COLLECTOR_URL = "http://127.0.0.1:7779/state"
 STATE_FRESH_MS = 5000
 
 _PROC_DIR = Path(__file__).parent.parent / "data" / "airframes" / "fa18c" / "procedures"
+_ACTIONS_PATH = Path(__file__).parent.parent / "data" / "airframes" / "fa18c" / "actions.json"
 _PROC_INDEX: list[dict[str, Any]] = []
 _PROC_CACHE: dict[str, dict[str, Any]] = {}
+_ACTIONS: list[dict[str, Any]] = []
+_QUICK_ACTION_STOPWORDS: set[str] = {
+    "a",
+    "an",
+    "and",
+    "between",
+    "can",
+    "do",
+    "for",
+    "how",
+    "i",
+    "is",
+    "my",
+    "on",
+    "the",
+    "to",
+    "what",
+    "with",
+}
+
+
+def _query_tokens(text: str) -> set[str]:
+    return set(re.findall(r"[a-z0-9]+", text.lower()))
+
+
+def _procedure_intents(query: str) -> dict[str, bool]:
+    q = query.lower()
+    tokens = _query_tokens(query)
+    tgp = (
+        "targeting pod" in q
+        or "tgp" in tokens
+        or "atflir" in tokens
+        or "litening" in tokens
+        or "tpod" in tokens
+    )
+    return {
+        "tgp": tgp,
+        "power": bool(
+            re.search(r"\b(power|turn|switch|set|start)\b", q)
+            and re.search(r"\b(on|up)\b", q)
+        ) or "power on" in q,
+        "zoom": "zoom" in tokens or "fov" in tokens or "field of view" in q,
+        "track": "point track" in q or ("point" in tokens and "track" in tokens),
+        "use": "use" in tokens or "operate" in tokens,
+    }
+
+
+def _expand_procedure_query_tokens(query: str) -> set[str]:
+    tokens = _query_tokens(query)
+    intents = _procedure_intents(query)
+
+    if intents["tgp"]:
+        tokens.update(
+            {
+                "tgp",
+                "atflir",
+                "litening",
+                "targeting",
+                "pod",
+                "flir",
+                "tpod",
+            }
+        )
+    if intents["power"]:
+        tokens.update({"power", "on", "stby", "standby", "opr", "operate", "sensor", "switch"})
+    if intents["zoom"]:
+        tokens.update({"zoom", "fov", "narrow", "wide", "field", "view"})
+    if intents["track"]:
+        tokens.update({"point", "track", "ptrk", "area", "slv", "reticle"})
+    if intents["use"] and intents["tgp"]:
+        tokens.update({"slew", "depress", "offset", "soi", "sensor", "control"})
+
+    return tokens
+
+
+def _procedure_search_text(entry: dict[str, Any], include_steps: bool = False) -> str:
+    bits: list[str] = [
+        entry.get("key", "").replace("_", " "),
+        entry.get("canonical", ""),
+        " ".join(entry.get("alternates", []) or []),
+        str(entry.get("source", {}).get("section", "")),
+        str(entry.get("path", "")),
+        str(entry.get("category", "")),
+    ]
+    if include_steps:
+        proc = load_proc(str(entry.get("key", "")))
+        if proc:
+            bits.extend(proc.get("terminology", []) or [])
+            for step in proc.get("steps", []) or []:
+                bits.append(step.get("action", ""))
+                bits.append(step.get("voiced", ""))
+    return " ".join(bits).lower()
 
 
 def _init_proc_index() -> None:
@@ -34,6 +127,17 @@ def _init_proc_index() -> None:
 
 
 _init_proc_index()
+
+
+def _init_actions() -> None:
+    try:
+        data = json.loads(_ACTIONS_PATH.read_text(encoding="utf-8"))
+        _ACTIONS.extend(data.get("actions", []))
+    except Exception as e:
+        logger.warning(f"Could not load actions: {e}")
+
+
+_init_actions()
 
 
 def confidence_from_score(score: float) -> str:
@@ -113,6 +217,21 @@ def format_step(proc_key: str, step_idx: int) -> str:
     return clean_step_text(step.get("voiced") or step.get("action", ""))
 
 
+def step_more_info(proc_key: str, step_idx: int) -> str | None:
+    proc = load_proc(proc_key)
+    if not proc:
+        return None
+
+    steps = proc.get("steps", [])
+    if not steps or step_idx >= len(steps):
+        return None
+
+    raw = steps[step_idx].get("more_info")
+    if not raw:
+        return None
+    return clean_step_text(str(raw))
+
+
 def format_proc_intro(proc_key: str) -> str:
     proc = load_proc(proc_key)
     if not proc:
@@ -127,7 +246,7 @@ def format_proc_intro(proc_key: str) -> str:
 def tool_search_natops(args: dict[str, Any], session: Session) -> dict[str, Any]:
     query = str(args.get("query", "")).strip()
     top_k = int(args.get("top_k", 3))
-    min_score = float(args.get("min_score", 8.0))
+    min_score = float(args.get("min_score", 14.0))
     if not query:
         return {"ok": False, "error": "query is required"}
 
@@ -166,7 +285,7 @@ def tool_lookup_switch(args: dict[str, Any], _session: Session) -> dict[str, Any
             return {"ok": False, "found": False, "hint": format_location(hint)}
         return {"ok": False, "found": False, "error": "No switch matched"}
 
-    kb = describe_switch(hit.get("dcs_actions") or [])
+    kb = describe_switch(hit.get("dcs_actions") or {})
     return {
         "ok": True,
         "found": True,
@@ -225,21 +344,35 @@ def tool_list_procedures(args: dict[str, Any], _session: Session) -> dict[str, A
     if not query:
         return {"ok": False, "error": "query is required"}
 
-    tokens = set(re.findall(r"[a-z0-9]+", query))
+    tokens = _expand_procedure_query_tokens(query)
+    intents = _procedure_intents(query)
     scored: list[tuple[int, dict[str, Any]]] = []
     for p in _PROC_INDEX:
-        text = " ".join(
-            [
-                p.get("key", "").replace("_", " "),
-                p.get("canonical", ""),
-                " ".join(p.get("alternates", []) or []),
-                str(p.get("source", {}).get("section", "")),
-            ]
-        ).lower()
+        include_steps = False
+        text = _procedure_search_text(p, include_steps=include_steps)
         words = set(re.findall(r"[a-z0-9]+", text))
         overlap = len(tokens & words)
-        if overlap > 0:
-            scored.append((overlap, p))
+
+        bonus = 0
+        if intents["tgp"] and re.search(r"\btgp|atflir|litening|targeting pod|flir\b", text):
+            bonus += 3
+        if intents["power"] and re.search(r"\bpower|stby|standby|opr|operate\b", text):
+            bonus += 2
+        if intents["zoom"] and re.search(r"\bzoom|fov|field of view|narrow|wide\b", text):
+            bonus += 2
+        if intents["track"] and re.search(r"\bpoint track|ptrk|area track\b", text):
+            bonus += 2
+        if "point track" in query and re.search(r"\bpoint\s*&?\s*area\s*track|\bpoint\s*track\b", text):
+            bonus += 6
+        if "turn on" in query or "power on" in query:
+            if re.search(r"\bpower on quick start|quick start\b", text):
+                bonus += 4
+        if intents["tgp"] and p.get("category") == "weapons":
+            bonus -= 2
+
+        score = overlap + bonus
+        if score > 0:
+            scored.append((score, p))
 
     scored.sort(key=lambda x: x[0], reverse=True)
     out = []
@@ -254,6 +387,84 @@ def tool_list_procedures(args: dict[str, Any], _session: Session) -> dict[str, A
             }
         )
     return {"ok": True, "matches": out}
+
+
+def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, Any]:
+    query = str(args.get("query", "")).strip().lower()
+    if not query:
+        return {"ok": False, "error": "query is required"}
+
+    tokens = {t for t in _query_tokens(query) if t not in _QUICK_ACTION_STOPWORDS}
+    intents = _procedure_intents(query)
+
+    if intents["tgp"] and intents["power"]:
+        for action in _ACTIONS:
+            if action.get("key") == "tgp_power_on":
+                max_steps = int(args.get("max_steps", 4))
+                max_steps = max(1, min(max_steps, 6))
+                steps = []
+                for i, step in enumerate(action.get("steps", [])[:max_steps], start=1):
+                    steps.append({"num": i, "text": clean_step_text(str(step))})
+                return {
+                    "ok": True,
+                    "found": True,
+                    "key": action.get("key"),
+                    "title": action.get("title"),
+                    "description": action.get("description"),
+                    "example": action.get("example"),
+                    "steps": steps,
+                }
+
+    best: dict[str, Any] | None = None
+    best_score = 0
+
+    for action in _ACTIONS:
+        text = " ".join(
+            [
+                action.get("key", "").replace("_", " "),
+                action.get("title", ""),
+                action.get("description", ""),
+                " ".join(action.get("alternates", []) or []),
+                " ".join(action.get("tags", []) or []),
+                " ".join(action.get("steps", []) or []),
+            ]
+        ).lower()
+        words = {w for w in _query_tokens(text) if w not in _QUICK_ACTION_STOPWORDS}
+        overlap = len(tokens & words)
+        bonus = 0
+        if action.get("key") == "carrier_call_the_ball" and re.search(r"\b(cull|coal|call)\s+the\s+(bull|ball)\b", query):
+            bonus += 5
+        if intents["tgp"] and "tgp" in words:
+            bonus += 2
+        if intents["power"] and re.search(r"\bpower|startup|stby|opr|on\b", text):
+            bonus += 3
+        if intents["zoom"] and re.search(r"\bzoom|fov\b", text):
+            bonus += 3
+        if intents["track"] and re.search(r"\bpoint|track|ptrk\b", text):
+            bonus += 3
+        score = overlap + bonus
+        if score > best_score:
+            best = action
+            best_score = score
+
+    if not best or best_score < 2:
+        return {"ok": True, "found": False}
+
+    max_steps = int(args.get("max_steps", 4))
+    max_steps = max(1, min(max_steps, 6))
+    steps = []
+    for i, step in enumerate(best.get("steps", [])[:max_steps], start=1):
+        steps.append({"num": i, "text": clean_step_text(str(step))})
+
+    return {
+        "ok": True,
+        "found": True,
+        "key": best.get("key"),
+        "title": best.get("title"),
+        "description": best.get("description"),
+        "example": best.get("example"),
+        "steps": steps,
+    }
 
 
 def tool_start_procedure(args: dict[str, Any], session: Session) -> dict[str, Any]:
@@ -283,6 +494,7 @@ def tool_get_active_procedure(_args: dict[str, Any], session: Session) -> dict[s
         "active_step": session.active_step + 1,
         "step_count": len(steps),
         "current_step_text": format_step(session.active_proc, session.active_step),
+        "current_step_more_info": step_more_info(session.active_proc, session.active_step),
     }
 
 
@@ -293,6 +505,7 @@ TOOL_REGISTRY: dict[str, ToolFn] = {
     "lookup_switch": tool_lookup_switch,
     "get_cockpit_state": tool_get_cockpit_state,
     "diagnose_action": tool_diagnose_action,
+    "get_quick_action": tool_get_quick_action,
     "list_procedures": tool_list_procedures,
     "start_procedure": tool_start_procedure,
     "get_active_procedure": tool_get_active_procedure,
@@ -309,7 +522,7 @@ TOOL_SCHEMAS = [
                 "properties": {
                     "query": {"type": "string"},
                     "top_k": {"type": "integer", "default": 3},
-                    "min_score": {"type": "number", "default": 8.0},
+                    "min_score": {"type": "number", "default": 14.0},
                 },
                 "required": ["query"],
             },
@@ -348,6 +561,21 @@ TOOL_SCHEMAS = [
                     "action": {"type": "string"},
                 },
                 "required": ["action"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_quick_action",
+            "description": "Find a short action card for a focused cockpit task (usually 2-6 steps).",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string"},
+                    "max_steps": {"type": "integer", "default": 4},
+                },
+                "required": ["query"],
             },
         },
     },
