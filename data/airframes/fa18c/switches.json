@@ -680,7 +680,11 @@
                 "EXTEND",
                 "RETRACT",
                 "AUTO"
-              ]
+              ],
+              "dcs_actions": {
+                "Extend": "Speed Brake Switch - EXTEND",
+                "Retract": "Speed Brake Switch - RETRACT"
+              }
             }
           ]
         }
@@ -942,6 +946,57 @@
     "throttle_grip": {
       "label": "Throttle Grip (HOTAS)",
       "panels": {
+        "radar_elevation": {
+          "label": "Radar Antenna Elevation / RAID-FOV (HOTAS)",
+          "switches": [
+            {
+              "canonical": "Radar Elevation Control",
+              "alternates": [
+                "radar elevation",
+                "antenna elevation",
+                "radar antenna elevation",
+                "elevation control",
+                "elevation wheel",
+                "radar elevation switch",
+                "radar elevation control"
+              ],
+              "positions": [
+                "UP",
+                "DOWN"
+              ],
+              "spoken": [
+                "up to raise the antenna",
+                "down to lower the antenna"
+              ],
+              "dcs_actions": {
+                "Up": "Radar Elevation Control - Up",
+                "Down": "Radar Elevation Control - Down"
+              },
+              "spoken_location": "Radar Antenna Elevation is on the HOTAS throttle."
+            },
+            {
+              "canonical": "RAID/FOV Select Button",
+              "alternates": [
+                "RAID button",
+                "FOV button",
+                "RAID FOV",
+                "FOV select",
+                "wide narrow FOV",
+                "FOV toggle",
+                "FLIR FOV",
+                "RAID FLIR FOV",
+                "RAID/FOV"
+              ],
+              "positions": [
+                "PUSH (toggle Wide/Narrow FOV)"
+              ],
+              "dcs_actions": {
+                "Wide/Narrow FOV": "RAID/FLIR FOV Select Button"
+              },
+              "spoken_location": "The RAID/FOV Select Button is on the HOTAS throttle."
+            }
+          ]
+        },
         "tdc": {
           "label": "TDC (Inboard Throttle, Top)",
           "switches": [
@@ -964,7 +1019,10 @@
                 "LEFT",
                 "RIGHT",
                 "DEPRESS"
-              ]
+              ],
+              "dcs_actions": {
+                "Depress": "Throttle Designator Controller - DEPRESS"
+              }
             }
           ]
         },
@@ -988,7 +1046,14 @@
                 "AFT (R DDI)",
                 "LEFT (HUD)",
                 "RIGHT (FLIR/TGP)"
-              ]
+              ],
+              "dcs_actions": {
+                "Forward (L DDI)": "Sensor Control Switch - Fwd",
+                "Aft (R DDI)": "Sensor Control Switch - Aft",
+                "Left (HUD)": "Sensor Control Switch - Left",
+                "Right (FLIR/TGP)": "Sensor Control Switch - Right",
+                "Depress": "Sensor Control Switch - Depress"
+              }
             }
           ]
         },
@@ -1010,7 +1075,11 @@
                 "EXTEND",
                 "RETRACT",
                 "STOP"
-              ]
+              ],
+              "dcs_actions": {
+                "Extend": "Speed Brake Switch - EXTEND",
+                "Retract": "Speed Brake Switch - RETRACT"
+              }
             }
           ]
         },
@@ -1053,7 +1122,10 @@
               ],
               "positions": [
                 "PUSH"
-              ]
+              ],
+              "dcs_actions": {
+                "Cage/Uncage": "Cage/Uncage Button"
+              }
             }
           ]
         },
@@ -1075,7 +1147,12 @@
               ],
               "positions": [
                 "PUSH"
-              ]
+              ],
+              "dcs_actions": {
+                "Chaff": "Dispense Switch - Forward(CHAFF)/Center(OFF)",
+                "Flare": "Dispense Switch - Aft(FLARE)/Center(OFF)"
+              },
+              "spoken_location": "Countermeasures Dispense is on the outboard throttle."
             }
           ]
         }
@@ -1100,7 +1177,11 @@
               "positions": [
                 "FIRST DETENT (safety)",
                 "SECOND DETENT (fire)"
-              ]
+              ],
+              "dcs_actions": {
+                "Fire": "Gun Trigger - SECOND DETENT (Press to shoot)"
+              },
+              "spoken_location": "Trigger is on the control stick."
             }
           ]
         },
@@ -1120,7 +1201,11 @@
               ],
               "positions": [
                 "PUSH"
-              ]
+              ],
+              "dcs_actions": {
+                "Release": "Weapon Release Button"
+              },
+              "spoken_location": "Pickle is on the control stick."
             }
           ]
         },
@@ -1142,7 +1227,11 @@
               "positions": [
                 "PUSH (air: undesignate/override)",
                 "PUSH (ground: NWS engage)"
-              ]
+              ],
+              "dcs_actions": {
+                "Undesignate / NWS": "Undesignate/Nose Wheel Steer Switch"
+              },
+              "spoken_location": "NWS/Undesignate is on the control stick."
             }
           ]
         },
@@ -1161,7 +1250,10 @@
               ],
               "positions": [
                 "PUSH"
-              ]
+              ],
+              "dcs_actions": {
+                "Disengage": "Autopilot/Nosewheel Steering Disengage (Paddle) Switch"
+              }
             }
           ]
         },
@@ -1184,7 +1276,13 @@
                 "AFT",
                 "LEFT",
                 "RIGHT"
-              ]
+              ],
+              "dcs_actions": {
+                "Pitch Up": "Trimmer Switch - PULL(CLIMB)",
+                "Pitch Down": "Trimmer Switch - PUSH(DESCEND)",
+                "Roll Left": "Trimmer Switch - LEFT WING DOWN",
+                "Roll Right": "Trimmer Switch - RIGHT WING DOWN"
+              }
             }
           ]
         },

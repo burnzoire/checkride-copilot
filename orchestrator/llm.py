@@ -13,6 +13,13 @@ OLLAMA_URL = "http://localhost:11434/api/chat"
 MAX_HISTORY = 10
 MAX_TOOL_CALLS = 2
 
+# Tokens at which the model should stop generating boilerplate outros.
+# Keep this list in sync — it applies to every Ollama payload in this module.
+STOP_TOKENS = [
+    "[Reference", "[Switch",
+    "let me know", "if you have", "if you need", "feel free",
+]
+
 TARGET_TOKENS_BY_CONF = {
     "HIGH": 60,
     "MEDIUM": 50,
@@ -39,6 +46,7 @@ Rules:
 1) Use tools before answering procedural or switch-location questions.
 1a) For short focused requests (for example "turn on TGP", "zoom TGP", "point track"), call get_quick_action first.
 1b) Use full procedures only when the request is clearly multi-step and long-form.
+1c) For questions about the user's configuration or keybinds (e.g., "what button have I assigned X to?"), call lookup_switch first.
 2) Never invent switch names, procedure keys, or cockpit states.
 3) If confidence is low, ask one precise clarifying question.
 4) Keep spoken answers concise: usually 1-2 sentences.
@@ -92,23 +100,8 @@ def clean_reply(text: str) -> str:
     text = text.strip()
     text = re.sub(r"\*{1,2}(.+?)\*{1,2}", r"\1", text)
     text = re.sub(r"\s+", " ", text)
-
-    # Remove exact adjacent sentence duplication, which occasionally appears
-    # in low-latency completions.
-    parts = re.findall(r"[^.!?]+[.!?]?", text)
-    cleaned: list[str] = []
-    last_norm = ""
-    for p in parts:
-        s = p.strip()
-        if not s:
-            continue
-        norm = re.sub(r"\s+", " ", s).strip().lower()
-        if norm == last_norm:
-            continue
-        cleaned.append(s)
-        last_norm = norm
-    text = " ".join(cleaned)
-
+    # Strip adjacent duplicate words — catches model stutters like "select select".
+    text = re.sub(r"\b(\w+) \1\b", r"\1", text, flags=re.I)
     return text.strip()
 
 
@@ -206,7 +199,7 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
                 "num_predict": TARGET_TOKENS_BY_CONF[conf],
                 "temperature": TEMP_BY_CONF[conf],
                 "repeat_penalty": 1.15,
-                "stop": ["[Reference", "[Switch", "let me know", "if you have"],
+                "stop": STOP_TOKENS,
             },
         }
 
@@ -271,7 +264,7 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
                             "num_predict": remaining,
                             "temperature": TEMP_BY_CONF[conf],
                             "repeat_penalty": 1.15,
-                            "stop": ["[Reference", "[Switch", "let me know", "if you have"],
+                            "stop": STOP_TOKENS,
                         },
                     }
                     rc = httpx.post(OLLAMA_URL, json=cont_payload, timeout=20.0)
@@ -364,7 +357,7 @@ def continue_last_answer(session: Session, model: str) -> str:
             "num_predict": extra_budget,
             "temperature": TEMP_BY_CONF[conf],
             "repeat_penalty": 1.15,
-            "stop": ["[Reference", "[Switch", "let me know", "if you have"],
+            "stop": STOP_TOKENS,
         },
     }
     r = httpx.post(OLLAMA_URL, json=payload, timeout=20.0)

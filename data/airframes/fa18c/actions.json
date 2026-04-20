@@ -2,6 +2,354 @@
   "airframe": "FA-18C",
   "actions": [
     {
+      "key": "tgp_set_soi",
+      "title": "TGP Set as SOI",
+      "description": "Make the ATFLIR pod the Sensor of Interest so HOTAS controls it.",
+      "alternates": [
+        "set tgp soi",
+        "tgp sensor of interest",
+        "make flir soi",
+        "select tgp as soi",
+        "atflir soi",
+        "tgp selection diamond"
+      ],
+      "tags": [
+        "tgp",
+        "soi",
+        "sensor",
+        "flir",
+        "atflir",
+        "sensor control switch",
+        "diamond"
+      ],
+      "steps": [
+        "Confirm the FLIR page is visible on a DDI.",
+        "Press the Sensor Control Switch toward the DDI showing the FLIR page.",
+        "Confirm the Selection Diamond appears on the FLIR DDI \u00e2\u20ac\u201d TGP is now SOI and HOTAS inputs control the pod."
+      ]
+    },
+    {
+      "key": "tgp_switch_sensor",
+      "title": "TGP Switch TV / IR Sensor",
+      "description": "Toggle between electro-optical TV and infrared FLIR on the ATFLIR pod.",
+      "alternates": [
+        "switch tgp sensor",
+        "toggle tv flir sensor",
+        "tgp tv mode",
+        "tgp ir mode",
+        "switch atflir sensor type",
+        "electro optical tgp",
+        "tgp infrared",
+        "tgp daylight mode"
+      ],
+      "tags": [
+        "tgp",
+        "tv",
+        "ir",
+        "flir",
+        "eo",
+        "sensor",
+        "atflir",
+        "infrared"
+      ],
+      "steps": [
+        "Confirm the FLIR page is SOI \u00e2\u20ac\u201d press Sensor Control Switch toward the FLIR DDI if needed.",
+        "Press the OSB labeled EO to switch to TV mode, or IR to switch to infrared.",
+        "Confirm the sensor label updates in the top corner of the FLIR DDI page."
+      ]
+    },
+    {
+      "key": "tgp_toggle_polarity",
+      "title": "TGP Toggle BHOT / WHOT",
+      "description": "Flip IR polarity between black-hot and white-hot.",
+      "alternates": [
+        "bhot whot",
+        "toggle polarity tgp",
+        "black hot white hot",
+        "flir polarity",
+        "invert flir image",
+        "tgp polarity",
+        "hot white hot black"
+      ],
+      "tags": [
+        "tgp",
+        "bhot",
+        "whot",
+        "polarity",
+        "ir",
+        "flir",
+        "atflir",
+        "invert"
+      ],
+      "steps": [
+        "Confirm the pod is in IR mode \u00e2\u20ac\u201d the polarity toggle is not available in TV/EO mode.",
+        "Press the OSB labeled WHOT or BHOT on the FLIR DDI to toggle polarity.",
+        "In WHOT hot objects appear white; in BHOT hot objects appear black."
+      ]
+    },
+    {
+      "key": "tgp_ptrk_to_atrk",
+      "title": "TGP Switch to Area Track",
+      "description": "Command Area Track from an active Point Track.",
+      "alternates": [
+        "ptrk to atrk",
+        "point track to area track",
+        "switch to area track",
+        "tgp area track",
+        "atrk tgp",
+        "scene track tgp",
+        "area track"
+      ],
+      "tags": [
+        "tgp",
+        "atrk",
+        "area track",
+        "ptrk",
+        "flir",
+        "atflir",
+        "track"
+      ],
+      "steps": [
+        "Confirm PTRK is active and stable on the FLIR DDI.",
+        "Press the OSB labeled ATRK to command Area Track.",
+        "Confirm ATRK cue appears \u00e2\u20ac\u201d pod now tracks the scene area rather than a single contrast point."
+      ]
+    },
+    {
+      "key": "tgp_atrk_to_ptrk",
+      "title": "TGP Switch to Point Track",
+      "description": "Return from Area Track to Point Track.",
+      "alternates": [
+        "atrk to ptrk",
+        "area track to point track",
+        "switch back to point track",
+        "tgp point track from area track",
+        "ptrk from atrk",
+        "point track"
+      ],
+      "tags": [
+        "tgp",
+        "ptrk",
+        "point track",
+        "atrk",
+        "flir",
+        "atflir",
+        "track"
+      ],
+      "steps": [
+        "From ATRK, verify target contrast is adequate for the pod to acquire a point.",
+        "Press the OSB labeled PTRK on the FLIR DDI.",
+        "Confirm PTRK cue \u00e2\u20ac\u201d pod locks on the highest-contrast point within the gate."
+      ]
+    },
+    {
+      "key": "tgp_drop_track_snowplow",
+      "title": "TGP Drop Track / Return to Snowplow",
+      "description": "Clear the TGP designation and return to Snowplow search.",
+      "alternates": [
+        "drop tgp track",
+        "return to snowplow",
+        "undesignate tgp",
+        "clear tgp designation",
+        "tgp back to search",
+        "tgp srch",
+        "tgp reset track"
+      ],
+      "tags": [
+        "tgp",
+        "snowplow",
+        "srch",
+        "undesignate",
+        "drop track",
+        "flir",
+        "atflir",
+        "search"
+      ],
+      "steps": [
+        "Press the NWS/Undesignate Button on the stick once to clear the TGP designation.",
+        "Confirm the pod reverts to SRCH and the crosshair returns to Snowplow forward-looking position.",
+        "If the designation persists, press Undesignate a second time to fully clear."
+      ],
+      "dcs_actions": {
+        "Undesignate": "Undesignate/Nose Wheel Steer Switch"
+      }
+    },
+    {
+      "key": "tgp_snowplow_explain",
+      "title": "TGP Snowplow Mode",
+      "description": "What Snowplow mode is and when to use it.",
+      "alternates": [
+        "what is snowplow",
+        "snowplow mode tgp",
+        "tgp snowplow",
+        "atflir snowplow mode",
+        "what does snowplow do",
+        "tgp search mode"
+      ],
+      "tags": [
+        "tgp",
+        "snowplow",
+        "srch",
+        "search",
+        "flir",
+        "atflir",
+        "default",
+        "velocity vector"
+      ],
+      "steps": [
+        "Snowplow is the pod's default SRCH state \u00e2\u20ac\u201d it stares forward and down at a fixed depression angle below the aircraft velocity vector.",
+        "There is no designation and no track in Snowplow \u00e2\u20ac\u201d use it to scan a general area before committing a designation.",
+        "Any time you undesignate or the pod loses track, it reverts to Snowplow automatically."
+      ]
+    },
+    {
+      "key": "tgp_pod_reset",
+      "title": "TGP Pod Reset",
+      "description": "Soft reset the ATFLIR pod from OPR back through STBY.",
+      "alternates": [
+        "reset tgp",
+        "atflir reset",
+        "pod reset",
+        "restart targeting pod",
+        "tgp restart",
+        "atflir stuck",
+        "tgp opr to stby reset",
+        "tgp not tracking reset"
+      ],
+      "tags": [
+        "tgp",
+        "reset",
+        "stby",
+        "opr",
+        "restart",
+        "atflir",
+        "stuck"
+      ],
+      "steps": [
+        "On the FLIR DDI, press the OSB labeled STBY to transition the pod to standby.",
+        "Wait 10 to 15 seconds for STBY to complete.",
+        "Press the OSB labeled OPR to return the pod to operational and confirm OPR status."
+      ]
+    },
+    {
+      "key": "tgp_gimbal_lock_recovery",
+      "title": "TGP Recover from Gimbal Lock",
+      "description": "Recover when the pod hits its travel limits and loses track.",
+      "alternates": [
+        "gimbal lock tgp",
+        "tgp gimbal limit",
+        "atflir gimbal lock",
+        "pod at limits",
+        "tgp lost track gimbal",
+        "recover gimbal lock",
+        "tgp hits limits",
+        "pod stopped tracking"
+      ],
+      "tags": [
+        "tgp",
+        "gimbal",
+        "lock",
+        "limits",
+        "track",
+        "flir",
+        "atflir",
+        "recovery"
+      ],
+      "steps": [
+        "Gimbal lock: the pod freezes with the LOS symbol at the edge of its travel range.",
+        "Press the NWS/Undesignate Button to drop track and free the pod back to Snowplow.",
+        "Maneuver to bring the target back into the pod's forward FOV, then re-designate."
+      ]
+    },
+    {
+      "key": "tgp_set_markpoint",
+      "title": "TGP Set Markpoint",
+      "description": "Store a markpoint at the current TGP designation.",
+      "alternates": [
+        "set markpoint tgp",
+        "mark tgp designation",
+        "create markpoint from pod",
+        "tgp markpoint",
+        "mark target tgp",
+        "drop markpoint atflir",
+        "mark point tgp"
+      ],
+      "tags": [
+        "tgp",
+        "markpoint",
+        "mark",
+        "ufc",
+        "designation",
+        "flir",
+        "atflir",
+        "waypoint"
+      ],
+      "steps": [
+        "Confirm TGP has an active designation in PTRK or ATRK and A/G master mode is selected.",
+        "Press the UFC MARK pushbutton \u00e2\u20ac\u201d the system stores a markpoint at the TGP line-of-sight coordinates.",
+        "Confirm the markpoint number increments on the DDI."
+      ]
+    },
+    {
+      "key": "tgp_slave_to_waypoint",
+      "title": "TGP Slave to Waypoint (WPDSG)",
+      "description": "Slave the TGP to a waypoint or markpoint using WPDSG.",
+      "alternates": [
+        "slave tgp to waypoint",
+        "slave pod to waypoint",
+        "tgp cue to waypoint",
+        "wpdsg",
+        "tgp waypoint slave",
+        "slave atflir to markpoint",
+        "tgp cz slew to cue",
+        "slave tgp markpoint"
+      ],
+      "tags": [
+        "tgp",
+        "wpdsg",
+        "waypoint",
+        "markpoint",
+        "slave",
+        "flir",
+        "atflir",
+        "cue",
+        "ufc"
+      ],
+      "steps": [
+        "Use the UFC to select the target waypoint or markpoint.",
+        "On the FLIR DDI, press the OSB labeled WPDSG \u00e2\u20ac\u201d the pod slews to and designates at that waypoint.",
+        "Confirm the pod slews on target; refine with TDC if needed."
+      ]
+    },
+    {
+      "key": "tgp_expand_display",
+      "title": "TGP Expand FLIR Display",
+      "description": "Toggle the FLIR DDI page to full-screen and back.",
+      "alternates": [
+        "expand flir display",
+        "tgp full screen",
+        "atflir expand",
+        "flir page expand",
+        "collapse flir display",
+        "tgp full screen mode",
+        "flir bigger"
+      ],
+      "tags": [
+        "tgp",
+        "expand",
+        "flir",
+        "atflir",
+        "full screen",
+        "ddi",
+        "display"
+      ],
+      "steps": [
+        "Confirm the FLIR page is displayed on a DDI and the pod is SOI.",
+        "Press the OSB labeled EXPAND on the FLIR DDI \u00e2\u20ac\u201d video fills the entire DDI.",
+        "Press EXPAND again to return to normal view with all OSB labels visible."
+      ]
+    },
+    {
       "key": "tgp_power_on",
       "title": "TGP Power On",
       "description": "Get ATFLIR from cold to operational in a minimal flow.",
@@ -11,7 +359,13 @@
         "power on atflir",
         "enable targeting pod"
       ],
-      "tags": ["tgp", "atflir", "flir", "power", "startup"],
+      "tags": [
+        "tgp",
+        "atflir",
+        "flir",
+        "power",
+        "startup"
+      ],
       "steps": [
         "On a DDI or AMPCD, open TAC and set FLIR to STBY.",
         "Press FLIR to display the pod page and wait for warmup to complete.",
@@ -33,7 +387,18 @@
         "wide and narrow tgp",
         "wide narrow fov"
       ],
-      "tags": ["tgp", "zoom", "fov", "flir", "sensor", "hotas", "raid", "soi", "wide", "narrow"],
+      "tags": [
+        "tgp",
+        "zoom",
+        "fov",
+        "flir",
+        "sensor",
+        "hotas",
+        "raid",
+        "soi",
+        "wide",
+        "narrow"
+      ],
       "steps": [
         "Make the TGP page Sensor of Interest by pressing Sensor Control Switch toward the FLIR display.",
         "Use HOTAS Radar Antenna Elevation control on the throttle only for magnification in and out.",
@@ -51,12 +416,148 @@
         "targeting pod point track",
         "ptrk"
       ],
-      "tags": ["tgp", "point", "track", "ptrk", "designate"],
+      "tags": [
+        "tgp",
+        "point",
+        "track",
+        "ptrk",
+        "designate"
+      ],
       "steps": [
         "Slew the FLIR reticle over the target and press TDC DEPRESS to designate.",
         "Bump Sensor Control Switch toward FLIR to command Point Track.",
         "Confirm PTRK cue and stable track; press Undesignate to drop track if needed."
       ]
+    },
+    {
+      "key": "select_sidewinder",
+      "title": "Select Sidewinder",
+      "description": "Select AIM-9 Sidewinder using HOTAS weapon select or the SMS DDI page.",
+      "alternates": [
+        "how do i select sidewinder",
+        "select aim-9",
+        "aim-9 sidewinder",
+        "switch to sidewinder",
+        "how to select aim 9",
+        "sidewinder selection"
+      ],
+      "tags": [
+        "sidewinder",
+        "aim-9",
+        "weapon",
+        "select",
+        "hotas",
+        "sms",
+        "ir",
+        "heater"
+      ],
+      "steps": [
+        "HOTAS method: press the Weapon Select Switch down on the stick to select Sidewinder.",
+        "DDI method: open the SMS page and activate the AIM-9 station.",
+        "Confirm AIM-9 cue and TOF on the HUD."
+      ],
+      "dcs_actions": {
+        "HOTAS": "Select Sidewinder",
+        "binding": "Weapon Select Switch down"
+      }
+    },
+    {
+      "key": "select_amraam",
+      "title": "Select AMRAAM",
+      "description": "Select AIM-120 AMRAAM using HOTAS weapon select or the SMS DDI page.",
+      "alternates": [
+        "how do i select amraam",
+        "select aim-120",
+        "aim-120",
+        "switch to amraam",
+        "how to select fox three",
+        "amraam selection",
+        "select mram"
+      ],
+      "tags": [
+        "amraam",
+        "aim-120",
+        "weapon",
+        "select",
+        "hotas",
+        "sms",
+        "fox",
+        "bvr"
+      ],
+      "steps": [
+        "HOTAS method: press the Weapon Select Switch inboard on the stick to select AMRAAM.",
+        "DDI method: open the SMS page and activate the AIM-120 station.",
+        "Confirm AIM-120 cue and radar track requirements on the HUD."
+      ],
+      "dcs_actions": {
+        "HOTAS": "Select AMRAAM",
+        "binding": "Weapon Select Switch inboard"
+      }
+    },
+    {
+      "key": "select_sparrow",
+      "title": "Select Sparrow",
+      "description": "Select AIM-7 Sparrow using HOTAS weapon select or the SMS DDI page.",
+      "alternates": [
+        "how do i select sparrow",
+        "select aim-7",
+        "aim-7 sparrow",
+        "switch to sparrow",
+        "fox one",
+        "sparrow selection"
+      ],
+      "tags": [
+        "sparrow",
+        "aim-7",
+        "weapon",
+        "select",
+        "hotas",
+        "sms",
+        "fox",
+        "radar"
+      ],
+      "steps": [
+        "HOTAS method: press the Weapon Select Switch forward on the stick to select Sparrow.",
+        "DDI method: open the SMS page and activate the AIM-7 station.",
+        "Confirm AIM-7 cue on the HUD and ensure radar is tracking."
+      ],
+      "dcs_actions": {
+        "HOTAS": "Select Sparrow",
+        "binding": "Weapon Select Switch forward"
+      }
+    },
+    {
+      "key": "select_gun",
+      "title": "Select Gun",
+      "description": "Select the M61 gun using HOTAS weapon select or the SMS DDI page.",
+      "alternates": [
+        "how do i select the gun",
+        "select m61",
+        "switch to gun",
+        "guns",
+        "gun selection",
+        "cannon",
+        "strafe"
+      ],
+      "tags": [
+        "gun",
+        "cannon",
+        "m61",
+        "weapon",
+        "select",
+        "hotas",
+        "sms",
+        "strafe"
+      ],
+      "steps": [
+        "HOTAS method: press the Weapon Select Switch aft on the stick to select Gun.",
+        "DDI method: open the SMS page and activate GUN.",
+        "Confirm GUN cue on the HUD and verify rounds remaining."
+      ],
+      "dcs_actions": {
+        "HOTAS": "Select Gun",
+        "binding": "Weapon Select Switch aft"
+      }
     },
     {
       "key": "carrier_call_the_ball",
@@ -68,13 +569,426 @@
         "cull the bull",
         "what do i say to lso"
       ],
-      "tags": ["carrier", "lso", "ball", "comms", "recovery"],
+      "tags": [
+        "carrier",
+        "lso",
+        "ball",
+        "comms",
+        "recovery"
+      ],
       "steps": [
         "When wings are level in the groove and you have the ball, make your call.",
         "Format: side number, Hornet Ball, fuel state in thousands.",
         "Example: 301, Hornet Ball, 3.2."
       ],
       "example": "301, Hornet Ball, 3.2"
+    },
+    {
+      "key": "dispense_countermeasures",
+      "title": "Dispense Chaff and Flares",
+      "description": "Manually dispense countermeasures or run a CMDS program.",
+      "alternates": [
+        "dispense chaff flare",
+        "deploy countermeasures",
+        "drop chaff",
+        "pop flares",
+        "chaff and flare",
+        "cmds dispense",
+        "run countermeasure program",
+        "defensive systems"
+      ],
+      "tags": [
+        "chaff",
+        "flare",
+        "cmds",
+        "countermeasures",
+        "ew",
+        "defensive",
+        "dispense"
+      ],
+      "steps": [
+        "Confirm CMDS is powered and a program is loaded on the EW DDI page.",
+        "Press the Countermeasures Dispense Button on the outboard throttle to manually burst.",
+        "For a full program: select the program on the EW page, then press and hold the Dispense Button to run the sequence.",
+        "Check remaining chaff and flare counts on the EW page after dispensing."
+      ],
+      "dcs_actions": {
+        "Chaff": "Dispense Switch - Forward(CHAFF)/Center(OFF)",
+        "Flare": "Dispense Switch - Aft(FLARE)/Center(OFF)"
+      }
+    },
+    {
+      "key": "eject",
+      "title": "Eject",
+      "description": "NACES ejection seat sequence.",
+      "alternates": [
+        "how do i eject",
+        "ejection seat",
+        "punch out",
+        "naces",
+        "eject now",
+        "bail out"
+      ],
+      "tags": [
+        "eject",
+        "naces",
+        "emergency",
+        "punch",
+        "bailout",
+        "seat"
+      ],
+      "steps": [
+        "Head back, spine straight, limbs in before reaching for the handle.",
+        "Lift the yellow-and-black Ejection Seat Handle guard.",
+        "Pull the Ejection Seat Handle firmly \u00e2\u20ac\u201d continuous pull, both hands if possible."
+      ],
+      "dcs_actions": {
+        "Eject": "Gun Trigger - SECOND DETENT (Press to shoot)"
+      }
+    },
+    {
+      "key": "master_arm",
+      "title": "Master Arm ARM / SAFE",
+      "description": "Set Master Arm switch to ARM for weapons or SAFE for safeing up.",
+      "alternates": [
+        "master arm",
+        "arm the jet",
+        "safe the jet",
+        "set master arm",
+        "master arm to arm",
+        "master arm to safe",
+        "weapons arm",
+        "arm switch"
+      ],
+      "tags": [
+        "master",
+        "arm",
+        "safe",
+        "weapon",
+        "arm switch",
+        "panel"
+      ],
+      "steps": [
+        "To arm: set the Master Arm Switch to ARM on the Master Arm panel.",
+        "To safe: set the Master Arm Switch to SAFE.",
+        "Note: the Gun additionally requires the Gun Arm Switch to ARM \u00e2\u20ac\u201d Master Arm alone does not enable the gun."
+      ],
+      "dcs_actions": {
+        "ARM": "Master Arm Switch - ARM",
+        "SAFE": "Master Arm Switch - SAFE"
+      }
+    },
+    {
+      "key": "reset_master_caution",
+      "title": "Reset Master Caution",
+      "description": "Acknowledge and reset the Master Caution or Master Warning light.",
+      "alternates": [
+        "reset master caution",
+        "clear master caution",
+        "acknowledge caution",
+        "master caution light",
+        "master warning",
+        "caution light on",
+        "clear warning"
+      ],
+      "tags": [
+        "caution",
+        "warning",
+        "master caution",
+        "reset",
+        "advisory",
+        "light"
+      ],
+      "steps": [
+        "Identify the triggering advisory on the DDI caution page before resetting.",
+        "Press the Master Caution pushbutton once to extinguish the light.",
+        "Address the underlying fault \u00e2\u20ac\u201d pressing the button clears the light, not the condition."
+      ]
+    },
+    {
+      "key": "emergency_jettison",
+      "title": "Emergency Jettison",
+      "description": "Immediately jettison all external stores.",
+      "alternates": [
+        "emergency jettison",
+        "jettison everything",
+        "drop all stores",
+        "jettison stores",
+        "emergency drop"
+      ],
+      "tags": [
+        "jettison",
+        "emergency",
+        "stores",
+        "drop",
+        "emergency jettison button"
+      ],
+      "steps": [
+        "Confirm clear of friendlies and ground positions below.",
+        "Press the Emergency Jettison Button on the Emergency Jettison panel.",
+        "This drops all stations simultaneously including racks \u00e2\u20ac\u201d Master Arm does not need to be ARM."
+      ],
+      "dcs_actions": {
+        "Jettison": "Weapon Release Button"
+      }
+    },
+    {
+      "key": "selective_jettison",
+      "title": "Selective Jettison",
+      "description": "Jettison a specific store or pylon from the SMS page.",
+      "alternates": [
+        "selective jettison",
+        "jettison one store",
+        "drop specific weapon",
+        "jettison single pylon",
+        "drop one bomb"
+      ],
+      "tags": [
+        "jettison",
+        "selective",
+        "sms",
+        "stores",
+        "pylon",
+        "rack"
+      ],
+      "steps": [
+        "Set Master Arm Switch to ARM.",
+        "On the SMS DDI page, select the pylon to jettison using LI, RI, LO, RO, or CTR.",
+        "Rotate the Selective Jettison Knob to RACK/LCHR to drop weapon and rack, or STORES for weapon only.",
+        "Press and hold the Select Jettison Button to release, then return the knob to SAFE."
+      ]
+    },
+    {
+      "key": "select_aa_mode",
+      "title": "Select A/A Master Mode",
+      "description": "Switch to Air-to-Air master mode.",
+      "alternates": [
+        "select aa mode",
+        "air to air mode",
+        "switch to aa",
+        "a a master mode",
+        "go air to air",
+        "dogfight mode",
+        "bvr mode"
+      ],
+      "tags": [
+        "aa",
+        "air to air",
+        "master mode",
+        "sms",
+        "bvr",
+        "dogfight"
+      ],
+      "steps": [
+        "Press the A/A Master Mode Button on the SMS panel.",
+        "Confirm HUD shifts to A/A format and radar is in OPR for search."
+      ]
+    },
+    {
+      "key": "select_ag_mode",
+      "title": "Select A/G Master Mode",
+      "description": "Switch to Air-to-Ground master mode.",
+      "alternates": [
+        "select ag mode",
+        "air to ground mode",
+        "switch to ag",
+        "a g master mode",
+        "go air to ground",
+        "bombing mode",
+        "strike mode"
+      ],
+      "tags": [
+        "ag",
+        "air to ground",
+        "master mode",
+        "sms",
+        "strike",
+        "bombing"
+      ],
+      "steps": [
+        "Press the A/G Master Mode Button on the SMS panel.",
+        "Confirm HUD shifts to A/G format and SMS page shows loaded stores.",
+        "Set Master Arm to ARM only when in the weapons delivery phase."
+      ]
+    },
+    {
+      "key": "speed_brake",
+      "title": "Speed Brake Extend / Retract",
+      "description": "Extend or retract the speed brake using HOTAS.",
+      "alternates": [
+        "speed brake",
+        "extend speed brake",
+        "retract speed brake",
+        "air brake",
+        "boards out",
+        "slow down brake",
+        "SPD BRK"
+      ],
+      "tags": [
+        "speed brake",
+        "airbrake",
+        "boards",
+        "hotas",
+        "throttle",
+        "spd brk"
+      ],
+      "steps": [
+        "To extend: move the Speed Brake Switch on the outboard throttle to EXTEND and release \u00e2\u20ac\u201d it holds open.",
+        "To retract: move the Speed Brake Switch to RETRACT.",
+        "Speed brake auto-retracts with afterburner selection. Maximum 400 KIAS with boards out."
+      ],
+      "dcs_actions": {
+        "Extend": "Speed Brake Switch - EXTEND",
+        "Retract": "Speed Brake Switch - RETRACT"
+      }
+    },
+    {
+      "key": "landing_gear",
+      "title": "Landing Gear Up / Down",
+      "description": "Raise or lower the landing gear.",
+      "alternates": [
+        "landing gear",
+        "gear up",
+        "gear down",
+        "lower gear",
+        "raise gear",
+        "gear handle",
+        "wheels down",
+        "wheels up"
+      ],
+      "tags": [
+        "gear",
+        "landing gear",
+        "handle",
+        "wheels",
+        "down",
+        "up"
+      ],
+      "steps": [
+        "Gear down: move the Landing Gear Handle to DOWN on the Landing Gear panel.",
+        "Gear up: confirm airborne with positive rate, then move handle to UP.",
+        "Three green lights confirm gear down and locked. Gear limit is 250 KIAS."
+      ]
+    },
+    {
+      "key": "refueling_probe",
+      "title": "Extend Refueling Probe",
+      "description": "Extend or retract the aerial refueling probe.",
+      "alternates": [
+        "refueling probe",
+        "extend probe",
+        "retract probe",
+        "aerial refueling",
+        "AAR probe",
+        "probe out",
+        "probe in"
+      ],
+      "tags": [
+        "refueling",
+        "probe",
+        "aar",
+        "extend",
+        "retract",
+        "tanker"
+      ],
+      "steps": [
+        "To extend: set the Refueling Probe Control Switch to EXTEND on the Probe/Hook panel.",
+        "To retract: set the switch to RETRACT after disconnect.",
+        "If normal extend fails, use EMERG EXTD \u00e2\u20ac\u201d note it cannot be hydraulically retracted from that position."
+      ]
+    },
+    {
+      "key": "radar_opr",
+      "title": "Radar STBY to OPR",
+      "description": "Bring the APG-73 radar from standby to operating.",
+      "alternates": [
+        "radar opr",
+        "turn on radar",
+        "radar operate",
+        "spin up radar",
+        "radar from stby",
+        "radar operating",
+        "apg 73 opr"
+      ],
+      "tags": [
+        "radar",
+        "apg-73",
+        "opr",
+        "stby",
+        "operate",
+        "emission",
+        "sensor"
+      ],
+      "steps": [
+        "Rotate the Radar Switch from STBY to OPR on the Radar/Sensor panel.",
+        "Radar begins emitting immediately \u00e2\u20ac\u201d confirm EMCON status before transmitting.",
+        "Allow approximately 3 minutes warm-up from OFF before expecting full OPR performance."
+      ],
+      "dcs_actions": {
+        "OPR": "Radar Elevation Control - Up"
+      }
+    },
+    {
+      "key": "radar_lock",
+      "title": "Lock Radar Contact (TWS to STT)",
+      "description": "Transition from TWS track to a single target STT lock.",
+      "alternates": [
+        "lock radar contact",
+        "lock target",
+        "radar lock",
+        "tws to stt",
+        "get a lock",
+        "single target track",
+        "designate contact"
+      ],
+      "tags": [
+        "radar",
+        "lock",
+        "tws",
+        "stt",
+        "designate",
+        "tdc",
+        "track"
+      ],
+      "steps": [
+        "Confirm radar is SOI \u00e2\u20ac\u201d press Sensor Control Switch forward to assign if needed.",
+        "In TWS, slew the Target Designation Controller over the desired track file.",
+        "Press TDC DEPRESS to designate \u00e2\u20ac\u201d radar transitions to STT.",
+        "Confirm STT lock on the radar DDI and DLZ on the HUD."
+      ],
+      "dcs_actions": {
+        "Designate": "Throttle Designator Controller - DEPRESS"
+      }
+    },
+    {
+      "key": "break_lock",
+      "title": "Break Lock / Undesignate",
+      "description": "Drop radar STT lock or clear an A/G designation.",
+      "alternates": [
+        "break lock",
+        "undesignate",
+        "drop lock",
+        "clear designation",
+        "break radar lock",
+        "lose the lock",
+        "reset radar"
+      ],
+      "tags": [
+        "break lock",
+        "undesignate",
+        "stt",
+        "nws",
+        "stick",
+        "designation"
+      ],
+      "steps": [
+        "Press the NWS/Undesignate Button on the stick once.",
+        "Radar returns from STT to the last search sub-mode.",
+        "Same button clears an A/G surface designation. In the air it undesignates \u00e2\u20ac\u201d on deck it toggles nose wheel steering."
+      ],
+      "dcs_actions": {
+        "Break Lock": "Undesignate/Nose Wheel Steer Switch"
+      }
     }
   ]
 }

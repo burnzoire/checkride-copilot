@@ -24,8 +24,8 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\ba\.?g\.?m\.?[-\s]?(\d+)\b",         re.I), r"AGM-\1"),
     # AIM-XX: "aim", "a i m"
     (re.compile(r"\ba\.?i\.?m\.?[-\s]?(\d+\w*)\b",      re.I), r"AIM-\1"),
-    # AMRAAM: "a metric", "am ram", "aim ram", "aim raam"
-    (re.compile(r"\b(a\s+metric|am\s*r?aam|aim\s+r?aam|aim\s+ram)\b", re.I), "AMRAAM"),
+    # AMRAAM: "a metric", "am ram", "aim ram", "aim raam", "MRAM", "m-ram"
+    (re.compile(r"\b(a\s+metric|am\s*r?aam|aim\s+r?aam|aim\s+ram|m[-\s]?ram)\b", re.I), "AMRAAM"),
     # Sidewinder: occasionally "side winder"
     (re.compile(r"\bside\s+winder\b",                   re.I), "Sidewinder"),
     # Maverick: colloquial plural or mishear → canonical name + designation for BM25
@@ -51,6 +51,7 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bh[\s.\-]?o[\s.\-]?t[\s.\-]?a[\s.\-]?s\b", re.I), "HOTAS"),
     (re.compile(r"\b(hotass|ho\s*tas|hoe\s*tas)\b",        re.I), "HOTAS"),
     (re.compile(r"\bhotez\b",                                 re.I), "HOTAS"),
+    (re.compile(r"\bhotaz\b",                                 re.I), "HOTAS"),
     # "HOTAS" often misheard as "hotels" in short phrases like "on my HOTAS"
     (re.compile(r"\b(my|your|the|on|with|use)\s+hotels\b",  re.I), r"\1 HOTAS"),
     # FLIR / TGP pod names
