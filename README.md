@@ -72,7 +72,7 @@ uv run test
 
 **First run:** Whisper (`small.en`, ~480 MB) and Kokoro TTS download automatically. This takes a minute on first launch; subsequent starts are fast.
 
-> DCS World is optional for voice-only Q&A. For live cockpit state, install the Export.lua hook (included in `setup.ps1`) and restart DCS.
+> DCS World is optional for voice-only Q&A. For live cockpit state, the Export.lua hook is installed by default in `setup.ps1` (unless you pass `-SkipDcsHook`) and can also be run later with `uv run python scripts/install.py`. Restart DCS after installing.
 
 ---
 

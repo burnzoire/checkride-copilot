@@ -45,7 +45,7 @@ function Assert-TrustedInstaller([string]$path, [string]$expectedPublisherContai
     if ($sig.Status -ne "Valid") {
         throw "Installer signature validation failed with status: $($sig.Status)"
     }
-    if (-not $sig.SignerCertificate.Subject.Contains($expectedPublisherContains)) {
+    if (-not ($sig.SignerCertificate.Subject -match "^CN=$expectedPublisherContains(\b|,)")) {
         throw "Unexpected installer signer: $($sig.SignerCertificate.Subject)"
     }
 }
@@ -83,6 +83,7 @@ function Get-GpuInfo {
     }
 
     $nvidia = @($gpus | Where-Object { $_.Name -match "NVIDIA" })
+    # RTX 50-series consumer cards currently use 4-digit model naming (e.g., RTX 5090).
     $rtx50 = @($nvidia | Where-Object { $_.Name -match "RTX\s*50\d{2}" })
     return [pscustomobject]@{
         HasNvidia = $nvidia.Count -gt 0
@@ -168,7 +169,7 @@ Write-Host "Installing project dependencies with uv sync..." -ForegroundColor Ye
 Write-Host ""
 Write-Host "Installing recommended PyTorch variant..." -ForegroundColor Yellow
 $torchArgs = @($torch.InstallArgs)
-& uv @torchArgs
+& uv $torchArgs
 
 Write-Host ""
 Write-Host "Verifying torch install..." -ForegroundColor Yellow
