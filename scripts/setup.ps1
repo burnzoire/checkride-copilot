@@ -134,7 +134,8 @@ Write-Host "Installing project dependencies with uv sync..." -ForegroundColor Ye
 
 Write-Host ""
 Write-Host "Installing recommended PyTorch variant..." -ForegroundColor Yellow
-& uv @($torch.InstallArgs)
+$torchArgs = @($torch.InstallArgs)
+& uv @torchArgs
 
 Write-Host ""
 Write-Host "Verifying torch install..." -ForegroundColor Yellow
