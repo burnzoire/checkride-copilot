@@ -10,83 +10,36 @@ Put an AI instructor pilot in your ear — no cloud, no subscription, no data le
 
 ## Developer Setup
 
-### Prerequisites
-
-| Requirement | Version | Notes |
-|-------------|---------|-------|
-| Python | 3.11+ | [python.org](https://python.org) — add to PATH |
-| Git | any | [git-scm.com](https://git-scm.com) |
-| Ollama | latest | [ollama.com](https://ollama.com) — must be running on `localhost:11434` |
-| CUDA toolkit | 12.x (optional) | GPU acceleration for Whisper STT. CPU fallback works but is slower. |
-| DCS World | 2.9+ | Required for live cockpit state. The demo runs without DCS for Q&A. |
-
-### 1. Clone and install uv
+### 1. Clone
 
 ```powershell
 git clone https://github.com/your-org/checkride-copilot.git
 cd checkride-copilot
 
-pip install --user uv
 ```
 
-### 2. Install PyTorch (GPU users — do this first)
+### 2. One-command installer (recommended, Windows)
 
-Skip this step if you don't have an NVIDIA GPU. The CPU fallback is automatic.
+This installer auto-detects your GPU and recommends/installs the correct PyTorch build:
+- **RTX 50xx** → CUDA 12.8 nightly (`cu128`)
+- **RTX 10xx–40xx** → CUDA 12.1 (`cu121`)
+- **No NVIDIA GPU** → CPU torch wheel
+
+It also installs/pulls everything else needed (uv, project deps, Ollama, model, DCS hook).
 
 ```powershell
-# RTX 30xx / 40xx (CUDA 12.1):
-uv pip install torch --index-url https://download.pytorch.org/whl/cu121
-
-# RTX 50xx (CUDA 12.8, sm_120):
-uv pip install --pre torch --force-reinstall --index-url https://download.pytorch.org/whl/nightly/cu128
+powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1
 ```
 
-### Windows GPU quickstart (fresh clone)
-
-If you want the most straightforward NVIDIA setup on Windows, run these exactly:
+Optional flags:
 
 ```powershell
-uv sync
-uv pip install --index-url https://download.pytorch.org/whl/cu121 torch
-uv run python -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available())"
-uv run start
+.\scripts\setup.ps1 -SkipDcsHook
+.\scripts\setup.ps1 -SkipModelPull
+.\scripts\setup.ps1 -SkipOllama
 ```
 
-Notes:
-- `uv sync` installs NVIDIA CUDA runtime wheels (`nvidia-cublas-cu12`, `nvidia-cudnn-cu12`) used by faster-whisper.
-- The app auto-discovers those DLL paths on Windows at runtime.
-- If `torch.cuda.is_available()` prints `False`, update your NVIDIA driver and retry.
-
-### 3. Install project dependencies
-
-```powershell
-uv sync
-```
-
-> **Note:** `pyaudio` requires PortAudio. If the pip install fails on Windows, install the wheel directly:
-> ```powershell
-> uv pip install pipwin && uv run pipwin install pyaudio
-> ```
-
-### 4. Pull the Ollama model
-
-```powershell
-ollama pull qwen2.5:7b
-```
-
-Ollama must be running (`ollama serve`) before starting the copilot. On Windows, the Ollama installer adds a system tray app that starts automatically.
-
-### 5. Install the DCS Export.lua hook
-
-This lets the copilot read live cockpit state. Skip if you just want to test the voice Q&A without DCS running.
-
-```powershell
-python scripts/install.py
-```
-
-Restart DCS after running this. To uninstall: `python scripts/install.py --uninstall`
-
-### 6. Run the voice demo
+### 3. Run the voice demo
 
 ```powershell
 uv run start-demo
@@ -112,6 +65,8 @@ uv run test
 ```
 
 **First run:** Whisper (`small.en`, ~480 MB) and Kokoro TTS download automatically. This takes a minute on first launch; subsequent starts are fast.
+
+> DCS World is optional for voice-only Q&A. For live cockpit state, install the Export.lua hook (included in `setup.ps1`) and restart DCS.
 
 ---
 
