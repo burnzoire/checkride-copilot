@@ -34,13 +34,13 @@
     },
     {
       "num": 2,
-      "action": "On a DDI or AMPCD, open TAC and set FLIR sensor switch to STBY.",
-      "voiced": "Open TAC and set FLIR to STBY to start pod warmup."
+      "action": "FLIR Switch (Radar/Sensor Panel, right console) - STBY.",
+      "voiced": "FLIR Switch on the right console sensor panel — set to STBY to start pod warmup."
     },
     {
       "num": 3,
-      "action": "Press FLIR on TAC to display the targeting pod format, wait for STBY, then set FLIR to ON and confirm OPR.",
-      "voiced": "Press FLIR on TAC, wait for STBY, then set FLIR ON and confirm OPR."
+      "action": "On a DDI or AMPCD, open TAC page. Once pod reports STBY, set FLIR Switch - ON and confirm OPR.",
+      "voiced": "Open TAC on a DDI, wait for STBY, then FLIR Switch to ON and confirm OPR."
     }
   ]
 }

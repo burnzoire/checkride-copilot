@@ -71,6 +71,14 @@ def test_victor_low_to_vhf_low():
     )
 
 
+def test_gpu12_normalizes_to_gbu12():
+    assert correct("How do I drop GPU 12s?") == "How do I drop GBU-12s?"
+
+
+def test_gpu12_compact_normalizes_to_gbu12():
+    assert correct("How do I drop GPU12?") == "How do I drop GBU-12?"
+
+
 def test_flare_switch_disambiguates_to_flir_switch():
     assert correct("Where is the flare switch?") == "Where is the FLIR switch?"
 

@@ -7,7 +7,14 @@ from typing import Any
 import httpx
 
 from orchestrator.session import Session
-from orchestrator.tools import TOOL_REGISTRY, TOOL_SCHEMAS, load_proc, fetch_state
+from orchestrator.tools import (
+    TOOL_REGISTRY,
+    TOOL_SCHEMAS,
+    fetch_state,
+    load_proc,
+    tool_list_procedures,
+    tool_start_procedure,
+)
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 MAX_HISTORY = 10
@@ -47,6 +54,8 @@ Rules:
 1a) For short focused requests or questions about simple actions (e.g., "turn on TGP", "how do I dispense chaff", "zoom TGP", "point track", "select amraam"), call get_quick_action first.
 1b) Use full procedures only when the request is clearly multi-step and long-form (e.g., "walk me through startup", "pre-flight procedure").
 1c) For questions about the user's configuration or keybinds (e.g., "what button have I assigned X to?"), call lookup_switch first.
+1d) For any question about current flight state — heading, altitude, airspeed, fuel, master arm, nav mode, radar mode, or any other live cockpit value — call get_cockpit_state first, then answer directly from the result. Never ask the user to provide state you can fetch yourself.
+1e) Tool priority order is strict: live sim state first, then quick actions/procedures, then broader guide/RAG search, and NATOPS/document search only as last resort.
 2) Never invent switch names, procedure keys, or cockpit states.
 3) If confidence is low, ask one precise clarifying question.
 4) Keep spoken answers concise: usually 1-2 sentences. For lookup_switch results: if the user asks "where", give the location; if they ask "what button", give the keybind. Avoid redundant location descriptions (e.g., don't say "throttle grip and outboard throttle" — use one).
@@ -60,6 +69,169 @@ Rules:
 """.strip()
 
 
+def _looks_action_or_procedure_query(text: str) -> bool:
+    q = text.lower()
+    return bool(
+        re.search(
+            r"\b(how\s+do\s+i|how\s+to|turn\s+on|power\s+on|set|select|fire|launch|drop|employ|use|"
+            r"startup|start\s*up|procedure|steps?|walk\s+me\s+through|mk\s*-?\s*\d+|gbu\s*-?\s*\d+|"
+            r"aim\s*-?\s*\d+|agm\s*-?\s*\d+|amraam|sidewinder|jdam|jsow|harm|maverick|bomb|missile)\b",
+            q,
+        )
+    )
+
+
+def _run_grounding_fallback_chain(
+    transcript: str,
+    session: Session,
+    messages: list[dict[str, Any]],
+    total_tool_calls: int,
+) -> tuple[int, bool]:
+    """Fallback grounding order: quick action -> procedure catalog -> NATOPS(last resort)."""
+    used_any = False
+
+    # For action/procedure-like requests, try quick actions first.
+    if total_tool_calls < MAX_TOOL_CALLS and _looks_action_or_procedure_query(transcript):
+        qa_fn = TOOL_REGISTRY.get("get_quick_action")
+        if qa_fn:
+            try:
+                qa_result = qa_fn({"query": transcript, "max_steps": 5}, session)
+            except Exception as e:
+                qa_result = {"ok": False, "error": f"Quick action grounding failed: {e}"}
+            total_tool_calls += 1
+            used_any = True
+            messages.append({"role": "tool", "name": "get_quick_action", "content": json.dumps(qa_result)})
+            if isinstance(qa_result, dict) and qa_result.get("ok") is True and qa_result.get("found") is True:
+                messages.append(
+                    {
+                        "role": "user",
+                        "content": "Use the quick action result directly. Keep it concise and actionable.",
+                    }
+                )
+                return total_tool_calls, used_any
+
+    # Next, try indexed procedures before broad document search.
+    if total_tool_calls < MAX_TOOL_CALLS and _looks_action_or_procedure_query(transcript):
+        proc_fn = TOOL_REGISTRY.get("list_procedures")
+        if proc_fn:
+            try:
+                proc_result = proc_fn({"query": transcript, "limit": 3}, session)
+            except Exception as e:
+                proc_result = {"ok": False, "error": f"Procedure grounding failed: {e}"}
+            total_tool_calls += 1
+            used_any = True
+            messages.append({"role": "tool", "name": "list_procedures", "content": json.dumps(proc_result)})
+            if isinstance(proc_result, dict) and proc_result.get("ok") is True and proc_result.get("matches"):
+                messages.append(
+                    {
+                        "role": "user",
+                        "content": (
+                            "Use procedure matches first. If one match is clearly best, use it; "
+                            "if not, ask one concise clarifying question."
+                        ),
+                    }
+                )
+                return total_tool_calls, used_any
+
+    # Last resort only: NATOPS/RAG search.
+    if total_tool_calls < MAX_TOOL_CALLS:
+        docs_fn = TOOL_REGISTRY.get("search_natops")
+        if docs_fn:
+            try:
+                docs_result = docs_fn({"query": transcript, "top_k": 3}, session)
+            except Exception as e:
+                docs_result = {"ok": False, "error": f"Grounding docs search failed: {e}"}
+            total_tool_calls += 1
+            used_any = True
+            messages.append(
+                {
+                    "role": "tool",
+                    "name": "search_natops",
+                    "content": json.dumps(docs_result),
+                }
+            )
+            messages.append(
+                {
+                    "role": "user",
+                    "content": (
+                        "Use only grounded tool output. "
+                        "If evidence is insufficient, ask one precise clarifying question."
+                    ),
+                }
+            )
+
+    return total_tool_calls, used_any
+
+
+def _is_cockpit_state_query(text: str) -> bool:
+    """Detect questions about live cockpit values that should be answered from state, not docs."""
+    q = text.lower()
+    # Must be a question or current-state phrasing, not a how-to
+    if not re.search(r"\b(what|what's|whats|tell me|current|am i|my|give me|show|read|reading)\b", q):
+        return False
+    # Exclude procedural how-to questions
+    if re.search(r"\b(how\s+do|how\s+to|how\s+can|procedure|steps?|walk\s+me)\b", q):
+        return False
+    return bool(re.search(
+        r"\b(heading|bearing|course|direction|altitude|asl|agl|elevation|height|"
+        r"airspeed|speed|knots|kts|mach|fuel|bingo|fuel\s+state|"
+        r"master\s+arm|radar\s+mode|nav\s+mode|selected\s+weapon|weapon\s+selected)\b",
+        q
+    ))
+
+
+def _cockpit_state_fast_reply(transcript: str) -> str | None:
+    """Call get_cockpit_state directly and return a grounded spoken answer."""
+    from orchestrator.tools import fetch_state
+    state = fetch_state()
+    if not state:
+        return "No cockpit state available right now — make sure DCS is running."
+
+    q = transcript.lower()
+
+    if re.search(r"\b(heading|bearing|course|direction)\b", q):
+        hdg = state.get("heading_deg")
+        if hdg is None:
+            return "Heading not available in current state."
+        return f"Your heading is {hdg:.0f} degrees magnetic."
+
+    if re.search(r"\b(altitude|asl|agl|elevation|height)\b", q):
+        alt = state.get("altitude_ft")
+        if alt is None:
+            return "Altitude not available in current state."
+        return f"Altitude is {alt:.0f} feet."
+
+    if re.search(r"\b(airspeed|speed|knots|kts|mach)\b", q):
+        spd = state.get("airspeed_kts")
+        if spd is None:
+            return "Airspeed not available in current state."
+        return f"Airspeed is {spd:.0f} knots."
+
+    if re.search(r"\bmaster\s+arm\b", q):
+        arm = state.get("master_arm")
+        if arm is None:
+            return "Master arm state not available."
+        return f"Master arm is {arm}."
+
+    if re.search(r"\bradar\s+mode\b", q):
+        mode = state.get("radar_mode")
+        if mode is None:
+            return "Radar mode not available in current state."
+        return f"Radar mode is {mode}."
+
+    # Generic: return whatever we have
+    parts: list[str] = []
+    if state.get("heading_deg") is not None:
+        parts.append(f"heading {state['heading_deg']:.0f}")
+    if state.get("altitude_ft") is not None:
+        parts.append(f"altitude {state['altitude_ft']:.0f} feet")
+    if state.get("airspeed_kts") is not None:
+        parts.append(f"airspeed {state['airspeed_kts']:.0f} knots")
+    if not parts:
+        return "Cockpit state is available but no flight parameters were found."
+    return "Current state: " + ", ".join(parts) + "."
+
+
 def _is_call_the_ball_query(text: str) -> bool:
     q = text.lower()
     if "call the ball" in q:
@@ -71,6 +243,70 @@ def _is_call_the_ball_query(text: str) -> bool:
             and re.search(r"\bball|bull\b", q)
         )
     )
+
+
+def _is_full_procedure_query(text: str) -> bool:
+    """Detect explicit multi-step requests that should start a procedure deterministically."""
+    q = text.lower()
+    asks_how = bool(re.search(r"\b(how\s+do\s+i|how\s+to|walk\s+me\s+through|procedure|steps?)\b", q))
+    weapon_task = bool(
+        re.search(r"\b(drop|dropping|release|employ|launch|fire|use)\b", q)
+        and re.search(r"\b(gbu\s*-?\s*\d+\w*|mk\s*-?\s*\d+\w*|aim\s*-?\s*\d+\w*|agm\s*-?\s*\d+\w*|amraam|jdam|jsow|harm|maverick|paveway)\b", q)
+    )
+    return asks_how and weapon_task
+
+
+def _extract_weapon_designator(text: str) -> str | None:
+    m = re.search(r"\b(gbu|mk|aim|agm)\s*-?\s*(\d+[a-z]?(?:s)?)\b", text.lower())
+    if not m:
+        return None
+    suffix = m.group(2)
+    if suffix.endswith("s") and suffix[:-1].isdigit():
+        suffix = suffix[:-1]
+    return f"{m.group(1)}-{suffix}"
+
+
+def _full_procedure_fast_reply(transcript: str, session: Session) -> str | None:
+    """Start a clearly matched procedure for explicit multi-step requests."""
+    result = tool_list_procedures({"query": transcript, "limit": 3}, session)
+    if not isinstance(result, dict) or result.get("ok") is not True:
+        return None
+
+    matches = result.get("matches") or []
+    if not matches:
+        return None
+
+    top = matches[0]
+    top_score = int(top.get("score") or 0)
+    second_score = int(matches[1].get("score") or 0) if len(matches) > 1 else -999
+
+    # Require a clear winner to avoid false auto-starts.
+    if top_score < 4 or (top_score - second_score) < 2:
+        return None
+
+    proc_key = str(top.get("key") or "").strip()
+    if not proc_key:
+        return None
+
+    # If a specific weapon designator is present in the query, only auto-start
+    # when the top candidate clearly contains that same designator.
+    wanted = _extract_weapon_designator(transcript)
+    if wanted:
+        top_blob = " ".join(
+            [
+                str(top.get("key") or ""),
+                str(top.get("canonical") or ""),
+            ]
+        ).lower().replace("_", "-")
+        if wanted not in top_blob:
+            return None
+
+    started = tool_start_procedure({"proc_key": proc_key}, session)
+    if not isinstance(started, dict) or started.get("ok") is not True:
+        return None
+
+    intro = str(started.get("intro") or "").strip()
+    return intro or None
 
 
 def _is_airfield_frequency_query(text: str) -> bool:
@@ -490,6 +726,18 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
     if _is_call_the_ball_query(transcript):
         return _call_the_ball_fast_reply()
 
+    # Deterministic cockpit state path — heading, altitude, airspeed, master arm, radar mode.
+    if _is_cockpit_state_query(transcript):
+        state_fast = _cockpit_state_fast_reply(transcript)
+        if state_fast:
+            return state_fast
+
+    # Deterministic full-procedure path for explicit multi-step weapon/task requests.
+    if _is_full_procedure_query(transcript):
+        proc_fast = _full_procedure_fast_reply(transcript, session)
+        if proc_fast:
+            return proc_fast
+
     # Deterministic mission contact path for carrier/tanker radio and TACAN.
     if _is_miz_contact_query(transcript):
         contact_fast = _miz_contact_fast_reply(transcript, session)
@@ -545,29 +793,10 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
             # Hard grounding guard: do not allow a direct answer before at least
             # one tool result has been collected for this turn.
             if total_tool_calls == 0:
-                docs_fn = TOOL_REGISTRY.get("search_natops")
-                if docs_fn:
-                    try:
-                        docs_result = docs_fn({"query": transcript, "top_k": 3}, session)
-                    except Exception as e:
-                        docs_result = {"ok": False, "error": f"Grounding docs search failed: {e}"}
-                    total_tool_calls += 1
-                    messages.append(
-                        {
-                            "role": "tool",
-                            "name": "search_natops",
-                            "content": json.dumps(docs_result),
-                        }
-                    )
-                    messages.append(
-                        {
-                            "role": "user",
-                            "content": (
-                                "Use only grounded tool output. "
-                                "If evidence is insufficient, ask one precise clarifying question."
-                            ),
-                        }
-                    )
+                total_tool_calls, used_any = _run_grounding_fallback_chain(
+                    transcript, session, messages, total_tool_calls
+                )
+                if used_any:
                     continue
 
             content = clean_reply(msg.get("content", ""))
@@ -638,20 +867,36 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
                 and result.get("found") is False
                 and total_tool_calls < MAX_TOOL_CALLS
             ):
-                docs_fn = TOOL_REGISTRY.get("search_natops")
-                if docs_fn:
+                proc_fn = TOOL_REGISTRY.get("list_procedures")
+                if proc_fn:
                     try:
-                        docs_result = docs_fn({"query": transcript, "top_k": 3}, session)
+                        proc_result = proc_fn({"query": transcript, "limit": 3}, session)
                     except Exception as e:
-                        docs_result = {"ok": False, "error": f"Fallback docs search failed: {e}"}
+                        proc_result = {"ok": False, "error": f"Fallback procedure search failed: {e}"}
                     total_tool_calls += 1
                     messages.append(
                         {
                             "role": "tool",
-                            "name": "search_natops",
-                            "content": json.dumps(docs_result),
+                            "name": "list_procedures",
+                            "content": json.dumps(proc_result),
                         }
                     )
+
+                if total_tool_calls < MAX_TOOL_CALLS:
+                    docs_fn = TOOL_REGISTRY.get("search_natops")
+                    if docs_fn:
+                        try:
+                            docs_result = docs_fn({"query": transcript, "top_k": 3}, session)
+                        except Exception as e:
+                            docs_result = {"ok": False, "error": f"Fallback docs search failed: {e}"}
+                        total_tool_calls += 1
+                        messages.append(
+                            {
+                                "role": "tool",
+                                "name": "search_natops",
+                                "content": json.dumps(docs_result),
+                            }
+                        )
 
         if total_tool_calls >= MAX_TOOL_CALLS:
             messages.append(

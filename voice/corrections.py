@@ -22,6 +22,8 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\b(cull|coal|call)\s+the\s+(bull|ball)\b", re.I), "call the ball"),
 
     # ── Missile designations ────────────────────────────────────────────────
+    # GBU-XX: Whisper occasionally hears "GPU" for "GBU"
+    (re.compile(r"\bg\.?p\.?u\.?[-\s]?(\d+\w*)\b",      re.I), r"GBU-\1"),
     # AGM-XX: Whisper hears "age em", "a g m", "aim", "in age em"
     (re.compile(r"\bin\s+age\s+em[-\s]?(\d+)\b",       re.I), r"AGM-\1"),
     (re.compile(r"\bage\s+em[-\s]?(\d+)\b",             re.I), r"AGM-\1"),

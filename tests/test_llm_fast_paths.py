@@ -4,7 +4,14 @@ Tests for deterministic LLM fast paths.
 Run: pytest tests/test_llm_fast_paths.py -v
 """
 
-from orchestrator.llm import call_ollama_with_tools, _is_closing_statement
+from orchestrator.llm import (
+    call_ollama_with_tools,
+    _full_procedure_fast_reply,
+    _is_full_procedure_query,
+    _is_closing_statement,
+    _is_cockpit_state_query,
+    _cockpit_state_fast_reply,
+)
 from orchestrator.session import Session
 import orchestrator.llm as llm_module
 
@@ -26,6 +33,218 @@ def test_question_form_is_not_treated_as_closing_statement():
 
 def test_explanatory_acknowledgment_is_treated_as_closing_statement():
     assert _is_closing_statement("Yeah, that's because I am stationary on the carrier CVN-71.") is True
+
+
+# ── Cockpit state fast path ───────────────────────────────────────────────────
+
+def test_heading_query_is_detected_as_state_query():
+    assert _is_cockpit_state_query("What's my current heading?") is True
+    assert _is_cockpit_state_query("Hey, tell me what heading I'm facing.") is True
+    assert _is_cockpit_state_query("What direction am I heading?") is True
+
+
+def test_airspeed_query_is_detected_as_state_query():
+    assert _is_cockpit_state_query("What is my current speed?") is True
+    assert _is_cockpit_state_query("Give me my airspeed.") is True
+
+
+def test_altitude_query_is_detected_as_state_query():
+    assert _is_cockpit_state_query("What's my altitude?") is True
+    assert _is_cockpit_state_query("Tell me my current elevation.") is True
+
+
+def test_procedural_how_to_is_not_state_query():
+    assert _is_cockpit_state_query("How do I read my heading on the HUD?") is False
+    assert _is_cockpit_state_query("How do I set my airspeed?") is False
+
+
+def test_cockpit_state_fast_reply_heading(monkeypatch):
+    monkeypatch.setattr(
+        "orchestrator.tools.fetch_state",
+        lambda: {"heading_deg": 19.0, "altitude_ft": 65.0, "airspeed_kts": 48.0},
+    )
+    reply = _cockpit_state_fast_reply("What's my heading?")
+    assert reply is not None
+    assert "19" in reply
+    assert "magnetic" in reply.lower()
+
+
+def test_cockpit_state_fast_reply_airspeed(monkeypatch):
+    monkeypatch.setattr(
+        "orchestrator.tools.fetch_state",
+        lambda: {"heading_deg": 19.0, "altitude_ft": 65.0, "airspeed_kts": 48.0},
+    )
+    reply = _cockpit_state_fast_reply("What is my current speed?")
+    assert reply is not None
+    assert "48" in reply
+
+
+def test_cockpit_state_fast_reply_no_state(monkeypatch):
+    monkeypatch.setattr("orchestrator.tools.fetch_state", lambda: None)
+    reply = _cockpit_state_fast_reply("What's my heading?")
+    assert reply is not None
+    assert "DCS" in reply or "available" in reply.lower()
+
+
+def test_full_procedure_query_detection_for_gbu_drop():
+    assert _is_full_procedure_query("How do I drop GBU-12s?") is True
+    assert _is_full_procedure_query("Walk me through dropping GBU12") is True
+    assert _is_full_procedure_query("GBU-12") is False
+
+
+def test_full_procedure_fast_reply_starts_clear_winner(monkeypatch):
+    monkeypatch.setattr(
+        llm_module,
+        "tool_list_procedures",
+        lambda _args, _session: {
+            "ok": True,
+            "matches": [
+                {
+                    "score": 6,
+                    "key": "gbu_12_paveway_ii_laser_guided",
+                    "canonical": "GBU-12 Paveway II (Laser-Guided)",
+                },
+                {"score": 1, "key": "other_proc", "canonical": "Other"},
+            ],
+        },
+    )
+    monkeypatch.setattr(
+        llm_module,
+        "tool_start_procedure",
+        lambda _args, _session: {
+            "ok": True,
+            "active_proc": "gbu_12_paveway_ii_laser_guided",
+            "intro": "GBU-12 Paveway II (Laser-Guided). 35 steps total. First: Set Master Arm switch to ARM.",
+        },
+    )
+
+    out = _full_procedure_fast_reply("How do I drop GBU-12s?", Session())
+    assert out is not None
+    assert "GBU-12" in out
+
+
+def test_full_procedure_fast_reply_rejects_designator_mismatch(monkeypatch):
+    monkeypatch.setattr(
+        llm_module,
+        "tool_list_procedures",
+        lambda _args, _session: {
+            "ok": True,
+            "matches": [
+                {
+                    "score": 7,
+                    "key": "gbu_12_paveway_ii_laser_guided",
+                    "canonical": "GBU-12 Paveway II (Laser-Guided)",
+                },
+                {"score": 1, "key": "other_proc", "canonical": "Other"},
+            ],
+        },
+    )
+    out = _full_procedure_fast_reply("How do I drop MK82?", Session())
+    assert out is None
+
+
+def test_call_ollama_uses_full_procedure_fast_path(monkeypatch):
+    monkeypatch.setattr(
+        llm_module,
+        "_full_procedure_fast_reply",
+        lambda _t, _s: "GBU-12 Paveway II (Laser-Guided). 35 steps total. First: Set Master Arm switch to ARM.",
+    )
+
+    def _should_not_call_ollama(*_args, **_kwargs):
+        raise AssertionError("Ollama should not be called for full procedure fast path")
+
+    monkeypatch.setattr(llm_module.httpx, "post", _should_not_call_ollama)
+
+    out = call_ollama_with_tools("How do I drop GBU-12s?", Session(), model="unused")
+    assert "GBU-12" in out
+
+
+def test_grounding_fallback_prefers_quick_action_then_procedures_before_natops(monkeypatch):
+    call_order: list[str] = []
+    monkeypatch.setattr(llm_module, "_is_full_procedure_query", lambda _t: False)
+
+    def _quick_action(_args, _session):
+        call_order.append("get_quick_action")
+        return {"ok": True, "found": False}
+
+    def _list_procedures(_args, _session):
+        call_order.append("list_procedures")
+        return {"ok": True, "matches": [{"key": "mk82_ccip", "canonical": "MK-82 CCIP"}]}
+
+    def _search_natops(_args, _session):
+        call_order.append("search_natops")
+        return {"ok": True, "hits": []}
+
+    monkeypatch.setitem(llm_module.TOOL_REGISTRY, "get_quick_action", _quick_action)
+    monkeypatch.setitem(llm_module.TOOL_REGISTRY, "list_procedures", _list_procedures)
+    monkeypatch.setitem(llm_module.TOOL_REGISTRY, "search_natops", _search_natops)
+
+    class _Resp:
+        def __init__(self, payload):
+            self._payload = payload
+
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return self._payload
+
+    calls = {"n": 0}
+
+    def _fake_post(*_args, **_kwargs):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            # Model does not tool-call on first pass; fallback chain should run.
+            return _Resp({"message": {"content": "", "tool_calls": []}, "done_reason": "stop"})
+        # Second pass returns final content.
+        return _Resp({"message": {"content": "Use MK-82 CCIP profile."}, "done_reason": "stop"})
+
+    monkeypatch.setattr(llm_module.httpx, "post", _fake_post)
+
+    out = call_ollama_with_tools("How do I drop MK82?", Session(), model="unused")
+    assert "MK-82" in out
+    assert call_order[:2] == ["get_quick_action", "list_procedures"]
+
+
+def test_quick_action_miss_falls_back_to_procedures_before_natops(monkeypatch):
+    call_order: list[str] = []
+    monkeypatch.setattr(llm_module, "_is_full_procedure_query", lambda _t: False)
+
+    def _quick_action(_args, _session):
+        call_order.append("get_quick_action")
+        return {"ok": True, "found": False}
+
+    def _list_procedures(_args, _session):
+        call_order.append("list_procedures")
+        return {"ok": True, "matches": []}
+
+    def _search_natops(_args, _session):
+        call_order.append("search_natops")
+        return {"ok": True, "hits": []}
+
+    monkeypatch.setitem(llm_module.TOOL_REGISTRY, "get_quick_action", _quick_action)
+    monkeypatch.setitem(llm_module.TOOL_REGISTRY, "list_procedures", _list_procedures)
+    monkeypatch.setitem(llm_module.TOOL_REGISTRY, "search_natops", _search_natops)
+
+    class _Resp:
+        def __init__(self, payload):
+            self._payload = payload
+
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return self._payload
+
+    def _fake_post(*_args, **_kwargs):
+        return _Resp({"message": {"content": "Grounded answer.", "tool_calls": []}, "done_reason": "stop"})
+
+    monkeypatch.setattr(llm_module.httpx, "post", _fake_post)
+
+    call_ollama_with_tools("How do I drop GBU-12?", Session(), model="unused")
+    # With MAX_TOOL_CALLS=2, quick-action miss should still spend remaining budget
+    # on procedures before any docs fallback.
+    assert call_order[:2] == ["get_quick_action", "list_procedures"]
 
 
 def test_airfield_tower_frequency_query_uses_fast_path(monkeypatch):

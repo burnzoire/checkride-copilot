@@ -118,6 +118,18 @@ def _expand_procedure_query_tokens(query: str) -> set[str]:
     tokens = _query_tokens(query)
     intents = _procedure_intents(query)
 
+    # Expand fused designators like gbu12/aim120/agm65 into component tokens so
+    # they still match canonical hyphenated entries in the procedure index.
+    fused = set(tokens)
+    for tok in fused:
+        m = re.match(r"^([a-z]{2,})(\d{1,3}[a-z]?)$", tok)
+        if not m:
+            continue
+        prefix, suffix = m.group(1), m.group(2)
+        tokens.add(prefix)
+        tokens.add(suffix)
+        tokens.add(f"{prefix}-{suffix}")
+
     if intents["tgp"]:
         tokens.update(
             {
@@ -683,7 +695,7 @@ TOOL_SCHEMAS = [
         "type": "function",
         "function": {
             "name": "search_natops",
-            "description": "Search indexed NATOPS/procedure chunks. Use for tactical/procedural questions.",
+            "description": "Search indexed NATOPS/procedure chunks. Last resort after quick actions and procedure lookup do not provide a usable result.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -713,7 +725,7 @@ TOOL_SCHEMAS = [
         "type": "function",
         "function": {
             "name": "get_cockpit_state",
-            "description": "Get fresh cockpit state snapshot from the local collector.",
+            "description": "Get fresh cockpit state snapshot from the local collector. Use for any question about current heading, altitude, airspeed, fuel, master arm, nav mode, radar mode, or any other live cockpit value.",
             "parameters": {"type": "object", "properties": {}},
         },
     },

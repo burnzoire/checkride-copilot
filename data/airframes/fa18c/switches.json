@@ -897,6 +897,39 @@
                 "operate",
                 "emergency"
               ]
+            },
+            {
+              "canonical": "FLIR Switch",
+              "alternates": [
+                "FLIR",
+                "FLIR sensor switch",
+                "FLIR power",
+                "FLIR switch",
+                "targeting pod sensor switch",
+                "targeting pod power",
+                "TGP power",
+                "TGP switch",
+                "pod power",
+                "ATFLIR switch",
+                "ATFLIR power",
+                "sensor pod switch"
+              ],
+              "positions": [
+                "OFF",
+                "STBY",
+                "ON"
+              ],
+              "spoken": [
+                "off",
+                "standby",
+                "on"
+              ],
+              "spoken_location": "The FLIR Switch is on the Radar/Sensor Panel on the right console.",
+              "dcs_actions": {
+                "OFF": "FLIR Switch - OFF",
+                "STBY": "FLIR Switch - STBY",
+                "ON": "FLIR Switch - ON"
+              }
             }
           ]
         },
