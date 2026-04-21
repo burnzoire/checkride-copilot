@@ -62,3 +62,32 @@ def test_cobaltia_landing_radio_query_maps_to_airfield_inbound_action():
     assert result["ok"] is True
     assert result["found"] is True
     assert result["key"] == "radio_airfield_inbound"
+
+
+def test_sochi_query_uses_sochi_in_example_not_kobuleti():
+    result = tool_get_quick_action(
+        {"query": "I'm inbound to Sochi Airfield. How do I call traffic for landing?"},
+        Session(),
+    )
+    assert result["ok"] is True
+    assert result["found"] is True
+    assert result["key"] == "radio_airfield_inbound"
+    example = str(result.get("example") or "")
+    assert "Sochi" in example
+    assert "Kobuleti" not in example
+
+
+def test_radio_followup_on_final_stays_in_airfield_context():
+    session = Session()
+    first = tool_get_quick_action(
+        {"query": "I'm inbound to Sochi Airfield. How do I call traffic for landing?"},
+        session,
+    )
+    assert first["key"] == "radio_airfield_inbound"
+
+    follow = tool_get_quick_action({"query": "What about on final?"}, session)
+    assert follow["ok"] is True
+    assert follow["found"] is True
+    assert follow["key"] == "radio_airfield_inbound"
+    joined = " ".join(step["text"] for step in follow.get("steps", [])).lower()
+    assert "final" in joined

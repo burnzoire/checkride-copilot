@@ -13,6 +13,7 @@ class Session:
     last_retrieval_confidence: str = "MEDIUM"
     turn_confidence: str = "MEDIUM"
     last_reply_incomplete: bool = False
+    last_quick_action_key: str | None = None
 
     def begin_turn(self) -> None:
         self.turn_confidence = "MEDIUM"

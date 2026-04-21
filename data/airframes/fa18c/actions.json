@@ -610,10 +610,10 @@
       ],
       "steps": [
         "Use this template: [airfield] traffic, [callsign], [count]-ship Hornet, [direction], [distance] miles, [altitude], inbound full stop.",
-        "Example: Kobuleti traffic, Enfield 1-1, 1-ship Hornet, west, 12 miles, 3000, inbound full stop.",
+        "Pattern calls: [airfield] traffic, [callsign], left downwind runway [runway]. Then [airfield] traffic, [callsign], left base runway [runway]. Then [airfield] traffic, [callsign], final runway [runway], full stop.",
         "If tower-controlled, replace traffic with Tower and add request landing at the end."
       ],
-      "example": "Kobuleti traffic, Enfield 1-1, 1-ship Hornet, west, 12 miles, 3000, inbound full stop."
+      "example": "[airfield] traffic, Enfield 1-1, 1-ship Hornet, west, 12 miles, 3000, inbound full stop."
     },
     {
       "key": "radio_tanker_precontact",

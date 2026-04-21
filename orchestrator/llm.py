@@ -76,9 +76,13 @@ def _is_call_the_ball_query(text: str) -> bool:
 def _is_closing_statement(text: str) -> bool:
     """Detect acknowledgment/closing statements that don't require tool calls."""
     q = text.lower().strip()
+    if "?" in q:
+        return False
+    if re.search(r"\b(what|how|why|when|where|which|who|can|could|would|should|do|does|did)\b", q):
+        return False
     # Match common closing patterns
     closing_patterns = [
-        r"\b(that's it|that is it|all set|we're good|sounds good|roger|copy|wilco|thanks|thank you|cheers|gotcha|got it|ok|okay)\b",
+        r"\b(that's it|that is it|all set|we're good|sounds good|roger|copy|wilco|thanks|thank you|cheers|gotcha|got it)\b",
         r"^(yep|yup|sure|good|alright|thanks)(?:\s|$)",
         r"^(roger that|copy that|understood)$",
     ]
@@ -122,6 +126,37 @@ def _call_the_ball_fast_reply() -> str:
     )
 
 
+def _dedupe_immediate_phrase_repeats(text: str, min_words: int = 2, max_words: int = 8) -> str:
+    """Remove immediate repeated word spans like 'ensure the communication Ensure the communication'."""
+    tokens = text.split()
+    if len(tokens) < min_words * 2:
+        return text
+
+    def _norm(tok: str) -> str:
+        return re.sub(r"(^\W+|\W+$)", "", tok).lower()
+
+    out: list[str] = []
+    i = 0
+    while i < len(tokens):
+        max_n = min(max_words, (len(tokens) - i) // 2)
+        matched = False
+        for n in range(max_n, min_words - 1, -1):
+            a = [_norm(t) for t in tokens[i : i + n]]
+            b = [_norm(t) for t in tokens[i + n : i + 2 * n]]
+            if not all(a) or not all(b):
+                continue
+            if a == b:
+                out.extend(tokens[i : i + n])
+                i += 2 * n
+                matched = True
+                break
+        if not matched:
+            out.append(tokens[i])
+            i += 1
+
+    return " ".join(out)
+
+
 def clean_reply(text: str) -> str:
     text = text.strip()
     text = re.sub(r"\*{1,2}(.+?)\*{1,2}", r"\1", text)
@@ -131,6 +166,15 @@ def clean_reply(text: str) -> str:
     # Strip phrase-level duplication: "It's bound to X... It's bound to X..."
     # Matches multi-word phrases (3-11 words) that appear twice in succession.
     text = re.sub(r"(\S+(?:\s+\S+){2,10}?)\s+\1\b", r"\1", text, flags=re.I)
+    text = _dedupe_immediate_phrase_repeats(text)
+    # Strip adjacent duplicate full sentences.
+    parts = re.split(r"(?<=[.!?])\s+", text)
+    deduped: list[str] = []
+    for p in parts:
+        if deduped and p.strip().lower() == deduped[-1].strip().lower():
+            continue
+        deduped.append(p)
+    text = " ".join(deduped)
     return text.strip()
 
 

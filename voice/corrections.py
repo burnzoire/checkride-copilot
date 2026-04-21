@@ -9,6 +9,10 @@ Add new entries whenever you spot a recurring misread in the logs.
 """
 
 import re
+import json
+from difflib import get_close_matches
+from functools import lru_cache
+from pathlib import Path
 
 # Each entry: (compiled regex, replacement string)
 # Replacements run in order — put more specific patterns before general ones.
@@ -109,9 +113,82 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bm\.?p\.?c\.?d\.?\b",                 re.I), "MPCD"),
 ]
 
+_AIRFIELDS_PATH = Path(__file__).parent.parent / "data" / "airfields_by_map.json"
+
+
+@lru_cache(maxsize=1)
+def _airfield_alias_to_canonical() -> dict[str, str]:
+    alias_map: dict[str, str] = {}
+    try:
+        data = json.loads(_AIRFIELDS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return alias_map
+
+    for airfields in data.get("maps", {}).values():
+        for entry in airfields:
+            canonical = str(entry.get("canonical", "")).strip()
+            if not canonical:
+                continue
+            canonical_key = canonical.lower()
+            alias_map[canonical_key] = canonical
+            for alias in entry.get("aliases", []) or []:
+                key = str(alias).strip().lower()
+                if key:
+                    alias_map[key] = canonical
+    return alias_map
+
+
+def _best_airfield_name(raw: str) -> str | None:
+    alias_map = _airfield_alias_to_canonical()
+    if not alias_map:
+        return None
+
+    candidate = raw.strip().lower()
+    candidate = re.sub(r"^(?:nearby|the|a|an|at|to|from)\s+", "", candidate)
+    candidate = re.sub(r"^(?:nearby|the|a|an|at|to|from)\s+", "", candidate)
+    if not candidate:
+        return None
+
+    exact = alias_map.get(candidate)
+    if exact:
+        return exact
+
+    choices = list(alias_map.keys())
+    matches = get_close_matches(candidate, choices, n=1, cutoff=0.72)
+    if not matches:
+        return None
+    return alias_map[matches[0]]
+
+
+_AIRFIELD_SUFFIX_RE = re.compile(
+    r"\b([a-z][a-z\-']*(?:\s+[a-z][a-z\-']*){0,2})\s+"
+    r"(traffic|tower|airfield|airport)\b",
+    re.I,
+)
+
+
+def _normalize_airfield_names(text: str) -> str:
+    """Normalize probable airfield names near radio/landing words."""
+    lowered = text.lower()
+    if not re.search(r"\b(land|landing|inbound|radio|traffic|tower|airfield|airport|divert)\b", lowered):
+        return text
+
+    def _replace(match: re.Match) -> str:
+        place = match.group(1)
+        suffix = match.group(2)
+        prefix_match = re.match(r"^((?:(?:nearby|the|a|an|at|to|from)\s+)*)", place, re.I)
+        prefix = prefix_match.group(1) if prefix_match else ""
+        core_place = place[len(prefix):] if prefix else place
+        canonical = _best_airfield_name(core_place)
+        if not canonical:
+            return match.group(0)
+        return f"{prefix}{canonical} {suffix}"
+
+    return _AIRFIELD_SUFFIX_RE.sub(_replace, text)
+
 
 def correct(text: str) -> str:
     """Apply all correction rules to a raw Whisper transcript."""
     for pattern, replacement in _RULES:
         text = pattern.sub(replacement, text)
-    return text
+    return _normalize_airfield_names(text)

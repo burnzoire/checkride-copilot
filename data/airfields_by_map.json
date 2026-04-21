@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "maps": {
+    "caucasus": [
+      {"canonical": "Anapa-Vityazevo", "aliases": ["anapa"]},
+      {"canonical": "Krymsk", "aliases": []},
+      {"canonical": "Krasnodar-Center", "aliases": ["krasnodar center"]},
+      {"canonical": "Krasnodar-Pashkovsky", "aliases": ["pashkovsky"]},
+      {"canonical": "Maykop-Khanskaya", "aliases": ["maykop"]},
+      {"canonical": "Novorossiysk", "aliases": []},
+      {"canonical": "Gelendzhik", "aliases": []},
+      {"canonical": "Sochi-Adler", "aliases": ["sochi"]},
+      {"canonical": "Gudauta", "aliases": []},
+      {"canonical": "Sukhumi-Babushara", "aliases": ["sukhumi"]},
+      {"canonical": "Senaki-Kolkhi", "aliases": ["senaki"]},
+      {"canonical": "Kutaisi", "aliases": []},
+      {"canonical": "Kobuleti", "aliases": ["cobaltia", "kobaleti"]},
+      {"canonical": "Batumi", "aliases": []},
+      {"canonical": "Tbilisi-Lochini", "aliases": ["tbilisi"]},
+      {"canonical": "Vaziani", "aliases": []},
+      {"canonical": "Soganlug", "aliases": []},
+      {"canonical": "Beslan", "aliases": []},
+      {"canonical": "Mozdok", "aliases": []},
+      {"canonical": "Nalchik", "aliases": []},
+      {"canonical": "Mineralnye Vody", "aliases": ["min vod"]}
+    ],
+    "nevada": [
+      {"canonical": "Nellis", "aliases": ["nellis afb"]},
+      {"canonical": "Creech", "aliases": ["creech afb"]},
+      {"canonical": "Groom Lake", "aliases": ["area 51"]},
+      {"canonical": "McCarran International", "aliases": ["mccarran"]},
+      {"canonical": "North Las Vegas", "aliases": []},
+      {"canonical": "Henderson Executive", "aliases": ["henderson"]},
+      {"canonical": "Boulder City", "aliases": []},
+      {"canonical": "Beatty", "aliases": []},
+      {"canonical": "Tonopah Test Range", "aliases": ["tonopah test"]},
+      {"canonical": "Tonopah", "aliases": []}
+    ],
+    "persian_gulf": [
+      {"canonical": "Al Dhafra", "aliases": ["aldhafra", "al dafrah"]},
+      {"canonical": "Al Maktoum International", "aliases": ["al maktoum"]},
+      {"canonical": "Dubai International", "aliases": ["dubai"]},
+      {"canonical": "Sharjah International", "aliases": ["sharjah"]},
+      {"canonical": "Fujairah International", "aliases": ["fujairah"]},
+      {"canonical": "Ras Al Khaimah International", "aliases": ["ras al khaimah"]},
+      {"canonical": "Khasab", "aliases": []},
+      {"canonical": "Bandar Abbas International", "aliases": ["bandar abbas"]},
+      {"canonical": "Bandar Lengeh", "aliases": []},
+      {"canonical": "Qeshm", "aliases": ["qeshm island"]},
+      {"canonical": "Sirri Island", "aliases": ["sirri"]},
+      {"canonical": "Abu Musa", "aliases": []},
+      {"canonical": "Tunb Kochak", "aliases": ["tunb"]},
+      {"canonical": "Tunb Island", "aliases": ["greater tunb"]},
+      {"canonical": "Lar", "aliases": ["lar airbase"]},
+      {"canonical": "Havadarya", "aliases": []}
+    ],
+    "syria": [
+      {"canonical": "Incirlik", "aliases": ["incirlik ab"]},
+      {"canonical": "Hatay", "aliases": []},
+      {"canonical": "Gaziantep", "aliases": []},
+      {"canonical": "Adana Sakirpasa", "aliases": ["adana"]},
+      {"canonical": "Bassel Al-Assad", "aliases": ["bassel"]},
+      {"canonical": "Hama", "aliases": []},
+      {"canonical": "Abu al-Duhur", "aliases": ["abu dhuhur"]},
+      {"canonical": "Aleppo", "aliases": []},
+      {"canonical": "Kuweires", "aliases": []},
+      {"canonical": "Minakh", "aliases": []},
+      {"canonical": "Taftanaz", "aliases": []},
+      {"canonical": "Tiyas", "aliases": ["t4"]},
+      {"canonical": "Marj Ruhayyil", "aliases": ["marj"]},
+      {"canonical": "Damascus International", "aliases": ["damascus"]},
+      {"canonical": "Beirut-Rafic Hariri", "aliases": ["beirut"]},
+      {"canonical": "Ramat David", "aliases": []},
+      {"canonical": "Megiddo", "aliases": []},
+      {"canonical": "Haifa", "aliases": []},
+      {"canonical": "King Hussein Air College", "aliases": ["mafraq"]}
+    ],
+    "marianas": [
+      {"canonical": "Andersen", "aliases": ["andersen afb"]},
+      {"canonical": "Antonio B. Won Pat", "aliases": ["guam", "won pat"]},
+      {"canonical": "Rota International", "aliases": ["rota"]},
+      {"canonical": "Tinian International", "aliases": ["tinian"]},
+      {"canonical": "Saipan International", "aliases": ["saipan"]}
+    ],
+    "sinai": [
+      {"canonical": "Ramon", "aliases": ["ramon airbase"]},
+      {"canonical": "Ovda", "aliases": []},
+      {"canonical": "Eilat", "aliases": ["eilat-ramon"]},
+      {"canonical": "Etzion", "aliases": []}
+    ],
+    "south_atlantic": [
+      {"canonical": "Mount Pleasant", "aliases": ["mpa"]},
+      {"canonical": "Port Stanley", "aliases": ["stanley"]},
+      {"canonical": "Rio Gallegos", "aliases": []},
+      {"canonical": "Rio Grande", "aliases": []},
+      {"canonical": "Ushuaia", "aliases": []}
+    ]
+  }
+}

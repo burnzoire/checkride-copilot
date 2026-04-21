@@ -27,3 +27,15 @@ def test_hotels_phrase_normalizes_to_hotas():
 
 def test_hotez_normalizes_to_hotas():
     assert correct("I said Hotez, not Hotel.") == "I said HOTAS, not Hotel."
+
+
+def test_cobaltia_airfield_normalizes_to_kobuleti():
+    assert correct("I need to land at nearby Cobaltia airfield.") == (
+        "I need to land at nearby Kobuleti airfield."
+    )
+
+
+def test_senakee_traffic_normalizes_to_senaki_kolkhi():
+    assert correct("Senakee traffic, Enfield 1-1 inbound full stop.") == (
+        "Senaki-Kolkhi traffic, Enfield 1-1 inbound full stop."
+    )

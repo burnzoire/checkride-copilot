@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import re
+from difflib import get_close_matches
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable
 
@@ -21,6 +23,7 @@ STATE_FRESH_MS = 5000
 
 _PROC_DIR = Path(__file__).parent.parent / "data" / "airframes" / "fa18c" / "procedures"
 _ACTIONS_PATH = Path(__file__).parent.parent / "data" / "airframes" / "fa18c" / "actions.json"
+_AIRFIELDS_PATH = Path(__file__).parent.parent / "data" / "airfields_by_map.json"
 _PROC_INDEX: list[dict[str, Any]] = []
 _PROC_CACHE: dict[str, dict[str, Any]] = {}
 _ACTIONS: list[dict[str, Any]] = []
@@ -177,6 +180,91 @@ def _init_actions() -> None:
 
 
 _init_actions()
+
+
+@lru_cache(maxsize=1)
+def _airfield_alias_lookup() -> dict[str, str]:
+    out: dict[str, str] = {}
+    try:
+        data = json.loads(_AIRFIELDS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return out
+
+    for airfields in data.get("maps", {}).values():
+        for entry in airfields:
+            canonical = str(entry.get("canonical", "")).strip()
+            if not canonical:
+                continue
+            out[canonical.lower()] = canonical
+            for alias in entry.get("aliases", []) or []:
+                alias_key = str(alias).strip().lower()
+                if alias_key:
+                    out[alias_key] = canonical
+    return out
+
+
+def _extract_airfield_name(query: str) -> str | None:
+    q = query.lower()
+    alias_map = _airfield_alias_lookup()
+    if not alias_map:
+        return None
+
+    # Exact alias/canonical mention takes priority.
+    best_alias = ""
+    best_canonical = None
+    for alias, canonical in alias_map.items():
+        if len(alias) < 4:
+            continue
+        if re.search(rf"\b{re.escape(alias)}\b", q):
+            if len(alias) > len(best_alias):
+                best_alias = alias
+                best_canonical = canonical
+    if best_canonical:
+        return best_canonical
+
+    # Fuzzy match local phrase around airfield/tower/traffic mention.
+    m = re.search(r"\b([a-z][a-z\-']*(?:\s+[a-z][a-z\-']*){0,2})\s+(airfield|airport|traffic|tower)\b", q)
+    if not m:
+        return None
+
+    raw = re.sub(r"^(?:at|to|near|nearby|the|a|an)\s+", "", m.group(1)).strip()
+    if not raw:
+        return None
+    candidates = list(alias_map.keys())
+    closest = get_close_matches(raw, candidates, n=1, cutoff=0.72)
+    if not closest:
+        return None
+    return alias_map[closest[0]]
+
+
+def _render_quick_action(action: dict[str, Any], query: str, max_steps: int) -> dict[str, Any]:
+    steps = [clean_step_text(str(s)) for s in (action.get("steps", []) or [])][:max_steps]
+    example = action.get("example")
+    key = str(action.get("key", ""))
+
+    if key == "radio_airfield_inbound":
+        airfield = _extract_airfield_name(query) or "[airfield]"
+        wants_final = bool(re.search(r"\b(final|base|downwind|pattern)\b", query.lower()))
+
+        if wants_final:
+            example = f"{airfield} traffic, Enfield 1-1, final runway [runway], full stop."
+        else:
+            example = f"{airfield} traffic, Enfield 1-1, 1-ship Hornet, west, 12 miles, 3000, inbound full stop."
+
+        rendered_steps = []
+        for s in steps:
+            rendered_steps.append(s.replace("[airfield]", airfield))
+        steps = rendered_steps
+
+    return {
+        "ok": True,
+        "found": True,
+        "key": key,
+        "title": action.get("title"),
+        "description": action.get("description"),
+        "example": example,
+        "steps": [{"num": i, "text": t} for i, t in enumerate(steps, start=1)],
+    }
 
 
 def confidence_from_score(score: float) -> str:
@@ -430,7 +518,7 @@ def tool_list_procedures(args: dict[str, Any], _session: Session) -> dict[str, A
     return {"ok": True, "matches": out}
 
 
-def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, Any]:
+def tool_get_quick_action(args: dict[str, Any], session: Session) -> dict[str, Any]:
     query = str(args.get("query", "")).strip().lower()
     if not query:
         return {"ok": False, "error": "query is required"}
@@ -444,18 +532,16 @@ def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, 
             if action.get("key") == "tgp_power_on":
                 max_steps = int(args.get("max_steps", 4))
                 max_steps = max(1, min(max_steps, 6))
-                steps = []
-                for i, step in enumerate(action.get("steps", [])[:max_steps], start=1):
-                    steps.append({"num": i, "text": clean_step_text(str(step))})
-                return {
-                    "ok": True,
-                    "found": True,
-                    "key": action.get("key"),
-                    "title": action.get("title"),
-                    "description": action.get("description"),
-                    "example": action.get("example"),
-                    "steps": steps,
-                }
+                session.last_quick_action_key = "tgp_power_on"
+                return _render_quick_action(action, query, max_steps)
+
+    followup = bool(
+        re.search(
+            r"\b(another\s+example|what\s+about|on\s+final|on\s+base|downwind|pattern|what\s+is\s+it|say\s+it\s+again)\b",
+            query,
+        )
+    )
+    preferred_key = session.last_quick_action_key if followup else None
 
     best: dict[str, Any] | None = None
     best_score = 0
@@ -486,6 +572,11 @@ def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, 
         if intents["track"] and re.search(r"\bpoint|track|ptrk\b", text):
             bonus += 3
 
+        if preferred_key and key == preferred_key:
+            bonus += 8
+        if re.search(r"\b(final|base|downwind|pattern)\b", query) and key == "radio_airfield_inbound":
+            bonus += 5
+
         # Route "how do I say inbound/landing" requests to concise radio phrase quick actions.
         if qa_intents["landing_radio"]:
             if key == "radio_airfield_inbound":
@@ -513,19 +604,8 @@ def tool_get_quick_action(args: dict[str, Any], _session: Session) -> dict[str, 
 
     max_steps = int(args.get("max_steps", 4))
     max_steps = max(1, min(max_steps, 6))
-    steps = []
-    for i, step in enumerate(best.get("steps", [])[:max_steps], start=1):
-        steps.append({"num": i, "text": clean_step_text(str(step))})
-
-    return {
-        "ok": True,
-        "found": True,
-        "key": best.get("key"),
-        "title": best.get("title"),
-        "description": best.get("description"),
-        "example": best.get("example"),
-        "steps": steps,
-    }
+    session.last_quick_action_key = str(best.get("key", "")) or None
+    return _render_quick_action(best, query, max_steps)
 
 
 def tool_start_procedure(args: dict[str, Any], session: Session) -> dict[str, Any]:

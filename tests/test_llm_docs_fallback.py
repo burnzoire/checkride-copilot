@@ -125,3 +125,13 @@ def test_clean_reply_removes_duplicate_sentence():
         "Use HOTAS Radar Antenna Elevation control on the throttle to zoom in and out."
     )
     assert clean_reply(text) == "Use HOTAS Radar Antenna Elevation control on the throttle to zoom in and out."
+
+
+def test_clean_reply_removes_mid_sentence_stutter_phrase_repeat():
+    text = (
+        "Next, we need to ensure the communication "
+        "Ensure the communication system is set correctly by checking COM 1."
+    )
+    assert clean_reply(text) == (
+        "Next, we need to ensure the communication system is set correctly by checking COM 1."
+    )
