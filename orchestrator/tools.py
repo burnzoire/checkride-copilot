@@ -13,6 +13,7 @@ from loguru import logger
 from diagnostic.action_map import normalize_action
 from diagnostic.engine import diagnose_action
 from diagnostic.rules import get_rules_for_action
+from mission.frequencies import resolve_frequency
 from orchestrator.session import Session
 from retrieval.cockpit_lookup import format_location, lookup as cockpit_lookup, suggest as cockpit_suggest
 from retrieval.keybinds import describe_switch
@@ -222,22 +223,25 @@ def _extract_airfield_name(query: str) -> str | None:
     if best_canonical:
         return best_canonical
 
-    # Fuzzy match local phrase around airfield/tower/traffic mention.
-    m = re.search(r"\b([a-z][a-z\-']*(?:\s+[a-z][a-z\-']*){0,2})\s+(airfield|airport|traffic|tower)\b", q)
-    if not m:
-        return None
-
-    raw = re.sub(r"^(?:at|to|near|nearby|the|a|an)\s+", "", m.group(1)).strip()
-    if not raw:
-        return None
     candidates = list(alias_map.keys())
-    closest = get_close_matches(raw, candidates, n=1, cutoff=0.72)
-    if not closest:
-        return None
-    return alias_map[closest[0]]
+    tokens = q.split()
+    suffixes = {"airfield", "airport", "traffic", "tower"}
+    for idx, token in enumerate(tokens):
+        if token not in suffixes:
+            continue
+        for width in (3, 2, 1):
+            start = max(0, idx - width)
+            raw = " ".join(tokens[start:idx]).strip()
+            raw = re.sub(r"^(?:at|to|near|nearby|the|a|an|for|from|frequency)\s+", "", raw).strip()
+            if not raw:
+                continue
+            closest = get_close_matches(raw, candidates, n=1, cutoff=0.68)
+            if closest:
+                return alias_map[closest[0]]
+    return None
 
 
-def _render_quick_action(action: dict[str, Any], query: str, max_steps: int) -> dict[str, Any]:
+def _render_quick_action(action: dict[str, Any], query: str, max_steps: int, session: Session | None = None) -> dict[str, Any]:
     steps = [clean_step_text(str(s)) for s in (action.get("steps", []) or [])][:max_steps]
     example = action.get("example")
     key = str(action.get("key", ""))
@@ -245,15 +249,31 @@ def _render_quick_action(action: dict[str, Any], query: str, max_steps: int) -> 
     if key == "radio_airfield_inbound":
         airfield = _extract_airfield_name(query) or "[airfield]"
         wants_final = bool(re.search(r"\b(final|base|downwind|pattern)\b", query.lower()))
+        in_jet = fetch_state() is not None
+        freq = resolve_frequency(airfield, in_jet=in_jet)
+        
+        # Track airfield in session for follow-up band queries
+        if session and airfield != "[airfield]":
+            session.last_airfield = airfield
 
         if wants_final:
             example = f"{airfield} traffic, Enfield 1-1, final runway [runway], full stop."
         else:
             example = f"{airfield} traffic, Enfield 1-1, 1-ship Hornet, west, 12 miles, 3000, inbound full stop."
 
+        if isinstance(freq, dict) and freq.get("mhz"):
+            mhz = float(freq["mhz"])
+            example += f" Tune {mhz:.3f} MHz."
+
         rendered_steps = []
         for s in steps:
             rendered_steps.append(s.replace("[airfield]", airfield))
+        if isinstance(freq, dict) and freq.get("mhz"):
+            mhz = float(freq["mhz"])
+            src = str(freq.get("source", "local"))
+            rendered_steps.append(
+                f"Frequency: {mhz:.3f} MHz ({src})."
+            )
         steps = rendered_steps
 
     return {
@@ -533,7 +553,7 @@ def tool_get_quick_action(args: dict[str, Any], session: Session) -> dict[str, A
                 max_steps = int(args.get("max_steps", 4))
                 max_steps = max(1, min(max_steps, 6))
                 session.last_quick_action_key = "tgp_power_on"
-                return _render_quick_action(action, query, max_steps)
+                return _render_quick_action(action, query, max_steps, session)
 
     followup = bool(
         re.search(
@@ -605,7 +625,7 @@ def tool_get_quick_action(args: dict[str, Any], session: Session) -> dict[str, A
     max_steps = int(args.get("max_steps", 4))
     max_steps = max(1, min(max_steps, 6))
     session.last_quick_action_key = str(best.get("key", "")) or None
-    return _render_quick_action(best, query, max_steps)
+    return _render_quick_action(best, query, max_steps, session)
 
 
 def tool_start_procedure(args: dict[str, Any], session: Session) -> dict[str, Any]:

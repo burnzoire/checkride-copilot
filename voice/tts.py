@@ -24,6 +24,30 @@ from voice.glossary import apply as _apply_glossary
 
 # ── TTS text normalisation ────────────────────────────────────────────────────
 
+_DIGIT_WORDS = {
+    '0': 'zero', '1': 'one', '2': 'two', '3': 'three', '4': 'four',
+    '5': 'fife', '6': 'six', '7': 'seven', '8': 'eight', '9': 'niner',
+}
+
+
+def _freq_brevity(m: re.Match) -> str:
+    """Convert a MHz frequency number to aviation brevity digit-by-digit.
+
+    127.000 → "one two seven decimal zero"
+    133.350 → "one three three decimal three five"
+    243.0   → "two four three decimal zero"
+    """
+    num = m.group(1).replace(',', '')
+    if '.' in num:
+        integer, frac = num.split('.', 1)
+        frac = frac.rstrip('0') or '0'
+    else:
+        integer, frac = num, '0'
+    spoken_int  = ' '.join(_DIGIT_WORDS[d] for d in integer)
+    spoken_frac = ' '.join(_DIGIT_WORDS[d] for d in frac)
+    return f"{spoken_int} decimal {spoken_frac}"
+
+
 def _normalize(text: str) -> str:
     """Expand aviation abbreviations and units before synthesis."""
     text = _apply_glossary(text)
@@ -48,7 +72,9 @@ def _normalize(text: str) -> str:
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*ft\b',  r'\1 feet',           text, flags=re.I)
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*kts\b', r'\1 knots',          text, flags=re.I)
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*nm\b',  r'\1 nautical miles', text, flags=re.I)
-    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*MHz\b', r'\1 megahertz',      text)
+    # Frequencies: aviation brevity — each digit spoken individually with 'decimal'
+    # e.g. 127.000 MHz → "one two seven decimal zero"
+    text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*MHz\b', _freq_brevity, text, flags=re.I)
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*psi\b', r'\1 PSI',            text, flags=re.I)
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*lbs\b', r'\1 pounds',         text, flags=re.I)
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*%',     r'\1 percent',        text)

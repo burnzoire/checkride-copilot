@@ -1,0 +1,3948 @@
+{
+  "version": 2,
+  "maps": {
+    "afghanistan": [
+      {
+        "canonical": "OABT",
+        "aliases": [
+          "OABT"
+        ],
+        "airdrome_id": 8,
+        "tower_mhz": 131.25,
+        "uhf_mhz": 243.0,
+        "vhf_hi_mhz": 131.25,
+        "vhf_low_mhz": 39.0,
+        "hf_mhz": 4.05
+      },
+      {
+        "canonical": "OAZI",
+        "aliases": [
+          "OAZI"
+        ],
+        "airdrome_id": 10,
+        "tower_mhz": 123.3,
+        "uhf_mhz": 250.1,
+        "vhf_hi_mhz": 123.3,
+        "vhf_low_mhz": 38.7,
+        "hf_mhz": 3.9
+      },
+      {
+        "canonical": "OAZI Heli",
+        "aliases": [
+          "OAZI Heli"
+        ],
+        "airdrome_id": 13,
+        "tower_mhz": 118.2,
+        "uhf_mhz": 250.2,
+        "vhf_hi_mhz": 118.2,
+        "vhf_low_mhz": 39.1,
+        "hf_mhz": 4.1
+      },
+      {
+        "canonical": "CTAF",
+        "aliases": [
+          "CTAF"
+        ],
+        "airdrome_id": 5,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 250.05,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 38.55,
+        "hf_mhz": 3.825
+      },
+      {
+        "canonical": "YARDBIRD",
+        "aliases": [
+          "YARDBIRD"
+        ],
+        "airdrome_id": 11,
+        "tower_mhz": 121.75,
+        "uhf_mhz": 343.0,
+        "vhf_hi_mhz": 121.75,
+        "vhf_low_mhz": 38.45,
+        "hf_mhz": 3.775
+      },
+      {
+        "canonical": "OAFR",
+        "aliases": [
+          "OAFR"
+        ],
+        "airdrome_id": 2,
+        "tower_mhz": 118.1,
+        "uhf_mhz": 250.3,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": 38.85,
+        "hf_mhz": 3.975
+      },
+      {
+        "canonical": "OAHR",
+        "aliases": [
+          "OAHR"
+        ],
+        "airdrome_id": 1,
+        "tower_mhz": 123.35,
+        "uhf_mhz": 240.3,
+        "vhf_hi_mhz": 123.35,
+        "vhf_low_mhz": 38.4,
+        "hf_mhz": 3.75
+      },
+      {
+        "canonical": "OAKN",
+        "aliases": [
+          "OAKN"
+        ],
+        "airdrome_id": 7,
+        "tower_mhz": 125.5,
+        "uhf_mhz": 360.2,
+        "vhf_hi_mhz": 125.5,
+        "vhf_low_mhz": 38.95,
+        "hf_mhz": 4.025
+      },
+      {
+        "canonical": "OAKN Heli",
+        "aliases": [
+          "OAKN Heli"
+        ],
+        "airdrome_id": 15,
+        "tower_mhz": 119.5,
+        "uhf_mhz": 300.2,
+        "vhf_hi_mhz": 119.5,
+        "vhf_low_mhz": 38.8,
+        "hf_mhz": 3.95
+      },
+      {
+        "canonical": "OAMN",
+        "aliases": [
+          "OAMN"
+        ],
+        "airdrome_id": 4,
+        "tower_mhz": 118.15,
+        "uhf_mhz": 250.15,
+        "vhf_hi_mhz": 118.15,
+        "vhf_low_mhz": 38.65,
+        "hf_mhz": 3.875
+      },
+      {
+        "canonical": "OANZ",
+        "aliases": [
+          "OANZ"
+        ],
+        "airdrome_id": 12,
+        "tower_mhz": 118.05,
+        "uhf_mhz": 250.0,
+        "vhf_hi_mhz": 118.05,
+        "vhf_low_mhz": 38.6,
+        "hf_mhz": 3.85
+      },
+      {
+        "canonical": "OAQN",
+        "aliases": [
+          "OAQN"
+        ],
+        "airdrome_id": 6,
+        "tower_mhz": 118.35,
+        "uhf_mhz": 250.35,
+        "vhf_hi_mhz": 118.35,
+        "vhf_low_mhz": 38.9,
+        "hf_mhz": 4.0
+      },
+      {
+        "canonical": "OASD",
+        "aliases": [
+          "OASD"
+        ],
+        "airdrome_id": 3,
+        "tower_mhz": 134.75,
+        "uhf_mhz": 265.65,
+        "vhf_hi_mhz": 134.75,
+        "vhf_low_mhz": 38.5,
+        "hf_mhz": 3.8
+      },
+      {
+        "canonical": "OASD Heliport",
+        "aliases": [
+          "OASD Heliport"
+        ],
+        "airdrome_id": 14,
+        "tower_mhz": 121.5,
+        "uhf_mhz": 344.0,
+        "vhf_hi_mhz": 121.5,
+        "vhf_low_mhz": 38.75,
+        "hf_mhz": 3.925
+      },
+      {
+        "canonical": "OATN",
+        "aliases": [
+          "OATN"
+        ],
+        "airdrome_id": 9,
+        "tower_mhz": 128.0,
+        "uhf_mhz": 250.4,
+        "vhf_hi_mhz": 128.0,
+        "vhf_low_mhz": 39.05,
+        "hf_mhz": 4.075
+      },
+      {
+        "canonical": "OAIX",
+        "aliases": [
+          "OAIX"
+        ],
+        "airdrome_id": 16,
+        "tower_mhz": 120.1,
+        "uhf_mhz": 325.75,
+        "vhf_hi_mhz": 120.1,
+        "vhf_low_mhz": 39.15,
+        "hf_mhz": 4.125
+      },
+      {
+        "canonical": "OABN",
+        "aliases": [
+          "OABN"
+        ],
+        "airdrome_id": 18,
+        "tower_mhz": 118.55,
+        "uhf_mhz": 250.65,
+        "vhf_hi_mhz": 118.55,
+        "vhf_low_mhz": 39.55,
+        "hf_mhz": 4.325
+      },
+      {
+        "canonical": "OASL Salerno",
+        "aliases": [
+          "OASL Salerno"
+        ],
+        "airdrome_id": 23,
+        "tower_mhz": 121.5,
+        "uhf_mhz": 243.0,
+        "vhf_hi_mhz": 121.5,
+        "vhf_low_mhz": 39.45,
+        "hf_mhz": 4.275
+      },
+      {
+        "canonical": "OAGZ",
+        "aliases": [
+          "OAGZ"
+        ],
+        "airdrome_id": 20,
+        "tower_mhz": 118.6,
+        "uhf_mhz": 250.7,
+        "vhf_hi_mhz": 118.6,
+        "vhf_low_mhz": 39.6,
+        "hf_mhz": 4.35
+      },
+      {
+        "canonical": "OAGN",
+        "aliases": [
+          "OAGN"
+        ],
+        "airdrome_id": 21,
+        "tower_mhz": 118.45,
+        "uhf_mhz": 250.55,
+        "vhf_hi_mhz": 118.45,
+        "vhf_low_mhz": 39.5,
+        "hf_mhz": 4.3
+      },
+      {
+        "canonical": "OAJL",
+        "aliases": [
+          "OAJL"
+        ],
+        "airdrome_id": 19,
+        "tower_mhz": 129.7,
+        "uhf_mhz": 231.0,
+        "vhf_hi_mhz": 129.7,
+        "vhf_low_mhz": 39.4,
+        "hf_mhz": 4.25
+      },
+      {
+        "canonical": "OAKB",
+        "aliases": [
+          "OAKB"
+        ],
+        "airdrome_id": 17,
+        "tower_mhz": 120.6,
+        "uhf_mhz": 284.25,
+        "vhf_hi_mhz": 120.6,
+        "vhf_low_mhz": 39.3,
+        "hf_mhz": 4.2
+      },
+      {
+        "canonical": "KHTD",
+        "aliases": [
+          "KHTD"
+        ],
+        "airdrome_id": 25,
+        "tower_mhz": 118.4,
+        "uhf_mhz": 250.5,
+        "vhf_hi_mhz": 118.4,
+        "vhf_low_mhz": 39.35,
+        "hf_mhz": 4.225
+      },
+      {
+        "canonical": "OASA",
+        "aliases": [
+          "OASA"
+        ],
+        "airdrome_id": 22,
+        "tower_mhz": 118.3,
+        "uhf_mhz": 250.45,
+        "vhf_hi_mhz": 118.3,
+        "vhf_low_mhz": 39.25,
+        "hf_mhz": 4.175
+      },
+      {
+        "canonical": "URGHelli",
+        "aliases": [
+          "URGHelli"
+        ],
+        "airdrome_id": 24,
+        "tower_mhz": 118.25,
+        "uhf_mhz": 250.25,
+        "vhf_hi_mhz": 118.25,
+        "vhf_low_mhz": 39.2,
+        "hf_mhz": 4.15
+      }
+    ],
+    "caucasus": [
+      {
+        "canonical": "Anapa",
+        "aliases": [
+          "Anapa"
+        ],
+        "airdrome_id": 12,
+        "tower_mhz": 121.0,
+        "uhf_mhz": 250.0,
+        "vhf_hi_mhz": 121.0,
+        "vhf_low_mhz": 38.4,
+        "hf_mhz": 3.75
+      },
+      {
+        "canonical": "Druzhinnik",
+        "aliases": [
+          "Batumi",
+          "Druzhinnik"
+        ],
+        "airdrome_id": 22,
+        "tower_mhz": 131.0,
+        "uhf_mhz": 260.0,
+        "vhf_hi_mhz": 131.0,
+        "vhf_low_mhz": 40.4,
+        "hf_mhz": 4.25
+      },
+      {
+        "canonical": "Stavok",
+        "aliases": [
+          "Beslan",
+          "Stavok"
+        ],
+        "airdrome_id": 32,
+        "tower_mhz": 141.0,
+        "uhf_mhz": 270.0,
+        "vhf_hi_mhz": 141.0,
+        "vhf_low_mhz": 42.4,
+        "hf_mhz": 4.75
+      },
+      {
+        "canonical": "Maslenka",
+        "aliases": [
+          "Gelendzhik",
+          "Maslenka"
+        ],
+        "airdrome_id": 17,
+        "tower_mhz": 126.0,
+        "uhf_mhz": 255.0,
+        "vhf_hi_mhz": 126.0,
+        "vhf_low_mhz": 39.4,
+        "hf_mhz": 4.0
+      },
+      {
+        "canonical": "Lachuga",
+        "aliases": [
+          "Gudauta",
+          "Lachuga"
+        ],
+        "airdrome_id": 21,
+        "tower_mhz": 130.0,
+        "uhf_mhz": 259.0,
+        "vhf_hi_mhz": 130.0,
+        "vhf_low_mhz": 40.2,
+        "hf_mhz": 4.2
+      },
+      {
+        "canonical": "Kobuleti",
+        "aliases": [
+          "Kobuleti"
+        ],
+        "airdrome_id": 24,
+        "tower_mhz": 133.0,
+        "uhf_mhz": 262.0,
+        "vhf_hi_mhz": 133.0,
+        "vhf_low_mhz": 40.8,
+        "hf_mhz": 4.35
+      },
+      {
+        "canonical": "Volokno",
+        "aliases": [
+          "Krasnodar",
+          "Volokno"
+        ],
+        "airdrome_id": 13,
+        "tower_mhz": 122.0,
+        "uhf_mhz": 251.0,
+        "vhf_hi_mhz": 122.0,
+        "vhf_low_mhz": 38.6,
+        "hf_mhz": 3.8
+      },
+      {
+        "canonical": "Krasnodar",
+        "aliases": [
+          "Krasnodar",
+          "Pashkovsky"
+        ],
+        "airdrome_id": 19,
+        "tower_mhz": 128.0,
+        "uhf_mhz": 257.0,
+        "vhf_hi_mhz": 128.0,
+        "vhf_low_mhz": 39.8,
+        "hf_mhz": 4.1
+      },
+      {
+        "canonical": "Taymyr",
+        "aliases": [
+          "Krymsk",
+          "Taymyr"
+        ],
+        "airdrome_id": 15,
+        "tower_mhz": 124.0,
+        "uhf_mhz": 253.0,
+        "vhf_hi_mhz": 124.0,
+        "vhf_low_mhz": 39.0,
+        "hf_mhz": 3.9
+      },
+      {
+        "canonical": "Kutaisi",
+        "aliases": [
+          "Kutaisi"
+        ],
+        "airdrome_id": 25,
+        "tower_mhz": 134.0,
+        "uhf_mhz": 263.0,
+        "vhf_hi_mhz": 134.0,
+        "vhf_low_mhz": 41.0,
+        "hf_mhz": 4.4
+      },
+      {
+        "canonical": "Lochini",
+        "aliases": [
+          "Lochini"
+        ],
+        "airdrome_id": 29,
+        "tower_mhz": 138.0,
+        "uhf_mhz": 267.0,
+        "vhf_hi_mhz": 138.0,
+        "vhf_low_mhz": 41.8,
+        "hf_mhz": 4.6
+      },
+      {
+        "canonical": "Sokrat",
+        "aliases": [
+          "Khanskaya",
+          "Sokrat"
+        ],
+        "airdrome_id": 16,
+        "tower_mhz": 125.0,
+        "uhf_mhz": 254.0,
+        "vhf_hi_mhz": 125.0,
+        "vhf_low_mhz": 39.2,
+        "hf_mhz": 3.95
+      },
+      {
+        "canonical": "Minvody",
+        "aliases": [
+          "Minvody"
+        ],
+        "airdrome_id": 26,
+        "tower_mhz": 135.0,
+        "uhf_mhz": 264.0,
+        "vhf_hi_mhz": 135.0,
+        "vhf_low_mhz": 41.2,
+        "hf_mhz": 4.45
+      },
+      {
+        "canonical": "Assistent",
+        "aliases": [
+          "Assistent",
+          "Mozdok"
+        ],
+        "airdrome_id": 28,
+        "tower_mhz": 137.0,
+        "uhf_mhz": 266.0,
+        "vhf_hi_mhz": 137.0,
+        "vhf_low_mhz": 41.6,
+        "hf_mhz": 4.55
+      },
+      {
+        "canonical": "Nalchik",
+        "aliases": [
+          "Nalchik"
+        ],
+        "airdrome_id": 27,
+        "tower_mhz": 136.0,
+        "uhf_mhz": 265.0,
+        "vhf_hi_mhz": 136.0,
+        "vhf_low_mhz": 41.4,
+        "hf_mhz": 4.5
+      },
+      {
+        "canonical": "Myskhako",
+        "aliases": [
+          "Myskhako",
+          "Novorossiysk"
+        ],
+        "airdrome_id": 14,
+        "tower_mhz": 123.0,
+        "uhf_mhz": 252.0,
+        "vhf_hi_mhz": 123.0,
+        "vhf_low_mhz": 38.8,
+        "hf_mhz": 3.85
+      },
+      {
+        "canonical": "Tzokot",
+        "aliases": [
+          "Kolkhi",
+          "Tzokot"
+        ],
+        "airdrome_id": 23,
+        "tower_mhz": 132.0,
+        "uhf_mhz": 261.0,
+        "vhf_hi_mhz": 132.0,
+        "vhf_low_mhz": 40.6,
+        "hf_mhz": 4.3
+      },
+      {
+        "canonical": "Sochi",
+        "aliases": [
+          "Sochi"
+        ],
+        "airdrome_id": 18,
+        "tower_mhz": 127.0,
+        "uhf_mhz": 256.0,
+        "vhf_hi_mhz": 127.0,
+        "vhf_low_mhz": 39.6,
+        "hf_mhz": 4.05
+      },
+      {
+        "canonical": "Uklad",
+        "aliases": [
+          "Sukhumi",
+          "Uklad"
+        ],
+        "airdrome_id": 20,
+        "tower_mhz": 129.0,
+        "uhf_mhz": 258.0,
+        "vhf_hi_mhz": 129.0,
+        "vhf_low_mhz": 40.0,
+        "hf_mhz": 4.15
+      },
+      {
+        "canonical": "Soganlug",
+        "aliases": [
+          "Soganlug"
+        ],
+        "airdrome_id": 30,
+        "tower_mhz": 139.0,
+        "uhf_mhz": 268.0,
+        "vhf_hi_mhz": 139.0,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 4.65
+      },
+      {
+        "canonical": "Vaziani",
+        "aliases": [
+          "Vaziani"
+        ],
+        "airdrome_id": 31,
+        "tower_mhz": 140.0,
+        "uhf_mhz": 269.0,
+        "vhf_hi_mhz": 140.0,
+        "vhf_low_mhz": 42.2,
+        "hf_mhz": 4.7
+      }
+    ],
+    "germanycoldwar": [
+      {
+        "canonical": "AirracingFrankfurt",
+        "aliases": [
+          "AirracingFrankfurt"
+        ],
+        "airdrome_id": 204,
+        "tower_mhz": 118.4,
+        "uhf_mhz": 252.65,
+        "vhf_hi_mhz": 118.4,
+        "vhf_low_mhz": 41.05,
+        "hf_mhz": 4.0
+      },
+      {
+        "canonical": "AirracingKoblenz",
+        "aliases": [
+          "AirracingKoblenz"
+        ],
+        "airdrome_id": 123,
+        "tower_mhz": 118.25,
+        "uhf_mhz": 251.05,
+        "vhf_hi_mhz": 118.25,
+        "vhf_low_mhz": 39.45,
+        "hf_mhz": 4.275
+      },
+      {
+        "canonical": "AirracingLubeck",
+        "aliases": [
+          "AirracingLubeck"
+        ],
+        "airdrome_id": 201,
+        "tower_mhz": 118.35,
+        "uhf_mhz": 252.6,
+        "vhf_hi_mhz": 118.35,
+        "vhf_low_mhz": 41.0,
+        "hf_mhz": 4.475
+      },
+      {
+        "canonical": "Adelsheim",
+        "aliases": [
+          "Adelsheim"
+        ],
+        "airdrome_id": 52,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 256.15,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "Ronne",
+        "aliases": [
+          "Ronne"
+        ],
+        "airdrome_id": 33,
+        "tower_mhz": 118.35,
+        "uhf_mhz": 257.8,
+        "vhf_hi_mhz": 118.35,
+        "vhf_low_mhz": 42.15,
+        "hf_mhz": 3.775
+      },
+      {
+        "canonical": "ZWEROBOJ",
+        "aliases": [
+          "ZWEROBOJ"
+        ],
+        "airdrome_id": 34,
+        "tower_mhz": 122.3,
+        "uhf_mhz": 255.1,
+        "vhf_hi_mhz": 122.3,
+        "vhf_low_mhz": 42.2,
+        "hf_mhz": 3.8
+      },
+      {
+        "canonical": "ZAPAIKA",
+        "aliases": [
+          "ZAPAIKA"
+        ],
+        "airdrome_id": 35,
+        "tower_mhz": 118.15,
+        "uhf_mhz": 255.15,
+        "vhf_hi_mhz": 118.15,
+        "vhf_low_mhz": 42.25,
+        "hf_mhz": 3.9
+      },
+      {
+        "canonical": "ANTRAKT",
+        "aliases": [
+          "ANTRAKT"
+        ],
+        "airdrome_id": 36,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 225.0,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 38.4,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "Cologne",
+        "aliases": [
+          "Cologne"
+        ],
+        "airdrome_id": 37,
+        "tower_mhz": 119.7,
+        "uhf_mhz": 255.2,
+        "vhf_hi_mhz": 119.7,
+        "vhf_low_mhz": 42.3,
+        "hf_mhz": 3.925
+      },
+      {
+        "canonical": "Dusseldorf",
+        "aliases": [
+          "Dusseldorf"
+        ],
+        "airdrome_id": 38,
+        "tower_mhz": 118.3,
+        "uhf_mhz": 255.25,
+        "vhf_hi_mhz": 118.3,
+        "vhf_low_mhz": 42.4,
+        "hf_mhz": 4.1
+      },
+      {
+        "canonical": "BAIKAL",
+        "aliases": [
+          "BAIKAL"
+        ],
+        "airdrome_id": 39,
+        "tower_mhz": 118.4,
+        "uhf_mhz": 255.3,
+        "vhf_hi_mhz": 118.4,
+        "vhf_low_mhz": 42.35,
+        "hf_mhz": 4.1
+      },
+      {
+        "canonical": "Heidelberg",
+        "aliases": [
+          "Heidelberg"
+        ],
+        "airdrome_id": 40,
+        "tower_mhz": 142.2,
+        "uhf_mhz": 257.8,
+        "vhf_hi_mhz": 142.2,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 3.85
+      },
+      {
+        "canonical": "Kastrup",
+        "aliases": [
+          "Kastrup"
+        ],
+        "airdrome_id": 41,
+        "tower_mhz": 118.1,
+        "uhf_mhz": 255.4,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": 39.65,
+        "hf_mhz": 4.15
+      },
+      {
+        "canonical": "Kiel",
+        "aliases": [
+          "Kiel"
+        ],
+        "airdrome_id": 42,
+        "tower_mhz": 119.9,
+        "uhf_mhz": 255.45,
+        "vhf_hi_mhz": 119.9,
+        "vhf_low_mhz": 41.85,
+        "hf_mhz": 4.625
+      },
+      {
+        "canonical": "Landstuhl",
+        "aliases": [
+          "Landstuhl"
+        ],
+        "airdrome_id": 43,
+        "tower_mhz": 138.6,
+        "uhf_mhz": 266.65,
+        "vhf_hi_mhz": 138.6,
+        "vhf_low_mhz": 38.45,
+        "hf_mhz": 3.75
+      },
+      {
+        "canonical": "Mainz Finthen",
+        "aliases": [
+          "Mainz Finthen"
+        ],
+        "airdrome_id": 44,
+        "tower_mhz": 124.0,
+        "uhf_mhz": 230.0,
+        "vhf_hi_mhz": 124.0,
+        "vhf_low_mhz": 38.8,
+        "hf_mhz": 4.1
+      },
+      {
+        "canonical": "Sturup",
+        "aliases": [
+          "Sturup"
+        ],
+        "airdrome_id": 45,
+        "tower_mhz": 118.8,
+        "uhf_mhz": 255.6,
+        "vhf_hi_mhz": 118.8,
+        "vhf_low_mhz": 39.9,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "BERGBAU",
+        "aliases": [
+          "BERGBAU"
+        ],
+        "airdrome_id": 46,
+        "tower_mhz": 120.5,
+        "uhf_mhz": 255.65,
+        "vhf_hi_mhz": 120.5,
+        "vhf_low_mhz": 41.85,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "Nordholz",
+        "aliases": [
+          "Nordholz"
+        ],
+        "airdrome_id": 47,
+        "tower_mhz": 142.9,
+        "uhf_mhz": 315.7,
+        "vhf_hi_mhz": 142.9,
+        "vhf_low_mhz": 40.85,
+        "hf_mhz": 4.75
+      },
+      {
+        "canonical": "Norvenich",
+        "aliases": [
+          "Norvenich"
+        ],
+        "airdrome_id": 48,
+        "tower_mhz": 123.0,
+        "uhf_mhz": 365.0,
+        "vhf_hi_mhz": 123.0,
+        "vhf_low_mhz": 41.2,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "PESTRIJ",
+        "aliases": [
+          "PESTRIJ"
+        ],
+        "airdrome_id": 51,
+        "tower_mhz": 122.9,
+        "uhf_mhz": 252.05,
+        "vhf_hi_mhz": 122.9,
+        "vhf_low_mhz": 40.45,
+        "hf_mhz": 4.775
+      },
+      {
+        "canonical": "ZADAR",
+        "aliases": [
+          "ZADAR"
+        ],
+        "airdrome_id": 49,
+        "tower_mhz": 124.0,
+        "uhf_mhz": 365.5,
+        "vhf_hi_mhz": 124.0,
+        "vhf_low_mhz": 41.2,
+        "hf_mhz": 4.65
+      },
+      {
+        "canonical": "Perwenitz",
+        "aliases": [
+          "Perwenitz"
+        ],
+        "airdrome_id": 125,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 255.85,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "Revinge",
+        "aliases": [
+          "Revinge"
+        ],
+        "airdrome_id": 79,
+        "tower_mhz": 142.9,
+        "uhf_mhz": 315.7,
+        "vhf_hi_mhz": 142.9,
+        "vhf_low_mhz": 40.25,
+        "hf_mhz": 4.775
+      },
+      {
+        "canonical": "Sittensen",
+        "aliases": [
+          "Sittensen"
+        ],
+        "airdrome_id": 131,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 255.9,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "Sprendlingen",
+        "aliases": [
+          "Sprendlingen"
+        ],
+        "airdrome_id": 135,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 255.95,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "Coral",
+        "aliases": [
+          "Coral"
+        ],
+        "airdrome_id": 50,
+        "tower_mhz": 121.25,
+        "uhf_mhz": 256.1,
+        "vhf_hi_mhz": 121.25,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 4.7
+      },
+      {
+        "canonical": "Tagra",
+        "aliases": [
+          "Tagra"
+        ],
+        "airdrome_id": 87,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 255.9,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "Thurland",
+        "aliases": [
+          "Thurland"
+        ],
+        "airdrome_id": 136,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 256.0,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "Zollschen",
+        "aliases": [
+          "Zollschen"
+        ],
+        "airdrome_id": 137,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 256.05,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "BadDurkheim",
+        "aliases": [
+          "BadDurkheim"
+        ],
+        "airdrome_id": 242,
+        "tower_mhz": 134.5,
+        "uhf_mhz": 253.05,
+        "vhf_hi_mhz": 134.5,
+        "vhf_low_mhz": 41.45,
+        "hf_mhz": 3.975
+      },
+      {
+        "canonical": "Bienenfarm",
+        "aliases": [
+          "Bienenfarm"
+        ],
+        "airdrome_id": 110,
+        "tower_mhz": 134.7,
+        "uhf_mhz": 250.55,
+        "vhf_hi_mhz": 134.7,
+        "vhf_low_mhz": 38.95,
+        "hf_mhz": 4.025
+      },
+      {
+        "canonical": "Dedelow",
+        "aliases": [
+          "Dedelow"
+        ],
+        "airdrome_id": 103,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 250.2,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 38.6,
+        "hf_mhz": 3.85
+      },
+      {
+        "canonical": "Gardelegen",
+        "aliases": [
+          "Gardelegen"
+        ],
+        "airdrome_id": 112,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 250.65,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 39.05,
+        "hf_mhz": 4.075
+      },
+      {
+        "canonical": "Gelnhausen",
+        "aliases": [
+          "Gelnhausen"
+        ],
+        "airdrome_id": 243,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 253.1,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 41.5,
+        "hf_mhz": 3.95
+      },
+      {
+        "canonical": "Glindbruchkippe",
+        "aliases": [
+          "Glindbruchkippe"
+        ],
+        "airdrome_id": 113,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 250.7,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 39.1,
+        "hf_mhz": 4.1
+      },
+      {
+        "canonical": "GrosseWiese",
+        "aliases": [
+          "GrosseWiese"
+        ],
+        "airdrome_id": 141,
+        "tower_mhz": 134.6,
+        "uhf_mhz": 251.25,
+        "vhf_hi_mhz": 134.6,
+        "vhf_low_mhz": 39.65,
+        "hf_mhz": 4.375
+      },
+      {
+        "canonical": "Hasselfelde",
+        "aliases": [
+          "Hasselfelde"
+        ],
+        "airdrome_id": 140,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 251.2,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 39.6,
+        "hf_mhz": 4.35
+      },
+      {
+        "canonical": "Herrenteich",
+        "aliases": [
+          "Herrenteich"
+        ],
+        "airdrome_id": 244,
+        "tower_mhz": 127.4,
+        "uhf_mhz": 253.15,
+        "vhf_hi_mhz": 127.4,
+        "vhf_low_mhz": 41.55,
+        "hf_mhz": 4.3
+      },
+      {
+        "canonical": "Hockenheim",
+        "aliases": [
+          "Hockenheim"
+        ],
+        "airdrome_id": 245,
+        "tower_mhz": 134.6,
+        "uhf_mhz": 253.2,
+        "vhf_hi_mhz": 134.6,
+        "vhf_low_mhz": 41.6,
+        "hf_mhz": 4.05
+      },
+      {
+        "canonical": "Kammermark",
+        "aliases": [
+          "Kammermark"
+        ],
+        "airdrome_id": 104,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 250.25,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 38.65,
+        "hf_mhz": 3.875
+      },
+      {
+        "canonical": "Langenselbold",
+        "aliases": [
+          "Langenselbold"
+        ],
+        "airdrome_id": 246,
+        "tower_mhz": 126.1,
+        "uhf_mhz": 253.25,
+        "vhf_hi_mhz": 126.1,
+        "vhf_low_mhz": 41.65,
+        "hf_mhz": 3.875
+      },
+      {
+        "canonical": "Luneburg",
+        "aliases": [
+          "Luneburg"
+        ],
+        "airdrome_id": 89,
+        "tower_mhz": 136.5,
+        "uhf_mhz": 254.55,
+        "vhf_hi_mhz": 136.5,
+        "vhf_low_mhz": 41.45,
+        "hf_mhz": 4.35
+      },
+      {
+        "canonical": "Northeim",
+        "aliases": [
+          "Northeim"
+        ],
+        "airdrome_id": 90,
+        "tower_mhz": 134.6,
+        "uhf_mhz": 254.65,
+        "vhf_hi_mhz": 134.6,
+        "vhf_low_mhz": 41.25,
+        "hf_mhz": 4.15
+      },
+      {
+        "canonical": "Ober-Morlen",
+        "aliases": [
+          "Ober-Morlen"
+        ],
+        "airdrome_id": 248,
+        "tower_mhz": 134.6,
+        "uhf_mhz": 253.35,
+        "vhf_hi_mhz": 134.6,
+        "vhf_low_mhz": 41.75,
+        "hf_mhz": 4.4
+      },
+      {
+        "canonical": "Pinnow",
+        "aliases": [
+          "Pinnow"
+        ],
+        "airdrome_id": 111,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 250.6,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 39.0,
+        "hf_mhz": 4.05
+      },
+      {
+        "canonical": "Pottschutthohe",
+        "aliases": [
+          "Pottschutthohe"
+        ],
+        "airdrome_id": 249,
+        "tower_mhz": 134.6,
+        "uhf_mhz": 253.4,
+        "vhf_hi_mhz": 134.6,
+        "vhf_low_mhz": 41.8,
+        "hf_mhz": 4.025
+      },
+      {
+        "canonical": "Rinteln",
+        "aliases": [
+          "Rinteln"
+        ],
+        "airdrome_id": 117,
+        "tower_mhz": 134.8,
+        "uhf_mhz": 250.9,
+        "vhf_hi_mhz": 134.8,
+        "vhf_low_mhz": 39.3,
+        "hf_mhz": 4.2
+      },
+      {
+        "canonical": "Uelzen",
+        "aliases": [
+          "Uelzen"
+        ],
+        "airdrome_id": 102,
+        "tower_mhz": 119.1,
+        "uhf_mhz": 250.15,
+        "vhf_hi_mhz": 119.1,
+        "vhf_low_mhz": 38.55,
+        "hf_mhz": 3.825
+      },
+      {
+        "canonical": "Uetersen",
+        "aliases": [
+          "Uetersen"
+        ],
+        "airdrome_id": 86,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 254.5,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 41.55,
+        "hf_mhz": 4.5
+      },
+      {
+        "canonical": "Ummern",
+        "aliases": [
+          "Ummern"
+        ],
+        "airdrome_id": 114,
+        "tower_mhz": 134.2,
+        "uhf_mhz": 250.75,
+        "vhf_hi_mhz": 134.2,
+        "vhf_low_mhz": 39.15,
+        "hf_mhz": 4.125
+      },
+      {
+        "canonical": "Verden-Scharnhorst",
+        "aliases": [
+          "Verden-Scharnhorst"
+        ],
+        "airdrome_id": 116,
+        "tower_mhz": 127.7,
+        "uhf_mhz": 250.85,
+        "vhf_hi_mhz": 127.7,
+        "vhf_low_mhz": 39.25,
+        "hf_mhz": 4.175
+      },
+      {
+        "canonical": "Walldorf",
+        "aliases": [
+          "Walldorf"
+        ],
+        "airdrome_id": 247,
+        "tower_mhz": 134.6,
+        "uhf_mhz": 253.3,
+        "vhf_hi_mhz": 134.6,
+        "vhf_low_mhz": 41.7,
+        "hf_mhz": 4.925
+      },
+      {
+        "canonical": "Waren_Vielist",
+        "aliases": [
+          "Waren_Vielist"
+        ],
+        "airdrome_id": 109,
+        "tower_mhz": 134.8,
+        "uhf_mhz": 250.45,
+        "vhf_hi_mhz": 134.8,
+        "vhf_low_mhz": 38.85,
+        "hf_mhz": 3.975
+      },
+      {
+        "canonical": "WeserWumme",
+        "aliases": [
+          "WeserWumme"
+        ],
+        "airdrome_id": 106,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 250.3,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 38.7,
+        "hf_mhz": 3.9
+      },
+      {
+        "canonical": "Wismar",
+        "aliases": [
+          "Wismar"
+        ],
+        "airdrome_id": 108,
+        "tower_mhz": 134.3,
+        "uhf_mhz": 250.4,
+        "vhf_hi_mhz": 134.3,
+        "vhf_low_mhz": 38.8,
+        "hf_mhz": 3.95
+      },
+      {
+        "canonical": "Worms",
+        "aliases": [
+          "Worms"
+        ],
+        "airdrome_id": 250,
+        "tower_mhz": 127.1,
+        "uhf_mhz": 253.5,
+        "vhf_hi_mhz": 127.1,
+        "vhf_low_mhz": 41.9,
+        "hf_mhz": 4.95
+      },
+      {
+        "canonical": "WADAJOM",
+        "aliases": [
+          "WADAJOM"
+        ],
+        "airdrome_id": 157,
+        "tower_mhz": 132.5,
+        "uhf_mhz": 251.5,
+        "vhf_hi_mhz": 132.5,
+        "vhf_low_mhz": 39.9,
+        "hf_mhz": 4.5
+      },
+      {
+        "canonical": "LEXIJA",
+        "aliases": [
+          "LEXIJA"
+        ],
+        "airdrome_id": 2,
+        "tower_mhz": 122.5,
+        "uhf_mhz": 253.8,
+        "vhf_hi_mhz": 122.5,
+        "vhf_low_mhz": 42.2,
+        "hf_mhz": 4.75
+      },
+      {
+        "canonical": "Barth",
+        "aliases": [
+          "Barth"
+        ],
+        "airdrome_id": 3,
+        "tower_mhz": 124.1,
+        "uhf_mhz": 254.0,
+        "vhf_hi_mhz": 124.1,
+        "vhf_low_mhz": 41.8,
+        "hf_mhz": 4.625
+      },
+      {
+        "canonical": "PROIMA",
+        "aliases": [
+          "PROIMA"
+        ],
+        "airdrome_id": 164,
+        "tower_mhz": 122.1,
+        "uhf_mhz": 251.9,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": 40.3,
+        "hf_mhz": 4.7
+      },
+      {
+        "canonical": "Bitburg",
+        "aliases": [
+          "Bitburg"
+        ],
+        "airdrome_id": 200,
+        "tower_mhz": 118.7,
+        "uhf_mhz": 252.55,
+        "vhf_hi_mhz": 118.7,
+        "vhf_low_mhz": 40.95,
+        "hf_mhz": 4.325
+      },
+      {
+        "canonical": "Braunschweig",
+        "aliases": [
+          "Braunschweig"
+        ],
+        "airdrome_id": 107,
+        "tower_mhz": 120.05,
+        "uhf_mhz": 250.35,
+        "vhf_hi_mhz": 120.05,
+        "vhf_low_mhz": 38.75,
+        "hf_mhz": 3.925
+      },
+      {
+        "canonical": "Bremen",
+        "aliases": [
+          "Bremen"
+        ],
+        "airdrome_id": 5,
+        "tower_mhz": 118.45,
+        "uhf_mhz": 254.1,
+        "vhf_hi_mhz": 118.45,
+        "vhf_low_mhz": 41.7,
+        "hf_mhz": 4.225
+      },
+      {
+        "canonical": "UNRECHT",
+        "aliases": [
+          "UNRECHT"
+        ],
+        "airdrome_id": 6,
+        "tower_mhz": 135.55,
+        "uhf_mhz": 254.15,
+        "vhf_hi_mhz": 135.55,
+        "vhf_low_mhz": 40.2,
+        "hf_mhz": 4.175
+      },
+      {
+        "canonical": "BUCHEL",
+        "aliases": [
+          "BUCHEL"
+        ],
+        "airdrome_id": 235,
+        "tower_mhz": 122.1,
+        "uhf_mhz": 252.9,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": 41.3,
+        "hf_mhz": 4.575
+      },
+      {
+        "canonical": "Buckeburg",
+        "aliases": [
+          "Buckeburg"
+        ],
+        "airdrome_id": 7,
+        "tower_mhz": 118.05,
+        "uhf_mhz": 254.2,
+        "vhf_hi_mhz": 118.05,
+        "vhf_low_mhz": 39.55,
+        "hf_mhz": 4.9
+      },
+      {
+        "canonical": "Celle",
+        "aliases": [
+          "Celle"
+        ],
+        "airdrome_id": 8,
+        "tower_mhz": 122.1,
+        "uhf_mhz": 254.6,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": 41.9,
+        "hf_mhz": 4.075
+      },
+      {
+        "canonical": "SADOVIJ",
+        "aliases": [
+          "SADOVIJ"
+        ],
+        "airdrome_id": 9,
+        "tower_mhz": 126.0,
+        "uhf_mhz": 254.7,
+        "vhf_hi_mhz": 126.0,
+        "vhf_low_mhz": 38.45,
+        "hf_mhz": 4.125
+      },
+      {
+        "canonical": "MELODRAMA",
+        "aliases": [
+          "MELODRAMA"
+        ],
+        "airdrome_id": 10,
+        "tower_mhz": 127.1,
+        "uhf_mhz": 250.5,
+        "vhf_hi_mhz": 127.1,
+        "vhf_low_mhz": 38.9,
+        "hf_mhz": 4.0
+      },
+      {
+        "canonical": "Wurzen",
+        "aliases": [
+          "Wurzen"
+        ],
+        "airdrome_id": 83,
+        "tower_mhz": 127.5,
+        "uhf_mhz": 254.4,
+        "vhf_hi_mhz": 127.5,
+        "vhf_low_mhz": 41.3,
+        "hf_mhz": 3.825
+      },
+      {
+        "canonical": "Fassberg",
+        "aliases": [
+          "Fassberg"
+        ],
+        "airdrome_id": 11,
+        "tower_mhz": 122.1,
+        "uhf_mhz": 251.0,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": 39.4,
+        "hf_mhz": 4.25
+      },
+      {
+        "canonical": "NARSAN",
+        "aliases": [
+          "NARSAN"
+        ],
+        "airdrome_id": 12,
+        "tower_mhz": 125.8,
+        "uhf_mhz": 251.1,
+        "vhf_hi_mhz": 125.8,
+        "vhf_low_mhz": 39.5,
+        "hf_mhz": 4.3
+      },
+      {
+        "canonical": "FRANKFURT",
+        "aliases": [
+          "FRANKFURT"
+        ],
+        "airdrome_id": 163,
+        "tower_mhz": 127.3,
+        "uhf_mhz": 251.85,
+        "vhf_hi_mhz": 127.3,
+        "vhf_low_mhz": 40.25,
+        "hf_mhz": 4.675
+      },
+      {
+        "canonical": "Fritzlar",
+        "aliases": [
+          "Fritzlar"
+        ],
+        "airdrome_id": 154,
+        "tower_mhz": 126.5,
+        "uhf_mhz": 251.35,
+        "vhf_hi_mhz": 126.5,
+        "vhf_low_mhz": 39.75,
+        "hf_mhz": 4.425
+      },
+      {
+        "canonical": "Fulda",
+        "aliases": [
+          "Fulda"
+        ],
+        "airdrome_id": 166,
+        "tower_mhz": 126.0,
+        "uhf_mhz": 252.0,
+        "vhf_hi_mhz": 126.0,
+        "vhf_low_mhz": 40.4,
+        "hf_mhz": 4.75
+      },
+      {
+        "canonical": "GESETZ",
+        "aliases": [
+          "GESETZ"
+        ],
+        "airdrome_id": 13,
+        "tower_mhz": 132.8,
+        "uhf_mhz": 251.15,
+        "vhf_hi_mhz": 132.8,
+        "vhf_low_mhz": 39.55,
+        "hf_mhz": 4.325
+      },
+      {
+        "canonical": "Gatow",
+        "aliases": [
+          "Gatow"
+        ],
+        "airdrome_id": 14,
+        "tower_mhz": 122.1,
+        "uhf_mhz": 251.3,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": 39.7,
+        "hf_mhz": 4.4
+      },
+      {
+        "canonical": "Giebelstadt",
+        "aliases": [
+          "Giebelstadt"
+        ],
+        "airdrome_id": 159,
+        "tower_mhz": 135.9,
+        "uhf_mhz": 251.6,
+        "vhf_hi_mhz": 135.9,
+        "vhf_low_mhz": 40.0,
+        "hf_mhz": 4.55
+      },
+      {
+        "canonical": "GREIF",
+        "aliases": [
+          "GREIF"
+        ],
+        "airdrome_id": 80,
+        "tower_mhz": 127.0,
+        "uhf_mhz": 254.25,
+        "vhf_hi_mhz": 127.0,
+        "vhf_low_mhz": 40.35,
+        "hf_mhz": 4.7
+      },
+      {
+        "canonical": "Gutersloh",
+        "aliases": [
+          "Gutersloh"
+        ],
+        "airdrome_id": 16,
+        "tower_mhz": 122.1,
+        "uhf_mhz": 252.2,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": 40.6,
+        "hf_mhz": 4.85
+      },
+      {
+        "canonical": "Hahn",
+        "aliases": [
+          "Hahn"
+        ],
+        "airdrome_id": 155,
+        "tower_mhz": 119.5,
+        "uhf_mhz": 251.4,
+        "vhf_hi_mhz": 119.5,
+        "vhf_low_mhz": 39.8,
+        "hf_mhz": 4.45
+      },
+      {
+        "canonical": "Haina",
+        "aliases": [
+          "Haina"
+        ],
+        "airdrome_id": 161,
+        "tower_mhz": 119.75,
+        "uhf_mhz": 251.75,
+        "vhf_hi_mhz": 119.75,
+        "vhf_low_mhz": 40.15,
+        "hf_mhz": 4.625
+      },
+      {
+        "canonical": "Hamburg",
+        "aliases": [
+          "Hamburg"
+        ],
+        "airdrome_id": 17,
+        "tower_mhz": 126.85,
+        "uhf_mhz": 252.35,
+        "vhf_hi_mhz": 126.85,
+        "vhf_low_mhz": 40.75,
+        "hf_mhz": 4.925
+      },
+      {
+        "canonical": "HamburgFinkenwerder",
+        "aliases": [
+          "HamburgFinkenwerder"
+        ],
+        "airdrome_id": 18,
+        "tower_mhz": 123.2,
+        "uhf_mhz": 252.4,
+        "vhf_hi_mhz": 123.2,
+        "vhf_low_mhz": 40.8,
+        "hf_mhz": 4.95
+      },
+      {
+        "canonical": "Hannover",
+        "aliases": [
+          "Hannover"
+        ],
+        "airdrome_id": 19,
+        "tower_mhz": 120.2,
+        "uhf_mhz": 252.45,
+        "vhf_hi_mhz": 120.2,
+        "vhf_low_mhz": 40.85,
+        "hf_mhz": 4.525
+      },
+      {
+        "canonical": "HildesHeim",
+        "aliases": [
+          "HildesHeim"
+        ],
+        "airdrome_id": 115,
+        "tower_mhz": 118.3,
+        "uhf_mhz": 250.8,
+        "vhf_hi_mhz": 118.3,
+        "vhf_low_mhz": 39.2,
+        "hf_mhz": 4.15
+      },
+      {
+        "canonical": "HALIFAX",
+        "aliases": [
+          "HALIFAX"
+        ],
+        "airdrome_id": 118,
+        "tower_mhz": 118.2,
+        "uhf_mhz": 250.95,
+        "vhf_hi_mhz": 118.2,
+        "vhf_low_mhz": 39.35,
+        "hf_mhz": 4.225
+      },
+      {
+        "canonical": "SEMELNI",
+        "aliases": [
+          "SEMELNI"
+        ],
+        "airdrome_id": 82,
+        "tower_mhz": 125.9,
+        "uhf_mhz": 254.35,
+        "vhf_hi_mhz": 125.9,
+        "vhf_low_mhz": 39.8,
+        "hf_mhz": 4.25
+      },
+      {
+        "canonical": "LEKTORSTART",
+        "aliases": [
+          "LEKTORSTART"
+        ],
+        "airdrome_id": 20,
+        "tower_mhz": 129.5,
+        "uhf_mhz": 252.7,
+        "vhf_hi_mhz": 129.5,
+        "vhf_low_mhz": 41.1,
+        "hf_mhz": 4.65
+      },
+      {
+        "canonical": "GUSAR",
+        "aliases": [
+          "GUSAR"
+        ],
+        "airdrome_id": 21,
+        "tower_mhz": 129.9,
+        "uhf_mhz": 252.75,
+        "vhf_hi_mhz": 129.9,
+        "vhf_low_mhz": 41.15,
+        "hf_mhz": 4.45
+      },
+      {
+        "canonical": "LATEX",
+        "aliases": [
+          "LATEX"
+        ],
+        "airdrome_id": 171,
+        "tower_mhz": 129.0,
+        "uhf_mhz": 252.3,
+        "vhf_hi_mhz": 129.0,
+        "vhf_low_mhz": 40.7,
+        "hf_mhz": 4.9
+      },
+      {
+        "canonical": "MOCKAU",
+        "aliases": [
+          "MOCKAU"
+        ],
+        "airdrome_id": 236,
+        "tower_mhz": 119.75,
+        "uhf_mhz": 252.95,
+        "vhf_hi_mhz": 119.75,
+        "vhf_low_mhz": 41.35,
+        "hf_mhz": 4.8
+      },
+      {
+        "canonical": "Lubeck",
+        "aliases": [
+          "Lubeck"
+        ],
+        "airdrome_id": 81,
+        "tower_mhz": 128.7,
+        "uhf_mhz": 254.3,
+        "vhf_hi_mhz": 128.7,
+        "vhf_low_mhz": 41.6,
+        "hf_mhz": 4.825
+      },
+      {
+        "canonical": "OSENNIY",
+        "aliases": [
+          "OSENNIY"
+        ],
+        "airdrome_id": 22,
+        "tower_mhz": 126.1,
+        "uhf_mhz": 252.8,
+        "vhf_hi_mhz": 126.1,
+        "vhf_low_mhz": 41.2,
+        "hf_mhz": 3.775
+      },
+      {
+        "canonical": "Mendig",
+        "aliases": [
+          "Mendig"
+        ],
+        "airdrome_id": 168,
+        "tower_mhz": 122.1,
+        "uhf_mhz": 252.1,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": 40.5,
+        "hf_mhz": 4.8
+      },
+      {
+        "canonical": "MUSKAT",
+        "aliases": [
+          "MUSKAT"
+        ],
+        "airdrome_id": 169,
+        "tower_mhz": 127.2,
+        "uhf_mhz": 252.15,
+        "vhf_hi_mhz": 127.2,
+        "vhf_low_mhz": 40.55,
+        "hf_mhz": 4.825
+      },
+      {
+        "canonical": "DEFEKT",
+        "aliases": [
+          "DEFEKT"
+        ],
+        "airdrome_id": 23,
+        "tower_mhz": 124.5,
+        "uhf_mhz": 253.0,
+        "vhf_hi_mhz": 124.5,
+        "vhf_low_mhz": 41.4,
+        "hf_mhz": 4.275
+      },
+      {
+        "canonical": "GIDROSTAT",
+        "aliases": [
+          "GIDROSTAT"
+        ],
+        "airdrome_id": 24,
+        "tower_mhz": 123.5,
+        "uhf_mhz": 253.45,
+        "vhf_hi_mhz": 123.5,
+        "vhf_low_mhz": 41.85,
+        "hf_mhz": 4.875
+      },
+      {
+        "canonical": "KLEJONKA",
+        "aliases": [
+          "KLEJONKA"
+        ],
+        "airdrome_id": 84,
+        "tower_mhz": 129.0,
+        "uhf_mhz": 254.45,
+        "vhf_hi_mhz": 129.0,
+        "vhf_low_mhz": 39.85,
+        "hf_mhz": 4.775
+      },
+      {
+        "canonical": "Narcoze",
+        "aliases": [
+          "Narcoze"
+        ],
+        "airdrome_id": 25,
+        "tower_mhz": 124.0,
+        "uhf_mhz": 253.55,
+        "vhf_hi_mhz": 124.0,
+        "vhf_low_mhz": 41.95,
+        "hf_mhz": 4.675
+      },
+      {
+        "canonical": "Pferdsfeld",
+        "aliases": [
+          "Pferdsfeld"
+        ],
+        "airdrome_id": 232,
+        "tower_mhz": 132.65,
+        "uhf_mhz": 252.85,
+        "vhf_hi_mhz": 132.65,
+        "vhf_low_mhz": 41.25,
+        "hf_mhz": 3.85
+      },
+      {
+        "canonical": "RAMSTEIN",
+        "aliases": [
+          "RAMSTEIN"
+        ],
+        "airdrome_id": 165,
+        "tower_mhz": 133.2,
+        "uhf_mhz": 251.95,
+        "vhf_hi_mhz": 133.2,
+        "vhf_low_mhz": 40.35,
+        "hf_mhz": 4.725
+      },
+      {
+        "canonical": "Schonefeld",
+        "aliases": [
+          "Schonefeld"
+        ],
+        "airdrome_id": 26,
+        "tower_mhz": 121.3,
+        "uhf_mhz": 253.6,
+        "vhf_hi_mhz": 121.3,
+        "vhf_low_mhz": 42.0,
+        "hf_mhz": 4.55
+      },
+      {
+        "canonical": "Schweinfurt",
+        "aliases": [
+          "Schweinfurt"
+        ],
+        "airdrome_id": 160,
+        "tower_mhz": 119.95,
+        "uhf_mhz": 251.7,
+        "vhf_hi_mhz": 119.95,
+        "vhf_low_mhz": 40.1,
+        "hf_mhz": 4.6
+      },
+      {
+        "canonical": "SEMBACH",
+        "aliases": [
+          "SEMBACH"
+        ],
+        "airdrome_id": 156,
+        "tower_mhz": 121.5,
+        "uhf_mhz": 251.45,
+        "vhf_hi_mhz": 121.5,
+        "vhf_low_mhz": 39.85,
+        "hf_mhz": 4.475
+      },
+      {
+        "canonical": "Spangdahlem",
+        "aliases": [
+          "Spangdahlem"
+        ],
+        "airdrome_id": 162,
+        "tower_mhz": 122.2,
+        "uhf_mhz": 251.8,
+        "vhf_hi_mhz": 122.2,
+        "vhf_low_mhz": 40.2,
+        "hf_mhz": 4.65
+      },
+      {
+        "canonical": "SOUVENIR",
+        "aliases": [
+          "SOUVENIR"
+        ],
+        "airdrome_id": 101,
+        "tower_mhz": 123.1,
+        "uhf_mhz": 250.1,
+        "vhf_hi_mhz": 123.1,
+        "vhf_low_mhz": 38.5,
+        "hf_mhz": 3.8
+      },
+      {
+        "canonical": "KUKAN",
+        "aliases": [
+          "KUKAN"
+        ],
+        "airdrome_id": 27,
+        "tower_mhz": 122.0,
+        "uhf_mhz": 253.65,
+        "vhf_hi_mhz": 122.0,
+        "vhf_low_mhz": 42.05,
+        "hf_mhz": 4.6
+      },
+      {
+        "canonical": "Tegel",
+        "aliases": [
+          "Tegel"
+        ],
+        "airdrome_id": 28,
+        "tower_mhz": 124.5,
+        "uhf_mhz": 253.7,
+        "vhf_hi_mhz": 124.5,
+        "vhf_low_mhz": 42.1,
+        "hf_mhz": 3.75
+      },
+      {
+        "canonical": "Tempelhof",
+        "aliases": [
+          "Tempelhof"
+        ],
+        "airdrome_id": 29,
+        "tower_mhz": 119.5,
+        "uhf_mhz": 253.75,
+        "vhf_hi_mhz": 119.5,
+        "vhf_low_mhz": 42.15,
+        "hf_mhz": 4.85
+      },
+      {
+        "canonical": "LEOPARD",
+        "aliases": [
+          "LEOPARD"
+        ],
+        "airdrome_id": 15,
+        "tower_mhz": 128.0,
+        "uhf_mhz": 251.65,
+        "vhf_hi_mhz": 128.0,
+        "vhf_low_mhz": 40.05,
+        "hf_mhz": 4.575
+      },
+      {
+        "canonical": "BAATH",
+        "aliases": [
+          "BAATH"
+        ],
+        "airdrome_id": 30,
+        "tower_mhz": 125.5,
+        "uhf_mhz": 253.85,
+        "vhf_hi_mhz": 125.5,
+        "vhf_low_mhz": 42.25,
+        "hf_mhz": 4.425
+      },
+      {
+        "canonical": "Werneuchen",
+        "aliases": [
+          "Werneuchen"
+        ],
+        "airdrome_id": 31,
+        "tower_mhz": 122.6,
+        "uhf_mhz": 253.9,
+        "vhf_hi_mhz": 122.6,
+        "vhf_low_mhz": 42.3,
+        "hf_mhz": 4.2
+      },
+      {
+        "canonical": "Wiesbaden",
+        "aliases": [
+          "Wiesbaden"
+        ],
+        "airdrome_id": 170,
+        "tower_mhz": 118.1,
+        "uhf_mhz": 252.25,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": 40.65,
+        "hf_mhz": 4.875
+      },
+      {
+        "canonical": "GAZOVIJ",
+        "aliases": [
+          "GAZOVIJ"
+        ],
+        "airdrome_id": 1,
+        "tower_mhz": 118.5,
+        "uhf_mhz": 252.5,
+        "vhf_hi_mhz": 118.5,
+        "vhf_low_mhz": 40.9,
+        "hf_mhz": 4.725
+      },
+      {
+        "canonical": "Wunstorf",
+        "aliases": [
+          "Wunstorf"
+        ],
+        "airdrome_id": 32,
+        "tower_mhz": 121.1,
+        "uhf_mhz": 253.95,
+        "vhf_hi_mhz": 121.1,
+        "vhf_low_mhz": 39.95,
+        "hf_mhz": 3.8
+      },
+      {
+        "canonical": "Zerbst",
+        "aliases": [
+          "Zerbst"
+        ],
+        "airdrome_id": 4,
+        "tower_mhz": 119.8,
+        "uhf_mhz": 254.05,
+        "vhf_hi_mhz": 119.8,
+        "vhf_low_mhz": 40.95,
+        "hf_mhz": 3.9
+      },
+      {
+        "canonical": "Zweibrucken",
+        "aliases": [
+          "Zweibrucken"
+        ],
+        "airdrome_id": 158,
+        "tower_mhz": 123.0,
+        "uhf_mhz": 251.55,
+        "vhf_hi_mhz": 123.0,
+        "vhf_low_mhz": 39.95,
+        "hf_mhz": 4.525
+      }
+    ],
+    "marianaislands": [
+      {
+        "canonical": "PGUA",
+        "aliases": [
+          "PGUA"
+        ],
+        "airdrome_id": 6,
+        "tower_mhz": 126.2,
+        "uhf_mhz": 250.1,
+        "vhf_hi_mhz": 126.2,
+        "vhf_low_mhz": 38.6,
+        "hf_mhz": 3.85
+      },
+      {
+        "canonical": "PGUM",
+        "aliases": [
+          "PGUM"
+        ],
+        "airdrome_id": 4,
+        "tower_mhz": 118.1,
+        "uhf_mhz": 340.2,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": 38.55,
+        "hf_mhz": 3.825
+      },
+      {
+        "canonical": "PGRO",
+        "aliases": [
+          "PGRO"
+        ],
+        "airdrome_id": 1,
+        "tower_mhz": 123.6,
+        "uhf_mhz": 250.0,
+        "vhf_hi_mhz": 123.6,
+        "vhf_low_mhz": 38.4,
+        "hf_mhz": 3.75
+      },
+      {
+        "canonical": "PGSN",
+        "aliases": [
+          "PGSN"
+        ],
+        "airdrome_id": 2,
+        "tower_mhz": 125.7,
+        "uhf_mhz": 256.9,
+        "vhf_hi_mhz": 125.7,
+        "vhf_low_mhz": 38.45,
+        "hf_mhz": 3.775
+      },
+      {
+        "canonical": "PGWT",
+        "aliases": [
+          "PGWT"
+        ],
+        "airdrome_id": 3,
+        "tower_mhz": 123.65,
+        "uhf_mhz": 250.05,
+        "vhf_hi_mhz": 123.65,
+        "vhf_low_mhz": 38.5,
+        "hf_mhz": 3.8
+      }
+    ],
+    "nevada": [
+      {
+        "canonical": "IndianSprings",
+        "aliases": [
+          "IndianSprings"
+        ],
+        "airdrome_id": 1,
+        "tower_mhz": 118.3,
+        "uhf_mhz": 360.6,
+        "vhf_hi_mhz": 118.3,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Henderson",
+        "aliases": [
+          "Henderson"
+        ],
+        "airdrome_id": 8,
+        "tower_mhz": 125.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 125.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Lasvegas",
+        "aliases": [
+          "Lasvegas"
+        ],
+        "airdrome_id": 3,
+        "tower_mhz": 119.9,
+        "uhf_mhz": 257.8,
+        "vhf_hi_mhz": 119.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Bullhead",
+        "aliases": [
+          "Bullhead"
+        ],
+        "airdrome_id": 10,
+        "tower_mhz": 123.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 123.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "NellisControl",
+        "aliases": [
+          "NellisControl"
+        ],
+        "airdrome_id": 4,
+        "tower_mhz": 132.55,
+        "uhf_mhz": 327.0,
+        "vhf_hi_mhz": 132.55,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "NorthLasVegas",
+        "aliases": [
+          "NorthLasVegas"
+        ],
+        "airdrome_id": 15,
+        "tower_mhz": 125.7,
+        "uhf_mhz": 360.75,
+        "vhf_hi_mhz": 125.7,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Silverbow",
+        "aliases": [
+          "Silverbow"
+        ],
+        "airdrome_id": 18,
+        "tower_mhz": 124.75,
+        "uhf_mhz": 257.95,
+        "vhf_hi_mhz": 124.75,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      }
+    ],
+    "persian_gulf": [
+      {
+        "canonical": "OMAA",
+        "aliases": [
+          "OMAA"
+        ],
+        "airdrome_id": 22,
+        "tower_mhz": 119.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OIBA",
+        "aliases": [
+          "OIBA"
+        ],
+        "airdrome_id": 1,
+        "tower_mhz": 122.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMAL",
+        "aliases": [
+          "OMAL"
+        ],
+        "airdrome_id": 25,
+        "tower_mhz": 119.85,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.85,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMAD",
+        "aliases": [
+          "OMAD"
+        ],
+        "airdrome_id": 23,
+        "tower_mhz": 119.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OIKB",
+        "aliases": [
+          "OIKB"
+        ],
+        "airdrome_id": 2,
+        "tower_mhz": 118.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OIBL",
+        "aliases": [
+          "OIBL"
+        ],
+        "airdrome_id": 3,
+        "tower_mhz": 121.7,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.7,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMAM",
+        "aliases": [
+          "OMAM"
+        ],
+        "airdrome_id": 4,
+        "tower_mhz": 126.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 126.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMDB",
+        "aliases": [
+          "OMDB"
+        ],
+        "airdrome_id": 5,
+        "tower_mhz": 118.75,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.75,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMDW",
+        "aliases": [
+          "OMDW"
+        ],
+        "airdrome_id": 6,
+        "tower_mhz": 118.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMFJ",
+        "aliases": [
+          "OMFJ"
+        ],
+        "airdrome_id": 7,
+        "tower_mhz": 124.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 124.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Havadarya",
+        "aliases": [
+          "Havadarya"
+        ],
+        "airdrome_id": 9,
+        "tower_mhz": 123.15,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 123.15,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OIKJ",
+        "aliases": [
+          "OIKJ"
+        ],
+        "airdrome_id": 27,
+        "tower_mhz": 136.0,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 136.0,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "KERMAN",
+        "aliases": [
+          "KERMAN"
+        ],
+        "airdrome_id": 18,
+        "tower_mhz": 118.25,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.25,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Khasab",
+        "aliases": [
+          "Khasab"
+        ],
+        "airdrome_id": 10,
+        "tower_mhz": 124.35,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 124.35,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Kish",
+        "aliases": [
+          "Kish"
+        ],
+        "airdrome_id": 24,
+        "tower_mhz": 121.65,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.65,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OISL",
+        "aliases": [
+          "OISL"
+        ],
+        "airdrome_id": 11,
+        "tower_mhz": 127.35,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 127.35,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "LVA",
+        "aliases": [
+          "LVA"
+        ],
+        "airdrome_id": 26,
+        "tower_mhz": 128.55,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 128.55,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMLW",
+        "aliases": [
+          "OMLW"
+        ],
+        "airdrome_id": 29,
+        "tower_mhz": 119.3,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.3,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMDM",
+        "aliases": [
+          "OMDM"
+        ],
+        "airdrome_id": 12,
+        "tower_mhz": 118.55,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.55,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Qeshm Island",
+        "aliases": [
+          "Qeshm Island"
+        ],
+        "airdrome_id": 13,
+        "tower_mhz": 118.05,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.05,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMRK",
+        "aliases": [
+          "OMRK"
+        ],
+        "airdrome_id": 28,
+        "tower_mhz": 121.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMNK",
+        "aliases": [
+          "OMNK"
+        ],
+        "airdrome_id": 20,
+        "tower_mhz": 128.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 128.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "SharjahIntl",
+        "aliases": [
+          "SharjahIntl"
+        ],
+        "airdrome_id": 14,
+        "tower_mhz": 118.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "SHIRAZ",
+        "aliases": [
+          "SHIRAZ"
+        ],
+        "airdrome_id": 19,
+        "tower_mhz": 121.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OMSN",
+        "aliases": [
+          "OMSN"
+        ],
+        "airdrome_id": 17,
+        "tower_mhz": 250.8,
+        "uhf_mhz": 250.8,
+        "vhf_hi_mhz": null,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "OIBS",
+        "aliases": [
+          "OIBS"
+        ],
+        "airdrome_id": 15,
+        "tower_mhz": 135.05,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 135.05,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      }
+    ],
+    "sinai": [
+      {
+        "canonical": "AbuSultan",
+        "aliases": [
+          "AbuSultan"
+        ],
+        "airdrome_id": 1,
+        "tower_mhz": 118.45,
+        "uhf_mhz": 250.55,
+        "vhf_hi_mhz": 118.45,
+        "vhf_low_mhz": 38.95,
+        "hf_mhz": 4.025
+      },
+      {
+        "canonical": "AbuSuwayr",
+        "aliases": [
+          "AbuSuwayr"
+        ],
+        "airdrome_id": 2,
+        "tower_mhz": 118.85,
+        "uhf_mhz": 251.1,
+        "vhf_hi_mhz": 118.85,
+        "vhf_low_mhz": 39.5,
+        "hf_mhz": 4.3
+      },
+      {
+        "canonical": "ABR",
+        "aliases": [
+          "ABR"
+        ],
+        "airdrome_id": 26,
+        "tower_mhz": 118.5,
+        "uhf_mhz": 250.9,
+        "vhf_hi_mhz": 118.5,
+        "vhf_low_mhz": 39.3,
+        "hf_mhz": 4.2
+      },
+      {
+        "canonical": "Ismailia",
+        "aliases": [
+          "Ismailia"
+        ],
+        "airdrome_id": 4,
+        "tower_mhz": 118.1,
+        "uhf_mhz": 252.0,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": 40.4,
+        "hf_mhz": 4.75
+      },
+      {
+        "canonical": "EKH",
+        "aliases": [
+          "EKH"
+        ],
+        "airdrome_id": 31,
+        "tower_mhz": 118.95,
+        "uhf_mhz": 251.2,
+        "vhf_hi_mhz": 118.95,
+        "vhf_low_mhz": 39.6,
+        "hf_mhz": 4.35
+      },
+      {
+        "canonical": "ERH",
+        "aliases": [
+          "ERH"
+        ],
+        "airdrome_id": 32,
+        "tower_mhz": 119.05,
+        "uhf_mhz": 251.25,
+        "vhf_hi_mhz": 119.05,
+        "vhf_low_mhz": 39.65,
+        "hf_mhz": 4.375
+      },
+      {
+        "canonical": "AlMansurah",
+        "aliases": [
+          "AlMansurah"
+        ],
+        "airdrome_id": 14,
+        "tower_mhz": 118.25,
+        "uhf_mhz": 250.25,
+        "vhf_hi_mhz": 118.25,
+        "vhf_low_mhz": 38.65,
+        "hf_mhz": 3.875
+      },
+      {
+        "canonical": "Salihiyah",
+        "aliases": [
+          "Salihiyah"
+        ],
+        "airdrome_id": 3,
+        "tower_mhz": 119.35,
+        "uhf_mhz": 251.65,
+        "vhf_hi_mhz": 119.35,
+        "vhf_low_mhz": 40.05,
+        "hf_mhz": 4.575
+      },
+      {
+        "canonical": "Zaqaziq",
+        "aliases": [
+          "Zaqaziq"
+        ],
+        "airdrome_id": 15,
+        "tower_mhz": 118.3,
+        "uhf_mhz": 250.3,
+        "vhf_hi_mhz": 118.3,
+        "vhf_low_mhz": 38.7,
+        "hf_mhz": 3.9
+      },
+      {
+        "canonical": "BAZL",
+        "aliases": [
+          "BAZL"
+        ],
+        "airdrome_id": 27,
+        "tower_mhz": 118.75,
+        "uhf_mhz": 250.95,
+        "vhf_hi_mhz": 118.75,
+        "vhf_low_mhz": 39.35,
+        "hf_mhz": 4.225
+      },
+      {
+        "canonical": "BGN",
+        "aliases": [
+          "BGN"
+        ],
+        "airdrome_id": 24,
+        "tower_mhz": 134.6,
+        "uhf_mhz": 250.8,
+        "vhf_hi_mhz": 134.6,
+        "vhf_low_mhz": 39.2,
+        "hf_mhz": 4.15
+      },
+      {
+        "canonical": "BSF",
+        "aliases": [
+          "BSF"
+        ],
+        "airdrome_id": 33,
+        "tower_mhz": 127.1,
+        "uhf_mhz": 251.3,
+        "vhf_hi_mhz": 127.1,
+        "vhf_low_mhz": 39.7,
+        "hf_mhz": 4.4
+      },
+      {
+        "canonical": "BBES",
+        "aliases": [
+          "BBES"
+        ],
+        "airdrome_id": 16,
+        "tower_mhz": 118.35,
+        "uhf_mhz": 250.35,
+        "vhf_hi_mhz": 118.35,
+        "vhf_low_mhz": 38.75,
+        "hf_mhz": 3.925
+      },
+      {
+        "canonical": "Melez",
+        "aliases": [
+          "Melez"
+        ],
+        "airdrome_id": 5,
+        "tower_mhz": 119.65,
+        "uhf_mhz": 252.05,
+        "vhf_hi_mhz": 119.65,
+        "vhf_low_mhz": 40.45,
+        "hf_mhz": 4.775
+      },
+      {
+        "canonical": "HASH",
+        "aliases": [
+          "HASH"
+        ],
+        "airdrome_id": 28,
+        "tower_mhz": 118.8,
+        "uhf_mhz": 251.0,
+        "vhf_hi_mhz": 118.8,
+        "vhf_low_mhz": 39.4,
+        "hf_mhz": 4.25
+      },
+      {
+        "canonical": "BAR",
+        "aliases": [
+          "BAR"
+        ],
+        "airdrome_id": 34,
+        "tower_mhz": 119.15,
+        "uhf_mhz": 251.35,
+        "vhf_hi_mhz": 119.15,
+        "vhf_low_mhz": 39.75,
+        "hf_mhz": 4.425
+      },
+      {
+        "canonical": "BEAI",
+        "aliases": [
+          "BEAI"
+        ],
+        "airdrome_id": 35,
+        "tower_mhz": 119.1,
+        "uhf_mhz": 251.4,
+        "vhf_hi_mhz": 119.1,
+        "vhf_low_mhz": 39.8,
+        "hf_mhz": 4.45
+      },
+      {
+        "canonical": "CAI",
+        "aliases": [
+          "CAI"
+        ],
+        "airdrome_id": 17,
+        "tower_mhz": 118.1,
+        "uhf_mhz": 250.4,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": 38.8,
+        "hf_mhz": 3.95
+      },
+      {
+        "canonical": "SPX",
+        "aliases": [
+          "SPX"
+        ],
+        "airdrome_id": 18,
+        "tower_mhz": 131.2,
+        "uhf_mhz": 250.45,
+        "vhf_hi_mhz": 131.2,
+        "vhf_low_mhz": 38.85,
+        "hf_mhz": 3.975
+      },
+      {
+        "canonical": "DAMSC",
+        "aliases": [
+          "DAMSC"
+        ],
+        "airdrome_id": 48,
+        "tower_mhz": 118.5,
+        "uhf_mhz": 226.1,
+        "vhf_hi_mhz": 118.5,
+        "vhf_low_mhz": 40.95,
+        "hf_mhz": 4.025
+      },
+      {
+        "canonical": "EIN",
+        "aliases": [
+          "EIN"
+        ],
+        "airdrome_id": 52,
+        "tower_mhz": 124.55,
+        "uhf_mhz": 227.85,
+        "vhf_hi_mhz": 124.55,
+        "vhf_low_mhz": 41.45,
+        "hf_mhz": 3.875
+      },
+      {
+        "canonical": "EMY",
+        "aliases": [
+          "EMY"
+        ],
+        "airdrome_id": 36,
+        "tower_mhz": 119.2,
+        "uhf_mhz": 251.45,
+        "vhf_hi_mhz": 119.2,
+        "vhf_low_mhz": 39.85,
+        "hf_mhz": 4.475
+      },
+      {
+        "canonical": "RIH",
+        "aliases": [
+          "RIH"
+        ],
+        "airdrome_id": 29,
+        "tower_mhz": 121.0,
+        "uhf_mhz": 251.05,
+        "vhf_hi_mhz": 121.0,
+        "vhf_low_mhz": 39.45,
+        "hf_mhz": 4.275
+      },
+      {
+        "canonical": "ELGO",
+        "aliases": [
+          "ELGO"
+        ],
+        "airdrome_id": 30,
+        "tower_mhz": 118.2,
+        "uhf_mhz": 251.15,
+        "vhf_hi_mhz": 118.2,
+        "vhf_low_mhz": 39.55,
+        "hf_mhz": 4.325
+      },
+      {
+        "canonical": "Fayed",
+        "aliases": [
+          "Fayed"
+        ],
+        "airdrome_id": 6,
+        "tower_mhz": 119.7,
+        "uhf_mhz": 252.1,
+        "vhf_hi_mhz": 119.7,
+        "vhf_low_mhz": 40.5,
+        "hf_mhz": 4.8
+      },
+      {
+        "canonical": "GEL",
+        "aliases": [
+          "GEL"
+        ],
+        "airdrome_id": 37,
+        "tower_mhz": 119.25,
+        "uhf_mhz": 251.5,
+        "vhf_hi_mhz": 119.25,
+        "vhf_low_mhz": 39.9,
+        "hf_mhz": 4.5
+      },
+      {
+        "canonical": "Hatzerim",
+        "aliases": [
+          "Hatzerim"
+        ],
+        "airdrome_id": 7,
+        "tower_mhz": 119.75,
+        "uhf_mhz": 252.15,
+        "vhf_hi_mhz": 119.75,
+        "vhf_low_mhz": 40.55,
+        "hf_mhz": 4.825
+      },
+      {
+        "canonical": "HatzerimHeliBase",
+        "aliases": [
+          "HatzerimHeliBase"
+        ],
+        "airdrome_id": 12,
+        "tower_mhz": 118.15,
+        "uhf_mhz": 250.15,
+        "vhf_hi_mhz": 118.15,
+        "vhf_low_mhz": 38.55,
+        "hf_mhz": 3.825
+      },
+      {
+        "canonical": "HATZ",
+        "aliases": [
+          "HATZ"
+        ],
+        "airdrome_id": 20,
+        "tower_mhz": 118.55,
+        "uhf_mhz": 250.6,
+        "vhf_hi_mhz": 118.55,
+        "vhf_low_mhz": 39.0,
+        "hf_mhz": 4.05
+      },
+      {
+        "canonical": "Hurghada",
+        "aliases": [
+          "Hurghada"
+        ],
+        "airdrome_id": 38,
+        "tower_mhz": 119.6,
+        "uhf_mhz": 251.55,
+        "vhf_hi_mhz": 119.6,
+        "vhf_low_mhz": 39.95,
+        "hf_mhz": 4.525
+      },
+      {
+        "canonical": "ISH",
+        "aliases": [
+          "ISH"
+        ],
+        "airdrome_id": 19,
+        "tower_mhz": 118.4,
+        "uhf_mhz": 250.5,
+        "vhf_hi_mhz": 118.4,
+        "vhf_low_mhz": 38.9,
+        "hf_mhz": 4.0
+      },
+      {
+        "canonical": "JNAB",
+        "aliases": [
+          "JNAB"
+        ],
+        "airdrome_id": 39,
+        "tower_mhz": 119.3,
+        "uhf_mhz": 251.6,
+        "vhf_hi_mhz": 119.3,
+        "vhf_low_mhz": 40.0,
+        "hf_mhz": 4.55
+      },
+      {
+        "canonical": "KHAL",
+        "aliases": [
+          "KHAL"
+        ],
+        "airdrome_id": 55,
+        "tower_mhz": 128.4,
+        "uhf_mhz": 227.9,
+        "vhf_hi_mhz": 128.4,
+        "vhf_low_mhz": 40.7,
+        "hf_mhz": 4.925
+      },
+      {
+        "canonical": "KBT",
+        "aliases": [
+          "KBT"
+        ],
+        "airdrome_id": 11,
+        "tower_mhz": 118.05,
+        "uhf_mhz": 250.1,
+        "vhf_hi_mhz": 118.05,
+        "vhf_low_mhz": 38.5,
+        "hf_mhz": 3.8
+      },
+      {
+        "canonical": "KING",
+        "aliases": [
+          "KING"
+        ],
+        "airdrome_id": 54,
+        "tower_mhz": 129.2,
+        "uhf_mhz": 227.95,
+        "vhf_hi_mhz": 129.2,
+        "vhf_low_mhz": 40.75,
+        "hf_mhz": 4.95
+      },
+      {
+        "canonical": "KAM",
+        "aliases": [
+          "KAM"
+        ],
+        "airdrome_id": 40,
+        "tower_mhz": 119.4,
+        "uhf_mhz": 251.7,
+        "vhf_hi_mhz": 119.4,
+        "vhf_low_mhz": 40.1,
+        "hf_mhz": 4.6
+      },
+      {
+        "canonical": "MED",
+        "aliases": [
+          "MED"
+        ],
+        "airdrome_id": 51,
+        "tower_mhz": 123.0,
+        "uhf_mhz": 225.9,
+        "vhf_hi_mhz": 123.0,
+        "vhf_low_mhz": 41.15,
+        "hf_mhz": 4.975
+      },
+      {
+        "canonical": "MEZH",
+        "aliases": [
+          "MEZH"
+        ],
+        "airdrome_id": 49,
+        "tower_mhz": 126.0,
+        "uhf_mhz": 227.2,
+        "vhf_hi_mhz": 126.0,
+        "vhf_low_mhz": 41.35,
+        "hf_mhz": 4.45
+      },
+      {
+        "canonical": "Nevatim",
+        "aliases": [
+          "Nevatim"
+        ],
+        "airdrome_id": 8,
+        "tower_mhz": 132.4,
+        "uhf_mhz": 252.2,
+        "vhf_hi_mhz": 132.4,
+        "vhf_low_mhz": 40.6,
+        "hf_mhz": 4.85
+      },
+      {
+        "canonical": "OVD",
+        "aliases": [
+          "OVD"
+        ],
+        "airdrome_id": 10,
+        "tower_mhz": 129.9,
+        "uhf_mhz": 250.05,
+        "vhf_hi_mhz": 129.9,
+        "vhf_low_mhz": 38.45,
+        "hf_mhz": 3.775
+      },
+      {
+        "canonical": "PALM",
+        "aliases": [
+          "PALM"
+        ],
+        "airdrome_id": 21,
+        "tower_mhz": 118.6,
+        "uhf_mhz": 250.65,
+        "vhf_hi_mhz": 118.6,
+        "vhf_low_mhz": 39.05,
+        "hf_mhz": 4.075
+      },
+      {
+        "canonical": "QWN",
+        "aliases": [
+          "QWN"
+        ],
+        "airdrome_id": 45,
+        "tower_mhz": 119.55,
+        "uhf_mhz": 251.95,
+        "vhf_hi_mhz": 119.55,
+        "vhf_low_mhz": 40.35,
+        "hf_mhz": 4.725
+      },
+      {
+        "canonical": "RDAB",
+        "aliases": [
+          "RDAB"
+        ],
+        "airdrome_id": 50,
+        "tower_mhz": 118.0,
+        "uhf_mhz": 251.1,
+        "vhf_hi_mhz": 118.0,
+        "vhf_low_mhz": 38.4,
+        "hf_mhz": 3.75
+      },
+      {
+        "canonical": "RAM",
+        "aliases": [
+          "RAM"
+        ],
+        "airdrome_id": 9,
+        "tower_mhz": 119.8,
+        "uhf_mhz": 252.25,
+        "vhf_hi_mhz": 119.8,
+        "vhf_low_mhz": 40.65,
+        "hf_mhz": 4.875
+      },
+      {
+        "canonical": "RAM",
+        "aliases": [
+          "RAM"
+        ],
+        "airdrome_id": 41,
+        "tower_mhz": 119.0,
+        "uhf_mhz": 251.75,
+        "vhf_hi_mhz": 119.0,
+        "vhf_low_mhz": 40.15,
+        "hf_mhz": 4.625
+      },
+      {
+        "canonical": "SDE",
+        "aliases": [
+          "SDE"
+        ],
+        "airdrome_id": 22,
+        "tower_mhz": 118.65,
+        "uhf_mhz": 250.7,
+        "vhf_hi_mhz": 118.65,
+        "vhf_low_mhz": 39.1,
+        "hf_mhz": 4.1
+      },
+      {
+        "canonical": "SHM",
+        "aliases": [
+          "SHM"
+        ],
+        "airdrome_id": 42,
+        "tower_mhz": 118.9,
+        "uhf_mhz": 251.8,
+        "vhf_hi_mhz": 118.9,
+        "vhf_low_mhz": 40.2,
+        "hf_mhz": 4.65
+      },
+      {
+        "canonical": "STC",
+        "aliases": [
+          "STC"
+        ],
+        "airdrome_id": 25,
+        "tower_mhz": 124.5,
+        "uhf_mhz": 250.85,
+        "vhf_hi_mhz": 124.5,
+        "vhf_low_mhz": 39.25,
+        "hf_mhz": 4.175
+      },
+      {
+        "canonical": "TABA",
+        "aliases": [
+          "TABA"
+        ],
+        "airdrome_id": 53,
+        "tower_mhz": 121.9,
+        "uhf_mhz": 227.15,
+        "vhf_hi_mhz": 121.9,
+        "vhf_low_mhz": 42.2,
+        "hf_mhz": 3.925
+      },
+      {
+        "canonical": "TBK",
+        "aliases": [
+          "TBK"
+        ],
+        "airdrome_id": 47,
+        "tower_mhz": 125.9,
+        "uhf_mhz": 229.4,
+        "vhf_hi_mhz": 125.9,
+        "vhf_low_mhz": 42.15,
+        "hf_mhz": 4.225
+      },
+      {
+        "canonical": "TABH",
+        "aliases": [
+          "TABH"
+        ],
+        "airdrome_id": 56,
+        "tower_mhz": 129.25,
+        "uhf_mhz": 228.0,
+        "vhf_hi_mhz": 129.25,
+        "vhf_low_mhz": 40.8,
+        "hf_mhz": 5.0
+      },
+      {
+        "canonical": "TELN",
+        "aliases": [
+          "TELN"
+        ],
+        "airdrome_id": 23,
+        "tower_mhz": 118.7,
+        "uhf_mhz": 250.75,
+        "vhf_hi_mhz": 118.7,
+        "vhf_low_mhz": 39.15,
+        "hf_mhz": 4.125
+      },
+      {
+        "canonical": "WAR",
+        "aliases": [
+          "WAR"
+        ],
+        "airdrome_id": 43,
+        "tower_mhz": 119.45,
+        "uhf_mhz": 251.85,
+        "vhf_hi_mhz": 119.45,
+        "vhf_low_mhz": 40.25,
+        "hf_mhz": 4.675
+      },
+      {
+        "canonical": "CCE",
+        "aliases": [
+          "CCE"
+        ],
+        "airdrome_id": 13,
+        "tower_mhz": 118.9,
+        "uhf_mhz": 250.2,
+        "vhf_hi_mhz": 118.9,
+        "vhf_low_mhz": 38.6,
+        "hf_mhz": 3.85
+      },
+      {
+        "canonical": "WAS",
+        "aliases": [
+          "WAS"
+        ],
+        "airdrome_id": 44,
+        "tower_mhz": 119.5,
+        "uhf_mhz": 251.9,
+        "vhf_hi_mhz": 119.5,
+        "vhf_low_mhz": 40.3,
+        "hf_mhz": 4.7
+      }
+    ],
+    "syria": [
+      {
+        "canonical": "Abu_Ad_Duhur",
+        "aliases": [
+          "Abu_Ad_Duhur"
+        ],
+        "airdrome_id": 1,
+        "tower_mhz": 122.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Adana",
+        "aliases": [
+          "Adana"
+        ],
+        "airdrome_id": 2,
+        "tower_mhz": 121.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Akrotiri",
+        "aliases": [
+          "Akrotiri"
+        ],
+        "airdrome_id": 44,
+        "tower_mhz": 128.0,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 128.0,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Al_Qusayr",
+        "aliases": [
+          "Al_Qusayr"
+        ],
+        "airdrome_id": 3,
+        "tower_mhz": 119.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Amman",
+        "aliases": [
+          "Amman"
+        ],
+        "airdrome_id": 67,
+        "tower_mhz": 118.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "An_Nasiriyah",
+        "aliases": [
+          "An_Nasiriyah"
+        ],
+        "airdrome_id": 4,
+        "tower_mhz": 122.3,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.3,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "As_Suwayda",
+        "aliases": [
+          "As_Suwayda"
+        ],
+        "airdrome_id": 1,
+        "tower_mhz": 122.4,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.4,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "At-Tanf",
+        "aliases": [
+          "At-Tanf"
+        ],
+        "airdrome_id": 63,
+        "tower_mhz": 121.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Hariri",
+        "aliases": [
+          "Hariri"
+        ],
+        "airdrome_id": 6,
+        "tower_mhz": 118.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "BenGurion",
+        "aliases": [
+          "BenGurion"
+        ],
+        "airdrome_id": 221,
+        "tower_mhz": 134.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 134.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Damascus",
+        "aliases": [
+          "Damascus"
+        ],
+        "airdrome_id": 7,
+        "tower_mhz": 118.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Deirez-Zor",
+        "aliases": [
+          "Deirez-Zor"
+        ],
+        "airdrome_id": 42,
+        "tower_mhz": 118.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Der_Salman",
+        "aliases": [
+          "Der_Salman"
+        ],
+        "airdrome_id": 8,
+        "tower_mhz": 122.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Dumayr",
+        "aliases": [
+          "Dumayr"
+        ],
+        "airdrome_id": 9,
+        "tower_mhz": 120.3,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.3,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Ercan",
+        "aliases": [
+          "Ercan"
+        ],
+        "airdrome_id": 49,
+        "tower_mhz": 120.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Eyn_Shemer",
+        "aliases": [
+          "Eyn_Shemer"
+        ],
+        "airdrome_id": 10,
+        "tower_mhz": 123.4,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 123.4,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Gaziantep",
+        "aliases": [
+          "Gaziantep"
+        ],
+        "airdrome_id": 11,
+        "tower_mhz": 120.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Gazipasa",
+        "aliases": [
+          "Gazipasa"
+        ],
+        "airdrome_id": 41,
+        "tower_mhz": 119.25,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.25,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Gecitkale",
+        "aliases": [
+          "Gecitkale"
+        ],
+        "airdrome_id": 50,
+        "tower_mhz": 120.0,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.0,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "H3",
+        "aliases": [
+          "H3"
+        ],
+        "airdrome_id": 53,
+        "tower_mhz": 122.0,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.0,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "H3_Northwest",
+        "aliases": [
+          "H3_Northwest"
+        ],
+        "airdrome_id": 54,
+        "tower_mhz": 122.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "H3_Southwest",
+        "aliases": [
+          "H3_Southwest"
+        ],
+        "airdrome_id": 55,
+        "tower_mhz": 122.4,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.4,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "H4",
+        "aliases": [
+          "H4"
+        ],
+        "airdrome_id": 12,
+        "tower_mhz": 122.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Haifa",
+        "aliases": [
+          "Haifa"
+        ],
+        "airdrome_id": 13,
+        "tower_mhz": 127.8,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 127.8,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Hama",
+        "aliases": [
+          "Hama"
+        ],
+        "airdrome_id": 14,
+        "tower_mhz": 118.05,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.05,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Hatay",
+        "aliases": [
+          "Hatay"
+        ],
+        "airdrome_id": 15,
+        "tower_mhz": 128.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 128.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Hatzor",
+        "aliases": [
+          "Hatzor"
+        ],
+        "airdrome_id": 222,
+        "tower_mhz": 125.75,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 125.75,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Herzliya",
+        "aliases": [
+          "Herzliya"
+        ],
+        "airdrome_id": 66,
+        "tower_mhz": 122.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Pinarbashi",
+        "aliases": [
+          "Pinarbashi"
+        ],
+        "airdrome_id": 51,
+        "tower_mhz": 121.0,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.0,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Incirlik",
+        "aliases": [
+          "Incirlik"
+        ],
+        "airdrome_id": 16,
+        "tower_mhz": 122.1,
+        "uhf_mhz": 360.1,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Jirah",
+        "aliases": [
+          "Jirah",
+          "Jira",
+          "Jiara",
+          "Jaira"
+        ],
+        "airdrome_id": 17,
+        "tower_mhz": 118.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Khalkhalah",
+        "aliases": [
+          "Khalkhalah"
+        ],
+        "airdrome_id": 18,
+        "tower_mhz": 122.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Kharab_Ishk",
+        "aliases": [
+          "Kharab_Ishk"
+        ],
+        "airdrome_id": 59,
+        "tower_mhz": 122.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "King_Abdullah",
+        "aliases": [
+          "King_Abdullah"
+        ],
+        "airdrome_id": 65,
+        "tower_mhz": 118.4,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.4,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Mafraq",
+        "aliases": [
+          "Mafraq"
+        ],
+        "airdrome_id": 19,
+        "tower_mhz": 118.3,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.3,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Kingsfield",
+        "aliases": [
+          "Kingsfield"
+        ],
+        "airdrome_id": 45,
+        "tower_mhz": 121.0,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.0,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Kiryat",
+        "aliases": [
+          "Kiryat"
+        ],
+        "airdrome_id": 20,
+        "tower_mhz": 118.4,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.4,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Lakatamia",
+        "aliases": [
+          "Lakatamia"
+        ],
+        "airdrome_id": 48,
+        "tower_mhz": 120.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Larnaca",
+        "aliases": [
+          "Larnaca"
+        ],
+        "airdrome_id": 47,
+        "tower_mhz": 121.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Latakia",
+        "aliases": [
+          "Latakia"
+        ],
+        "airdrome_id": 21,
+        "tower_mhz": 118.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Marj_Al_Sultan",
+        "aliases": [
+          "Marj_Al_Sultan"
+        ],
+        "airdrome_id": 22,
+        "tower_mhz": 122.7,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.7,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Marj_Ruhayyil",
+        "aliases": [
+          "Marj_Ruhayyil"
+        ],
+        "airdrome_id": 23,
+        "tower_mhz": 120.8,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.8,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Meggido",
+        "aliases": [
+          "Meggido"
+        ],
+        "airdrome_id": 24,
+        "tower_mhz": 119.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Mezzeh",
+        "aliases": [
+          "Mezzeh"
+        ],
+        "airdrome_id": 25,
+        "tower_mhz": 120.7,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.7,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Minakh",
+        "aliases": [
+          "Minakh"
+        ],
+        "airdrome_id": 26,
+        "tower_mhz": 120.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Salti",
+        "aliases": [
+          "Salti"
+        ],
+        "airdrome_id": 68,
+        "tower_mhz": 120.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Naqoura",
+        "aliases": [
+          "Naqoura"
+        ],
+        "airdrome_id": 52,
+        "tower_mhz": 122.0,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.0,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Aleppo",
+        "aliases": [
+          "Aleppo"
+        ],
+        "airdrome_id": 27,
+        "tower_mhz": 119.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Palmahim",
+        "aliases": [
+          "Palmahim"
+        ],
+        "airdrome_id": 223,
+        "tower_mhz": 118.25,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.25,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Palmyra",
+        "aliases": [
+          "Palmyra"
+        ],
+        "airdrome_id": 28,
+        "tower_mhz": 121.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Pafos",
+        "aliases": [
+          "Pafos"
+        ],
+        "airdrome_id": 46,
+        "tower_mhz": 119.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 119.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "PrinceHassan",
+        "aliases": [
+          "PrinceHassan"
+        ],
+        "airdrome_id": 64,
+        "tower_mhz": 122.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Qabr_as_Sitt",
+        "aliases": [
+          "Qabr_as_Sitt"
+        ],
+        "airdrome_id": 29,
+        "tower_mhz": 122.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Ramat_David",
+        "aliases": [
+          "Ramat_David"
+        ],
+        "airdrome_id": 30,
+        "tower_mhz": 118.6,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.6,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Rasin",
+        "aliases": [
+          "Rasin"
+        ],
+        "airdrome_id": 31,
+        "tower_mhz": 120.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Riyaq",
+        "aliases": [
+          "Riyaq"
+        ],
+        "airdrome_id": 32,
+        "tower_mhz": 124.4,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 124.4,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "ReneMouaward",
+        "aliases": [
+          "ReneMouaward"
+        ],
+        "airdrome_id": 33,
+        "tower_mhz": 121.0,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.0,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "RoshPina",
+        "aliases": [
+          "RoshPina"
+        ],
+        "airdrome_id": 34,
+        "tower_mhz": 118.45,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.45,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Ruwayshid",
+        "aliases": [
+          "Ruwayshid"
+        ],
+        "airdrome_id": 57,
+        "tower_mhz": 122.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Sanliurfa",
+        "aliases": [
+          "Sanliurfa"
+        ],
+        "airdrome_id": 58,
+        "tower_mhz": 118.4,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.4,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Sayqal",
+        "aliases": [
+          "Sayqal"
+        ],
+        "airdrome_id": 35,
+        "tower_mhz": 120.4,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.4,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Shayrat",
+        "aliases": [
+          "Shayrat"
+        ],
+        "airdrome_id": 36,
+        "tower_mhz": 120.2,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.2,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Tabqa",
+        "aliases": [
+          "Tabqa"
+        ],
+        "airdrome_id": 37,
+        "tower_mhz": 118.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 118.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Taftanaz",
+        "aliases": [
+          "Taftanaz"
+        ],
+        "airdrome_id": 38,
+        "tower_mhz": 122.8,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 122.8,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Tal_Siman",
+        "aliases": [
+          "Tal_Siman"
+        ],
+        "airdrome_id": 60,
+        "tower_mhz": 121.9,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 121.9,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Tel_Nof",
+        "aliases": [
+          "Tel_Nof"
+        ],
+        "airdrome_id": 220,
+        "tower_mhz": 128.1,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 128.1,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Tiyas",
+        "aliases": [
+          "Tiyas"
+        ],
+        "airdrome_id": 39,
+        "tower_mhz": 120.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      },
+      {
+        "canonical": "Hamat",
+        "aliases": [
+          "Hamat"
+        ],
+        "airdrome_id": 40,
+        "tower_mhz": 120.5,
+        "uhf_mhz": null,
+        "vhf_hi_mhz": 120.5,
+        "vhf_low_mhz": null,
+        "hf_mhz": null
+      }
+    ]
+  }
+}

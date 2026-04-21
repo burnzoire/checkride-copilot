@@ -23,3 +23,32 @@ def test_ranges_expand_for_tts():
     out = _normalize(text)
     assert "140 to 150 knots" in out
     assert "1000 to 3000 feet" in out
+
+
+def test_frequency_brevity_whole_decimal():
+    # 127.000 MHz → one two seven decimal zero
+    out = _normalize("Tune 127.000 MHz.")
+    assert out == "Tune one two seven decimal zero."
+
+
+def test_frequency_brevity_trailing_nonzero():
+    # 133.350 MHz → one three three decimal three five
+    out = _normalize("Contact on 133.350 MHz.")
+    assert "one three three decimal three five" in out
+
+
+def test_frequency_brevity_guard():
+    # 243.0 MHz → two four three decimal zero
+    out = _normalize("Guard is 243.0 MHz.")
+    assert "two four three decimal zero" in out
+
+
+def test_frequency_brevity_no_decimal():
+    # 126 MHz → one two six decimal zero (assume zero fraction)
+    out = _normalize("Tower 126 MHz.")
+    assert "one two six decimal zero" in out
+
+
+def test_frequency_brevity_case_insensitive():
+    out = _normalize("Tune 127.000 mhz.")
+    assert "one two seven decimal zero" in out

@@ -7,7 +7,7 @@ from typing import Any
 import httpx
 
 from orchestrator.session import Session
-from orchestrator.tools import TOOL_REGISTRY, TOOL_SCHEMAS, load_proc
+from orchestrator.tools import TOOL_REGISTRY, TOOL_SCHEMAS, load_proc, fetch_state
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 MAX_HISTORY = 10
@@ -71,6 +71,94 @@ def _is_call_the_ball_query(text: str) -> bool:
             and re.search(r"\bball|bull\b", q)
         )
     )
+
+
+def _is_airfield_frequency_query(text: str) -> bool:
+    q = text.lower()
+    # Any mention of frequency-related words (with optional tower/approach)
+    if re.search(r"\b(freq|frequency|channel)\b", q):
+        # Either paired with tower/approach keywords, or likely an airfield query
+        if re.search(r"\b(tower|approach|atc|traffic|airfield|airport)\b", q):
+            return True
+        # Or if just asking "what's the frequency" (common phrasing)
+        if re.search(r"\b(what|give|tell)\b.*\b(freq|frequency|channel)\b", q):
+            return True
+    # "Freak" is old radio slang for frequency
+    if re.search(r"\bfreak\b", q):
+        return True
+    # Band-only queries like "UHF?" or "What about VHF?" or "Give me HF"
+    # These are likely follow-ups to an airfield context
+    if re.search(r"\b(uhf|vhf|hf|band)\b", q):
+        # Only match if not asking about something else
+        if not re.search(r"\b(mod|mode|setting|switch|button|panel)\b", q):
+            return True
+    return False
+
+
+def _extract_band_from_query(text: str) -> str | None:
+    """Extract frequency band from query (UHF, VHF, VHF_HI, VHF_LOW, HF, or None for tower)."""
+    q = text.lower()
+    if re.search(r"\buhf\b", q):
+        return "UHF"
+    if re.search(r"\bvhf\s*hi\b|\bvhf\s*high\b", q):
+        return "VHF_HI"
+    if re.search(r"\bvhf\s*low\b", q):
+        return "VHF_LOW"
+    if re.search(r"\bvhf\b", q):
+        return "VHF_HI"  # Default to VHF_HI if no qualifier
+    if re.search(r"\bhf\b", q):
+        return "HF"
+    return None
+
+
+def _airfield_frequency_fast_reply(transcript: str, session: Session) -> str | None:
+    from mission.frequencies import detect_theatre, match_airfield_in_text, resolve_frequency
+    
+    band = _extract_band_from_query(transcript)
+    theatre = detect_theatre()
+    
+    airfield = None
+    explicit_airfield_query = bool(re.search(r"\b(tower|approach|airfield|airport|traffic)\b", transcript.lower()))
+    should_try_airfield_match = bool(re.search(r"\b(freq|frequency|channel|freak)\b", transcript.lower()))
+    if should_try_airfield_match:
+        match = match_airfield_in_text(transcript, theatre=theatre) or match_airfield_in_text(transcript)
+        if match and match.get("match_type") == "exact":
+            airfield = str(match.get("canonical") or "") or None
+        elif match and match.get("match_type") == "fuzzy":
+            return "I couldn't confidently identify the airfield. Say the field again."
+    
+    # Fall back to session airfield if not found in query
+    if not airfield and session.last_airfield:
+        airfield = session.last_airfield
+    
+    if not airfield:
+        if should_try_airfield_match or explicit_airfield_query or band is not None:
+            return "I couldn't confidently identify the airfield. Say the field again."
+        return None
+    
+    # Default to tower if no band specified
+    if band is None:
+        band = "tower"
+    
+    in_jet = fetch_state() is not None
+    freq_result = resolve_frequency(airfield, in_jet=in_jet, band=band)
+
+    if isinstance(freq_result, dict) and freq_result.get("source") == "out-of-ao":
+        airfield_name = str(freq_result.get("airfield") or airfield)
+        return f"{airfield_name} is outside the current AO."
+    
+    if not freq_result or freq_result.get("mhz") is None:
+        airfield_name = str(airfield or session.last_airfield or "that airfield")
+        if band and band != "tower":
+            return f"I can't provide a {band} frequency for {airfield_name}."
+        return f"I can't provide a tower frequency for {airfield_name}."
+    
+    # Store for follow-up queries
+    session.last_airfield = freq_result.get("airfield") or airfield
+    
+    mhz = freq_result.get("mhz")
+    band_label = band if band != "tower" else "Tower"
+    return f"{band_label} frequency is {mhz:.3f} MHz."
 
 
 def _is_closing_statement(text: str) -> bool:
@@ -247,6 +335,12 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
     # Deterministic phraseology path for critical carrier comms callouts.
     if _is_call_the_ball_query(transcript):
         return _call_the_ball_fast_reply()
+
+    # Deterministic radio-frequency path to avoid model drift/hallucinated channels.
+    if _is_airfield_frequency_query(transcript):
+        fast = _airfield_frequency_fast_reply(transcript, session)
+        if fast:
+            return fast
 
     # Detect and handle closing/acknowledgment statements without tool calls.
     if _is_closing_statement(transcript):

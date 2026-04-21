@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import ctypes
 import threading
 import time as _time
@@ -8,6 +9,7 @@ import time as _time
 from loguru import logger
 
 from orchestrator.llm import call_ollama_with_tools, continue_last_answer
+from mission.frequencies import airfield_context_terms, detect_theatre
 from orchestrator.nav_intercept import NavCommand, check as check_nav
 from orchestrator.session import Session
 from orchestrator.tools import format_step, load_proc, maneuver_group_end
@@ -36,6 +38,89 @@ def _key_held(vk: int) -> bool:
     return bool(ctypes.windll.user32.GetAsyncKeyState(vk) & 0x8000)
 
 
+def _build_stt_context_terms(session: Session) -> list[str] | None:
+    terms: list[str] = []
+    seen: set[str] = set()
+
+    def _add(items: list[str] | None) -> None:
+        for item in items or []:
+            term = str(item).strip()
+            if len(term) < 3:
+                continue
+            key = term.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            terms.append(term)
+
+    if session.active_proc:
+        proc = load_proc(session.active_proc)
+        if proc:
+            _add(proc.get("terminology") or [])
+
+    theatre = detect_theatre()
+    _add(airfield_context_terms(theatre=theatre, limit=80))
+
+    if session.last_airfield:
+        terms.insert(0, session.last_airfield)
+
+    return terms or None
+
+
+def _resolve_reply(transcript: str, session: Session, model: str) -> tuple[str, Session, list[str]]:
+    next_session: Session = copy.deepcopy(session)
+    nav = check_nav(transcript, next_session)
+    reply = ""
+    logs: list[str] = []
+
+    if nav == NavCommand.CANCEL:
+        next_session.active_proc = None
+        next_session.active_step = 0
+        reply = "Procedure cancelled."
+        logs.append("  [PROC] cancelled")
+
+    elif nav == NavCommand.REPEAT:
+        proc = load_proc(next_session.active_proc or "")
+        steps = proc.get("steps", []) if proc else []
+        if steps:
+            reply = format_step(next_session.active_proc or "", next_session.active_step)
+            logs.append(f"  [PROC] repeat step {next_session.active_step + 1}/{len(steps)}")
+        else:
+            reply = "Procedure unavailable."
+
+    elif nav == NavCommand.RESTART:
+        next_session.active_step = 0
+        reply = format_step(next_session.active_proc or "", 0)
+        proc = load_proc(next_session.active_proc or "")
+        total = len(proc.get("steps", [])) if proc else "?"
+        logs.append(f"  [PROC] restart -> step 1/{total}")
+
+    elif nav == NavCommand.NEXT:
+        proc = load_proc(next_session.active_proc or "")
+        steps = proc.get("steps", []) if proc else []
+        if not steps:
+            reply = "Procedure unavailable."
+        else:
+            group_end = maneuver_group_end(steps, next_session.active_step)
+            next_session.active_step = group_end + 1
+            if next_session.active_step >= len(steps):
+                reply = f"{proc.get('canonical', next_session.active_proc)} complete."
+                next_session.active_proc = None
+                next_session.active_step = 0
+                logs.append("  [PROC] complete")
+            else:
+                reply = format_step(proc.get("key", ""), next_session.active_step)
+                logs.append(f"  [PROC] step {next_session.active_step + 1}/{len(steps)}")
+
+    elif nav == NavCommand.CONTINUE_LAST_REPLY:
+        reply = continue_last_answer(next_session, model)
+
+    else:
+        reply = call_ollama_with_tools(transcript, next_session, model)
+
+    return reply, next_session, logs
+
+
 def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
     logger.info("Pre-loading Whisper ...")
     stt._get_model()
@@ -50,69 +135,60 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
 
     session = Session()
     ptt_vk = _ptt_vk(ptt_key)
+    start_pressed = False
 
     while True:
         try:
             session.begin_turn()
-            ctx_terms = None
-            if session.active_proc:
-                proc = load_proc(session.active_proc)
-                if proc:
-                    ctx_terms = proc.get("terminology") or None
+            ctx_terms = _build_stt_context_terms(session)
 
-            transcript = stt.listen_once(ptt_key=ptt_key, device=mic_device, context_terms=ctx_terms)
+            start_now = start_pressed and bool(ptt_vk and _key_held(ptt_vk))
+            transcript = stt.listen_once(
+                ptt_key=ptt_key,
+                device=mic_device,
+                context_terms=ctx_terms,
+                start_pressed=start_now,
+            )
+            start_pressed = False
             if not transcript:
                 print("  (nothing heard)")
                 continue
 
             print(f"  You  : {transcript!r}")
-            nav = check_nav(transcript, session)
-            reply = ""
+            result: dict[str, object] = {}
+            reply_done = threading.Event()
 
-            if nav == NavCommand.CANCEL:
-                session.active_proc = None
-                session.active_step = 0
-                reply = "Procedure cancelled."
-                print("  [PROC] cancelled")
+            def _reply_worker() -> None:
+                try:
+                    reply, next_session, logs = _resolve_reply(transcript, session, model)
+                    result["reply"] = reply
+                    result["session"] = next_session
+                    result["logs"] = logs
+                except Exception as exc:
+                    result["error"] = exc
+                finally:
+                    reply_done.set()
 
-            elif nav == NavCommand.REPEAT:
-                proc = load_proc(session.active_proc or "")
-                steps = proc.get("steps", []) if proc else []
-                if steps:
-                    reply = format_step(session.active_proc or "", session.active_step)
-                    print(f"  [PROC] repeat step {session.active_step + 1}/{len(steps)}")
-                else:
-                    reply = "Procedure unavailable."
+            threading.Thread(target=_reply_worker, daemon=True).start()
 
-            elif nav == NavCommand.RESTART:
-                session.active_step = 0
-                reply = format_step(session.active_proc or "", 0)
-                proc = load_proc(session.active_proc or "")
-                total = len(proc.get("steps", [])) if proc else "?"
-                print(f"  [PROC] restart -> step 1/{total}")
+            interrupted = False
+            while not reply_done.wait(timeout=0.04):
+                if ptt_vk and _key_held(ptt_vk):
+                    interrupted = True
+                    start_pressed = True
+                    break
 
-            elif nav == NavCommand.NEXT:
-                proc = load_proc(session.active_proc or "")
-                steps = proc.get("steps", []) if proc else []
-                if not steps:
-                    reply = "Procedure unavailable."
-                else:
-                    group_end = maneuver_group_end(steps, session.active_step)
-                    session.active_step = group_end + 1
-                    if session.active_step >= len(steps):
-                        reply = f"{proc.get('canonical', session.active_proc)} complete."
-                        session.active_proc = None
-                        session.active_step = 0
-                        print("  [PROC] complete")
-                    else:
-                        reply = format_step(proc.get("key", ""), session.active_step)
-                        print(f"  [PROC] step {session.active_step + 1}/{len(steps)}")
+            if interrupted:
+                print("  [INTERRUPT] reply cancelled\n")
+                continue
 
-            elif nav == NavCommand.CONTINUE_LAST_REPLY:
-                reply = continue_last_answer(session, model)
+            if "error" in result:
+                raise result["error"]  # type: ignore[misc]
 
-            else:
-                reply = call_ollama_with_tools(transcript, session, model)
+            reply = str(result.get("reply", ""))
+            session = result.get("session", session)  # type: ignore[assignment]
+            for line in result.get("logs", []):
+                print(line)
 
             print(f"  Reply: {reply}\n")
             now = _time.time()
@@ -122,11 +198,13 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
             if speak:
                 stop_tts = threading.Event()
                 tts_done = threading.Event()
+                tts_interrupted = threading.Event()
 
                 def _interrupt_watch() -> None:
                     while not tts_done.is_set():
                         if ptt_vk and _key_held(ptt_vk):
                             stop_tts.set()
+                            tts_interrupted.set()
                             return
                         _time.sleep(0.04)
 
@@ -135,6 +213,8 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
                     tts.speak(reply, stop_event=stop_tts)
                 finally:
                     tts_done.set()
+                if tts_interrupted.is_set():
+                    start_pressed = True
 
         except KeyboardInterrupt:
             print("\nStopped.")

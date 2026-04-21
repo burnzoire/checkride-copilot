@@ -111,6 +111,16 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bd\.?d\.?i\.?\b",                     re.I), "DDI"),
     # MPCD: "m p c d"
     (re.compile(r"\bm\.?p\.?c\.?d\.?\b",                 re.I), "MPCD"),
+
+    # ── Radio frequency bands (phonetic alphabet) ──────────────────────────────
+    # "Uniform" (phonetic U) → UHF
+    (re.compile(r"\b(?:uniform|u\.?h\.?f\.?)\s+(?:freq|frequency|freak|channel)\b", re.I), "UHF frequency"),
+    (re.compile(r"\buniform\b(?!\s+ground)", re.I), "UHF"),
+    # "Victor" (phonetic V) → VHF
+    (re.compile(r"\b(?:victor|v\.?h\.?f\.?)\s+(?:freq|frequency|freak|channel)\b", re.I), "VHF frequency"),
+    (re.compile(r"\bvictor\s+(?:high|hi)\b", re.I), "VHF_HI"),
+    (re.compile(r"\bvictor\s+(?:low)\b", re.I), "VHF_LOW"),
+    (re.compile(r"\bvictor\b", re.I), "VHF"),
 ]
 
 _AIRFIELDS_PATH = Path(__file__).parent.parent / "data" / "airfields_by_map.json"
@@ -144,8 +154,8 @@ def _best_airfield_name(raw: str) -> str | None:
         return None
 
     candidate = raw.strip().lower()
-    candidate = re.sub(r"^(?:nearby|the|a|an|at|to|from)\s+", "", candidate)
-    candidate = re.sub(r"^(?:nearby|the|a|an|at|to|from)\s+", "", candidate)
+    candidate = re.sub(r"^(?:nearby|the|a|an|at|to|from|for)\s+", "", candidate)
+    candidate = re.sub(r"^(?:nearby|the|a|an|at|to|from|for)\s+", "", candidate)
     if not candidate:
         return None
 
@@ -176,7 +186,7 @@ def _normalize_airfield_names(text: str) -> str:
     def _replace(match: re.Match) -> str:
         place = match.group(1)
         suffix = match.group(2)
-        prefix_match = re.match(r"^((?:(?:nearby|the|a|an|at|to|from)\s+)*)", place, re.I)
+        prefix_match = re.match(r"^((?:(?:nearby|the|a|an|at|to|from|for)\s+)*)", place, re.I)
         prefix = prefix_match.group(1) if prefix_match else ""
         core_place = place[len(prefix):] if prefix else place
         canonical = _best_airfield_name(core_place)

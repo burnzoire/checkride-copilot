@@ -1,0 +1,413 @@
+from __future__ import annotations
+
+import json
+import re
+import zipfile
+from collections import Counter
+from difflib import SequenceMatcher, get_close_matches
+from pathlib import Path
+from typing import Any
+
+_FREQ_INDEX_PATH = Path(__file__).parent.parent / "data" / "airfield_frequencies_by_map.json"
+_DCS_ROOT_CANDIDATES = [
+    Path("D:/DCS World"),
+    Path("/d/DCS World"),
+]
+
+
+def _norm(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
+
+
+def load_frequency_index() -> dict[str, Any]:
+    try:
+        return json.loads(_FREQ_INDEX_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {"maps": {}}
+
+
+def detect_theatre() -> str | None:
+    # DCS writes current theatre while mission is active.
+    p = Path.home() / "AppData" / "Local" / "Temp" / "DCS" / "temp.theatre"
+    try:
+        raw = p.read_text(encoding="utf-8", errors="ignore").strip().lower()
+        return raw or None
+    except Exception:
+        return None
+
+
+def _saved_games_log_candidates() -> list[Path]:
+    base = Path.home() / "Saved Games"
+    return [
+        base / "DCS" / "Logs" / "dcs.log",
+        base / "DCS.openbeta" / "Logs" / "dcs.log",
+    ]
+
+
+def find_active_miz_path() -> Path | None:
+    patterns = [
+        re.compile(r"loadMission\s+(.+?\.miz)", re.I),
+        re.compile(r'loading mission from:\s+"(.+?\.miz)"', re.I),
+    ]
+    for log_path in _saved_games_log_candidates():
+        if not log_path.exists():
+            continue
+        try:
+            text = log_path.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
+        hit: str | None = None
+        for pat in patterns:
+            for m in pat.finditer(text):
+                hit = m.group(1)
+        if hit:
+            p = Path(hit)
+            if p.exists():
+                return p
+    return None
+
+
+def _map_entries(theatre: str | None) -> list[dict[str, Any]]:
+    idx = load_frequency_index().get("maps", {})
+    key = (theatre or "").lower()
+    if key and key in idx:
+        return list(idx.get(key, []))
+
+    # Out-of-mission chat may not have a theatre; search all map entries.
+    out: list[dict[str, Any]] = []
+    for vals in idx.values():
+        out.extend(vals or [])
+    return out
+
+
+def find_airfield_theatre(airfield: str) -> str | None:
+    target = _norm(airfield)
+    if not target:
+        return None
+    maps = load_frequency_index().get("maps", {})
+    best_theatre = None
+    best_len = -1
+    for theatre, entries in maps.items():
+        for entry in entries or []:
+            names = [str(entry.get("canonical", ""))] + [str(a) for a in (entry.get("aliases", []) or [])]
+            for name in names:
+                key = _norm(name)
+                if not key:
+                    continue
+                if target == key or re.search(rf"\b{re.escape(key)}\b", target):
+                    if len(key) > best_len:
+                        best_theatre = str(theatre)
+                        best_len = len(key)
+    return best_theatre
+
+
+def extract_airfield_from_text(text: str, theatre: str | None = None) -> str | None:
+    match = match_airfield_in_text(text, theatre=theatre)
+    if not match:
+        return None
+    return str(match.get("canonical") or "") or None
+
+
+def match_airfield_in_text(text: str, theatre: str | None = None) -> dict[str, Any] | None:
+    target = _norm(text)
+    if not target:
+        return None
+    best_name = None
+    best_len = -1
+    for entry in _map_entries(theatre):
+        names = [str(entry.get("canonical", ""))] + [str(a) for a in (entry.get("aliases", []) or [])]
+        canonical = str(entry.get("canonical", "")).strip()
+        for name in names:
+            key = _norm(name)
+            if len(key) < 4:
+                continue
+            if re.search(rf"\b{re.escape(key)}\b", target) and len(key) > best_len:
+                best_name = canonical or name
+                best_len = len(key)
+    if best_name:
+        return {"canonical": best_name, "match_type": "exact", "score": 1.0}
+
+    candidate_map: dict[str, str] = {}
+    for entry in _map_entries(theatre):
+        canonical = str(entry.get("canonical", "")).strip()
+        if not canonical:
+            continue
+        names = [canonical] + [str(a) for a in (entry.get("aliases", []) or [])]
+        for name in names:
+            key = _norm(name)
+            if len(key) >= 4 and key not in candidate_map:
+                candidate_map[key] = canonical
+
+    tokens = target.split()
+    suffixes = {"tower", "traffic", "airfield", "airport"}
+    for idx, token in enumerate(tokens):
+        if token not in suffixes:
+            continue
+        phrases: list[str] = []
+        for width in (3, 2, 1):
+            start = max(0, idx - width)
+            phrase = " ".join(tokens[start:idx]).strip()
+            phrase = re.sub(r"^(?:at|to|near|nearby|the|a|an|for|from|frequency)\s+", "", phrase).strip()
+            if phrase:
+                phrases.append(phrase)
+        for raw in phrases:
+            closest = get_close_matches(raw, list(candidate_map.keys()), n=2, cutoff=0.68)
+            if not closest:
+                continue
+            best_key = closest[0]
+            best_score = SequenceMatcher(None, raw, best_key).ratio()
+            second_score = SequenceMatcher(None, raw, closest[1]).ratio() if len(closest) > 1 else 0.0
+            return {
+                "canonical": candidate_map[best_key],
+                "match_type": "fuzzy",
+                "score": best_score,
+                "second_score": second_score,
+                "raw": raw,
+            }
+    return None
+
+
+def airfield_context_terms(theatre: str | None = None, limit: int = 80) -> list[str]:
+    seen: set[str] = set()
+    out: list[str] = []
+    for entry in _map_entries(theatre):
+        names = [str(entry.get("canonical", ""))] + [str(a) for a in (entry.get("aliases", []) or [])]
+        for name in names:
+            term = str(name).replace("_", " ").strip()
+            if len(term) < 4:
+                continue
+            key = term.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append(term)
+            if len(out) >= limit:
+                return out
+    return out
+
+
+def _canonical_theatre_name(raw: str) -> str:
+    v = raw.strip().lower()
+    alias = {
+        "persiangulf": "persian_gulf",
+        "pg": "persian_gulf",
+        "sinai_map": "sinai",
+        "southatlantic": "south_atlantic",
+        "thechannel": "channel",
+    }
+    return alias.get(v, v)
+
+
+def _read_radio_lua(dcs_root: Path, theatre: str) -> str | None:
+    p = dcs_root / "Mods" / "terrains" / theatre / "Radio.lua"
+    if not p.exists():
+        return None
+    try:
+        return p.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return None
+
+
+def _parse_radio_entries(radio_lua_text: str) -> list[dict[str, Any]]:
+    entries: list[dict[str, Any]] = []
+    block_re = re.compile(
+        r"\{\s*(?:--\s*(?P<label>[^\n]+)\s*)?.*?"
+        r"radioId\s*=\s*'(?P<radioid>[^']+)'.*?"
+        r"callsign\s*=\s*(?P<callsign>\{\{.*?\}\}|\{\})\s*;.*?"
+        r"frequency\s*=\s*\{(?P<freqs>.*?)\}\s*;",
+        re.S,
+    )
+    for m in block_re.finditer(radio_lua_text):
+        label = (m.group("label") or "").strip()
+        radioid = m.group("radioid")
+        aid_match = re.search(r"(\d+)", radioid)
+        if not aid_match:
+            continue
+        airdrome_id = int(aid_match.group(1))
+        freqs_raw = m.group("freqs")
+        callsign_raw = m.group("callsign")
+
+        bands: dict[str, float] = {}
+        for fm in re.finditer(r"\[(HF|UHF|VHF_HI|VHF_LOW)\]\s*=\s*\{[^,]+,\s*([0-9.]+)\}", freqs_raw):
+            bands[fm.group(1)] = float(fm.group(2)) / 1_000_000.0
+
+        call_names = re.findall(r'"([^"]+)"', callsign_raw)
+        filtered_call_names = [n for n in call_names if n.lower() not in {"common", "nato", "ussr"}]
+        human_callsign = filtered_call_names[-1] if filtered_call_names else (label or radioid)
+
+        if not bands:
+            continue
+
+        aliases = sorted({v for v in ([label, human_callsign] + filtered_call_names) if v}, key=lambda s: s.lower())
+        entries.append(
+            {
+                "canonical": human_callsign,
+                "aliases": aliases,
+                "airdrome_id": airdrome_id,
+                "tower_mhz": bands.get("VHF_HI") or bands.get("UHF"),
+                "uhf_mhz": bands.get("UHF"),
+                "vhf_hi_mhz": bands.get("VHF_HI"),
+                "vhf_low_mhz": bands.get("VHF_LOW"),
+                "hf_mhz": bands.get("HF"),
+            }
+        )
+    return entries
+
+
+def scrape_dcs_atc_index(dcs_root: Path | None = None) -> dict[str, Any]:
+    roots = [dcs_root] if dcs_root else _DCS_ROOT_CANDIDATES
+    root = next((r for r in roots if r and r.exists()), None)
+    if root is None:
+        return {"version": 2, "maps": {}}
+
+    terrains_root = root / "Mods" / "terrains"
+    out: dict[str, Any] = {"version": 2, "maps": {}}
+    if not terrains_root.exists():
+        return out
+
+    for terrain_dir in terrains_root.iterdir():
+        if not terrain_dir.is_dir():
+            continue
+        radio_text = _read_radio_lua(root, terrain_dir.name)
+        if not radio_text:
+            continue
+        key = _canonical_theatre_name(terrain_dir.name)
+        out["maps"][key] = _parse_radio_entries(radio_text)
+    return out
+
+
+def write_scraped_index(dcs_root: Path | None = None) -> dict[str, Any]:
+    data = scrape_dcs_atc_index(dcs_root=dcs_root)
+    _FREQ_INDEX_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    return data
+
+
+def _entry_for_airfield(airfield: str, theatre: str | None) -> dict[str, Any] | None:
+    target = _norm(airfield)
+    if not target:
+        return None
+    best = None
+    best_len = -1
+    for e in _map_entries(theatre):
+        names = [str(e.get("canonical", ""))] + [str(a) for a in (e.get("aliases", []) or [])]
+        for n in names:
+            k = _norm(n)
+            if not k:
+                continue
+            if target == k or re.search(rf"\b{re.escape(k)}\b", target):
+                if len(k) > best_len:
+                    best, best_len = e, len(k)
+    return best
+
+
+def lookup_local_frequency(airfield: str, theatre: str | None = None, band: str = "tower") -> dict[str, Any] | None:
+    entry = _entry_for_airfield(airfield, theatre)
+    if not entry:
+        return None
+    # Map band to frequency key in entry
+    band_to_key = {
+        "tower": "tower_mhz",
+        "UHF": "uhf_mhz",
+        "VHF": "vhf_hi_mhz",
+        "VHF_HI": "vhf_hi_mhz",
+        "VHF_LOW": "vhf_low_mhz",
+        "HF": "hf_mhz",
+    }
+    key = band_to_key.get(band, "tower_mhz")
+    mhz = entry.get(key)
+    if mhz is None:
+        return None
+    try:
+        mhz = float(mhz)
+    except Exception:
+        return None
+    return {
+        "source": "local",
+        "role": band if band != "tower" else "tower",
+        "mhz": mhz,
+        "airfield": entry.get("canonical") or airfield,
+    }
+
+
+def _extract_freq_airdrome_pairs(mission_text: str) -> list[tuple[int, float]]:
+    pairs: list[tuple[int, float]] = []
+    p1 = re.compile(
+        r'\["frequency"\]\s*=\s*([0-9]+(?:\.[0-9]+)?)\s*,.{0,500}?\["airdromeId"\]\s*=\s*([0-9]+)',
+        re.I | re.S,
+    )
+    p2 = re.compile(
+        r'\["airdromeId"\]\s*=\s*([0-9]+)\s*,.{0,500}?\["frequency"\]\s*=\s*([0-9]+(?:\.[0-9]+)?)',
+        re.I | re.S,
+    )
+    for m in p1.finditer(mission_text):
+        try:
+            freq = float(m.group(1))
+            aid = int(m.group(2))
+            pairs.append((aid, freq))
+        except Exception:
+            pass
+    for m in p2.finditer(mission_text):
+        try:
+            aid = int(m.group(1))
+            freq = float(m.group(2))
+            pairs.append((aid, freq))
+        except Exception:
+            pass
+    return pairs
+
+
+def lookup_miz_frequency(airfield: str, theatre: str | None = None, miz_path: Path | None = None) -> dict[str, Any] | None:
+    entry = _entry_for_airfield(airfield, theatre)
+    if not entry:
+        return None
+    aid = entry.get("airdrome_id")
+    if aid is None:
+        return None
+    try:
+        aid = int(aid)
+    except Exception:
+        return None
+
+    miz = miz_path or find_active_miz_path()
+    if not miz or not miz.exists():
+        return None
+
+    try:
+        with zipfile.ZipFile(miz, "r") as zf:
+            mission_text = zf.read("mission").decode("utf-8", errors="ignore")
+    except Exception:
+        return None
+
+    pairs = _extract_freq_airdrome_pairs(mission_text)
+    vals = [freq for a, freq in pairs if a == aid]
+    if not vals:
+        return None
+    mhz = Counter(vals).most_common(1)[0][0]
+    return {
+        "source": "miz",
+        "role": "mission preset",
+        "mhz": float(mhz),
+        "airfield": entry.get("canonical") or airfield,
+    }
+
+
+def resolve_frequency(airfield: str, in_jet: bool, band: str = "tower") -> dict[str, Any] | None:
+    theatre = detect_theatre() if in_jet else None
+    if in_jet and band == "tower":
+        miz = lookup_miz_frequency(airfield, theatre=theatre)
+        if miz:
+            return miz
+    local = lookup_local_frequency(airfield, theatre=theatre, band=band)
+    if local:
+        return local
+    if in_jet and theatre:
+        global_hit = lookup_local_frequency(airfield, theatre=None, band=band)
+        if global_hit:
+            return {
+                "source": "out-of-ao",
+                "role": global_hit.get("role", band),
+                "airfield": global_hit.get("airfield") or airfield,
+                "known_theatre": find_airfield_theatre(airfield),
+                "requested_theatre": theatre,
+            }
+    return lookup_local_frequency(airfield, theatre=None, band=band)

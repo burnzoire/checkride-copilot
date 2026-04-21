@@ -145,6 +145,7 @@ def listen_once(
     model_name:    str            = _DEFAULT_MODEL,
     min_duration:  float          = 0.3,
     context_terms: list[str]      | None = None,
+    start_pressed: bool           = False,
 ) -> str:
     """
     Block until PTT held → audio recorded → released → transcribed.
@@ -171,6 +172,9 @@ def listen_once(
     # Single persistent listener covers the whole press→release window.
     listener = keyboard.Listener(on_press=on_press, on_release=on_release)
     listener.start()
+
+    if start_pressed:
+        pressed.set()
 
     logger.debug(f"Waiting for PTT [{ptt_key}] ...")
     while not pressed.wait(timeout=0.1):
