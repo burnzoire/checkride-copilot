@@ -111,8 +111,160 @@ def _extract_band_from_query(text: str) -> str | None:
     return None
 
 
+def _is_miz_contact_query(text: str) -> bool:
+    q = text.lower()
+    if re.search(r"\b(tower|approach|atc|traffic|airfield|airport)\b", q):
+        return False
+    mentions_contact = bool(re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat|texaco|arco|shell|tanker)\b", q))
+    mentions_named_unit = bool(re.search(r"\b[a-z]{2,}[ -]?\d+-\d+\b", q))
+    asks_channel = bool(re.search(r"\b(freq|frequency|channel|tacan|uhf|vhf|hf)\b", q))
+    asks_presence = bool(re.search(r"\b(see|find|have|loaded|available|present)\b", q))
+    asks_type = bool(re.search(r"\b(what\s+type|type\s+of\s+ship|ship\s+type|aircraft\s+type)\b", q))
+    followup_contact = bool(re.search(r"\b(how\s+about|what\s+about|and)\b", q) and mentions_contact)
+    return (
+        (mentions_contact and asks_channel)
+        or bool(re.search(r"\btacan\b", q))
+        or (mentions_contact and asks_presence)
+        or followup_contact
+        or ((mentions_contact or mentions_named_unit) and (asks_type or asks_presence or asks_channel))
+    )
+
+
+def _contact_mode_from_query(text: str) -> str:
+    return "tacan" if re.search(r"\btacan\b", text.lower()) else "radio"
+
+
+def _carrier_label(contact: str, platform_type: str | None) -> str:
+    pt = str(platform_type or "")
+    m = re.search(r"\bCVN[_-]?(\d{1,3})\b", pt, re.I)
+    if not m:
+        m = re.search(r"\bCVN\s*-?\s*(\d{1,3})\b", contact, re.I)
+    if m:
+        return f"CVN-{m.group(1)}"
+    return "carrier"
+
+
+def _tanker_callsign(contact: str, callsign_name: str | None = None) -> str:
+    if callsign_name:
+        token = re.split(r"\s+", callsign_name.strip())[0]
+        m = re.match(r"^([A-Za-z]+)\d{1,3}$", token)
+        if m:
+            return m.group(1).capitalize()
+        if token:
+            return token.capitalize()
+    base = re.split(r"\s+\d+-\d+$", contact.strip())[0]
+    base = re.split(r"-\d+-\d+$", base)[0]
+    base = base.strip()
+    if not base:
+        return "tanker"
+    token = re.split(r"\s+", base)[0]
+    return token.capitalize() if token else "tanker"
+
+
+def _contact_spoken_label(contact: str, kind: str, platform_type: str | None, callsign_name: str | None = None) -> str:
+    k = (kind or "").lower()
+    if k == "carrier":
+        return _carrier_label(contact, platform_type)
+    if k == "tanker":
+        return _tanker_callsign(contact, callsign_name=callsign_name)
+    return contact
+
+
+def _miz_contact_fast_reply(transcript: str, session: Session) -> str | None:
+    from mission.frequencies import find_miz_named_contact, list_miz_named_contacts, resolve_miz_named_contact
+
+    presence_query = bool(re.search(r"\b(see|find|have|loaded|available|present)\b", transcript.lower()))
+    type_query = bool(re.search(r"\b(what\s+type|type\s+of\s+ship|ship\s+type|aircraft\s+type)\b", transcript.lower()))
+
+    if type_query:
+        seen = find_miz_named_contact(transcript, fallback_name=session.last_contact)
+        if not seen:
+            return "I can't find that contact in the current mission."
+        if seen.get("error") == "ambiguous":
+            options = [str(x).strip() for x in (seen.get("options") or []) if str(x).strip()]
+            if options:
+                kind = str(seen.get("kind") or "contact")
+                label = "carriers" if kind == "carrier" else "tankers" if kind == "tanker" else "contacts"
+                return f"I found multiple {label}: {', '.join(options)}. Which one are you after?"
+            return "I couldn't confidently identify the contact. Say the callsign again."
+        contact = str(seen.get("contact") or session.last_contact or "that contact")
+        kind = str(seen.get("kind") or "contact")
+        platform_type = str(seen.get("platform_type") or "").strip()
+        callsign_name = str(seen.get("callsign_name") or "").strip() or None
+        session.last_contact = contact
+        label = _contact_spoken_label(contact, kind, platform_type, callsign_name=callsign_name)
+        if platform_type:
+            if re.search(r"^CVN[_-]?(\d+)$", platform_type, re.I):
+                hull = re.search(r"(\d+)", platform_type).group(1)
+                return f"{label} is a CVN-{hull} carrier."
+            if re.search(r"^(KC[-_ ]?135|KC[-_ ]?130|IL[-_ ]?78)", platform_type, re.I):
+                return f"{label} is a {platform_type.replace('_', '-') } tanker."
+            return f"{label} is a {platform_type.replace('_', '-')}"
+        return f"I can see {label} in the current mission, but I don't have a platform type for it."
+
+    if presence_query:
+        seen = find_miz_named_contact(transcript, fallback_name=session.last_contact)
+        if not seen:
+            return "I can't find that contact in the current mission."
+        if seen.get("error") == "ambiguous":
+            return "I couldn't confidently identify the contact. Say the callsign again."
+        contact = str(seen.get("contact") or session.last_contact or "that contact")
+        kind = str(seen.get("kind") or "contact")
+        platform_type = str(seen.get("platform_type") or "").strip() or None
+        callsign_name = str(seen.get("callsign_name") or "").strip() or None
+        session.last_contact = contact
+        label = _contact_spoken_label(contact, kind, platform_type, callsign_name=callsign_name)
+        return f"I can see {label} in the current mission."
+
+    mode = _contact_mode_from_query(transcript)
+    result = resolve_miz_named_contact(transcript, mode=mode, fallback_name=session.last_contact)
+    if not result:
+        if mode == "tacan":
+            return "I can't provide TACAN for that contact from the current mission."
+        return "I can't provide a radio frequency for that contact from the current mission."
+
+    if result.get("error") == "ambiguous":
+        kind = str(result.get("kind") or "contact")
+        options = [str(x).strip() for x in (result.get("options") or []) if str(x).strip()]
+        if not options and kind in {"carrier", "tanker"}:
+            listed = list_miz_named_contacts(kind=kind)
+            options = [
+                _contact_spoken_label(
+                    str(c.get("name") or "").strip(),
+                    str(c.get("kind") or "contact"),
+                    str(c.get("platform_type") or "").strip() or None,
+                    str(c.get("callsign_name") or "").strip() or None,
+                )
+                for c in listed
+            ]
+            options = [n for n in options if n]
+        if options:
+            label = "carriers" if kind == "carrier" else "tankers" if kind == "tanker" else "contacts"
+            return f"I found multiple {label}: {', '.join(options)}. Which one are you after?"
+        return "I couldn't confidently identify the contact. Say the callsign again."
+
+    contact = str(result.get("contact") or session.last_contact or "that contact")
+    kind = str(result.get("kind") or "contact")
+    platform_type = str(result.get("platform_type") or "").strip() or None
+    callsign_name = str(result.get("callsign_name") or "").strip() or None
+    spoken = _contact_spoken_label(contact, kind, platform_type, callsign_name=callsign_name)
+    if result.get("error") == "missing":
+        if mode == "tacan":
+            return f"I can't provide TACAN for {spoken}."
+        return f"I can't provide a radio frequency for {spoken}."
+
+    session.last_contact = contact
+    if mode == "tacan":
+        ch = int(result.get("channel"))
+        band = str(result.get("band") or "X").upper()
+        return f"{spoken} TACAN is {ch}{band}."
+
+    mhz = float(result.get("mhz"))
+    return f"{spoken} frequency is {mhz:.3f} MHz."
+
+
 def _airfield_frequency_fast_reply(transcript: str, session: Session) -> str | None:
-    from mission.frequencies import detect_theatre, match_airfield_in_text, resolve_frequency
+    from mission.frequencies import detect_theatre, find_active_miz_path, match_airfield_in_text, resolve_frequency
     
     band = _extract_band_from_query(transcript)
     theatre = detect_theatre()
@@ -140,7 +292,8 @@ def _airfield_frequency_fast_reply(transcript: str, session: Session) -> str | N
     if band is None:
         band = "tower"
     
-    in_jet = fetch_state() is not None
+    state = fetch_state()
+    in_jet = state is not None or detect_theatre() is not None or find_active_miz_path() is not None
     freq_result = resolve_frequency(airfield, in_jet=in_jet, band=band)
 
     if isinstance(freq_result, dict) and freq_result.get("source") == "out-of-ao":
@@ -173,6 +326,7 @@ def _is_closing_statement(text: str) -> bool:
         r"\b(that's it|that is it|all set|we're good|sounds good|roger|copy|wilco|thanks|thank you|cheers|gotcha|got it)\b",
         r"^(yep|yup|sure|good|alright|thanks)(?:\s|$)",
         r"^(roger that|copy that|understood)$",
+        r"^(yeah|yep|right|correct|exactly)\b.*\b(because|since)\b",
     ]
     return any(re.search(pattern, q) for pattern in closing_patterns)
 
@@ -335,6 +489,12 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
     # Deterministic phraseology path for critical carrier comms callouts.
     if _is_call_the_ball_query(transcript):
         return _call_the_ball_fast_reply()
+
+    # Deterministic mission contact path for carrier/tanker radio and TACAN.
+    if _is_miz_contact_query(transcript):
+        contact_fast = _miz_contact_fast_reply(transcript, session)
+        if contact_fast:
+            return contact_fast
 
     # Deterministic radio-frequency path to avoid model drift/hallucinated channels.
     if _is_airfield_frequency_query(transcript):

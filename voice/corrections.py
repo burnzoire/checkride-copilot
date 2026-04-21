@@ -66,6 +66,13 @@ _RULES: list[tuple[re.Pattern, str]] = [
     # FLIR / TGP pod names
     (re.compile(r"\bat\s*flair\b",                       re.I), "ATFLIR"),
     (re.compile(r"\bat\s*flir\b",                        re.I), "ATFLIR"),
+    # "flare switch/pod/sensor" → "FLIR switch/pod/sensor"
+    # Disambiguates FLIR (sensor) from flare (countermeasure) by trailing context.
+    # "flare" alone (e.g. "dispense flares") is intentionally left untouched.
+    (re.compile(r"\bfl(?:are|ay|elia|eir|eer|ear)\s+(switch|pod|sensor|display|page|button)\b", re.I), r"FLIR \1"),
+    # Whisper phonetic mishears for standalone FLIR when no trailing noun
+    # e.g. "the FLIR" heard as "the flay", "the felia"
+    (re.compile(r"\b(flay|felia|fleir|flear)\b",            re.I), "FLIR"),
 
     # ── Refueling probe ──────────────────────────────────────────────────────
     # "refuel pro", "refuel probe", "re-fuel probe" → "refueling probe"

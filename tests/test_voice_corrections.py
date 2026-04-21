@@ -71,3 +71,29 @@ def test_victor_low_to_vhf_low():
     )
 
 
+def test_flare_switch_disambiguates_to_flir_switch():
+    assert correct("Where is the flare switch?") == "Where is the FLIR switch?"
+
+
+def test_flay_switch_disambiguates_to_flir_switch():
+    assert correct("Where is the flay switch?") == "Where is the FLIR switch?"
+
+
+def test_felia_switch_disambiguates_to_flir_switch():
+    assert correct("Where is the felia switch?") == "Where is the FLIR switch?"
+
+
+def test_flare_pod_disambiguates_to_flir_pod():
+    assert correct("How do I zoom the flare pod?") == "How do I zoom the FLIR pod?"
+
+
+def test_flare_standalone_not_corrected():
+    """'flare' without a sensor-context noun stays as-is (countermeasures)."""
+    assert correct("How do I dispense flares?") == "How do I dispense flares?"
+    assert correct("Drop flares and chaff.") == "Drop flares and chaff."
+
+
+def test_flay_standalone_corrects_to_flir():
+    assert correct("Tell me about the flay.") == "Tell me about the FLIR."
+
+

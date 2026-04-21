@@ -24,6 +24,10 @@ def test_question_form_is_not_treated_as_closing_statement():
     assert _is_closing_statement("Okay, what is it?") is False
 
 
+def test_explanatory_acknowledgment_is_treated_as_closing_statement():
+    assert _is_closing_statement("Yeah, that's because I am stationary on the carrier CVN-71.") is True
+
+
 def test_airfield_tower_frequency_query_uses_fast_path(monkeypatch):
     def _quick_action(_args, _session):
         return {
@@ -200,3 +204,230 @@ def test_missing_uhf_band_returns_deterministic_cant_provide(monkeypatch):
         model="unused",
     )
     assert out == "I can't provide a UHF frequency for Jirah."
+
+
+def test_airfield_frequency_query_uses_mission_context_when_state_polling_unavailable(monkeypatch):
+    import mission.frequencies as freq_module
+
+    monkeypatch.setattr(llm_module, "fetch_state", lambda: None)
+    monkeypatch.setattr(freq_module, "detect_theatre", lambda: None)
+    monkeypatch.setattr(freq_module, "find_active_miz_path", lambda: object())
+
+    seen = {}
+
+    def _mock_resolve(airfield: str, in_jet: bool, band: str = "tower"):
+        seen["in_jet"] = in_jet
+        return {"source": "local", "role": "tower", "mhz": 127.0, "airfield": "Sochi"}
+
+    monkeypatch.setattr(freq_module, "resolve_frequency", _mock_resolve)
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for mission-context fallback")))
+
+    out = call_ollama_with_tools(
+        "What's the frequency for Sochi?",
+        Session(),
+        model="unused",
+    )
+
+    assert seen.get("in_jet") is True
+    assert out == "Tower frequency is 127.000 MHz."
+
+
+def test_cvn_radio_frequency_query_uses_miz_contact_fast_path(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(llm_module, "fetch_state", lambda: {"ok": True})
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "source": "miz",
+        "kind": "carrier",
+        "contact": "CVN-71",
+        "mode": "radio",
+        "mhz": 127.5,
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for CVN contact frequency")))
+
+    out = call_ollama_with_tools(
+        "What's the carrier frequency for CVN-71?",
+        Session(),
+        model="unused",
+    )
+    assert out == "CVN-71 frequency is 127.500 MHz."
+
+
+def test_cvn_frequency_query_does_not_require_fetch_state(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(llm_module, "fetch_state", lambda: None)
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "source": "miz",
+        "kind": "carrier",
+        "contact": "CVN-71",
+        "mode": "radio",
+        "mhz": 127.5,
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for CVN contact frequency without fetch_state")))
+
+    out = call_ollama_with_tools(
+        "Can you give me the frequency to the carrier?",
+        Session(),
+        model="unused",
+    )
+    assert out == "CVN-71 frequency is 127.500 MHz."
+
+
+def test_texaco_tacan_query_uses_miz_contact_fast_path(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(llm_module, "fetch_state", lambda: {"ok": True})
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "source": "miz",
+        "kind": "tanker",
+        "contact": "Texaco 1-1",
+        "mode": "tacan",
+        "channel": 31,
+        "band": "Y",
+        "callsign": "TKR",
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for tanker TACAN")))
+
+    out = call_ollama_with_tools(
+        "Texaco TACAN?",
+        Session(),
+        model="unused",
+    )
+    assert out == "Texaco TACAN is 31Y."
+
+
+def test_contact_followup_missing_tacan_is_deterministic(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(llm_module, "fetch_state", lambda: {"ok": True})
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "error": "missing",
+        "contact": "Texaco 1-1",
+        "mode": "tacan",
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for missing contact TACAN")))
+
+    session = Session()
+    session.last_contact = "Texaco 1-1"
+
+    out = call_ollama_with_tools(
+        "And TACAN?",
+        session,
+        model="unused",
+    )
+    assert out == "I can't provide TACAN for Texaco 1-1."
+
+
+def test_cvn_presence_query_uses_deterministic_contact_visibility(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "find_miz_named_contact", lambda *_args, **_kwargs: {
+        "source": "miz",
+        "kind": "carrier",
+        "contact": "CVN-71",
+        "has_radio": True,
+        "has_tacan": True,
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for CVN visibility")))
+
+    out = call_ollama_with_tools(
+        "Why not? Can you see CVN 71?",
+        Session(),
+        model="unused",
+    )
+    assert out == "I can see CVN-71 in the current mission."
+
+
+def test_ambiguous_carrier_query_lists_options(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "error": "ambiguous",
+        "kind": "carrier",
+        "options": ["CVN-71", "CVN-74"],
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for ambiguous carrier list prompt")))
+
+    out = call_ollama_with_tools(
+        "What's the carrier frequency?",
+        Session(),
+        model="unused",
+    )
+    assert out == "I found multiple carriers: CVN-71, CVN-74. Which one are you after?"
+
+
+def test_ship_type_query_is_deterministic(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "find_miz_named_contact", lambda *_args, **_kwargs: {
+        "source": "miz",
+        "kind": "carrier",
+        "contact": "Naval-1-1",
+        "platform_type": "CVN_71",
+        "has_radio": True,
+        "has_tacan": True,
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for ship type query")))
+
+    out = call_ollama_with_tools(
+        "What type of ship is Naval 1-1?",
+        Session(),
+        model="unused",
+    )
+    assert out == "CVN-71 is a CVN-71 carrier."
+
+
+def test_carrier_frequency_uses_cvn_label_not_unit_name(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "source": "miz",
+        "kind": "carrier",
+        "contact": "Naval-1-1",
+        "platform_type": "CVN_71",
+        "mode": "radio",
+        "mhz": 127.5,
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for carrier CVN label")))
+
+    out = call_ollama_with_tools(
+        "What's the carrier frequency?",
+        Session(),
+        model="unused",
+    )
+    assert out == "CVN-71 frequency is 127.500 MHz."
+
+
+def test_tanker_frequency_uses_callsign_not_unit_name(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "source": "miz",
+        "kind": "tanker",
+        "contact": "Texaco 1-1",
+        "callsign_name": "Texaco11",
+        "platform_type": "KC-135MPRS",
+        "mode": "radio",
+        "mhz": 251.0,
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for tanker callsign label")))
+
+    out = call_ollama_with_tools(
+        "Give me Texaco frequency",
+        Session(),
+        model="unused",
+    )
+    assert out == "Texaco frequency is 251.000 MHz."
+
+
+def test_how_about_the_tanker_followup_is_deterministic(monkeypatch):
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "source": "miz",
+        "kind": "tanker",
+        "contact": "Aerial-9",
+        "callsign_name": "Texaco11",
+        "platform_type": "KC130",
+        "mode": "radio",
+        "mhz": 254.0,
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for tanker followup")))
+
+    out = call_ollama_with_tools(
+        "How about the tanker?",
+        Session(),
+        model="unused",
+    )
+    assert out == "Texaco frequency is 254.000 MHz."

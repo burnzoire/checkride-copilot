@@ -5,9 +5,14 @@ import copy
 import ctypes
 import threading
 import time as _time
+from typing import Callable
 
+import httpx
 from loguru import logger
+import uvicorn
 
+from collector import udp_server
+from collector.http_api import app as collector_app
 from orchestrator.llm import call_ollama_with_tools, continue_last_answer
 from mission.frequencies import airfield_context_terms, detect_theatre
 from orchestrator.nav_intercept import NavCommand, check as check_nav
@@ -16,6 +21,7 @@ from orchestrator.tools import format_step, load_proc, maneuver_group_end
 from voice import stt, tts
 
 DEFAULT_MODEL = "qwen2.5:7b"
+_COLLECTOR_HEALTH_URL = "http://127.0.0.1:7779/health"
 
 _PTT_VK: dict[str, int] = {
     "caps_lock": 0x14,
@@ -36,6 +42,40 @@ def _ptt_vk(key_str: str) -> int | None:
 
 def _key_held(vk: int) -> bool:
     return bool(ctypes.windll.user32.GetAsyncKeyState(vk) & 0x8000)
+
+
+def _collector_online() -> bool:
+    try:
+        r = httpx.get(_COLLECTOR_HEALTH_URL, timeout=0.8)
+        return r.status_code == 200
+    except Exception:
+        return False
+
+
+def _ensure_collector_running() -> Callable[[], None]:
+    if _collector_online():
+        logger.info("Collector already running.")
+        return lambda: None
+
+    logger.info("Collector not reachable on 127.0.0.1:7779 - starting local collector.")
+    udp_stop = udp_server.start_background(port=7778)
+
+    config = uvicorn.Config(collector_app, host="127.0.0.1", port=7779, log_level="warning")
+    server = uvicorn.Server(config)
+    thread = threading.Thread(target=server.run, daemon=True, name="collector-http")
+    thread.start()
+
+    def _stop() -> None:
+        server.should_exit = True
+        udp_stop.set()
+
+    # Give it a brief moment so first turn can see fresh state.
+    for _ in range(20):
+        if _collector_online():
+            logger.info("Local collector started.")
+            break
+        _time.sleep(0.1)
+    return _stop
 
 
 def _build_stt_context_terms(session: Session) -> list[str] | None:
@@ -122,6 +162,8 @@ def _resolve_reply(transcript: str, session: Session, model: str) -> tuple[str, 
 
 
 def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
+    stop_collector = _ensure_collector_running()
+
     logger.info("Pre-loading Whisper ...")
     stt._get_model()
 
@@ -137,90 +179,93 @@ def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
     ptt_vk = _ptt_vk(ptt_key)
     start_pressed = False
 
-    while True:
-        try:
-            session.begin_turn()
-            ctx_terms = _build_stt_context_terms(session)
+    try:
+        while True:
+            try:
+                session.begin_turn()
+                ctx_terms = _build_stt_context_terms(session)
 
-            start_now = start_pressed and bool(ptt_vk and _key_held(ptt_vk))
-            transcript = stt.listen_once(
-                ptt_key=ptt_key,
-                device=mic_device,
-                context_terms=ctx_terms,
-                start_pressed=start_now,
-            )
-            start_pressed = False
-            if not transcript:
-                print("  (nothing heard)")
-                continue
+                start_now = start_pressed and bool(ptt_vk and _key_held(ptt_vk))
+                transcript = stt.listen_once(
+                    ptt_key=ptt_key,
+                    device=mic_device,
+                    context_terms=ctx_terms,
+                    start_pressed=start_now,
+                )
+                start_pressed = False
+                if not transcript:
+                    print("  (nothing heard)")
+                    continue
 
-            print(f"  You  : {transcript!r}")
-            result: dict[str, object] = {}
-            reply_done = threading.Event()
+                print(f"  You  : {transcript!r}")
+                result: dict[str, object] = {}
+                reply_done = threading.Event()
 
-            def _reply_worker() -> None:
-                try:
-                    reply, next_session, logs = _resolve_reply(transcript, session, model)
-                    result["reply"] = reply
-                    result["session"] = next_session
-                    result["logs"] = logs
-                except Exception as exc:
-                    result["error"] = exc
-                finally:
-                    reply_done.set()
+                def _reply_worker() -> None:
+                    try:
+                        reply, next_session, logs = _resolve_reply(transcript, session, model)
+                        result["reply"] = reply
+                        result["session"] = next_session
+                        result["logs"] = logs
+                    except Exception as exc:
+                        result["error"] = exc
+                    finally:
+                        reply_done.set()
 
-            threading.Thread(target=_reply_worker, daemon=True).start()
+                threading.Thread(target=_reply_worker, daemon=True).start()
 
-            interrupted = False
-            while not reply_done.wait(timeout=0.04):
-                if ptt_vk and _key_held(ptt_vk):
-                    interrupted = True
-                    start_pressed = True
-                    break
+                interrupted = False
+                while not reply_done.wait(timeout=0.04):
+                    if ptt_vk and _key_held(ptt_vk):
+                        interrupted = True
+                        start_pressed = True
+                        break
 
-            if interrupted:
-                print("  [INTERRUPT] reply cancelled\n")
-                continue
+                if interrupted:
+                    print("  [INTERRUPT] reply cancelled\n")
+                    continue
 
-            if "error" in result:
-                raise result["error"]  # type: ignore[misc]
+                if "error" in result:
+                    raise result["error"]  # type: ignore[misc]
 
-            reply = str(result.get("reply", ""))
-            session = result.get("session", session)  # type: ignore[assignment]
-            for line in result.get("logs", []):
-                print(line)
+                reply = str(result.get("reply", ""))
+                session = result.get("session", session)  # type: ignore[assignment]
+                for line in result.get("logs", []):
+                    print(line)
 
-            print(f"  Reply: {reply}\n")
-            now = _time.time()
-            session.add_user_turn(transcript, now)
-            session.add_assistant_turn(reply, now)
+                print(f"  Reply: {reply}\n")
+                now = _time.time()
+                session.add_user_turn(transcript, now)
+                session.add_assistant_turn(reply, now)
 
-            if speak:
-                stop_tts = threading.Event()
-                tts_done = threading.Event()
-                tts_interrupted = threading.Event()
+                if speak:
+                    stop_tts = threading.Event()
+                    tts_done = threading.Event()
+                    tts_interrupted = threading.Event()
 
-                def _interrupt_watch() -> None:
-                    while not tts_done.is_set():
-                        if ptt_vk and _key_held(ptt_vk):
-                            stop_tts.set()
-                            tts_interrupted.set()
-                            return
-                        _time.sleep(0.04)
+                    def _interrupt_watch() -> None:
+                        while not tts_done.is_set():
+                            if ptt_vk and _key_held(ptt_vk):
+                                stop_tts.set()
+                                tts_interrupted.set()
+                                return
+                            _time.sleep(0.04)
 
-                threading.Thread(target=_interrupt_watch, daemon=True).start()
-                try:
-                    tts.speak(reply, stop_event=stop_tts)
-                finally:
-                    tts_done.set()
-                if tts_interrupted.is_set():
-                    start_pressed = True
+                    threading.Thread(target=_interrupt_watch, daemon=True).start()
+                    try:
+                        tts.speak(reply, stop_event=stop_tts)
+                    finally:
+                        tts_done.set()
+                    if tts_interrupted.is_set():
+                        start_pressed = True
 
-        except KeyboardInterrupt:
-            print("\nStopped.")
-            break
-        except Exception as e:
-            logger.error(f"Orchestrator loop error: {e}")
+            except KeyboardInterrupt:
+                print("\nStopped.")
+                break
+            except Exception as e:
+                logger.error(f"Orchestrator loop error: {e}")
+    finally:
+        stop_collector()
 
 
 def main() -> None:

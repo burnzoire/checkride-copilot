@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from difflib import get_close_matches
 from functools import lru_cache
@@ -19,7 +20,7 @@ from retrieval.cockpit_lookup import format_location, lookup as cockpit_lookup, 
 from retrieval.keybinds import describe_switch
 from retrieval.search import search as rag_search
 
-COLLECTOR_URL = "http://127.0.0.1:7779/state"
+COLLECTOR_URL = os.getenv("CHECKRIDE_COLLECTOR_URL", "http://127.0.0.1:7779/state")
 STATE_FRESH_MS = 5000
 
 _PROC_DIR = Path(__file__).parent.parent / "data" / "airframes" / "fa18c" / "procedures"
@@ -300,7 +301,12 @@ def fetch_state() -> dict[str, Any] | None:
         r = httpx.get(COLLECTOR_URL, timeout=1.5)
         r.raise_for_status()
         state = r.json()
-        if state.get("data_age_ms", 99999) > STATE_FRESH_MS:
+        if not isinstance(state, dict):
+            return None
+        # Some local ad-hoc servers may omit freshness metadata.
+        # Only reject staleness when data_age_ms is explicitly provided.
+        age = state.get("data_age_ms")
+        if isinstance(age, (int, float)) and age > STATE_FRESH_MS:
             return None
         return state
     except Exception:

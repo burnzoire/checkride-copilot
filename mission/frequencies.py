@@ -356,6 +356,392 @@ def _extract_freq_airdrome_pairs(mission_text: str) -> list[tuple[int, float]]:
     return pairs
 
 
+def _to_mhz(raw: float) -> float | None:
+    try:
+        v = float(raw)
+    except Exception:
+        return None
+    if v <= 0:
+        return None
+    # Mission files commonly store radio frequencies in Hz.
+    if v >= 1_000_000:
+        return v / 1_000_000.0
+    if v >= 1_000:
+        return v / 1_000.0
+    return v
+
+
+def _read_mission_text_from_miz(miz_path: Path | None = None) -> str | None:
+    miz = miz_path or find_active_miz_path()
+    if not miz or not miz.exists():
+        return None
+    try:
+        with zipfile.ZipFile(miz, "r") as zf:
+            return zf.read("mission").decode("utf-8", errors="ignore")
+    except Exception:
+        return None
+
+
+def _classify_contact_kind(name: str, platform_type: str | None = None) -> str | None:
+    n = _norm(name)
+    pt = _norm(platform_type or "")
+    if re.search(r"\b(cvn\s*\d+|carrier|boat|stennis|roosevelt|lincoln|washington|truman|vinson|nimitz|ford)\b", pt):
+        return "carrier"
+    if re.search(r"\b(kc\s*135|kc\s*130|il\s*78|tanker)\b", pt):
+        return "tanker"
+    if re.search(r"\b(cvn|carrier|boat|stennis|roosevelt|lincoln|washington|truman|vinson|nimitz|ford)\b", n):
+        return "carrier"
+    if re.search(r"\b(texaco|arco|shell|tanker|kc 135|kc135|kc 130|kc130|il 78|il78)\b", n):
+        return "tanker"
+    return "contact"
+
+
+def _contact_aliases(name: str, kind: str, tacan_callsign: str | None = None, platform_type: str | None = None) -> list[str]:
+    out = {name}
+    hull_from_type = None
+    if platform_type:
+        m_type = re.search(r"\bcvn[_-]?(\d{1,3})\b", platform_type, re.I)
+        if m_type:
+            hull_from_type = m_type.group(1)
+
+    if kind == "carrier" or re.search(r"\bcvn\s*-?\s*\d{1,3}\b", name, re.I) or hull_from_type:
+        out.update({"carrier", "boat"})
+        m = re.search(r"\bcvn\s*-?\s*(\d{1,3})\b", name, re.I)
+        hull = m.group(1) if m else hull_from_type
+        if hull:
+            out.add(f"CVN-{hull}")
+            out.add(f"CVN {hull}")
+    if kind == "tanker":
+        for key in ("texaco", "arco", "shell", "tanker"):
+            if re.search(rf"\b{key}\b", name, re.I):
+                out.add(key)
+    if tacan_callsign:
+        out.add(tacan_callsign)
+    return sorted(out, key=lambda s: s.lower())
+
+
+def _callsign_display_variants(callsign_name: str | None) -> list[str]:
+    raw = str(callsign_name or "").strip()
+    if not raw:
+        return []
+    out: list[str] = [raw]
+    m = re.match(r"^([A-Za-z]+)(\d{1,3})$", raw)
+    if m:
+        base = m.group(1)
+        digits = m.group(2)
+        out.append(base)
+        if len(digits) >= 2:
+            out.append(f"{base} {digits[0]}-{digits[1]}")
+        else:
+            out.append(f"{base} {digits}")
+    dedup: list[str] = []
+    seen: set[str] = set()
+    for v in out:
+        key = v.lower().strip()
+        if key and key not in seen:
+            seen.add(key)
+            dedup.append(v)
+    return dedup
+
+
+def _extract_miz_named_contacts(mission_text: str) -> list[dict[str, Any]]:
+    contacts: list[dict[str, Any]] = []
+    for m in re.finditer(r'\["name"\]\s*=\s*"([^"]+)"', mission_text):
+        name = m.group(1).strip()
+        if len(name) < 3:
+            continue
+
+        # Restrict extraction to actual unit blocks to avoid non-unit names like countries/weather presets.
+        block_start = max(0, m.start() - 1200)
+        block_end = min(len(mission_text), m.start() + 4000)
+        chunk = mission_text[block_start:block_end]
+        type_match = re.search(r'\["type"\]\s*=\s*"([^"]+)"', chunk)
+        platform_type = type_match.group(1).strip() if type_match else None
+        if not platform_type:
+            continue
+
+        kind = _classify_contact_kind(name, platform_type=platform_type)
+        radio_mhz = None
+        for fm in re.finditer(r'\["frequency"\]\s*=\s*([0-9]+(?:\.[0-9]+)?)', chunk):
+            mhz = _to_mhz(float(fm.group(1)))
+            if mhz is None:
+                continue
+            if 30.0 <= mhz <= 400.0:
+                radio_mhz = mhz
+                break
+
+        tacan = None
+        callsign_name = None
+        ctm = re.search(r'\["callsign"\]\s*=\s*\{[^\}]*\["name"\]\s*=\s*"([^"]+)"', chunk, re.S)
+        if ctm:
+            callsign_name = ctm.group(1).strip()
+        if re.search(r'ActivateBeacon|modeChannel|\["AA"\]\s*=\s*true', chunk, re.I):
+            cm = re.search(r'\["channel"\]\s*=\s*([0-9]{1,3})', chunk)
+            if cm:
+                ch = int(cm.group(1))
+                if 1 <= ch <= 126:
+                    mm = re.search(r'\["modeChannel"\]\s*=\s*"([XYxy])"', chunk)
+                    mode = mm.group(1).upper() if mm else "X"
+                    csm = re.search(r'\["callsign"\]\s*=\s*"([A-Za-z0-9]+)"', chunk)
+                    tacan = {
+                        "channel": ch,
+                        "mode": mode,
+                        "callsign": csm.group(1) if csm else None,
+                    }
+
+        # Keep only named contacts that actually expose a usable comm channel.
+        if radio_mhz is None and tacan is None:
+            continue
+
+        aliases = _contact_aliases(name, kind, tacan_callsign=(tacan or {}).get("callsign"), platform_type=platform_type)
+        aliases.extend(_callsign_display_variants(callsign_name))
+        aliases = sorted({a for a in aliases if a}, key=lambda s: s.lower())
+        contacts.append(
+            {
+                "name": name,
+                "kind": kind,
+                "aliases": aliases,
+                "platform_type": platform_type,
+                "callsign_name": callsign_name,
+                "radio_mhz": radio_mhz,
+                "tacan": tacan,
+            }
+        )
+
+    by_name: dict[str, dict[str, Any]] = {}
+    for c in contacts:
+        key = str(c.get("name", "")).strip().lower()
+        if not key:
+            continue
+        prev = by_name.get(key)
+        if not prev:
+            by_name[key] = c
+            continue
+        prev_alias = set(prev.get("aliases", []))
+        prev_alias.update(c.get("aliases", []))
+        prev["aliases"] = sorted(prev_alias, key=lambda s: s.lower())
+        if prev.get("radio_mhz") is None and c.get("radio_mhz") is not None:
+            prev["radio_mhz"] = c.get("radio_mhz")
+        if prev.get("tacan") is None and c.get("tacan") is not None:
+            prev["tacan"] = c.get("tacan")
+        if not prev.get("callsign_name") and c.get("callsign_name"):
+            prev["callsign_name"] = c.get("callsign_name")
+
+    # Collapse duplicate representations of the same contact (for example
+    # group-name and unit-name entries that share platform, radio, and TACAN).
+    by_sig: dict[tuple[Any, ...], dict[str, Any]] = {}
+    for c in by_name.values():
+        t = c.get("tacan") or {}
+        sig = (
+            str(c.get("kind") or "contact"),
+            _norm(str(c.get("platform_type") or "")),
+            round(float(c.get("radio_mhz")), 3) if c.get("radio_mhz") is not None else None,
+            int(t.get("channel")) if t.get("channel") is not None else None,
+            str(t.get("mode") or "").upper() or None,
+            str(t.get("callsign") or "").upper() or None,
+        )
+        prev = by_sig.get(sig)
+        if not prev:
+            by_sig[sig] = c
+            continue
+        merged_aliases = set(prev.get("aliases", []))
+        merged_aliases.update(c.get("aliases", []))
+        merged_aliases.add(str(prev.get("name") or "").strip())
+        merged_aliases.add(str(c.get("name") or "").strip())
+        prev["aliases"] = sorted({a for a in merged_aliases if a}, key=lambda s: s.lower())
+        # Keep the most descriptive display name.
+        if len(str(c.get("name") or "")) > len(str(prev.get("name") or "")):
+            prev["name"] = c.get("name")
+
+    return list(by_sig.values())
+
+
+def _query_contact_kind_hint(query: str) -> str | None:
+    q = _norm(query)
+    if re.search(r"\b(cvn\s*\d+|carrier|boat)\b", q):
+        return "carrier"
+    if re.search(r"\b(texaco|arco|shell|tanker|kc\s*135|kc\s*130|il\s*78)\b", q):
+        return "tanker"
+    return None
+
+
+def list_miz_named_contacts(kind: str | None = None, miz_path: Path | None = None) -> list[dict[str, Any]]:
+    mission_text = _read_mission_text_from_miz(miz_path=miz_path)
+    if not mission_text:
+        return []
+    contacts = _extract_miz_named_contacts(mission_text)
+    if kind:
+        k = kind.strip().lower()
+        contacts = [c for c in contacts if str(c.get("kind") or "").lower() == k]
+    contacts.sort(key=lambda c: str(c.get("name") or "").lower())
+    return contacts
+
+
+def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str, Any] | None:
+    q = _norm(query)
+    if not q:
+        return None
+
+    wants_carrier = bool(re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat)\b", q))
+    wants_tanker = bool(re.search(r"\b(texaco|arco|shell|tanker|kc\s*-?\s*135|kc\s*-?\s*130|il\s*-?\s*78)\b", q))
+    if wants_carrier and not wants_tanker:
+        carrier_hits = [c for c in contacts if str(c.get("kind")) == "carrier"]
+        if len(carrier_hits) == 1:
+            return carrier_hits[0]
+        if len(carrier_hits) > 1:
+            return {"error": "ambiguous"}
+    if wants_tanker and not wants_carrier:
+        tanker_hits = [c for c in contacts if str(c.get("kind")) == "tanker"]
+        if len(tanker_hits) == 1:
+            return tanker_hits[0]
+        if len(tanker_hits) > 1:
+            return {"error": "ambiguous"}
+
+    scored: list[tuple[int, dict[str, Any]]] = []
+    for c in contacts:
+        aliases = [str(a) for a in c.get("aliases", [])]
+        best = 0
+        for alias in aliases:
+            key = _norm(alias)
+            if len(key) < 3:
+                continue
+            if re.search(rf"\b{re.escape(key)}\b", q):
+                best = max(best, len(key))
+        if best > 0:
+            scored.append((best, c))
+
+    if scored:
+        scored.sort(key=lambda item: item[0], reverse=True)
+        top = scored[0][0]
+        top_hits = [c for s, c in scored if s == top]
+        if len(top_hits) > 1:
+            return {"error": "ambiguous"}
+        return top_hits[0]
+
+    # Fuzzy fallback for STT drift on callsigns/names.
+    tokens = [
+        t
+        for t in q.split()
+        if t not in {"what", "whats", "give", "me", "the", "for", "and", "about", "freq", "frequency", "channel", "radio", "tacan", "uhf", "vhf", "hf"}
+        and len(t) >= 2
+    ]
+    candidate_query = " ".join(tokens).strip() or q
+
+    best_contact: dict[str, Any] | None = None
+    best_score = 0.0
+    second_score = 0.0
+    for c in contacts:
+        aliases = [str(a) for a in c.get("aliases", [])]
+        local_best = 0.0
+        for alias in aliases:
+            key = _norm(alias)
+            if len(key) < 3:
+                continue
+            score = SequenceMatcher(None, candidate_query, key).ratio()
+            key_no_digits = re.sub(r"\b\d+\b", " ", key)
+            key_no_digits = re.sub(r"\s+", " ", key_no_digits).strip()
+            if len(key_no_digits) >= 3:
+                score = max(score, SequenceMatcher(None, candidate_query, key_no_digits).ratio())
+            local_best = max(local_best, score)
+        if local_best > best_score:
+            second_score = best_score
+            best_score = local_best
+            best_contact = c
+        elif local_best > second_score:
+            second_score = local_best
+
+    if best_contact and best_score >= 0.74 and (best_score - second_score) >= 0.08:
+        return best_contact
+    return None
+
+
+def resolve_miz_named_contact(query: str, mode: str = "radio", fallback_name: str | None = None, miz_path: Path | None = None) -> dict[str, Any] | None:
+    mission_text = _read_mission_text_from_miz(miz_path=miz_path)
+    if not mission_text:
+        return None
+    contacts = _extract_miz_named_contacts(mission_text)
+    if not contacts:
+        return None
+
+    chosen = _find_contact_in_miz(query, contacts)
+    if isinstance(chosen, dict) and chosen.get("error") == "ambiguous":
+        hint = _query_contact_kind_hint(query)
+        options = contacts
+        if hint:
+            options = [c for c in contacts if str(c.get("kind") or "").lower() == hint]
+        names = [str(c.get("name") or "").strip() for c in options]
+        names = [n for n in names if n]
+        return {"error": "ambiguous", "kind": hint or "contact", "options": names[:8]}
+
+    if not chosen and fallback_name:
+        chosen = _find_contact_in_miz(fallback_name, contacts)
+    if not chosen:
+        return None
+
+    name = str(chosen.get("name") or "contact")
+    if mode == "tacan":
+        t = chosen.get("tacan")
+        if not isinstance(t, dict) or t.get("channel") is None:
+            return {"error": "missing", "contact": name, "mode": "tacan"}
+        return {
+            "source": "miz",
+            "kind": str(chosen.get("kind") or "contact"),
+            "contact": name,
+            "platform_type": str(chosen.get("platform_type") or "").strip() or None,
+            "callsign_name": str(chosen.get("callsign_name") or "").strip() or None,
+            "mode": "tacan",
+            "channel": int(t.get("channel")),
+            "band": str(t.get("mode") or "X").upper(),
+            "callsign": t.get("callsign"),
+        }
+
+    mhz = chosen.get("radio_mhz")
+    if mhz is None:
+        return {"error": "missing", "contact": name, "mode": "radio"}
+    return {
+        "source": "miz",
+        "kind": str(chosen.get("kind") or "contact"),
+        "contact": name,
+        "platform_type": str(chosen.get("platform_type") or "").strip() or None,
+        "callsign_name": str(chosen.get("callsign_name") or "").strip() or None,
+        "mode": "radio",
+        "mhz": float(mhz),
+    }
+
+
+def find_miz_named_contact(query: str, fallback_name: str | None = None, miz_path: Path | None = None) -> dict[str, Any] | None:
+    mission_text = _read_mission_text_from_miz(miz_path=miz_path)
+    if not mission_text:
+        return None
+    contacts = _extract_miz_named_contacts(mission_text)
+    if not contacts:
+        return None
+
+    chosen = _find_contact_in_miz(query, contacts)
+    if isinstance(chosen, dict) and chosen.get("error") == "ambiguous":
+        hint = _query_contact_kind_hint(query)
+        options = contacts
+        if hint:
+            options = [c for c in contacts if str(c.get("kind") or "").lower() == hint]
+        names = [str(c.get("name") or "").strip() for c in options]
+        names = [n for n in names if n]
+        return {"error": "ambiguous", "kind": hint or "contact", "options": names[:8]}
+    if not chosen and fallback_name:
+        chosen = _find_contact_in_miz(fallback_name, contacts)
+    if not chosen:
+        return None
+
+    return {
+        "source": "miz",
+        "kind": str(chosen.get("kind") or "contact"),
+        "contact": str(chosen.get("name") or "contact"),
+        "platform_type": str(chosen.get("platform_type") or "").strip() or None,
+        "callsign_name": str(chosen.get("callsign_name") or "").strip() or None,
+        "has_radio": chosen.get("radio_mhz") is not None,
+        "has_tacan": isinstance(chosen.get("tacan"), dict) and chosen.get("tacan", {}).get("channel") is not None,
+    }
+
+
 def lookup_miz_frequency(airfield: str, theatre: str | None = None, miz_path: Path | None = None) -> dict[str, Any] | None:
     entry = _entry_for_airfield(airfield, theatre)
     if not entry:

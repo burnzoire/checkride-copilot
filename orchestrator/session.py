@@ -15,6 +15,7 @@ class Session:
     last_reply_incomplete: bool = False
     last_quick_action_key: str | None = None
     last_airfield: str | None = None
+    last_contact: str | None = None
 
     def begin_turn(self) -> None:
         self.turn_confidence = "MEDIUM"

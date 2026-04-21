@@ -37,7 +37,7 @@ _INITIAL_PROMPT = (
     "AIM-120 AMRAAM, AIM-9X Sidewinder, AIM-7 Sparrow, "
     "AGM-65 Maverick, AGM-88 HARM, AGM-84 Harpoon, "
     "GBU-12 Paveway, GBU-38 JDAM, JSOW, MK-82, "
-    "TGP, ATFLIR, LITENING, JHMCS, HMD, "
+    "TGP, ATFLIR, FLIR, LITENING, JHMCS, HMD, "
     "DDI, UFC, AMPCD, HUD, IFEI, SMS, "
     "TDC, SCS, HOTAS, master arm, laser arm, seeker, FOV, cage, uncage, "
     "radar, RWS, TWS, STT, ACM, BVR, "
