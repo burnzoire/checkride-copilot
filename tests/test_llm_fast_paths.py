@@ -1033,3 +1033,59 @@ def test_tacan_followup_single_hull_missing_tacan_returns_missing_not_ambiguous(
 
     second = call_ollama_with_tools("what about tacan?", session, model="unused")
     assert second == "I can't provide TACAN for CVN-74 carrier."
+
+
+def test_list_carriers_query_returns_deduplicated_hull_list(monkeypatch):
+    """'what carriers are in this mission?' must return unique hulls with ship names."""
+    import mission.frequencies as freq_module
+
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Naval-1-1", "kind": "carrier", "platform_type": "CVN_71", "callsign_name": None, "radio_mhz": 127.5, "tacan": None},
+        {"name": "Naval-1",   "kind": "carrier", "platform_type": "CVN_71", "callsign_name": None, "radio_mhz": 127.5, "tacan": {"channel": 71, "mode": "X", "callsign": "TR"}},
+        {"name": "Naval-2-1", "kind": "carrier", "platform_type": "CVN_73", "callsign_name": None, "radio_mhz": 132.0, "tacan": None},
+        {"name": "Naval-2",   "kind": "carrier", "platform_type": "CVN_73", "callsign_name": None, "radio_mhz": 132.0, "tacan": {"channel": 73, "mode": "X", "callsign": "GW"}},
+    ] if kind == "carrier" else [])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama must not be called for list query")))
+
+    out = call_ollama_with_tools("what carriers are in this mission?", Session(), model="unused")
+    assert "CVN-71" in out
+    assert "CVN-73" in out
+    # Must not list the same hull twice
+    assert out.count("CVN-71") == 1
+    assert out.count("CVN-73") == 1
+    # Should include ship nicknames
+    assert "Theodore Roosevelt" in out or "Roosevelt" in out
+    assert "George Washington" in out or "Washington" in out
+
+
+def test_list_tankers_query_returns_types(monkeypatch):
+    """'what tankers are available?' must return type labels."""
+    import mission.frequencies as freq_module
+
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Aerial-9", "kind": "tanker", "platform_type": "KC130", "callsign_name": "Texaco1", "radio_mhz": 254.0, "tacan": {"channel": 91, "mode": "X"}},
+        {"name": "Aerial-8", "kind": "tanker", "platform_type": "KC135MPRS", "callsign_name": "Arco1", "radio_mhz": 251.0, "tacan": {"channel": 81, "mode": "X"}},
+    ] if kind == "tanker" else [])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama must not be called for list query")))
+
+    out = call_ollama_with_tools("what tankers are available?", Session(), model="unused")
+    assert "KC-130" in out or "KC130" in out
+    assert "KC-135" in out or "KC135" in out
+
+
+def test_list_carriers_query_does_not_fire_for_freq_query(monkeypatch):
+    """'what's the carrier frequency?' must NOT trigger the list path."""
+    import mission.frequencies as freq_module
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *a, **kw: {
+        "source": "miz", "kind": "carrier", "contact": "Naval-1",
+        "platform_type": "CVN_71", "mode": "radio", "mhz": 127.5,
+    })
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Naval-1", "kind": "carrier", "platform_type": "CVN_71", "callsign_name": None},
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama must not be called")))
+
+    out = call_ollama_with_tools("what's the carrier frequency?", Session(), model="unused")
+    assert "frequency" in out.lower()
+    assert "MHz" in out

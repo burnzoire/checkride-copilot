@@ -407,11 +407,13 @@ def _is_miz_contact_query(text: str) -> bool:
     asks_presence = bool(re.search(r"\b(see|find|have|loaded|available|present)\b", q))
     asks_type = bool(re.search(r"\b(what\s+type|type\s+of\s+ship|ship\s+type|aircraft\s+type)\b", q))
     followup_contact = bool(re.search(r"\b(how\s+about|what\s+about|and)\b", q) and mentions_contact)
+    lists_kind = _is_list_contacts_query(text)
     return (
         (mentions_contact and asks_channel)
         or bool(re.search(r"\btacan\b", q))
         or (mentions_contact and asks_presence)
         or followup_contact
+        or lists_kind
         or bool(re.fullmatch(r"\s*(carrier|boat|tanker|texaco|arco|shell|cvn\s*-?\s*\d+)\s*", q))
         or bool(re.fullmatch(r"\s*(unit\s*#?\s*\d+)\s*", q))
         or ((mentions_contact or mentions_named_unit) and (asks_type or asks_presence or asks_channel))
@@ -420,6 +422,77 @@ def _is_miz_contact_query(text: str) -> bool:
 
 def _contact_mode_from_query(text: str) -> str:
     return "tacan" if re.search(r"\btacan\b", text.lower()) else "radio"
+
+
+def _is_list_contacts_query(text: str) -> bool:
+    """Detect 'what carriers are in this mission?' / 'list the tankers' style queries.
+
+    Must NOT fire for frequency/TACAN queries that happen to mention carriers.
+    """
+    q = text.lower()
+    # Never treat a freq/tacan ask as a list query.
+    if re.search(r"\b(freq|frequency|channel|tacan|uhf|vhf|hf|freak)\b", q):
+        return False
+    asks_list = bool(re.search(
+        r"\b(what|which|list|show|tell\s+me|do\s+we\s+have|are\s+there|how\s+many)"
+        r".{0,30}\b(carrier|carriers|tanker|tankers|boat|boats)\b",
+        q,
+    ))
+    has_kind = bool(re.search(r"\b(carrier|carriers|tanker|tankers|boat|boats)\b", q))
+    lists_all = bool(re.search(r"\b(available|in\s+(this|the)\s+mission|loaded|on\s+station)\b", q))
+    return asks_list or (has_kind and lists_all)
+
+
+def _list_contacts_reply(kind: str) -> str | None:
+    """Build a spoken list of all unique carriers or tankers in the mission with their types."""
+    from mission.frequencies import _CVN_NAMES, list_miz_named_contacts
+
+    contacts = list_miz_named_contacts(kind=kind)
+    if not contacts:
+        return f"I don't see any {kind}s in the current mission."
+
+    entries: list[str] = []
+    seen_hull: set[str] = set()
+
+    for c in contacts:
+        name = str(c.get("name") or "").strip()
+        platform_type = str(c.get("platform_type") or "").strip() or None
+
+        if kind == "carrier":
+            hull = _carrier_hull_from_contact_fields(name, platform_type)
+            if not hull:
+                continue
+            if hull in seen_hull:
+                continue
+            seen_hull.add(hull)
+            # Look up ship nickname for a human-readable label.
+            hull_num = re.search(r"(\d+)", hull)
+            nick: str | None = None
+            if hull_num:
+                nicks = _CVN_NAMES.get(hull_num.group(1), [])
+                # Use the longest multi-word name as primary, e.g. 'George Washington'
+                multi = [n for n in nicks if " " in n]
+                nick = max(multi, key=len).title() if multi else (nicks[0].title() if nicks else None)
+            label = f"{hull}" + (f" ({nick})" if nick else "")
+            entries.append(label)
+        else:
+            # Tanker — deduplicate by platform_type + callsign_name
+            pt = str(c.get("platform_type") or "").strip()
+            cs = str(c.get("callsign_name") or "").strip()
+            key = f"{pt}|{cs}".lower()
+            if key in seen_hull:
+                continue
+            seen_hull.add(key)
+            type_label = _tanker_type_label(platform_type) or pt or "unknown type"
+            callsign_part = f" ({cs})" if cs else ""
+            entries.append(f"{type_label}{callsign_part}")
+
+    if not entries:
+        return f"I don't see any {kind}s in the current mission."
+    if len(entries) == 1:
+        return f"There is one {kind} in this mission: {entries[0]}."
+    items = ", ".join(entries[:-1]) + f", and {entries[-1]}"
+    return f"There are {len(entries)} {kind}s in this mission: {items}."
 
 
 def _is_contact_followup_query(text: str, session: Session) -> bool:
@@ -665,6 +738,14 @@ def _pick_pending_contact_option(
 
 def _miz_contact_fast_reply(transcript: str, session: Session) -> str | None:
     from mission.frequencies import find_miz_named_contact, list_miz_named_contacts, resolve_miz_named_contact
+
+    # List-all query: "what carriers are in this mission?"
+    if not session.pending_contact_options and _is_list_contacts_query(transcript):
+        q = transcript.lower()
+        kind = "tanker" if re.search(r"\b(tanker|tankers)\b", q) else "carrier"
+        reply = _list_contacts_reply(kind)
+        if reply:
+            return reply
 
     if session.pending_contact_options:
         mode_hint = session.pending_contact_mode or _contact_mode_from_query(transcript)

@@ -49,8 +49,8 @@ _RULES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bm[\s.]f[\s.]d\.?\b",                     re.I), "MFD"),
     # NATOPS: "nay tops", "nay taps"
     (re.compile(r"\bnay\s*t[ao]ps?\b",                   re.I), "NATOPS"),
-    # TACAN: "tay can", "taken"
-    (re.compile(r"\b(tay\s*can|takin|taken)\b",          re.I), "TACAN"),
+    # TACAN: "tay can", "taken", "tackan", "dukhan", "tekken", "tchakken", "tacon", "t-can"
+    (re.compile(r"\b(tay\s*can|takin|taken|tackan|tac\s*on|t[\-\s]can|dukhan|tekken|tchakken|t[ae]k[ae]n)\b", re.I), "TACAN"),
     # ILS: "i l s"
     (re.compile(r"\bi\.?l\.?s\.?\b",                     re.I), "ILS"),
     # Countermeasures: "chaffin" → "chaff and", "measures" → "countermeasures"
