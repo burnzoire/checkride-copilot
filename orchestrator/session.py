@@ -16,6 +16,9 @@ class Session:
     last_quick_action_key: str | None = None
     last_airfield: str | None = None
     last_contact: str | None = None
+    pending_contact_kind: str | None = None
+    pending_contact_mode: str | None = None
+    pending_contact_options: list[str] = field(default_factory=list)
 
     def begin_turn(self) -> None:
         self.turn_confidence = "MEDIUM"

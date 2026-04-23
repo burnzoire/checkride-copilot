@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import copy
 import ctypes
+import sys
 import threading
 import time as _time
 from typing import Callable
@@ -161,6 +162,47 @@ def _resolve_reply(transcript: str, session: Session, model: str) -> tuple[str, 
     return reply, next_session, logs
 
 
+def run_text(model: str) -> None:
+    stop_collector = _ensure_collector_running()
+
+    print("\nCheckride Copilot - Text Mode")
+    print(f"Model : {model}")
+    print("Type your query and press Enter. Type 'quit' or 'exit' to stop.\n")
+
+    session = Session()
+
+    try:
+        while True:
+            try:
+                session.begin_turn()
+                transcript = input("You  : ").strip()
+                if not transcript:
+                    continue
+                if transcript.lower() in {"quit", "exit"}:
+                    print("Stopped.")
+                    break
+
+                reply, session, logs = _resolve_reply(transcript, session, model)
+                for line in logs:
+                    print(line)
+                print(f"Reply: {reply}\n")
+
+                now = _time.time()
+                session.add_user_turn(transcript, now)
+                session.add_assistant_turn(reply, now)
+
+            except KeyboardInterrupt:
+                print("\nStopped.")
+                break
+            except EOFError:
+                print("\nStopped.")
+                break
+            except Exception as e:
+                logger.error(f"Text mode loop error: {e}")
+    finally:
+        stop_collector()
+
+
 def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
     stop_collector = _ensure_collector_running()
 
@@ -273,8 +315,17 @@ def main() -> None:
     parser.add_argument("--ptt", default="caps_lock", help="PTT key (default: caps_lock)")
     parser.add_argument("--mic", type=int, default=None, help="PyAudio input device index")
     parser.add_argument("--no-speak", action="store_true", help="Print reply without audio")
+    parser.add_argument("--text", action="store_true", help="Text-only interactive mode (no STT/TTS)")
+    parser.add_argument("--debug", action="store_true", help="Enable verbose debug logging")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"Ollama model (default: {DEFAULT_MODEL})")
     args = parser.parse_args()
+
+    logger.remove()
+    logger.add(sys.stderr, level="DEBUG" if args.debug else "INFO")
+
+    if args.text:
+        run_text(model=args.model)
+        return
 
     run(ptt_key=args.ptt, mic_device=args.mic, speak=not args.no_speak, model=args.model)
 

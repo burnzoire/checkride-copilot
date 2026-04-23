@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from difflib import SequenceMatcher
 from typing import Any
 
 import httpx
@@ -311,6 +312,8 @@ def _full_procedure_fast_reply(transcript: str, session: Session) -> str | None:
 
 def _is_airfield_frequency_query(text: str) -> bool:
     q = text.lower()
+    if re.search(r"\b(contact|call)\b", q) and re.search(r"\b(tower|approach|atc|traffic|airfield|airport)\b", q):
+        return True
     # Any mention of frequency-related words (with optional tower/approach)
     if re.search(r"\b(freq|frequency|channel)\b", q):
         # Either paired with tower/approach keywords, or likely an airfield query
@@ -322,11 +325,11 @@ def _is_airfield_frequency_query(text: str) -> bool:
     # "Freak" is old radio slang for frequency
     if re.search(r"\bfreak\b", q):
         return True
-    # Band-only queries like "UHF?" or "What about VHF?" or "Give me HF"
+    # Band-only queries like "UHF?" / "switch to uniform" / "What about VHF?"
     # These are likely follow-ups to an airfield context
-    if re.search(r"\b(uhf|vhf|hf|band)\b", q):
+    if re.search(r"\b(uhf|vhf|hf|uniform|victor|hotel|band)\b", q):
         # Only match if not asking about something else
-        if not re.search(r"\b(mod|mode|setting|switch|button|panel)\b", q):
+        if not re.search(r"\b(mod|mode|setting|button|panel)\b", q):
             return True
     return False
 
@@ -334,25 +337,72 @@ def _is_airfield_frequency_query(text: str) -> bool:
 def _extract_band_from_query(text: str) -> str | None:
     """Extract frequency band from query (UHF, VHF, VHF_HI, VHF_LOW, HF, or None for tower)."""
     q = text.lower()
-    if re.search(r"\buhf\b", q):
+    if re.search(r"\b(uhf|uniform)\b", q):
         return "UHF"
     if re.search(r"\bvhf\s*hi\b|\bvhf\s*high\b", q):
         return "VHF_HI"
     if re.search(r"\bvhf\s*low\b", q):
         return "VHF_LOW"
-    if re.search(r"\bvhf\b", q):
+    if re.search(r"\b(vhf|victor)\b", q):
         return "VHF_HI"  # Default to VHF_HI if no qualifier
-    if re.search(r"\bhf\b", q):
+    if re.search(r"\b(hf|hotel)\b", q):
         return "HF"
     return None
 
 
+def _last_user_turn_text(session: Session) -> str | None:
+    for turn in reversed(session.history):
+        if str(turn.get("role", "")).lower() == "user":
+            content = str(turn.get("content", "")).strip()
+            if content:
+                return content
+    return None
+
+
+def _contextualize_transcript(transcript: str, session: Session) -> str:
+    q = transcript.strip()
+    if not q:
+        return q
+
+    tokens = re.findall(r"[a-z0-9_'-]+", q.lower())
+    if len(tokens) > 7:
+        return q
+
+    follow_up_signal = bool(
+        re.search(
+            r"^(and\b|then\b|what\s+about\b|how\s+about\b|switch\b|set\b|tune\b|"
+            r"go\s+to\b|use\b|that\b|this\b|it\b)",
+            q.lower(),
+        )
+    )
+    band_only_signal = bool(re.search(r"\b(uhf|vhf|hf|uniform|victor|hotel)\b", q.lower()))
+    if not (follow_up_signal or band_only_signal):
+        return q
+
+    prev_user = _last_user_turn_text(session)
+    if not prev_user:
+        return q
+
+    return f"{prev_user}. Follow-up: {q}"
+
+
 def _is_miz_contact_query(text: str) -> bool:
+    from mission.frequencies import _CVN_SHIP_NAMES_RE, _query_fuzzy_matches_ship_name
+
     q = text.lower()
     if re.search(r"\b(tower|approach|atc|traffic|airfield|airport)\b", q):
         return False
-    mentions_contact = bool(re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat|texaco|arco|shell|tanker)\b", q))
-    mentions_named_unit = bool(re.search(r"\b[a-z]{2,}[ -]?\d+-\d+\b", q))
+    mentions_contact = bool(
+        re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat|texaco|arco|shell|tanker)\b", q)
+        or _CVN_SHIP_NAMES_RE.search(q)
+        or _query_fuzzy_matches_ship_name(q)
+    )
+    mentions_named_unit = bool(
+        re.search(
+            r"\b(?:[a-z]{2,}[ -]?\d+-\d+|unit\s*#?\s*\d+)\b",
+            q,
+        )
+    )
     asks_channel = bool(re.search(r"\b(freq|frequency|channel|tacan|uhf|vhf|hf)\b", q))
     asks_presence = bool(re.search(r"\b(see|find|have|loaded|available|present)\b", q))
     asks_type = bool(re.search(r"\b(what\s+type|type\s+of\s+ship|ship\s+type|aircraft\s+type)\b", q))
@@ -362,6 +412,8 @@ def _is_miz_contact_query(text: str) -> bool:
         or bool(re.search(r"\btacan\b", q))
         or (mentions_contact and asks_presence)
         or followup_contact
+        or bool(re.fullmatch(r"\s*(carrier|boat|tanker|texaco|arco|shell|cvn\s*-?\s*\d+)\s*", q))
+        or bool(re.fullmatch(r"\s*(unit\s*#?\s*\d+)\s*", q))
         or ((mentions_contact or mentions_named_unit) and (asks_type or asks_presence or asks_channel))
     )
 
@@ -370,13 +422,51 @@ def _contact_mode_from_query(text: str) -> str:
     return "tacan" if re.search(r"\btacan\b", text.lower()) else "radio"
 
 
+def _is_contact_followup_query(text: str, session: Session) -> bool:
+    if not session.last_contact:
+        return False
+    q = text.lower().strip()
+    if not q:
+        return False
+    return bool(
+        re.search(
+            r"\b(freq|frequency|channel|tacan|uhf|vhf|hf|type|ship|aircraft|present|available|loaded|see)\b",
+            q,
+        )
+        or re.search(r"^(and\b|what\s+about\b|how\s+about\b)", q)
+    )
+
+
 def _carrier_label(contact: str, platform_type: str | None) -> str:
+    known_hulls = {
+        "stennis": "74",
+        "john c stennis": "74",
+        "roosevelt": "71",
+        "theodore roosevelt": "71",
+        "lincoln": "72",
+        "abraham lincoln": "72",
+        "washington": "73",
+        "george washington": "73",
+        "truman": "75",
+        "harry s truman": "75",
+        "vinson": "70",
+        "carl vinson": "70",
+        "nimitz": "68",
+        "ford": "78",
+    }
+
     pt = str(platform_type or "")
     m = re.search(r"\bCVN[_-]?(\d{1,3})\b", pt, re.I)
     if not m:
         m = re.search(r"\bCVN\s*-?\s*(\d{1,3})\b", contact, re.I)
     if m:
         return f"CVN-{m.group(1)}"
+
+    blob = f"{contact} {pt}".lower()
+    for key, hull in known_hulls.items():
+        if re.search(rf"\b{re.escape(key)}\b", blob):
+            return f"CVN-{hull}"
+
     return "carrier"
 
 
@@ -397,17 +487,223 @@ def _tanker_callsign(contact: str, callsign_name: str | None = None) -> str:
     return token.capitalize() if token else "tanker"
 
 
+def _tanker_type_label(platform_type: str | None) -> str | None:
+    pt = str(platform_type or "").strip()
+    if not pt:
+        return None
+    m = re.search(r"\b(KC[-_ ]?135|KC[-_ ]?130|IL[-_ ]?78)\w*\b", pt, re.I)
+    if not m:
+        return None
+    return m.group(1).upper().replace("_", "-").replace(" ", "-")
+
+
 def _contact_spoken_label(contact: str, kind: str, platform_type: str | None, callsign_name: str | None = None) -> str:
     k = (kind or "").lower()
     if k == "carrier":
-        return _carrier_label(contact, platform_type)
+        hull = _carrier_label(contact, platform_type)
+        return f"{hull} carrier" if hull != "carrier" else "carrier"
     if k == "tanker":
-        return _tanker_callsign(contact, callsign_name=callsign_name)
-    return contact
+        t = _tanker_type_label(platform_type)
+        if t:
+            return f"{t} tanker"
+        if callsign_name:
+            return "tanker"
+        return "tanker"
+    return "contact"
+
+
+def _pending_contact_prompt(kind: str, mode: str) -> str:
+    k = (kind or "contact").lower()
+    if k == "carrier":
+        suffix = "TACAN" if mode == "tacan" else "frequency"
+        return f"I found multiple carriers in this mission. Say the hull number, for example CVN-74, for {suffix}."
+    if k == "tanker":
+        suffix = "TACAN" if mode == "tacan" else "frequency"
+        return f"I found multiple tankers in this mission. Say which tanker for {suffix}."
+    return "I found multiple contacts in this mission. Say the contact again with one more detail."
+
+
+def _carrier_hull_from_text(text: str) -> str | None:
+    m = re.search(r"\bCVN\s*-?\s*(\d{1,3})\b", str(text), re.I)
+    if not m:
+        return None
+    return f"CVN-{m.group(1)}"
+
+
+def _carrier_hull_from_contact_fields(contact: str, platform_type: str | None) -> str | None:
+    label = _carrier_label(contact, platform_type)
+    return label if re.fullmatch(r"CVN-\d{1,3}", label, re.I) else None
+
+
+def _disambiguation_choices(kind: str, options: list[str], listed: list[dict[str, Any]] | None = None) -> list[str]:
+    out: list[str] = []
+    seen: set[str] = set()
+
+    def _push(val: str | None) -> None:
+        v = str(val or "").strip()
+        if not v:
+            return
+        k = v.lower()
+        if k in seen:
+            return
+        seen.add(k)
+        out.append(v)
+
+    if kind == "carrier":
+        inferred_hulls: set[str] = set()
+        for item in listed or []:
+            name = str(item.get("name") or "").strip()
+            platform_type = str(item.get("platform_type") or "").strip() or None
+            hull = _carrier_hull_from_contact_fields(name, platform_type)
+            if hull:
+                inferred_hulls.add(hull)
+        for opt in options:
+            hull = _carrier_hull_from_text(opt)
+            if hull:
+                inferred_hulls.add(hull)
+
+        # If we can infer hull IDs, present hulls only (no raw unit aliases).
+        if inferred_hulls:
+            return sorted(
+                inferred_hulls,
+                key=lambda h: int(re.search(r"(\d+)$", h).group(1)) if re.search(r"(\d+)$", h) else 999,
+            )
+
+        for item in listed or []:
+            name = str(item.get("name") or "").strip()
+            platform_type = str(item.get("platform_type") or "").strip() or None
+            _push(_carrier_hull_from_contact_fields(name, platform_type) or name)
+        for opt in options:
+            _push(_carrier_hull_from_text(opt) or opt)
+        return out
+
+    if kind == "tanker":
+        for item in listed or []:
+            label = _contact_spoken_label(
+                str(item.get("name") or "").strip(),
+                str(item.get("kind") or "tanker"),
+                str(item.get("platform_type") or "").strip() or None,
+                str(item.get("callsign_name") or "").strip() or None,
+            )
+            _push(label)
+        for opt in options:
+            _push(opt)
+        return out
+
+    for opt in options:
+        _push(opt)
+    return out
+
+
+def _pending_contact_prompt_with_options(kind: str, mode: str, choices: list[str]) -> str:
+    k = (kind or "contact").lower()
+    suffix = "TACAN" if mode == "tacan" else "frequency"
+    if k == "carrier":
+        if choices:
+            return f"I found multiple carriers in this mission: {', '.join(choices)}. Say which one for {suffix}."
+        return f"I found multiple carriers in this mission. Say the hull number, for example CVN-74, for {suffix}."
+    if k == "tanker":
+        if choices:
+            return f"I found multiple tankers in this mission: {', '.join(choices)}. Say which one for {suffix}."
+        return f"I found multiple tankers in this mission. Say which tanker for {suffix}."
+    if choices:
+        return f"I found multiple contacts in this mission: {', '.join(choices)}. Say which one."
+    return "I found multiple contacts in this mission. Say the contact again with one more detail."
+
+
+def _pick_pending_contact_option(
+    query: str,
+    options: list[str],
+    *,
+    kind: str | None = None,
+    listed: list[dict[str, Any]] | None = None,
+) -> str | None:
+    q = query.strip().lower()
+    if not q:
+        return None
+
+    if (kind or "").lower() == "carrier":
+        desired_hull = _carrier_hull_from_text(query)
+        if desired_hull:
+            option_by_key = {str(opt).strip().lower(): str(opt).strip() for opt in options if str(opt).strip()}
+
+            # Direct hull options (if present) should resolve immediately.
+            for opt in options:
+                raw = str(opt).strip()
+                if not raw:
+                    continue
+                if (_carrier_hull_from_text(raw) or "").lower() == desired_hull.lower():
+                    return raw
+
+            # Otherwise map the requested hull to a concrete alias from listed contacts.
+            for item in listed or []:
+                name = str(item.get("name") or "").strip()
+                platform_type = str(item.get("platform_type") or "").strip() or None
+                if not name:
+                    continue
+                hull = _carrier_hull_from_contact_fields(name, platform_type)
+                if hull and hull.lower() == desired_hull.lower() and name.lower() in option_by_key:
+                    return option_by_key[name.lower()]
+
+    best: str | None = None
+    best_score = 0.0
+    for opt in options:
+        raw = str(opt).strip()
+        if not raw:
+            continue
+        key = raw.lower()
+        if key in q or q in key:
+            return raw
+        score = SequenceMatcher(None, q, key).ratio()
+        if score > best_score:
+            best = raw
+            best_score = score
+    if best and best_score >= 0.72:
+        return best
+    return None
 
 
 def _miz_contact_fast_reply(transcript: str, session: Session) -> str | None:
     from mission.frequencies import find_miz_named_contact, list_miz_named_contacts, resolve_miz_named_contact
+
+    if session.pending_contact_options:
+        mode_hint = session.pending_contact_mode or _contact_mode_from_query(transcript)
+        pending_kind = (session.pending_contact_kind or "contact").lower()
+        listed = list_miz_named_contacts(kind=pending_kind) if pending_kind in {"carrier", "tanker"} else []
+        picked = _pick_pending_contact_option(
+            transcript,
+            session.pending_contact_options,
+            kind=pending_kind,
+            listed=listed,
+        )
+        if picked:
+            forced = resolve_miz_named_contact(picked, mode=mode_hint, fallback_name=session.last_contact)
+            if forced and not forced.get("error"):
+                session.pending_contact_kind = None
+                session.pending_contact_mode = None
+                session.pending_contact_options = []
+                result = forced
+            else:
+                result = None
+        else:
+            result = None
+        if result:
+            contact = str(result.get("contact") or session.last_contact or "that contact")
+            kind = str(result.get("kind") or "contact")
+            platform_type = str(result.get("platform_type") or "").strip() or None
+            callsign_name = str(result.get("callsign_name") or "").strip() or None
+            spoken = _contact_spoken_label(contact, kind, platform_type, callsign_name=callsign_name)
+            if result.get("error") == "missing":
+                if mode_hint == "tacan":
+                    return f"I can't provide TACAN for {spoken}."
+                return f"I can't provide a radio frequency for {spoken}."
+            session.last_contact = contact
+            if mode_hint == "tacan":
+                ch = int(result.get("channel"))
+                band = str(result.get("band") or "X").upper()
+                return f"{spoken} TACAN is {ch}{band}."
+            mhz = float(result.get("mhz"))
+            return f"{spoken} frequency is {mhz:.3f} MHz."
 
     presence_query = bool(re.search(r"\b(see|find|have|loaded|available|present)\b", transcript.lower()))
     type_query = bool(re.search(r"\b(what\s+type|type\s+of\s+ship|ship\s+type|aircraft\s+type)\b", transcript.lower()))
@@ -417,12 +713,11 @@ def _miz_contact_fast_reply(transcript: str, session: Session) -> str | None:
         if not seen:
             return "I can't find that contact in the current mission."
         if seen.get("error") == "ambiguous":
-            options = [str(x).strip() for x in (seen.get("options") or []) if str(x).strip()]
-            if options:
-                kind = str(seen.get("kind") or "contact")
-                label = "carriers" if kind == "carrier" else "tankers" if kind == "tanker" else "contacts"
-                return f"I found multiple {label}: {', '.join(options)}. Which one are you after?"
-            return "I couldn't confidently identify the contact. Say the callsign again."
+            session.pending_contact_kind = str(seen.get("kind") or "contact")
+            session.pending_contact_mode = "radio"
+            session.pending_contact_options = [str(x).strip() for x in (seen.get("options") or []) if str(x).strip()]
+            choices = _disambiguation_choices(session.pending_contact_kind or "contact", session.pending_contact_options)
+            return _pending_contact_prompt_with_options(session.pending_contact_kind or "contact", "radio", choices)
         contact = str(seen.get("contact") or session.last_contact or "that contact")
         kind = str(seen.get("kind") or "contact")
         platform_type = str(seen.get("platform_type") or "").strip()
@@ -443,7 +738,11 @@ def _miz_contact_fast_reply(transcript: str, session: Session) -> str | None:
         if not seen:
             return "I can't find that contact in the current mission."
         if seen.get("error") == "ambiguous":
-            return "I couldn't confidently identify the contact. Say the callsign again."
+            session.pending_contact_kind = str(seen.get("kind") or "contact")
+            session.pending_contact_mode = "radio"
+            session.pending_contact_options = [str(x).strip() for x in (seen.get("options") or []) if str(x).strip()]
+            choices = _disambiguation_choices(session.pending_contact_kind or "contact", session.pending_contact_options)
+            return _pending_contact_prompt_with_options(session.pending_contact_kind or "contact", "radio", choices)
         contact = str(seen.get("contact") or session.last_contact or "that contact")
         kind = str(seen.get("kind") or "contact")
         platform_type = str(seen.get("platform_type") or "").strip() or None
@@ -462,22 +761,71 @@ def _miz_contact_fast_reply(transcript: str, session: Session) -> str | None:
     if result.get("error") == "ambiguous":
         kind = str(result.get("kind") or "contact")
         options = [str(x).strip() for x in (result.get("options") or []) if str(x).strip()]
+        listed: list[dict[str, Any]] = []
         if not options and kind in {"carrier", "tanker"}:
             listed = list_miz_named_contacts(kind=kind)
-            options = [
-                _contact_spoken_label(
-                    str(c.get("name") or "").strip(),
-                    str(c.get("kind") or "contact"),
-                    str(c.get("platform_type") or "").strip() or None,
-                    str(c.get("callsign_name") or "").strip() or None,
-                )
-                for c in listed
-            ]
-            options = [n for n in options if n]
-        if options:
-            label = "carriers" if kind == "carrier" else "tankers" if kind == "tanker" else "contacts"
-            return f"I found multiple {label}: {', '.join(options)}. Which one are you after?"
-        return "I couldn't confidently identify the contact. Say the callsign again."
+            options = [str(c.get("name") or "").strip() for c in listed if str(c.get("name") or "").strip()]
+        else:
+            listed = list_miz_named_contacts(kind=kind) if kind in {"carrier", "tanker"} else []
+
+        # Auto-resolve only when there is a single distinct entity.
+        # For carriers, distinctness is by hull number (CVN-XX), not contact alias.
+        auto_target: str | None = None
+        if kind == "carrier":
+            hulls: dict[str, str] = {}
+            for item in listed:
+                name = str(item.get("name") or "").strip()
+                platform_type = str(item.get("platform_type") or "").strip() or None
+                hull = _carrier_hull_from_contact_fields(name, platform_type)
+                if hull:
+                    hulls.setdefault(hull, name)
+            if len(hulls) == 1:
+                # Resolve via a concrete alias/name to avoid ambiguous hull-only lookups.
+                auto_target = next(iter(hulls.values()))
+        elif kind == "tanker" and len(listed) == 1:
+            auto_target = str(listed[0].get("name") or "").strip() or None
+
+        if auto_target:
+            single = resolve_miz_named_contact(auto_target, mode=mode, fallback_name=session.last_contact)
+            if isinstance(single, dict):
+                if single.get("error") == "missing":
+                    contact = str(single.get("contact") or auto_target)
+                    k = str(single.get("kind") or kind)
+                    platform_type = str(single.get("platform_type") or "").strip() or None
+                    callsign_name = str(single.get("callsign_name") or "").strip() or None
+                    spoken = _contact_spoken_label(contact, k, platform_type, callsign_name=callsign_name)
+                    session.last_contact = contact
+                    session.pending_contact_kind = None
+                    session.pending_contact_mode = None
+                    session.pending_contact_options = []
+                    if mode == "tacan":
+                        return f"I can't provide TACAN for {spoken}."
+                    return f"I can't provide a radio frequency for {spoken}."
+                if single.get("error"):
+                    single = None
+
+            if isinstance(single, dict):
+                contact = str(single.get("contact") or auto_target)
+                k = str(single.get("kind") or kind)
+                platform_type = str(single.get("platform_type") or "").strip() or None
+                callsign_name = str(single.get("callsign_name") or "").strip() or None
+                spoken = _contact_spoken_label(contact, k, platform_type, callsign_name=callsign_name)
+                session.last_contact = contact
+                session.pending_contact_kind = None
+                session.pending_contact_mode = None
+                session.pending_contact_options = []
+                if mode == "tacan":
+                    ch = int(single.get("channel"))
+                    band = str(single.get("band") or "X").upper()
+                    return f"{spoken} TACAN is {ch}{band}."
+                mhz = float(single.get("mhz"))
+                return f"{spoken} frequency is {mhz:.3f} MHz."
+
+        session.pending_contact_kind = kind
+        session.pending_contact_mode = mode
+        session.pending_contact_options = options
+        choices = _disambiguation_choices(kind, options, listed=listed)
+        return _pending_contact_prompt_with_options(kind, mode, choices)
 
     contact = str(result.get("contact") or session.last_contact or "that contact")
     kind = str(result.get("kind") or "contact")
@@ -490,6 +838,9 @@ def _miz_contact_fast_reply(transcript: str, session: Session) -> str | None:
         return f"I can't provide a radio frequency for {spoken}."
 
     session.last_contact = contact
+    session.pending_contact_kind = None
+    session.pending_contact_mode = None
+    session.pending_contact_options = []
     if mode == "tacan":
         ch = int(result.get("channel"))
         band = str(result.get("band") or "X").upper()
@@ -507,7 +858,7 @@ def _airfield_frequency_fast_reply(transcript: str, session: Session) -> str | N
     
     airfield = None
     explicit_airfield_query = bool(re.search(r"\b(tower|approach|airfield|airport|traffic)\b", transcript.lower()))
-    should_try_airfield_match = bool(re.search(r"\b(freq|frequency|channel|freak)\b", transcript.lower()))
+    should_try_airfield_match = bool(re.search(r"\b(freq|frequency|channel|freak)\b", transcript.lower())) or explicit_airfield_query
     if should_try_airfield_match:
         match = match_airfield_in_text(transcript, theatre=theatre) or match_airfield_in_text(transcript)
         if match and match.get("match_type") == "exact":
@@ -721,37 +1072,39 @@ def _parse_tool_call(call: dict[str, Any]) -> tuple[str, dict[str, Any]]:
 
 def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str:
     session.last_reply_incomplete = False
+    query = _contextualize_transcript(transcript, session)
+    contact_query = transcript if session.pending_contact_options else query
 
     # Deterministic phraseology path for critical carrier comms callouts.
-    if _is_call_the_ball_query(transcript):
+    if _is_call_the_ball_query(query):
         return _call_the_ball_fast_reply()
 
     # Deterministic cockpit state path — heading, altitude, airspeed, master arm, radar mode.
-    if _is_cockpit_state_query(transcript):
-        state_fast = _cockpit_state_fast_reply(transcript)
+    if _is_cockpit_state_query(query):
+        state_fast = _cockpit_state_fast_reply(query)
         if state_fast:
             return state_fast
 
     # Deterministic full-procedure path for explicit multi-step weapon/task requests.
-    if _is_full_procedure_query(transcript):
-        proc_fast = _full_procedure_fast_reply(transcript, session)
+    if _is_full_procedure_query(query):
+        proc_fast = _full_procedure_fast_reply(query, session)
         if proc_fast:
             return proc_fast
 
     # Deterministic mission contact path for carrier/tanker radio and TACAN.
-    if _is_miz_contact_query(transcript):
-        contact_fast = _miz_contact_fast_reply(transcript, session)
+    if session.pending_contact_options or _is_miz_contact_query(contact_query) or _is_contact_followup_query(contact_query, session):
+        contact_fast = _miz_contact_fast_reply(contact_query, session)
         if contact_fast:
             return contact_fast
 
     # Deterministic radio-frequency path to avoid model drift/hallucinated channels.
-    if _is_airfield_frequency_query(transcript):
-        fast = _airfield_frequency_fast_reply(transcript, session)
+    if _is_airfield_frequency_query(query):
+        fast = _airfield_frequency_fast_reply(query, session)
         if fast:
             return fast
 
     # Detect and handle closing/acknowledgment statements without tool calls.
-    if _is_closing_statement(transcript):
+    if _is_closing_statement(query):
         return _closing_statement_reply()
 
     messages: list[dict[str, Any]] = [{"role": "system", "content": SYSTEM_PROMPT}]
@@ -764,7 +1117,11 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
             f"currently at step {session.active_step + 1}."
         )
 
-    messages.append({"role": "user", "content": transcript + proc_context})
+    user_content = transcript
+    if query != transcript:
+        user_content = f"{transcript}\n\nContext hint from prior user turn: {query}"
+
+    messages.append({"role": "user", "content": user_content + proc_context})
 
     total_tool_calls = 0
     for _ in range(MAX_TOOL_CALLS + 1):
@@ -794,7 +1151,7 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
             # one tool result has been collected for this turn.
             if total_tool_calls == 0:
                 total_tool_calls, used_any = _run_grounding_fallback_chain(
-                    transcript, session, messages, total_tool_calls
+                    query, session, messages, total_tool_calls
                 )
                 if used_any:
                     continue
@@ -870,7 +1227,7 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
                 proc_fn = TOOL_REGISTRY.get("list_procedures")
                 if proc_fn:
                     try:
-                        proc_result = proc_fn({"query": transcript, "limit": 3}, session)
+                        proc_result = proc_fn({"query": query, "limit": 3}, session)
                     except Exception as e:
                         proc_result = {"ok": False, "error": f"Fallback procedure search failed: {e}"}
                     total_tool_calls += 1
@@ -886,7 +1243,7 @@ def call_ollama_with_tools(transcript: str, session: Session, model: str) -> str
                     docs_fn = TOOL_REGISTRY.get("search_natops")
                     if docs_fn:
                         try:
-                            docs_result = docs_fn({"query": transcript, "top_k": 3}, session)
+                            docs_result = docs_fn({"query": query, "top_k": 3}, session)
                         except Exception as e:
                             docs_result = {"ok": False, "error": f"Fallback docs search failed: {e}"}
                         total_tool_calls += 1

@@ -7,6 +7,7 @@ from collections import Counter
 from difflib import SequenceMatcher, get_close_matches
 from pathlib import Path
 from typing import Any
+from loguru import logger
 
 _FREQ_INDEX_PATH = Path(__file__).parent.parent / "data" / "airfield_frequencies_by_map.json"
 _DCS_ROOT_CANDIDATES = [
@@ -385,6 +386,9 @@ def _read_mission_text_from_miz(miz_path: Path | None = None) -> str | None:
 def _classify_contact_kind(name: str, platform_type: str | None = None) -> str | None:
     n = _norm(name)
     pt = _norm(platform_type or "")
+    # Surface combatants like TICONDEROG are not carriers.
+    if re.search(r"\b(ticonderog|cg\s*\d+)\b", pt):
+        return "contact"
     if re.search(r"\b(cvn\s*\d+|carrier|boat|stennis|roosevelt|lincoln|washington|truman|vinson|nimitz|ford)\b", pt):
         return "carrier"
     if re.search(r"\b(kc\s*135|kc\s*130|il\s*78|tanker)\b", pt):
@@ -394,6 +398,50 @@ def _classify_contact_kind(name: str, platform_type: str | None = None) -> str |
     if re.search(r"\b(texaco|arco|shell|tanker|kc 135|kc135|kc 130|kc130|il 78|il78)\b", n):
         return "tanker"
     return "contact"
+
+
+# Canonical carrier names and nicknames keyed by hull number.
+# Add entries as new carriers appear in DCS.
+_CVN_NAMES: dict[str, list[str]] = {
+    "59": ["forrestal", "uss forrestal"],
+    "60": ["saratoga", "sara"],
+    "61": ["ranger"],
+    "62": ["independence", "indy"],
+    "63": ["kitty hawk", "kitty"],
+    "64": ["constellation", "connie"],
+    "65": ["enterprise", "big e"],
+    "66": ["america"],
+    "67": ["kennedy", "jfk", "john f kennedy"],
+    "68": ["nimitz"],
+    "69": ["eisenhower", "ike"],
+    "70": ["vinson", "carl vinson"],
+    "71": ["roosevelt", "teddy", "fdr", "theodore roosevelt"],
+    "72": ["lincoln", "abe", "honest abe", "abraham lincoln"],
+    "73": ["washington", "gw", "george washington"],
+    "74": ["stennis", "john c stennis"],
+    "75": ["truman", "harry truman", "harry s truman"],
+    "76": ["reagan", "gipper", "ronald reagan"],
+    "77": ["bush", "ghwb", "george h w bush", "george hw bush"],
+    "78": ["ford", "gerald ford"],
+    "79": ["kennedy", "jfk", "john f kennedy"],
+}
+
+# Pre-compiled pattern of all CVN ship names/nicknames for fast routing decisions.
+# Sorted longest-first so the alternation prefers more specific matches (e.g.
+# "george washington" before "washington").
+_CVN_SHIP_NAMES_RE: re.Pattern[str] = re.compile(
+    r"\b(?:"
+    + "|".join(
+        re.escape(nick)
+        for nick in sorted(
+            {n for names in _CVN_NAMES.values() for n in names},
+            key=len,
+            reverse=True,
+        )
+    )
+    + r")\b",
+    re.I,
+)
 
 
 def _contact_aliases(name: str, kind: str, tacan_callsign: str | None = None, platform_type: str | None = None) -> list[str]:
@@ -411,6 +459,8 @@ def _contact_aliases(name: str, kind: str, tacan_callsign: str | None = None, pl
         if hull:
             out.add(f"CVN-{hull}")
             out.add(f"CVN {hull}")
+            for nick in _CVN_NAMES.get(hull, []):
+                out.add(nick)
     if kind == "tanker":
         for key in ("texaco", "arco", "shell", "tanker"):
             if re.search(rf"\b{key}\b", name, re.I):
@@ -444,6 +494,52 @@ def _callsign_display_variants(callsign_name: str | None) -> list[str]:
     return dedup
 
 
+def _find_matching_brace(text: str, open_index: int) -> int | None:
+    if open_index < 0 or open_index >= len(text) or text[open_index] != "{":
+        return None
+    depth = 0
+    in_string = False
+    escape = False
+    for i in range(open_index, len(text)):
+        ch = text[i]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return i
+    return None
+
+
+def _extract_enclosing_unit_chunk(mission_text: str, name_pos: int) -> tuple[int, int] | None:
+    # Find the nearest indexed table start before this name token.
+    probe_start = max(0, name_pos - 8000)
+    prefix = mission_text[probe_start:name_pos + 1]
+    starts = list(re.finditer(r"\[\d+\]\s*=\s*\{", prefix))
+    for sm in reversed(starts):
+        abs_start = probe_start + sm.start()
+        brace_idx = mission_text.find("{", abs_start)
+        if brace_idx < 0:
+            continue
+        end_idx = _find_matching_brace(mission_text, brace_idx)
+        if end_idx is None:
+            continue
+        if brace_idx <= name_pos <= end_idx:
+            return (brace_idx, end_idx + 1)
+    return None
+
+
 def _extract_miz_named_contacts(mission_text: str) -> list[dict[str, Any]]:
     contacts: list[dict[str, Any]] = []
     for m in re.finditer(r'\["name"\]\s*=\s*"([^"]+)"', mission_text):
@@ -451,43 +547,98 @@ def _extract_miz_named_contacts(mission_text: str) -> list[dict[str, Any]]:
         if len(name) < 3:
             continue
 
-        # Restrict extraction to actual unit blocks to avoid non-unit names like countries/weather presets.
-        block_start = max(0, m.start() - 1200)
-        block_end = min(len(mission_text), m.start() + 4000)
+        # Restrict extraction to the enclosing unit block so nearby units cannot bleed fields.
+        unit_span = _extract_enclosing_unit_chunk(mission_text, m.start())
+        if unit_span:
+            block_start, block_end = unit_span
+        else:
+            block_start = max(0, m.start() - 1200)
+            block_end = min(len(mission_text), m.start() + 4000)
         chunk = mission_text[block_start:block_end]
-        type_match = re.search(r'\["type"\]\s*=\s*"([^"]+)"', chunk)
-        platform_type = type_match.group(1).strip() if type_match else None
+        # Select the nearest unit type token to this name occurrence.
+        # This avoids pulling unrelated labels from nearby route/waypoint blocks.
+        type_matches = list(re.finditer(r'\["type"\]\s*=\s*"([^"]+)"', chunk))
+        platform_type = None
+        if type_matches:
+            anchor = m.start() - block_start
+            nearest = min(type_matches, key=lambda tm: abs(tm.start() - anchor))
+            candidate = nearest.group(1).strip()
+            # Route labels often contain spaces (e.g., "Turning Point"); prefer model-ish tokens.
+            if " " not in candidate or re.search(r"\b(stennis|ticonderog|cvn|kc[-_ ]?135|kc[-_ ]?130|il[-_ ]?78)\b", candidate, re.I):
+                platform_type = candidate
         if not platform_type:
             continue
 
         kind = _classify_contact_kind(name, platform_type=platform_type)
+        anchor = m.start() - block_start
+
+        def _nearest(pattern: str, flags: int = 0) -> re.Match[str] | None:
+            matches = list(re.finditer(pattern, chunk, flags))
+            if not matches:
+                return None
+            return min(matches, key=lambda tm: abs(tm.start() - anchor))
+
+        def _nearest_prefer_forward(matches: list[re.Match[str]], ref: int) -> re.Match[str] | None:
+            if not matches:
+                return None
+            forward = [tm for tm in matches if tm.start() >= ref]
+            if forward:
+                return min(forward, key=lambda tm: tm.start() - ref)
+            return min(matches, key=lambda tm: abs(tm.start() - ref))
+
         radio_mhz = None
+        freq_candidates: list[tuple[int, float]] = []
         for fm in re.finditer(r'\["frequency"\]\s*=\s*([0-9]+(?:\.[0-9]+)?)', chunk):
             mhz = _to_mhz(float(fm.group(1)))
             if mhz is None:
                 continue
             if 30.0 <= mhz <= 400.0:
-                radio_mhz = mhz
-                break
+                freq_candidates.append((abs(fm.start() - anchor), mhz))
+        if freq_candidates:
+            freq_candidates.sort(key=lambda x: x[0])
+            radio_mhz = freq_candidates[0][1]
 
         tacan = None
         callsign_name = None
-        ctm = re.search(r'\["callsign"\]\s*=\s*\{[^\}]*\["name"\]\s*=\s*"([^"]+)"', chunk, re.S)
+        ctm = _nearest(r'\["callsign"\]\s*=\s*\{[^\}]*\["name"\]\s*=\s*"([^"]+)"', re.S)
         if ctm:
             callsign_name = ctm.group(1).strip()
-        if re.search(r'ActivateBeacon|modeChannel|\["AA"\]\s*=\s*true', chunk, re.I):
-            cm = re.search(r'\["channel"\]\s*=\s*([0-9]{1,3})', chunk)
-            if cm:
-                ch = int(cm.group(1))
-                if 1 <= ch <= 126:
-                    mm = re.search(r'\["modeChannel"\]\s*=\s*"([XYxy])"', chunk)
-                    mode = mm.group(1).upper() if mm else "X"
-                    csm = re.search(r'\["callsign"\]\s*=\s*"([A-Za-z0-9]+)"', chunk)
-                    tacan = {
+        if re.search(r'ActivateBeacon', chunk, re.I):
+            beacon_tacan = None
+            best_dist: int | None = None
+            for bm in re.finditer(r'ActivateBeacon', chunk, re.I):
+                # Scope channel/mode/callsign to within the ActivateBeacon ["params"] block
+                # to avoid false matches on radio-preset ["channel"] = 1 keys.
+                region = chunk[bm.start():bm.start() + 300]
+                pm = re.search(r'\["params"\]\s*=\s*(\{)', region)
+                if pm is None:
+                    continue
+                brace_in_chunk = bm.start() + pm.start(1)
+                end_in_chunk = _find_matching_brace(chunk, brace_in_chunk)
+                params_text = (
+                    chunk[brace_in_chunk:end_in_chunk + 1]
+                    if end_in_chunk is not None
+                    else chunk[brace_in_chunk:brace_in_chunk + 600]
+                )
+                ch_m = re.search(r'\["channel"\]\s*=\s*([0-9]{1,3})', params_text)
+                if ch_m is None:
+                    continue
+                ch = int(ch_m.group(1))
+                if not (1 <= ch <= 126):
+                    continue
+                mode_m = re.search(r'\["modeChannel"\]\s*=\s*"([XYxy])"', params_text)
+                mode = mode_m.group(1).upper() if mode_m else "X"
+                cs_m = re.search(r'\["callsign"\]\s*=\s*"([A-Za-z0-9]+)"', params_text)
+                dist = abs(bm.start() - anchor)
+                if best_dist is None or dist < best_dist:
+                    best_dist = dist
+                    beacon_tacan = {
                         "channel": ch,
                         "mode": mode,
-                        "callsign": csm.group(1) if csm else None,
+                        "callsign": cs_m.group(1) if cs_m else None,
                     }
+            if beacon_tacan:
+                tacan = beacon_tacan
 
         # Keep only named contacts that actually expose a usable comm channel.
         if radio_mhz is None and tacan is None:
@@ -506,6 +657,14 @@ def _extract_miz_named_contacts(mission_text: str) -> list[dict[str, Any]]:
                 "radio_mhz": radio_mhz,
                 "tacan": tacan,
             }
+        )
+        logger.debug(
+            "[miz] found contact name='{}' type='{}' kind='{}' radio={} tacan={}",
+            name,
+            platform_type,
+            kind,
+            radio_mhz,
+            tacan,
         )
 
     by_name: dict[str, dict[str, Any]] = {}
@@ -556,9 +715,33 @@ def _extract_miz_named_contacts(mission_text: str) -> list[dict[str, Any]]:
     return list(by_sig.values())
 
 
+def _query_fuzzy_matches_ship_name(query: str) -> bool:
+    """Return True if any word or bigram in query fuzzily matches a known CVN nickname.
+
+    Handles STT transcription errors (e.g. 'washinton' for 'washington') by
+    accepting SequenceMatcher ratio ≥ 0.82 against names of 5+ characters.
+    """
+    from difflib import SequenceMatcher
+    q = _norm(query)
+    words = [t for t in q.split() if len(t) >= 4]
+    bigrams = [f"{words[i]} {words[i + 1]}" for i in range(len(words) - 1)]
+    candidates = words + bigrams
+    all_names = [
+        _norm(n)
+        for names in _CVN_NAMES.values()
+        for n in names
+        if len(_norm(n)) >= 5
+    ]
+    for cand in candidates:
+        for name in all_names:
+            if SequenceMatcher(None, cand, name).ratio() >= 0.82:
+                return True
+    return False
+
+
 def _query_contact_kind_hint(query: str) -> str | None:
     q = _norm(query)
-    if re.search(r"\b(cvn\s*\d+|carrier|boat)\b", q):
+    if re.search(r"\b(cvn\s*\d+|carrier|boat)\b", q) or _CVN_SHIP_NAMES_RE.search(q):
         return "carrier"
     if re.search(r"\b(texaco|arco|shell|tanker|kc\s*135|kc\s*130|il\s*78)\b", q):
         return "tanker"
@@ -582,28 +765,81 @@ def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str
     if not q:
         return None
 
-    wants_carrier = bool(re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat)\b", q))
+    wants_carrier = bool(
+        re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat)\b", q)
+        or _CVN_SHIP_NAMES_RE.search(q)
+    )
     wants_tanker = bool(re.search(r"\b(texaco|arco|shell|tanker|kc\s*-?\s*135|kc\s*-?\s*130|il\s*-?\s*78)\b", q))
-    if wants_carrier and not wants_tanker:
+    # Specific hull number OR ship name in query — skip the early ambiguity
+    # bailout and let alias scoring resolve it precisely below.
+    wants_specific_hull = bool(
+        re.search(r"\bcvn\s*-?\s*\d+\b", q)
+        or _CVN_SHIP_NAMES_RE.search(q)
+        or _query_fuzzy_matches_ship_name(q)
+    )
+    if wants_carrier and not wants_tanker and not wants_specific_hull:
         carrier_hits = [c for c in contacts if str(c.get("kind")) == "carrier"]
         if len(carrier_hits) == 1:
+            logger.debug(f"[miz] query hints carrier: single candidate='{carrier_hits[0].get('name')}'")
             return carrier_hits[0]
         if len(carrier_hits) > 1:
+            logger.debug(f"[miz] query hints carrier: ambiguous candidates={[c.get('name') for c in carrier_hits]}")
             return {"error": "ambiguous"}
     if wants_tanker and not wants_carrier:
         tanker_hits = [c for c in contacts if str(c.get("kind")) == "tanker"]
         if len(tanker_hits) == 1:
+            logger.debug(f"[miz] query hints tanker: single candidate='{tanker_hits[0].get('name')}'")
             return tanker_hits[0]
         if len(tanker_hits) > 1:
+            logger.debug(f"[miz] query hints tanker: ambiguous candidates={[c.get('name') for c in tanker_hits]}")
             return {"error": "ambiguous"}
 
+    # If the query names a specific CVN ship, restrict alias scoring to contacts
+    # whose platform_type hull number actually matches — prevents callsign fields
+    # ("Stennis") from cross-matching the wrong carrier (CVN_73 ≠ CVN_74).
+    hull_filters: set[str] = set()
+    for hull, nicks in _CVN_NAMES.items():
+        for nick in nicks:
+            if re.search(rf"\b{re.escape(_norm(nick))}\b", q):
+                hull_filters.add(hull)
+                break
+    # Fuzzy pass: catch STT near-misses (e.g. 'washinton' for 'washington').
+    if not hull_filters:
+        from difflib import SequenceMatcher
+        words = [t for t in q.split() if len(t) >= 4]
+        bigrams = [f"{words[i]} {words[i + 1]}" for i in range(len(words) - 1)]
+        candidates = words + bigrams
+        for hull, nicks in _CVN_NAMES.items():
+            if hull in hull_filters:
+                continue
+            for nick in nicks:
+                norm_nick = _norm(nick)
+                if len(norm_nick) < 5:
+                    continue
+                for cand in candidates:
+                    if SequenceMatcher(None, cand, norm_nick).ratio() >= 0.82:
+                        hull_filters.add(hull)
+                        break
+                if hull in hull_filters:
+                    break
+
+    scoring_contacts = contacts
+    if hull_filters:
+        scoring_contacts = [
+            c for c in contacts
+            if any(
+                re.search(rf"cvn[_\s-]?0*{re.escape(h)}\b", str(c.get("platform_type") or ""), re.I)
+                for h in hull_filters
+            )
+        ]
+
     scored: list[tuple[int, dict[str, Any]]] = []
-    for c in contacts:
+    for c in scoring_contacts:
         aliases = [str(a) for a in c.get("aliases", [])]
         best = 0
         for alias in aliases:
             key = _norm(alias)
-            if len(key) < 3:
+            if len(key) < 2:
                 continue
             if re.search(rf"\b{re.escape(key)}\b", q):
                 best = max(best, len(key))
@@ -615,7 +851,20 @@ def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str
         top = scored[0][0]
         top_hits = [c for s, c in scored if s == top]
         if len(top_hits) > 1:
+            # Tiebreak: if all tied candidates share the same platform type they
+            # represent the same physical ship (e.g. group-unit vs lead-unit with
+            # different TACAN completeness).  Pick the one with the most data.
+            platform_types = {str(c.get("platform_type") or "").strip().lower() for c in top_hits}
+            if len(platform_types) == 1:
+                def _richness(c: dict[str, Any]) -> int:
+                    t = c.get("tacan") or {}
+                    return (1 if t.get("channel") is not None else 0) + (1 if c.get("radio_mhz") is not None else 0)
+                top_hits.sort(key=_richness, reverse=True)
+                logger.debug(f"[miz] alias match tiebreak by richness: selected='{top_hits[0].get('name')}' score={top}")
+                return top_hits[0]
+            logger.debug(f"[miz] alias match ambiguous top_score={top} candidates={[c.get('name') for c in top_hits]}")
             return {"error": "ambiguous"}
+        logger.debug(f"[miz] alias match selected='{top_hits[0].get('name')}' score={top}")
         return top_hits[0]
 
     # Fuzzy fallback for STT drift on callsigns/names.
@@ -630,7 +879,7 @@ def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str
     best_contact: dict[str, Any] | None = None
     best_score = 0.0
     second_score = 0.0
-    for c in contacts:
+    for c in scoring_contacts:
         aliases = [str(a) for a in c.get("aliases", [])]
         local_best = 0.0
         for alias in aliases:
@@ -651,6 +900,12 @@ def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str
             second_score = local_best
 
     if best_contact and best_score >= 0.74 and (best_score - second_score) >= 0.08:
+        logger.debug(
+            "[miz] fuzzy selected='{}' best={:.3f} second={:.3f}",
+            best_contact.get("name"),
+            best_score,
+            second_score,
+        )
         return best_contact
     return None
 

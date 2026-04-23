@@ -280,7 +280,11 @@ def test_band_specific_frequency_follow_up(monkeypatch):
     # Test band detection
     assert _is_airfield_frequency_query("How about UHF?") is True
     assert _is_airfield_frequency_query("What's the VHF frequency?") is True
+    assert _is_airfield_frequency_query("Switch to uniform") is True
     assert _extract_band_from_query("How about UHF?") == "UHF"
+    assert _extract_band_from_query("switch to uniform") == "UHF"
+    assert _extract_band_from_query("switch to victor") == "VHF_HI"
+    assert _extract_band_from_query("switch to hotel") == "HF"
     assert _extract_band_from_query("VHF frequency?") == "VHF_HI"
     assert _extract_band_from_query("Give me HF.") == "HF"
     
@@ -302,6 +306,32 @@ def test_band_specific_frequency_follow_up(monkeypatch):
     )
     # Should extract band from query and resolve with session airfield
     assert "131.5" in out
+
+
+def test_followup_band_query_uses_previous_user_turn_for_airfield_context(monkeypatch):
+    import mission.frequencies as freq_module
+
+    def _mock_resolve(airfield: str, in_jet: bool, band: str = "tower"):
+        if airfield == "Kobuleti" and band == "UHF":
+            return {"source": "local", "role": "UHF", "mhz": 262.0, "airfield": "Kobuleti"}
+        if airfield == "Kobuleti" and band == "tower":
+            return {"source": "local", "role": "tower", "mhz": 133.0, "airfield": "Kobuleti"}
+        return None
+
+    monkeypatch.setattr(freq_module, "resolve_frequency", _mock_resolve)
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for contextual frequency follow-up")))
+
+    session = Session()
+    # Simulate prior turn already present in conversation history.
+    session.add_user_turn("how do i contact Kobuleti tower?", ts=1.0)
+    session.add_assistant_turn("Tower frequency is 133.000 MHz.", ts=1.0)
+
+    out = call_ollama_with_tools(
+        "switch to uniform",
+        session,
+        model="unused",
+    )
+    assert out == "UHF frequency is 262.000 MHz."
 
 
 def test_direct_airfield_extraction_for_frequency_query():
@@ -468,7 +498,7 @@ def test_cvn_radio_frequency_query_uses_miz_contact_fast_path(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "CVN-71 frequency is 127.500 MHz."
+    assert out == "CVN-71 carrier frequency is 127.500 MHz."
 
 
 def test_cvn_frequency_query_does_not_require_fetch_state(monkeypatch):
@@ -488,7 +518,7 @@ def test_cvn_frequency_query_does_not_require_fetch_state(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "CVN-71 frequency is 127.500 MHz."
+    assert out == "CVN-71 carrier frequency is 127.500 MHz."
 
 
 def test_texaco_tacan_query_uses_miz_contact_fast_path(monkeypatch):
@@ -510,7 +540,7 @@ def test_texaco_tacan_query_uses_miz_contact_fast_path(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "Texaco TACAN is 31Y."
+    assert out == "tanker TACAN is 31Y."
 
 
 def test_contact_followup_missing_tacan_is_deterministic(monkeypatch):
@@ -531,7 +561,7 @@ def test_contact_followup_missing_tacan_is_deterministic(monkeypatch):
         session,
         model="unused",
     )
-    assert out == "I can't provide TACAN for Texaco 1-1."
+    assert out == "I can't provide TACAN for contact."
 
 
 def test_cvn_presence_query_uses_deterministic_contact_visibility(monkeypatch):
@@ -550,7 +580,7 @@ def test_cvn_presence_query_uses_deterministic_contact_visibility(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "I can see CVN-71 in the current mission."
+    assert out == "I can see CVN-71 carrier in the current mission."
 
 
 def test_ambiguous_carrier_query_lists_options(monkeypatch):
@@ -567,7 +597,34 @@ def test_ambiguous_carrier_query_lists_options(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "I found multiple carriers: CVN-71, CVN-74. Which one are you after?"
+    assert "multiple carriers" in out
+    assert "CVN-71" in out
+    assert "CVN-74" in out
+
+
+def test_ambiguous_carrier_query_hides_unit_aliases_when_hulls_present(monkeypatch):
+    import mission.frequencies as freq_module
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda *_args, **_kwargs: {
+        "error": "ambiguous",
+        "kind": "carrier",
+        "options": ["CVN-71", "CVN-73", "Naval-1-1", "Naval-2-1"],
+    })
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Naval-1-1", "kind": "carrier", "platform_type": "CVN_71", "callsign_name": None},
+        {"name": "Naval-2-1", "kind": "carrier", "platform_type": "CVN_73", "callsign_name": None},
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for ambiguous carrier list prompt")))
+
+    out = call_ollama_with_tools(
+        "What's the carrier frequency?",
+        Session(),
+        model="unused",
+    )
+    assert "CVN-71" in out
+    assert "CVN-73" in out
+    assert "Naval-1-1" not in out
+    assert "Naval-2-1" not in out
 
 
 def test_ship_type_query_is_deterministic(monkeypatch):
@@ -587,7 +644,7 @@ def test_ship_type_query_is_deterministic(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "CVN-71 is a CVN-71 carrier."
+    assert out == "CVN-71 carrier is a CVN-71 carrier."
 
 
 def test_carrier_frequency_uses_cvn_label_not_unit_name(monkeypatch):
@@ -607,7 +664,7 @@ def test_carrier_frequency_uses_cvn_label_not_unit_name(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "CVN-71 frequency is 127.500 MHz."
+    assert out == "CVN-71 carrier frequency is 127.500 MHz."
 
 
 def test_tanker_frequency_uses_callsign_not_unit_name(monkeypatch):
@@ -628,7 +685,7 @@ def test_tanker_frequency_uses_callsign_not_unit_name(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "Texaco frequency is 251.000 MHz."
+    assert out == "KC-135 tanker frequency is 251.000 MHz."
 
 
 def test_how_about_the_tanker_followup_is_deterministic(monkeypatch):
@@ -649,4 +706,330 @@ def test_how_about_the_tanker_followup_is_deterministic(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "Texaco frequency is 254.000 MHz."
+    assert out == "KC130 tanker frequency is 254.000 MHz."
+
+
+def test_ambiguous_contact_prompt_consumes_followup_answer(monkeypatch):
+    import mission.frequencies as freq_module
+
+    def _resolve(query, mode="radio", fallback_name=None):
+        q = str(query).lower()
+        if "carrier frequency" in q:
+            return {
+                "error": "ambiguous",
+                "kind": "carrier",
+                "options": ["Stennis", "Unit #001"],
+            }
+        if "cvn-74" in q:
+            return {
+                "source": "miz",
+                "kind": "carrier",
+                "contact": "Stennis",
+                "platform_type": "CVN_74",
+                "mode": mode,
+                "mhz": 127.5,
+            }
+        return None
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", _resolve)
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Stennis", "kind": "carrier", "platform_type": "CVN_74", "callsign_name": None},
+        {"name": "Carrier", "kind": "carrier", "platform_type": "CVN_71", "callsign_name": None},
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for pending contact follow-up")))
+
+    session = Session()
+    first = call_ollama_with_tools("what is the carrier frequency?", session, model="unused")
+    assert "multiple carriers" in first.lower()
+    assert "CVN-74" in first
+    assert "CVN-71" in first
+
+    second = call_ollama_with_tools("CVN-74", session, model="unused")
+    assert second == "CVN-74 carrier frequency is 127.500 MHz."
+
+
+def test_ambiguous_carrier_alias_options_accept_hull_followup(monkeypatch):
+    import mission.frequencies as freq_module
+
+    def _resolve(query, mode="radio", fallback_name=None):
+        q = str(query).lower()
+        if "carrier frequency" in q:
+            return {
+                "error": "ambiguous",
+                "kind": "carrier",
+                "options": ["Naval-1-1", "Naval-2-1"],
+            }
+        if "naval-1-1" in q:
+            return {
+                "source": "miz",
+                "kind": "carrier",
+                "contact": "Naval-1-1",
+                "platform_type": "CVN_71",
+                "mode": mode,
+                "mhz": 127.5,
+            }
+        return None
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", _resolve)
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Naval-1-1", "kind": "carrier", "platform_type": "CVN_71", "callsign_name": None},
+        {"name": "Naval-2-1", "kind": "carrier", "platform_type": "CVN_73", "callsign_name": None},
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for pending carrier hull follow-up")))
+
+    session = Session()
+    first = call_ollama_with_tools("what is the carrier frequency?", session, model="unused")
+    assert "multiple carriers" in first.lower()
+    assert "CVN-71" in first
+    assert "CVN-73" in first
+
+    second = call_ollama_with_tools("CVN-71", session, model="unused")
+    assert second == "CVN-71 carrier frequency is 127.500 MHz."
+
+
+def test_named_unit_followup_routes_to_contact_fast_path(monkeypatch):
+    import mission.frequencies as freq_module
+
+    def _resolve(query, mode="radio", fallback_name=None):
+        q = str(query).lower()
+        if "carrier frequency" in q:
+            return {
+                "error": "ambiguous",
+                "kind": "carrier",
+                "options": ["Unit #001", "Stennis"],
+            }
+        if "unit #001" in q or "unit 001" in q:
+            return {
+                "source": "miz",
+                "kind": "carrier",
+                "contact": "Unit #001",
+                "platform_type": "CVN_71",
+                "mode": mode,
+                "mhz": 127.5,
+            }
+        return None
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", _resolve)
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Unit #001", "kind": "carrier", "platform_type": "CVN_71", "callsign_name": None},
+        {"name": "Stennis", "kind": "carrier", "platform_type": "CVN_74", "callsign_name": None},
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for unit follow-up")))
+
+    session = Session()
+    first = call_ollama_with_tools("what is the carrier frequency?", session, model="unused")
+    assert "multiple carriers" in first.lower()
+
+    second = call_ollama_with_tools("Unit #001", session, model="unused")
+    assert second == "CVN-71 carrier frequency is 127.500 MHz."
+
+
+def test_tacan_followup_uses_last_contact_context_without_repeating_name(monkeypatch):
+    import mission.frequencies as freq_module
+
+    def _resolve(query, mode="radio", fallback_name=None):
+        q = str(query).lower()
+        if "carrier" in q and "frequency" in q:
+            return {
+                "source": "miz",
+                "kind": "carrier",
+                "contact": "Stennis",
+                "platform_type": "CVN_74",
+                "mode": "radio",
+                "mhz": 127.5,
+            }
+        if "tacan" in q and fallback_name == "Stennis":
+            return {
+                "source": "miz",
+                "kind": "carrier",
+                "contact": "Stennis",
+                "platform_type": "CVN_74",
+                "mode": "tacan",
+                "channel": 74,
+                "band": "X",
+                "callsign": "STN",
+            }
+        return None
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", _resolve)
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for contact follow-up TACAN")))
+
+    session = Session()
+    first = call_ollama_with_tools("what is the carrier frequency?", session, model="unused")
+    assert first == "CVN-74 carrier frequency is 127.500 MHz."
+
+    second = call_ollama_with_tools("what's the TACAN?", session, model="unused")
+    assert second == "CVN-74 carrier TACAN is 74X."
+
+
+def test_frequency_followup_uses_last_contact_context_without_repeating_name(monkeypatch):
+    import mission.frequencies as freq_module
+
+    def _resolve(query, mode="radio", fallback_name=None):
+        q = str(query).lower()
+        if "tanker" in q and "frequency" in q:
+            return {
+                "source": "miz",
+                "kind": "tanker",
+                "contact": "Texaco 1-1",
+                "platform_type": "KC-135MPRS",
+                "mode": "radio",
+                "mhz": 251.0,
+                "callsign_name": "Texaco11",
+            }
+        if "what about uhf" in q and fallback_name == "Texaco 1-1":
+            return {
+                "source": "miz",
+                "kind": "tanker",
+                "contact": "Texaco 1-1",
+                "platform_type": "KC-135MPRS",
+                "mode": "radio",
+                "mhz": 252.0,
+                "callsign_name": "Texaco11",
+            }
+        return None
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", _resolve)
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for contact follow-up frequency")))
+
+    session = Session()
+    first = call_ollama_with_tools("what is the tanker frequency?", session, model="unused")
+    assert first == "KC-135 tanker frequency is 251.000 MHz."
+
+    second = call_ollama_with_tools("what about UHF?", session, model="unused")
+    assert second == "KC-135 tanker frequency is 252.000 MHz."
+
+
+def test_ambiguous_carrier_aliases_auto_resolve_when_only_one_distinct_carrier(monkeypatch):
+    import mission.frequencies as freq_module
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda query, mode="radio", fallback_name=None: (
+        {
+            "error": "ambiguous",
+            "kind": "carrier",
+            "options": ["carrier", "Stennis", "Unit #001"],
+        }
+        if "carrier frequency" in str(query).lower()
+        else {
+            "source": "miz",
+            "kind": "carrier",
+            "contact": "Stennis",
+            "platform_type": "CVN_74",
+            "mode": "radio",
+            "mhz": 127.5,
+        }
+    ))
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Stennis", "kind": "carrier", "platform_type": "CVN_74", "callsign_name": None}
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for single-carrier alias collapse")))
+
+    out = call_ollama_with_tools("what's the carrier frequency?", Session(), model="unused")
+    assert out == "CVN-74 carrier frequency is 127.500 MHz."
+
+
+def test_ambiguous_carrier_aliases_same_hull_auto_resolve(monkeypatch):
+    import mission.frequencies as freq_module
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda query, mode="radio", fallback_name=None: (
+        {
+            "error": "ambiguous",
+            "kind": "carrier",
+            "options": ["carrier", "Stennis", "Unit #001"],
+        }
+        if "carrier frequency" in str(query).lower()
+        else {
+            "source": "miz",
+            "kind": "carrier",
+            "contact": "Stennis",
+            "platform_type": "CVN_74",
+            "mode": "radio",
+            "mhz": 127.5,
+        }
+    ))
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Stennis", "kind": "carrier", "platform_type": "CVN_74", "callsign_name": None},
+        {"name": "Unit #001", "kind": "carrier", "platform_type": "CVN_74", "callsign_name": None},
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called when one carrier hull is present")))
+
+    out = call_ollama_with_tools("what is the carrier frequency?", Session(), model="unused")
+    assert out == "CVN-74 carrier frequency is 127.500 MHz."
+
+
+def test_ambiguous_carrier_noisy_metadata_uses_known_name_to_hull(monkeypatch):
+    import mission.frequencies as freq_module
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda query, mode="radio", fallback_name=None: (
+        {
+            "error": "ambiguous",
+            "kind": "carrier",
+            "options": ["Carrier", "Stennis", "Unit #001"],
+        }
+        if "carrier" in str(query).lower() and "freq" in str(query).lower()
+        else {
+            "source": "miz",
+            "kind": "carrier",
+            "contact": "Stennis",
+            "platform_type": "Turning Point",
+            "mode": "radio",
+            "mhz": 127.5,
+        }
+        if str(query).strip().lower() == "stennis"
+        else None
+    ))
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Carrier", "kind": "carrier", "platform_type": "TICONDEROG", "callsign_name": None},
+        {"name": "Stennis", "kind": "carrier", "platform_type": "Turning Point", "callsign_name": None},
+        {"name": "Unit #001", "kind": "carrier", "platform_type": "Stennis", "callsign_name": None},
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for noisy carrier metadata case")))
+
+    out = call_ollama_with_tools("what is the carrier freq?", Session(), model="unused")
+    assert out == "CVN-74 carrier frequency is 127.500 MHz."
+
+
+def test_tacan_followup_single_hull_missing_tacan_returns_missing_not_ambiguous(monkeypatch):
+    import mission.frequencies as freq_module
+
+    def _resolve(query, mode="radio", fallback_name=None):
+        q = str(query).lower()
+        if "carrier" in q and "freq" in q:
+            return {
+                "source": "miz",
+                "kind": "carrier",
+                "contact": "Stennis",
+                "platform_type": "CVN_74",
+                "mode": "radio",
+                "mhz": 127.5,
+            }
+        if "tacan" in q:
+            return {
+                "error": "ambiguous",
+                "kind": "carrier",
+                "options": ["Carrier", "Stennis", "Unit #001"],
+            }
+        if str(query).strip().lower() == "stennis" and mode == "tacan":
+            return {
+                "error": "missing",
+                "kind": "carrier",
+                "contact": "Stennis",
+                "platform_type": "CVN_74",
+                "mode": "tacan",
+            }
+        return None
+
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", _resolve)
+    monkeypatch.setattr(freq_module, "list_miz_named_contacts", lambda kind=None: [
+        {"name": "Carrier", "kind": "carrier", "platform_type": "TICONDEROG", "callsign_name": None},
+        {"name": "Stennis", "kind": "carrier", "platform_type": "Turning Point", "callsign_name": None},
+        {"name": "Unit #001", "kind": "carrier", "platform_type": "Stennis", "callsign_name": None},
+    ])
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama should not be called for TACAN missing follow-up")))
+
+    session = Session()
+    first = call_ollama_with_tools("what is the carrier freq?", session, model="unused")
+    assert first == "CVN-74 carrier frequency is 127.500 MHz."
+
+    second = call_ollama_with_tools("what about tacan?", session, model="unused")
+    assert second == "I can't provide TACAN for CVN-74 carrier."

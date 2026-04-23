@@ -108,8 +108,11 @@ For the orchestrator entry point and tests, use:
 
 ```powershell
 uv run start
+uv run start --text
 uv run test
 ```
+
+`uv run start --text` starts an interactive CLI loop for development without microphone capture or TTS playback.
 
 **First run:** Whisper (`small.en`, ~480 MB) and Kokoro TTS download automatically. This takes a minute on first launch; subsequent starts are fast.
 
