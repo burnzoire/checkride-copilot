@@ -14,12 +14,38 @@ from difflib import get_close_matches
 from functools import lru_cache
 from pathlib import Path
 
-# Each entry: (compiled regex, replacement string)
+# CVN hull number-word table — used to normalise spoken numbers after "CVN".
+# e.g. "CVN seventy three" → "CVN-73"
+_CVN_HULL_NUM_WORDS: dict[str, str] = {
+    "sixty eight": "68",  "sixty nine": "69",
+    "seventy":     "70",
+    "seventy one":   "71", "seventy two":   "72", "seventy three": "73",
+    "seventy four":  "74", "seventy five":  "75", "seventy six":   "76",
+    "seventy seven": "77", "seventy eight": "78", "seventy nine":  "79",
+}
+_CVN_NUM_WORD_RE = re.compile(
+    r"\bCVN\s*-?\s*(" +
+    "|".join(re.escape(k) for k in sorted(_CVN_HULL_NUM_WORDS, key=len, reverse=True)) +
+    r")\b",
+    re.I,
+)
+
+# Each entry: (compiled regex, replacement — string or callable).
 # Replacements run in order — put more specific patterns before general ones.
-_RULES: list[tuple[re.Pattern, str]] = [
+_RULES: list[tuple] = [
     # ── Carrier comms phraseology ───────────────────────────────────────────
     # "call the ball" often misheard as "cull the bull" or similar.
     (re.compile(r"\b(cull|coal|call)\s+the\s+(bull|ball)\b", re.I), "call the ball"),
+    # Spelled-out letters: "C V N" → "CVN" (must run before hull-number rules)
+    (re.compile(r"\bC\s+V\s+N\b", re.I), "CVN"),
+    # Parakeet mishears "CVN" as "Syvian" (phonetic drift on the consonant cluster)
+    # e.g. "Syvian seventy three" → "CVN seventy three" → (num_word rule) → "CVN-73"
+    (re.compile(r"\bSyvian\b", re.I), "CVN"),
+    # CVN hull numbers: Parakeet occasionally mishears "CVN" leading letter
+    # e.g. "CBN-74" → "CVN-74", "CDN-71" → "CVN-71"
+    (re.compile(r"\b[CcGg][BbDdNn][NnMm][-\s]?(\d{1,3})\b"), r"CVN-\1"),
+    # CVN spoken number words: "CVN seventy three" → "CVN-73"
+    (_CVN_NUM_WORD_RE, lambda m: f"CVN-{_CVN_HULL_NUM_WORDS[m.group(1).lower()]}"),
 
     # ── Missile designations ────────────────────────────────────────────────
     # GBU-XX: Whisper occasionally hears "GPU" for "GBU"
@@ -50,7 +76,11 @@ _RULES: list[tuple[re.Pattern, str]] = [
     # NATOPS: "nay tops", "nay taps"
     (re.compile(r"\bnay\s*t[ao]ps?\b",                   re.I), "NATOPS"),
     # TACAN: "tay can", "taken", "tackan", "dukhan", "tekken", "tchakken", "tacon", "t-can"
-    (re.compile(r"\b(tay\s*can|takin|taken|tackan|tac\s*on|t[\-\s]can|dukhan|tekken|tchakken|t[ae]k[ae]n)\b", re.I), "TACAN"),
+    # Parakeet-specific: "tachahan", "takan", "take can"
+    # Multi-word Parakeet mishears of "TACAN frequency": "attack-end frequency", "take care frequency"
+    (re.compile(r"\battack[\s-]end\s+(freq\w*|channel)\b", re.I), r"TACAN \1"),
+    (re.compile(r"\btake\s+care\s+(freq\w*|channel)\b",    re.I), r"TACAN \1"),
+    (re.compile(r"\b(tay\s*can|takin|taken|tackan|taccan|tac\s*on|t[\-\s]can|dukhan|tekken|tchakken|t[ae]k[ae]n|tachahan|takan|take\s*can|tackhand|tekhan|tack\s+and)\b", re.I), "TACAN"),
     # ILS: "i l s"
     (re.compile(r"\bi\.?l\.?s\.?\b",                     re.I), "ILS"),
     # Countermeasures: "chaffin" → "chaff and", "measures" → "countermeasures"

@@ -26,6 +26,11 @@ httpx
 # Voice — STT
 faster-whisper
 
+# Optional: NVIDIA Parakeet STT backend (much lower hallucination rate).
+# Install separately after torch — NeMo pulls in a large dependency tree.
+# Enable with:  STT_BACKEND=parakeet  (set in .env or shell before launch)
+#   pip install nemo_toolkit[asr]
+
 # Voice — TTS + playback
 kokoro
 piper-tts

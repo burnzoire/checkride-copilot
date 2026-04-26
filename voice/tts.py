@@ -80,6 +80,15 @@ def _normalize(text: str) -> str:
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*%',     r'\1 percent',        text)
     text = re.sub(r'\b(\d[\d,]*(?:\.\d+)?)\s*deg\b', r'\1 degrees',        text, flags=re.I)
 
+    # Radio callsigns: expand trailing digits so TTS reads each digit individually.
+    # "Texaco11" → "Texaco 1 1", "Arco11" → "Arco 1 1", "Shell2" → "Shell 2"
+    text = re.sub(
+        r'\b(texaco|arco|shell|wizard|chevy|enfield|pontiac|uzi|colt|dodge|ford|hornet)(\d{1,3})\b',
+        lambda m: m.group(1) + ' ' + ' '.join(m.group(2)),
+        text,
+        flags=re.I,
+    )
+
     # Acronym pronunciations
     text = re.sub(r'\bHOTAS\b', 'ho-tass', text)
 

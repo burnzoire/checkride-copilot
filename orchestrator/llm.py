@@ -387,14 +387,14 @@ def _contextualize_transcript(transcript: str, session: Session) -> str:
 
 
 def _is_miz_contact_query(text: str) -> bool:
-    from mission.frequencies import _CVN_SHIP_NAMES_RE, _query_fuzzy_matches_ship_name
-
+    from mission.frequencies import _CVN_SHIP_NAMES_RE, _TANKER_CALLSIGN_RE, _query_fuzzy_matches_ship_name
     q = text.lower()
     if re.search(r"\b(tower|approach|atc|traffic|airfield|airport)\b", q):
         return False
     mentions_contact = bool(
-        re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat|texaco|arco|shell|tanker)\b", q)
+        re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat|tanker)\b", q)
         or _CVN_SHIP_NAMES_RE.search(q)
+        or _TANKER_CALLSIGN_RE.search(q)
         or _query_fuzzy_matches_ship_name(q)
     )
     mentions_named_unit = bool(
@@ -414,7 +414,8 @@ def _is_miz_contact_query(text: str) -> bool:
         or (mentions_contact and asks_presence)
         or followup_contact
         or lists_kind
-        or bool(re.fullmatch(r"\s*(carrier|boat|tanker|texaco|arco|shell|cvn\s*-?\s*\d+)\s*", q))
+        or bool(re.fullmatch(r"\s*(carrier|boat|tanker|cvn\s*-?\s*\d+)\s*", q))
+        or bool(_TANKER_CALLSIGN_RE.fullmatch(q.strip()))
         or bool(re.fullmatch(r"\s*(unit\s*#?\s*\d+)\s*", q))
         or ((mentions_contact or mentions_named_unit) and (asks_type or asks_presence or asks_channel))
     )
@@ -484,8 +485,8 @@ def _list_contacts_reply(kind: str) -> str | None:
                 continue
             seen_hull.add(key)
             type_label = _tanker_type_label(platform_type) or pt or "unknown type"
-            callsign_part = f" ({cs})" if cs else ""
-            entries.append(f"{type_label}{callsign_part}")
+            label = cs if cs else f"{type_label} tanker"
+            entries.append(label)
 
     if not entries:
         return f"I don't see any {kind}s in the current mission."
@@ -576,11 +577,11 @@ def _contact_spoken_label(contact: str, kind: str, platform_type: str | None, ca
         hull = _carrier_label(contact, platform_type)
         return f"{hull} carrier" if hull != "carrier" else "carrier"
     if k == "tanker":
+        if callsign_name:
+            return callsign_name
         t = _tanker_type_label(platform_type)
         if t:
             return f"{t} tanker"
-        if callsign_name:
-            return "tanker"
         return "tanker"
     return "contact"
 

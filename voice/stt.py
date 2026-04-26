@@ -1,14 +1,19 @@
 """
-Push-to-talk speech-to-text using faster-whisper.
+Push-to-talk speech-to-text using faster-whisper (default) or Parakeet.
 
 Hold the PTT key → records mic audio.
-Release → transcribes with Whisper → returns text.
+Release → transcribes with the configured STT backend → returns text.
 
 Usage:
     from voice.stt import listen_once
     text = listen_once()          # uses default PTT key
     text = listen_once("caps_lock")
     text = listen_once("scroll_lock")
+
+Backend selection (set before launch):
+    STT_BACKEND=whisper    faster-whisper (default, small.en)
+    STT_BACKEND=parakeet   NVIDIA Parakeet TDT 0.6B
+                           Requires: pip install nemo_toolkit[asr]
 """
 
 from __future__ import annotations
@@ -250,3 +255,41 @@ def listen_once(
     else:
         logger.info(f"STT [{duration_s:.1f}s]: {text!r}")
     return corrected
+
+
+# ── Backend routing ───────────────────────────────────────────────────────────
+# Re-export listen_once as a thin dispatcher so callers never need to know
+# which backend is active.  The Whisper implementation above is renamed to
+# _whisper_listen_once; listen_once below picks the right one at call time.
+
+_whisper_listen_once = listen_once
+
+
+def listen_once(  # type: ignore[no-redef]
+    ptt_key:       str           = _DEFAULT_PTT,
+    device         = None,
+    model_name:    str           = _DEFAULT_MODEL,
+    min_duration:  float         = 0.3,
+    context_terms                = None,
+    start_pressed: bool          = False,
+) -> str:
+    """Dispatch to the STT backend selected by the ``STT_BACKEND`` env var."""
+    backend = os.environ.get("STT_BACKEND", "whisper").strip().lower()
+    if backend == "parakeet":
+        from voice.stt_parakeet import listen_once as _parakeet_listen_once
+        return _parakeet_listen_once(
+            ptt_key=ptt_key,
+            device=device,
+            model_name=model_name,
+            min_duration=min_duration,
+            context_terms=context_terms,
+            start_pressed=start_pressed,
+        )
+    return _whisper_listen_once(
+        ptt_key=ptt_key,
+        device=device,
+        model_name=model_name,
+        min_duration=min_duration,
+        context_terms=context_terms,
+        start_pressed=start_pressed,
+    )

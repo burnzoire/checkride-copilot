@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import copy
 import ctypes
+import os
 import sys
 import threading
 import time as _time
@@ -206,8 +207,14 @@ def run_text(model: str) -> None:
 def run(ptt_key: str, mic_device: int | None, speak: bool, model: str) -> None:
     stop_collector = _ensure_collector_running()
 
-    logger.info("Pre-loading Whisper ...")
-    stt._get_model()
+    backend = os.environ.get("STT_BACKEND", "whisper").strip().lower()
+    if backend == "parakeet":
+        logger.info("Pre-loading Parakeet ...")
+        from voice.stt_parakeet import _get_model as _parakeet_get_model
+        _parakeet_get_model()
+    else:
+        logger.info("Pre-loading Whisper ...")
+        stt._get_model()
 
     if speak:
         logger.info("Pre-loading TTS ...")

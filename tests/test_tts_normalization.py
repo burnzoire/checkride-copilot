@@ -18,6 +18,12 @@ def test_compound_units_expand_for_tts():
     assert "10 nautical miles" in out
 
 
+def test_tanker_callsign_digits_spoken_individually():
+    assert _normalize("Texaco11 frequency is 251.000 MHz.").startswith("Texaco 1 1 ")
+    assert _normalize("Arco11 TACAN is 51X.") .startswith("Arco 1 1 ")
+    assert _normalize("Shell2 is on frequency.")  .startswith("Shell 2 ")
+
+
 def test_ranges_expand_for_tts():
     text = "Maintain 140-150 kts and 1000-3000 ft."
     out = _normalize(text)

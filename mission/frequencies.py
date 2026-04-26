@@ -383,6 +383,37 @@ def _read_mission_text_from_miz(miz_path: Path | None = None) -> str | None:
         return None
 
 
+# Known DCS tanker callsigns.  Extend this list when new callsigns appear in missions.
+# These are used for contact detection, alias generation, and query routing.
+_TANKER_CALLSIGNS: list[str] = ["texaco", "arco", "shell"]
+
+# Pre-compiled regex matching any tanker callsign word, with optional trailing
+# number (e.g. arco11, texaco1, arco 1-1).  \d* lets "arco11" match even
+# though the digits run straight onto the word.
+_TANKER_CALLSIGN_RE: re.Pattern = re.compile(
+    r"\b(?:" + "|".join(re.escape(c) for c in _TANKER_CALLSIGNS) + r")\d*\b",
+    re.I,
+)
+
+# Matches a tanker callsign followed by an explicit number (digits OR spoken
+# words), indicating the pilot wants a *specific* unit rather than any tanker.
+# Examples: "arco11", "arco 1-1", "arco one one", "texaco 2".
+_SPOKEN_DIGIT_RE = r"(?:zero|one|two|three|four|five|six|seven|eight|nine)"
+_TANKER_CALLSIGN_SPECIFIC_RE: re.Pattern = re.compile(
+    r"\b(?:" + "|".join(re.escape(c) for c in _TANKER_CALLSIGNS) + r")"
+    r"(?:\s*\d[\d\-]*|\s+" + _SPOKEN_DIGIT_RE + r"(?:\s+" + _SPOKEN_DIGIT_RE + r")?)\b",
+    re.I,
+)
+
+# Pre-compiled regex for tanker platform types (airframe designations).
+# Use a lookahead instead of \b after the number so that DCS type strings like
+# "KC135MPRS" (no separator between the number and suffix) still match.
+_TANKER_PLATFORM_RE: re.Pattern = re.compile(
+    r"\b(kc\s*-?\s*135(?:\w*)|kc\s*-?\s*130(?:\w*)|il\s*-?\s*78(?:\w*)|tanker)\b",
+    re.I,
+)
+
+
 def _classify_contact_kind(name: str, platform_type: str | None = None) -> str | None:
     n = _norm(name)
     pt = _norm(platform_type or "")
@@ -391,11 +422,11 @@ def _classify_contact_kind(name: str, platform_type: str | None = None) -> str |
         return "contact"
     if re.search(r"\b(cvn\s*\d+|carrier|boat|stennis|roosevelt|lincoln|washington|truman|vinson|nimitz|ford)\b", pt):
         return "carrier"
-    if re.search(r"\b(kc\s*135|kc\s*130|il\s*78|tanker)\b", pt):
+    if _TANKER_PLATFORM_RE.search(pt):
         return "tanker"
     if re.search(r"\b(cvn|carrier|boat|stennis|roosevelt|lincoln|washington|truman|vinson|nimitz|ford)\b", n):
         return "carrier"
-    if re.search(r"\b(texaco|arco|shell|tanker|kc 135|kc135|kc 130|kc130|il 78|il78)\b", n):
+    if _TANKER_CALLSIGN_RE.search(n) or _TANKER_PLATFORM_RE.search(n):
         return "tanker"
     return "contact"
 
@@ -462,8 +493,8 @@ def _contact_aliases(name: str, kind: str, tacan_callsign: str | None = None, pl
             for nick in _CVN_NAMES.get(hull, []):
                 out.add(nick)
     if kind == "tanker":
-        for key in ("texaco", "arco", "shell", "tanker"):
-            if re.search(rf"\b{key}\b", name, re.I):
+        for key in _TANKER_CALLSIGNS + ["tanker"]:
+            if re.search(rf"\b{re.escape(key)}\b", name, re.I):
                 out.add(key)
     if tacan_callsign:
         out.add(tacan_callsign)
@@ -743,7 +774,7 @@ def _query_contact_kind_hint(query: str) -> str | None:
     q = _norm(query)
     if re.search(r"\b(cvn\s*\d+|carrier|boat)\b", q) or _CVN_SHIP_NAMES_RE.search(q):
         return "carrier"
-    if re.search(r"\b(texaco|arco|shell|tanker|kc\s*135|kc\s*130|il\s*78)\b", q):
+    if _TANKER_CALLSIGN_RE.search(q) or _TANKER_PLATFORM_RE.search(q):
         return "tanker"
     return None
 
@@ -769,7 +800,7 @@ def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str
         re.search(r"\b(cvn\s*-?\s*\d+|carrier|boat)\b", q)
         or _CVN_SHIP_NAMES_RE.search(q)
     )
-    wants_tanker = bool(re.search(r"\b(texaco|arco|shell|tanker|kc\s*-?\s*135|kc\s*-?\s*130|il\s*-?\s*78)\b", q))
+    wants_tanker = bool(_TANKER_CALLSIGN_RE.search(q) or _TANKER_PLATFORM_RE.search(q))
     # Specific hull number OR ship name in query — skip the early ambiguity
     # bailout and let alias scoring resolve it precisely below.
     wants_specific_hull = bool(
@@ -777,6 +808,9 @@ def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str
         or _CVN_SHIP_NAMES_RE.search(q)
         or _query_fuzzy_matches_ship_name(q)
     )
+    # Specific numbered callsign (e.g. "arco11", "arco one one") — skip the
+    # generic tanker ambiguity bail and let alias scoring pick the exact unit.
+    wants_specific_tanker = bool(_TANKER_CALLSIGN_SPECIFIC_RE.search(q))
     if wants_carrier and not wants_tanker and not wants_specific_hull:
         carrier_hits = [c for c in contacts if str(c.get("kind")) == "carrier"]
         if len(carrier_hits) == 1:
@@ -785,7 +819,7 @@ def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str
         if len(carrier_hits) > 1:
             logger.debug(f"[miz] query hints carrier: ambiguous candidates={[c.get('name') for c in carrier_hits]}")
             return {"error": "ambiguous"}
-    if wants_tanker and not wants_carrier:
+    if wants_tanker and not wants_carrier and not wants_specific_tanker:
         tanker_hits = [c for c in contacts if str(c.get("kind")) == "tanker"]
         if len(tanker_hits) == 1:
             logger.debug(f"[miz] query hints tanker: single candidate='{tanker_hits[0].get('name')}'")
@@ -832,6 +866,10 @@ def _find_contact_in_miz(query: str, contacts: list[dict[str, Any]]) -> dict[str
                 for h in hull_filters
             )
         ]
+    # Narrow scoring to tanker-kind contacts when a specific tanker callsign
+    # was named so non-tanker units cannot steal the alias score.
+    if wants_specific_tanker and not wants_carrier:
+        scoring_contacts = [c for c in scoring_contacts if str(c.get("kind")) == "tanker"]
 
     scored: list[tuple[int, dict[str, Any]]] = []
     for c in scoring_contacts:

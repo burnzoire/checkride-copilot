@@ -105,3 +105,50 @@ def test_flay_standalone_corrects_to_flir():
     assert correct("Tell me about the flay.") == "Tell me about the FLIR."
 
 
+def test_tackhand_corrects_to_tacan():
+    assert correct("Give me the tackhand frequency for the carrier.") == (
+        "Give me the TACAN frequency for the carrier."
+    )
+
+
+def test_tekhan_corrects_to_tacan():
+    assert correct("Tekhan frequency.") == "TACAN frequency."
+
+
+def test_cvn_spaced_letters_normalizes():
+    assert correct("C V N seventy three frequency.") == "CVN-73 frequency."
+
+
+def test_cvn_number_words_normalizes():
+    assert correct("Give me the TACAN for CVN seventy three.") == (
+        "Give me the TACAN for CVN-73."
+    )
+
+
+def test_cvn_seventy_one_normalizes():
+    assert correct("What is the CVN seventy one frequency?") == (
+        "What is the CVN-71 frequency?"
+    )
+
+
+def test_cvn_number_words_with_hyphen_not_double_corrected():
+    # Already has digits — should be left alone
+    assert correct("CVN-73 frequency.") == "CVN-73 frequency."
+
+
+def test_syvian_corrects_to_cvn():
+    assert correct("What's the TACAN frequency for Syvian seventy three?") == (
+        "What's the TACAN frequency for CVN-73?"
+    )
+
+
+def test_tack_and_corrects_to_tacan():
+    assert correct("What's the tack and frequency for the Teddy?") == (
+        "What's the TACAN frequency for the Teddy?"
+    )
+
+
+def test_taccan_corrects_to_tacan():
+    assert correct("The taccan frequency.") == "The TACAN frequency."
+
+

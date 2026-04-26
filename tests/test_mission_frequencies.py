@@ -492,3 +492,58 @@ def test_extract_miz_named_contacts_ignores_radio_preset_channel_before_beacon()
   assert rows
   r = rows[0]
   assert r["tacan"]["channel"] == 71, f"Expected 71, got {r['tacan']['channel']}"
+
+
+# ── Tanker specific-callsign routing ─────────────────────────────────────────
+
+def _two_tanker_contacts():
+    """Two tanker contacts: one Arco unit and one Texaco unit."""
+    return [
+        {
+            "name": "Aerial-8",
+            "kind": "tanker",
+            "platform_type": "KC135MPRS",
+            "callsign_name": "Arco11",
+            "aliases": ["aerial-8", "Aerial-8", "arco", "arco 1-1", "arco11", "tanker"],
+            "radio_mhz": 251.0,
+            "tacan": {"channel": 51, "mode": "Y", "callsign": "AR1"},
+        },
+        {
+            "name": "Aerial-9",
+            "kind": "tanker",
+            "platform_type": "KC130",
+            "callsign_name": "Texaco11",
+            "aliases": ["aerial-9", "Aerial-9", "texaco", "texaco 1-1", "texaco11", "tanker"],
+            "radio_mhz": 262.0,
+            "tacan": {"channel": 31, "mode": "Y", "callsign": "TEX"},
+        },
+    ]
+
+
+def test_find_contact_resolves_arco11_without_space_from_two_tankers():
+    """'Give me the frequency for Arco11' must resolve to the Arco unit,
+    not return ambiguous, even when two tankers are present."""
+    contacts = _two_tanker_contacts()
+    result = _find_contact_in_miz("give me the frequency for Arco11", contacts)
+    assert result is not None
+    assert result.get("error") is None, f"Got error: {result}"
+    assert result["name"] == "Aerial-8"
+
+
+def test_find_contact_resolves_arco_one_one_spoken_from_two_tankers():
+    """'Give me the frequency for Arco one one' must resolve to the Arco unit,
+    not return ambiguous, even when two tankers are present."""
+    contacts = _two_tanker_contacts()
+    result = _find_contact_in_miz("give me the frequency for Arco one one", contacts)
+    assert result is not None
+    assert result.get("error") is None, f"Got error: {result}"
+    assert result["name"] == "Aerial-8"
+
+
+def test_find_contact_generic_tanker_still_ambiguous_with_two_tankers():
+    """A generic 'tanker frequency' query with two tankers in the mission
+    should still return ambiguous."""
+    contacts = _two_tanker_contacts()
+    result = _find_contact_in_miz("what is the tanker frequency", contacts)
+    assert result is not None
+    assert result.get("error") == "ambiguous"

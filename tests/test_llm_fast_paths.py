@@ -685,7 +685,7 @@ def test_tanker_frequency_uses_callsign_not_unit_name(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "KC-135 tanker frequency is 251.000 MHz."
+    assert out == "Texaco11 frequency is 251.000 MHz."
 
 
 def test_how_about_the_tanker_followup_is_deterministic(monkeypatch):
@@ -706,7 +706,7 @@ def test_how_about_the_tanker_followup_is_deterministic(monkeypatch):
         Session(),
         model="unused",
     )
-    assert out == "KC130 tanker frequency is 254.000 MHz."
+    assert out == "Texaco11 frequency is 254.000 MHz."
 
 
 def test_ambiguous_contact_prompt_consumes_followup_answer(monkeypatch):
@@ -894,10 +894,10 @@ def test_frequency_followup_uses_last_contact_context_without_repeating_name(mon
 
     session = Session()
     first = call_ollama_with_tools("what is the tanker frequency?", session, model="unused")
-    assert first == "KC-135 tanker frequency is 251.000 MHz."
+    assert first == "Texaco11 frequency is 251.000 MHz."
 
     second = call_ollama_with_tools("what about UHF?", session, model="unused")
-    assert second == "KC-135 tanker frequency is 252.000 MHz."
+    assert second == "Texaco11 frequency is 252.000 MHz."
 
 
 def test_ambiguous_carrier_aliases_auto_resolve_when_only_one_distinct_carrier(monkeypatch):
@@ -1069,8 +1069,8 @@ def test_list_tankers_query_returns_types(monkeypatch):
     monkeypatch.setattr(llm_module.httpx, "post", lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("Ollama must not be called for list query")))
 
     out = call_ollama_with_tools("what tankers are available?", Session(), model="unused")
-    assert "KC-130" in out or "KC130" in out
-    assert "KC-135" in out or "KC135" in out
+    assert "Texaco1" in out
+    assert "Arco1" in out
 
 
 def test_list_carriers_query_does_not_fire_for_freq_query(monkeypatch):
@@ -1089,3 +1089,64 @@ def test_list_carriers_query_does_not_fire_for_freq_query(monkeypatch):
     out = call_ollama_with_tools("what's the carrier frequency?", Session(), model="unused")
     assert "frequency" in out.lower()
     assert "MHz" in out
+
+
+def _arco_resolve(query, mode="radio", fallback_name=None):
+    return {
+        "source": "miz",
+        "kind": "tanker",
+        "contact": "Aerial-8",
+        "callsign_name": "Arco11",
+        "platform_type": "KC135MPRS",
+        "mode": mode,
+        "mhz": 251.0,
+        "tacan": {"channel": 51, "mode": "Y"},
+    } if mode == "radio" else {
+        "source": "miz",
+        "kind": "tanker",
+        "contact": "Aerial-8",
+        "callsign_name": "Arco11",
+        "platform_type": "KC135MPRS",
+        "mode": "tacan",
+        "channel": 51,
+        "band": "Y",
+    }
+
+
+def test_arco_frequency_query_uses_callsign_label(monkeypatch):
+    """'what is the freq for Arco?' should return callsign label."""
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", _arco_resolve)
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_a, **_k: (_ for _ in ()).throw(AssertionError("Ollama must not be called")))
+
+    out = call_ollama_with_tools("what is the freq for Arco?", Session(), model="unused")
+    assert out == "Arco11 frequency is 251.000 MHz."
+
+
+def test_texaco_tacan_query_uses_callsign_label(monkeypatch):
+    """'what is the TACAN for Texaco?' should return callsign label."""
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", lambda q, mode="radio", fallback_name=None: {
+        "source": "miz",
+        "kind": "tanker",
+        "contact": "Aerial-9",
+        "callsign_name": "Texaco11",
+        "platform_type": "KC130",
+        "mode": "tacan",
+        "channel": 31,
+        "band": "Y",
+    })
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_a, **_k: (_ for _ in ()).throw(AssertionError("Ollama must not be called")))
+
+    out = call_ollama_with_tools("what is the TACAN for Texaco?", Session(), model="unused")
+    assert out == "Texaco11 TACAN is 31Y."
+
+
+def test_arco_one_one_frequency_query_routes_to_tanker(monkeypatch):
+    """'give me the frequency for Arco 1 1' should resolve via callsign alias."""
+    import mission.frequencies as freq_module
+    monkeypatch.setattr(freq_module, "resolve_miz_named_contact", _arco_resolve)
+    monkeypatch.setattr(llm_module.httpx, "post", lambda *_a, **_k: (_ for _ in ()).throw(AssertionError("Ollama must not be called")))
+
+    out = call_ollama_with_tools("give me the frequency for Arco 1 1", Session(), model="unused")
+    assert out == "Arco11 frequency is 251.000 MHz."

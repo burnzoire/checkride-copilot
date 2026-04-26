@@ -24,6 +24,14 @@ dependencies = [
     "python-dotenv",
     "loguru",
     "pytest",
+    "torch>=2.6.0",
+    "torchvision",
+    "torchaudio",
+]
+
+[project.optional-dependencies]
+parakeet = [
+    "nemo_toolkit[asr]>=2.7.0",
 ]
 
 [project.scripts]
@@ -34,6 +42,16 @@ test = "pytest:main"
 
 [tool.uv]
 package = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }
 
 [build-system]
 requires = ["setuptools>=69"]
